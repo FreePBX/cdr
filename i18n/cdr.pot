@@ -1,0 +1,248 @@
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for cdr
+# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-29 15:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "CDR Viewer"
+msgstr ""
+
+msgid "System Administration"
+msgstr ""
+
+msgid "Call Data Record report tools for vieweing reports of your calls"
+msgstr ""
+
+msgid "UniqueID"
+msgstr ""
+
+msgid "Channel"
+msgstr ""
+
+msgid "CallerID"
+msgstr ""
+
+msgid "Application"
+msgstr ""
+
+msgid "Destination Context"
+msgstr ""
+
+msgid "AMA Flag"
+msgstr ""
+
+msgid "Billing Duration"
+msgstr ""
+
+msgid "Call Detail Record Search"
+msgstr ""
+
+msgid "Order By"
+msgstr ""
+
+msgid "Search conditions"
+msgstr ""
+
+msgid "Call Date"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "January"
+msgstr ""
+
+msgid "February"
+msgstr ""
+
+msgid "March"
+msgstr ""
+
+msgid "April"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "June"
+msgstr ""
+
+msgid "July"
+msgstr ""
+
+msgid "August"
+msgstr ""
+
+msgid "September"
+msgstr ""
+
+msgid "October"
+msgstr ""
+
+msgid "November"
+msgstr ""
+
+msgid "December"
+msgstr ""
+
+msgid "To"
+msgstr ""
+
+msgid "Extra options"
+msgstr ""
+
+msgid "Report type"
+msgstr ""
+
+msgid "CDR search"
+msgstr ""
+
+msgid "CSV file"
+msgstr ""
+
+msgid "Call Graph"
+msgstr ""
+
+msgid "Concurrent Calls"
+msgstr ""
+
+msgid "Result limit"
+msgstr ""
+
+msgid "Src Channel"
+msgstr ""
+
+msgid "Not"
+msgstr ""
+
+msgid "Begins With"
+msgstr ""
+
+msgid "Contains"
+msgstr ""
+
+msgid "Ends With"
+msgstr ""
+
+msgid "Exactly"
+msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Dst Channel"
+msgstr ""
+
+msgid "Destination"
+msgstr ""
+
+msgid "Userfield"
+msgstr ""
+
+msgid "Account Code"
+msgstr ""
+
+msgid "Duration"
+msgstr ""
+
+msgid "Between"
+msgstr ""
+
+msgid "And"
+msgstr ""
+
+msgid "Seconds"
+msgstr ""
+
+msgid "Disposition"
+msgstr ""
+
+msgid "All Dispositions"
+msgstr ""
+
+msgid "Answered"
+msgstr ""
+
+msgid "Busy"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "No Answer"
+msgstr ""
+
+msgid "Ascending"
+msgstr ""
+
+msgid "Descending"
+msgstr ""
+
+msgid "Group By"
+msgstr ""
+
+msgid "User Field"
+msgstr ""
+
+msgid "Minute"
+msgstr ""
+
+msgid "10 Minutes"
+msgstr ""
+
+msgid "Hour"
+msgstr ""
+
+msgid "Hour of day"
+msgstr ""
+
+msgid "Day of week"
+msgstr ""
+
+msgid "Day"
+msgstr ""
+
+msgid "Week ( Sun-Sat )"
+msgstr ""
+
+msgid "Month"
+msgstr ""
+
+msgid "Source Number"
+msgstr ""
+
+msgid "Destination Number"
+msgstr ""
+
+msgid "File"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "Account"
+msgstr ""

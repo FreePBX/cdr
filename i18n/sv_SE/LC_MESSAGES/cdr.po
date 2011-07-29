@@ -1,0 +1,248 @@
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for cdr
+#	Copyright (C) 2011 Mikael Carlsson
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cdr\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-07-29 15:39+0200\n"
+"PO-Revision-Date: 2011-07-29 15:48+0200\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "CDR Viewer"
+msgstr "Rapporter"
+
+msgid "System Administration"
+msgstr "Systemadministration"
+
+msgid "Call Data Record report tools for vieweing reports of your calls"
+msgstr "Rapportverktyg för samtalsregister"
+
+msgid "UniqueID"
+msgstr "Unikt ID"
+
+msgid "Channel"
+msgstr "Kanal"
+
+msgid "CallerID"
+msgstr "Nummerpres."
+
+msgid "Application"
+msgstr "Applikation"
+
+msgid "Destination Context"
+msgstr "Destinationssammanhang"
+
+msgid "AMA Flag"
+msgstr "AMA-flagga"
+
+msgid "Billing Duration"
+msgstr "Debiterbar längd"
+
+msgid "Call Detail Record Search"
+msgstr "Sök samtalsregister"
+
+msgid "Order By"
+msgstr "Sortera enligt"
+
+msgid "Search conditions"
+msgstr "Sökvillkor"
+
+msgid "Call Date"
+msgstr "Datum"
+
+msgid "From"
+msgstr "Från"
+
+msgid "January"
+msgstr "Januari"
+
+msgid "February"
+msgstr "Februari"
+
+msgid "March"
+msgstr "Mars"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "Augusti"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "December"
+
+msgid "To"
+msgstr "Till"
+
+msgid "Extra options"
+msgstr "Extraval"
+
+msgid "Report type"
+msgstr "Rapporttyp"
+
+msgid "CDR search"
+msgstr "Sök CDR"
+
+msgid "CSV file"
+msgstr "CSV-fil"
+
+msgid "Call Graph"
+msgstr "Samtalsgraf"
+
+msgid "Concurrent Calls"
+msgstr "Samtidiga samtal"
+
+msgid "Result limit"
+msgstr "Begränsa resultat"
+
+msgid "Src Channel"
+msgstr "Källkanal"
+
+msgid "Not"
+msgstr "Ej"
+
+msgid "Begins With"
+msgstr "Börjar med"
+
+msgid "Contains"
+msgstr "Innehåller"
+
+msgid "Ends With"
+msgstr "Slutar med"
+
+msgid "Exactly"
+msgstr "Exakt"
+
+msgid "Source"
+msgstr "Källa"
+
+msgid "Dst Channel"
+msgstr "Dest. kanal"
+
+msgid "Destination"
+msgstr "Destination"
+
+msgid "Userfield"
+msgstr "Användarfält"
+
+msgid "Account Code"
+msgstr "Kontokod"
+
+msgid "Duration"
+msgstr "Längd"
+
+msgid "Between"
+msgstr "Mellan"
+
+msgid "And"
+msgstr "och"
+
+msgid "Seconds"
+msgstr "sekunder"
+
+msgid "Disposition"
+msgstr "Disposition"
+
+msgid "All Dispositions"
+msgstr "Alla dispositioner"
+
+msgid "Answered"
+msgstr "Besvarade"
+
+msgid "Busy"
+msgstr "Upptaget"
+
+msgid "Failed"
+msgstr "Misslyckade"
+
+msgid "No Answer"
+msgstr "Inget svar"
+
+msgid "Ascending"
+msgstr "Ökande"
+
+msgid "Descending"
+msgstr "Minskande"
+
+msgid "Group By"
+msgstr "Gruppera med"
+
+msgid "User Field"
+msgstr "Användarfält"
+
+msgid "Minute"
+msgstr "Minut"
+
+msgid "10 Minutes"
+msgstr "10 minuter"
+
+msgid "Hour"
+msgstr "Timme"
+
+msgid "Hour of day"
+msgstr "Timvis"
+
+msgid "Day of week"
+msgstr "Dagsvis"
+
+msgid "Day"
+msgstr "Dag"
+
+msgid "Week ( Sun-Sat )"
+msgstr "Vecka (sön-lör)"
+
+msgid "Month"
+msgstr "Månad"
+
+msgid "Source Number"
+msgstr "Källnummer"
+
+msgid "Destination Number"
+msgstr "Destinationsnummer"
+
+msgid "File"
+msgstr "Fil"
+
+msgid "System"
+msgstr "System"
+
+msgid "Account"
+msgstr "Konto"

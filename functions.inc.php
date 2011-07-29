@@ -67,12 +67,12 @@ function cdr_formatCallDate($calldate) {
 
 function cdr_formatUniqueID($uniqueid) {
         $system = explode('-', $uniqueid, 2);
-        echo "<td><a href=\"#\" class=\"info\">".$system[0]."<span>UniqueID: ".$uniqueid."</span></a></td>";
+        echo "<td><a href=\"#\" class=\"info\">".$system[0]."<span>"._("UniqueID").": ".$uniqueid."</span></a></td>";
 }
 
 function cdr_formatChannel($channel) {
         $chan_type = explode('/', $channel, 2);
-        echo "<td><a href=\"#\" class=\"info\">".$chan_type[0]."<span>Channel: ".$channel."</span></a></td>";
+        echo "<td><a href=\"#\" class=\"info\">".$chan_type[0]."<span>"._("Channel").": ".$channel."</span></a></td>";
 }
 
 function cdr_formatSrc($src, $clid) {
@@ -80,12 +80,12 @@ function cdr_formatSrc($src, $clid) {
                 echo "<td class=\"record_col\">UNKNOWN</td>";
         } else {
                 $clid = htmlspecialchars($clid);
-                echo "<td><a href=\"#\" class=\"info\">".$src."<span>Caller*ID: ".$clid."</span></a></td>";
+                echo "<td><a href=\"#\" class=\"info\">".$src."<span>"._("CallerID").": ".$clid."</span></a></td>";
         }
 }
 
 function cdr_formatApp($app, $lastdata) {
-        echo "<td><a href=\"#\" class=\"info\">".$app."<span>Application: ".$app."(".$lastdata.")</span></a></td>";
+        echo "<td><a href=\"#\" class=\"info\">".$app."<span>"._("Application").": ".$app."(".$lastdata.")</span></a></td>";
 }
 
 function cdr_formatDst($dst, $dcontext) {
@@ -95,7 +95,7 @@ function cdr_formatDst($dst, $dcontext) {
                 echo "<td class=\"record_col\"><abbr title=\"Destination Context: $dcontext\"><a href=\"$rev\" target=\"reverse\">$dst</a></abbr></td>";
 //                echo "<td><a href=\"#\" class=\"info\">"<span>Destination Context: $dcontext\"><a href=\"$rev\" target=\"reverse\">$dst</a></abbr></td>";
         } else {
-				echo "<td><a href=\"#\" class=\"info\">".$dst."<span>Destination Context: ".$dcontext."</span></a></td>";
+				echo "<td><a href=\"#\" class=\"info\">".$dst."<span>"._("Destination Context").": ".$dcontext."</span></a></td>";
         }
 }
 
@@ -114,13 +114,13 @@ function cdr_formatDisposition($disposition, $amaflags) {
                 default:
                         $amaflags = 'DEFAULT';
         }
-        echo "<td><a href=\"#\" class=\"info\">".$disposition."<span>AMA Flag: ".$amaflags."</span></a></td>";
+        echo "<td><a href=\"#\" class=\"info\">".$disposition."<span>"._("AMA Flag").": ".$amaflags."</span></a></td>";
 }
 
 function cdr_formatDuration($duration, $billsec) {
         $duration = sprintf('%02d', intval($duration/60)).':'.sprintf('%02d', intval($duration%60));
         $billduration = sprintf('%02d', intval($billsec/60)).':'.sprintf('%02d', intval($billsec%60));
-        echo "<td><a href=\"#\" class=\"info\">".$duration."<span>Billing Duration: ".$billduration."</span></a></td>";
+        echo "<td><a href=\"#\" class=\"info\">".$duration."<span>"._("Billing Duration").": ".$billduration."</span></a></td>";
 }
 
 function cdr_formatUserField($userfield) {
