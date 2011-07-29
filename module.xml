@@ -20,6 +20,6 @@
 	<depends>
 		<module>core ge 2.7.0</module>
 	</depends>
-	<location></location>
-	<md5sum></md5sum>
+	<location>release/2.10/cdr-2.10.0.alpha3.tgz</location>
+	<md5sum>9b422ecee7d365556f17dfa408becfed</md5sum>
 </module>
