@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 15:39+0200\n"
+"POT-Creation-Date: 2011-07-29 18:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -205,7 +205,13 @@ msgstr ""
 msgid "Group By"
 msgstr ""
 
+msgid "Account Information"
+msgstr ""
+
 msgid "User Field"
+msgstr ""
+
+msgid "Date/Time"
 msgstr ""
 
 msgid "Minute"
@@ -232,10 +238,22 @@ msgstr ""
 msgid "Month"
 msgstr ""
 
+msgid "Telephone Number"
+msgstr ""
+
 msgid "Source Number"
 msgstr ""
 
 msgid "Destination Number"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Call Detail Record - Search Returned"
+msgstr ""
+
+msgid "Calls"
 msgstr ""
 
 msgid "File"

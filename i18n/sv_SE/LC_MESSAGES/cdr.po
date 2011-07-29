@@ -14,13 +14,13 @@
 #    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 #
 # FreePBX language template for cdr
-#	Copyright (C) 2011 Mikael Carlsson
+# 	Copyright (C) 2011 Mikael Carlsson
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 15:39+0200\n"
+"POT-Creation-Date: 2011-07-29 18:38+0200\n"
 "PO-Revision-Date: 2011-07-29 15:48+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -205,8 +205,14 @@ msgstr "Minskande"
 msgid "Group By"
 msgstr "Gruppera med"
 
+msgid "Account Information"
+msgstr "Kontoinformation"
+
 msgid "User Field"
 msgstr "Användarfält"
+
+msgid "Date/Time"
+msgstr "Datum/tid"
 
 msgid "Minute"
 msgstr "Minut"
@@ -232,11 +238,23 @@ msgstr "Vecka (sön-lör)"
 msgid "Month"
 msgstr "Månad"
 
+msgid "Telephone Number"
+msgstr "Telefonnummer"
+
 msgid "Source Number"
 msgstr "Källnummer"
 
 msgid "Destination Number"
 msgstr "Destinationsnummer"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "Call Detail Record - Search Returned"
+msgstr "Samtalsrapport - sökningen returnerade"
+
+msgid "Calls"
+msgstr "samtal"
 
 msgid "File"
 msgstr "Fil"

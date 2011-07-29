@@ -242,11 +242,11 @@ if (isset($_POST['limit']) ) {
 <td><table width="100%"><tr><td>
 <label for="group"><?php echo _("Group By")?>:</label>
 <select name="group" id="group">
-<optgroup label="Account Information">
+<optgroup label="<?php echo _("Account Information")?>">
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'accountcode') { echo 'selected="selected"'; } ?> value="accountcode"><?php echo _("Account Code")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'userfield') { echo 'selected="selected"'; } ?> value="userfield"><?php echo _("User Field")?></option>
 </optgroup>
-<optgroup label="Date/Time">
+<optgroup label="<?php echo _("Date/Time")?>">
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'minutes1') { echo 'selected="selected"'; } ?> value="minutes1"><?php echo _("Minute")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'minutes10') { echo 'selected="selected"'; } ?> value="minutes10"><?php echo _("10 Minutes")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'hour') { echo 'selected="selected"'; } ?> value="hour"><?php echo _("Hour")?></option>
@@ -256,12 +256,12 @@ if (isset($_POST['limit']) ) {
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'week') { echo 'selected="selected"'; } ?> value="week"><?php echo _("Week ( Sun-Sat )")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'month') { echo 'selected="selected"'; } ?> value="month"><?php echo _("Month")?></option>
 </optgroup>
-<optgroup label="Telephone Number">
+<optgroup label="<?php echo _("Telephone Number")?>">
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'src') { echo 'selected="selected"'; } ?> value="src"><?php echo _("Source Number")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'dst') { echo 'selected="selected"'; } ?> value="dst"><?php echo _("Destination Number")?></option>
 </optgroup>
 </select></td><td align="left" width="40%">
-<input type="submit" value="Search" />
+<input type="submit" value="<?php echo _("Search")?>" />
 </td></td></table>
 </td>
 </tr>
@@ -411,7 +411,7 @@ if ( isset($results) ) {
 	$tot_calls_raw = 0;
 }
 if ( $tot_calls_raw ) {
-	echo '<p class="center title">Call Detail Record - Search Returned '. $tot_calls_raw .' Calls </p><table class="cdr">';
+	echo "<p class=\"center title\">"._("Call Detail Record - Search Returned")." ".$tot_calls_raw." "._("Calls")."</p><table class=\"cdr\">";
 	
 	$i = $h_step - 1;
 	foreach($results as $row) {
