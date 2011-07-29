@@ -275,15 +275,6 @@ Not:<input <?php if ( isset($_POST['dispositio_neg'] ) && $_POST['disposition_ne
 <a id="CDR"></a>
 
 <?php
-if(!empty($amp_conf['CDRDBNAME'])) {
-freepbx_debug("detekterat cdrdbname");
-}
-if(!empty($amp_conf['CDRDBTABLENAME'])) {
-freepbx_debug("detekterat cdrdbtablename");
-}
-?>
-
-<?php
 foreach ( array_keys($_POST) as $key ) {
 	$_POST[$key] = preg_replace('/;/', ' ', $_POST[$key]);
 	$_POST[$key] = mysql_real_escape_string($_POST[$key]);
