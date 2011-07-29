@@ -16,7 +16,8 @@
 //
 //    cdr module for FreePBX 2.7+
 //    Copyright (C) 2011 Igor Okunevn
-//    Portions Copyright (C) Mikael Carlsson
+//    Portions Copyright (C) 2011 Mikael Carlsson
+//    Portions Copyright (C) 2006 Seth Sargent, Steven Ward
 
 function cdr_formatFiles($row) {
         global $system_monitor_dir, $system_fax_archive_dir, $system_audio_format;
@@ -162,4 +163,79 @@ function cdr_asteriskregexp2sqllike( $source_data, $user_num ) {
         return $number;
 }
 
+function cdr_download($data, $name) {
+    $filesize = strlen($data);
+    $mimetype = "application/octet-stream";
+	
+    // Make sure there's not anything else left
+    cdr_ob_clean_all();
+    // Start sending headers
+    header("Pragma: public"); // required
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    header("Cache-Control: private",false); // required for certain browsers
+    header("Content-Transfer-Encoding: binary");
+    header("Content-Type: " . $mimetype);
+    header("Content-Length: " . $filesize);
+    header("Content-Disposition: attachment; filename=\"" . $name . "\";" );
+    // Send data
+    echo $data;
+    die();
+}
+
+
+function cdr_export_csv() {
+	global $db;
+
+	$fname		= "cdr__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
+	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield"
+	$data 		= $csv_header;
+	
+	$query = "(SELECT 'calldate', 'clid', 'src', 'dst','dcontext', 'channel', 'dstchannel', 'lastapp', 'lastdata', 'duration', 'billsec', 'disposition', 'amaflags', 'accountcode', 'uniqueid', 'userfield') FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
+	$resultcsv = $db->getAll($query, DB_FETCHMODE_ASSOC);
+	
+	foreach ($resultcsv as $csv) {
+		$csv_line[0] 	= $csv['calldate'];
+		$csv_line[1] 	= $csv['clid'];
+		$csv_line[2] 	= $csv['src'];
+		$csv_line[3] 	= $csv['dst'];
+		$csv_line[4] 	= $csv['dcontext'];
+		$csv_line[5]	= $csv['channel'];
+		$csv_line[6] 	= $csv['dstchannel'];
+		$csv_line[7] 	= $csv['lastapp'];
+		$csv_line[8]	= $csv['lastdata'];
+		$csv_line[9]	= $csv['duration'];
+		$csv_line[10]	= $csv['billsec'];
+		$csv_line[11]	= $csv['disposition'];
+		$csv_line[12]	= $csv['amaflags'];
+		$csv_line[13]	= $csv['accountcode'];
+		$csv_line[14]	= $csv['uniqueid'];
+		$csv_line[15]	= $csv['userfield'];
+
+		for ($i = 0; $i < count($csv_line); $i++) {
+			/* If the string contains a comma, enclose it in double-quotes. */
+			if (strpos($csv_line[$i], ",") !== FALSE) {
+				$csv_line[$i] = "\"" . $csv_line[$i] . "\"";
+			}
+			if ($i != count($csv_line) - 1) {
+				$data = $data . $csv_line[$i] . ",";
+			} else {
+				$data = $data . $csv_line[$i];
+			}
+		}
+		$data = $data . "\n";
+		unset($csv_line);
+	}
+	cdr_download($data, $fname);
+	return;
+}
+
+function cdr_ob_clean_all () {
+    $ob_active = ob_get_length () !== false;
+    while($ob_active) {
+        ob_end_clean();
+        $ob_active = ob_get_length () !== false;
+    }
+    return true;
+}
 ?>
