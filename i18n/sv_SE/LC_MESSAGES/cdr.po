@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 18:38+0200\n"
-"PO-Revision-Date: 2011-07-29 15:48+0200\n"
+"POT-Creation-Date: 2011-07-29 19:43+0200\n"
+"PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -203,7 +203,7 @@ msgid "Descending"
 msgstr "Minskande"
 
 msgid "Group By"
-msgstr "Gruppera med"
+msgstr "Gruppera enligt"
 
 msgid "Account Information"
 msgstr "Kontoinformation"
@@ -224,10 +224,10 @@ msgid "Hour"
 msgstr "Timme"
 
 msgid "Hour of day"
-msgstr "Timvis"
+msgstr "Per timme"
 
 msgid "Day of week"
-msgstr "Dagsvis"
+msgstr "Veckodag"
 
 msgid "Day"
 msgstr "Dag"
@@ -264,3 +264,33 @@ msgstr "System"
 
 msgid "Account"
 msgstr "Konto"
+
+msgid "Call Detail Record - Call Graph by"
+msgstr "Samtalsrapport - graf - sorterad på"
+
+msgid "Total Calls"
+msgstr "Antal samtal"
+
+msgid "Max Calls"
+msgstr "Max samtal"
+
+msgid "Total Duration"
+msgstr "Total längd"
+
+msgid "Average Call Time"
+msgstr "Genomsnittlig tid"
+
+msgid "Go to the top of the CDR table"
+msgstr "Gå till toppen av tabellen"
+
+msgid "Go to the CDR Graph"
+msgstr "Gå till grafen"
+
+msgid "Call Detail Record - Concurrent Calls by"
+msgstr "Samtalsrapport - samtidiga samtal sorterad på"
+
+msgid "Time"
+msgstr "Tid"
+
+msgid "Monday"
+msgstr "Måndag"

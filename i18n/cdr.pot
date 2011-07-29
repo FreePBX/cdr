@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 18:38+0200\n"
+"POT-Creation-Date: 2011-07-29 19:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -263,4 +263,34 @@ msgid "System"
 msgstr ""
 
 msgid "Account"
+msgstr ""
+
+msgid "Call Detail Record - Call Graph by"
+msgstr ""
+
+msgid "Total Calls"
+msgstr ""
+
+msgid "Max Calls"
+msgstr ""
+
+msgid "Total Duration"
+msgstr ""
+
+msgid "Average Call Time"
+msgstr ""
+
+msgid "Go to the top of the CDR table"
+msgstr ""
+
+msgid "Go to the CDR Graph"
+msgstr ""
+
+msgid "Call Detail Record - Concurrent Calls by"
+msgstr ""
+
+msgid "Max Calls"
+msgstr ""
+
+msgid "Time"
 msgstr ""

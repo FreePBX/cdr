@@ -469,62 +469,62 @@ echo '<a id="Graph"></a>';
 
 //NEW GRAPHS
 $group_by_field = $group;
-// ConcurentCalls
+// ConcurrentCalls
 $group_by_field_php = array( '', 32, '' );
 
 switch ($group) {
 	case "accountcode":
-		$graph_col_title = 'Account Code';
+		$graph_col_title = _("Account Code");
 	break;
 	case "dst":
-		$graph_col_title = 'Destination Number';
+		$graph_col_title = _("Destination Number");
 	break;
 	case "src":
-		$graph_col_title = 'Source Number';
+		$graph_col_title = _("Source Number");
 	break;
 	case "userfield":
-		$graph_col_title = 'User Field';
+		$graph_col_title = _("User Field");
 	break;
 	case "hour":
 		$group_by_field_php = array( '%Y-%m-%d %H', 13, '' );
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
-		$graph_col_title = 'Hour';
+		$graph_col_title = _("Hour");
 	break;
 	case "hour_of_day":
 		$group_by_field_php = array('%H',2,'');
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
-		$graph_col_title = 'Hour of day';
+		$graph_col_title = _("Hour of day");
 	break;
 	case "week":
 		$group_by_field_php = array('%V',2,'');
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]') ";
-		$graph_col_title = 'Week ( Sun-Sat )';
+		$graph_col_title = _("Week ( Sun-Sat )");
 	break;
 	case "month":
 		$group_by_field_php = array('%Y-%m',7,'');
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
-		$graph_col_title = 'Month';
+		$graph_col_title = _("Month");
 	break;
 	case "day_of_week":
 		$group_by_field_php = array('%w - %A',20,'');
-		$group_by_field = "DATE_FORMAT( calldate, '%w - %W' )";
-		$graph_col_title = 'Day of week';
+		$group_by_field = "DATE_FORMAT( calldate, '%W' )";
+		$graph_col_title = _("Day of week");
 	break;
 	case "minutes1":
 		$group_by_field_php = array( '%Y-%m-%d %H:%M', 16, '' );
 		$group_by_field = "DATE_FORMAT(calldate, '%Y-%m-%d %H:%i')";
-		$graph_col_title = 'Minute';
+		$graph_col_title = _("Minute");
 	break;
 	case "minutes10":
 		$group_by_field_php = array('%Y-%m-%d %H:%M',15,'0');
 		$group_by_field = "CONCAT(SUBSTR(DATE_FORMAT(calldate, '%Y-%m-%d %H:%i'),1,15), '0')";
-		$graph_col_title = '10 Minutes';
+		$graph_col_title = _("10 Minutes");
 	break;
 	case "day":
 	default:
 		$group_by_field_php = array('%Y-%m-%d',10,'');
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
-		$graph_col_title = 'Day';
+		$graph_col_title = _("Day");
 }
 
 if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
@@ -551,14 +551,14 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 	$tot_duration = sprintf('%02d', intval($tot_duration_secs/60)).':'.sprintf('%02d', intval($tot_duration_secs%60));
 
 	if ( $tot_calls ) {
-		echo '<p class="center title">Call Detail Record - Call Graph by '.$graph_col_title.'</p><table class="cdr">
-		<tr>
-			<th class="end_col">'. $graph_col_title . '</th>
-			<th class="center_col">Total Calls: '. $tot_calls .' / Max Calls: '. $max_calls .' / Total Duration: '. $tot_duration .'</th>
-			<th class="end_col">Average Call Time</th>
-			<th class="img_col"><a href="#CDR" title="Go to the top of the CDR table"><img src="images/scrollup.gif" alt="CDR Table" /></a></th>
-			<th class="img_col"><a href="#Graph" title="Go to the CDR Graph"><img src="images/scrolldown.gif" alt="CDR Graph" /></a></th>
-		</tr>';
+		$html = "<p class=\"center title\">"._("Call Detail Record - Call Graph by")." ".$graph_col_title."</p><table class=\"cdr\">";
+		$html .= "<tr><th class=\"end_col\">". $graph_col_title . "</th>";
+		$html .= "<th class=\"center_col\">"._("Total Calls").": ". $tot_calls ." / "._("Max Calls").": ". $max_calls ." / "._("Total Duration").": ". $tot_duration ."</th>";
+		$html .= "<th class=\"end_col\">"._("Average Call Time")."</th>";
+		$html .= "<th class=\"img_col\"><a href=\"#CDR\" title=\""._("Go to the top of the CDR table")."\"><img src=\"images/scrollup.gif\" alt=\"CDR Table\" /></a></th>";
+		$html .= "<th class=\"img_col\"><a href=\"#Graph\" title=\""._("Go to the CDR Graph")."\"><img src=\"images/scrolldown.gif\" alt=\"CDR Graph\" /></a></th>";
+		$html .= "</tr>";
+		echo $html;
 	
 		foreach ($result_array as $row) {
 			$avg_call_time = sprintf('%02d', intval(($row['total_duration']/$row['total_calls'])/60)).':'.sprintf('%02d', intval($row['total_duration']/$row['total_calls']%60));
@@ -651,12 +651,12 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 		}
 	}
 	if ( $tot_calls ) {
-		echo '<p class="center title">Call Detail Record - Concurent Calls by '.$graph_col_title.'</p><table class="cdr">
-		<tr>
-			<th class="end_col">'. $graph_col_title . '</th>
-			<th class="center_col">Total Calls: '. $tot_calls .' / Max Calls: '. $max_calls .'</th>
-			<th class="end_col">Time</th>
-		</tr>';
+		$html = "<p class=\"center title\">"._("Call Detail Record - Concurrent Calls by")." ".$graph_col_title."</p><table class=\"cdr\">";
+		$html .= "<tr><th class=\"end_col\">". $graph_col_title . "</th>";
+		$html .= "<th class=\"center_col\">"._("Total Calls").": ". $tot_calls ." / "._("Max Calls").": ". $max_calls ."</th>";
+		$html .= "<th class=\"end_col\">"._("Time")."</th>";
+		$html .= "</tr>";
+		echo $html;
 	
 		ksort($result_array_cc);
 
