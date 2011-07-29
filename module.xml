@@ -3,7 +3,7 @@
 	<repo>extended</repo>
 	<description>Call Data Record report tools for vieweing reports of your calls</description>
 	<name>CDR Viewer</name>
-	<version>2.10.0.alpha3</version>
+	<version>2.10.0.alpha4</version>
 	<publisher>Igor Okunev</publisher>
 	<license>GPLv2+</license>
 	<type>tool</type>
@@ -12,14 +12,15 @@
 		<cdr>CDR Viewer</cdr>
 	</menuitems>
 	<changelog>
+		*2.10.0.alpha4* Added csv export
 		*2.10.0.alpha3* First public release
 		*2.10.0.alpha2* Not released to public
 		*2.10.0.alpha1* Not released to public
 		*2.10.0.alpha0* Not released to public
 	</changelog>
 	<depends>
-		<module>core ge 2.7.0</module>
+		<module>core ge 2.6.0</module>
 	</depends>
-	<location>release/2.10/cdr-2.10.0.alpha3.tgz</location>
-	<md5sum>0d507c40c111a90bcfb08f4111f790c8</md5sum>
+	<location></location>
+	<md5sum></md5sum>
 </module>

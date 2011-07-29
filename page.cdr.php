@@ -397,13 +397,9 @@ $group = empty($_POST['group']) ? 'day' : $_POST['group'];
 $where = "WHERE $date_range $channel $dstchannel $src $clid $dst $userfield $accountcode $disposition $duration";
 
 if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
-//	$csv_file = md5(time() .'-'. $where ).'.csv';
-//	if (! file_exists("$system_tmp_dir/$csv_file")) {
-//		$query = "(SELECT 'calldate', 'clid', 'src', 'dst','dcontext', 'channel', 'dstchannel', 'lastapp', 'lastdata', 'duration', 'billsec', 'disposition', 'amaflags', 'accountcode', 'uniqueid', 'userfield') union (SELECT calldate, clid, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield into outfile '$system_tmp_dir/$csv_file' FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\"' FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
-//		$resultcsv = $db->getAll($query, DB_FETCHMODE_ASSOC);		
-//	}
-//	echo "<p class='right title'><a href='modules/cdr/download.php?csv=$csv_file'>Click here to download CSV file</a></p>";
-	echo "<p class='center title'>Not implemented (yet)</p>";
+	$query = "(SELECT calldate, clid, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
+	$resultcsv = $db->getAll($query, DB_FETCHMODE_ASSOC);
+	cdr_export_csv($resultcsv);	
 }
 
 if ( isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {

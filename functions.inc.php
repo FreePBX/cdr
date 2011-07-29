@@ -184,17 +184,14 @@ function cdr_download($data, $name) {
 }
 
 
-function cdr_export_csv() {
+function cdr_export_csv($csvdata) {
 	global $db;
 
 	$fname		= "cdr__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
-	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield";
+	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield\n";
 	$data 		= $csv_header;
 	
-	$query = "(SELECT 'calldate', 'clid', 'src', 'dst','dcontext', 'channel', 'dstchannel', 'lastapp', 'lastdata', 'duration', 'billsec', 'disposition', 'amaflags', 'accountcode', 'uniqueid', 'userfield') FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
-	$resultcsv = $db->getAll($query, DB_FETCHMODE_ASSOC);
-	
-	foreach ($resultcsv as $csv) {
+	foreach ($csvdata as $csv) {
 		$csv_line[0] 	= $csv['calldate'];
 		$csv_line[1] 	= $csv['clid'];
 		$csv_line[2] 	= $csv['src'];
@@ -238,4 +235,5 @@ function cdr_ob_clean_all () {
     }
     return true;
 }
+
 ?>
