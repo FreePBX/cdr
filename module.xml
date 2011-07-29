@@ -1,6 +1,6 @@
 <module>
 	<rawname>cdr</rawname>
-	<repo>extended</repo>
+	<repo>unsupported</repo>
 	<description>Call Data Record report tools for vieweing reports of your calls</description>
 	<name>CDR Viewer</name>
 	<version>2.10.0.alpha5</version>
