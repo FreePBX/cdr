@@ -188,7 +188,7 @@ function cdr_export_csv() {
 	global $db;
 
 	$fname		= "cdr__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
-	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield"
+	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield";
 	$data 		= $csv_header;
 	
 	$query = "(SELECT 'calldate', 'clid', 'src', 'dst','dcontext', 'channel', 'dstchannel', 'lastapp', 'lastdata', 'duration', 'billsec', 'disposition', 'amaflags', 'accountcode', 'uniqueid', 'userfield') FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
