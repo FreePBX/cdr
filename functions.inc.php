@@ -15,7 +15,7 @@
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 //
 //    cdr module for FreePBX 2.7+
-//    Copyright (C) 2011 Igor Okunevn
+//    Copyright (C) 2011 Igor Okunev
 //    Portions Copyright (C) 2011 Mikael Carlsson
 //    Portions Copyright (C) 2006 Seth Sargent, Steven Ward
 

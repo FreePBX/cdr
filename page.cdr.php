@@ -17,7 +17,7 @@
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 //
 //    cdr module for FreePBX 2.7+
-//    Copyright (C) 2011 Igor Okunevn
+//    Copyright (C) 2011 Igor Okunev
 //    Portions Copyright (C) Mikael Carlsson
 
 global $amp_conf;
@@ -26,7 +26,7 @@ $db_result_limit = 100;
 // Check if cdr database and/or table is set, if not, use our default settings
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
 $db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRTABLENAME']:"cdr";
-$system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']:"/monitor";
+$system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."/monitor":"/var/spool/asterisk/monitor";
 
 /* $system_fax_archive_dir is the directory where sent/received fax images are stored */
 $system_fax_archive_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']:"/fax-gw/archive";
