@@ -235,7 +235,7 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<?php $duration_tooltip = _("Search for calls that matches the call lenght specified.");?>
+<?php $duration_tooltip = _("Search for calls that matches the call length specified.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'duration') { echo 'checked="checked"'; } ?> type="radio" name="order" value="duration" />&nbsp;<label><?php echo "<a href=\"#\" class=\"info\">"._("Duration")."<span>$duration_tooltip</span></a>"?>:</label></td>
 <td><?php echo _("Between")?>:
 <input type="text" name="dur_min" value="<?php if (isset($_POST['dur_min'])) { echo $_POST['dur_min']; } ?>" size="3" maxlength="5" />

@@ -14,13 +14,13 @@
 #    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 #
 # FreePBX language template for cdr
-# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 19:43+0200\n"
+"POT-Creation-Date: 2011-08-02 23:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "System Administration"
 msgstr ""
 
-msgid "Call Data Record report tools for vieweing reports of your calls"
+msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr ""
 
 msgid "UniqueID"
@@ -65,6 +65,11 @@ msgid "Order By"
 msgstr ""
 
 msgid "Search conditions"
+msgstr ""
+
+msgid ""
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
 msgstr ""
 
 msgid "Call Date"
@@ -133,6 +138,12 @@ msgstr ""
 msgid "Result limit"
 msgstr ""
 
+msgid ""
+"Select Source Channel to search for. You can enter just the channel type "
+"like SIP, IAX2 or Local. You can also include the destination for the "
+"channel, like SIP/1234."
+msgstr ""
+
 msgid "Src Channel"
 msgstr ""
 
@@ -151,19 +162,77 @@ msgstr ""
 msgid "Exactly"
 msgstr ""
 
+msgid ""
+"Search for source calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+
+msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
+msgstr ""
+
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
+msgstr ""
+
+msgid "<br>Asterisk pattern matching<br>"
+msgstr ""
+
+msgid "<b>X</b> = matches any digit from 0-9<br>"
+msgstr ""
+
+msgid "<b>Z</b> = matches any digit from 1-9<br>"
+msgstr ""
+
+msgid "<b>N</b> = matches any digit from 2-9<br>"
+msgstr ""
+
+msgid ""
+"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
+"example, 1,2,3,7,8,9)<br>"
+msgstr ""
+
+msgid "<b>.</b> = wildcard, matches one or more characters<br>"
+msgstr ""
+
 msgid "Source"
+msgstr ""
+
+msgid ""
+"Search for CallerID. If your CallerID begins with \" then you must supply "
+"this in your search if you select Begins With."
+msgstr ""
+
+msgid ""
+"Select Destination Channel to search for. It can be just the channel type "
+"like SIP, IAX2 or Local. It can include the destination for the channel, "
+"like SIP/1234."
 msgstr ""
 
 msgid "Dst Channel"
 msgstr ""
 
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+
 msgid "Destination"
+msgstr ""
+
+msgid "Search for userfield data (if enabled)."
 msgstr ""
 
 msgid "Userfield"
 msgstr ""
 
+msgid "Search for accountcode."
+msgstr ""
+
 msgid "Account Code"
+msgstr ""
+
+msgid "Search for calls that matches the call length specified."
 msgstr ""
 
 msgid "Duration"
@@ -176,6 +245,10 @@ msgid "And"
 msgstr ""
 
 msgid "Seconds"
+msgstr ""
+
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
 msgstr ""
 
 msgid "Disposition"
@@ -287,9 +360,6 @@ msgid "Go to the CDR Graph"
 msgstr ""
 
 msgid "Call Detail Record - Concurrent Calls by"
-msgstr ""
-
-msgid "Max Calls"
 msgstr ""
 
 msgid "Time"
