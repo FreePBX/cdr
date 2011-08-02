@@ -141,7 +141,7 @@ function cdr_asteriskregexp2sqllike( $source_data, $user_num ) {
                 $number = substr($number,1);
         } elseif ( '_' == substr($number,0,1) ) {
                 $number_chars = preg_split('//', substr($number,1), -1, PREG_SPLIT_NO_EMPTY);
-                $number = '^';
+                $number = '';
                 foreach ($number_chars as $chr) {
                         if ( $chr == 'X' ) {
                                 $number .= '[0-9]';
@@ -158,7 +158,6 @@ function cdr_asteriskregexp2sqllike( $source_data, $user_num ) {
                         }
                 }
                 $_POST[ $source_data .'_mod' ] = 'asterisk-regexp';
-                $number .= '$';
         }
         return $number;
 }
