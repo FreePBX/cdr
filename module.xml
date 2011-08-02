@@ -3,7 +3,7 @@
 	<repo>unsupported</repo>
 	<description>Call Data Record report tools for vieweing reports of your calls</description>
 	<name>CDR Viewer</name>
-	<version>2.10.0.alpha6</version>
+	<version>2.10.0.alpha5</version>
 	<publisher>Mikael Carlsson</publisher>
 	<license>GPLv2+</license>
 	<type>tool</type>
@@ -12,7 +12,6 @@
 		<cdr>CDR Viewer</cdr>
 	</menuitems>
 	<changelog>
-		*2.10.0.alpha6* Bug fix in recordings settings
 		*2.10.0.alpha5* Added localization
 		*2.10.0.alpha4* Added csv export
 		*2.10.0.alpha3* First public release
@@ -23,6 +22,6 @@
 	<depends>
 		<module>core ge 2.6.0</module>
 	</depends>
-	<location>release/2.10/cdr-2.10.0.alpha6.tgz</location>
-	<md5sum>88b2cf43561156d23ea3d8a7ff209382</md5sum>
+	<location>release/2.10/cdr-2.10.0.alpha5.tgz</location>
+	<md5sum>6e5efa7187a9e534f8d65c450b97af0c</md5sum>
 </module>

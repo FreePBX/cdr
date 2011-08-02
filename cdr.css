@@ -55,7 +55,6 @@ img {
 .cdr {
 	margin : 0 5%;
 	border-width : 0;
-	white-space : nowrap;
 	width : 90%;
 	font-size: 10pt;
 }

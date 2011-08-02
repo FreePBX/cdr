@@ -58,7 +58,8 @@ $h_step = 30;
 				<th>&nbsp;</th>
 			</tr>
 			<tr>
-				<td><input <?php if (empty($_POST['order']) || $_POST['order'] == 'calldate') { echo 'checked="checked"'; } ?> type="radio" name="order" value="calldate" />&nbsp;<?php echo _("Call Date")?>:</td>
+				<?php $calldate_tooltip = _("Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search");?>
+				<td><input <?php if (empty($_POST['order']) || $_POST['order'] == 'calldate') { echo 'checked="checked"'; } ?> type="radio" name="order" value="calldate" />&nbsp;<?php echo "<a href=\"#\" class=\"info\">"._("Call Date")."<span>".$calldate_tooltip."</span></a>"?>:</td>
 				<td><?php echo _("From")?>:
 				<input type="text" name="startday" id="startday" size="2" maxlength="2" value="<?php if (isset($_POST['startday'])) { echo $_POST['startday']; } else { echo '01'; } ?>" />
 				<select name="startmonth" id="startmonth">
@@ -141,7 +142,8 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'channel') { echo 'checked="checked"'; } ?> type="radio" name="order" value="channel" />&nbsp;<label for="channel"><?php echo _("Src Channel")?>:</label></td>
+<?php $channel_tooltip = _("Select Source Channel to search for. You can enter just the channel type like SIP, IAX2 or Local. You can also include the destination for the channel, like SIP/1234.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'channel') { echo 'checked="checked"'; } ?> type="radio" name="order" value="channel" />&nbsp;<label for="channel"><?php echo "<a href=\"#\" class=\"info\">"._("Src Channel")."<span>$channel_tooltip</span></a>"?>:</label></td>
 <td><input type="text" name="channel" id="channel" value="<?php if (isset($_POST['channel'])) { echo $_POST['channel']; } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['channel_neg'] ) && $_POST['channel_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="channel_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['channel_mod']) || $_POST['channel_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="channel_mod" value="begins_with" />
@@ -151,7 +153,16 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'src') { echo 'checked="checked"'; } ?> type="radio" name="order" value="src" />&nbsp;<label for="src"><?php echo _("Source")?>:</label></td>
+<?php $source_tooltip = _("Search for source calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>");?>
+<?php $source_tooltip .= _("<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>");?>
+<?php $source_tooltip .= _("<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers");?>
+<?php $source_tooltip .= _("<br>Asterisk pattern matching<br>");?>
+<?php $source_tooltip .= _("<b>X</b> = matches any digit from 0-9<br>");?>
+<?php $source_tooltip .= _("<b>Z</b> = matches any digit from 1-9<br>");?>
+<?php $source_tooltip .= _("<b>N</b> = matches any digit from 2-9<br>");?>
+<?php $source_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
+<?php $source_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'src') { echo 'checked="checked"'; } ?> type="radio" name="order" value="src" />&nbsp;<label for="src"><?php echo "<a href=\"#\" class=\"info\">"._("Source")."<span>$source_tooltip</span></a>"?>:</label></td>
 <td><input type="text" name="src" id="src" value="<?php if (isset($_POST['src'])) { echo $_POST['src']; } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['src_neg'] ) && $_POST['src_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="src_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['src_mod']) || $_POST['src_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="src_mod" value="begins_with" />
@@ -161,7 +172,8 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'clid') { echo 'checked="checked"'; } ?> type="radio" name="order" value="clid" />&nbsp;<label for="clid"><?php echo _("CallerID")?></label></td>
+<?php $callerid_tooltip = _("Search for CallerID. If your CallerID begins with \" then you must supply this in your search if you select Begins With.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'clid') { echo 'checked="checked"'; } ?> type="radio" name="order" value="clid" />&nbsp;<label for="clid"><?php echo "<a href=\"#\" class=\"info\">"._("CallerID")."<span>$callerid_tooltip</span></a>"?></label></td>
 <td><input type="text" name="clid" id="clid" value="<?php if (isset($_POST['clid'])) { echo $_POST['clid']; } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['clid_neg'] ) && $_POST['clid_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="clid_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['clid_mod']) || $_POST['clid_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="clid_mod" value="begins_with" />
@@ -171,7 +183,8 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dstchannel') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dstchannel" />&nbsp;<label for="dstchannel"><?php echo _("Dst Channel")?>:</label></td>
+<?php $dstchannel_tooltip = _("Select Destination Channel to search for. It can be just the channel type like SIP, IAX2 or Local. It can include the destination for the channel, like SIP/1234.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dstchannel') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dstchannel" />&nbsp;<label for="dstchannel"><?php echo "<a href=\"#\" class=\"info\">"._("Dst Channel")."<span>$dstchannel_tooltip</span></a>"?>:</label></td>
 <td><input type="text" name="dstchannel" id="dstchannel" value="<?php if (isset($_POST['dstchannel'])) { echo $_POST['dstchannel']; } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['dstchannel_neg'] ) && $_POST['dstchannel_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dstchannel_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['dstchannel_mod']) || $_POST['dstchannel_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dstchannel_mod" value="begins_with" />
@@ -181,7 +194,16 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst" />&nbsp;<label for="dst"><?php echo _("Destination")?>:</label></td>
+<?php $destination_tooltip = _("Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>");?>
+<?php $destination_tooltip .= _("<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>");?>
+<?php $destination_tooltip .= _("<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers");?>
+<?php $destination_tooltip .= _("<br>Asterisk pattern matching<br>");?>
+<?php $destination_tooltip .= _("<b>X</b> = matches any digit from 0-9<br>");?>
+<?php $destination_tooltip .= _("<b>Z</b> = matches any digit from 1-9<br>");?>
+<?php $destination_tooltip .= _("<b>N</b> = matches any digit from 2-9<br>");?>
+<?php $destination_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
+<?php $destination_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst" />&nbsp;<label for="dst"><?php echo "<a href=\"#\" class=\"info\">"._("Destination")."<span>$destination_tooltip</span></a>"?>:</label></td>
 <td><input type="text" name="dst" id="dst" value="<?php if (isset($_POST['dst'])) { echo $_POST['dst']; } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['dst_neg'] ) &&  $_POST['dst_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dst_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['dst_mod']) || $_POST['dst_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="begins_with" />
@@ -191,7 +213,8 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'userfield') { echo 'checked="checked"'; } ?> type="radio" name="order" value="userfield" />&nbsp;<label for="userfield"><?php echo _("Userfield")?>:</label></td>
+<?php $userfield_tooltip = _("Search for userfield data (if enabled).");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'userfield') { echo 'checked="checked"'; } ?> type="radio" name="order" value="userfield" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">"._("Userfield")."<span>$userfield_tooltip</span></a>"?>:</label></td>
 <td><input type="text" name="userfield" id="userfield" value="<?php if (isset($_POST['userfield'])) { echo $_POST['userfield']; } ?>" />
 <?php echo _("Not")?>:<input <?php if (  isset($_POST['userfield_neg'] ) && $_POST['userfield_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="userfield_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['userfield_mod']) || $_POST['userfield_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="begins_with" />
@@ -201,7 +224,8 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'accountcode') { echo 'checked="checked"'; } ?> type="radio" name="order" value="accountcode" />&nbsp;<label for="userfield"><?php echo _("Account Code")?>:</label></td>
+<?php $accountcode_tooltip = _("Search for accountcode.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'accountcode') { echo 'checked="checked"'; } ?> type="radio" name="order" value="accountcode" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">"._("Account Code")."<span>$accountcode_tooltip</span></a>"?>:</label></td>
 <td><input type="text" name="accountcode" id="accountcode" value="<?php if (isset($_POST['accountcode'])) { echo $_POST['accountcode']; } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['accountcode_neg'] ) &&  $_POST['accountcode_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="accountcode_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['accountcode_mod']) || $_POST['accountcode_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="begins_with" />
@@ -211,16 +235,18 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'duration') { echo 'checked="checked"'; } ?> type="radio" name="order" value="duration" />&nbsp;<label><?php echo _("Duration")?>:</label></td>
+<?php $duration_tooltip = _("Search for calls that matches the call lenght specified.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'duration') { echo 'checked="checked"'; } ?> type="radio" name="order" value="duration" />&nbsp;<label><?php echo "<a href=\"#\" class=\"info\">"._("Duration")."<span>$duration_tooltip</span></a>"?>:</label></td>
 <td><?php echo _("Between")?>:
 <input type="text" name="dur_min" value="<?php if (isset($_POST['dur_min'])) { echo $_POST['dur_min']; } ?>" size="3" maxlength="5" />
 <?php echo _("And")?>:
 <input type="text" name="dur_max" value="<?php if (isset($_POST['dur_max'])) { echo $_POST['dur_max']; } ?>" size="3" maxlength="5" />
-<?php echo _("Seconds")?>:
+<?php echo _("Seconds")?>
 </td>
 </tr>
 <tr>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'disposition') { echo 'checked="checked"'; } ?> type="radio" name="order" value="disposition" />&nbsp;<label for="disposition"><?php echo _("Disposition")?>:</label></td>
+<?php $disposition_tooltip = _("Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'disposition') { echo 'checked="checked"'; } ?> type="radio" name="order" value="disposition" />&nbsp;<label for="disposition"><?php echo "<a href=\"#\" class=\"info\">"._("Disposition")."<span>$disposition_tooltip</span></a>"?>:</label></td>
 <td>
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['dispositio_neg'] ) && $_POST['disposition_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="disposition_neg" value="true" />
 <select name="disposition" id="disposition">
