@@ -61,7 +61,7 @@ $h_step = 30;
 				<?php $calldate_tooltip = _("Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search");?>
 				<td><input <?php if (empty($_POST['order']) || $_POST['order'] == 'calldate') { echo 'checked="checked"'; } ?> type="radio" name="order" value="calldate" />&nbsp;<?php echo "<a href=\"#\" class=\"info\">"._("Call Date")."<span>".$calldate_tooltip."</span></a>"?>:</td>
 				<td><?php echo _("From")?>:
-				<input type="text" name="startday" id="startday" size="2" maxlength="2" value="<?php if (isset($_POST['startday'])) { echo $_POST['startday']; } else { echo '01'; } ?>" />
+				<input type="text" name="startday" id="startday" size="2" maxlength="2" value="<?php if (isset($_POST['startday'])) { echo htmlspecialchars($_POST['startday']); } else { echo '01'; } ?>" />
 				<select name="startmonth" id="startmonth">
 <?php
 				$months = array('01' => _('January'), '02' => _('February'), '03' => _('March'), '04' => _('April'), '05' => _('May'), '06' => _('June'), '07' => _('July'), '08' => _('August'), '09' => _('September'), '10' => _('October'), '11' => _('November'), '12' => _('December'));
@@ -85,9 +85,9 @@ $h_step = 30;
 				}
 ?>
 				</select>
-				<input type="text" name="starthour" id="starthour" size="2" maxlength="2" value="<?php if (isset($_POST['starthour'])) { echo $_POST['starthour']; } else { echo '00'; } ?>" />:
-				<input type="text" name="startmin" id="startmin" size="2" maxlength="2" value="<?php if (isset($_POST['startmin'])) { echo $_POST['startmin']; } else { echo '00'; } ?>" /><?php echo _("To")?>:
-				<input type="text" name="endday" id="endday" size="2" maxlength="2" value="<?php if (isset($_POST['endday'])) { echo $_POST['endday']; } else { echo '31'; } ?>" />
+				<input type="text" name="starthour" id="starthour" size="2" maxlength="2" value="<?php if (isset($_POST['starthour'])) { echo htmlspecialchars($_POST['starthour']); } else { echo '00'; } ?>" />:
+				<input type="text" name="startmin" id="startmin" size="2" maxlength="2" value="<?php if (isset($_POST['startmin'])) { echo htmlspecialchars($_POST['startmin']); } else { echo '00'; } ?>" /><?php echo _("To")?>:
+				<input type="text" name="endday" id="endday" size="2" maxlength="2" value="<?php if (isset($_POST['endday'])) { echo htmlspecialchars($_POST['endday']); } else { echo '31'; } ?>" />
 				<select name="endmonth" id="endmonth">
 <?php
 				foreach ($months as $i => $month) {
@@ -110,8 +110,8 @@ for ( $i = 2000; $i <= date('Y'); $i++) {
 }
 ?>
 </select>
-	<input type="text" name="endhour" id="endhour" size="2" maxlength="2" value="<?php if (isset($_POST['endhour'])) { echo $_POST['endhour']; } else { echo '23'; } ?>" />:
-	<input type="text" name="endmin" id="endmin" size="2" maxlength="2" value="<?php if (isset($_POST['endmin'])) { echo $_POST['endmin']; } else { echo '59'; } ?>" />
+	<input type="text" name="endhour" id="endhour" size="2" maxlength="2" value="<?php if (isset($_POST['endhour'])) { echo htmlspecialchars($_POST['endhour']); } else { echo '23'; } ?>" />:
+	<input type="text" name="endmin" id="endmin" size="2" maxlength="2" value="<?php if (isset($_POST['endmin'])) { echo htmlspecialchars($_POST['endmin']); } else { echo '59'; } ?>" />
 	</td>
 <td rowspan="10" valign='top' align='right'>
 <fieldset>
@@ -131,7 +131,7 @@ for ( $i = 2000; $i <= date('Y'); $i++) {
 <td>
 <input value="<?php
 if (isset($_POST['limit']) ) {
-        echo $_POST['limit'];
+        echo htmlspecialchars($_POST['limit']);
 } else {
         echo $db_result_limit;
 } ?>" name="limit" size="6" />
@@ -144,7 +144,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $channel_tooltip = _("Select Source Channel to search for. You can enter just the channel type like SIP, IAX2 or Local. You can also include the destination for the channel, like SIP/1234.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'channel') { echo 'checked="checked"'; } ?> type="radio" name="order" value="channel" />&nbsp;<label for="channel"><?php echo "<a href=\"#\" class=\"info\">"._("Src Channel")."<span>$channel_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="channel" id="channel" value="<?php if (isset($_POST['channel'])) { echo $_POST['channel']; } ?>" />
+<td><input type="text" name="channel" id="channel" value="<?php if (isset($_POST['channel'])) { echo htmlspecialchars($_POST['channel']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['channel_neg'] ) && $_POST['channel_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="channel_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['channel_mod']) || $_POST['channel_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="channel_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['channel_mod']) && $_POST['channel_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="channel_mod" value="contains" />
@@ -163,7 +163,7 @@ if (isset($_POST['limit']) ) {
 <?php $source_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
 <?php $source_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'src') { echo 'checked="checked"'; } ?> type="radio" name="order" value="src" />&nbsp;<label for="src"><?php echo "<a href=\"#\" class=\"info\">"._("Source")."<span>$source_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="src" id="src" value="<?php if (isset($_POST['src'])) { echo $_POST['src']; } ?>" />
+<td><input type="text" name="src" id="src" value="<?php if (isset($_POST['src'])) { echo htmlspecialchars($_POST['src']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['src_neg'] ) && $_POST['src_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="src_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['src_mod']) || $_POST['src_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="src_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['src_mod']) && $_POST['src_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="src_mod" value="contains" />
@@ -174,7 +174,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $callerid_tooltip = _("Search for CallerID. If your CallerID begins with \" then you must supply this in your search if you select Begins With.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'clid') { echo 'checked="checked"'; } ?> type="radio" name="order" value="clid" />&nbsp;<label for="clid"><?php echo "<a href=\"#\" class=\"info\">"._("CallerID")."<span>$callerid_tooltip</span></a>"?></label></td>
-<td><input type="text" name="clid" id="clid" value="<?php if (isset($_POST['clid'])) { echo $_POST['clid']; } ?>" />
+<td><input type="text" name="clid" id="clid" value="<?php if (isset($_POST['clid'])) { echo htmlspecialchars($_POST['clid']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['clid_neg'] ) && $_POST['clid_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="clid_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['clid_mod']) || $_POST['clid_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="clid_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['clid_mod']) && $_POST['clid_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="clid_mod" value="contains" />
@@ -185,7 +185,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $dstchannel_tooltip = _("Select Destination Channel to search for. It can be just the channel type like SIP, IAX2 or Local. It can include the destination for the channel, like SIP/1234.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dstchannel') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dstchannel" />&nbsp;<label for="dstchannel"><?php echo "<a href=\"#\" class=\"info\">"._("Dst Channel")."<span>$dstchannel_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="dstchannel" id="dstchannel" value="<?php if (isset($_POST['dstchannel'])) { echo $_POST['dstchannel']; } ?>" />
+<td><input type="text" name="dstchannel" id="dstchannel" value="<?php if (isset($_POST['dstchannel'])) { echo htmlspecialchars($_POST['dstchannel']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['dstchannel_neg'] ) && $_POST['dstchannel_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dstchannel_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['dstchannel_mod']) || $_POST['dstchannel_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dstchannel_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['dstchannel_mod']) && $_POST['dstchannel_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="dstchannel_mod" value="contains" />
@@ -204,7 +204,7 @@ if (isset($_POST['limit']) ) {
 <?php $destination_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
 <?php $destination_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst" />&nbsp;<label for="dst"><?php echo "<a href=\"#\" class=\"info\">"._("Destination")."<span>$destination_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="dst" id="dst" value="<?php if (isset($_POST['dst'])) { echo $_POST['dst']; } ?>" />
+<td><input type="text" name="dst" id="dst" value="<?php if (isset($_POST['dst'])) { echo htmlspecialchars($_POST['dst']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['dst_neg'] ) &&  $_POST['dst_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dst_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['dst_mod']) || $_POST['dst_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['dst_mod']) && $_POST['dst_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="contains" />
@@ -215,7 +215,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $userfield_tooltip = _("Search for userfield data (if enabled).");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'userfield') { echo 'checked="checked"'; } ?> type="radio" name="order" value="userfield" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">"._("Userfield")."<span>$userfield_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="userfield" id="userfield" value="<?php if (isset($_POST['userfield'])) { echo $_POST['userfield']; } ?>" />
+<td><input type="text" name="userfield" id="userfield" value="<?php if (isset($_POST['userfield'])) { echo htmlspecialchars($_POST['userfield']); } ?>" />
 <?php echo _("Not")?>:<input <?php if (  isset($_POST['userfield_neg'] ) && $_POST['userfield_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="userfield_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['userfield_mod']) || $_POST['userfield_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['userfield_mod']) && $_POST['userfield_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="contains" />
@@ -226,7 +226,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $accountcode_tooltip = _("Search for accountcode.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'accountcode') { echo 'checked="checked"'; } ?> type="radio" name="order" value="accountcode" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">"._("Account Code")."<span>$accountcode_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="accountcode" id="accountcode" value="<?php if (isset($_POST['accountcode'])) { echo $_POST['accountcode']; } ?>" />
+<td><input type="text" name="accountcode" id="accountcode" value="<?php if (isset($_POST['accountcode'])) { echo htmlspecialchars($_POST['accountcode']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['accountcode_neg'] ) &&  $_POST['accountcode_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="accountcode_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['accountcode_mod']) || $_POST['accountcode_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['accountcode_mod']) && $_POST['accountcode_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="contains" />
@@ -238,9 +238,9 @@ if (isset($_POST['limit']) ) {
 <?php $duration_tooltip = _("Search for calls that matches the call length specified.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'duration') { echo 'checked="checked"'; } ?> type="radio" name="order" value="duration" />&nbsp;<label><?php echo "<a href=\"#\" class=\"info\">"._("Duration")."<span>$duration_tooltip</span></a>"?>:</label></td>
 <td><?php echo _("Between")?>:
-<input type="text" name="dur_min" value="<?php if (isset($_POST['dur_min'])) { echo $_POST['dur_min']; } ?>" size="3" maxlength="5" />
+<input type="text" name="dur_min" value="<?php if (isset($_POST['dur_min'])) { echo htmlspecialchars($_POST['dur_min']); } ?>" size="3" maxlength="5" />
 <?php echo _("And")?>:
-<input type="text" name="dur_max" value="<?php if (isset($_POST['dur_max'])) { echo $_POST['dur_max']; } ?>" size="3" maxlength="5" />
+<input type="text" name="dur_max" value="<?php if (isset($_POST['dur_max'])) { echo htmlspecialchars($_POST['dur_max']); } ?>" size="3" maxlength="5" />
 <?php echo _("Seconds")?>
 </td>
 </tr>
