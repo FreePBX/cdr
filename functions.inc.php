@@ -150,7 +150,7 @@ function cdr_asteriskregexp2sqllike( $source_data, $user_num ) {
                         } elseif ( $chr == 'N' ) {
                                 $number .= '[2-9]';
                         } elseif ( $chr == '.' ) {
-                                $number .= '.*';
+                                $number .= '.+';
                         } elseif ( $chr == '!' ) {
                                 $_POST[ $source_data .'_neg' ] = 'true';
                         } else {
