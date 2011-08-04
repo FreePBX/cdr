@@ -71,12 +71,14 @@ msgid ""
 "Select time span for your report. You can select Date, Month, Year, Hour and "
 "Minute to narrow your search"
 msgstr ""
+"Выберите интервал времени за который Вы хотите получить отчет. Вы можите указать: "
+"День, Месяц, Год, Час и Минуту для более точного поиска "
 
 msgid "Call Date"
 msgstr "Дата звонка"
 
 msgid "From"
-msgstr "Начиная с"
+msgstr "Между"
 
 msgid "January"
 msgstr "Январь"
@@ -115,13 +117,13 @@ msgid "December"
 msgstr "Декабрь"
 
 msgid "To"
-msgstr "До"
+msgstr "и"
 
 msgid "Extra options"
 msgstr "Дополнительно"
 
 msgid "Report type"
-msgstr "Тип отчета"
+msgstr "Показать"
 
 msgid "CDR search"
 msgstr "Список звонков"
@@ -143,9 +145,11 @@ msgid ""
 "like SIP, IAX2 or Local. You can also include the destination for the "
 "channel, like SIP/1234."
 msgstr ""
+"Выберите канал источника. Вы можите просто ввести тип канала, например "
+"SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
 
 msgid "Src Channel"
-msgstr "Канал источника"
+msgstr "Вх. канал"
 
 msgid "Not"
 msgstr "Не"
@@ -157,43 +161,51 @@ msgid "Contains"
 msgstr "Содержит"
 
 msgid "Ends With"
-msgstr "Заканчивается на"
+msgstr "Оканчивается на"
 
 msgid "Exactly"
-msgstr "Совпадает"
+msgstr "Равно"
 
 msgid ""
 "Search for source calls. You can enter multiple sources separated by a "
 "comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
+"Поиск по номеру звонящего. Можно ввести один номер или несколько "
+"Asterisk совместимых регулярных выражений разделенных запятой, "
+"например:<br>"
 
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr ""
+msgstr "<b>_2XXN, _562., _.0075</b> эквивалентно любому номеру подпадающему "
+"под любой из этих трех шаблонов<br>"
 
 msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
 msgstr ""
+"<b>_!2XXN, _562., _.0075</b> найти все номера которые не совпадают "
+"со всеми этими тремя шаблонами</br>"
 
 msgid "<br>Asterisk pattern matching<br>"
-msgstr ""
+msgstr "<br>Регулярные выражения Asterisk<br>"
 
 msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr ""
+msgstr "<b>X</b> = любому числу от 0 до 9<br>"
 
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr ""
+msgstr "<b>Z</b> = любому числу от 1 до 9<br>"
 
 msgid "<b>N</b> = matches any digit from 2-9<br>"
-msgstr ""
+msgstr "<b>N</b> = любому числу от 2 до 9<br>"
 
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
-msgstr ""
+msgstr "" 
+"<b>[1237-9]</b> = любое число или буква из скобок<br>( здесь например это: "
+"1,2,3,7,8,9<br>"
 
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
-msgstr ""
+msgstr "<b>.</b> = один или несколько любых символов<br>"
 
 msgid "Source"
 msgstr "Кто звонил"
@@ -202,38 +214,44 @@ msgid ""
 "Search for CallerID. If your CallerID begins with \" then you must supply "
 "this in your search if you select Begins With."
 msgstr ""
+"Поиск по имени и номеру звонящего. Если имя начинается с \" Вам нужно "
+"указать это если Вы выбрали поиск по началу строки"
 
 msgid ""
 "Select Destination Channel to search for. It can be just the channel type "
 "like SIP, IAX2 or Local. It can include the destination for the channel, "
 "like SIP/1234."
 msgstr ""
+"Выберите канал назначения. Вы можите просто ввести тип канала, например "
+"SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
 
 msgid "Dst Channel"
-msgstr "Канал назначения"
+msgstr "Исх. канал"
 
 msgid ""
 "Search for destination calls. You can enter multiple sources separated by a "
 "comma. This field support Asterisk regular expression. Example<br>"
-msgstr ""
+msgstr "Поиск по номеру назначения. Можно ввести один номер или несколько "
+"Asterisk совместимых регулярных выражений разделенных запятой, "
+"например:<br>"
 
 msgid "Destination"
 msgstr "Куда звонил"
 
 msgid "Search for userfield data (if enabled)."
-msgstr ""
+msgstr "Поиск по дополнительному полю Userfield ( если используется )"
 
 msgid "Userfield"
 msgstr "Userfield"
 
 msgid "Search for accountcode."
-msgstr ""
+msgstr "Поиск по accountcode."
 
 msgid "Account Code"
 msgstr "Account Code"
 
 msgid "Search for calls that matches the call length specified."
-msgstr ""
+msgstr "Поиск звонков определенной длительности."
 
 msgid "Duration"
 msgstr "Длительность"
@@ -249,7 +267,7 @@ msgstr "Секунд"
 
 msgid ""
 "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
-msgstr ""
+msgstr "Поиск по статусу звонка: Отвечен / Занят / Неудавшийся / Без ответа"
 
 msgid "Disposition"
 msgstr "Статус звонка"
@@ -270,10 +288,10 @@ msgid "No Answer"
 msgstr "Без ответа"
 
 msgid "Ascending"
-msgstr "По возростанию"
+msgstr "возростанию"
 
 msgid "Descending"
-msgstr "По убыванию"
+msgstr "убыванию"
 
 msgid "Group By"
 msgstr "Группировать по"

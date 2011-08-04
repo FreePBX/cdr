@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-29 19:43+0200\n"
+"POT-Creation-Date: 2011-08-02 23:16+0200\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr "Rapporter"
 msgid "System Administration"
 msgstr "Systemadministration"
 
-msgid "Call Data Record report tools for vieweing reports of your calls"
+msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr "Rapportverktyg för samtalsregister"
 
 msgid "UniqueID"
@@ -66,6 +66,13 @@ msgstr "Sortera enligt"
 
 msgid "Search conditions"
 msgstr "Sökvillkor"
+
+msgid ""
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
+msgstr ""
+"Välj period för din rapport. Du kan välja datum, månad, timme och minut för att "
+"begränsa din sökning."
 
 msgid "Call Date"
 msgstr "Datum"
@@ -133,6 +140,15 @@ msgstr "Samtidiga samtal"
 msgid "Result limit"
 msgstr "Begränsa resultat"
 
+msgid ""
+"Select Source Channel to search for. You can enter just the channel type "
+"like SIP, IAX2 or Local. You can also include the destination for the "
+"channel, like SIP/1234."
+msgstr ""
+"Mata in sökvillkor för källkanal. Du kan skriva endast kanaltypen såsom "
+"SIP, IAX2 eller Local. Du kan även begränsa sökningen genom att ange "
+"destinationen såsom SIP/1234"
+
 msgid "Src Channel"
 msgstr "Källkanal"
 
@@ -151,20 +167,89 @@ msgstr "Slutar med"
 msgid "Exactly"
 msgstr "Exakt"
 
+msgid ""
+"Search for source calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+"Sök efter källsamtal. Du kan skriva in flera källor separerade med "
+"komma. Detta fält stöder Asterisk reguljära uttryck. Exempel<br>"
+
+msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
+msgstr "<b>_2XXN, _562., _.0075</b> = sök efter någon match för dessa nummer<br>"
+
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
+msgstr ""
+"<b>_!2XXN, _562., _.0075</b> = Sök efter någon match <b>förutom</b> dessa nummer"
+
+msgid "<br>Asterisk pattern matching<br>"
+msgstr "<br>Asterisk mönstermatchning<br>"
+
+msgid "<b>X</b> = matches any digit from 0-9<br>"
+msgstr "<b>X</b> = matchar alla siffror från 0-9<br>"
+
+msgid "<b>Z</b> = matches any digit from 1-9<br>"
+msgstr "<b>Z</b> = matchar alla siffror från 1-9<br>"
+
+msgid "<b>N</b> = matches any digit from 2-9<br>"
+msgstr "<b>N</b> = matchar alla siffror från 2-9<br>"
+
+msgid ""
+"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
+"example, 1,2,3,7,8,9)<br>"
+msgstr ""
+"<b>[1237-9]</b> = matchar alla siffror och bokstäver inom hakperanteserna<br>(i detta "
+"exempel, 1,2,3,7,8,9)<br>"
+
+msgid "<b>.</b> = wildcard, matches one or more characters<br>"
+msgstr "<b>.</b> = jokertecken, matchar en eller flera tecken<br>"
+
 msgid "Source"
 msgstr "Källa"
+
+msgid ""
+"Search for CallerID. If your CallerID begins with \" then you must supply "
+"this in your search if you select Begins With."
+msgstr ""
+"Sök efter nummerpresentation. Om din nummerpresentation börjar med ett \"-tecken "
+"måste du ange detta om du väljer Börjar med."
+
+msgid ""
+"Select Destination Channel to search for. It can be just the channel type "
+"like SIP, IAX2 or Local. It can include the destination for the channel, "
+"like SIP/1234."
+msgstr ""
+"Välj destinationskanal at söka efter. Det kan vara endast kanaltypen såsom "
+"IP, IAX2 eller Local. Du kan även ange destinationen för kanalen såsom SIP/1234"
 
 msgid "Dst Channel"
 msgstr "Dest. kanal"
 
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+"Sök efter destinationssamtal. Du kan ange flera källor separerade med ett komma. "
+"Detta fält stöder Asterisk reguljära uttryck."
+
 msgid "Destination"
 msgstr "Destination"
+
+msgid "Search for userfield data (if enabled)."
+msgstr "Sök efter data i användarfältet (om detta är aktiverat)"
 
 msgid "Userfield"
 msgstr "Användarfält"
 
+msgid "Search for accountcode."
+msgstr "Sök efter kontokod"
+
 msgid "Account Code"
 msgstr "Kontokod"
+
+msgid "Search for calls that matches the call length specified."
+msgstr "Sök efter samtal som matchar den angivna samtalsintervallen"
 
 msgid "Duration"
 msgstr "Längd"
@@ -177,6 +262,10 @@ msgstr "och"
 
 msgid "Seconds"
 msgstr "sekunder"
+
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr "Sök efter samtal som matchar ANSWERED, BUSY, FAILED eller NO ANSWER."
 
 msgid "Disposition"
 msgstr "Disposition"
@@ -291,6 +380,3 @@ msgstr "Samtalsrapport - samtidiga samtal sorterad på"
 
 msgid "Time"
 msgstr "Tid"
-
-msgid "Monday"
-msgstr "Måndag"
