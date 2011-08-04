@@ -1,0 +1,366 @@
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for cdr
+# 	Copyright (C) 2011 Igor Okunev
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cdr\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-08-02 23:16+0200\n"
+"PO-Revision-Date: 2011-07-29 20:45+0200\n"
+"Last-Translator: Igor Okunev <igor.okunev@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "CDR Viewer"
+msgstr "Отчет по звонкам"
+
+msgid "System Administration"
+msgstr "Системное администрирование"
+
+msgid "Call Data Record report tools for viewing reports of your calls"
+msgstr "Просмотр записей о совершенных звонках"
+
+msgid "UniqueID"
+msgstr "Идентификатор"
+
+msgid "Channel"
+msgstr "Канал"
+
+msgid "CallerID"
+msgstr "Имя звонящего"
+
+msgid "Application"
+msgstr "Приложение"
+
+msgid "Destination Context"
+msgstr "Контекст"
+
+msgid "AMA Flag"
+msgstr "AMA-флаг"
+
+msgid "Billing Duration"
+msgstr "Время разговора"
+
+msgid "Call Detail Record Search"
+msgstr "Отчет по звонкам"
+
+msgid "Order By"
+msgstr "Сортировать по"
+
+msgid "Search conditions"
+msgstr "Условия поиска"
+
+msgid ""
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
+msgstr ""
+
+msgid "Call Date"
+msgstr "Дата звонка"
+
+msgid "From"
+msgstr "Начиная с"
+
+msgid "January"
+msgstr "Январь"
+
+msgid "February"
+msgstr "Февраль"
+
+msgid "March"
+msgstr "Март"
+
+msgid "April"
+msgstr "Апрель"
+
+msgid "May"
+msgstr "Май"
+
+msgid "June"
+msgstr "Июнь"
+
+msgid "July"
+msgstr "Июль"
+
+msgid "August"
+msgstr "Август"
+
+msgid "September"
+msgstr "Сентябрь"
+
+msgid "October"
+msgstr "Октябрь"
+
+msgid "November"
+msgstr "Ноябрь"
+
+msgid "December"
+msgstr "Декабрь"
+
+msgid "To"
+msgstr "До"
+
+msgid "Extra options"
+msgstr "Дополнительно"
+
+msgid "Report type"
+msgstr "Тип отчета"
+
+msgid "CDR search"
+msgstr "Список звонков"
+
+msgid "CSV file"
+msgstr "Дамп в CSV-файл"
+
+msgid "Call Graph"
+msgstr "Суммарный график"
+
+msgid "Concurrent Calls"
+msgstr "Одновременные звонки"
+
+msgid "Result limit"
+msgstr "Записей"
+
+msgid ""
+"Select Source Channel to search for. You can enter just the channel type "
+"like SIP, IAX2 or Local. You can also include the destination for the "
+"channel, like SIP/1234."
+msgstr ""
+
+msgid "Src Channel"
+msgstr "Канал источника"
+
+msgid "Not"
+msgstr "Не"
+
+msgid "Begins With"
+msgstr "Начинается с"
+
+msgid "Contains"
+msgstr "Содержит"
+
+msgid "Ends With"
+msgstr "Заканчивается на"
+
+msgid "Exactly"
+msgstr "Совпадает"
+
+msgid ""
+"Search for source calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+
+msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
+msgstr ""
+
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
+msgstr ""
+
+msgid "<br>Asterisk pattern matching<br>"
+msgstr ""
+
+msgid "<b>X</b> = matches any digit from 0-9<br>"
+msgstr ""
+
+msgid "<b>Z</b> = matches any digit from 1-9<br>"
+msgstr ""
+
+msgid "<b>N</b> = matches any digit from 2-9<br>"
+msgstr ""
+
+msgid ""
+"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
+"example, 1,2,3,7,8,9)<br>"
+msgstr ""
+
+msgid "<b>.</b> = wildcard, matches one or more characters<br>"
+msgstr ""
+
+msgid "Source"
+msgstr "Кто звонил"
+
+msgid ""
+"Search for CallerID. If your CallerID begins with \" then you must supply "
+"this in your search if you select Begins With."
+msgstr ""
+
+msgid ""
+"Select Destination Channel to search for. It can be just the channel type "
+"like SIP, IAX2 or Local. It can include the destination for the channel, "
+"like SIP/1234."
+msgstr ""
+
+msgid "Dst Channel"
+msgstr "Канал назначения"
+
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+
+msgid "Destination"
+msgstr "Куда звонил"
+
+msgid "Search for userfield data (if enabled)."
+msgstr ""
+
+msgid "Userfield"
+msgstr "Userfield"
+
+msgid "Search for accountcode."
+msgstr ""
+
+msgid "Account Code"
+msgstr "Account Code"
+
+msgid "Search for calls that matches the call length specified."
+msgstr ""
+
+msgid "Duration"
+msgstr "Длительность"
+
+msgid "Between"
+msgstr "Между"
+
+msgid "And"
+msgstr "и"
+
+msgid "Seconds"
+msgstr "Секунд"
+
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr ""
+
+msgid "Disposition"
+msgstr "Статус звонка"
+
+msgid "All Dispositions"
+msgstr "Любой статус"
+
+msgid "Answered"
+msgstr "Отвечено"
+
+msgid "Busy"
+msgstr "Занято"
+
+msgid "Failed"
+msgstr "Неудавшийся"
+
+msgid "No Answer"
+msgstr "Без ответа"
+
+msgid "Ascending"
+msgstr "По возростанию"
+
+msgid "Descending"
+msgstr "По убыванию"
+
+msgid "Group By"
+msgstr "Группировать по"
+
+msgid "Account Information"
+msgstr "Учетная информация"
+
+msgid "User Field"
+msgstr "User Field"
+
+msgid "Date/Time"
+msgstr "Дата/Время"
+
+msgid "Minute"
+msgstr "Минута"
+
+msgid "10 Minutes"
+msgstr "10 минут"
+
+msgid "Hour"
+msgstr "Час"
+
+msgid "Hour of day"
+msgstr "Час дня"
+
+msgid "Day of week"
+msgstr "День недели"
+
+msgid "Day"
+msgstr "День"
+
+msgid "Week ( Sun-Sat )"
+msgstr "Неделя (Вск-Суб)"
+
+msgid "Month"
+msgstr "Месяц"
+
+msgid "Telephone Number"
+msgstr "Номера телефона"
+
+msgid "Source Number"
+msgstr "Кто звонил"
+
+msgid "Destination Number"
+msgstr "Куда звонил"
+
+msgid "Search"
+msgstr "Искать"
+
+msgid "Call Detail Record - Search Returned"
+msgstr "Отчет по звонкам - Результат поиска"
+
+msgid "Calls"
+msgstr "Звонки"
+
+msgid "File"
+msgstr "Файл"
+
+msgid "System"
+msgstr "Идентификатор"
+
+msgid "Account"
+msgstr "Account"
+
+msgid "Call Detail Record - Call Graph by"
+msgstr "Отчет по звонкам - суммарные графики"
+
+msgid "Total Calls"
+msgstr "Всего звонков"
+
+msgid "Max Calls"
+msgstr "Максимально звонков"
+
+msgid "Total Duration"
+msgstr "Суммарная продолжительность"
+
+msgid "Average Call Time"
+msgstr "Средняя продолжительность звонка"
+
+msgid "Go to the top of the CDR table"
+msgstr "Перейти к списку звонков"
+
+msgid "Go to the CDR Graph"
+msgstr "Перейти к графикам"
+
+msgid "Call Detail Record - Concurrent Calls by"
+msgstr "Отчет по звонкам - одновременные звонки"
+
+msgid "Time"
+msgstr "Время"
