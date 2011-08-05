@@ -19,6 +19,13 @@
 //    Portions Copyright (C) 2011 Mikael Carlsson
 //    Portions Copyright (C) 2006 Seth Sargent, Steven Ward
 
+// NOTE: This function should probably be in a FreePBX library
+// php function empty() treats 0 as empty, that is why I need the function below
+// to be able to search for any number starting with 0
+function is_blank($value) {
+    return empty($value) && !is_numeric($value);
+}
+
 function cdr_formatFiles($row) {
         global $system_monitor_dir, $system_fax_archive_dir, $system_audio_format;
         /* File name formats, please specify: */
