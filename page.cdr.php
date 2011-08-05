@@ -1,6 +1,4 @@
 <?php
-
-
 //This file is part of FreePBX.
 //
 //    FreePBX is free software: you can redistribute it and/or modify
@@ -31,14 +29,8 @@ $system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."
 /* $system_fax_archive_dir is the directory where sent/received fax images are stored */
 $system_fax_archive_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']:"/fax-gw/archive";
 
-/* system tmp */
-$system_tmp_dir = '/tmp';
-
 /* audio file format */
 $system_audio_format = 'wav';
-
-/* Reverse lookup URL where "%n" is replace with the destination number */
-$rev_lookup_url = 'http://www.whitepages.com/search/ReversePhone?full_phone=%n';
 
 $h_step = 30;	
 
@@ -497,10 +489,6 @@ if ( $tot_calls_raw ) {
 	} 
 	echo "</table>";
 }
-
-//if ( isset($result) ) {
-//	mysql_free_result($result);
-//}
 ?>
 
 <!-- Display Call Usage Graph -->

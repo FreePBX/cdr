@@ -58,7 +58,6 @@ function cdr_formatFiles($row) {
         /* ============================================================================ */
 
         if (file_exists("$system_monitor_dir/$recorded_file.$system_audio_format")) {
-//                echo "<td class=\"record_col\"><a href=\"download.php?audio=$recorded_file.$system_audio_format\" title=\"Listen to call recording\"><img src=\"/icons/small/sound.png\" alt=\"Call recording\" /></a></td>\n";
                 echo "<td><a href=\"download.php?audio=$recorded_file.$system_audio_format\" class=\"info\"><span>Listen to call recording</span><img src=\"images/sound.png\" alt=\"Call recording\" /></a></td>";
         } elseif (file_exists("$system_fax_archive_dir/$recorded_file.tif")) {
                 echo "<td class=\"record_col\"><a href=\"download.php?fax=$recorded_file.tif\" title=\"View FAX image\"><img src=\"/icons/small/text.png\" alt=\"FAX image\" /></a></td>";
@@ -96,14 +95,7 @@ function cdr_formatApp($app, $lastdata) {
 }
 
 function cdr_formatDst($dst, $dcontext) {
-        global $rev_lookup_url;
-        if (strlen($dst) == 11) {
-                $rev = str_replace('%n', $dst, $rev_lookup_url);
-                echo "<td class=\"record_col\"><abbr title=\"Destination Context: $dcontext\"><a href=\"$rev\" target=\"reverse\">$dst</a></abbr></td>";
-//                echo "<td><a href=\"#\" class=\"info\">"<span>Destination Context: $dcontext\"><a href=\"$rev\" target=\"reverse\">$dst</a></abbr></td>";
-        } else {
-				echo "<td><a href=\"#\" class=\"info\">".$dst."<span>"._("Destination Context").": ".$dcontext."</span></a></td>";
-        }
+		echo "<td><a href=\"#\" class=\"info\">".$dst."<span>"._("Destination Context").": ".$dcontext."</span></a></td>";
 }
 
 function cdr_formatDisposition($disposition, $amaflags) {
