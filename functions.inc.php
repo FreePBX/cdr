@@ -27,7 +27,7 @@ function is_blank($value) {
 }
 
 function cdr_formatFiles($row) {
-        global $system_monitor_dir, $system_fax_archive_dir, $system_audio_format;
+        global $system_monitor_dir, $system_audio_format;
         /* File name formats, please specify: */
 
         /*
@@ -41,26 +41,22 @@ function cdr_formatFiles($row) {
 
                 thanks to Beto Reyes
         */
-        /*
         $recorded_file = glob($system_monitor_dir . '/*' . $row['uniqueid'] . '.' . $system_audio_format);
         if (count($recorded_file)>0) {
                 $recorded_file = basename($recorded_file[0],".$system_audio_format");
         } else {
                 $recorded_file = $row['uniqueid'];
         }
-        */
         /* ============================================================================ */
 
         /*
                 uniqueid.wav
-        */
+
         $recorded_file = $row['uniqueid'];
         /* ============================================================================ */
 
         if (file_exists("$system_monitor_dir/$recorded_file.$system_audio_format")) {
-                echo "<td><a href=\"download.php?audio=$recorded_file.$system_audio_format\" class=\"info\"><span>Listen to call recording</span><img src=\"images/sound.png\" alt=\"Call recording\" /></a></td>";
-        } elseif (file_exists("$system_fax_archive_dir/$recorded_file.tif")) {
-                echo "<td class=\"record_col\"><a href=\"download.php?fax=$recorded_file.tif\" title=\"View FAX image\"><img src=\"/icons/small/text.png\" alt=\"FAX image\" /></a></td>";
+                echo "<td><a href=\"#\" class=\"info\"><span>Not implemented yet</span><img src=\"images/sound.png\" alt=\"Call recording\" /></a></td>";
         } else {
                 echo "<td></td>";
         }
@@ -88,6 +84,10 @@ function cdr_formatSrc($src, $clid) {
                 $clid = htmlspecialchars($clid);
                 echo "<td><a href=\"#\" class=\"info\">".$src."<span>"._("CallerID").": ".$clid."</span></a></td>";
         }
+}
+
+function cdr_formatDID($did) {
+        echo "<td><a href=\"#\" class=\"info\">".$did."<span>"._("DID").": ".$did."</span></a></td>";
 }
 
 function cdr_formatApp($app, $lastdata) {

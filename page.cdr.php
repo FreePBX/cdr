@@ -175,6 +175,17 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 <tr>
+<?php $did_tooltip = _("Search for a DID.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'did') { echo 'checked="checked"'; } ?> type="radio" name="order" value="did" />&nbsp;<label for="did"><?php echo "<a href=\"#\" class=\"info\">"._("DID")."<span>$did_tooltip</span></a>"?></label></td>
+<td><input type="text" name="did" id="clid" value="<?php if (isset($_POST['did'])) { echo htmlspecialchars($_POST['did']); } ?>" />
+<?php echo _("Not")?>:<input <?php if ( isset($_POST['did_neg'] ) && $_POST['did_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="did_neg" value="true" />
+<?php echo _("Begins With")?>:<input <?php if (empty($_POST['did_mod']) || $_POST['did_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="begins_with" />
+<?php echo _("Contains")?>:<input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="contains" />
+<?php echo _("Ends With")?>:<input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="ends_with" />
+<?php echo _("Exactly")?>:<input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="exact" />
+</td>
+</tr>
+<tr>
 <?php $dstchannel_tooltip = _("Select Destination Channel to search for. It can be just the channel type like SIP, IAX2 or Local. It can include the destination for the channel, like SIP/1234.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dstchannel') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dstchannel" />&nbsp;<label for="dstchannel"><?php echo "<a href=\"#\" class=\"info\">"._("Dst Channel")."<span>$dstchannel_tooltip</span></a>"?>:</label></td>
 <td><input type="text" name="dstchannel" id="dstchannel" value="<?php if (isset($_POST['dstchannel'])) { echo htmlspecialchars($_POST['dstchannel']); } ?>" />
@@ -352,6 +363,9 @@ $mod_vars['src'][] = empty($_POST['src_neg']) ? NULL : $_POST['src_neg'];
 $mod_vars['clid'][] = is_blank($_POST['clid']) ? NULL : $_POST['clid'];
 $mod_vars['clid'][] = empty($_POST['clid_mod']) ? NULL : $_POST['clid_mod'];
 $mod_vars['clid'][] = empty($_POST['clid_neg']) ? NULL : $_POST['clid_neg'];
+$mod_vars['did'][] = is_blank($_POST['did']) ? NULL : $_POST['did'];
+$mod_vars['did'][] = empty($_POST['did_mod']) ? NULL : $_POST['did_mod'];
+$mod_vars['did'][] = empty($_POST['did_neg']) ? NULL : $_POST['did_neg'];
 $mod_vars['dstchannel'][] = is_blank($_POST['dstchannel']) ? NULL : $_POST['dstchannel'];
 $mod_vars['dstchannel'][] = empty($_POST['dstchannel_mod']) ? NULL : $_POST['dstchannel_mod'];
 $mod_vars['dstchannel'][] = empty($_POST['dstchannel_neg']) ? NULL : $_POST['dstchannel_neg'];
@@ -426,16 +440,16 @@ $sort = empty($_POST['sort']) ? 'DESC' : $_POST['sort'];
 $group = empty($_POST['group']) ? 'day' : $_POST['group'];
 
 // Build the "WHERE" part of the query
-$where = "WHERE $date_range $channel $dstchannel $src $clid $dst $userfield $accountcode $disposition $duration";
+$where = "WHERE $date_range $channel $dstchannel $src $clid $did $dst $userfield $accountcode $disposition $duration";
 
 if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
-	$query = "(SELECT calldate, clid, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
+	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
 	$resultcsv = $db->getAll($query, DB_FETCHMODE_ASSOC);
 	cdr_export_csv($resultcsv);	
 }
 
 if ( isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
-	$query = "SELECT `calldate`, `clid`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp` FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
+	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp` FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
 	$results = $db->getAll($query, DB_FETCHMODE_ASSOC);
 }
 if ( isset($results) ) {
@@ -455,11 +469,12 @@ if ( $tot_calls_raw ) {
 			<th class="record_col"><?php echo _("Call Date")?></th>
 			<th class="record_col"><?php echo _("File")?></th>
 			<th class="record_col"><?php echo _("System")?></th>
-			<th class="record_col"><?php echo _("Src Channel")?></th>
+			<th class="record_col"><?php echo _("Src Chan.")?></th>
 			<th class="record_col"><?php echo _("Source")?></th>
-			<th class="record_col"><?php echo _("Application")?></th>
-			<th class="record_col"><?php echo _("Destination")?></th>
-			<th class="record_col"><?php echo _("Dst Channel")?></th>
+			<th class="record_col"><?php echo _("DID")?></th>
+			<th class="record_col"><?php echo _("App")?></th>
+			<th class="record_col"><?php echo _("Dest.")?></th>
+			<th class="record_col"><?php echo _("Dst. Chan.")?></th>
 			<th class="record_col"><?php echo _("Disposition")?></th>
 			<th class="record_col"><?php echo _("Duration")?></th>
 			<th class="record_col"><?php echo _("Userfield")?></th>
@@ -476,6 +491,7 @@ if ( $tot_calls_raw ) {
 		cdr_formatUniqueID($row['uniqueid']);
 		cdr_formatChannel($row['channel']);
 		cdr_formatSrc($row['src'], $row['clid']);
+		cdr_formatDID($row['did']);
 		cdr_formatApp($row['lastapp'], $row['lastdata']);
 		cdr_formatDst($row['dst'], $row['dcontext']);
 		cdr_formatChannel($row['dstchannel']);
