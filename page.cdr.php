@@ -15,9 +15,10 @@
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 //
 //    cdr module for FreePBX 2.7+
-//    Copyright (C) 2011 Igor Okunev
+//    Copyright (C) 2010, 2011 Anthony Joseph Messina
+//    Portions Copyright (C) 2011 Igor Okunev
 //    Portions Copyright (C) Mikael Carlsson
-
+//
 global $amp_conf;
 $dispnum = "cdr";
 $db_result_limit = 100;	

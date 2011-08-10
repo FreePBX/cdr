@@ -15,10 +15,11 @@
 //    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 //
 //    cdr module for FreePBX 2.7+
-//    Copyright (C) 2011 Igor Okunev
+//    Copyright (C) 2010, 2011 Anthony Joseph Messina
+//    Portions Copyright (C) 2011 Igor Okunev
 //    Portions Copyright (C) 2011 Mikael Carlsson
 //    Portions Copyright (C) 2006 Seth Sargent, Steven Ward
-
+//
 // NOTE: This function should probably be in a FreePBX library
 // php function empty() treats 0 as empty, that is why I need the function below
 // to be able to search for any number starting with 0
