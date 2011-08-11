@@ -19,116 +19,123 @@
 //    Portions Copyright (C) 2011 Igor Okunev
 //    Portions Copyright (C) 2011 Mikael Carlsson
 //    Portions Copyright (C) 2006 Seth Sargent, Steven Ward
-//
+
 // NOTE: This function should probably be in a FreePBX library
 // php function empty() treats 0 as empty, that is why I need the function below
 // to be able to search for any number starting with 0
 function is_blank($value) {
-    return empty($value) && !is_numeric($value);
+	return empty($value) && !is_numeric($value);
 }
 
-function cdr_formatFiles($row) {
-        global $system_monitor_dir, $system_audio_format;
-        /* File name formats, please specify: */
+function cdr_formatFiles($uniqueid, $id) {
+	global $system_monitor_dir, $system_audio_format, $REC_CRYPT_PASSWORD;
+	/* File name formats, please specify: */
 
-        /*
-                caller-called-timestamp.wav
-        */
-        /* $recorded_file = $row['src'] .'-'. $row['dst'] .'-'. $row['call_timestamp'] */
-        /* ============================================================================ */
+	/*
+	caller-called-timestamp.wav
+	*/
+	/* $recorded_file = $row['src'] .'-'. $row['dst'] .'-'. $row['call_timestamp'] */
+	/* ============================================================================ */
 
-        /*
-                ends at the uniqueid.wav, for example: date-time-uniqueid.wav
+	/*
+	ends at the uniqueid.wav, for example: date-time-uniqueid.wav
 
-                thanks to Beto Reyes
-        */
-        $recorded_file = glob($system_monitor_dir . '/*' . $row['uniqueid'] . '.' . $system_audio_format);
-        if (count($recorded_file)>0) {
-                $recorded_file = basename($recorded_file[0],".$system_audio_format");
-        } else {
-                $recorded_file = $row['uniqueid'];
-        }
-        /* ============================================================================ */
+	thanks to Beto Reyes
+	*/
+	$recorded_file = glob($system_monitor_dir . '/*' . $uniqueid . '.' . $system_audio_format);
+// TODO: Skip searching for extension, deal with that later.
+//	$recorded_file = glob($system_monitor_dir . '/*' . $uniqueid . '.' . '*');
+	if (count($recorded_file)>0) {
+		$recorded_file = basename($recorded_file[0],".$system_audio_format");
+	} else {
+		$recorded_file = $uniqueid;
+	}
+	/* ============================================================================ */
 
-        /*
-                uniqueid.wav
+	/*
+	uniqueid.wav
 
-        $recorded_file = $row['uniqueid'];
-        /* ============================================================================ */
+	$recorded_file = $row['uniqueid'];
+	/* ============================================================================ */
 
-        if (file_exists("$system_monitor_dir/$recorded_file.$system_audio_format")) {
-                echo "<td><a href=\"#\" class=\"info\"><span>Not implemented yet</span><img src=\"images/sound.png\" alt=\"Call recording\" /></a></td>";
-        } else {
-                echo "<td></td>";
-        }
+	if (file_exists("$system_monitor_dir/$recorded_file.$system_audio_format")) {
+		$crypt = new Crypt();
+		// Encrypt the complete file
+		$audio = urlencode($crypt->encrypt($system_monitor_dir."/".$recorded_file.".".$system_audio_format,$REC_CRYPT_PASSWORD));
+		$recurl=$_SERVER['PHP_SELF']."?display=cdr&action=cdr_play&recordingpath=$audio";
+		$playbackRow = $id +1;
+		echo "<td><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl'); return false;\"><img src=\"images/cdr_sound.png\" alt=\"Call recording\" /></a></td>";
+	} else {
+		echo "<td></td>";
+	}
 }
 
 /* CDR Table Display Functions */
 function cdr_formatCallDate($calldate) {
-        echo "<td>".$calldate."</td>";
+	echo "<td>".$calldate."</td>";
 }
 
 function cdr_formatUniqueID($uniqueid) {
-        $system = explode('-', $uniqueid, 2);
-        echo "<td><a href=\"#\" class=\"info\">".$system[0]."<span>"._("UniqueID").": ".$uniqueid."</span></a></td>";
+	$system = explode('-', $uniqueid, 2);
+	echo "<td><a href=\"#\" class=\"info\">".$system[0]."<span>"._("UniqueID").": ".$uniqueid."</span></a></td>";
 }
 
 function cdr_formatChannel($channel) {
-        $chan_type = explode('/', $channel, 2);
-        echo "<td><a href=\"#\" class=\"info\">".$chan_type[0]."<span>"._("Channel").": ".$channel."</span></a></td>";
+	$chan_type = explode('/', $channel, 2);
+	echo "<td><a href=\"#\" class=\"info\">".$chan_type[0]."<span>"._("Channel").": ".$channel."</span></a></td>";
 }
 
 function cdr_formatSrc($src, $clid) {
-        if (empty($src)) {
-                echo "<td class=\"record_col\">UNKNOWN</td>";
-        } else {
-                $clid = htmlspecialchars($clid);
-                echo "<td><a href=\"#\" class=\"info\">".$src."<span>"._("CallerID").": ".$clid."</span></a></td>";
-        }
+	if (empty($src)) {
+		echo "<td class=\"record_col\">UNKNOWN</td>";
+	} else {
+		$clid = htmlspecialchars($clid);
+		echo "<td><a href=\"#\" class=\"info\">".$src."<span>"._("CallerID").": ".$clid."</span></a></td>";
+	}
 }
 
 function cdr_formatDID($did) {
-        echo "<td><a href=\"#\" class=\"info\">".$did."<span>"._("DID").": ".$did."</span></a></td>";
+	echo "<td><a href=\"#\" class=\"info\">".$did."<span>"._("DID").": ".$did."</span></a></td>";
 }
 
 function cdr_formatApp($app, $lastdata) {
-        echo "<td><a href=\"#\" class=\"info\">".$app."<span>"._("Application").": ".$app."(".$lastdata.")</span></a></td>";
+	echo "<td><a href=\"#\" class=\"info\">".$app."<span>"._("Application").": ".$app."(".$lastdata.")</span></a></td>";
 }
 
 function cdr_formatDst($dst, $dcontext) {
-		echo "<td><a href=\"#\" class=\"info\">".$dst."<span>"._("Destination Context").": ".$dcontext."</span></a></td>";
+	echo "<td><a href=\"#\" class=\"info\">".$dst."<span>"._("Destination Context").": ".$dcontext."</span></a></td>";
 }
 
 function cdr_formatDisposition($disposition, $amaflags) {
-        switch ($amaflags) {
-                case 0:
-                        $amaflags = 'DOCUMENTATION';
-                        break;
-                case 1:
-                        $amaflags = 'IGNORE';
-                        break;
-                case 2:
-                        $amaflags = 'BILLING';
-                        break;
-                case 3:
-                default:
-                        $amaflags = 'DEFAULT';
-        }
-        echo "<td><a href=\"#\" class=\"info\">".$disposition."<span>"._("AMA Flag").": ".$amaflags."</span></a></td>";
+	switch ($amaflags) {
+		case 0:
+			$amaflags = 'DOCUMENTATION';
+			break;
+		case 1:
+			$amaflags = 'IGNORE';
+			break;
+		case 2:
+			$amaflags = 'BILLING';
+			break;
+		case 3:
+		default:
+			$amaflags = 'DEFAULT';
+	}
+	echo "<td><a href=\"#\" class=\"info\">".$disposition."<span>"._("AMA Flag").": ".$amaflags."</span></a></td>";
 }
 
 function cdr_formatDuration($duration, $billsec) {
-        $duration = sprintf('%02d', intval($duration/60)).':'.sprintf('%02d', intval($duration%60));
-        $billduration = sprintf('%02d', intval($billsec/60)).':'.sprintf('%02d', intval($billsec%60));
-        echo "<td><a href=\"#\" class=\"info\">".$duration."<span>"._("Billing Duration").": ".$billduration."</span></a></td>";
+	$duration = sprintf('%02d', intval($duration/60)).':'.sprintf('%02d', intval($duration%60));
+	$billduration = sprintf('%02d', intval($billsec/60)).':'.sprintf('%02d', intval($billsec%60));
+	echo "<td><a href=\"#\" class=\"info\">".$duration."<span>"._("Billing Duration").": ".$billduration."</span></a></td>";
 }
 
 function cdr_formatUserField($userfield) {
-        echo "<td>".$userfield."</td>";
+	echo "<td>".$userfield."</td>";
 }
 
 function cdr_formatAccountCode($accountcode) {
-        echo "<td>".$accountcode."</td>";
+	echo "<td>".$accountcode."</td>";
 }
 
 /* Asterisk RegExp parser */
@@ -181,7 +188,6 @@ function cdr_download($data, $name) {
     echo $data;
     die();
 }
-
 
 function cdr_export_csv($csvdata) {
 	global $db;

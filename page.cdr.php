@@ -18,23 +18,39 @@
 //    Copyright (C) 2010, 2011 Anthony Joseph Messina
 //    Portions Copyright (C) 2011 Igor Okunev
 //    Portions Copyright (C) Mikael Carlsson
-//
+
+// For use in encrypt-decrypt of path and filename for the recordings
+include_once("crypt.php");
+switch ($action) {
+	case 'cdr_play':
+	case 'cdr_audio':
+  	include_once("$action.php");
+		exit;
+		break;
+	default:
+		break;
+}
+
 global $amp_conf;
+// Are a crypt password specified? If not, use the supplied.
+$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
 $dispnum = "cdr";
 $db_result_limit = 100;	
+
 // Check if cdr database and/or table is set, if not, use our default settings
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
 $db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRTABLENAME']:"cdr";
 $system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."/monitor":"/var/spool/asterisk/monitor";
 
-/* $system_fax_archive_dir is the directory where sent/received fax images are stored */
-$system_fax_archive_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']:"/fax-gw/archive";
-
-/* audio file format */
-$system_audio_format = 'wav';
-
-$h_step = 30;	
-
+// What format for recordings are set?
+$sql = "SELECT value FROM globals where variable = 'MIXMON_FORMAT'";
+$mixmonformat = $db->getOne($sql);
+if(DB::IsError($mixmonformat)) {
+die_freepbx($mixmonformat->getMessage());
+}
+$system_audio_format = $mixmonformat;
+//$system_audio_format = 'wav';
+$h_step = 30;
 ?>
 
 	<div id="maincdr">
@@ -459,10 +475,13 @@ if ( isset($results) ) {
 	$tot_calls_raw = 0;
 }
 if ( $tot_calls_raw ) {
-	echo "<p class=\"center title\">"._("Call Detail Record - Search Returned")." ".$tot_calls_raw." "._("Calls")."</p><table class=\"cdr\">";
+	echo "<p class=\"center title\">"._("Call Detail Record - Search Returned")." ".$tot_calls_raw." "._("Calls")."</p>";
+	echo "<table id=\"cdr_table\" class=\"cdr\">";
 	
 	$i = $h_step - 1;
+	$id = 0;  // tracker for recording index
 	foreach($results as $row) {
+		++$id;  // Start at table row 1
 		++$i;
 		if ($i == $h_step) {
 		?>
@@ -473,7 +492,7 @@ if ( $tot_calls_raw ) {
 			<th class="record_col"><?php echo _("Src Chan.")?></th>
 			<th class="record_col"><?php echo _("Source")?></th>
 			<th class="record_col"><?php echo _("DID")?></th>
-			<th class="record_col"><?php echo _("App")?></th>
+			<th class="record_col"><?php echo _("App.")?></th>
 			<th class="record_col"><?php echo _("Dest.")?></th>
 			<th class="record_col"><?php echo _("Dst. Chan.")?></th>
 			<th class="record_col"><?php echo _("Disposition")?></th>
@@ -488,7 +507,7 @@ if ( $tot_calls_raw ) {
 		}
 		echo "  <tr class=\"record\">\n";
 		cdr_formatCallDate($row['calldate']);
-		cdr_formatFiles($row);
+		cdr_formatFiles($row['uniqueid'], $id);
 		cdr_formatUniqueID($row['uniqueid']);
 		cdr_formatChannel($row['channel']);
 		cdr_formatSrc($row['src'], $row['clid']);
@@ -718,8 +737,8 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 		echo "</table>";
 	}
 }
-?>
 
+?>
 </div>
 <div id="footercdr">
 <p><small>
@@ -727,3 +746,29 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
     <!-- by Igor Okunev ( igor.okunev [at] gmail.com ) -->
 </small></p>
 </div>
+
+<script language='JavaScript'>
+<!-- Begin
+	function cdr_play(row_num, link) {
+	var i = 0;
+	var playbackId = "CURRENT_MSG";
+	var file=encodeURIComponent(link)
+	var cmTable = document.getElementById('cdr_table');
+	// Only one playback row is allowed to be open at a time.
+	// If one is already open, close it.
+	for (i = 0; i < cmTable.rows.length; i++) {
+		if (cmTable.rows[i].id == playbackId) {
+			// Delete the row; it's a Playback control row.
+			cmTable.deleteRow(cmTable.rows[i].rowIndex);
+		}
+	}
+	// Make our Playback row.
+	playback_src = "<iframe width='100%' height='25px' marginheight='0' marginwidth='0' frameborder='0' scrolling='no' src=" + link + "></iframe>";
+	newRow = cmTable.insertRow(row_num);
+	newRow.id = playbackId;
+	cell_left = newRow.insertCell(0);
+	cell_left.colSpan = 15;
+	cell_left.innerHTML = playback_src;
+	}
+// End -->
+</script>
