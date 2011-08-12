@@ -16,27 +16,29 @@ if (isset($_REQUEST['cdr_file'])) {
 	$name = basename($path);
 	$extension = strtolower(substr(strrchr($name,"."),1));
 	// This will set the Content-Type to the appropriate setting for the file
-	// TODO: What are the types for alaw, ulaw, sln and g729?
 	$ctype ='';
 	switch( $extension ) {
 		case "WAV":
-			 $ctype="audio/x-wav";
-			 break;
+			$ctype="audio/x-wav";
+			break;
 		case "wav":
 			$ctype="audio/x-wav";
 			break;
 		case "ulaw":
-			$ctype="audio/mpeg";
+			$ctype="audio/basic";
 			break;
 		case "alaw":
-			$ctype="audio/mpeg";
+			$ctype="audio/x-alaw-basic";
 			break;
 		case "sln":
-			$ctype="audio/mpeg";
+			$ctype="audio/x-wav";
 			break;
 		case "gsm":
-			 $ctype="audio/x-gsm";
-			 break;
+			$ctype="audio/x-gsm";
+			break;
+		case "g729":
+			$ctype="audio/x-g729";
+			break;
 	// not downloadable
 		default: 
 //		echo ("<b>404 File not found! foo</b>"); 
