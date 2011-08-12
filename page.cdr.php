@@ -75,7 +75,7 @@ $h_step = 30;
 <?php
 				$months = array('01' => _('January'), '02' => _('February'), '03' => _('March'), '04' => _('April'), '05' => _('May'), '06' => _('June'), '07' => _('July'), '08' => _('August'), '09' => _('September'), '10' => _('October'), '11' => _('November'), '12' => _('December'));
 				foreach ($months as $i => $month) {
-					if ((is_blank($_POST['startmonth']) && date('m') == $i) || (isset($_POST['startmonth']) && $_POST['startmonth'] == $i)) {
+					if ((empty($_POST['startmonth']) && date('m') == $i) || (isset($_POST['startmonth']) && $_POST['startmonth'] == $i)) {
 						echo "<option value=\"$i\" selected=\"selected\">$month</option>\n";
 					} else {
 						echo "<option value=\"$i\">$month</option>\n";
@@ -100,7 +100,7 @@ $h_step = 30;
 				<select name="endmonth" id="endmonth">
 <?php
 				foreach ($months as $i => $month) {
-				if ((is_blank($_POST['endmonth']) && date('m') == $i) || (isset($_POST['endmonth']) && $_POST['endmonth'] == $i)) {
+				if ((empty($_POST['endmonth']) && date('m') == $i) || (isset($_POST['endmonth']) && $_POST['endmonth'] == $i)) {
 	                echo "<option value=\"$i\" selected=\"selected\">$month</option>\n";
 					} else {
 	               		echo "<option value=\"$i\">$month</option>\n";
@@ -325,32 +325,32 @@ foreach ( array_keys($_POST) as $key ) {
 	$_POST[$key] = mysql_real_escape_string($_POST[$key]);
 }
 
-$startmonth = is_blank($_POST['startmonth']) ? date('m') : $_POST['startmonth'];
+$startmonth = empty($_POST['startmonth']) ? date('m') : $_POST['startmonth'];
 $startyear = empty($_POST['startyear']) ? date('Y') : $_POST['startyear'];
 
-if (is_blank($_POST['startday'])) {
+if (empty($_POST['startday'])) {
 	$startday = '01';
 } elseif (isset($_POST['startday']) && ($_POST['startday'] > date('t', strtotime("$startyear-$startmonth")))) {
 	$startday = $_POST['startday'] = date('t', strtotime("$startyear-$startmonth"));
 } else {
 	$startday = sprintf('%02d',$_POST['startday']);
 }
-$starthour = is_blank($_POST['starthour']) ? '00' : sprintf('%02d',$_POST['starthour']);
-$startmin = is_blank($_POST['startmin']) ? '00' : sprintf('%02d',$_POST['startmin']);
+$starthour = empty($_POST['starthour']) ? '00' : sprintf('%02d',$_POST['starthour']);
+$startmin = empty($_POST['startmin']) ? '00' : sprintf('%02d',$_POST['startmin']);
 
 $startdate = "'$startyear-$startmonth-$startday $starthour:$startmin:00'";
 $start_timestamp = mktime( $starthour, $startmin, 59, $startmonth, $startday, $startyear );
 
-$endmonth = is_blank($_POST['endmonth']) ? date('m') : $_POST['endmonth'];  
+$endmonth = empty($_POST['endmonth']) ? date('m') : $_POST['endmonth'];  
 $endyear = empty($_POST['endyear']) ? date('Y') : $_POST['endyear'];  
 
-if (is_blank($_POST['endday']) || (isset($_POST['endday']) && ($_POST['endday'] > date('t', strtotime("$endyear-$endmonth-01"))))) {
+if (empty($_POST['endday']) || (isset($_POST['endday']) && ($_POST['endday'] > date('t', strtotime("$endyear-$endmonth-01"))))) {
 	$endday = $_POST['endday'] = date('t', strtotime("$endyear-$endmonth"));
 } else {
 	$endday = sprintf('%02d',$_POST['endday']);
 }
-$endhour = is_blank($_POST['endhour']) ? '23' : sprintf('%02d',$_POST['endhour']);
-$endmin = is_blank($_POST['endmin']) ? '59' : sprintf('%02d',$_POST['endmin']);
+$endhour = empty($_POST['endhour']) ? '23' : sprintf('%02d',$_POST['endhour']);
+$endmin = empty($_POST['endmin']) ? '59' : sprintf('%02d',$_POST['endmin']);
 
 $enddate = "'$endyear-$endmonth-$endday $endhour:$endmin:59'";
 $end_timestamp = mktime( $endhour, $endmin, 59, $endmonth, $endday, $endyear );
@@ -358,44 +358,44 @@ $end_timestamp = mktime( $endhour, $endmin, 59, $endmonth, $endday, $endyear );
 #
 # asterisk regexp2sqllike
 #
-if ( is_blank($_POST['src']) ) {
+if ( !isset($_POST['src']) ) {
 	$src_number = NULL;
 } else {
 	$src_number = cdr_asteriskregexp2sqllike( 'src', '' );
 }
 
-if ( is_blank($_POST['dst']) ) {
+if ( !isset($_POST['dst']) ) {
 	$dst_number = NULL;
 } else {
 	$dst_number = cdr_asteriskregexp2sqllike( 'dst', '' );
 }
 
 $date_range = "calldate BETWEEN $startdate AND $enddate";
-$mod_vars['channel'][] = is_blank($_POST['channel']) ? NULL : $_POST['channel'];
+$mod_vars['channel'][] = !isset($_POST['channel']) ? NULL : $_POST['channel'];
 $mod_vars['channel'][] = empty($_POST['channel_mod']) ? NULL : $_POST['channel_mod'];
 $mod_vars['channel'][] = empty($_POST['channel_neg']) ? NULL : $_POST['channel_neg'];
 $mod_vars['src'][] = $src_number;
 $mod_vars['src'][] = empty($_POST['src_mod']) ? NULL : $_POST['src_mod'];
 $mod_vars['src'][] = empty($_POST['src_neg']) ? NULL : $_POST['src_neg'];
-$mod_vars['clid'][] = is_blank($_POST['clid']) ? NULL : $_POST['clid'];
+$mod_vars['clid'][] = !isset($_POST['clid']) ? NULL : $_POST['clid'];
 $mod_vars['clid'][] = empty($_POST['clid_mod']) ? NULL : $_POST['clid_mod'];
 $mod_vars['clid'][] = empty($_POST['clid_neg']) ? NULL : $_POST['clid_neg'];
-$mod_vars['did'][] = is_blank($_POST['did']) ? NULL : $_POST['did'];
+$mod_vars['did'][] = !isset($_POST['did']) ? NULL : $_POST['did'];
 $mod_vars['did'][] = empty($_POST['did_mod']) ? NULL : $_POST['did_mod'];
 $mod_vars['did'][] = empty($_POST['did_neg']) ? NULL : $_POST['did_neg'];
-$mod_vars['dstchannel'][] = is_blank($_POST['dstchannel']) ? NULL : $_POST['dstchannel'];
+$mod_vars['dstchannel'][] = !isset($_POST['dstchannel']) ? NULL : $_POST['dstchannel'];
 $mod_vars['dstchannel'][] = empty($_POST['dstchannel_mod']) ? NULL : $_POST['dstchannel_mod'];
 $mod_vars['dstchannel'][] = empty($_POST['dstchannel_neg']) ? NULL : $_POST['dstchannel_neg'];
 $mod_vars['dst'][] = $dst_number;
 $mod_vars['dst'][] = empty($_POST['dst_mod']) ? NULL : $_POST['dst_mod'];
 $mod_vars['dst'][] = empty($_POST['dst_neg']) ? NULL : $_POST['dst_neg'];
-$mod_vars['userfield'][] = is_blank($_POST['userfield']) ? NULL : $_POST['userfield'];
+$mod_vars['userfield'][] = !isset($_POST['userfield']) ? NULL : $_POST['userfield'];
 $mod_vars['userfield'][] = empty($_POST['userfield_mod']) ? NULL : $_POST['userfield_mod'];
 $mod_vars['userfield'][] = empty($_POST['userfield_neg']) ? NULL : $_POST['userfield_neg'];
-$mod_vars['accountcode'][] = is_blank($_POST['accountcode']) ? NULL : $_POST['accountcode'];
+$mod_vars['accountcode'][] = !isset($_POST['accountcode']) ? NULL : $_POST['accountcode'];
 $mod_vars['accountcode'][] = empty($_POST['accountcode_mod']) ? NULL : $_POST['accountcode_mod'];
 $mod_vars['accountcode'][] = empty($_POST['accountcode_neg']) ? NULL : $_POST['accountcode_neg'];
-$result_limit = is_blank($_POST['limit']) ? $db_result_limit : $_POST['limit'];
+$result_limit = !isset($_POST['limit']) ? $db_result_limit : $_POST['limit'];
 
 foreach ($mod_vars as $key => $val) {
 	if (is_blank($val[0])) {
