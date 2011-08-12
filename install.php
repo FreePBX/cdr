@@ -19,15 +19,24 @@
 //
 // Update cdr database with did field
 //
+global $db;
+if (! function_exists("out")) {
+        function out($text) {
+                echo $text."<br />";
+        }
+}
+out(_("Checking if field did is present in cdr table.."));
 $sql = "SELECT did FROM asteriskcdrdb.cdr";
 $confs = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($confs)) { // no error... Already there
-  out("Adding did field to cdr");
-  out("This might take a while......");
+  out(_("Adding did field to cdr"));
+  out(_("This might take a while......"));
   $sql = "ALTER TABLE asteriskcdrdb.cdr ADD did VARCHAR ( 20 ) NOT NULL DEFAULT ''";
   $results = $db->query($sql);
   if(DB::IsError($results)) {
     die($results->getMessage());
   }
-  out("Added field did to cdr");
+  out(_("Added field did to cdr"));
+} else {
+  out(_("did field already present."));
 }
