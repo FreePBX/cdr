@@ -20,18 +20,22 @@
 // Update cdr database with did field
 //
 global $db;
+global $amp_conf;
+// Retrieve database and table name if defined, otherwise use FreePBX default
+$db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
+$db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRTABLENAME']:"cdr";
 if (! function_exists("out")) {
         function out($text) {
                 echo $text."<br />";
         }
 }
 out(_("Checking if field did is present in cdr table.."));
-$sql = "SELECT did FROM asteriskcdrdb.cdr";
+$sql = "SELECT did FROM $db_name.$db_table_name";
 $confs = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($confs)) { // no error... Already there
   out(_("Adding did field to cdr"));
   out(_("This might take a while......"));
-  $sql = "ALTER TABLE asteriskcdrdb.cdr ADD did VARCHAR ( 20 ) NOT NULL DEFAULT ''";
+  $sql = "ALTER TABLE $db_name.$db_table_name ADD did VARCHAR ( 20 ) NOT NULL DEFAULT ''";
   $results = $db->query($sql);
   if(DB::IsError($results)) {
     die($results->getMessage());
