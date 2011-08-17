@@ -306,6 +306,12 @@ if (isset($_POST['limit']) ) {
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'src') { echo 'selected="selected"'; } ?> value="src"><?php echo _("Source Number")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'dst') { echo 'selected="selected"'; } ?> value="dst"><?php echo _("Destination Number")?></option>
 </optgroup>
+<optgroup label="<?php echo _("Tech info")?>">
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'disposition') { echo 'selected="selected"'; } ?> value="disposition">Disposition</option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'disposition_by_day') { echo 'selected="selected"'; } ?> value="disposition_by_day">Disposition by Day</option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'disposition_by_hour') { echo 'selected="selected"'; } ?> value="disposition_by_hour">Disposition by Hour</option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'dcontext') { echo 'selected="selected"'; } ?> value="dcontext">Destination context</option>
+</optgroup>
 </select></td><td align="left" width="40%">
 <input type="submit" value="<?php echo _("Search")?>" />
 </td></td></table>
@@ -538,6 +544,22 @@ $group_by_field = $group;
 $group_by_field_php = array( '', 32, '' );
 
 switch ($group) {
+	case "disposition_by_day":
+	    $graph_col_title = 'Disposition by day';
+	    $group_by_field_php = array('%Y-%m-%d / ',17,'');
+	    $group_by_field = "CONCAT(DATE_FORMAT(calldate, '$group_by_field_php[0]'),disposition)";
+	break;
+	case "disposition_by_hour":
+	    $graph_col_title = 'Disposition by hour';
+	    $group_by_field_php = array( '%Y-%m-%d %H / ', 20, '' );
+	    $group_by_field = "CONCAT(DATE_FORMAT(calldate, '$group_by_field_php[0]'),disposition)";
+	break;
+	case "disposition":
+	    $graph_col_title = 'Disposition';
+	break;
+	case "dcontext":
+	    $graph_col_title = 'Destination context';
+	break;
 	case "accountcode":
 		$graph_col_title = _("Account Code");
 	break;
