@@ -29,34 +29,17 @@ function is_blank($value) {
 
 function cdr_formatFiles($uniqueid, $id) {
 	global $system_monitor_dir, $system_audio_format, $REC_CRYPT_PASSWORD;
-	/* File name formats, please specify: */
-
-	/*
-	caller-called-timestamp.wav
-	*/
-	/* $recorded_file = $row['src'] .'-'. $row['dst'] .'-'. $row['call_timestamp'] */
-	/* ============================================================================ */
-
-	/*
-	ends at the uniqueid.wav, for example: date-time-uniqueid.wav
-
-	thanks to Beto Reyes
-	*/
+	// If we don't have any uniqueid in the cdr database, set a default of all zeros
+	// otherwise we get a false positive for every cdr record.
+	if($uniqueid == '') $uniqueid = '0000000000.0000';
+	// We only support recordings with uniqueid =  date-time-uniqueid.wav
 	$recorded_file = glob($system_monitor_dir . '/*' . $uniqueid . '.' . $system_audio_format);
 // TODO: Skip searching for extension, deal with that later.
-//	$recorded_file = glob($system_monitor_dir . '/*' . $uniqueid . '.' . '*');
 	if (count($recorded_file)>0) {
 		$recorded_file = basename($recorded_file[0],".$system_audio_format");
 	} else {
 		$recorded_file = $uniqueid;
 	}
-	/* ============================================================================ */
-
-	/*
-	uniqueid.wav
-
-	$recorded_file = $row['uniqueid'];
-	/* ============================================================================ */
 
 	if (file_exists("$system_monitor_dir/$recorded_file.$system_audio_format")) {
 		$crypt = new Crypt();
