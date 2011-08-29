@@ -6,8 +6,7 @@
 	<version>2.10.0.beta2</version>
 	<publisher>Mikael Carlsson</publisher>
 	<license>GPLv2+</license>
-	<type>tool</type>
-	<category>System Administration</category>
+	<category>Reports</category>
 	<menuitems>
 		<cdr>CDR Viewer</cdr>
 	</menuitems>
