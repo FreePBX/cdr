@@ -174,7 +174,10 @@ function cdr_download($data, $name) {
 
 function cdr_export_csv($csvdata) {
 	global $db;
-
+	// Searching for more than 10,000 records take more than 30 seconds.
+	// php default timeout is 30 seconds, hard code it to 3000 seconds for now (which is WAY overkill).
+	// TODO: make this value a setting in Advanced Settings
+	set_time_limit(3000);
 	$fname		= "cdr__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
 	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield\n";
 	$data 		= $csv_header;
