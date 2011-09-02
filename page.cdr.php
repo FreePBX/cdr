@@ -762,12 +762,6 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 
 ?>
 </div>
-<div id="footercdr">
-<p><small>
-        <a href="http://code.google.com/p/asterisk-cdr-viewer/" target="_blank">FreePBX CDR viewer, based on Asterisk CDR Viewer</a>
-    <!-- by Igor Okunev ( igor.okunev [at] gmail.com ) -->
-</small></p>
-</div>
 
 <script language='JavaScript'>
 <!-- Begin
