@@ -206,12 +206,12 @@ function cdr_export_csv($csvdata) {
 				$csv_line[$i] = "\"" . $csv_line[$i] . "\"";
 			}
 			if ($i != count($csv_line) - 1) {
-				$data = $data . $csv_line[$i] . ",";
+				$data .= $csv_line[$i] . ",";
 			} else {
-				$data = $data . $csv_line[$i];
+				$data .= $csv_line[$i];
 			}
 		}
-		$data = $data . "\n";
+		$data .= "\n";
 		unset($csv_line);
 	}
 	cdr_download($data, $fname);
