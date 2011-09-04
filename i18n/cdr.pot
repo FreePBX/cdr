@@ -14,24 +14,24 @@
 #    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
 #
 # FreePBX language template for cdr
-# Copyright (C) 2008, 2009, 2010 Bandwith.com
+# Copyright (C) 2008, 2009, 2010, 2011 Bandwith.com
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: FreePBX\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-02 23:16+0200\n"
+"POT-Creation-Date: 2011-09-04 18:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "CDR Viewer"
 msgstr ""
 
-msgid "System Administration"
+msgid "Reports"
 msgstr ""
 
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -46,6 +46,9 @@ msgstr ""
 msgid "CallerID"
 msgstr ""
 
+msgid "DID"
+msgstr ""
+
 msgid "Application"
 msgstr ""
 
@@ -56,6 +59,21 @@ msgid "AMA Flag"
 msgstr ""
 
 msgid "Billing Duration"
+msgstr ""
+
+msgid "Checking if field did is present in cdr table.."
+msgstr ""
+
+msgid "Adding did field to cdr"
+msgstr ""
+
+msgid "This might take a while......"
+msgstr ""
+
+msgid "Added field did to cdr"
+msgstr ""
+
+msgid "did field already present."
 msgstr ""
 
 msgid "Call Detail Record Search"
@@ -203,6 +221,9 @@ msgid ""
 "this in your search if you select Begins With."
 msgstr ""
 
+msgid "Search for a DID."
+msgstr ""
+
 msgid ""
 "Select Destination Channel to search for. It can be just the channel type "
 "like SIP, IAX2 or Local. It can include the destination for the channel, "
@@ -320,6 +341,9 @@ msgstr ""
 msgid "Destination Number"
 msgstr ""
 
+msgid "Tech info"
+msgstr ""
+
 msgid "Search"
 msgstr ""
 
@@ -333,6 +357,18 @@ msgid "File"
 msgstr ""
 
 msgid "System"
+msgstr ""
+
+msgid "Src Chan."
+msgstr ""
+
+msgid "App."
+msgstr ""
+
+msgid "Dest."
+msgstr ""
+
+msgid "Dst. Chan."
 msgstr ""
 
 msgid "Account"
