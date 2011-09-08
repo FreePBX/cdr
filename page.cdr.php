@@ -132,7 +132,9 @@ for ( $i = 2000; $i <= date('Y'); $i++) {
 <input <?php if ( (empty($_POST['need_html']) && empty($_POST['need_chart']) && empty($_POST['need_chart_cc']) && empty($_POST['need_csv'])) || ( ! empty($_POST['need_html']) &&  $_POST['need_html'] == 'true' ) ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_html" value="true" /> : <?php echo _("CDR search")?><br />
 <input <?php if ( ! empty($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_csv" value="true" /> : <?php echo _("CSV file")?><br/>
 <input <?php if ( ! empty($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_chart" value="true" /> : <?php echo _("Call Graph")?><br />
+<!--
 <input <?php if ( ! empty($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_chart_cc" value="true" /> : <?php echo _("Concurrent Calls")?><br />
+-->
 </td>
 </tr>
 <tr>
