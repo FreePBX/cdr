@@ -60,12 +60,12 @@ function cdr_formatCallDate($calldate) {
 
 function cdr_formatUniqueID($uniqueid) {
 	$system = explode('-', $uniqueid, 2);
-	echo "<td><a href=\"#\" class=\"info\">".$system[0]."<span>"._("UniqueID").": ".$uniqueid."</span></a></td>";
+	echo "<td>" . fpbx_label($system[0], _("UniqueID") . ": " . $uniqueid) . "</td>";
 }
 
 function cdr_formatChannel($channel) {
 	$chan_type = explode('/', $channel, 2);
-	echo "<td><a href=\"#\" class=\"info\">".$chan_type[0]."<span>"._("Channel").": ".$channel."</span></a></td>";
+	echo "<td>" . fpbx_label($chan_type[0], _("Channel") . ": " . $channel) . "</td>";
 }
 
 function cdr_formatSrc($src, $clid) {
@@ -73,20 +73,20 @@ function cdr_formatSrc($src, $clid) {
 		echo "<td class=\"record_col\">UNKNOWN</td>";
 	} else {
 		$clid = htmlspecialchars($clid);
-		echo "<td><a href=\"#\" class=\"info\">".$src."<span>"._("CallerID").": ".$clid."</span></a></td>";
+		echo "<td>" . fpbx_label($src, _("CallerID") . ": " . $clid) . "</td>";
 	}
 }
 
 function cdr_formatDID($did) {
-	echo "<td><a href=\"#\" class=\"info\">".$did."<span>"._("DID").": ".$did."</span></a></td>";
+	echo "<td>" . fpbx_label($did, _("DID") . ": " . $did) . "</td>";
 }
 
 function cdr_formatApp($app, $lastdata) {
-	echo "<td><a href=\"#\" class=\"info\">".$app."<span>"._("Application").": ".$app."(".$lastdata.")</span></a></td>";
+	echo "<td>" . fpbx_label($app, _("Application") . ": " . $app . "(" . $lastdata . ")") . "</td>";
 }
 
 function cdr_formatDst($dst, $dcontext) {
-	echo "<td><a href=\"#\" class=\"info\">".$dst."<span>"._("Destination Context").": ".$dcontext."</span></a></td>";
+	echo "<td>" . fpbx_label($dst, _("Destination Context") . ": " . $dcontext) . "</td>";
 }
 
 function cdr_formatDisposition($disposition, $amaflags) {
@@ -104,13 +104,13 @@ function cdr_formatDisposition($disposition, $amaflags) {
 		default:
 			$amaflags = 'DEFAULT';
 	}
-	echo "<td><a href=\"#\" class=\"info\">".$disposition."<span>"._("AMA Flag").": ".$amaflags."</span></a></td>";
+	echo "<td>" . fpbx_label($disposition, _("AMA Flag") . ": " . $amaflags) . "</td>";
 }
 
 function cdr_formatDuration($duration, $billsec) {
 	$duration = sprintf('%02d', intval($duration/60)).':'.sprintf('%02d', intval($duration%60));
 	$billduration = sprintf('%02d', intval($billsec/60)).':'.sprintf('%02d', intval($billsec%60));
-	echo "<td><a href=\"#\" class=\"info\">".$duration."<span>"._("Billing Duration").": ".$billduration."</span></a></td>";
+	echo "<td>" . fpbx_label($duration, _("Billing Duration") . ": " . $billduration) . "</td>";
 }
 
 function cdr_formatUserField($userfield) {

@@ -52,9 +52,8 @@ $system_audio_format = $mixmonformat;
 //$system_audio_format = 'wav';
 $h_step = 30;
 ?>
-
+	<h3><?php echo _('CDR Reports'); ?></h3><hr>
 	<div id="maincdr">
-	<br><br>
 	<table class="cdr">
 	<tr><td>
 		<form method="post" enctype="application/x-www-form-urlencoded">
