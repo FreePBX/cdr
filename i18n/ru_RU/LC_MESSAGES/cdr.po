@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-02 23:16+0200\n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Igor Okunev <igor.okunev@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,11 +28,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "CDR Viewer"
-msgstr "Отчет по звонкам"
+msgid "CDR Reports"
+msgstr ""
 
-msgid "System Administration"
-msgstr "Системное администрирование"
+msgid "Reports"
+msgstr ""
 
 msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr "Просмотр записей о совершенных звонках"
@@ -46,6 +46,9 @@ msgstr "Канал"
 msgid "CallerID"
 msgstr "Имя звонящего"
 
+msgid "DID"
+msgstr ""
+
 msgid "Application"
 msgstr "Приложение"
 
@@ -57,6 +60,21 @@ msgstr "AMA-флаг"
 
 msgid "Billing Duration"
 msgstr "Время разговора"
+
+msgid "Checking if field did is present in cdr table.."
+msgstr ""
+
+msgid "Adding did field to cdr"
+msgstr ""
+
+msgid "This might take a while......"
+msgstr ""
+
+msgid "Added field did to cdr"
+msgstr ""
+
+msgid "did field already present."
+msgstr ""
 
 msgid "Call Detail Record Search"
 msgstr "Отчет по звонкам"
@@ -71,8 +89,8 @@ msgid ""
 "Select time span for your report. You can select Date, Month, Year, Hour and "
 "Minute to narrow your search"
 msgstr ""
-"Выберите интервал времени за который Вы хотите получить отчет. Вы можите указать: "
-"День, Месяц, Год, Час и Минуту для более точного поиска "
+"Выберите интервал времени за который Вы хотите получить отчет. Вы можите "
+"указать: День, Месяц, Год, Час и Минуту для более точного поиска "
 
 msgid "Call Date"
 msgstr "Дата звонка"
@@ -145,8 +163,8 @@ msgid ""
 "like SIP, IAX2 or Local. You can also include the destination for the "
 "channel, like SIP/1234."
 msgstr ""
-"Выберите канал источника. Вы можите просто ввести тип канала, например "
-"SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
+"Выберите канал источника. Вы можите просто ввести тип канала, например SIP, "
+"IAX2, Local. Или ввести полное имя канала, например SIP/1234."
 
 msgid "Src Channel"
 msgstr "Вх. канал"
@@ -170,20 +188,20 @@ msgid ""
 "Search for source calls. You can enter multiple sources separated by a "
 "comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
-"Поиск по номеру звонящего. Можно ввести один номер или несколько "
-"Asterisk совместимых регулярных выражений разделенных запятой, "
-"например:<br>"
+"Поиск по номеру звонящего. Можно ввести один номер или несколько Asterisk "
+"совместимых регулярных выражений разделенных запятой, например:<br>"
 
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr "<b>_2XXN, _562., _.0075</b> эквивалентно любому номеру подпадающему "
-"под любой из этих трех шаблонов<br>"
+msgstr ""
+"<b>_2XXN, _562., _.0075</b> эквивалентно любому номеру подпадающему под "
+"любой из этих трех шаблонов<br>"
 
 msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
 msgstr ""
-"<b>_!2XXN, _562., _.0075</b> найти все номера которые не совпадают "
-"со всеми этими тремя шаблонами</br>"
+"<b>_!2XXN, _562., _.0075</b> найти все номера которые не совпадают со всеми "
+"этими тремя шаблонами</br>"
 
 msgid "<br>Asterisk pattern matching<br>"
 msgstr "<br>Регулярные выражения Asterisk<br>"
@@ -200,7 +218,7 @@ msgstr "<b>N</b> = любому числу от 2 до 9<br>"
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
-msgstr "" 
+msgstr ""
 "<b>[1237-9]</b> = любое число или буква из скобок<br>( здесь например это: "
 "1,2,3,7,8,9<br>"
 
@@ -217,13 +235,16 @@ msgstr ""
 "Поиск по имени и номеру звонящего. Если имя начинается с \" Вам нужно "
 "указать это если Вы выбрали поиск по началу строки"
 
+msgid "Search for a DID."
+msgstr ""
+
 msgid ""
 "Select Destination Channel to search for. It can be just the channel type "
 "like SIP, IAX2 or Local. It can include the destination for the channel, "
 "like SIP/1234."
 msgstr ""
-"Выберите канал назначения. Вы можите просто ввести тип канала, например "
-"SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
+"Выберите канал назначения. Вы можите просто ввести тип канала, например SIP, "
+"IAX2, Local. Или ввести полное имя канала, например SIP/1234."
 
 msgid "Dst Channel"
 msgstr "Исх. канал"
@@ -231,9 +252,9 @@ msgstr "Исх. канал"
 msgid ""
 "Search for destination calls. You can enter multiple sources separated by a "
 "comma. This field support Asterisk regular expression. Example<br>"
-msgstr "Поиск по номеру назначения. Можно ввести один номер или несколько "
-"Asterisk совместимых регулярных выражений разделенных запятой, "
-"например:<br>"
+msgstr ""
+"Поиск по номеру назначения. Можно ввести один номер или несколько Asterisk "
+"совместимых регулярных выражений разделенных запятой, например:<br>"
 
 msgid "Destination"
 msgstr "Куда звонил"
@@ -287,11 +308,11 @@ msgstr "Неудавшийся"
 msgid "No Answer"
 msgstr "Без ответа"
 
-msgid "Ascending"
-msgstr "возростанию"
+msgid "Oldest First"
+msgstr ""
 
-msgid "Descending"
-msgstr "убыванию"
+msgid "Newest First"
+msgstr ""
 
 msgid "Group By"
 msgstr "Группировать по"
@@ -338,6 +359,9 @@ msgstr "Кто звонил"
 msgid "Destination Number"
 msgstr "Куда звонил"
 
+msgid "Tech info"
+msgstr ""
+
 msgid "Search"
 msgstr "Искать"
 
@@ -352,6 +376,18 @@ msgstr "Файл"
 
 msgid "System"
 msgstr "Идентификатор"
+
+msgid "Src Chan."
+msgstr ""
+
+msgid "App."
+msgstr ""
+
+msgid "Dest."
+msgstr ""
+
+msgid "Dst. Chan."
+msgstr ""
 
 msgid "Account"
 msgstr "Account"
@@ -382,3 +418,15 @@ msgstr "Отчет по звонкам - одновременные звонки
 
 msgid "Time"
 msgstr "Время"
+
+#~ msgid "CDR Viewer"
+#~ msgstr "Отчет по звонкам"
+
+#~ msgid "System Administration"
+#~ msgstr "Системное администрирование"
+
+#~ msgid "Ascending"
+#~ msgstr "возростанию"
+
+#~ msgid "Descending"
+#~ msgstr "убыванию"
