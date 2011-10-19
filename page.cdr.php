@@ -19,6 +19,8 @@
 //    Portions Copyright (C) 2011 Igor Okunev
 //    Portions Copyright (C) Mikael Carlsson
 
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
+
 // For use in encrypt-decrypt of path and filename for the recordings
 include_once("crypt.php");
 switch ($action) {
