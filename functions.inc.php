@@ -27,32 +27,6 @@ function is_blank($value) {
 	return empty($value) && !is_numeric($value);
 }
 
-function cdr_formatFiles($uniqueid, $id) {
-	global $system_monitor_dir, $system_audio_format, $REC_CRYPT_PASSWORD;
-	// If we don't have any uniqueid in the cdr database, set a default of all zeros
-	// otherwise we get a false positive for every cdr record.
-	if($uniqueid == '') $uniqueid = '0000000000.0000';
-	// We only support recordings with uniqueid =  date-time-uniqueid.wav
-	$recorded_file = glob($system_monitor_dir . '/*' . $uniqueid . '.' . $system_audio_format);
-// TODO: Skip searching for extension, deal with that later.
-	if (count($recorded_file)>0) {
-		$recorded_file = basename($recorded_file[0],".$system_audio_format");
-	} else {
-		$recorded_file = $uniqueid;
-	}
-
-	if (file_exists("$system_monitor_dir/$recorded_file.$system_audio_format")) {
-		$crypt = new Crypt();
-		// Encrypt the complete file
-		$audio = urlencode($crypt->encrypt($system_monitor_dir."/".$recorded_file.".".$system_audio_format,$REC_CRYPT_PASSWORD));
-		$recurl=$_SERVER['PHP_SELF']."?display=cdr&action=cdr_play&recordingpath=$audio";
-		$playbackRow = $id +1;
-		echo "<td><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl'); return false;\"><img src=\"images/cdr_sound.png\" alt=\"Call recording\" /></a></td>";
-	} else {
-		echo "<td></td>";
-	}
-}
-
 /* CDR Table Display Functions */
 function cdr_formatCallDate($calldate) {
 	echo "<td>".$calldate."</td>";
@@ -119,6 +93,24 @@ function cdr_formatUserField($userfield) {
 
 function cdr_formatAccountCode($accountcode) {
 	echo "<td>".$accountcode."</td>";
+}
+
+function cdr_formatRecordingFile($recordingfile, $basename, $id) {
+
+	global $REC_CRYPT_PASSWORD;
+
+	if ($recordingfile) {
+		$crypt = new Crypt();
+		// Encrypt the complete file
+		$audio = urlencode($crypt->encrypt($recordingfile, $REC_CRYPT_PASSWORD));
+		$recurl=$_SERVER['PHP_SELF']."?display=cdr&action=cdr_play&recordingpath=$audio";
+		$playbackRow = $id +1;
+		//TODO: check with moshe on properly using the fpbx_label() in conjunction with the a tag here so this is not hard coded with the help span
+		//
+		echo "<td><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a><span class=\"help\">\"?\"<span>$basename</span></span></td>";
+	} else {
+		echo "<td></td>";
+	}
 }
 
 /* Asterisk RegExp parser */

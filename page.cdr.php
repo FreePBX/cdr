@@ -476,7 +476,7 @@ if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
 }
 
 if ( isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
-	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp` FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
+	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile` FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
 	$results = $db->getAll($query, DB_FETCHMODE_ASSOC);
 }
 if ( isset($results) ) {
@@ -489,7 +489,7 @@ if ( $tot_calls_raw ) {
 	echo "<table id=\"cdr_table\" class=\"cdr\">";
 	
 	$i = $h_step - 1;
-	$id = 0;  // tracker for recording index
+	$id = -1;  // tracker for recording index
 	foreach($results as $row) {
 		++$id;  // Start at table row 1
 		++$i;
@@ -497,7 +497,7 @@ if ( $tot_calls_raw ) {
 		?>
 			<tr>
 			<th class="record_col"><?php echo _("Call Date")?></th>
-			<th class="record_col"><?php echo _("File")?></th>
+			<th class="record_col"><?php echo _("Recording")?></th>
 			<th class="record_col"><?php echo _("System")?></th>
 			<th class="record_col"><?php echo _("Src Chan.")?></th>
 			<th class="record_col"><?php echo _("Source")?></th>
@@ -514,10 +514,29 @@ if ( $tot_calls_raw ) {
 			</tr>
 			<?php
 			$i = 0;
+			++$id; 
 		}
+
+		/* If CDR claims there is a call recording we make sure there is and the file is there, or we set it blank. In some cases
+		 * a recording may have been planned but not done so this assures there are no dead links.
+		 */
+		if ($row['recordingfile']) {
+			$rec_parts = explode('-',$row['recordingfile']);
+			$fyear = substr($rec_parts[3],0,4);
+			$fmonth = substr($rec_parts[3],4,2);
+			$fday = substr($rec_parts[3],6,2);
+			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor'; 
+			$recordingfile = "$monitor_base/$fyear/$fmonth/$fday/" . $row['recordingfile'];
+			if (!file_exists($recordingfile)) {
+				$recordingfile = '';
+			}
+		} else {
+			$recordingfile = '';
+		}
+
 		echo "  <tr class=\"record\">\n";
 		cdr_formatCallDate($row['calldate']);
-		cdr_formatFiles($row['uniqueid'], $id);
+		cdr_formatRecordingFile($recordingfile, $row['recordingfile'], $id);
 		cdr_formatUniqueID($row['uniqueid']);
 		cdr_formatChannel($row['channel']);
 		cdr_formatSrc($row['src'], $row['clid']);
