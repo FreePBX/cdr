@@ -28,6 +28,6 @@
 	<depends>
 		<module>core ge 2.6.0</module>
 	</depends>
-	<location>release/2.10/cdr-2.10.0.0.tgz</location>
-	<md5sum>8fcf256f98664acaac8dee58b58fec02</md5sum>
+	<location>release/2.10/cdr-2.10.0.1.tgz</location>
+	<md5sum>4b205aa6e689f051f95ec57fce4a30d4</md5sum>
 </module>
