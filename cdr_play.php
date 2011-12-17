@@ -1,4 +1,5 @@
 <?php
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 /**
  * @file
@@ -29,7 +30,7 @@ include_once("crypt.php");
 	$path = $crypt->decrypt($_REQUEST['recordingpath'],$REC_CRYPT_PASSWORD);
 	$file = urlencode($crypt->encrypt($path,$REC_CRYPT_PASSWORD));
 	if (isset($file)) {
-		echo("<embed width='100%' type='audio/basic' src='modules/cdr/cdr_audio.php?cdr_file=" .$file. "' width=300, height=25 autoplay=true loop=false></embed><br>");
+		echo("<embed width='100%' type='audio/basic' src='config.php?skip_astman=1&quietmode=1&handler=file&module=cdr&file=cdr_audio.php&cdr_file=" .$file. "' width=300, height=25 autoplay=true loop=false></embed><br>");
 	}
 ?>
   </body>
