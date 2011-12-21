@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>2.10.0.1</version>
+	<version>2.10.0.2</version>
 	<publisher>Mikael Carlsson</publisher>
 	<license>GPLv2+</license>
 	<category>Reports</category>
@@ -11,6 +11,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*2.10.0.2* #5478, $5479
 		*2.10.0.1* add call recordings to CDR
 		*2.10.0.0* #1426
 		*2.10.0.beta4*  Bug fixes, re-categorizations
