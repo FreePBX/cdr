@@ -36,7 +36,7 @@ $confs = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($confs)) { // no error... Already there
   out(_("Adding did field to cdr"));
   out(_("This might take a while......"));
-  $sql = "ALTER TABLE $db_name.$db_table_name ADD did VARCHAR ( 20 ) NOT NULL DEFAULT ''";
+  $sql = "ALTER TABLE $db_name.$db_table_name ADD did VARCHAR ( 50 ) NOT NULL DEFAULT ''";
   $results = $db->query($sql);
   if(DB::IsError($results)) {
     die($results->getMessage());
