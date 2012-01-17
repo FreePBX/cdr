@@ -24,7 +24,7 @@ global $db;
 global $amp_conf;
 // Retrieve database and table name if defined, otherwise use FreePBX default
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
-$db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRTABLENAME']:"cdr";
+$db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRDBTABLENAME']:"cdr";
 if (! function_exists("out")) {
         function out($text) {
                 echo $text."<br />";

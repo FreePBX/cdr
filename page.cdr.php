@@ -41,7 +41,7 @@ $db_result_limit = 100;
 
 // Check if cdr database and/or table is set, if not, use our default settings
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
-$db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRTABLENAME']:"cdr";
+$db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRDBTABLENAME']:"cdr";
 $system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."/monitor":"/var/spool/asterisk/monitor";
 
 // What format for recordings are set?
