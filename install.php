@@ -45,3 +45,20 @@ if (DB::IsError($confs)) { // no error... Already there
 } else {
   out(_("did field already present."));
 }
+
+out(_("Checking if field recordingfile is present in cdr table.."));
+$sql = "SELECT recordingfile FROM $db_name.$db_table_name";
+$confs = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if (DB::IsError($confs)) { // no error... Already there
+    out(_("Adding recordingfile field to cdr"));
+    $sql = "ALTER TABLE $db_name.$db_table_name ADD recordingfile VARCHAR ( 255 ) NOT NULL DEFAULT ''";
+    $results = $db->query($sql);
+    if(DB::IsError($results)) {
+        out(_('Unable to add recordingfile field to cdr table'));
+        freepbx_log(FPBX_LOG_ERROR,"failed to add recordingfile field to cdr table");
+    } else {
+        out(_("Added field recordingfile to cdr"));
+    }
+} else {
+      out(_("recordingfile field already present."));
+}
