@@ -35,12 +35,13 @@ function cdr_formatCallDate($calldate) {
 
 function cdr_formatUniqueID($uniqueid) {
 	$system = explode('-', $uniqueid, 2);
-	echo "<td>" . fpbx_label($system[0], _("UniqueID") . ": " . $uniqueid) . "</td>";
+	echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' 
+		. $system[0]  . "</td>";
 }
 
 function cdr_formatChannel($channel) {
 	$chan_type = explode('/', $channel, 2);
-	echo "<td>" . fpbx_label($chan_type[0], _("Channel") . ": " . $channel) . "</td>";
+	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $chan_type[0] . "</td>";
 }
 
 function cdr_formatSrc($src, $clid) {
@@ -48,20 +49,22 @@ function cdr_formatSrc($src, $clid) {
 		echo "<td class=\"record_col\">UNKNOWN</td>";
 	} else {
 		$clid = htmlspecialchars($clid);
-		echo "<td>" . fpbx_label($src, _("CallerID") . ": " . $clid) . "</td>";
+		echo '<td title="' . _("CallerID") . ": " . $clid . '">' . $src . "</td>";
 	}
 }
 
 function cdr_formatDID($did) {
-	echo "<td>" . fpbx_label($did, _("DID") . ": " . $did) . "</td>";
+	echo '<td title="' . _("DID") . ": " . $did . '">' . $did . "</td>";
 }
 
 function cdr_formatApp($app, $lastdata) {
-	echo "<td>" . fpbx_label($app, _("Application") . ": " . $app . "(" . $lastdata . ")") . "</td>";
+	echo '<td title="' .  _("Application") . ": " . $app . "(" . $lastdata . ")" . '">' 
+	. $app . "</td>";
 }
 
 function cdr_formatDst($dst, $dcontext) {
-	echo "<td>" . fpbx_label($dst, _("Destination Context") . ": " . $dcontext) . "</td>";
+	echo '<td title="' . _("Destination Context") . ": " . $dcontext . '">' 
+		. $dst . "</td>";
 }
 
 function cdr_formatDisposition($disposition, $amaflags) {
@@ -79,13 +82,15 @@ function cdr_formatDisposition($disposition, $amaflags) {
 		default:
 			$amaflags = 'DEFAULT';
 	}
-	echo "<td>" . fpbx_label($disposition, _("AMA Flag") . ": " . $amaflags) . "</td>";
+	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">' 
+		. $disposition . "</td>";
 }
 
 function cdr_formatDuration($duration, $billsec) {
 	$duration = sprintf('%02d', intval($duration/60)).':'.sprintf('%02d', intval($duration%60));
 	$billduration = sprintf('%02d', intval($billsec/60)).':'.sprintf('%02d', intval($billsec%60));
-	echo "<td>" . fpbx_label($duration, _("Billing Duration") . ": " . $billduration) . "</td>";
+	echo '<td title="' . _("Billing Duration") . ": " . $billduration . '">' 
+		. $duration . "</td>";
 }
 
 function cdr_formatUserField($userfield) {
@@ -106,9 +111,8 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id) {
 		$audio = urlencode($crypt->encrypt($recordingfile, $REC_CRYPT_PASSWORD));
 		$recurl=$_SERVER['PHP_SELF']."?display=cdr&action=cdr_play&recordingpath=$audio";
 		$playbackRow = $id +1;
-		//TODO: check with moshe on properly using the fpbx_label() in conjunction with the a tag here so this is not hard coded with the help span
 		//
-		echo "<td><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a><span class=\"help\">\"?\"<span>$basename</span></span></td>";
+		echo "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a></td>";
 	} else {
 		echo "<td></td>";
 	}
