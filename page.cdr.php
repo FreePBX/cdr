@@ -327,9 +327,88 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 </table>
-<a id="CDR"></a>
 
 <?php
+
+// Determine all CEL events associated with this uid, and then get all CDR records related to this event stream
+// to display below
+//
+if (!isset($_POST['need_html']) && $action == 'cel_show') {
+	echo '<a id="CEL"></a>';
+	$cdr_uids = array();
+
+	$uid = $db->escapeSimple($_REQUEST['uid']);
+
+	$db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:"asteriskcdrdb";
+	$db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
+	$cel = cdr_get_cel($uid, $db_cel_name . '.' . $db_cel_table_name);
+	$tot_cel_events = count($cel);
+
+	if ( $tot_cel_events ) {
+		echo "<p class=\"center title\">"._("Call Event Log - Search Returned")." ".$tot_cel_events." "._("Events")."</p>";
+		echo "<table id=\"cdr_table\" class=\"cdr\">";
+	
+		$i = $h_step - 1;
+		foreach($cel as $row) {
+
+			// accumulate all id's for CDR query
+			//
+			$cdr_uids[] = $row['uniqueid'];
+			$cdr_uids[] = $row['linkedid'];
+
+			++$i;
+			if ($i == $h_step) {
+			?>
+				<tr>
+				<th class="record_col"><?php echo _("Time")?></th>
+				<th class="record_col"><?php echo _("Event")?></th>
+				<th class="record_col"><?php echo _("CNAM")?></th>
+				<th class="record_col"><?php echo _("CNUM")?></th>
+				<th class="record_col"><?php echo _("ANI")?></th>
+				<th class="record_col"><?php echo _("DID")?></th>
+				<th class="record_col"><?php echo _("AMA")?></th>
+				<th class="record_col"><?php echo _("exten")?></th>
+				<th class="record_col"><?php echo _("context")?></th>
+				<th class="record_col"><?php echo _("App")?></th>
+				<th class="record_col"><?php echo _("channel")?></th>
+				<th class="record_col"><?php echo _("UserDefType")?></th>
+				<th class="record_col"><?php echo _("EventExtra")?></th>
+				<th class="img_col"><a href="#CEL" title="Go to the top of the CEL table"><img src="images/scrollup.gif" alt="CEL Table" /></a></th>
+				</tr>
+				<?php
+				$i = 0;
+			}
+	
+			echo "  <tr class=\"record\">\n";
+			cdr_formatCallDate($row['eventtime']);
+			cdr_cel_formatEventType($row['eventtype']);
+			cdr_formatCNAM($row['cid_name']);
+			cdr_formatCNUM($row['cid_num']);
+			cdr_formatANI($row['cid_ani']);
+			cdr_formatDID($row['cid_dnid']);
+			cdr_formatAMAFlags($row['amaflags']);
+			cdr_formatExten($row['exten']);
+			cdr_formatContext($row['context']);
+			cdr_formatApp($row['appname'], $row['appdata']);
+			cdr_cel_formatChannelName($row['channame']);
+			cdr_cel_formatUserDefType($row['userdeftype']);
+			cdr_cel_formatEventExtra($row['eventextra']);
+			echo "    <td></td>\n";
+			echo "    <td></td>\n";
+			echo "  </tr>\n";
+		} 
+		echo "</table>";
+	}
+	// now determine CDR query that we will use below in the same code that normally
+	// displays the CDR data, in this case all related records that are involved with
+	// this event stream.
+	//
+	$where = "WHERE `uniqueid` IN ('" . implode("','",array_unique($cdr_uids)) . "')";
+	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile` FROM $db_name.$db_table_name $where";
+	$resultscdr = $db->getAll($query, DB_FETCHMODE_ASSOC);
+}
+
+echo '<a id="CDR"></a>';
 foreach ( array_keys($_POST) as $key ) {
 	$_POST[$key] = preg_replace('/;/', ' ', $_POST[$key]);
 	$_POST[$key] = mysql_real_escape_string($_POST[$key]);
@@ -475,22 +554,29 @@ if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
 	cdr_export_csv($resultcsv);	
 }
 
-if ( isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
+if ( empty($resultcdr) && isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
 	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile` FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
-	$results = $db->getAll($query, DB_FETCHMODE_ASSOC);
+	$resultscdr = $db->getAll($query, DB_FETCHMODE_ASSOC);
 }
-if ( isset($results) ) {
-	$tot_calls_raw = sizeof($results);
+if ( isset($resultscdr) ) {
+	$tot_calls_raw = sizeof($resultscdr);
 } else {
 	$tot_calls_raw = 0;
 }
 if ( $tot_calls_raw ) {
-	echo "<p class=\"center title\">"._("Call Detail Record - Search Returned")." ".$tot_calls_raw." "._("Calls")."</p>";
+	// This is a bit of a hack, if we generated CEL data above, then these are simply the records all related to that CEL
+	// event stream.
+	//
+	if (!isset($cel)) {
+		echo "<p class=\"center title\">"._("Call Detail Record - Search Returned")." ".$tot_calls_raw." "._("Calls")."</p>";
+	} else {
+		echo "<p class=\"center title\">"._("Related Call Detail Records") . "</p>";
+	}
 	echo "<table id=\"cdr_table\" class=\"cdr\">";
 	
 	$i = $h_step - 1;
 	$id = -1;  // tracker for recording index
-	foreach($results as $row) {
+	foreach($resultscdr as $row) {
 		++$id;  // Start at table row 1
 		++$i;
 		if ($i == $h_step) {

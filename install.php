@@ -22,6 +22,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //
 global $db;
 global $amp_conf;
+
 // Retrieve database and table name if defined, otherwise use FreePBX default
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
 $db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRDBTABLENAME']:"cdr";
@@ -61,4 +62,49 @@ if (DB::IsError($confs)) { // no error... Already there
     }
 } else {
       out(_("recordingfile field already present."));
+}
+
+//TODO: Unix ODBC, MySQL Connector, Asteirsk ODBC, CEL and CEL_ODBC must all be configured for this to work
+//      and specifying this file for CEL data.
+//
+$db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:"asteriskcdrdb";
+$db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
+outn(_("Creating $db_cel_table_name if needed.."));
+$sql = "
+CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "." . $db_cel_table_name . "` (
+  `id` int(11) NOT NULL auto_increment,
+  `eventtype` varchar(30) NOT NULL,
+  `eventtime` datetime NOT NULL,
+  `cid_name` varchar(80) NOT NULL,
+  `cid_num` varchar(80) NOT NULL,
+  `cid_ani` varchar(80) NOT NULL,
+  `cid_rdnis` varchar(80) NOT NULL,
+  `cid_dnid` varchar(80) NOT NULL,
+  `exten` varchar(80) NOT NULL,
+  `context` varchar(80) NOT NULL,
+  `channame` varchar(80) NOT NULL,
+  `src` varchar(80) NOT NULL,
+  `dst` varchar(80) NOT NULL,
+  `channel` varchar(80) NOT NULL,
+  `dstchannel` varchar(80) NOT NULL,
+  `appname` varchar(80) NOT NULL,
+  `appdata` varchar(80) NOT NULL,
+  `amaflags` int(11) NOT NULL,
+  `accountcode` varchar(20) NOT NULL,
+  `uniqueid` varchar(32) NOT NULL,
+  `linkedid` varchar(32) NOT NULL,
+  `peer` varchar(80) NOT NULL,
+  `userdeftype` varchar(255) NOT NULL,
+  `eventextra` varchar(255) NOT NULL,
+  `userfield` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `uniqueid_index` (`uniqueid`),
+  KEY `linkedid_index` (`linkedid`)
+)
+";
+$check = $db->query($sql);
+if(DB::IsError($check)) {
+	die_freepbx("Can not create $db_cel_table_name table");
+} else {
+	out(_("OK"));
 }

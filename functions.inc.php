@@ -35,8 +35,9 @@ function cdr_formatCallDate($calldate) {
 
 function cdr_formatUniqueID($uniqueid) {
 	$system = explode('-', $uniqueid, 2);
-	echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' 
-		. $system[0]  . "</td>";
+	$href=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode($uniqueid);
+	echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' . 
+		'<a href="' . $href . '" >' . $system[0] . '</a></td>';
 }
 
 function cdr_formatChannel($channel) {
@@ -54,10 +55,18 @@ function cdr_formatSrc($src, $clid) {
 }
 
 function cdr_formatDID($did) {
+	$did = htmlspecialchars($did);
 	echo '<td title="' . _("DID") . ": " . $did . '">' . $did . "</td>";
 }
 
+function cdr_formatANI($ani) {
+	$ani = htmlspecialchars($ani);
+	echo '<td title="' . _("ANI") . ": " . $ani . '">' . $ani . "</td>";
+}
+
 function cdr_formatApp($app, $lastdata) {
+	$app = htmlspecialchars($app);
+	$lastdata = htmlspecialchars($lastdata);
 	echo '<td title="' .  _("Application") . ": " . $app . "(" . $lastdata . ")" . '">' 
 	. $app . "</td>";
 }
@@ -94,10 +103,12 @@ function cdr_formatDuration($duration, $billsec) {
 }
 
 function cdr_formatUserField($userfield) {
+	$userfield = htmlspecialchars($userfield);
 	echo "<td>".$userfield."</td>";
 }
 
 function cdr_formatAccountCode($accountcode) {
+	$accountcode = htmlspecialchars($accountcode);
 	echo "<td>".$accountcode."</td>";
 }
 
@@ -109,13 +120,79 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id) {
 		$crypt = new Crypt();
 		// Encrypt the complete file
 		$audio = urlencode($crypt->encrypt($recordingfile, $REC_CRYPT_PASSWORD));
-		$recurl=$_SERVER['PHP_SELF']."?display=cdr&action=cdr_play&recordingpath=$audio";
+		$recurl=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cdr_play&recordingpath=$audio";
 		$playbackRow = $id +1;
 		//
 		echo "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a></td>";
 	} else {
 		echo "<td></td>";
 	}
+}
+
+function cdr_formatCNAM($cnam) {
+	$cnam = htmlspecialchars($cnam);
+	echo '<td title="' . _("Caller ID Name") . ": " . $cnam . '">' . $cnam . "</td>";
+}
+
+function cdr_formatCNUM($cnum) {
+	$cnum = htmlspecialchars($cnum);
+	echo '<td title="' . _("Caller ID Number") . ": " . $cnum . '">' . $cnum . "</td>";
+}
+
+function cdr_formatExten($exten) {
+	$exten = htmlspecialchars($exten);
+	echo '<td title="' . _("Dialplan exten") . ": " . $exten . '">' . $exten . "</td>";
+}
+
+function cdr_formatContext($context) {
+	$context = htmlspecialchars($context);
+	echo '<td title="' . _("Dialplan context") . ": " . $context . '">' . $context . "</td>";
+}
+
+function cdr_formatAMAFlags($amaflags) {
+	switch ($amaflags) {
+		case 0:
+			$amaflags = 'DOCUMENTATION';
+			break;
+		case 1:
+			$amaflags = 'IGNORE';
+			break;
+		case 2:
+			$amaflags = 'BILLING';
+			break;
+		case 3:
+		default:
+			$amaflags = 'DEFAULT';
+	}
+	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">' 
+		. $amaflags . "</td>";
+}
+
+// CEL Specific Formating:
+//
+
+function cdr_cel_formatEventType($eventtype) {
+	$eventtype = htmlspecialchars($eventtype);
+	echo "<td>".$eventtype."</td>";
+}
+
+function cdr_cel_formatUserDefType($userdeftype) {
+	$userdeftype = htmlspecialchars($userdeftype);
+	echo '<td title="' .  _("UserDefType") . ": " . $userdeftype . '">' 
+	. $userdeftype . "</td>";
+}
+
+function cdr_cel_formatEventExtra($eventextra) {
+	$eventextra = htmlspecialchars($eventextra);
+	echo '<td title="' .  _("Event Extra") . ": " . $eventextra . '">' 
+	. $eventextra . "</td>";
+}
+
+function cdr_cel_formatChannelName($channel) {
+	$chan_type = explode('/', $channel, 2);
+	$type = htmlspecialchars($chan_type[0]);
+	$channel = htmlspecialchars($channel);
+	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $channel . "</td>";
 }
 
 /* Asterisk RegExp parser */
@@ -147,6 +224,53 @@ function cdr_asteriskregexp2sqllike( $source_data, $user_num ) {
                 $_POST[ $source_data .'_mod' ] = 'asterisk-regexp';
         }
         return $number;
+}
+
+function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
+	// common query components
+	//
+	$sql_base = "SELECT * FROM $cel_table WHERE "; 
+	$sql_order = " ORDER BY eventtime, id";
+
+
+	// get first set of CEL records
+	//
+	$sql_start = $sql_base . "uniqueid = '$uid' OR linkedid = '$uid'" . $sql_order;
+	$pass = sql($sql_start, 'getAll', DB_FETCHMODE_ASSOC);
+
+	$last_criteria = array();
+	$next =array();
+	$done = false;
+
+	// continue querying all records based on the uniqueid and linkedid fields associated
+	// with the first set we queried until we have found all of them. This usually results
+	// in one or two more queries prior to the last one being identical indicating we have
+	// found all the records
+	//
+	while (!$done) {
+		unset($next);
+		foreach ($pass as $set) {
+			$next[] = $set['uniqueid'];
+			$next[] = $set['linkedid'];
+		}
+		$next = array_unique($next);
+		sort($next);
+
+		// if our criteria is now the same then we have found everything
+		//
+		if ($next == $last_criteria) {
+			$done = true;
+			continue;
+		}
+		unset($pass);
+
+		$set = "('" . implode($next,"','") . "')"; 
+		$sql_next = $sql_base . "uniqueid IN $set OR linkedid IN $set" . $sql_order;
+		$last_criteria = $next;
+		$next = array();
+		$pass = sql($sql_next, 'getAll', DB_FETCHMODE_ASSOC);
+	}
+	return $pass;
 }
 
 function cdr_download($data, $name) {
