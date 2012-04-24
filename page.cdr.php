@@ -44,14 +44,24 @@ $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb"
 $db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRDBTABLENAME']:"cdr";
 $system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."/monitor":"/var/spool/asterisk/monitor";
 
-// What format for recordings are set?
-$sql = "SELECT value FROM globals where variable = 'MIXMON_FORMAT'";
-$mixmonformat = $db->getOne($sql);
-if(DB::IsError($mixmonformat)) {
-die_freepbx($mixmonformat->getMessage());
+// if CDRDBHOST and CDRDBTYPE are not empty then we assume an external connection and don't use the default connection
+//
+if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
+	$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
+	$db_type = $db_hash[$amp_conf["CDRDBTYPE"]];
+	$db_host = $amp_conf["CDRDBHOST"];
+	$db_port = empty($amp_conf["CDRDBPORT"]) ? '' :  ':' . $amp_conf["CDRDBPORT"];
+	$db_user = empty($amp_conf["CDRDBUSER"]) ? $amp_conf["AMPDBUSER"] : $amp_conf["CDRDBUSER"];
+	$db_pass = empty($amp_conf["CDRDBPASS"]) ? $amp_conf["AMPDBPASS"] : $amp_conf["CDRDBPASS"];
+	$datasource = $db_type . '://' . $db_user . ':' . $db_pass . '@' . $db_host . $db_port . '/' . $db_name;
+	$dbcdr = DB::connect($datasource); // attempt connection
+	if(DB::isError($dbcdr)) {
+		die_freepbx($dbcdr->getDebugInfo()); 
+	}
+} else {
+	$dbcdr = $db;
 }
-$system_audio_format = $mixmonformat;
-//$system_audio_format = 'wav';
+
 $h_step = 30;
 ?>
 	<h3><?php echo _('CDR Reports'); ?></h3><hr>
@@ -471,13 +481,13 @@ $where = "WHERE $date_range $channel $dstchannel $src $clid $did $dst $userfield
 
 if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
 	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
-	$resultcsv = $db->getAll($query, DB_FETCHMODE_ASSOC);
+	$resultcsv = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 	cdr_export_csv($resultcsv);	
 }
 
 if ( isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
 	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile` FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
-	$results = $db->getAll($query, DB_FETCHMODE_ASSOC);
+	$results = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 }
 if ( isset($results) ) {
 	$tot_calls_raw = sizeof($results);
@@ -639,7 +649,7 @@ switch ($group) {
 
 if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 	$query2 = "SELECT $group_by_field AS group_by_field, count(*) AS total_calls, sum(duration) AS total_duration FROM $db_name.$db_table_name $where GROUP BY group_by_field ORDER BY group_by_field ASC LIMIT $result_limit";
-	$result2 = $db->getAll($query2, DB_FETCHMODE_ASSOC);
+	$result2 = $dbcdr->getAll($query2, DB_FETCHMODE_ASSOC);
 
 	$tot_calls = 0;
 	$tot_duration = 0;
@@ -697,7 +707,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 	if ( strpos($group_by_field,'DATE_FORMAT') === false ) {
 		/* not date time fields */
 		$query3 = "SELECT $group_by_field AS group_by_field, count(*) AS total_calls, unix_timestamp(calldate) AS ts, duration FROM $db_name.$db_table_name $where GROUP BY group_by_field, unix_timestamp(calldate) ORDER BY group_by_field ASC LIMIT $result_limit";
-		$result3 = $db->getAll($query3, DB_FETCHMODE_ASSOC);
+		$result3 = $dbcdr->getAll($query3, DB_FETCHMODE_ASSOC);
 		$group_by_str = '';
 		foreach($result3 as $row) {
 			if ( $group_by_str != $row['group_by_field'] ) {
@@ -723,7 +733,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 	} else {
 		/* data fields */
 		$query3 = "SELECT unix_timestamp(calldate) AS ts, duration FROM $db_name.$db_table_name $where ORDER BY unix_timestamp(calldate) ASC LIMIT $result_limit";
-		$result3 = $db->getAll($query3, DB_FETCHMODE_ASSOC);
+		$result3 = $dbcdr->getAll($query3, DB_FETCHMODE_ASSOC);
 		$group_by_str = '';
 		foreach($result3 as $row) {
 			$group_by_str_cur = substr(strftime($group_by_field_php[0],$row['ts']),0,$group_by_field_php[1]) . $group_by_field_php[2];
