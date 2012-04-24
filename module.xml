@@ -3,14 +3,15 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>2.10.0.4</version>
-	<publisher>Mikael Carlsson</publisher>
+	<version>2.10.0.5</version>
+	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<category>Reports</category>
 	<menuitems>
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*2.10.0.5* #5788
 		*2.10.0.4* formatting tweaks 
 		*2.10.0.3* #5500
 		*2.10.0.2* #5478, $5479
