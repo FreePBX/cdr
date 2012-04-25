@@ -227,6 +227,8 @@ function cdr_asteriskregexp2sqllike( $source_data, $user_num ) {
 }
 
 function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
+	global $dbcdr;
+
 	// common query components
 	//
 	$sql_base = "SELECT * FROM $cel_table WHERE "; 
@@ -236,7 +238,10 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 	// get first set of CEL records
 	//
 	$sql_start = $sql_base . "uniqueid = '$uid' OR linkedid = '$uid'" . $sql_order;
-	$pass = sql($sql_start, 'getAll', DB_FETCHMODE_ASSOC);
+	$pass = $dbcdr->getAll($sql_start,DB_FETCHMODE_ASSOC);
+	if(DB::IsError($pass)) {
+		die_freepbx($pass->getDebugInfo() . "SQL - <br /> $sql_start" );
+	}
 
 	$last_criteria = array();
 	$next =array();
@@ -268,7 +273,10 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 		$sql_next = $sql_base . "uniqueid IN $set OR linkedid IN $set" . $sql_order;
 		$last_criteria = $next;
 		$next = array();
-		$pass = sql($sql_next, 'getAll', DB_FETCHMODE_ASSOC);
+		$pass = $dbcdr->getAll($sql_next,DB_FETCHMODE_ASSOC);
+		if(DB::IsError($pass)) {
+			die_freepbx($pass->getDebugInfo() . "SQL - <br /> $sql_next" );
+		}
 	}
 	return $pass;
 }
