@@ -90,7 +90,7 @@ $db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:"asteriskcd
 $db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
 outn(_("Creating $db_cel_table_name if needed.."));
 $sql = "
-CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "." . $db_cel_table_name . "` (
+CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "`.`" . $db_cel_table_name . "` (
   `id` int(11) NOT NULL auto_increment,
   `eventtype` varchar(30) NOT NULL,
   `eventtime` datetime NOT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "." . $db_cel_table_name . "` (
   KEY `linkedid_index` (`linkedid`)
 )
 ";
-$check = $db->query($sql);
+$check = $dbcdr->query($sql);
 if(DB::IsError($check)) {
 	die_freepbx("Can not create $db_cel_table_name table");
 } else {
