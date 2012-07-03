@@ -428,10 +428,40 @@ foreach ($mod_vars as $key => $val) {
 		}
 		switch ($val[1]) {
 			case "contains":
-				$$key = "AND $key $pre_like LIKE '%$val[0]%'";
+				if ($key == 'src') {
+                                        $values = explode(',',$val[0]);
+                                        if (count($values) > 1) {
+                                                foreach ($values as $key_like => $value_like) {
+                                                        if ($key_like == 0) {
+                                                                $$key = "AND $key $pre_like LIKE '%$value_like%'";
+                                                        } else {
+                                                                $$key .= " OR $key $pre_like LIKE '%$value_like%'";
+                                                        }
+                                                }
+                                        } else {
+                                                $$key = "AND $key $pre_like LIKE '%$val[0]%'";
+                                        }
+                                } else {
+                                        $$key = "AND $key $pre_like LIKE '%$val[0]%'";
+                                }
 			break;
 			case "ends_with":
-				$$key = "AND $key $pre_like LIKE '%$val[0]'";
+				if ($key == 'src') {
+                                        $values = explode(',',$val[0]);
+                                        if (count($values) > 1) {
+                                                foreach ($values as $key_like => $value_like) {
+                                                        if ($key_like == 0) {
+                                                                $$key = "AND $key $pre_like LIKE '%$value_like'";
+                                                        } else {
+                                                                $$key .= " OR $key $pre_like LIKE '%$value_like'";
+                                                        }
+                                                }
+                                        } else {
+                                                $$key = "AND $key $pre_like LIKE '%$val[0]'";
+                                        }
+                                } else {
+                                        $$key = "AND $key $pre_like LIKE '%$val[0]'";
+                                }
 			break;
 			case "exact":
 				if ( $val[2] == 'true' ) {
@@ -460,7 +490,22 @@ foreach ($mod_vars as $key => $val) {
 			break;
 			case "begins_with":
 			default:
-				$$key = "AND $key $pre_like LIKE '$val[0]%'";
+				if ($key == 'src') {
+					$values = explode(',',$val[0]);
+                                	if (count($values) > 1) {
+                                	        foreach ($values as $key_like => $value_like) {
+                                	                if ($key_like == 0) {
+                                	                        $$key = "AND $key $pre_like LIKE '$value_like%'";
+                                	                } else {
+                                	                        $$key .= " OR $key $pre_like LIKE '$value_like%'";
+                                	                }
+                                	        }
+	                                } else {
+                                        	$$key = "AND $key $pre_like LIKE '$val[0]%'";
+                                	}		
+				} else {
+					$$key = "AND $key $pre_like LIKE '$val[0]%'";
+				}	
 		}
 	}
 }
