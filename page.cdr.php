@@ -343,7 +343,7 @@ if (isset($_POST['limit']) ) {
 // Determine all CEL events associated with this uid, and then get all CDR records related to this event stream
 // to display below
 //
-if (!isset($_POST['need_html']) && $action == 'cel_show') {
+if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_show') {
 	echo '<a id="CEL"></a>';
 	$cdr_uids = array();
 

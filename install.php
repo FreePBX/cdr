@@ -127,3 +127,23 @@ if(DB::IsError($check)) {
 } else {
 	out(_("OK"));
 }
+
+$freepbx_conf =& freepbx_conf::create();
+if (!$freepbx_conf->conf_setting_exists('CEL_ENABLED')) {
+	// CEL_ENABLED
+	//
+	$value = $dbcdr->getOne("SELECT count(*) FROM $db_cel_name.$db_cel_table_name") > 0 ? true : false;
+	$set['value'] = $value;
+	$set['defaultval'] = false;
+	$set['readonly'] = 0;
+	$set['hidden'] = 0;
+	$set['level'] = 3;
+	$set['module'] = 'cdr';
+	$set['category'] = 'CDR Report Module';
+	$set['emptyok'] = 0;
+	$set['sortorder'] = 10;
+	$set['name'] = 'Enable CEL Reporting';
+	$set['description'] = 'Setting this true will enable the CDR module to drill down on CEL data for each CDR. Although the CDR module will assure there is a CEL table available, the reporting functionality in Asterisk and associated ODBC database and CEL configuration must be done outside of FreePBX either by the user or at the Distro level.';
+	$set['type'] = CONF_TYPE_BOOL;
+	$freepbx_conf->define_conf_setting('CEL_ENABLED',$set,true);
+}

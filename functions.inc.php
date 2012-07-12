@@ -34,10 +34,16 @@ function cdr_formatCallDate($calldate) {
 }
 
 function cdr_formatUniqueID($uniqueid) {
+	global $amp_conf;
+
 	$system = explode('-', $uniqueid, 2);
-	$href=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode($uniqueid);
-	echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' . 
-		'<a href="' . $href . '" >' . $system[0] . '</a></td>';
+	if ($amp_conf['CEL_ENABLED']) {
+		$href=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode($uniqueid);
+		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' . 
+			'<a href="' . $href . '" >' . $system[0] . '</a></td>';
+	} else {
+		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' . $system[0] . '</td>';
+	}
 }
 
 function cdr_formatChannel($channel) {

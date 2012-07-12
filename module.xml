@@ -11,7 +11,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
-		*2.11.0.alpha2* #5788
+		*2.11.0.alpha2* #5788, #5782 more
 		*2.11.0.alpha1* #5782 Adds some CEL support ODBC and CEL manual setup required see cel.man.zip
 		*2.10.0.4* formatting tweaks 
 		*2.10.0.3* #5500
