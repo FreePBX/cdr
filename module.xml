@@ -36,6 +36,3 @@
 	<location>release/2.11/cdr-2.11.0.alpha1.tgz</location>
 	<md5sum>088cb9d97e2f56a9cdf923ba068ca00a</md5sum>
 </module>
-	<location>release/2.10/cdr-2.10.0.6.tgz</location>
-	<md5sum>c4b9a0470673eb35582260988460e6cf</md5sum>
-</module>
