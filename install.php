@@ -83,9 +83,27 @@ if (DB::IsError($confs)) { // no error... Already there
       out(_("recordingfile field already present."));
 }
 
-//TODO: Unix ODBC, MySQL Connector, Asteirsk ODBC, CEL and CEL_ODBC must all be configured for this to work
-//      and specifying this file for CEL data.
-//
+$cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam');
+foreach($cid_fields as $cf) {
+	out(_("Checking if field $cf is present in cdr table.."));
+	$sql = "SELECT $cf FROM $db_name.$db_table_name";
+	$confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
+	if (DB::IsError($confs)) { // no error... Already there
+    	out(_("Adding $cf field to cdr"));
+    	$sql = "ALTER TABLE $db_name.$db_table_name ADD $cf VARCHAR ( 40 ) NOT NULL DEFAULT ''";
+    	$results = $dbcdr->query($sql);
+    	if(DB::IsError($results)) {
+        	out(_("Unable to add $cf field to cdr table"));
+        	freepbx_log(FPBX_LOG_ERROR,"failed to add $cf field to cdr table");
+    	} else {
+        	out(_("Added field $cf to cdr"));
+    	}
+	} else {
+      	out(_("$cf field already present."));
+	}
+}
+
+
 $db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:"asteriskcdrdb";
 $db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
 outn(_("Creating $db_cel_table_name if needed.."));
@@ -132,7 +150,8 @@ $freepbx_conf =& freepbx_conf::create();
 if (!$freepbx_conf->conf_setting_exists('CEL_ENABLED')) {
 	// CEL_ENABLED
 	//
-	$value = $dbcdr->getOne("SELECT count(*) FROM $db_cel_name.$db_cel_table_name") > 0 ? true : false;
+	//$value = $dbcdr->getOne("SELECT count(*) FROM $db_cel_name.$db_cel_table_name") > 0 ? true : false;
+	$value = true;
 	$set['value'] = $value;
 	$set['defaultval'] = false;
 	$set['readonly'] = 0;
