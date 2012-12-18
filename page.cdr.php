@@ -1030,6 +1030,9 @@ function cdr_formatApp($app, $lastdata) {
 }
 
 function cdr_formatDst($dst, $channel, $dcontext) {
+	if ($dst == 's') {
+		$dst .= ' (' . $dcontext . ')';
+	}
 	echo '<td title="' . _("Channel") . ": " . $channel . ' ' . _("Destination Context") . ": " . $dcontext . '">' 
 		. $dst . "</td>";
 }
