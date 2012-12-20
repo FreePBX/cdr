@@ -83,7 +83,7 @@ if (DB::IsError($confs)) { // no error... Already there
       out(_("recordingfile field already present."));
 }
 
-$cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam');
+$cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam');
 foreach($cid_fields as $cf) {
 	out(_("Checking if field $cf is present in cdr table.."));
 	$sql = "SELECT $cf FROM $db_name.$db_table_name";
@@ -97,6 +97,8 @@ foreach($cid_fields as $cf) {
         	freepbx_log(FPBX_LOG_ERROR,"failed to add $cf field to cdr table");
     	} else {
         	out(_("Added field $cf to cdr"));
+					// TODO: put onetime notification about old src field searches and query that could be
+					// done if user wants to get that into cnum field.
     	}
 	} else {
       	out(_("$cf field already present."));
