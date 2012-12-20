@@ -216,18 +216,6 @@ if (isset($_POST['limit']) ) {
 </tr>
 
 <tr>
-<?php $obcnam_tooltip = _("Select Outbound CallerID Name to search for.");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'outbound_cnam') { echo 'checked="checked"'; } ?> type="radio" name="order" value="outbound_cnam" />&nbsp;<label for="outbound_cnam"><?php echo "<a href=\"#\" class=\"info\">"._("Outbound CallerID Name")."<span>$obcnam_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="outbound_cnam" id="outbound_cnam" value="<?php if (isset($_POST['outbound_cnam'])) { echo htmlspecialchars($_POST['outbound_cnam']); } ?>" />
-<?php echo _("Not")?>:<input <?php if ( isset($_POST['outbound_cnam_neg'] ) && $_POST['outbound_cnam_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="outbound_cnam_neg" value="true" />
-<?php echo _("Begins With")?>:<input <?php if (empty($_POST['outbound_cnam_mod']) || $_POST['outbound_cnam_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnam_mod" value="begins_with" />
-<?php echo _("Contains")?>:<input <?php if (isset($_POST['outbound_cnam_mod']) && $_POST['outbound_cnam_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnam_mod" value="contains" />
-<?php echo _("Ends With")?>:<input <?php if (isset($_POST['outbound_cnam_mod']) && $_POST['outbound_cnam_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnam_mod" value="ends_with" />
-<?php echo _("Exactly")?>:<input <?php if (isset($_POST['outbound_cnam_mod']) && $_POST['outbound_cnam_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnam_mod" value="exact" />
-</td>
-</tr>
-
-<tr>
 <?php $did_tooltip = _("Search for a DID.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'did') { echo 'checked="checked"'; } ?> type="radio" name="order" value="did" />&nbsp;<label for="did"><?php echo "<a href=\"#\" class=\"info\">"._("DID")."<span>$did_tooltip</span></a>"?></label></td>
 <td><input type="text" name="did" id="did" value="<?php if (isset($_POST['did'])) { echo htmlspecialchars($_POST['did']); } ?>" />
@@ -257,6 +245,21 @@ if (isset($_POST['limit']) ) {
 <?php echo _("Exactly")?>:<input <?php if (isset($_POST['dst_mod']) && $_POST['dst_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="exact" />
 </td>
 </tr>
+<?php
+	// TODO: make this configurable since it requires outbound CNAM lookup
+?>
+<tr>
+<?php $dstcnam_tooltip = _("Select Destination Caller Name to search for.");?>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst_cnam') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst_cnam" />&nbsp;<label for="dst_cnam"><?php echo "<a href=\"#\" class=\"info\">"._("Destination CallerID Name")."<span>$dstcnam_tooltip</span></a>"?>:</label></td>
+<td><input type="text" name="dst_cnam" id="dst_cnam" value="<?php if (isset($_POST['dst_cnam'])) { echo htmlspecialchars($_POST['dst_cnam']); } ?>" />
+<?php echo _("Not")?>:<input <?php if ( isset($_POST['dst_cnam_neg'] ) && $_POST['dst_cnam_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dst_cnam_neg" value="true" />
+<?php echo _("Begins With")?>:<input <?php if (empty($_POST['dst_cnam_mod']) || $_POST['dst_cnam_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="begins_with" />
+<?php echo _("Contains")?>:<input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="contains" />
+<?php echo _("Ends With")?>:<input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'ends_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="ends_with" />
+<?php echo _("Exactly")?>:<input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'exact') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="exact" />
+</td>
+</tr>
+
 <tr>
 <?php $userfield_tooltip = _("Search for userfield data (if enabled).");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'userfield') { echo 'checked="checked"'; } ?> type="radio" name="order" value="userfield" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">"._("Userfield")."<span>$userfield_tooltip</span></a>"?>:</label></td>
@@ -426,7 +429,7 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 	// this event stream.
 	//
 	$where = "WHERE `uniqueid` IN ('" . implode("','",array_unique($cdr_uids)) . "')";
-	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile`, `cnum`, `cnam`, `outbound_cnum`, `outbound_cnam` FROM $db_name.$db_table_name $where";
+	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile`, `cnum`, `cnam`, `outbound_cnum`, `outbound_cnam`, `dst_cnam` FROM $db_name.$db_table_name $where";
 	$resultscdr = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 }
 
@@ -501,9 +504,9 @@ $mod_vars['cnam'][] = !isset($_POST['cnam']) ? NULL : $_POST['cnam'];
 $mod_vars['cnam'][] = empty($_POST['cnam_mod']) ? NULL : $_POST['cnam_mod'];
 $mod_vars['cnam'][] = empty($_POST['cnam_neg']) ? NULL : $_POST['cnam_neg'];
 
-$mod_vars['outbound_cnam'][] = !isset($_POST['outbound_cnam']) ? NULL : $_POST['outbound_cnam'];
-$mod_vars['outbound_cnam'][] = empty($_POST['outbound_cnam_mod']) ? NULL : $_POST['outbound_cnam_mod'];
-$mod_vars['outbound_cnam'][] = empty($_POST['outbound_cnam_neg']) ? NULL : $_POST['outbound_cnam_neg'];
+$mod_vars['dst_cnam'][] = !isset($_POST['dst_cnam']) ? NULL : $_POST['dst_cnam'];
+$mod_vars['dst_cnam'][] = empty($_POST['dst_cnam_mod']) ? NULL : $_POST['dst_cnam_mod'];
+$mod_vars['dst_cnam'][] = empty($_POST['dst_cnam_neg']) ? NULL : $_POST['dst_cnam_neg'];
 
 $mod_vars['did'][] = !isset($_POST['did']) ? NULL : $_POST['did'];
 $mod_vars['did'][] = empty($_POST['did_mod']) ? NULL : $_POST['did_mod'];
@@ -629,17 +632,17 @@ $sort = empty($_POST['sort']) ? 'DESC' : $_POST['sort'];
 $group = empty($_POST['group']) ? 'day' : $_POST['group'];
 
 // Build the "WHERE" part of the query
-$where = "WHERE $date_range $cnum $outbound_cnum $cnam $outbound_cnam $did $dst $userfield $accountcode $disposition $duration";
+$where = "WHERE $date_range $cnum $outbound_cnum $cnam $dst_cnam $did $dst $userfield $accountcode $disposition $duration";
 
 
 if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
-	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield, cnum, cnam, outbound_cnum, outbound_cnam FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
+	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield, cnum, cnam, outbound_cnum, outbound_cnam, dst_cnam FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
 	$resultcsv = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 	cdr_export_csv($resultcsv);	
 }
 
 if ( empty($resultcdr) && isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
-	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile`, `cnum`, `cnam`, `outbound_cnum`, `outbound_cnam`  FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
+	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile`, `cnum`, `cnam`, `outbound_cnum`, `outbound_cnam`, `dst_cnam`  FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
 	$resultscdr = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 }
 if ( isset($resultscdr) ) {
@@ -731,7 +734,7 @@ if ( $tot_calls_raw ) {
 		cdr_formatCallerID($row['outbound_cnam'], $row['outbound_cnum'], $row['dstchannel']);
 		cdr_formatDID($row['did']);
 		cdr_formatApp($row['lastapp'], $row['lastdata']);
-		cdr_formatDst($row['dst'], $row['dstchannel'], $row['dcontext']);
+		cdr_formatDst($row['dst'], $row['dst_cnam'], $row['dstchannel'], $row['dcontext']);
 		cdr_formatDisposition($row['disposition'], $row['amaflags']);
 		cdr_formatDuration($row['duration'], $row['billsec']);
 		cdr_formatUserField($row['userfield']);
@@ -876,7 +879,7 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 }
 if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 	$date_range = "( (calldate BETWEEN $startdate AND $enddate) or (calldate + interval duration second  BETWEEN $startdate AND $enddate) or ( calldate + interval duration second >= $enddate AND calldate <= $startdate ) )";
-	$where = "WHERE $date_range $cnum $outbound_cnum $cnam $outbound_cnam $did $dst $userfield $accountcode $disposition $duration";
+	$where = "WHERE $date_range $cnum $outbound_cnum $cnam $dst_cnam $did $dst $userfield $accountcode $disposition $duration";
 	
 	$tot_calls = 0;
 	$max_calls = 0;
@@ -1029,9 +1032,12 @@ function cdr_formatApp($app, $lastdata) {
 	. $app . "</td>";
 }
 
-function cdr_formatDst($dst, $channel, $dcontext) {
+function cdr_formatDst($dst, $dst_cnam, $channel, $dcontext) {
 	if ($dst == 's') {
 		$dst .= ' (' . $dcontext . ')';
+	}
+	if ($dst_cnam != '') {
+		$dst = '"' . $dst_cnam . '" ' . $dst;
 	}
 	echo '<td title="' . _("Channel") . ": " . $channel . ' ' . _("Destination Context") . ": " . $dcontext . '">' 
 		. $dst . "</td>";
