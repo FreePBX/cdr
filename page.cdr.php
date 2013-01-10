@@ -332,8 +332,13 @@ if (isset($_POST['limit']) ) {
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'month') { echo 'selected="selected"'; } ?> value="month"><?php echo _("Month")?></option>
 </optgroup>
 <optgroup label="<?php echo _("Telephone Number")?>">
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'src') { echo 'selected="selected"'; } ?> value="src"><?php echo _("Source Number")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'dst') { echo 'selected="selected"'; } ?> value="dst"><?php echo _("Destination Number")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'did') { echo 'selected="selected"'; } ?> value="did"><?php echo _("DID")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'cnum') { echo 'selected="selected"'; } ?> value="cnum"><?php echo _("Caller ID Number")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'cnam') { echo 'selected="selected"'; } ?> value="cnam"><?php echo _("Caller ID Name")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'outbound_cnum') { echo 'selected="selected"'; } ?> value="outbound_cnum"><?php echo _("Outbound Caller ID Number")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'outbound_cnam') { echo 'selected="selected"'; } ?> value="outbound_cnam"><?php echo _("Outbound Caller ID Name")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'dst_cnam') { echo 'selected="selected"'; } ?> value="dst_cnam"><?php echo _("Destination Caller ID Name")?></option>
 </optgroup>
 <optgroup label="<?php echo _("Tech info")?>">
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'disposition') { echo 'selected="selected"'; } ?> value="disposition">Disposition</option>
@@ -352,7 +357,6 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 </table>
-
 <?php
 
 // Determine all CEL events associated with this uid, and then get all CDR records related to this event stream
@@ -780,8 +784,23 @@ switch ($group) {
 	case "dst":
 		$graph_col_title = _("Destination Number");
 	break;
-	case "src":
-		$graph_col_title = _("Source Number");
+	case "did":
+		$graph_col_title = _("DID");
+	break;
+	case "cnum":
+		$graph_col_title = _("Caller ID Number");
+	break;
+	case "cnam":
+		$graph_col_title = _("Caller ID Name");
+	break;
+	case "outbound_cnum":
+		$graph_col_title = _("Outbound Caller ID Number");
+	break;
+	case "outbound_cnam":
+		$graph_col_title = _("Outbound Caller ID Name");
+	break;
+	case "dst_cnam":
+		$graph_col_title = _("Destination Caller ID Name");
 	break;
 	case "userfield":
 		$graph_col_title = _("User Field");
