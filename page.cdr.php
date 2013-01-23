@@ -37,7 +37,7 @@ global $amp_conf;
 // Are a crypt password specified? If not, use the supplied.
 $REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
 $dispnum = "cdr";
-$db_result_limit = 100;	
+$db_result_limit = 100;
 
 // Check if cdr database and/or table is set, if not, use our default settings
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
@@ -56,7 +56,7 @@ if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
 	$datasource = $db_type . '://' . $db_user . ':' . $db_pass . '@' . $db_host . $db_port . '/' . $db_name;
 	$dbcdr = DB::connect($datasource); // attempt connection
 	if(DB::isError($dbcdr)) {
-		die_freepbx($dbcdr->getDebugInfo()); 
+		die_freepbx($dbcdr->getDebugInfo());
 	}
 } else {
 	$dbcdr = $db;
@@ -376,7 +376,7 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 	if ( $tot_cel_events ) {
 		echo "<p class=\"center title\">"._("Call Event Log - Search Returned")." ".$tot_cel_events." "._("Events")."</p>";
 		echo "<table id=\"cdr_table\" class=\"cdr\">";
-	
+
 		$i = $h_step - 1;
 		foreach($cel as $row) {
 
@@ -407,7 +407,7 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 				<?php
 				$i = 0;
 			}
-	
+
 			echo "  <tr class=\"record\">\n";
 			cdr_formatCallDate($row['eventtime']);
 			cdr_cel_formatEventType($row['eventtype']);
@@ -425,7 +425,7 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 			echo "    <td></td>\n";
 			echo "    <td></td>\n";
 			echo "  </tr>\n";
-		} 
+		}
 		echo "</table>";
 	}
 	// now determine CDR query that we will use below in the same code that normally
@@ -459,8 +459,8 @@ $startmin = empty($_POST['startmin']) ? '00' : sprintf('%02d',$_POST['startmin']
 $startdate = "'$startyear-$startmonth-$startday $starthour:$startmin:00'";
 $start_timestamp = mktime( $starthour, $startmin, 59, $startmonth, $startday, $startyear );
 
-$endmonth = empty($_POST['endmonth']) ? date('m') : $_POST['endmonth'];  
-$endyear = empty($_POST['endyear']) ? date('Y') : $_POST['endyear'];  
+$endmonth = empty($_POST['endmonth']) ? date('m') : $_POST['endmonth'];
+$endyear = empty($_POST['endyear']) ? date('Y') : $_POST['endyear'];
 
 if (empty($_POST['endday']) || (isset($_POST['endday']) && ($_POST['endday'] > date('t', strtotime("$endyear-$endmonth-01"))))) {
 	$endday = $_POST['endday'] = date('t', strtotime("$endyear-$endmonth"));
@@ -586,18 +586,18 @@ foreach ($mod_vars as $key => $val) {
 			case "asterisk-regexp":
 				$ast_dids = preg_split('/\s*,\s*/', $val[0], -1, PREG_SPLIT_NO_EMPTY);
 				$ast_key = '';
-				foreach ($ast_dids as $did) {
+				foreach ($ast_dids as $adid) {
 					if (strlen($ast_key) > 0 ) {
 						if ( $pre_like == ' NOT ' ) {
 							$ast_key .= " and ";
 						} else {
 							$ast_key .= " or ";
 						}
-						if ( '_' == substr($did,0,1) ) {
-							$did = substr($did,1);
+						if ( '_' == substr($adid,0,1) ) {
+							$adid = substr($adid,1);
 						}
 					}
-					$ast_key .= " $key $pre_like RLIKE '^$did\$'";
+					$ast_key .= " $key $pre_like RLIKE '^$adid\$'";
 				}
 				$$key = "AND ( $ast_key )";
 			break;
@@ -615,10 +615,10 @@ foreach ($mod_vars as $key => $val) {
 						}
 					} else {
 						$$key = "AND $key $pre_like LIKE '$val[0]%'";
-					}		
+					}
 				} else {
 					$$key = "AND $key $pre_like LIKE '$val[0]%'";
-				}	
+				}
 			break;
 		}
 	}
@@ -642,7 +642,7 @@ $where = "WHERE $date_range $cnum $outbound_cnum $cnam $dst_cnam $did $dst $user
 if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
 	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield, cnum, cnam, outbound_cnum, outbound_cnam, dst_cnam FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
 	$resultcsv = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
-	cdr_export_csv($resultcsv);	
+	cdr_export_csv($resultcsv);
 }
 
 if ( empty($resultcdr) && isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
@@ -664,7 +664,7 @@ if ( $tot_calls_raw ) {
 		echo "<p class=\"center title\">"._("Related Call Detail Records") . "</p>";
 	}
 	echo "<table id=\"cdr_table\" class=\"cdr\">";
-	
+
 	$i = $h_step - 1;
 	$id = -1;  // tracker for recording index
 	foreach($resultscdr as $row) {
@@ -690,7 +690,7 @@ if ( $tot_calls_raw ) {
 			</tr>
 			<?php
 			$i = 0;
-			++$id; 
+			++$id;
 		}
 
 		/* If CDR claims there is a call recording we make sure there is and the file is there, or we set it blank. In some cases
@@ -701,7 +701,7 @@ if ( $tot_calls_raw ) {
 			$fyear = substr($rec_parts[3],0,4);
 			$fmonth = substr($rec_parts[3],4,2);
 			$fday = substr($rec_parts[3],6,2);
-			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor'; 
+			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 			$recordingfile = "$monitor_base/$fyear/$fmonth/$fday/" . $row['recordingfile'];
 			if (!file_exists($recordingfile)) {
 				$recordingfile = '';
@@ -746,7 +746,7 @@ if ( $tot_calls_raw ) {
 		echo "    <td></td>\n";
 		echo "    <td></td>\n";
 		echo "  </tr>\n";
-	} 
+	}
 	echo "</table>";
 }
 ?>
@@ -879,7 +879,7 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 		$html .= "<th class=\"img_col\"><a href=\"#Graph\" title=\""._("Go to the CDR Graph")."\"><img src=\"images/scrolldown.gif\" alt=\"CDR Graph\" /></a></th>";
 		$html .= "</tr>";
 		echo $html;
-	
+
 		foreach ($result_array as $row) {
 			$avg_call_time = sprintf('%02d', intval(($row['total_duration']/$row['total_calls'])/60)).':'.sprintf('%02d', intval($row['total_duration']/$row['total_calls']%60));
 			$bar_calls = $row['total_calls']/$max_calls*100;
@@ -899,7 +899,7 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 	$date_range = "( (calldate BETWEEN $startdate AND $enddate) or (calldate + interval duration second  BETWEEN $startdate AND $enddate) or ( calldate + interval duration second >= $enddate AND calldate <= $startdate ) )";
 	$where = "WHERE $date_range $cnum $outbound_cnum $cnam $dst_cnam $did $dst $userfield $accountcode $disposition $duration";
-	
+
 	$tot_calls = 0;
 	$max_calls = 0;
 	$result_array_cc = array();
@@ -977,7 +977,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 		$html .= "<th class=\"end_col\">"._("Time")."</th>";
 		$html .= "</tr>";
 		echo $html;
-	
+
 		ksort($result_array_cc);
 
 		foreach ( array_keys($result_array_cc) as $group_by_key ) {
@@ -1007,7 +1007,7 @@ function cdr_formatUniqueID($uniqueid) {
 	$system = explode('-', $uniqueid, 2);
 	if ($amp_conf['CEL_ENABLED']) {
 		$href=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode($uniqueid);
-		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' . 
+		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' .
 			'<a href="' . $href . '" >' . $system[0] . '</a></td>';
 	} else {
 		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' . $system[0] . '</td>';
@@ -1031,7 +1031,7 @@ function cdr_formatSrc($src, $clid) {
 function cdr_formatCallerID($cnam, $cnum, $channel) {
 	$dcnum = $cnum == '' && $cnam == '' ? '' : htmlspecialchars('<' . $cnum . '>');
 	$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . ' "');
-	echo '<td title="' ._("Channel") . ": " . $channel . '">' . $dcnam . $dcnum . '</td>';  
+	echo '<td title="' ._("Channel") . ": " . $channel . '">' . $dcnam . $dcnum . '</td>';
 }
 
 function cdr_formatDID($did) {
@@ -1047,7 +1047,7 @@ function cdr_formatANI($ani) {
 function cdr_formatApp($app, $lastdata) {
 	$app = htmlspecialchars($app);
 	$lastdata = htmlspecialchars($lastdata);
-	echo '<td title="' .  _("Application") . ": " . $app . "(" . $lastdata . ")" . '">' 
+	echo '<td title="' .  _("Application") . ": " . $app . "(" . $lastdata . ")" . '">'
 	. $app . "</td>";
 }
 
@@ -1058,7 +1058,7 @@ function cdr_formatDst($dst, $dst_cnam, $channel, $dcontext) {
 	if ($dst_cnam != '') {
 		$dst = '"' . $dst_cnam . '" ' . $dst;
 	}
-	echo '<td title="' . _("Channel") . ": " . $channel . ' ' . _("Destination Context") . ": " . $dcontext . '">' 
+	echo '<td title="' . _("Channel") . ": " . $channel . ' ' . _("Destination Context") . ": " . $dcontext . '">'
 		. $dst . "</td>";
 }
 
@@ -1077,14 +1077,14 @@ function cdr_formatDisposition($disposition, $amaflags) {
 		default:
 			$amaflags = 'DEFAULT';
 	}
-	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">' 
+	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">'
 		. $disposition . "</td>";
 }
 
 function cdr_formatDuration($duration, $billsec) {
 	$duration = sprintf('%02d', intval($duration/60)).':'.sprintf('%02d', intval($duration%60));
 	$billduration = sprintf('%02d', intval($billsec/60)).':'.sprintf('%02d', intval($billsec%60));
-	echo '<td title="' . _("Billing Duration") . ": " . $billduration . '">' 
+	echo '<td title="' . _("Billing Duration") . ": " . $billduration . '">'
 		. $duration . "</td>";
 }
 
@@ -1150,7 +1150,7 @@ function cdr_formatAMAFlags($amaflags) {
 		default:
 			$amaflags = 'DEFAULT';
 	}
-	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">' 
+	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">'
 		. $amaflags . "</td>";
 }
 
@@ -1164,13 +1164,13 @@ function cdr_cel_formatEventType($eventtype) {
 
 function cdr_cel_formatUserDefType($userdeftype) {
 	$userdeftype = htmlspecialchars($userdeftype);
-	echo '<td title="' .  _("UserDefType") . ": " . $userdeftype . '">' 
+	echo '<td title="' .  _("UserDefType") . ": " . $userdeftype . '">'
 	. $userdeftype . "</td>";
 }
 
 function cdr_cel_formatEventExtra($eventextra) {
 	$eventextra = htmlspecialchars($eventextra);
-	echo '<td title="' .  _("Event Extra") . ": " . $eventextra . '">' 
+	echo '<td title="' .  _("Event Extra") . ": " . $eventextra . '">'
 	. $eventextra . "</td>";
 }
 
