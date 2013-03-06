@@ -37,7 +37,7 @@ global $amp_conf;
 // Are a crypt password specified? If not, use the supplied.
 $REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
 $dispnum = "cdr";
-$db_result_limit = 100;	
+$db_result_limit = 100;
 
 // Check if cdr database and/or table is set, if not, use our default settings
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
@@ -56,7 +56,7 @@ if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
 	$datasource = $db_type . '://' . $db_user . ':' . $db_pass . '@' . $db_host . $db_port . '/' . $db_name;
 	$dbcdr = DB::connect($datasource); // attempt connection
 	if(DB::isError($dbcdr)) {
-		die_freepbx($dbcdr->getDebugInfo()); 
+		die_freepbx($dbcdr->getDebugInfo());
 	}
 } else {
 	$dbcdr = $db;
@@ -361,8 +361,8 @@ $startmin = empty($_POST['startmin']) ? '00' : sprintf('%02d',$_POST['startmin']
 $startdate = "'$startyear-$startmonth-$startday $starthour:$startmin:00'";
 $start_timestamp = mktime( $starthour, $startmin, 59, $startmonth, $startday, $startyear );
 
-$endmonth = empty($_POST['endmonth']) ? date('m') : $_POST['endmonth'];  
-$endyear = empty($_POST['endyear']) ? date('Y') : $_POST['endyear'];  
+$endmonth = empty($_POST['endmonth']) ? date('m') : $_POST['endmonth'];
+$endyear = empty($_POST['endyear']) ? date('Y') : $_POST['endyear'];
 
 if (empty($_POST['endday']) || (isset($_POST['endday']) && ($_POST['endday'] > date('t', strtotime("$endyear-$endmonth-01"))))) {
 	$endday = $_POST['endday'] = date('t', strtotime("$endyear-$endmonth"));
@@ -415,7 +415,7 @@ $mod_vars['userfield'][] = empty($_POST['userfield_neg']) ? NULL : $_POST['userf
 $mod_vars['accountcode'][] = !isset($_POST['accountcode']) ? NULL : $_POST['accountcode'];
 $mod_vars['accountcode'][] = empty($_POST['accountcode_mod']) ? NULL : $_POST['accountcode_mod'];
 $mod_vars['accountcode'][] = empty($_POST['accountcode_neg']) ? NULL : $_POST['accountcode_neg'];
-$result_limit = !isset($_POST['limit']) ? $db_result_limit : $_POST['limit'];
+$result_limit = (!isset($_POST['limit']) || empty($_POST['limit'])) ? $db_result_limit : $_POST['limit'];
 
 foreach ($mod_vars as $key => $val) {
 	if (is_blank($val[0])) {
@@ -502,10 +502,10 @@ foreach ($mod_vars as $key => $val) {
                                 	        }
 	                                } else {
                                         	$$key = "AND $key $pre_like LIKE '$val[0]%'";
-                                	}		
+                                	}
 				} else {
 					$$key = "AND $key $pre_like LIKE '$val[0]%'";
-				}	
+				}
 		}
 	}
 }
@@ -527,7 +527,7 @@ $where = "WHERE $date_range $channel $dstchannel $src $clid $did $dst $userfield
 if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
 	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
 	$resultcsv = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
-	cdr_export_csv($resultcsv);	
+	cdr_export_csv($resultcsv);
 }
 
 if ( isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
@@ -542,7 +542,7 @@ if ( isset($results) ) {
 if ( $tot_calls_raw ) {
 	echo "<p class=\"center title\">"._("Call Detail Record - Search Returned")." ".$tot_calls_raw." "._("Calls")."</p>";
 	echo "<table id=\"cdr_table\" class=\"cdr\">";
-	
+
 	$i = $h_step - 1;
 	$id = -1;  // tracker for recording index
 	foreach($results as $row) {
@@ -569,7 +569,7 @@ if ( $tot_calls_raw ) {
 			</tr>
 			<?php
 			$i = 0;
-			++$id; 
+			++$id;
 		}
 
 		/* If CDR claims there is a call recording we make sure there is and the file is there, or we set it blank. In some cases
@@ -580,7 +580,7 @@ if ( $tot_calls_raw ) {
 			$fyear = substr($rec_parts[3],0,4);
 			$fmonth = substr($rec_parts[3],4,2);
 			$fday = substr($rec_parts[3],6,2);
-			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor'; 
+			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 			$recordingfile = "$monitor_base/$fyear/$fmonth/$fday/" . $row['recordingfile'];
 			if (!file_exists($recordingfile)) {
 				$recordingfile = '';
@@ -606,7 +606,7 @@ if ( $tot_calls_raw ) {
 		echo "    <td></td>\n";
 		echo "    <td></td>\n";
 		echo "  </tr>\n";
-	} 
+	}
 	echo "</table>";
 }
 ?>
@@ -724,7 +724,7 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 		$html .= "<th class=\"img_col\"><a href=\"#Graph\" title=\""._("Go to the CDR Graph")."\"><img src=\"images/scrolldown.gif\" alt=\"CDR Graph\" /></a></th>";
 		$html .= "</tr>";
 		echo $html;
-	
+
 		foreach ($result_array as $row) {
 			$avg_call_time = sprintf('%02d', intval(($row['total_duration']/$row['total_calls'])/60)).':'.sprintf('%02d', intval($row['total_duration']/$row['total_calls']%60));
 			$bar_calls = $row['total_calls']/$max_calls*100;
@@ -744,7 +744,7 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 	$date_range = "( (calldate BETWEEN $startdate AND $enddate) or (calldate + interval duration second  BETWEEN $startdate AND $enddate) or ( calldate + interval duration second >= $enddate AND calldate <= $startdate ) )";
 	$where = "WHERE $date_range $channel $dstchannel $src $clid $dst $userfield $accountcode $disposition $duration";
-	
+
 	$tot_calls = 0;
 	$max_calls = 0;
 	$result_array_cc = array();
@@ -822,7 +822,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 		$html .= "<th class=\"end_col\">"._("Time")."</th>";
 		$html .= "</tr>";
 		echo $html;
-	
+
 		ksort($result_array_cc);
 
 		foreach ( array_keys($result_array_cc) as $group_by_key ) {
