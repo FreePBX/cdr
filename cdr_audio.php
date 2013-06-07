@@ -41,8 +41,8 @@ if (isset($_REQUEST['cdr_file'])) {
 			$ctype="audio/x-g729";
 			break;
 	// not downloadable
-		default: 
-//		echo ("<b>404 File not found! foo</b>"); 
+		default:
+//		echo ("<b>404 File not found! foo</b>");
 // TODO: what to do if none of the above work?
 		break ;
 	}
@@ -58,8 +58,15 @@ if (isset($_REQUEST['cdr_file'])) {
     header("Content-Disposition: attachment; filename=" . $name);
     header("Content-Transfer-Encoding: binary");
     header("Content-length: " . $size);
-    fpassthru($fp);
-  } 
+    $chunksize = 1*(1024*1024);
+    while (!feof($fp)) {
+        $buffer = fread($fp, $chunksize);
+        echo $buffer;
+        ob_flush();
+        flush();
+    }
+    fclose($fp);
+  }
 }
 
 ?>
