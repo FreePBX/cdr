@@ -106,7 +106,7 @@ foreach($cid_fields as $cf) {
 }
 
 
-$db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:"asteriskcdrdb";
+$db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:$db_name;
 $db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
 outn(_("Creating $db_cel_table_name if needed.."));
 $sql = "
