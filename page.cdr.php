@@ -1053,7 +1053,7 @@ function cdr_formatApp($app, $lastdata) {
 
 function cdr_formatDst($dst, $dst_cnam, $channel, $dcontext) {
 	if ($dst == 's') {
-		$dst .= ' (' . $dcontext . ')';
+		$dst .= ' [' . $dcontext . ']';
 	}
 	if ($dst_cnam != '') {
 		$dst = '"' . $dst_cnam . '" ' . $dst;
