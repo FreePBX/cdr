@@ -32,4 +32,4 @@
 	</depends>
 	<location>release/2.10/cdr-2.10.0.3.tgz</location>
 	<md5sum>991b91c5931dc10be5f221db0e32d3c5</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>
