@@ -23,4 +23,4 @@
 	</depends>
 	<location>release/2.10/cdr-2.10.0.alpha4.tgz</location>
 	<md5sum>af88bab5c736de65fa1ee37234ad946e</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>
