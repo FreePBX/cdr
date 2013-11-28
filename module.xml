@@ -34,4 +34,4 @@
 	</depends>
 	<location>release/2.11/cdr-2.11.0.alpha1.tgz</location>
 	<md5sum>088cb9d97e2f56a9cdf923ba068ca00a</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
