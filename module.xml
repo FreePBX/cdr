@@ -41,4 +41,4 @@
 	</depends>
 	<location>release/2.11/cdr-2.11.0.2.tgz</location>
 	<md5sum>6bd6caff8db649734b75064145e254b6</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
