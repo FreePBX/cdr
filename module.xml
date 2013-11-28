@@ -26,4 +26,4 @@
 	</depends>
 	<location>release/2.10/cdr-2.10.0.beta1.tgz</location>
 	<md5sum>c5be81848f21037456fc023508733893</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>
