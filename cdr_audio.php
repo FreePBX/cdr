@@ -40,10 +40,9 @@ if (isset($_REQUEST['cdr_file'])) {
 		case "g729":
 			$ctype="audio/x-g729";
 			break;
-	// not downloadable
-		default:
-//		echo ("<b>404 File not found! foo</b>");
-// TODO: what to do if none of the above work?
+		default: //not downloadable
+			// echo ("<b>404 File not found! foo</b>");
+			// TODO: what to do if none of the above work?
 		break ;
 	}
 
@@ -53,7 +52,7 @@ if (isset($_REQUEST['cdr_file'])) {
     header("Expires: 0");
     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
     header("Cache-Control: public");
-    header("Content-Description: wav file");
+    header("Content-Description: audio file");
     header("Content-Type: " . $ctype);
     header("Content-Disposition: attachment; filename=" . $name);
     header("Content-Transfer-Encoding: binary");
