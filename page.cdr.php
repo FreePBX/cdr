@@ -37,21 +37,31 @@ global $amp_conf;
 // Are a crypt password specified? If not, use the supplied.
 $REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
 $dispnum = "cdr";
-$db_result_limit = 100;	
+$db_result_limit = 100;
 
 // Check if cdr database and/or table is set, if not, use our default settings
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
 $db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRDBTABLENAME']:"cdr";
 $system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."/monitor":"/var/spool/asterisk/monitor";
 
-// What format for recordings are set?
-$sql = "SELECT value FROM globals where variable = 'MIXMON_FORMAT'";
-$mixmonformat = $db->getOne($sql);
-if(DB::IsError($mixmonformat)) {
-die_freepbx($mixmonformat->getMessage());
+// if CDRDBHOST and CDRDBTYPE are not empty then we assume an external connection and don't use the default connection
+//
+if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
+	$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
+	$db_type = $db_hash[$amp_conf["CDRDBTYPE"]];
+	$db_host = $amp_conf["CDRDBHOST"];
+	$db_port = empty($amp_conf["CDRDBPORT"]) ? '' :  ':' . $amp_conf["CDRDBPORT"];
+	$db_user = empty($amp_conf["CDRDBUSER"]) ? $amp_conf["AMPDBUSER"] : $amp_conf["CDRDBUSER"];
+	$db_pass = empty($amp_conf["CDRDBPASS"]) ? $amp_conf["AMPDBPASS"] : $amp_conf["CDRDBPASS"];
+	$datasource = $db_type . '://' . $db_user . ':' . $db_pass . '@' . $db_host . $db_port . '/' . $db_name;
+	$dbcdr = DB::connect($datasource); // attempt connection
+	if(DB::isError($dbcdr)) {
+		die_freepbx($dbcdr->getDebugInfo());
+	}
+} else {
+	$dbcdr = $db;
 }
-$system_audio_format = $mixmonformat;
-//$system_audio_format = 'wav';
+
 $h_step = 30;
 ?>
 	<h3><?php echo _('CDR Reports'); ?></h3><hr>
@@ -279,7 +289,7 @@ if (isset($_POST['limit']) ) {
 <option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'FAILED') { echo 'selected="selected"'; } ?> value="FAILED"><?php echo _("Failed")?></option>
 <option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'NO ANSWER') { echo 'selected="selected"'; } ?> value="NO ANSWER"><?php echo _("No Answer")?></option>
 </select>
-<?php echo _("Not")?>:<input <?php if ( isset($_POST['dispositio_neg'] ) && $_POST['disposition_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="disposition_neg" value="true" />
+<?php echo _("Not")?>:<input <?php if ( isset($_POST['disposition_neg'] ) && $_POST['disposition_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="disposition_neg" value="true" />
 </td>
 </tr>
 <tr>
@@ -351,8 +361,8 @@ $startmin = empty($_POST['startmin']) ? '00' : sprintf('%02d',$_POST['startmin']
 $startdate = "'$startyear-$startmonth-$startday $starthour:$startmin:00'";
 $start_timestamp = mktime( $starthour, $startmin, 59, $startmonth, $startday, $startyear );
 
-$endmonth = empty($_POST['endmonth']) ? date('m') : $_POST['endmonth'];  
-$endyear = empty($_POST['endyear']) ? date('Y') : $_POST['endyear'];  
+$endmonth = empty($_POST['endmonth']) ? date('m') : $_POST['endmonth'];
+$endyear = empty($_POST['endyear']) ? date('Y') : $_POST['endyear'];
 
 if (empty($_POST['endday']) || (isset($_POST['endday']) && ($_POST['endday'] > date('t', strtotime("$endyear-$endmonth-01"))))) {
 	$endday = $_POST['endday'] = date('t', strtotime("$endyear-$endmonth"));
@@ -405,7 +415,7 @@ $mod_vars['userfield'][] = empty($_POST['userfield_neg']) ? NULL : $_POST['userf
 $mod_vars['accountcode'][] = !isset($_POST['accountcode']) ? NULL : $_POST['accountcode'];
 $mod_vars['accountcode'][] = empty($_POST['accountcode_mod']) ? NULL : $_POST['accountcode_mod'];
 $mod_vars['accountcode'][] = empty($_POST['accountcode_neg']) ? NULL : $_POST['accountcode_neg'];
-$result_limit = !isset($_POST['limit']) ? $db_result_limit : $_POST['limit'];
+$result_limit = (!isset($_POST['limit']) || empty($_POST['limit'])) ? $db_result_limit : $_POST['limit'];
 
 foreach ($mod_vars as $key => $val) {
 	if (is_blank($val[0])) {
@@ -418,10 +428,40 @@ foreach ($mod_vars as $key => $val) {
 		}
 		switch ($val[1]) {
 			case "contains":
-				$$key = "AND $key $pre_like LIKE '%$val[0]%'";
+				if ($key == 'src') {
+                                        $values = explode(',',$val[0]);
+                                        if (count($values) > 1) {
+                                                foreach ($values as $key_like => $value_like) {
+                                                        if ($key_like == 0) {
+                                                                $$key = "AND $key $pre_like LIKE '%$value_like%'";
+                                                        } else {
+                                                                $$key .= " OR $key $pre_like LIKE '%$value_like%'";
+                                                        }
+                                                }
+                                        } else {
+                                                $$key = "AND $key $pre_like LIKE '%$val[0]%'";
+                                        }
+                                } else {
+                                        $$key = "AND $key $pre_like LIKE '%$val[0]%'";
+                                }
 			break;
 			case "ends_with":
-				$$key = "AND $key $pre_like LIKE '%$val[0]'";
+				if ($key == 'src') {
+                                        $values = explode(',',$val[0]);
+                                        if (count($values) > 1) {
+                                                foreach ($values as $key_like => $value_like) {
+                                                        if ($key_like == 0) {
+                                                                $$key = "AND $key $pre_like LIKE '%$value_like'";
+                                                        } else {
+                                                                $$key .= " OR $key $pre_like LIKE '%$value_like'";
+                                                        }
+                                                }
+                                        } else {
+                                                $$key = "AND $key $pre_like LIKE '%$val[0]'";
+                                        }
+                                } else {
+                                        $$key = "AND $key $pre_like LIKE '%$val[0]'";
+                                }
 			break;
 			case "exact":
 				if ( $val[2] == 'true' ) {
@@ -450,7 +490,22 @@ foreach ($mod_vars as $key => $val) {
 			break;
 			case "begins_with":
 			default:
-				$$key = "AND $key $pre_like LIKE '$val[0]%'";
+				if ($key == 'src') {
+					$values = explode(',',$val[0]);
+                                	if (count($values) > 1) {
+                                	        foreach ($values as $key_like => $value_like) {
+                                	                if ($key_like == 0) {
+                                	                        $$key = "AND $key $pre_like LIKE '$value_like%'";
+                                	                } else {
+                                	                        $$key .= " OR $key $pre_like LIKE '$value_like%'";
+                                	                }
+                                	        }
+	                                } else {
+                                        	$$key = "AND $key $pre_like LIKE '$val[0]%'";
+                                	}
+				} else {
+					$$key = "AND $key $pre_like LIKE '$val[0]%'";
+				}
 		}
 	}
 }
@@ -471,13 +526,13 @@ $where = "WHERE $date_range $channel $dstchannel $src $clid $did $dst $userfield
 
 if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
 	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
-	$resultcsv = $db->getAll($query, DB_FETCHMODE_ASSOC);
-	cdr_export_csv($resultcsv);	
+	$resultcsv = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
+	cdr_export_csv($resultcsv);
 }
 
 if ( isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
 	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile` FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
-	$results = $db->getAll($query, DB_FETCHMODE_ASSOC);
+	$results = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 }
 if ( isset($results) ) {
 	$tot_calls_raw = sizeof($results);
@@ -487,7 +542,7 @@ if ( isset($results) ) {
 if ( $tot_calls_raw ) {
 	echo "<p class=\"center title\">"._("Call Detail Record - Search Returned")." ".$tot_calls_raw." "._("Calls")."</p>";
 	echo "<table id=\"cdr_table\" class=\"cdr\">";
-	
+
 	$i = $h_step - 1;
 	$id = -1;  // tracker for recording index
 	foreach($results as $row) {
@@ -514,7 +569,7 @@ if ( $tot_calls_raw ) {
 			</tr>
 			<?php
 			$i = 0;
-			++$id; 
+			++$id;
 		}
 
 		/* If CDR claims there is a call recording we make sure there is and the file is there, or we set it blank. In some cases
@@ -525,7 +580,7 @@ if ( $tot_calls_raw ) {
 			$fyear = substr($rec_parts[3],0,4);
 			$fmonth = substr($rec_parts[3],4,2);
 			$fday = substr($rec_parts[3],6,2);
-			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor'; 
+			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 			$recordingfile = "$monitor_base/$fyear/$fmonth/$fday/" . $row['recordingfile'];
 			if (!file_exists($recordingfile)) {
 				$recordingfile = '';
@@ -551,7 +606,7 @@ if ( $tot_calls_raw ) {
 		echo "    <td></td>\n";
 		echo "    <td></td>\n";
 		echo "  </tr>\n";
-	} 
+	}
 	echo "</table>";
 }
 ?>
@@ -639,7 +694,7 @@ switch ($group) {
 
 if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 	$query2 = "SELECT $group_by_field AS group_by_field, count(*) AS total_calls, sum(duration) AS total_duration FROM $db_name.$db_table_name $where GROUP BY group_by_field ORDER BY group_by_field ASC LIMIT $result_limit";
-	$result2 = $db->getAll($query2, DB_FETCHMODE_ASSOC);
+	$result2 = $dbcdr->getAll($query2, DB_FETCHMODE_ASSOC);
 
 	$tot_calls = 0;
 	$tot_duration = 0;
@@ -669,7 +724,7 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 		$html .= "<th class=\"img_col\"><a href=\"#Graph\" title=\""._("Go to the CDR Graph")."\"><img src=\"images/scrolldown.gif\" alt=\"CDR Graph\" /></a></th>";
 		$html .= "</tr>";
 		echo $html;
-	
+
 		foreach ($result_array as $row) {
 			$avg_call_time = sprintf('%02d', intval(($row['total_duration']/$row['total_calls'])/60)).':'.sprintf('%02d', intval($row['total_duration']/$row['total_calls']%60));
 			$bar_calls = $row['total_calls']/$max_calls*100;
@@ -689,7 +744,7 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 	$date_range = "( (calldate BETWEEN $startdate AND $enddate) or (calldate + interval duration second  BETWEEN $startdate AND $enddate) or ( calldate + interval duration second >= $enddate AND calldate <= $startdate ) )";
 	$where = "WHERE $date_range $channel $dstchannel $src $clid $dst $userfield $accountcode $disposition $duration";
-	
+
 	$tot_calls = 0;
 	$max_calls = 0;
 	$result_array_cc = array();
@@ -697,7 +752,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 	if ( strpos($group_by_field,'DATE_FORMAT') === false ) {
 		/* not date time fields */
 		$query3 = "SELECT $group_by_field AS group_by_field, count(*) AS total_calls, unix_timestamp(calldate) AS ts, duration FROM $db_name.$db_table_name $where GROUP BY group_by_field, unix_timestamp(calldate) ORDER BY group_by_field ASC LIMIT $result_limit";
-		$result3 = $db->getAll($query3, DB_FETCHMODE_ASSOC);
+		$result3 = $dbcdr->getAll($query3, DB_FETCHMODE_ASSOC);
 		$group_by_str = '';
 		foreach($result3 as $row) {
 			if ( $group_by_str != $row['group_by_field'] ) {
@@ -723,7 +778,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 	} else {
 		/* data fields */
 		$query3 = "SELECT unix_timestamp(calldate) AS ts, duration FROM $db_name.$db_table_name $where ORDER BY unix_timestamp(calldate) ASC LIMIT $result_limit";
-		$result3 = $db->getAll($query3, DB_FETCHMODE_ASSOC);
+		$result3 = $dbcdr->getAll($query3, DB_FETCHMODE_ASSOC);
 		$group_by_str = '';
 		foreach($result3 as $row) {
 			$group_by_str_cur = substr(strftime($group_by_field_php[0],$row['ts']),0,$group_by_field_php[1]) . $group_by_field_php[2];
@@ -767,7 +822,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 		$html .= "<th class=\"end_col\">"._("Time")."</th>";
 		$html .= "</tr>";
 		echo $html;
-	
+
 		ksort($result_array_cc);
 
 		foreach ( array_keys($result_array_cc) as $group_by_key ) {
