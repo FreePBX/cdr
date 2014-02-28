@@ -20,19 +20,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2012-10-30 00:04+0400\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
-"Last-Translator: Igor Okunev <igor.okunev@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Postmet <ceo@postmet.com>\n"
+"Language-Team: Postmet <ceo@postmet.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "CDR Reports"
-msgstr ""
+msgstr "Отчёты CDR"
 
 msgid "Reports"
-msgstr ""
+msgstr "Отчёты"
 
 msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr "Просмотр записей о совершенных звонках"
@@ -47,7 +47,7 @@ msgid "CallerID"
 msgstr "Имя звонящего"
 
 msgid "DID"
-msgstr ""
+msgstr "Входящий номер"
 
 msgid "Application"
 msgstr "Приложение"
@@ -62,19 +62,34 @@ msgid "Billing Duration"
 msgstr "Время разговора"
 
 msgid "Checking if field did is present in cdr table.."
-msgstr ""
+msgstr "Проверка наличия входящего номера в таблице CDR.."
 
 msgid "Adding did field to cdr"
-msgstr ""
+msgstr "Добавляем поле входящего номера в CDR"
 
 msgid "This might take a while......"
-msgstr ""
+msgstr "Возможно придется подождать..."
 
 msgid "Added field did to cdr"
-msgstr ""
+msgstr "Поле входящего номера добавлено в CDR"
 
 msgid "did field already present."
-msgstr ""
+msgstr "Поле входящего номера уже присутствует."
+
+msgid "Checking if field recordingfile is present in cdr table.."
+msgstr "Проверка имеется ли файл записи разговора в таблице CDR.."
+
+msgid "Adding recordingfile field to cdr"
+msgstr "Добавление поля файла записи разговора в CDR"
+
+msgid "Unable to add recordingfile field to cdr table"
+msgstr "Не могу добавить поле recordingfile в таблицу cdr"
+
+msgid "Added field recordingfile to cdr"
+msgstr "Поле recordingfile добавлено в CDR"
+
+msgid "recordingfile field already present."
+msgstr "Поле recordingfile уже имеется."
 
 msgid "Call Detail Record Search"
 msgstr "Отчет по звонкам"
@@ -236,7 +251,7 @@ msgstr ""
 "указать это если Вы выбрали поиск по началу строки"
 
 msgid "Search for a DID."
-msgstr ""
+msgstr "Поиск заданного входящего номера."
 
 msgid ""
 "Select Destination Channel to search for. It can be just the channel type "
@@ -309,10 +324,10 @@ msgid "No Answer"
 msgstr "Без ответа"
 
 msgid "Oldest First"
-msgstr ""
+msgstr "Сначала более давние"
 
 msgid "Newest First"
-msgstr ""
+msgstr "Сначала более ранние"
 
 msgid "Group By"
 msgstr "Группировать по"
@@ -360,7 +375,7 @@ msgid "Destination Number"
 msgstr "Куда звонил"
 
 msgid "Tech info"
-msgstr ""
+msgstr "Техническая информация"
 
 msgid "Search"
 msgstr "Искать"
@@ -371,23 +386,23 @@ msgstr "Отчет по звонкам - Результат поиска"
 msgid "Calls"
 msgstr "Звонки"
 
-msgid "File"
-msgstr "Файл"
+msgid "Recording"
+msgstr "Запись"
 
 msgid "System"
 msgstr "Идентификатор"
 
 msgid "Src Chan."
-msgstr ""
+msgstr "Входящий канал."
 
 msgid "App."
-msgstr ""
+msgstr "Приложение."
 
 msgid "Dest."
-msgstr ""
+msgstr "Куда."
 
 msgid "Dst. Chan."
-msgstr ""
+msgstr "Исх. канал."
 
 msgid "Account"
 msgstr "Account"
@@ -419,6 +434,9 @@ msgstr "Отчет по звонкам - одновременные звонки
 msgid "Time"
 msgstr "Время"
 
+#~ msgid "File"
+#~ msgstr "Файл"
+
 #~ msgid "CDR Viewer"
 #~ msgstr "Отчет по звонкам"
 
@@ -427,6 +445,3 @@ msgstr "Время"
 
 #~ msgid "Ascending"
 #~ msgstr "возростанию"
-
-#~ msgid "Descending"
-#~ msgstr "убыванию"
