@@ -1,0 +1,575 @@
+# CREDITS for JAPANESE TRANSLATION
+# ================================
+# Current translation & maintenance: QLOOG, Inc. (Kobe, Japan)
+# Inquiries: info@qloog.com / www.qloog.com
+# 
+# This translation is a culmination of the hard work of
+# several outstanding individuals, which started in 2009 with the 
+# first-ever Japanese localization of FreePBX by Kenichi Fukaumi 
+# and Kazuhiro Tokuyama (FreePBX Japanized Project).
+#
+# Beginning in 2013, with the approval of the original authors, 
+# QLOOG undertook a large scale overhaul of the translation to 
+# expand it for compatibility with FreePBX 2.11. Our work is, 
+# of course, released under the same GPLv2 license as FreePBX. 
+# We only ask that you kindly retain these credits in honor of 
+# the time and effort that all of us have contributed. Enjoy!
+# 
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# FreePBX language template for cdr
+# Copyright (C) 2008, 2009, 2010 Bandwith.com
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX 2.10.0.7\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-05 19:32+0900\n"
+"PO-Revision-Date: 2014-02-25 21:24+0200\n"
+"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
+"Language-Team: Japanese <http://192.168.30.85/projects/freepbx/cdr/ja/>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 1.8\n"
+
+msgid "Checking if field did is present in cdr table.."
+msgstr "cdrテーブルにdidフィールドが存在しているかどうかの確認中.."
+
+msgid "Adding did field to cdr"
+msgstr "didフィールドをcdrに追加します。"
+
+msgid "This might take a while......"
+msgstr "しばらくお待ちください......"
+
+msgid "Added field did to cdr"
+msgstr "didフィールドをcdrに追加しました。"
+
+msgid "did field already present."
+msgstr "didフィールドは既に存在しています。"
+
+msgid "Checking if field recordingfile is present in cdr table.."
+msgstr "cdrテーブルに recordingfile フィールドが存在しているかどうかの確認中.."
+
+msgid "Adding recordingfile field to cdr"
+msgstr "recordingfileフィールドをcdrに追加中"
+
+msgid "Unable to add recordingfile field to cdr table"
+msgstr "recordingfileフィールドをcdrテーブルに追加できません。"
+
+msgid "Added field recordingfile to cdr"
+msgstr "recordingfileフィールドをcdrに追加しました"
+
+msgid "recordingfile field already present."
+msgstr "recordingfile フィールドは既に存在しています。"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "CDR Reports"
+msgstr "CDRレポート"
+
+msgid "Call Detail Record Search"
+msgstr "コール詳細記録の検索"
+
+msgid "Order By"
+msgstr "並び順"
+
+msgid "Search conditions"
+msgstr "検査条件"
+
+msgid ""
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
+msgstr ""
+"レポートの範囲期間を選択してください。日、月、年、時、分を選択して検索結果の"
+"範囲を絞り込むことができます。"
+
+msgid "Call Date"
+msgstr "コール日付"
+
+msgid "From"
+msgstr "From"
+
+msgid "January"
+msgstr "1月"
+
+msgid "February"
+msgstr "2月"
+
+msgid "March"
+msgstr "3月"
+
+msgid "April"
+msgstr "4月"
+
+msgid "May"
+msgstr "5月"
+
+msgid "June"
+msgstr "6月"
+
+msgid "July"
+msgstr "7月"
+
+msgid "August"
+msgstr "8月"
+
+msgid "September"
+msgstr "9月"
+
+msgid "October"
+msgstr "10月"
+
+msgid "November"
+msgstr "11月"
+
+msgid "December"
+msgstr "12月"
+
+msgid "To"
+msgstr "To"
+
+msgid "Extra options"
+msgstr "エクストラオプション"
+
+msgid "Report type"
+msgstr "レポートのタイプ"
+
+msgid "CDR search"
+msgstr "CDR検索"
+
+msgid "CSV file"
+msgstr "CDVファイル"
+
+msgid "Call Graph"
+msgstr "コールグラフ"
+
+msgid "Concurrent Calls"
+msgstr "同時呼び出し"
+
+msgid "Result limit"
+msgstr "結果の制限"
+
+msgid ""
+"Search for calls based on CallerID Number. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
+"CallerID 番号に基づく通話を検索します。カンマで区切ることによって複数の番号を入力することができます。このフィールドはAsteriskの正規表現"
+"をサポートしています。例えば<br>"
+
+msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
+msgstr ""
+"<b>_2XXN, _562., _.0075</b> = この数字のいずれかに一致する条件で検索します"
+"<br>"
+
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
+msgstr "<b>_!2XXN, _562., _.0075</b> = この数字<b>以外</b>の条件で検索します。"
+
+msgid "<br>Asterisk pattern matching<br>"
+msgstr "<br>Asteriskパターンマッチング<br>"
+
+msgid "<b>X</b> = matches any digit from 0-9<br>"
+msgstr "<b>X</b> = 0-9の間で一致する数字の条件で検索します<br>"
+
+msgid "<b>Z</b> = matches any digit from 1-9<br>"
+msgstr "<b>Z</b> = 1-9の間で一致する数字の条件で検索します<br>"
+
+msgid "<b>N</b> = matches any digit from 2-9<br>"
+msgstr "<b>N</b> = 2-9の間で一致する数字の条件で検索します<br>"
+
+msgid ""
+"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
+"example, 1,2,3,7,8,9)<br>"
+msgstr ""
+"<b>[1237-9]</b> = 括弧内の任意の数字や文字に一致する条件で検索します<br>(この"
+"例では、 1,2,3,7,8,9)<br>"
+
+msgid "<b>.</b> = wildcard, matches one or more characters<br>"
+msgstr ""
+"<b>.</b> = ワイルドカード検索です、一つまたはそれ以上の文字に一致する条件で検"
+"索します"
+
+msgid "CallerID Number"
+msgstr "CallerID番号"
+
+msgid "Not"
+msgstr "Not"
+
+msgid "Begins With"
+msgstr "先頭一致"
+
+msgid "Contains"
+msgstr "部分一致"
+
+msgid "Ends With"
+msgstr "後方一致"
+
+msgid "Exactly"
+msgstr "完全一致"
+
+msgid "Select CallerID Name to search for."
+msgstr "検索する為の CallerID Name を選択する。"
+
+msgid "CallerID Name"
+msgstr "CallerID Name"
+
+msgid ""
+"Search for calls based on outbound CID used. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
+"発信時に CIDを使用した通話を基に検索します。カンマで区切ることによって複数の番号を入力することができます。このフィールドはAsteriskの正規表現"
+"をサポートしています。例えば<br>"
+
+msgid "Outbound CallerID Number"
+msgstr "アウトバウンドCallerID Number"
+
+msgid "Search for a DID."
+msgstr "DIDを検索します。"
+
+msgid "DID"
+msgstr "DID"
+
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+"宛先コールを検索します。カンマで区切ることによって複数のソースを入力すること"
+"ができます。このフィールドはAsteriskの正規表現をサポートしています。例えば、"
+"<br>"
+
+msgid "Destination"
+msgstr "宛先"
+
+msgid "Select Destination Caller Name to search for."
+msgstr "検索する宛先のCaller Nameを選択する。"
+
+msgid "Destination CallerID Name"
+msgstr "宛先 CallerID Name"
+
+msgid "Search for userfield data (if enabled)."
+msgstr "ユーザーフィールドデータを検索します。(有効の場合）"
+
+msgid "Userfield"
+msgstr "ユーザーフィールド"
+
+msgid "Search for accountcode."
+msgstr "アカウントコードを検索します。"
+
+msgid "Account Code"
+msgstr "アカウントコード"
+
+msgid "Search for calls that matches the call length specified."
+msgstr "指定されたコールの長さに一致するコールを検索します。"
+
+msgid "Duration"
+msgstr "呼出時間間隔"
+
+msgid "Between"
+msgstr "間隔"
+
+msgid "And"
+msgstr "から"
+
+msgid "Seconds"
+msgstr "秒"
+
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr ""
+"応答済、取込中、失敗、応答なし、のいずれかに一致するコールを検索します。"
+
+msgid "Disposition"
+msgstr "状態"
+
+msgid "All Dispositions"
+msgstr "全ての状態"
+
+msgid "Answered"
+msgstr "応答済"
+
+msgid "Busy"
+msgstr "ビジー"
+
+msgid "Failed"
+msgstr "失敗"
+
+msgid "No Answer"
+msgstr "応答なし"
+
+msgid "Oldest First"
+msgstr "最古順"
+
+msgid "Newest First"
+msgstr "最新順"
+
+msgid "Group By"
+msgstr "グループ化"
+
+msgid "Account Information"
+msgstr "アカウント情報"
+
+msgid "User Field"
+msgstr "ユーザーフィールド"
+
+msgid "Date/Time"
+msgstr "日付/時間"
+
+msgid "Minute"
+msgstr "分"
+
+msgid "10 Minutes"
+msgstr "10分間隔"
+
+msgid "Hour"
+msgstr "時"
+
+msgid "Hour of day"
+msgstr "日の時間"
+
+msgid "Day of week"
+msgstr "曜日"
+
+msgid "Day"
+msgstr "日"
+
+msgid "Week ( Sun-Sat )"
+msgstr "週"
+
+msgid "Month"
+msgstr "月"
+
+msgid "Telephone Number"
+msgstr "電話番号"
+
+msgid "Destination Number"
+msgstr "宛先番号"
+
+msgid "Caller ID Number"
+msgstr "発信者ID番号"
+
+msgid "Caller ID Name"
+msgstr "Caller ID Name"
+
+msgid "Outbound Caller ID Number"
+msgstr "アウトバウンドCaller ID Number"
+
+msgid "Outbound Caller ID Name"
+msgstr "アウトバウンドCaller ID Name"
+
+msgid "Destination Caller ID Name"
+msgstr "宛先の発信者IDネーム"
+
+msgid "Tech info"
+msgstr "技術情報"
+
+msgid "Search"
+msgstr "検索"
+
+msgid "Call Event Log - Search Returned"
+msgstr "コールイベント記録 ‐ 検索結果"
+
+msgid "Events"
+msgstr "イベント"
+
+msgid "Time"
+msgstr "時間"
+
+msgid "Event"
+msgstr "イベント"
+
+msgid "CNAM"
+msgstr "CNAM"
+
+msgid "CNUM"
+msgstr "CNUM"
+
+msgid "ANI"
+msgstr "ANI"
+
+msgid "AMA"
+msgstr "AMA"
+
+msgid "exten"
+msgstr "exten"
+
+msgid "context"
+msgstr "コンテキスト"
+
+msgid "App"
+msgstr "アプリ"
+
+msgid "channel"
+msgstr "チャネル"
+
+msgid "UserDefType"
+msgstr "ユーザー定義タイプ"
+
+msgid "EventExtra"
+msgstr "エキストライベント"
+
+msgid "Call Detail Record - Search Returned"
+msgstr "コール詳細記録‐検索結果"
+
+msgid "Calls"
+msgstr "コール"
+
+msgid "Related Call Detail Records"
+msgstr "呼の詳細記録検索"
+
+msgid "Recording"
+msgstr "録音"
+
+msgid "System"
+msgstr "システム"
+
+msgid "CallerID"
+msgstr "発信者ID"
+
+msgid "Outbound CallerID"
+msgstr "アウトバウンド CallerID"
+
+msgid "Account"
+msgstr "アカウント"
+
+msgid "Call Detail Record - Call Graph by"
+msgstr "通話詳細記録 - 呼 グラフ"
+
+msgid "Total Calls"
+msgstr "総コール数"
+
+msgid "Max Calls"
+msgstr "最大コール数"
+
+msgid "Total Duration"
+msgstr "総時間"
+
+msgid "Average Call Time"
+msgstr "平均コール時間"
+
+msgid "Go to the top of the CDR table"
+msgstr "CDRテーブルのトップに移動します"
+
+msgid "Go to the CDR Graph"
+msgstr "CDRグラフに移動します。"
+
+msgid "Call Detail Record - Concurrent Calls by"
+msgstr "コール詳細記録‐同時コール"
+
+msgid "UniqueID"
+msgstr "ユニークID"
+
+msgid "Channel"
+msgstr "チャネル"
+
+msgid "Application"
+msgstr "アプリケーション"
+
+msgid "Destination Context"
+msgstr "宛先状況"
+
+msgid "AMA Flag"
+msgstr "AMAフラグ"
+
+msgid "Billing Duration"
+msgstr "請求期間"
+
+msgid "Dialplan exten"
+msgstr "ダイヤルプラン exten"
+
+msgid "Dialplan context"
+msgstr "ダイヤルプラン コンテキスト"
+
+msgid "Event Extra"
+msgstr "エキストライベント"
+
+msgid "Reports"
+msgstr "レポート"
+
+msgid "Call Data Record report tools for viewing reports of your calls"
+msgstr "発信情報レポートを閲覧するためのコールデータレコードのレポートツール"
+
+msgid "Enable CEL Reporting"
+msgstr "CELレポーティングを有効にする。"
+
+msgid "CDR Report Module"
+msgstr "CDRレポートモジュール"
+
+msgid ""
+"Setting this true will enable the CDR module to drill down on CEL data for "
+"each CDR. Although the CDR module will assure there is a CEL table "
+"available, the reporting functionality in Asterisk and associated ODBC "
+"database and CEL configuration must be done outside of FreePBX either by the "
+"user or at the Distro level."
+msgstr ""
+"trueに設定すると、CDRごとにCDRモジュールがCELデータを深堀することを可能にします。CDRモジュールは、利用できるCELテーブルの有無を確証し"
+"ますが、Asteriskのレポーティング機能や関連するODBCデータベース、又はCELの設定はFreePBXの外部で完結する為、ユーザー、若しくはディス"
+"トリビューションレベルで行う必要があります。"
+
+#~ msgid ""
+#~ "Select Source Channel to search for. You can enter just the channel type "
+#~ "like SIP, IAX2 or Local. You can also include the destination for the "
+#~ "channel, like SIP/1234."
+#~ msgstr ""
+#~ "検索するソースチャンネルを選択してください。SIP、IAX2またはローカルと同じ"
+#~ "ようにチャンネルタイプを入力することができます。またSIP/1234ように、チャン"
+#~ "ネルの送信先を含めることができます。"
+
+#~ msgid "Src Channel"
+#~ msgstr "Srcチャンネル"
+
+#~ msgid "Source"
+#~ msgstr "ソース"
+
+#~ msgid ""
+#~ "Search for CallerID. If your CallerID begins with \" then you must supply "
+#~ "this in your search if you select Begins With."
+#~ msgstr ""
+#~ "発信者IDを検索します。発信者IDが\"から始まり、前方一致検索を選択した際、発"
+#~ "信者IDを入力しなければなりません。"
+
+#~ msgid ""
+#~ "Select Destination Channel to search for. It can be just the channel type "
+#~ "like SIP, IAX2 or Local. It can include the destination for the channel, "
+#~ "like SIP/1234."
+#~ msgstr ""
+#~ "検索する宛先チャンネルを選択してください。また、SIP、IAX2またはローカルの"
+#~ "ようなチャンネルタイプを使用できます。それはSIP/1234のように、チャンネルの"
+#~ "送信先を含めることができます。"
+
+#~ msgid "Dst Channel"
+#~ msgstr "Dstチャンネル"
+
+#~ msgid "Source Number"
+#~ msgstr "ソース番号"
+
+#~ msgid "File"
+#~ msgstr "ファイル"
+
+#~ msgid "Src Chan."
+#~ msgstr "Src Chan."
+
+#~ msgid "Dest."
+#~ msgstr "Dest."
+
+#~ msgid "Dst. Chan."
+#~ msgstr "Dst. Chan."
