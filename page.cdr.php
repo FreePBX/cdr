@@ -440,7 +440,7 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 echo '<a id="CDR"></a>';
 foreach ( array_keys($_POST) as $key ) {
 	$_POST[$key] = preg_replace('/;/', ' ', $_POST[$key]);
-	$_POST[$key] = mysql_real_escape_string($_POST[$key]);
+	$_POST[$key] = $db->escapeSimple($_POST[$key]);
 }
 
 $startmonth = empty($_POST['startmonth']) ? date('m') : $_POST['startmonth'];
