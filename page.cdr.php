@@ -635,9 +635,19 @@ $order = empty($_POST['order']) ? 'ORDER BY calldate' : "ORDER BY $_POST[order]"
 $sort = empty($_POST['sort']) ? 'DESC' : $_POST['sort'];
 $group = empty($_POST['group']) ? 'day' : $_POST['group'];
 
+//Allow people to search SRC and DSTChannels using existing fields
+if (isset($cnum)) {
+  $src = str_replace('AND cnum', '', $cnum);
+  $cnum = "$cnum OR src $src";
+}
+
+if (isset($dst)) {
+  $dstchannel = str_replace('AND dst', '', $dst);
+  $dst = "$dst OR dstchannel $dstchannel";
+}
+
 // Build the "WHERE" part of the query
 $where = "WHERE $date_range $cnum $outbound_cnum $cnam $dst_cnam $did $dst $userfield $accountcode $disposition $duration";
-
 
 if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
 	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield, cnum, cnam, outbound_cnum, outbound_cnam, dst_cnam FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
