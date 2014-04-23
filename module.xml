@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>2.11.0.8</version>
+	<version>2.11.0.9</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<category>Reports</category>
@@ -11,6 +11,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*2.11.0.9* #7338
 		*2.11.0.8* #6798 - fix query which returned incorrect results
 		*2.11.0.7* #6798
 		*2.11.0.6* Database Abstraction Layer Fixes
