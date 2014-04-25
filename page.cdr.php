@@ -636,7 +636,7 @@ if (isset($dst)) {
   $dst_remaining = substr($dst, strpos($dst , 'dst'));
   $dstchannel = str_replace('AND dst', '', $dst);
 
-  $cnum = "$dst_type ($dst_remaining OR dstchannel $dstchannel)";
+  $dst = "$dst_type ($dst_remaining OR dstchannel $dstchannel)";
 }
 
 // Build the "WHERE" part of the query
