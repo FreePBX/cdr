@@ -6,18 +6,6 @@
 //
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
-// For use in encrypt-decrypt of path and filename for the recordings
-include_once("crypt.php");
-switch ($action) {
-	case 'cdr_play':
-	case 'cdr_audio':
-  	include_once("$action.php");
-		exit;
-		break;
-	default:
-		break;
-}
-
 global $amp_conf;
 // Are a crypt password specified? If not, use the supplied.
 $REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
@@ -46,6 +34,35 @@ if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
 } else {
 	$dbcdr = $db;
 }
+
+// For use in encrypt-decrypt of path and filename for the recordings
+include_once("crypt.php");
+switch ($action) {
+	case 'cdr_play':
+	case 'cdr_audio':
+  	include_once("$action.php");
+		exit;
+		break;
+	case 'download_audio':
+			$file = $db->getOne('SELECT recordingfile FROM ' . $db_name.'.'.$db_table_name . ' WHERE uniqueid = ?',
+			 array($_REQUEST['cdr_file']));
+			db_e($file);
+			if ($file) {
+				$rec_parts = explode('-',$file);
+				$fyear = substr($rec_parts[3],0,4);
+				$fmonth = substr($rec_parts[3],4,2);
+				$fday = substr($rec_parts[3],6,2);
+				$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor'; 
+				$file = "$monitor_base/$fyear/$fmonth/$fday/" . $file;
+				download_file($file, '', '', true);
+			}
+			exit;
+		break;
+	default:
+		break;
+}
+
+
 
 $h_step = 30;
 ?>
@@ -715,7 +732,7 @@ if ( $tot_calls_raw ) {
 
 		echo "  <tr class=\"record\">\n";
 		cdr_formatCallDate($row['calldate']);
-		cdr_formatRecordingFile($recordingfile, $row['recordingfile'], $id);
+		cdr_formatRecordingFile($recordingfile, $row['recordingfile'], $row['uniqueid']);
 		cdr_formatUniqueID($row['uniqueid']);
 
 		$tcid = $row['cnam'] == '' ? '<' . $row['cnum'] . '>' : $row['cnam'] . ' <' . $row['cnum'] . '>';
@@ -1110,9 +1127,12 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id) {
 		// Encrypt the complete file
 		$audio = urlencode($crypt->encrypt($recordingfile, $REC_CRYPT_PASSWORD));
 		$recurl=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cdr_play&recordingpath=$audio";
+		$download_url=$_SERVER['SCRIPT_NAME']."?display=cdr&action=download_audio&cdr_file=$id";
 		$playbackRow = $id +1;
 		//
-		echo "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a></td>";
+		echo "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a>
+		<a href=\"$download_url\"><img src=\"assets/cdr/images/cdr_download.png\" alt=\"Call recording\" /></a></td>";
+
 	} else {
 		echo "<td></td>";
 	}
