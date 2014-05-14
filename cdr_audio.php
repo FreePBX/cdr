@@ -1,4 +1,5 @@
 <?php
+dbug('here');
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 /**
  * @file
@@ -46,6 +47,7 @@ if (isset($_REQUEST['cdr_file'])) {
 		break ;
 	}
 
+    dbug($ctype);
   $fp=fopen($path, "rb");
   if ($size && $ctype && $fp) {
     header("Pragma: public");

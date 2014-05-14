@@ -6,32 +6,64 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
  * popup window for playing recording
  */
 include_once("crypt.php");
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <TITLE>CDR Viewer</TITLE>
-			<style type="text/css">
-				.popup_download {
-					color: #105D90; 
-					margin: 5px; 
-					font-size: 12px; 
-					text-align: left;
-				}
-			</style>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  </head>
-  <body>
-<?php
+$crypt = new Crypt();
 
-	$crypt = new Crypt();
-
-	$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
-	$path = $crypt->decrypt($_REQUEST['recordingpath'],$REC_CRYPT_PASSWORD);
-	$file = urlencode($crypt->encrypt($path,$REC_CRYPT_PASSWORD));
-	if (isset($file)) {
-		echo("<embed width='100%' type='audio/basic' src='config.php?skip_astman=1&quietmode=1&handler=file&module=cdr&file=cdr_audio.php&cdr_file=" .$file. "' width=300, height=25 autoplay=true loop=false></embed><br>");
+$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
+$path = $crypt->decrypt($_REQUEST['recordingpath'],$REC_CRYPT_PASSWORD);
+if(!empty($path)) {
+    	// Gather relevent info about file
+	$size = filesize($path);
+	$name = basename($path);
+	$extension = strtolower(substr(strrchr($name,"."),1));
+	// This will set the Content-Type to the appropriate setting for the file
+	$ctype ='';
+	switch( $extension ) {
+		case "WAV":
+			$ctype="audio/x-wav";
+			break;
+		case "wav":
+			$ctype="audio/x-wav";
+			break;
+		case "ulaw":
+			$ctype="audio/basic";
+			break;
+		case "alaw":
+			$ctype="audio/x-alaw-basic";
+			break;
+		case "sln":
+			$ctype="audio/x-wav";
+			break;
+		case "gsm":
+			$ctype="audio/x-gsm";
+			break;
+		case "g729":
+			$ctype="audio/x-g729";
+			break;
+		default: //not downloadable
+			// echo ("<b>404 File not found! foo</b>");
+			// TODO: what to do if none of the above work?
+		break ;
 	}
-?>
-  </body>
-</html>
+
+    dbug($ctype);
+  $fp=fopen($path, "rb");
+  if ($size && $ctype && $fp) {
+    header("Pragma: public");
+    header("Expires: 0");
+    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+    header("Cache-Control: public");
+    header("Content-Description: audio file");
+    header("Content-Type: " . $ctype);
+    header("Content-Disposition: attachment; filename=" . $name);
+    header("Content-Transfer-Encoding: binary");
+    header("Content-length: " . $size);
+    $chunksize = 1*(1024*1024);
+    while (!feof($fp)) {
+        $buffer = fread($fp, $chunksize);
+        echo $buffer;
+        ob_flush();
+        flush();
+    }
+    fclose($fp);
+  }
+}
