@@ -732,7 +732,7 @@ if ( $tot_calls_raw ) {
 
 		echo "  <tr class=\"record\">\n";
 		cdr_formatCallDate($row['calldate']);
-		cdr_formatRecordingFile($recordingfile, $row['recordingfile'], $row['uniqueid']);
+		cdr_formatRecordingFile($recordingfile, $row['recordingfile'], $id, $row['uniqueid']);
 		cdr_formatUniqueID($row['uniqueid']);
 
 		$tcid = $row['cnam'] == '' ? '<' . $row['cnum'] . '>' : $row['cnam'] . ' <' . $row['cnum'] . '>';
@@ -1118,7 +1118,7 @@ function cdr_formatAccountCode($accountcode) {
 	echo "<td>".$accountcode."</td>";
 }
 
-function cdr_formatRecordingFile($recordingfile, $basename, $id) {
+function cdr_formatRecordingFile($recordingfile, $basename, $id, $uid) {
 
 	global $REC_CRYPT_PASSWORD;
 
@@ -1127,7 +1127,7 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id) {
 		// Encrypt the complete file
 		$audio = urlencode($crypt->encrypt($recordingfile, $REC_CRYPT_PASSWORD));
 		$recurl=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cdr_play&recordingpath=$audio";
-		$download_url=$_SERVER['SCRIPT_NAME']."?display=cdr&action=download_audio&cdr_file=$id";
+		$download_url=$_SERVER['SCRIPT_NAME']."?display=cdr&action=download_audio&cdr_file=$uid";
 		$playbackRow = $id +1;
 		//
 		echo "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a>
