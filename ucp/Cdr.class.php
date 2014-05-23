@@ -109,9 +109,10 @@ class Cdr extends Modules{
 				"badge" => false
 			);
 			foreach($extensions as $e) {
+				$data = $this->UCP->FreePBX->Core->getDevice($e);
 				$menu["menu"][] = array(
 					"rawname" => $e,
-					"name" => $e,
+					"name" => $e . " - " . $data['description'],
 					"badge" => false
 				);
 			}
