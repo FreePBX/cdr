@@ -7,10 +7,7 @@ $crypt = new Crypt();
 $REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
 $path = $crypt->decrypt($_REQUEST['recordingpath'],$REC_CRYPT_PASSWORD);
 if(!empty($path)) {
-	// Gather relevent info about file
-	$size = filesize($path);
-	$name = basename($path);
-	$extension = strtolower(substr(strrchr($name,"."),1));
+	$extension = pathinfo($path,PATHINFO_EXTENSION);
 	// This will set the Content-Type to the appropriate setting for the file
 	$ctype ='';
 	switch( $extension ) {
@@ -20,25 +17,26 @@ if(!empty($path)) {
 			break;
 		case "ulaw":
 			$ctype="audio/basic";
-			break;
 		case "alaw":
 			$ctype="audio/x-alaw-basic";
-			break;
 		case "sln":
 			$ctype="audio/x-wav";
-			break;
 		case "gsm":
 			$ctype="audio/x-gsm";
-			break;
 		case "g729":
 			$ctype="audio/x-g729";
-			break;
+			//Need to convert these to a supported HTML5 format..
+			header("HTTP/1.0 404 Not Found");
+			die();
 		default: //not downloadable
-			// echo ("<b>404 File not found! foo</b>");
-			// TODO: what to do if none of the above work?
+			header("HTTP/1.0 404 Not Found");
+			die();
 		break ;
 	}
 
+	// Gather relevent info about file
+	$size = filesize($path);
+	$name = basename($path);
 	$length = $size;           // Content length
 	$start  = 0;               // Start byte
 	$end    = $size - 1;       // End byte
@@ -47,7 +45,7 @@ if(!empty($path)) {
 	header('Content-Description: File Transfer');
 	header("Content-Transfer-Encoding: binary");
 	header('Content-Type: '.$ctype);
-	header("Accept-Ranges: 0-".$size);
+	header("Accept-Ranges: 0-".$end);
 	if (isset($_SERVER['HTTP_RANGE'])) {
 		$c_start = $start;
 		$c_end   = $end;

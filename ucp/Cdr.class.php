@@ -28,6 +28,8 @@ use \UCP\Modules as Modules;
 class Cdr extends Modules{
 	protected $module = 'Cdr';
 	private $activeConferences = array();
+	private $limit = 100;
+	private $pageBreak = 5;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
@@ -39,14 +41,18 @@ class Cdr extends Modules{
 		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
 		$page = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 1;
 		$html = $this->loadLESS();
+		$totalPages = $this->cdr->getPages($ext);
 		$displayvars = array(
 			'ext' => $ext,
 			'activeList' => $view,
 			'calls' => $this->cdr->getCalls($ext,$page),
-			'totalPages' => $this->cdr->getPages($ext),
-			'activePage' => $page
+			'pagnation' => $this->load_view(__DIR__.'/views/pagnation.php',array(
+				'startPage' => 1,
+				'endPage' => 5,
+				'totalPages' => $totalPages,
+				'activePage' => $page,
+			))
 		);
-		dbug($this->cdr->getCalls($ext,$page));
 		$html .= $this->load_view(__DIR__.'/views/nav.php',$displayvars);
 		switch($view) {
 			case 'settings':
@@ -75,6 +81,9 @@ class Cdr extends Modules{
 	 */
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case 'listen':
+				return true;
+			break;
 			default:
 				return false;
 			break;
@@ -98,6 +107,30 @@ class Cdr extends Modules{
 		return $return;
 	}
 
+	/**
+	 * The Handler for quiet events
+	 *
+	 * Used by Ajax Class to process commands in which custom processing is needed
+	 *
+	 * @return mixed Output if success, otherwise false will generate a 500 error serverside
+	 */
+	function ajaxCustomHandler() {
+		switch($_REQUEST['command']) {
+			case "listen":
+				$msgid = $_REQUEST['msgid'];
+				$format = $_REQUEST['format'];
+				$ext = $_REQUEST['ext'];
+				$this->readRemoteFile($msgid,$ext,$format);
+				return true;
+			break;
+			default:
+				return false;
+			break;
+		}
+		return false;
+	}
+
+
 	public function getMenuItems() {
 		$user = $this->UCP->User->getUser();
 		$extensions = $this->UCP->getSetting($user['username'],'Voicemail','assigned');
@@ -118,5 +151,126 @@ class Cdr extends Modules{
 			}
 		}
 		return !empty($menu["menu"]) ? $menu : array();
+	}
+
+	private function readRemoteFile($msgid,$ext,$format) {
+		if(!$this->_checkExtension($ext)) {
+			header("HTTP/1.0 403 Forbidden");
+			echo _("Forbidden");
+			exit;
+		}
+
+		$record = $this->UCP->FreePBX->Cdr->getRecordByIDExtension($msgid,$ext);
+		if(!empty($record) && !empty($record['recordings']['format'][$format]) && !empty($record['recordings']['format'][$format]['length'])) {
+			$ct = null;
+			switch($format) {
+				case "WAV":
+				case "wav":
+					$ct = "audio/x-wav, audio/wav";
+				break;
+				case "oga":
+				case "ogg":
+					$ct = "audio/ogg";
+				break;
+				default:
+					if($_REQUEST['type'] == 'download') {
+						switch($format) {
+							case "ulaw":
+								$ctype="audio/basic";
+							case "alaw":
+								$ctype="audio/x-alaw-basic";
+							case "sln":
+								$ctype="audio/x-wav";
+							case "gsm":
+								$ctype="audio/x-gsm";
+							case "g729":
+								$ctype="audio/x-g729";
+							break;
+							default:
+								header("HTTP/1.0 404 Not Found");
+								echo _("File Not Found");
+								exit;
+							break;
+						}
+					} else {
+						header("HTTP/1.0 404 Not Found");
+						echo _("File Not Found");
+						exit;
+					}
+				break;
+			}
+
+			header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+			header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+			$size   = $record['recordings']['format'][$format]['length']; // File size
+			$length = $size;           // Content length
+			$start  = 0;               // Start byte
+			$end    = $size - 1;       // End byte
+
+			header('Content-Description: File Transfer');
+			header("Content-Transfer-Encoding: binary");
+			header('Content-Type: '.$ct);
+			header("Accept-Ranges: 0-".$size);
+			if (isset($_SERVER['HTTP_RANGE'])) {
+				$c_start = $start;
+				$c_end   = $end;
+
+				list(, $range) = explode('=', $_SERVER['HTTP_RANGE'], 2);
+				if (strpos($range, ',') !== false) {
+					header('HTTP/1.1 416 Requested Range Not Satisfiable');
+					header("Content-Range: bytes $start-$end/$size");
+					exit;
+				}
+				if ($range == '-') {
+					$c_start = $size - substr($range, 1);
+				}else{
+					$range  = explode('-', $range);
+					$c_start = $range[0];
+					$c_end   = (isset($range[1]) && is_numeric($range[1])) ? $range[1] : $size;
+				}
+				$c_end = ($c_end > $end) ? $end : $c_end;
+				if ($c_start > $c_end || $c_start > $size - 1 || $c_end >= $size) {
+					header('HTTP/1.1 416 Requested Range Not Satisfiable');
+					header("Content-Range: bytes $start-$end/$size");
+					exit;
+				}
+				$start  = $c_start;
+				$end    = $c_end;
+				$length = $end - $start + 1;
+				header('HTTP/1.1 206 Partial Content');
+			} else {
+				header("HTTP/1.1 200 OK");
+			}
+
+			header("Content-Range: bytes $start-$end/$size");
+			header('Content-length: ' . $size);
+			header('Content-Disposition: attachment;filename="' . $record['recordings']['format'][$format]['filename'].'"');
+			$buffer = 1024 * 8;
+			$wstart = $start;
+			ob_end_clean();
+			ob_start();
+			while(true) {
+				$content = $this->UCP->FreePBX->Cdr->readRecordingBinaryByRecordingIDExtension($msgid,$ext,$format,$wstart,$buffer);
+				if(!$content) {
+					break;
+				}
+				echo $content;
+				ob_flush();
+				flush();
+				$wstart = $wstart + $buffer;
+				set_time_limit(0);
+			}
+			exit;
+		} else {
+			header("HTTP/1.0 404 Not Found");
+			echo _("File Not Found");
+			exit;
+		}
+	}
+
+	private function _checkExtension($extension) {
+		$user = $this->UCP->User->getUser();
+		$extensions = $this->UCP->getSetting($user['username'],'Voicemail','assigned');
+		return in_array($extension,$extensions);
 	}
 }

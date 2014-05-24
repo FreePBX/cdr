@@ -1,8 +1,8 @@
-function cdr_play(row_num, link) {
+function cdr_play(row_num, link, title) {
 	$("#jquery_jplayer_"+(row_num - 1)).jPlayer({
 		ready: function () {
 		$(this).jPlayer("setMedia", {
-			title: "Bubble",
+			title: title,
 			wav: link,
 		});
 		},
@@ -11,5 +11,7 @@ function cdr_play(row_num, link) {
 		cssSelectorAncestor: "#jp_container_"+(row_num - 1)
 	});
 	$('.playback').hide('fast');
-	$('#playback-'+(row_num - 1)).slideDown('fast');
+	$('#playback-'+(row_num - 1)).slideDown('fast', function(event){
+		$("#jquery_jplayer_"+(row_num - 1)).jPlayer("play",0);
+	});
 }
