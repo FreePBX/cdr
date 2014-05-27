@@ -28,8 +28,8 @@ use \UCP\Modules as Modules;
 class Cdr extends Modules{
 	protected $module = 'Cdr';
 	private $activeConferences = array();
-	private $limit = 100;
-	private $pageBreak = 5;
+	private $limit = 15;
+	private $pageBreak = 10;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
@@ -51,9 +51,9 @@ class Cdr extends Modules{
 		$displayvars = array(
 			'ext' => $ext,
 			'activeList' => $view,
-			'calls' => $this->cdr->getCalls($ext,$page,$orderby,$order,$search,$this->limit),
+			'calls' => $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$this->limit),$ext),
 		);
-		$html .= $this->load_view(__DIR__.'/views/nav.php',$displayvars);
+		//$html .= $this->load_view(__DIR__.'/views/nav.php',$displayvars);
 		switch($view) {
 			case 'settings':
 				$html .= $this->load_view(__DIR__.'/views/settings.php',$displayvars);
@@ -165,6 +165,127 @@ class Cdr extends Modules{
 			}
 		}
 		return !empty($menu["menu"]) ? $menu : array();
+	}
+
+	private function postProcessCalls($calls,$self) {
+		foreach($calls as &$call) {
+			$app = strtolower($call['lastapp']);
+			switch($app) {
+				case 'dial':
+					switch($call['disposition']) {
+						case 'ANSWERED':
+							if($call['src'] == $self) {
+								$call['icons'][] = 'fa-arrow-right out';
+								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
+								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">") : $call['dst'];
+							} elseif($call['dst'] == $self) {
+								$call['icons'][] = 'fa-arrow-left in';
+								$call['text'] = htmlentities($call['clid']);
+							} else {
+								$call['text'] = $call['src'];
+							}
+						break;
+						case 'NO ANSWER':
+							if($call['src'] == $self) {
+								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
+								$call['icons'][] = 'fa-arrow-right out';
+								$call['icons'][] = 'fa-ban';
+								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">") : $call['dst'];
+							} elseif($call['dst'] == $self) {
+								$call['icons'][] = 'fa-ban';
+								$call['icons'][] = 'fa-arrow-left in';
+								$call['text'] = $call['clid'];
+							} else {
+								$call['text'] = $call['src'];
+							}
+						break;
+						case 'BUSY':
+							if($call['src'] == $self) {
+								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
+								$call['icons'][] = 'fa-arrow-right out';
+								$call['icons'][] = 'fa-clock-o';
+								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">") : $call['dst'];
+							} elseif($call['dst'] == $self) {
+								$call['icons'][] = 'fa-ban';
+								$call['icons'][] = 'fa-clock-o';
+								$call['text'] = $call['clid'];
+							} else {
+								$call['text'] = $call['src'];
+							}
+						break;
+					}
+					if(preg_match('/LC\-(\d*)/i',$call['text'],$matches)) {
+						$device = $this->UCP->FreePBX->Core->getDevice($matches[1]);
+						$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$matches[1].">") : $matches[1];
+					}
+				break;
+				case 'voicemail':
+					if($call['src'] == $self) {
+						$call['icons'][] = 'fa-arrow-right out';
+						$call['icons'][] = 'fa-envelope';
+						$call['text'] = $call['dst'];
+					} elseif($call['dst'] == $self) {
+						$call['icons'][] = 'fa-envelope';
+						$call['icons'][] = 'fa-arrow-left in';
+						$call['text'] = htmlentities($call['clid']);
+					} else {
+						$call['icons'][] = 'fa-envelope';
+						$call['text'] = $call['src'];
+					}
+					if(preg_match('/^vmu(\d*)/i',$call['text'],$matches)) {
+						$device = $this->UCP->FreePBX->Core->getDevice($matches[1]);
+						$desc = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$matches[1].">") : $matches[1];
+						$call['text'] = $desc . ' ' . _('Voicemail');
+					} else {
+						$id = trim($call['text']);
+						$device = $this->UCP->FreePBX->Core->getDevice($id);
+						$desc = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$id.">") : $id;
+						$call['text'] = $desc . ' ' . _('Voicemail');
+					}
+				break;
+				case 'confbridge':
+				case 'meetme':
+					if($call['src'] == $self) {
+						$call['icons'][] = 'fa-arrow-right out';
+						$call['icons'][] = 'fa-users';
+						$conference = $this->UCP->FreePBX->Conferences->getConference($call['dst']);
+						$call['text'] = _('Conference') . ' ' . (!empty($conference['description']) ? htmlentities('"'.$conference['description'].'"' . " <".$call['dst'].">") : $call['dst']);
+					} elseif($call['dst'] == $self) {
+						$call['icons'][] = 'fa-users';
+						$call['icons'][] = 'fa-arrow-left in';
+						$call['text'] = _('Conference') . ' ' . htmlentities($call['clid']);
+					} else {
+						$call['icons'][] = 'fa-users';
+						$call['text'] = $call['src'];
+					}
+				break;
+				case 'hangup':
+					switch($call['dst']) {
+						case 'STARTMEETME':
+							$call['icons'][] = 'fa-users';
+							$call['text'] = $call['src'] . ' ' . _('kicked from conference');
+						break;
+						case 'denied':
+							$call['icons'][] = 'fa-ban';
+							$call['text'] = $call['src'] . ' ' . _('denied by COS');
+						break;
+					}
+				break;
+				case 'playback':
+					if($call['src'] == $self) {
+						$call['icons'][] = 'fa-arrow-right out';
+						$call['text'] = $call['dst'];
+					} else {
+						$call['text'] = $call['src'];
+					}
+				break;
+				default:
+			}
+			if(empty($call['text'])) {
+				$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
+			}
+		}
+		return $calls;
 	}
 
 	private function readRemoteFile($msgid,$ext,$format) {

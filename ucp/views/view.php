@@ -1,13 +1,13 @@
-<div class="col-md-10">
+<div class="col-md-12">
 	<script>var extension = <?php echo $_REQUEST['sub']?>;</script>
 	<?php if(!empty($message)) { ?>
 		<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
 	<?php } ?>
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-8">
 			<?php echo $pagnation;?>
 		</div>
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 			<div class="input-group">
 				<input type="text" class="form-control" id="search-text" placeholder="<?php echo _('Search')?>" value="<?php echo $search?>">
 				<span class="input-group-btn">
@@ -31,25 +31,12 @@
 				<tr id="cdr-item-<?php echo $call['niceUniqueid']?>" class="cdr-item" data-msg="<?php echo $call['niceUniqueid']?>">
 					<td class="date"><?php echo date('Y-m-d',$call['timestamp'])?> <?php echo date('h:i:sa',$call['timestamp'])?></td>
 					<td class="clid">
-						<?php if($call['disposition'] == 'ANSWERED') { ?>
-							<?php if($call['src'] == $_REQUEST['sub']) { ?>
-								<?php $dst = $this->UCP->FreePBX->Core->getDevice($call['dst']);?>
-								<i class="fa fa-arrow-right out"></i> <span class="text"><?php echo !empty($dst['description']) ? htmlentities('"'.$dst['description'].'"' . " <".$call['dst'].">") : $call['dst']?></span>
-							<?php } elseif($call['dst'] == $_REQUEST['sub']) { ?>
-								<i class="fa fa-arrow-left in"></i> <span class="text"><?php echo htmlentities($call['clid'])?></span>
-							<?php } else { ?>
-								<span class="text"><?php echo $call['src']?></span>
-							<?php } ?>
-						<?php } else { ?>
-							<i class="fa fa-ban missed"></i>
-							<?php if($call['src'] == $_REQUEST['sub']) { ?>
-								<span class="text"><?php echo $call['dst']?></span>
-							<?php } elseif($call['dst'] == $_REQUEST['sub']) { ?>
-								<span class="text"><?php echo $call['clid']?></span>
-							<?php } else { ?>
-								<span class="text"><?php echo $call['src']?></span>
+						<?php if(!empty($call['icons'])) { ?>
+							<?php foreach($call['icons'] as $icon) {?>
+								<i class="fa <?php echo $icon?>"></i>
 							<?php } ?>
 						<?php } ?>
+							<span class="text"><?php echo $call['text']?></span>
 					</td>
 					<td><?php echo $call['niceDuration']?></td>
 					<td class="hidden-xs actions">

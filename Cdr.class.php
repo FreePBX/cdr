@@ -99,13 +99,13 @@ class Cdr implements BMO {
 		}
 		$order = ($order == 'desc') ? 'desc' : 'asc';
 		if(!empty($search)) {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (src = :extension OR dst = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%'));
+			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
 		} else {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE src = :extension OR dst = :extension ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension));
+			$sth->execute(array(':extension' => $extension, ':extensionv' => 'vmu'.$extension));
 		}
 		$calls = $sth->fetchAll(PDO::FETCH_ASSOC);
 		foreach($calls as &$call) {
@@ -146,13 +146,13 @@ class Cdr implements BMO {
 	 */
 	public function getPages($extension,$search='',$limit=100) {
 		if(!empty($search)) {
-			$sql = "SELECT count(*) as count FROM cdr WHERE (src = :extension OR dst = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search)";
+			$sql = "SELECT count(*) as count FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search)";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%'));
+			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%',':extensionv' => 'vmu'.$extension));
 		} else {
-			$sql = "SELECT count(*) as count FROM cdr WHERE src = :extension OR dst = :extension";
+			$sql = "SELECT count(*) as count FROM cdr WHERE src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension));
+			$sth->execute(array(':extension' => $extension,':extensionv' => 'vmu'.$extension));
 		}
 		$res = $sth->fetch(PDO::FETCH_ASSOC);
 		$total = $res['count'];
