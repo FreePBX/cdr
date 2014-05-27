@@ -40,18 +40,14 @@ class Cdr extends Modules{
 		$view = !empty($_REQUEST['view']) ? $_REQUEST['view'] : 'history';
 		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
 		$page = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 1;
+    $order = !empty($_REQUEST['order']) && ($_REQUEST['order'] == 'asc') ? 'asc' : 'desc';
+    $orderby = !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'date';
 		$html = $this->loadLESS();
 		$totalPages = $this->cdr->getPages($ext);
 		$displayvars = array(
 			'ext' => $ext,
 			'activeList' => $view,
-			'calls' => $this->cdr->getCalls($ext,$page),
-			'pagnation' => $this->load_view(__DIR__.'/views/pagnation.php',array(
-				'startPage' => 1,
-				'endPage' => 5,
-				'totalPages' => $totalPages,
-				'activePage' => $page,
-			))
+			'calls' => $this->cdr->getCalls($ext,$page,$orderby,$order),
 		);
 		$html .= $this->load_view(__DIR__.'/views/nav.php',$displayvars);
 		switch($view) {
@@ -60,6 +56,18 @@ class Cdr extends Modules{
 			break;
 			case 'history':
 			default:
+        $start = (ceil($page / $this->pageBreak) * $this->pageBreak) - ($this->pageBreak -1);
+        $end = ceil($page / $this->pageBreak) * $this->pageBreak;
+        $displayvars['pagnation'] = $this->load_view(__DIR__.'/views/pagnation.php',array(
+          'startPage' => $start,
+          'endPage' => ($end < $totalPages) ? $end : $totalPages,
+          'totalPages' => $totalPages,
+          'activePage' => $page,
+          'order' => $order,
+          'orderby' => $orderby
+        ));
+        $displayvars['order'] = !empty($_REQUEST['order']) ? $_REQUEST['order'] : 'desc';
+        $displayvars['orderby'] = !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'date';
 				$html .= $this->load_view(__DIR__.'/views/view.php',$displayvars);
 			break;
 		}

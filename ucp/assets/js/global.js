@@ -11,6 +11,26 @@ var CdrC = UCPC.extend({
 			var container = $('#dashboard-content');
 			$.pjax.click(event, {container: container});
 		});
+		$('.cdr-header th[class!="noclick"]').click( function() {
+			var icon = $(this).children("i");
+			var visible = icon.is(':visible');
+			var direction = icon.hasClass('fa-chevron-down') ? 'up' : 'down';
+			var type = $(this).data('type');
+			if(!visible) {
+				$('.cdr-header th i').addClass('hidden');
+				icon.removeClass('hidden');
+			}
+			var uadd = null;
+			if(direction == "up") {
+				uadd = '&order=asc&orderby='+type
+				icon.removeClass("fa-chevron-down").addClass("fa-chevron-up");
+			} else {
+				uadd = '&order=desc&orderby='+type
+				icon.removeClass("fa-chevron-up").addClass("fa-chevron-down");
+			}
+			$('.cdr-header th[class!="noclick"]').off('click');
+			$.pjax({url: '?display=dashboard&mod=cdr&sub='+$.url().param('sub')+uadd, container: '#dashboard-content'});
+		})
 		$('.subplay').click(function() {
 			var id = $(this).data('msg');
 			if(this.playing === null || this.playing != id) {

@@ -4,13 +4,16 @@
 		<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
 	<?php } ?>
 	<?php echo $pagnation;?>
+	<div class="input-group">
+      <input type="text" class="form-control">
+		</div>
 	<div class="table-responsive">
 		<table class="table table-hover table-bordered cdr-table">
 			<thead>
 			<tr class="cdr-header">
-				<th><?php echo _('Date')?><i class="fa fa-chevron-down"></i></th>
-				<th><?php echo _('Description')?><i class="fa fa-chevron-down hidden"></i></th>
-				<th><?php echo _('Duration')?><i class="fa fa-chevron-down hidden"></i></th>
+				<th data-type="date"><?php echo _('Date')?><i class="fa fa-chevron-<?php echo ($order == 'desc' && $orderby == 'date') ? 'down' : 'up'?> <?php echo ($orderby == 'date') ? '' : 'hidden'?>"></i></th>
+				<th data-type="description"><?php echo _('Description')?><i class="fa fa-chevron-<?php echo ($order == 'desc' && $orderby == 'description') ? 'down' : 'up'?> <?php echo ($orderby == 'description') ? '' : 'hidden'?>"></i></th>
+				<th data-type="duration"><?php echo _('Duration')?><i class="fa fa-chevron-<?php echo ($order == 'desc' && $orderby == 'duration') ? 'down' : 'up'?> <?php echo ($orderby == 'duration') ? '' : 'hidden'?>"></i></th>
 				<th class="noclick"><?php echo _('Controls')?></i></th>
 			</tr>
 			</thead>

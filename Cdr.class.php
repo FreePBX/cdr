@@ -82,10 +82,23 @@ class Cdr implements BMO {
 		return false;
 	}
 
-	public function getCalls($extension,$page=1,$limit=100) {
+	public function getCalls($extension,$page=1,$orderby='date',$order='desc',$limit=100) {
 		$start = ($limit * ($page - 1));
 		$end = $limit;
-		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE src = ? OR dst = ? ORDER by timestamp DESC LIMIT $start,$end";
+		switch($orderby) {
+			case 'description':
+				$orderby = 'clid';
+			break;
+			case 'duration':
+				$orderby = 'duration';
+			break;
+			case 'date':
+			default:
+				$orderby = 'timestamp';
+			break;
+		}
+		$order = ($order == 'desc') ? 'desc' : 'asc';
+		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE src = ? OR dst = ? ORDER by $orderby $order LIMIT $start,$end";
 		$sth = $this->cdrdb->prepare($sql);
 		$sth->execute(array($extension,$extension));
 		$calls = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -102,6 +115,20 @@ class Cdr implements BMO {
 			}
 			$call['niceUniqueid'] = str_replace(".","_",$call['uniqueid']);
 			$call['recordingformat'] = !empty($call['recordingfile']) ? strtolower(pathinfo($call['recordingfile'],PATHINFO_EXTENSION)) : '';
+			if(!empty($call['recordingfile'])) {
+				$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
+				$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
+				$rec_parts = explode('-',$call['recordingfile']);
+				$fyear = substr($rec_parts[3],0,4);
+				$fmonth = substr($rec_parts[3],4,2);
+				$fday = substr($rec_parts[3],6,2);
+				$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
+				$file = "$monitor_base/$fyear/$fmonth/$fday/" . $call['recordingfile'];
+				if(!file_exists($file)) {
+					$call['recordingfile'] = "";
+					$call['recordingformat'] = "";
+				}
+			}
 		}
 		return $calls;
 	}
