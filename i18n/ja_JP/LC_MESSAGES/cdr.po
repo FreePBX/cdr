@@ -38,45 +38,45 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-05 19:32+0900\n"
-"PO-Revision-Date: 2014-02-25 21:24+0200\n"
-"Last-Translator: Chise Mishima <c.mishima@qloog.com>\n"
-"Language-Team: Japanese <http://192.168.30.85/projects/freepbx/cdr/ja/>\n"
-"Language: ja\n"
+"PO-Revision-Date: 2014-05-28 17:28+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
+"Language: ja_JP\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 1.9-dev\n"
 
 msgid "Checking if field did is present in cdr table.."
-msgstr "cdrテーブルにdidフィールドが存在しているかどうかの確認中.."
+msgstr "cdrテーブルにdidフィールドが存在しているか確認中.."
 
 msgid "Adding did field to cdr"
-msgstr "didフィールドをcdrに追加します。"
+msgstr "didフィールドをcdrテーブルに追加します。"
 
 msgid "This might take a while......"
 msgstr "しばらくお待ちください......"
 
 msgid "Added field did to cdr"
-msgstr "didフィールドをcdrに追加しました。"
+msgstr "didフィールドをcdrテーブルに追加しました。"
 
 msgid "did field already present."
-msgstr "didフィールドは既に存在しています。"
+msgstr "didフィールドは既に存在します。"
 
 msgid "Checking if field recordingfile is present in cdr table.."
-msgstr "cdrテーブルに recordingfile フィールドが存在しているかどうかの確認中.."
+msgstr "recordingfileフィールドがcdrテーブルに存在しているか確認中..."
 
 msgid "Adding recordingfile field to cdr"
-msgstr "recordingfileフィールドをcdrに追加中"
+msgstr "recordingfileフィールドをcdrテーブルに追加中"
 
 msgid "Unable to add recordingfile field to cdr table"
 msgstr "recordingfileフィールドをcdrテーブルに追加できません。"
 
 msgid "Added field recordingfile to cdr"
-msgstr "recordingfileフィールドをcdrに追加しました"
+msgstr "recordingfileフィールドをcdrテーブルに追加しました"
 
 msgid "recordingfile field already present."
-msgstr "recordingfile フィールドは既に存在しています。"
+msgstr "recordingfileフィールドは既に存在しています。"
 
 msgid "OK"
 msgstr "OK"
@@ -85,26 +85,24 @@ msgid "CDR Reports"
 msgstr "CDRレポート"
 
 msgid "Call Detail Record Search"
-msgstr "コール詳細記録の検索"
+msgstr "通話記録の検索"
 
 msgid "Order By"
 msgstr "並び順"
 
 msgid "Search conditions"
-msgstr "検査条件"
+msgstr "検索条件"
 
 msgid ""
 "Select time span for your report. You can select Date, Month, Year, Hour and "
 "Minute to narrow your search"
-msgstr ""
-"レポートの範囲期間を選択してください。日、月、年、時、分を選択して検索結果の"
-"範囲を絞り込むことができます。"
+msgstr "レポートする期間を選択してください。日、月、年、時、分を選択して検索結果の範囲を絞り込むことができます。"
 
 msgid "Call Date"
-msgstr "コール日付"
+msgstr "期間"
 
 msgid "From"
-msgstr "From"
+msgstr "開始日時"
 
 msgid "January"
 msgstr "1月"
@@ -143,58 +141,56 @@ msgid "December"
 msgstr "12月"
 
 msgid "To"
-msgstr "To"
+msgstr "終了日時"
 
 msgid "Extra options"
-msgstr "エクストラオプション"
+msgstr "出力形式・表示方法の設定"
 
 msgid "Report type"
-msgstr "レポートのタイプ"
+msgstr "レポートタイプ"
 
 msgid "CDR search"
 msgstr "CDR検索"
 
 msgid "CSV file"
-msgstr "CDVファイル"
+msgstr "CSVファイル"
 
 msgid "Call Graph"
-msgstr "コールグラフ"
+msgstr "グラフ形式"
 
 msgid "Concurrent Calls"
 msgstr "同時呼び出し"
 
 msgid "Result limit"
-msgstr "結果の制限"
+msgstr "表示件数"
 
 msgid ""
 "Search for calls based on CallerID Number. You can enter multiple numbers "
 "separated by a comma. This field support Asterisk regular expression. "
 "Example<br>"
 msgstr ""
-"CallerID 番号に基づく通話を検索します。カンマで区切ることによって複数の番号を入力することができます。このフィールドはAsteriskの正規表現"
-"をサポートしています。例えば<br>"
+"CallerID の番号で検索します。コンマ区切りで複数の番号を指定することができます。また、このフィールドでは、Asterisk "
+"の正規表現を利用できます。<br/>例) <br/>"
 
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr ""
-"<b>_2XXN, _562., _.0075</b> = この数字のいずれかに一致する条件で検索します"
-"<br>"
+msgstr "<b>_2XXN, _562., _.0075</b> : この場合いずれかに一致する番号が検索されます<br/>"
 
 msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
-msgstr "<b>_!2XXN, _562., _.0075</b> = この数字<b>以外</b>の条件で検索します。"
+msgstr "<b>_!2XXN, _562., _.0075</b> : この場合、指定した番号以外の番号が検索されます"
 
 msgid "<br>Asterisk pattern matching<br>"
 msgstr "<br>Asteriskパターンマッチング<br>"
 
 msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr "<b>X</b> = 0-9の間で一致する数字の条件で検索します<br>"
+msgstr "<b>X</b> : 0-9のいずれの数字にも一致します<br/>"
 
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr "<b>Z</b> = 1-9の間で一致する数字の条件で検索します<br>"
+msgstr "<b>Z</b> : 1-9のいずれの数字に一致します<br/>"
 
 msgid "<b>N</b> = matches any digit from 2-9<br>"
-msgstr "<b>N</b> = 2-9の間で一致する数字の条件で検索します<br>"
+msgstr "<b>N</b> : 2-9のいずれの数字にも一致します<br/>"
 
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
@@ -204,18 +200,16 @@ msgstr ""
 "例では、 1,2,3,7,8,9)<br>"
 
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
-msgstr ""
-"<b>.</b> = ワイルドカード検索です、一つまたはそれ以上の文字に一致する条件で検"
-"索します"
+msgstr "<b>.</b> : ワイルドカードです。すべての1文字以上の数字または文字と一致します<br/>"
 
 msgid "CallerID Number"
-msgstr "CallerID番号"
+msgstr "CallerIDの番号"
 
 msgid "Not"
 msgstr "Not"
 
 msgid "Begins With"
-msgstr "先頭一致"
+msgstr "前方一致"
 
 msgid "Contains"
 msgstr "部分一致"
@@ -227,21 +221,21 @@ msgid "Exactly"
 msgstr "完全一致"
 
 msgid "Select CallerID Name to search for."
-msgstr "検索する為の CallerID Name を選択する。"
+msgstr "CallerIDの名前で検索"
 
 msgid "CallerID Name"
-msgstr "CallerID Name"
+msgstr "CallerIDの名前"
 
 msgid ""
 "Search for calls based on outbound CID used. You can enter multiple numbers "
 "separated by a comma. This field support Asterisk regular expression. "
 "Example<br>"
 msgstr ""
-"発信時に CIDを使用した通話を基に検索します。カンマで区切ることによって複数の番号を入力することができます。このフィールドはAsteriskの正規表現"
-"をサポートしています。例えば<br>"
+"外部発信したCIDを使用して検索します。コンマ区切りで複数の番号を指定することができます。また、このフィールドでは、Asteriskの正規表現を利用できま"
+"す。<br/>例) <br/>"
 
 msgid "Outbound CallerID Number"
-msgstr "アウトバウンドCallerID Number"
+msgstr "アウトバウンドCallerIDの番号"
 
 msgid "Search for a DID."
 msgstr "DIDを検索します。"
@@ -253,21 +247,20 @@ msgid ""
 "Search for destination calls. You can enter multiple sources separated by a "
 "comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
-"宛先コールを検索します。カンマで区切ることによって複数のソースを入力すること"
-"ができます。このフィールドはAsteriskの正規表現をサポートしています。例えば、"
-"<br>"
+"発信先で検索します。コンマ区切りで複数のソースを指定することができます。また、このフィールドでは、Asteriskの正規表現を利用できます。<br/>例)"
+" <br/>"
 
 msgid "Destination"
-msgstr "宛先"
+msgstr "発信先"
 
 msgid "Select Destination Caller Name to search for."
-msgstr "検索する宛先のCaller Nameを選択する。"
+msgstr "発信先の名前による検索"
 
 msgid "Destination CallerID Name"
-msgstr "宛先 CallerID Name"
+msgstr "発信先のCallerIDの名前"
 
 msgid "Search for userfield data (if enabled)."
-msgstr "ユーザーフィールドデータを検索します。(有効の場合）"
+msgstr "ユーザーフィールドデータによる検索（有効な場合のみ）"
 
 msgid "Userfield"
 msgstr "ユーザーフィールド"
@@ -279,36 +272,35 @@ msgid "Account Code"
 msgstr "アカウントコード"
 
 msgid "Search for calls that matches the call length specified."
-msgstr "指定されたコールの長さに一致するコールを検索します。"
+msgstr "通話時間による検索。"
 
 msgid "Duration"
-msgstr "呼出時間間隔"
+msgstr "通話時間"
 
 msgid "Between"
-msgstr "間隔"
+msgstr "最小"
 
 msgid "And"
-msgstr "から"
+msgstr "最大"
 
 msgid "Seconds"
 msgstr "秒"
 
 msgid ""
 "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
-msgstr ""
-"応答済、取込中、失敗、応答なし、のいずれかに一致するコールを検索します。"
+msgstr "通話結果（応答あり、通話中、失敗、応答なし）に一致するコールを検索します。"
 
 msgid "Disposition"
-msgstr "状態"
+msgstr "通話結果"
 
 msgid "All Dispositions"
-msgstr "全ての状態"
+msgstr "すべての通話結果"
 
 msgid "Answered"
-msgstr "応答済"
+msgstr "応答あり"
 
 msgid "Busy"
-msgstr "ビジー"
+msgstr "通話中"
 
 msgid "Failed"
 msgstr "失敗"
@@ -317,13 +309,13 @@ msgid "No Answer"
 msgstr "応答なし"
 
 msgid "Oldest First"
-msgstr "最古順"
+msgstr "古い順"
 
 msgid "Newest First"
-msgstr "最新順"
+msgstr "新しい順"
 
 msgid "Group By"
-msgstr "グループ化"
+msgstr "グラフの集計条件"
 
 msgid "Account Information"
 msgstr "アカウント情報"
