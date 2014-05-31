@@ -91,7 +91,7 @@ var CdrC = UCPC.extend({
 		if(text !== '') {
 			$.pjax({url: '?display=dashboard&mod=cdr&search='+encodeURIComponent(text)+'&sub='+$.url().param('sub'), container: '#dashboard-content'});
 		} else {
-			alert('Please Enter Something');
+			$.pjax({url: '?display=dashboard&mod=cdr&sub='+$.url().param('sub'), container: '#dashboard-content'});
 		}
 	},
 	hide: function(event) {

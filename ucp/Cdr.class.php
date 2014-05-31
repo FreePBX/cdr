@@ -29,7 +29,7 @@ class Cdr extends Modules{
 	protected $module = 'Cdr';
 	private $activeConferences = array();
 	private $limit = 15;
-	private $pageBreak = 10;
+	private $break = 10;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
@@ -47,6 +47,7 @@ class Cdr extends Modules{
 		$orderby = !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'date';
 		$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : '';
 		$html = $this->loadLESS();
+
 		$totalPages = $this->cdr->getPages($ext,$search,$this->limit);
 		$displayvars = array(
 			'ext' => $ext,
@@ -60,17 +61,9 @@ class Cdr extends Modules{
 			break;
 			case 'history':
 			default:
-				$start = (ceil($page / $this->pageBreak) * $this->pageBreak) - ($this->pageBreak -1);
-				$end = ceil($page / $this->pageBreak) * $this->pageBreak;
-				$displayvars['pagnation'] = $this->load_view(__DIR__.'/views/pagnation.php',array(
-					'startPage' => $start,
-					'endPage' => ($end < $totalPages) ? $end : $totalPages,
-					'totalPages' => $totalPages,
-					'activePage' => $page,
-					'order' => $order,
-					'orderby' => $orderby,
-					'search' => $search
-				));
+				$searchl = !empty($search) ? '&amp;search='.urlencode($search) : '';
+				$link = '?display=dashboard&mod=cdr&sub='.$ext.'&view=history&order='.$order.'&orderby='.$orderby.$searchl;
+				$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages,$page,$link,$this->break);
 				$displayvars['search'] = $search;
 				$displayvars['order'] = !empty($_REQUEST['order']) ? $_REQUEST['order'] : 'desc';
 				$displayvars['orderby'] = !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'date';
