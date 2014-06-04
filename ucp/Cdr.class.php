@@ -46,7 +46,6 @@ class Cdr extends Modules{
 		$order = !empty($_REQUEST['order']) && ($_REQUEST['order'] == 'asc') ? 'asc' : 'desc';
 		$orderby = !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'date';
 		$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : '';
-		$html = $this->loadLESS();
 
 		$totalPages = $this->cdr->getPages($ext,$search,$this->limit);
 		$displayvars = array(
