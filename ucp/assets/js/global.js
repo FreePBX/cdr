@@ -1,4 +1,4 @@
-var CdrC = UCPC.extend({
+var CdrC = UCPMC.extend({
 	init: function(){
 		this.playing = null;
 	},

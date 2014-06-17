@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>12.0.1alpha2</version>
+	<version>12.0.1alpha3</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*12.0.1alpha3* More UCP work
 		*12.0.1alpha2* Added UCP module
 		*12.0.1alpha1* HTML5 Playback Support
 		*2.11.0.11* #7338
