@@ -22,12 +22,12 @@ class Cdr implements BMO {
 		$db_name = !empty($db_name)?$db_name:"asteriskcdrdb";
 		$db_host = !empty($db_host)?$db_host:"localhost";
 		$db_port = empty($db_port) ? '' :  ':' . $db_port;
-		$db_user = empty($db_user) ? $config->get('AMPDBUSE') : $db_user;
+		$db_user = empty($db_user) ? $config->get('AMPDBUSER') : $db_user;
 		$db_pass = empty($db_pass) ? $config->get('AMPDBPASS') : $db_pass;
 		try {
 			$this->cdrdb = new Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass);
 		} catch(\Exception $e) {
-			die('Unable to connect to CDR Database');
+			die('Unable to connect to CDR Database using string:'.$db_type.':host='.$db_host.$db_port.';dbname='.$db_name.','.$db_user.','.$db_pass);
 		}
 	}
 
