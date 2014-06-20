@@ -8,7 +8,27 @@ class Cdr implements BMO {
 
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
-		$this->cdrdb = new Database('mysql:host=localhost;dbname=asteriskcdrdb','root','');
+		$config = $this->FreePBX->Config;
+		$db_name = $config->get('CDRDBNAME');
+		$db_host = $config->get('CDRDBHOST');
+		$db_port = $config->get('CDRDBPORT');
+		$db_user = $config->get('CDRDBUSER');
+		$db_pass = $config->get('CDRDBPASS');
+		$dbt = $config->get('CDRDBTYPE');
+
+		$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
+		$dbt = !empty($dbt) ? $dbt : 'mysql';
+		$db_type = $db_hash[$dbt];
+		$db_name = !empty($db_name)?$db_name:"asteriskcdrdb";
+		$db_host = !empty($db_host)?$db_host:"localhost";
+		$db_port = empty($db_port) ? '' :  ':' . $db_port;
+		$db_user = empty($db_user) ? $config->get('AMPDBUSE') : $db_user;
+		$db_pass = empty($db_pass) ? $config->get('AMPDBPASS') : $db_pass;
+		try {
+			$this->cdrdb = new Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass);
+		} catch(\Exception $e) {
+			die('Unable to connect to CDR Database');
+		}
 	}
 
 	public function doConfigPageInit($page) {
