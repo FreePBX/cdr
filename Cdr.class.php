@@ -6,6 +6,7 @@ class Cdr implements BMO {
 			throw new Exception("Not given a FreePBX Object");
 		}
 
+		$amp_conf = FreePBX::$conf;
 		$this->FreePBX = $freepbx;
 		$this->db = $freepbx->Database;
 		$config = $this->FreePBX->Config;
@@ -22,8 +23,8 @@ class Cdr implements BMO {
 		$db_name = !empty($db_name)?$db_name:"asteriskcdrdb";
 		$db_host = !empty($db_host)?$db_host:"localhost";
 		$db_port = empty($db_port) ? '' :  ':' . $db_port;
-		$db_user = empty($db_user) ? $config->get('AMPDBUSER') : $db_user;
-		$db_pass = empty($db_pass) ? $config->get('AMPDBPASS') : $db_pass;
+		$db_user = empty($db_user) ? $amp_conf['AMPDBUSER'] : $db_user;
+		$db_pass = empty($db_pass) ? $amp_conf['AMPDBPASS'] : $db_pass;
 		try {
 			$this->cdrdb = new Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass);
 		} catch(\Exception $e) {
