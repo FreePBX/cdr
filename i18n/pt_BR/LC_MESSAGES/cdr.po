@@ -6,46 +6,49 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-23 09:52+0000\n"
-"PO-Revision-Date: 2011-09-23 09:52+0000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2014-07-25 23:49+0200\n"
+"Last-Translator: Rafael <rafael@ibinetwork.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://git.freepbx.org/projects/freepbx/cdr/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 msgid "CDR Reports"
-msgstr ""
+msgstr "Relatórios de Chamadas"
 
 msgid "Reports"
-msgstr ""
+msgstr "Relatórios"
 
 msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr ""
+msgstr "Ferramentas para visualizar os relatórios de suas chamadas"
 
 msgid "UniqueID"
-msgstr ""
+msgstr "ÚnicoID"
 
 msgid "Channel"
-msgstr ""
+msgstr "Canal"
 
 msgid "CallerID"
-msgstr ""
+msgstr "Bina"
 
 msgid "DID"
-msgstr ""
+msgstr "DID"
 
 msgid "Application"
-msgstr ""
+msgstr "Aplicação"
 
 msgid "Destination Context"
-msgstr ""
+msgstr "Contexto de Destino"
 
 msgid "AMA Flag"
-msgstr ""
+msgstr "Flag AMA"
 
 msgid "Billing Duration"
-msgstr ""
+msgstr "Tempo tarifado"
 
 msgid "Checking if field did is present in cdr table.."
 msgstr ""
@@ -66,10 +69,10 @@ msgid "Call Detail Record Search"
 msgstr ""
 
 msgid "Order By"
-msgstr ""
+msgstr "Ordenar por"
 
 msgid "Search conditions"
-msgstr ""
+msgstr "Condições de pesquisa"
 
 msgid ""
 "Select time span for your report. You can select Date, Month, Year, Hour and "
@@ -77,70 +80,70 @@ msgid ""
 msgstr ""
 
 msgid "Call Date"
-msgstr ""
+msgstr "Data / Hora"
 
 msgid "From"
-msgstr ""
+msgstr "De"
 
 msgid "January"
-msgstr ""
+msgstr "Janeiro"
 
 msgid "February"
-msgstr ""
+msgstr "Fevereiro"
 
 msgid "March"
-msgstr ""
+msgstr "Março"
 
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 msgid "May"
-msgstr ""
+msgstr "Maio"
 
 msgid "June"
-msgstr ""
+msgstr "Junho"
 
 msgid "July"
-msgstr ""
+msgstr "Julho"
 
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 msgid "September"
-msgstr ""
+msgstr "Setembro"
 
 msgid "October"
-msgstr ""
+msgstr "Outubro"
 
 msgid "November"
-msgstr ""
+msgstr "Novembro"
 
 msgid "December"
-msgstr ""
+msgstr "Dezembro"
 
 msgid "To"
-msgstr ""
+msgstr "Para"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Opções extra"
 
 msgid "Report type"
-msgstr ""
+msgstr "Tipo de relatório"
 
 msgid "CDR search"
-msgstr ""
+msgstr "Pesquisa CDR"
 
 msgid "CSV file"
-msgstr ""
+msgstr "Arquivo CSV"
 
 msgid "Call Graph"
-msgstr ""
+msgstr "Gráfico de Chamadas"
 
 msgid "Concurrent Calls"
-msgstr ""
+msgstr "Chamadas Simultaneas"
 
 msgid "Result limit"
-msgstr ""
+msgstr "Resultado Max"
 
 msgid ""
 "Select Source Channel to search for. You can enter just the channel type "
@@ -149,22 +152,22 @@ msgid ""
 msgstr ""
 
 msgid "Src Channel"
-msgstr ""
+msgstr "Canal de Origem"
 
 msgid "Not"
-msgstr ""
+msgstr "Exceto"
 
 msgid "Begins With"
-msgstr ""
+msgstr "Inicia com"
 
 msgid "Contains"
-msgstr ""
+msgstr "Contem"
 
 msgid "Ends With"
-msgstr ""
+msgstr "Termina com"
 
 msgid "Exactly"
-msgstr ""
+msgstr "Exato"
 
 msgid ""
 "Search for source calls. You can enter multiple sources separated by a "
@@ -200,7 +203,7 @@ msgid "<b>.</b> = wildcard, matches one or more characters<br>"
 msgstr ""
 
 msgid "Source"
-msgstr ""
+msgstr "Origem"
 
 msgid ""
 "Search for CallerID. If your CallerID begins with \" then you must supply "
@@ -208,7 +211,7 @@ msgid ""
 msgstr ""
 
 msgid "Search for a DID."
-msgstr ""
+msgstr "Pesquisa por um DID."
 
 msgid ""
 "Select Destination Channel to search for. It can be just the channel type "
@@ -217,7 +220,7 @@ msgid ""
 msgstr ""
 
 msgid "Dst Channel"
-msgstr ""
+msgstr "Canal de Destino"
 
 msgid ""
 "Search for destination calls. You can enter multiple sources separated by a "
@@ -225,34 +228,34 @@ msgid ""
 msgstr ""
 
 msgid "Destination"
-msgstr ""
+msgstr "Destino"
 
 msgid "Search for userfield data (if enabled)."
-msgstr ""
+msgstr "Pesquisar por usuário (se habilitado)."
 
 msgid "Userfield"
-msgstr ""
+msgstr "Usuário"
 
 msgid "Search for accountcode."
-msgstr ""
+msgstr "Pesquisar por Numero da Conta."
 
 msgid "Account Code"
-msgstr ""
+msgstr "Numero da Conta"
 
 msgid "Search for calls that matches the call length specified."
 msgstr ""
 
 msgid "Duration"
-msgstr ""
+msgstr "Duração"
 
 msgid "Between"
-msgstr ""
+msgstr "Entre"
 
 msgid "And"
-msgstr ""
+msgstr "e"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Segundos"
 
 msgid ""
 "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
@@ -265,115 +268,115 @@ msgid "All Dispositions"
 msgstr ""
 
 msgid "Answered"
-msgstr ""
+msgstr "Atendida"
 
 msgid "Busy"
-msgstr ""
+msgstr "Ocupado"
 
 msgid "Failed"
-msgstr ""
+msgstr "Falha"
 
 msgid "No Answer"
-msgstr ""
+msgstr "Não Atendida"
 
 msgid "Oldest First"
-msgstr ""
+msgstr "Antigo primeiro"
 
 msgid "Newest First"
-msgstr ""
+msgstr "Novo primeiro"
 
 msgid "Group By"
-msgstr ""
+msgstr "Agrupar por"
 
 msgid "Account Information"
-msgstr ""
+msgstr "Informação da Conta"
 
 msgid "User Field"
-msgstr ""
+msgstr "Usuário"
 
 msgid "Date/Time"
-msgstr ""
+msgstr "Data/Hora"
 
 msgid "Minute"
-msgstr ""
+msgstr "Minuto"
 
 msgid "10 Minutes"
-msgstr ""
+msgstr "10 Minutos"
 
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 msgid "Hour of day"
-msgstr ""
+msgstr "Hora do dia"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Dia da semana"
 
 msgid "Day"
-msgstr ""
+msgstr "Dia"
 
 msgid "Week ( Sun-Sat )"
-msgstr ""
+msgstr "Semana (Dom-Sab)"
 
 msgid "Month"
-msgstr ""
+msgstr "Mês"
 
 msgid "Telephone Number"
-msgstr ""
+msgstr "Numero Telefone"
 
 msgid "Source Number"
-msgstr ""
+msgstr "Numero de Origem"
 
 msgid "Destination Number"
-msgstr ""
+msgstr "Numero de Destino"
 
 msgid "Tech info"
-msgstr ""
+msgstr "Informação Técnica"
 
 msgid "Search"
-msgstr ""
+msgstr "Pesquisar"
 
 msgid "Call Detail Record - Search Returned"
 msgstr ""
 
 msgid "Calls"
-msgstr ""
+msgstr "Chamadas"
 
 msgid "File"
-msgstr ""
+msgstr "Arquivo"
 
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 msgid "Src Chan."
-msgstr ""
+msgstr "Canal de Origem"
 
 msgid "App."
-msgstr ""
+msgstr "App."
 
 msgid "Dest."
-msgstr ""
+msgstr "Dest."
 
 msgid "Dst. Chan."
-msgstr ""
+msgstr "Canal Dest."
 
 msgid "Account"
-msgstr ""
+msgstr "Conta"
 
 msgid "Call Detail Record - Call Graph by"
 msgstr ""
 
 msgid "Total Calls"
-msgstr ""
+msgstr "Total de Chamdas"
 
 msgid "Max Calls"
-msgstr ""
+msgstr "Maximo de Chamadas"
 
 msgid "Total Duration"
-msgstr ""
+msgstr "Duração Total"
 
 msgid "Average Call Time"
-msgstr ""
+msgstr "Tempo Médio das Chamadas"
 
 msgid "Go to the top of the CDR table"
 msgstr ""
@@ -385,4 +388,4 @@ msgid "Call Detail Record - Concurrent Calls by"
 msgstr ""
 
 msgid "Time"
-msgstr ""
+msgstr "Tempo"
