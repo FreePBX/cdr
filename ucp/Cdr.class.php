@@ -53,7 +53,7 @@ class Cdr extends Modules{
 			'activeList' => $view,
 			'calls' => $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$this->limit),$ext),
 		);
-		//$html .= $this->load_view(__DIR__.'/views/nav.php',$displayvars);
+		$html = '';
 		switch($view) {
 			case 'settings':
 				$html .= $this->load_view(__DIR__.'/views/settings.php',$displayvars);
@@ -151,7 +151,7 @@ class Cdr extends Modules{
 				$data = $this->UCP->FreePBX->Core->getDevice($e);
 				$menu["menu"][] = array(
 					"rawname" => $e,
-					"name" => $e . " - " . $data['description'],
+					"name" => $e . (!empty($data['description']) ? " - " . $data['description'] : ""),
 					"badge" => false
 				);
 			}
