@@ -1,3 +1,4 @@
+@table-striped-even-background-color: #DEEDF7;
 /* HTML tag styles */
 a {
 	cursor : pointer;
@@ -54,9 +55,6 @@ img {
 				padding: 0px;
 			}
 			th {
-				background-color : #5ebeff;
-				border-color : #000;
-				border-width : 2px;
 				text-align : center;
 				padding: 5px;
 				font-size: 120%;
@@ -91,9 +89,9 @@ img {
 
 
 	.record:hover {
-		background : #ffdca8;
+		background : @table-striped-even-background-color;
 		color : #000;
-		empty-cells : hide;
+		empty-cells : show;
 	}
 
 
@@ -121,9 +119,6 @@ img {
 		width : 92%;
 		font-size: 8pt;
 		th {
-			background-color : #5ebeff;
-			border-color : #000;
-			border-width : 2px;
 			text-align : center;
 		}
 		.center_col {
