@@ -1,17 +1,25 @@
-function cdr_play(row_num, link, title) {
-	$("#jquery_jplayer_"+(row_num - 1)).jPlayer({
-		ready: function () {
+var playing = null;
+function cdr_play(rowNum, link, title) {
+	var playerId = (rowNum - 1);
+	if (playing !== null && playing != playerId) {
+		$("#jquery_jplayer_" + playing).jPlayer("stop", 0);
+		playing = playerId;
+	} else if (playing === null) {
+		playing = playerId;
+	}
+	$("#jquery_jplayer_" + playerId).jPlayer({
+		ready: function() {
 		$(this).jPlayer("setMedia", {
 			title: title,
-			wav: link,
+			wav: link
 		});
 		},
 		swfPath: "/js",
 		supplied: "wav",
-		cssSelectorAncestor: "#jp_container_"+(row_num - 1)
+		cssSelectorAncestor: "#jp_container_" + playerId
 	});
-	$('.playback').hide('fast');
-	$('#playback-'+(row_num - 1)).slideDown('fast', function(event){
-		$("#jquery_jplayer_"+(row_num - 1)).jPlayer("play",0);
+	$(".playback").hide("fast");
+	$("#playback-" + playerId).slideDown("fast", function(event) {
+		$("#jquery_jplayer_" + playerId).jPlayer("play", 0);
 	});
 }
