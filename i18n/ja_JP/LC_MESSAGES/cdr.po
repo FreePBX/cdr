@@ -38,7 +38,7 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-05 19:32+0900\n"
-"PO-Revision-Date: 2014-05-28 17:28+0200\n"
+"PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
 "Language: ja_JP\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.9-dev\n"
+"X-Generator: Weblate 1.10-dev\n"
 
 msgid "Checking if field did is present in cdr table.."
 msgstr "cdrテーブルにdidフィールドが存在しているか確認中.."
@@ -324,31 +324,31 @@ msgid "User Field"
 msgstr "ユーザーフィールド"
 
 msgid "Date/Time"
-msgstr "日付/時間"
+msgstr "日時"
 
 msgid "Minute"
-msgstr "分"
+msgstr "1 分毎"
 
 msgid "10 Minutes"
-msgstr "10分間隔"
+msgstr "10分毎"
 
 msgid "Hour"
-msgstr "時"
+msgstr "1時間毎"
 
 msgid "Hour of day"
-msgstr "日の時間"
+msgstr "1時間毎(年月日は無視)"
 
 msgid "Day of week"
-msgstr "曜日"
+msgstr "曜日毎"
 
 msgid "Day"
-msgstr "日"
+msgstr "日付毎"
 
 msgid "Week ( Sun-Sat )"
-msgstr "週"
+msgstr "1 週毎(日曜-土曜)"
 
 msgid "Month"
-msgstr "月"
+msgstr "1月毎"
 
 msgid "Telephone Number"
 msgstr "電話番号"
@@ -357,22 +357,22 @@ msgid "Destination Number"
 msgstr "宛先番号"
 
 msgid "Caller ID Number"
-msgstr "発信者ID番号"
+msgstr "CallerIDの番号"
 
 msgid "Caller ID Name"
-msgstr "Caller ID Name"
+msgstr "CallerIDの名前"
 
 msgid "Outbound Caller ID Number"
-msgstr "アウトバウンドCaller ID Number"
+msgstr "外部発信したCallerIDの番号"
 
 msgid "Outbound Caller ID Name"
-msgstr "アウトバウンドCaller ID Name"
+msgstr "外部発信したCallerIDの名前"
 
 msgid "Destination Caller ID Name"
-msgstr "宛先の発信者IDネーム"
+msgstr "発信先CallerIDの名前"
 
 msgid "Tech info"
-msgstr "技術情報"
+msgstr "技術的な情報"
 
 msgid "Search"
 msgstr "検索"
@@ -384,7 +384,7 @@ msgid "Events"
 msgstr "イベント"
 
 msgid "Time"
-msgstr "時間"
+msgstr "時刻"
 
 msgid "Event"
 msgstr "イベント"
@@ -423,13 +423,13 @@ msgid "Call Detail Record - Search Returned"
 msgstr "コール詳細記録‐検索結果"
 
 msgid "Calls"
-msgstr "コール"
+msgstr "件"
 
 msgid "Related Call Detail Records"
-msgstr "呼の詳細記録検索"
+msgstr "関連したコール記録"
 
 msgid "Recording"
-msgstr "録音"
+msgstr "録音ファイル"
 
 msgid "System"
 msgstr "システム"
@@ -438,34 +438,34 @@ msgid "CallerID"
 msgstr "発信者ID"
 
 msgid "Outbound CallerID"
-msgstr "アウトバウンド CallerID"
+msgstr "外部発信CallerID"
 
 msgid "Account"
 msgstr "アカウント"
 
 msgid "Call Detail Record - Call Graph by"
-msgstr "通話詳細記録 - 呼 グラフ"
+msgstr "通話記録グラフ - 集計条件:"
 
 msgid "Total Calls"
-msgstr "総コール数"
+msgstr "合計コール数"
 
 msgid "Max Calls"
 msgstr "最大コール数"
 
 msgid "Total Duration"
-msgstr "総時間"
+msgstr "合計通話時間"
 
 msgid "Average Call Time"
-msgstr "平均コール時間"
+msgstr "平均通話時間"
 
 msgid "Go to the top of the CDR table"
-msgstr "CDRテーブルのトップに移動します"
+msgstr "テーブル先頭へ"
 
 msgid "Go to the CDR Graph"
-msgstr "CDRグラフに移動します。"
+msgstr "グラフへ"
 
 msgid "Call Detail Record - Concurrent Calls by"
-msgstr "コール詳細記録‐同時コール"
+msgstr "コール詳細記録 - 同時通話集計　条件"
 
 msgid "UniqueID"
 msgstr "ユニークID"
@@ -477,19 +477,19 @@ msgid "Application"
 msgstr "アプリケーション"
 
 msgid "Destination Context"
-msgstr "宛先状況"
+msgstr "宛先コンテキスト"
 
 msgid "AMA Flag"
 msgstr "AMAフラグ"
 
 msgid "Billing Duration"
-msgstr "請求期間"
+msgstr "課金時間"
 
 msgid "Dialplan exten"
-msgstr "ダイヤルプラン exten"
+msgstr "ダイヤルプランexten"
 
 msgid "Dialplan context"
-msgstr "ダイヤルプラン コンテキスト"
+msgstr "ダイヤルプランコンテキスト"
 
 msgid "Event Extra"
 msgstr "エキストライベント"
@@ -498,10 +498,10 @@ msgid "Reports"
 msgstr "レポート"
 
 msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr "発信情報レポートを閲覧するためのコールデータレコードのレポートツール"
+msgstr "通話記録を閲覧するためのコールデータレコードのレポートツール"
 
 msgid "Enable CEL Reporting"
-msgstr "CELレポーティングを有効にする。"
+msgstr "CELレポートを有効にする"
 
 msgid "CDR Report Module"
 msgstr "CDRレポートモジュール"
