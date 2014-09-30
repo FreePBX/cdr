@@ -7,7 +7,6 @@ var CdrC = UCPMC.extend({
 	},
 	display: function(event) {
 		$(document).on("click", "[vm-pjax] a, a[vm-pjax]", function(event) {
-			event.preventDefault(); //stop browser event
 			var container = $("#dashboard-content");
 			$.pjax.click(event, { container: container });
 		});

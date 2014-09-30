@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>12.0.2</version>
+	<version>12.0.3</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*12.0.3* Small fix for CDRs in UCP
 		*12.0.2* FREEPBX-7996 call history in UCP not capturing all calls, check cnum as well as others
 		*12.0.1alpha8* Remove old 2.9 color schemes
 		*12.0.1alpha7* Undefined Variables cleanup
