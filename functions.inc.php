@@ -6,12 +6,25 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	Copyright 2013 Schmooze Com Inc.
 //
 class cdr_conf {
+	private static $obj;
 	var $_cel_general = array();
+
+	// FreePBX magic ::create() call
+	public static function create() {
+		if (!isset(self::$obj))
+			self::$obj = new cdr_conf();
+
+		return self::$obj;
+	}
+
+	function __construct() {
+		self::$obj = $this;
+	}
 
 	// return an array of filenames to write
 	function get_filename() {
 		global $chan_dahdi;
-		
+
 		$files = array(
 			'cel_general_additional.conf',
 		);
@@ -117,7 +130,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 
 	// common query components
 	//
-	$sql_base = "SELECT * FROM $cel_table WHERE "; 
+	$sql_base = "SELECT * FROM $cel_table WHERE ";
 	$sql_order = " ORDER BY eventtime, id";
 
 
@@ -155,7 +168,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 		}
 		unset($pass);
 
-		$set = "('" . implode($next,"','") . "')"; 
+		$set = "('" . implode($next,"','") . "')";
 		$sql_next = $sql_base . "uniqueid IN $set OR linkedid IN $set" . $sql_order;
 		$last_criteria = $next;
 		$next = array();
@@ -170,7 +183,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 function cdr_download($data, $name) {
     $filesize = strlen($data);
     $mimetype = "application/octet-stream";
-	
+
     // Make sure there's not anything else left
     cdr_ob_clean_all();
     // Start sending headers
@@ -195,7 +208,7 @@ function cdr_export_csv($csvdata) {
 	$fname		= "cdr__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
 	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield\n";
 	$data 		= $csv_header;
-	
+
 	foreach ($csvdata as $csv) {
 		$csv_line[0] 	= $csv['calldate'];
 		$csv_line[1] 	= $csv['clid'];
