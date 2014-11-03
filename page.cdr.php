@@ -5,6 +5,10 @@
 //	Copyright 2013 Schmooze Com Inc.
 //
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
+if(isset($_POST['need_csv'])) {
+	//CDRs are ghetto!!
+	ob_clean();
+}
 
 global $amp_conf;
 // Are a crypt password specified? If not, use the supplied.
@@ -65,6 +69,7 @@ switch ($action) {
 
 
 $h_step = 30;
+if(!isset($_POST['need_csv'])) {
 ?>
 	<h3><?php echo _('CDR Reports'); ?></h3><hr>
 	<div id="maincdr">
@@ -360,6 +365,7 @@ if (isset($_POST['limit']) ) {
 </tr>
 </table>
 <?php
+}
 
 // Determine all CEL events associated with this uid, and then get all CDR records related to this event stream
 // to display below
@@ -438,8 +444,9 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile`, `cnum`, `cnam`, `outbound_cnum`, `outbound_cnam`, `dst_cnam` FROM $db_name.$db_table_name $where";
 	$resultscdr = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 }
-
-echo '<a id="CDR"></a>';
+if(!isset($_POST['need_csv'])) {
+	echo '<a id="CDR"></a>';
+}
 foreach ( array_keys($_POST) as $key ) {
 	$_POST[$key] = preg_replace('/;/', ' ', $_POST[$key]);
 	$_POST[$key] = $db->escapeSimple($_POST[$key]);
