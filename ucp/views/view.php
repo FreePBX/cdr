@@ -22,14 +22,14 @@
 			<tr class="cdr-header">
 				<th data-type="date"><?php echo _('Date')?><i class="fa fa-chevron-<?php echo ($order == 'desc' && $orderby == 'date') ? 'down' : 'up'?> <?php echo ($orderby == 'date') ? '' : 'hidden'?>"></i></th>
 				<th data-type="description"><?php echo _('Description')?><i class="fa fa-chevron-<?php echo ($order == 'desc' && $orderby == 'description') ? 'down' : 'up'?> <?php echo ($orderby == 'description') ? '' : 'hidden'?>"></i></th>
-				<th data-type="duration"><?php echo _('Duration')?><i class="fa fa-chevron-<?php echo ($order == 'desc' && $orderby == 'duration') ? 'down' : 'up'?> <?php echo ($orderby == 'duration') ? '' : 'hidden'?>"></i></th>
-				<th class="hidden-xs noclick"><?php echo _('Controls')?></i></th>
+				<th class="hidden-xs" data-type="duration"><?php echo _('Duration')?><i class="fa fa-chevron-<?php echo ($order == 'desc' && $orderby == 'duration') ? 'down' : 'up'?> <?php echo ($orderby == 'duration') ? '' : 'hidden'?>"></i></th>
+				<th class="noclick"><?php echo _('Controls')?></i></th>
 			</tr>
 			</thead>
 		<?php if(!empty($calls)) {?>
 			<?php foreach($calls as $call){?>
 				<tr id="cdr-item-<?php echo $call['niceUniqueid']?>" class="cdr-item" data-msg="<?php echo $call['niceUniqueid']?>">
-					<td class="date"><?php echo date('Y-m-d',$call['timestamp'])?> <?php echo date('h:i:sa',$call['timestamp'])?></td>
+					<td class="date"><span><?php echo date('m/d/y',$call['timestamp'])?></span>  <span class="hidden-xs" style="margin-left:5px;"><?php echo date('h:i:sa',$call['timestamp'])?></span></td>
 					<td class="clid">
 						<?php if(!empty($call['icons'])) { ?>
 							<?php foreach($call['icons'] as $icon) {?>
@@ -38,14 +38,14 @@
 						<?php } ?>
 							<span class="text"><?php echo $call['text']?></span>
 					</td>
-					<td><?php echo $call['niceDuration']?></td>
-					<td class="hidden-xs actions">
+					<td class="hidden-xs"><?php echo $call['niceDuration']?></td>
+					<td class="actions">
 						<?php if(!empty($call['recordingfile'])) { ?>
 							<div>
 								<a class="subplay" alt="<?php echo _('Play');?>" data-msg="<?php echo $call['niceUniqueid']?>">
 									<i class="fa fa-play"></i>
 								</a>
-								<a class="download" alt="<?php echo _('Download');?>" href="?quietmode=1&amp;module=cdr&amp;command=listen&amp;msgid=<?php echo $call['niceUniqueid']?>&amp;type=download&amp;format=<?php echo $call['recordingformat']?>&amp;ext=<?php echo $_REQUEST['sub']?>" target="_blank">
+								<a class="hidden-xs download" alt="<?php echo _('Download');?>" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid=<?php echo $call['niceUniqueid']?>&amp;type=download&amp;format=<?php echo $call['recordingformat']?>&amp;ext=<?php echo $_REQUEST['sub']?>" target="_blank">
 									<i class="fa fa-cloud-download"></i>
 								</a>
 							</div>

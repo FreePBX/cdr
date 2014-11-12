@@ -29,11 +29,14 @@ class Cdr extends Modules{
 	protected $module = 'Cdr';
 	private $activeConferences = array();
 	private $limit = 15;
-	private $break = 10;
+	private $break = 5;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
 		$this->cdr = $this->UCP->FreePBX->Cdr;
+		if($this->UCP->Session->isMobile || $this->UCP->Session->isTablet) {
+			$this->limit = 7;
+		}
 	}
 
 	function getDisplay() {
@@ -64,6 +67,7 @@ class Cdr extends Modules{
 				$link = '?display=dashboard&mod=cdr&sub='.$ext.'&view=history&order='.$order.'&orderby='.$orderby.$searchl;
 				$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages,$page,$link,$this->break);
 				$displayvars['search'] = $search;
+				$displayvars['desktop'] = (!$this->UCP->Session->isMobile && !$this->UCP->Session->isTablet);
 				$displayvars['order'] = !empty($_REQUEST['order']) ? $_REQUEST['order'] : 'desc';
 				$displayvars['orderby'] = !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'date';
 				$html .= $this->load_view(__DIR__.'/views/view.php',$displayvars);
@@ -87,6 +91,7 @@ class Cdr extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case 'download':
 			case 'listen':
 				return true;
 			break;
@@ -122,6 +127,12 @@ class Cdr extends Modules{
 	*/
 	function ajaxCustomHandler() {
 		switch($_REQUEST['command']) {
+			case "download":
+				$msgid = $_REQUEST['msgid'];
+				$format = $_REQUEST['format'];
+				$ext = $_REQUEST['ext'];
+				$this->readRemoteFile($msgid,$ext,$format,true);
+				return true;
 			case "listen":
 				$msgid = $_REQUEST['msgid'];
 				$format = $_REQUEST['format'];
@@ -217,7 +228,7 @@ class Cdr extends Modules{
 							}
 						break;
 					}
-					if(preg_match('/LC\-(\d*)/i',$call['text'],$matches)) {
+					if(!empty($call['text']) && preg_match('/LC\-(\d*)/i',$call['text'],$matches)) {
 						$device = $this->UCP->FreePBX->Core->getDevice($matches[1]);
 						$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$matches[1].">") : $matches[1];
 					}
@@ -291,7 +302,7 @@ class Cdr extends Modules{
 		return $calls;
 	}
 
-	private function readRemoteFile($msgid,$ext,$format) {
+	private function readRemoteFile($msgid,$ext,$format,$download=false) {
 		if(!$this->_checkExtension($ext)) {
 			header("HTTP/1.0 403 Forbidden");
 			echo _("Forbidden");
@@ -339,12 +350,13 @@ class Cdr extends Modules{
 				}
 				header("Content-type: ".$ct); // change mimetype
 
-				if (isset($_SERVER['HTTP_RANGE'])){ // do it for any device that supports byte-ranges not only iPhone
+				if (!$download && isset($_SERVER['HTTP_RANGE'])){ // do it for any device that supports byte-ranges not only iPhone
 					$this->rangeDownload($msgid,$record['recordings'],$ext,$format,$file);
 				} else {
 					header("Content-length: " . $record['recordings']['format'][$format]['length']);
 					header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 					header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
+					header('Content-Disposition: attachment;filename="' . $record['recordings']['format'][$format]['filename'].'"');
 					$buffer = 1024 * 8;
 					$wstart = 0;
 					ob_end_clean();
@@ -439,6 +451,7 @@ class Cdr extends Modules{
 		// Notify the client the byte range we'll be outputting
 		header("Content-Range: bytes $start-$end/$size");
 		header("Content-Length: $length");
+		header('Content-Disposition: attachment;filename="' . $message['format'][$format]['filename'].'"');
 
 		$buffer = 1024 * 8;
 		$wstart = $start;

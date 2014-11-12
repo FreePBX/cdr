@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>12.0.6</version>
+	<version>12.0.7</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*12.0.7* Dont support range on a download, cleanup so that cdr and this look similar
 		*12.0.6* Fixes to allow playback in Safari and Mobile devices (yes including apple and android)
 		*12.0.5* Fixes issue with exporting CSV records with quotes
 		*12.0.4* FREEPBX-8081, FREEPBX-7696 enable CEL logging in advanced settings does not enable CEL
