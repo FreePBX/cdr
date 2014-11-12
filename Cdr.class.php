@@ -52,15 +52,14 @@ class Cdr implements BMO {
 	}
 
 	public function getRecordByIDExtension($rid,$ext) {
-		$sql = "SELECT * FROM cdr WHERE uniqueid = ? AND (src = ? OR dst = ?)";
+		$sql = "SELECT * FROM cdr WHERE uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext )";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
-			$sth->execute(array(str_replace("_",".",$rid),$ext,$ext));
+			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext));
 			$recording = $sth->fetch(PDO::FETCH_ASSOC);
 		} catch(\Exception $e) {
 			return false;
 		}
-
 		if(!empty($recording['recordingfile'])) {
 			$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
 			$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
@@ -161,10 +160,10 @@ class Cdr implements BMO {
 	}
 
 	/**
-	 * Get the Number of Pages by limit for extension
-	 * @param {int} $extension The Extension to lookup
-	 * @param {int} $limit=100 The limit of results per page
-	 */
+	* Get the Number of Pages by limit for extension
+	* @param {int} $extension The Extension to lookup
+	* @param {int} $limit=100 The limit of results per page
+	*/
 	public function getPages($extension,$search='',$limit=100) {
 		if(!empty($search)) {
 			$sql = "SELECT count(*) as count FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search)";

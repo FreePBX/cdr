@@ -42,7 +42,7 @@ var CdrC = UCPMC.extend({
 				$("#jquery_jplayer_" + id).jPlayer({
 					ready: function() {
 					$(this).jPlayer("setMedia", {
-						title: "words",
+						title: clid,
 						wav: "?quietmode=1&module=cdr&command=listen&msgid=" + id + "&format=wav&type=playback&ext=" + extension,
 					});
 					},
