@@ -160,9 +160,15 @@ class Cdr extends Modules{
 			);
 			foreach($extensions as $e) {
 				$data = $this->UCP->FreePBX->Core->getDevice($e);
+				if(empty($data) || empty($data['description'])) {
+					$data = $this->UCP->FreePBX->Core->getUser($e);
+					$name = $data['name'];
+				} else {
+					$name = $data['description'];
+				}
 				$menu["menu"][] = array(
 					"rawname" => $e,
-					"name" => $e . (!empty($data['description']) ? " - " . $data['description'] : ""),
+					"name" => $e . (!empty($name) ? " - " . $name : ""),
 					"badge" => false
 				);
 			}
