@@ -194,6 +194,7 @@ class Cdr extends Modules{
 								$call['icons'][] = 'fa-arrow-left out';
 								$call['text'] = htmlentities($call['clid']);
 							} else {
+								$call['icons'][] = 'fa-arrow-left in';
 								$call['text'] = $call['src'];
 							}
 						break;
@@ -289,6 +290,19 @@ class Cdr extends Modules{
 							$call['icons'][] = 'fa-ban';
 							$call['text'] = $call['src'] . ' ' . _('denied by COS');
 						break;
+						default:
+							if($call['src'] == $self) {
+								$call['icons'][] = 'fa-arrow-right out';
+								$call['icons'][] = 'fa-ban';
+								$call['text'] = htmlentities($call['clid']);
+							} elseif($call['dst'] == $self) {
+								$call['icons'][] = 'fa-ban';
+								$call['icons'][] = 'fa-arrow-left in';
+								$call['text'] = htmlentities($call['clid']);
+							} else {
+								$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
+							}
+						break;
 					}
 				break;
 				case 'playback':
@@ -300,6 +314,15 @@ class Cdr extends Modules{
 					}
 				break;
 				default:
+					if($call['src'] == $self) {
+						$call['icons'][] = 'fa-arrow-right out';
+						$call['text'] = $call['dst'];
+					} elseif($call['dst'] == $self) {
+						$call['icons'][] = 'fa-arrow-left in';
+						$call['text'] = $call['src'];
+					} else {
+						$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
+					}
 			}
 			if(empty($call['text'])) {
 				$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';

@@ -119,16 +119,19 @@ class Cdr implements BMO {
 		}
 		$order = ($order == 'desc') ? 'desc' : 'asc';
 		if(!empty($search)) {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (dstchannel LIKE :dstchannel OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
+			$sth->execute(array(':dstchannel' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
 		} else {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (dstchannel LIKE :dstchannel OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension, ':extensionv' => 'vmu'.$extension));
+			$sth->execute(array(':dstchannel' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
 		}
 		$calls = $sth->fetchAll(PDO::FETCH_ASSOC);
 		foreach($calls as &$call) {
+			if(empty($call['dst']) && preg_match('/\/(.*)\-/',$call['dstchannel'],$matches)) {
+				$call['dst'] = $matches[1];
+			}
 			if($call['duration'] > 59) {
 				$min = floor($call['duration'] / 60);
 				if($min > 59) {
