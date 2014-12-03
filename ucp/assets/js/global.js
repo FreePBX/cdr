@@ -10,6 +10,12 @@ var CdrC = UCPMC.extend({
 			var container = $("#dashboard-content");
 			$.pjax.click(event, { container: container });
 		});
+		$(".clickable").click(function(e) {
+			var text = $(this).text();
+			if (UCP.validMethod("Contactmanager", "showActionDialog")) {
+				UCP.Modules.Contactmanager.showActionDialog("number", text);
+			}
+		});
 		$(".cdr-header th[class!=\"noclick\"]").click( function() {
 			var icon = $(this).children("i"),
 					visible = icon.is(":visible"),
@@ -101,6 +107,7 @@ var CdrC = UCPMC.extend({
 	},
 	hide: function(event) {
 		$(document).off("click", "[vm-pjax] a, a[vm-pjax]");
+		$(".clickable").off("click");
 	},
 	windowState: function(state) {
 		//console.log(state);

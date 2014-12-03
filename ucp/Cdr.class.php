@@ -195,7 +195,7 @@ class Cdr extends Modules{
 								$call['text'] = htmlentities($call['clid']);
 							} else {
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = $call['src'];
+								$call['text'] = htmlentities($call['src']);
 							}
 						break;
 						case 'NO ANSWER':
@@ -209,12 +209,12 @@ class Cdr extends Modules{
 							} elseif($call['dst'] == $self) {
 								$call['icons'][] = 'fa-ban';
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = $call['clid'];
+								$call['text'] = htmlentities($call['clid']);
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-left out';
 								$call['text'] = htmlentities($call['clid']);
 							} else {
-								$call['text'] = $call['src'];
+								$call['text'] = htmlentities($call['src']);
 							}
 						break;
 						case 'BUSY':
@@ -231,7 +231,7 @@ class Cdr extends Modules{
 								$call['icons'][] = 'fa-arrow-left out';
 								$call['text'] = htmlentities($call['clid']);
 							} else {
-								$call['text'] = $call['src'];
+								$call['text'] = htmlentities($call['src']);
 							}
 						break;
 					}
@@ -244,14 +244,14 @@ class Cdr extends Modules{
 					if($call['src'] == $self) {
 						$call['icons'][] = 'fa-arrow-right out';
 						$call['icons'][] = 'fa-envelope';
-						$call['text'] = $call['dst'];
+						$call['text'] = htmlentities($call['dst']);
 					} elseif($call['dst'] == $self) {
 						$call['icons'][] = 'fa-envelope';
 						$call['icons'][] = 'fa-arrow-left in';
 						$call['text'] = htmlentities($call['clid']);
 					} else {
 						$call['icons'][] = 'fa-envelope';
-						$call['text'] = $call['src'];
+						$call['text'] = htmlentities($call['src']);
 					}
 					if(preg_match('/^vmu(\d*)/i',$call['text'],$matches)) {
 						$device = $this->UCP->FreePBX->Core->getDevice($matches[1]);
@@ -308,24 +308,26 @@ class Cdr extends Modules{
 				case 'playback':
 					if($call['src'] == $self) {
 						$call['icons'][] = 'fa-arrow-right out';
-						$call['text'] = $call['dst'];
+						$call['text'] = htmlentities($call['dst']);
 					} else {
-						$call['text'] = $call['src'];
+						$call['text'] = htmlentities($call['src']);
 					}
 				break;
 				default:
 					if($call['src'] == $self) {
 						$call['icons'][] = 'fa-arrow-right out';
-						$call['text'] = $call['dst'];
+						$call['text'] = htmlentities($call['dst']);
 					} elseif($call['dst'] == $self) {
 						$call['icons'][] = 'fa-arrow-left in';
-						$call['text'] = $call['src'];
+						$call['text'] = htmlentities($call['src']);
 					} else {
 						$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
 					}
 			}
 			if(empty($call['text'])) {
 				$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
+			} else {
+				$call['text'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable'>$1</span>&gt;",$call['text']);
 			}
 		}
 		return $calls;
