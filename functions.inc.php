@@ -6,12 +6,25 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	Copyright 2013 Schmooze Com Inc.
 //
 class cdr_conf {
+	private static $obj;
 	var $_cel_general = array();
+
+	// FreePBX magic ::create() call
+	public static function create() {
+		if (!isset(self::$obj))
+			self::$obj = new cdr_conf();
+
+		return self::$obj;
+	}
+
+	function __construct() {
+		self::$obj = $this;
+	}
 
 	// return an array of filenames to write
 	function get_filename() {
 		global $chan_dahdi;
-		
+
 		$files = array(
 			'cel_general_additional.conf',
 		);
@@ -117,7 +130,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 
 	// common query components
 	//
-	$sql_base = "SELECT * FROM $cel_table WHERE "; 
+	$sql_base = "SELECT * FROM $cel_table WHERE ";
 	$sql_order = " ORDER BY eventtime, id";
 
 
@@ -155,7 +168,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 		}
 		unset($pass);
 
-		$set = "('" . implode($next,"','") . "')"; 
+		$set = "('" . implode($next,"','") . "')";
 		$sql_next = $sql_base . "uniqueid IN $set OR linkedid IN $set" . $sql_order;
 		$last_criteria = $next;
 		$next = array();
@@ -167,78 +180,35 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 	return $pass;
 }
 
-function cdr_download($data, $name) {
-    $filesize = strlen($data);
-    $mimetype = "application/octet-stream";
-	
-    // Make sure there's not anything else left
-    cdr_ob_clean_all();
-    // Start sending headers
-    header("Pragma: public"); // required
-    header("Expires: 0");
-    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-    header("Cache-Control: private",false); // required for certain browsers
-    header("Content-Transfer-Encoding: binary");
-    header("Content-Type: " . $mimetype);
-    header("Content-Length: " . $filesize);
-    header("Content-Disposition: attachment; filename=\"" . $name . "\";" );
-    // Send data
-    echo $data;
-    die();
-}
-
 function cdr_export_csv($csvdata) {
 	// Searching for more than 10,000 records take more than 30 seconds.
 	// php default timeout is 30 seconds, hard code it to 3000 seconds for now (which is WAY overkill).
 	// TODO: make this value a setting in Advanced Settings
 	set_time_limit(3000);
 	$fname		= "cdr__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
-	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield\n";
-	$data 		= $csv_header;
-	
+	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield";
+
+	$mimetype = "application/octet-stream";
+
+	// Start sending headers
+	header("Pragma: public"); // required
+	header("Expires: 0");
+	header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+	header("Cache-Control: private",false); // required for certain browsers
+	header("Content-Transfer-Encoding: binary");
+	header("Content-Type: " . $mimetype);
+	header("Content-Disposition: attachment; filename=\"" . $fname . "\";" );
+	// Send data
+
+	$out = fopen('php://output', 'w');
+	fputcsv($out, explode(",",$csv_header));
 	foreach ($csvdata as $csv) {
-		$csv_line[0] 	= $csv['calldate'];
-		$csv_line[1] 	= $csv['clid'];
-		$csv_line[2] 	= $csv['src'];
-		$csv_line[3] 	= $csv['dst'];
-		$csv_line[4] 	= $csv['dcontext'];
-		$csv_line[5]	= $csv['channel'];
-		$csv_line[6] 	= $csv['dstchannel'];
-		$csv_line[7] 	= $csv['lastapp'];
-		$csv_line[8]	= $csv['lastdata'];
-		$csv_line[9]	= $csv['duration'];
-		$csv_line[10]	= $csv['billsec'];
-		$csv_line[11]	= $csv['disposition'];
-		$csv_line[12]	= $csv['amaflags'];
-		$csv_line[13]	= $csv['accountcode'];
-		$csv_line[14]	= $csv['uniqueid'];
-		$csv_line[15]	= $csv['userfield'];
-
-		for ($i = 0; $i < count($csv_line); $i++) {
-			/* If the string contains a comma, enclose it in double-quotes. */
-			if (strpos($csv_line[$i], ",") !== FALSE) {
-				$csv_line[$i] = "\"" . $csv_line[$i] . "\"";
-			}
-			if ($i != count($csv_line) - 1) {
-				$data .= $csv_line[$i] . ",";
-			} else {
-				$data .= $csv_line[$i];
-			}
+		$csv_line = array();
+		foreach(explode(",",$csv_header) as $k => $item) {
+			$csv_line[$k] 	= $csv[$item];
 		}
-		$data .= "\n";
-		unset($csv_line);
+		fputcsv($out, $csv_line);
 	}
-	cdr_download($data, $fname);
-	return;
+	fclose($out);
+	die();
 }
-
-function cdr_ob_clean_all () {
-    $ob_active = ob_get_length () !== false;
-    while($ob_active) {
-        ob_end_clean();
-        $ob_active = ob_get_length () !== false;
-    }
-    return true;
-}
-
-?>
