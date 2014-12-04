@@ -13,7 +13,7 @@ var CdrC = UCPMC.extend({
 		$(".clickable").click(function(e) {
 			var text = $(this).text();
 			if (UCP.validMethod("Contactmanager", "showActionDialog")) {
-				UCP.Modules.Contactmanager.showActionDialog("number", text);
+				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
 			}
 		});
 		$(".cdr-header th[class!=\"noclick\"]").click( function() {

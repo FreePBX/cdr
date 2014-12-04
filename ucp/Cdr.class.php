@@ -327,7 +327,7 @@ class Cdr extends Modules{
 			if(empty($call['text'])) {
 				$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
 			} else {
-				$call['text'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable'>$1</span>&gt;",$call['text']);
+				$call['text'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable' data-type='number' data-primary='phone'>$1</span>&gt;",$call['text']);
 			}
 		}
 		return $calls;
