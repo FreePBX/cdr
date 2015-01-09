@@ -50,16 +50,30 @@ var CdrC = UCPMC.extend({
 					$(this).jPlayer("setMedia", {
 						title: clid,
 						wav: "?quietmode=1&module=cdr&command=listen&msgid=" + id + "&format=wav&type=playback&ext=" + extension,
+						oga: "?quietmode=1&module=cdr&command=listen&msgid=" + id + "&format=oga&type=playback&ext=" + extension,
 					});
 					},
 					swfPath: "/js",
-					supplied: "wav",
+					supplied: supportedMediaFormats,
 					cssSelectorAncestor: "#jp_container_" + id
+				}).bind($.jPlayer.event.loadstart, function(event) {
+					$("#jp_container_" + id + " .jp-message-window").show();
+					$("#jp_container_" + id + " .jp-message-window .message").css("color","");
+					$("#jp_container_" + id + " .jp-seek-bar").css("background", 'url("modules/Cdr/assets/images/jplayer.blue.monday.seeking.gif") 0 0 repeat-x');
 				});
 
 				$("#cdr-playback-" + id + " .title-text").html(date + " " + clid);
 				$(".cdr-playback").slideUp("fast");
 				$("#cdr-playback-" + id).slideDown("fast", function() {
+					$("#jquery_jplayer_" + id).bind($.jPlayer.event.error, function(event) {
+						$("#jp_container_" + id + " .jp-message-window").show();
+						$("#jp_container_" + id + " .message").text(event.jPlayer.error.message).css("color","red");
+						$("#jp_container_" + id + " .jp-seek-bar").css("background","");
+					});
+					$("#jquery_jplayer_" + id).bind($.jPlayer.event.canplay, function(event) {
+						$(".jp-message-window").fadeOut("fast");
+						$("#jp_container_" + id + " .jp-seek-bar").css("background","");
+					});
 					$("#jquery_jplayer_" + id).bind($.jPlayer.event.play, function(event) { // Add a listener to report the time play began
 						$("#cdr-item-" + id + " .subplay i").removeClass("fa-play").addClass("fa-pause");
 					});
@@ -108,6 +122,10 @@ var CdrC = UCPMC.extend({
 	hide: function(event) {
 		$(document).off("click", "[vm-pjax] a, a[vm-pjax]");
 		$(".clickable").off("click");
+		if(Cdr.playing !== null) {
+			$("#jquery_jplayer_" + Cdr.playing).jPlayer("stop", 0);
+			Cdr.playing = null;
+		}
 	},
 	windowState: function(state) {
 		//console.log(state);

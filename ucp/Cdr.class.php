@@ -57,6 +57,7 @@ class Cdr extends Modules{
 			'calls' => $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$this->limit),$ext),
 		);
 		$html = '';
+		$html = "<script>var supportedMediaFormats = '".implode(",",array_keys($this->UCP->FreePBX->Cdr->supportedFormats))."';</script>";
 		switch($view) {
 			case 'settings':
 				$html .= $this->load_view(__DIR__.'/views/settings.php',$displayvars);
