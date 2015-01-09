@@ -59,6 +59,7 @@
 							<div id="jp_container_<?php echo $call['niceUniqueid']?>" class="jp-audio">
 								<div class="jp-type-single">
 									<div class="jp-gui jp-interface">
+										<div class="jp-message-window"><div class="message"><?php echo _("Loading")?></div></div>
 										<ul class="jp-controls">
 											<li class="jp-play-wrapper"><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
 											<li class="jp-pause-wrapper"><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>

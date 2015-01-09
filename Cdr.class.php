@@ -1,6 +1,12 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 class Cdr implements BMO {
+	//supported playback formats
+	public $supportedFormats = array(
+		"oga" => "ogg",
+		"wav" => "wav"
+	);
+
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new Exception("Not given a FreePBX Object");
@@ -51,11 +57,11 @@ class Cdr implements BMO {
 
 	}
 
-	public function getRecordByIDExtension($rid,$ext) {
+	public function getRecordByIDExtension($rid,$ext, $generateMedia = false) {
 		$sql = "SELECT * FROM cdr WHERE uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :dstchannel)";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
-			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':dstchannel' => '%/'.$extension.'-%'));
+			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':dstchannel' => '%/'.$ext.'-%'));
 			$recording = $sth->fetch(PDO::FETCH_ASSOC);
 		} catch(\Exception $e) {
 			return false;
@@ -69,9 +75,23 @@ class Cdr implements BMO {
 			$fday = substr($rec_parts[3],6,2);
 			$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
 			$file = "$monitor_base/$fyear/$fmonth/$fday/" . $recording['recordingfile'];
-			if(file_exists($file)) {
-				$format = strtolower(pathinfo($file,PATHINFO_EXTENSION));
-				$recording['recordingformat'] = $format;
+			if($this->queryAudio($file)) {
+				if($generateMedia) {
+					$this->generateAdditionalMediaFormats($file, false);
+				}
+				$sha = sha1_file($file);
+				$filename = pathinfo($file,PATHINFO_FILENAME);
+				$basename = dirname($file);
+				foreach($this->supportedFormats as $format => $extension) {
+					$mf = $basename."/".$filename."_".$sha.".".$extension;
+					if($this->queryAudio($mf)) {
+						$recording['recordings']['format'][$format] = array(
+							"filename" => basename($mf),
+							"path" => dirname($mf),
+							"length" => filesize($mf)
+						);
+					}
+				}
 				$recording['recordings']['format'][$format] = array(
 					'path' => dirname($file),
 					'filename' => basename($file),
@@ -85,7 +105,7 @@ class Cdr implements BMO {
 	public function readRecordingBinaryByRecordingIDExtension($msgid,$ext,$format,$start=0,$buffer=8192) {
 		$record = $this->getRecordByIDExtension($msgid,$ext);
 		$fpath = $record['recordings']['format'][$format]['path']."/".$record['recordings']['format'][$format]['filename'];
-		if(!empty($record) && !empty($record['recordings']['format'][$format]) && file_exists($fpath)) {
+		if(!empty($record) && !empty($record['recordings']['format'][$format]) && $this->queryAudio($fpath)) {
 			$end = $record['recordings']['format'][$format]['length'] - 1;
 			$fp = fopen($fpath, "rb");
 			fseek($fp, $start);
@@ -153,13 +173,70 @@ class Cdr implements BMO {
 				$fday = substr($rec_parts[3],6,2);
 				$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
 				$file = "$monitor_base/$fyear/$fmonth/$fday/" . $call['recordingfile'];
-				if(!file_exists($file)) {
+				if($this->queryAudio($file)) {
+					$this->generateAdditionalMediaFormats($file);
+					$sha = sha1_file($file);
+					$filename = pathinfo($file,PATHINFO_FILENAME);
+					$basename = dirname($file);
+					foreach($this->supportedFormats as $format => $extension) {
+						$mf = $basename."/".$filename."_".$sha.".".$extension;
+						if($this->queryAudio($mf)) {
+							$call['format'][$format] = array(
+								"filename" => basename($mf),
+								"path" => dirname($mf),
+								"length" => filesize($mf)
+							);
+						}
+					}
+				} else {
+					$call['format'] = array();
 					$call['recordingfile'] = "";
 					$call['recordingformat'] = "";
 				}
 			}
 		}
 		return $calls;
+	}
+
+	private function generateAdditionalMediaFormats($file,$background = true) {
+		$b = ($background) ? '&' : ''; //this is so very important
+		$path = dirname($file);
+		$filename = pathinfo($file,PATHINFO_FILENAME);
+		if(!$this->queryAudio($file)) {
+			return false;
+		}
+		$sha1 = sha1_file($file);
+		foreach($this->supportedFormats as $format) {
+			switch($format) {
+				case "ogg":
+				if(!file_exists($path . "/" . $filename . "_".$sha1.".ogg")) {
+					exec("sox $file " . $path . "/" . $filename . "_".$sha1.".ogg > /dev/null 2>&1 ".$b);
+				}
+				break;
+			}
+		}
+		return true;
+	}
+
+	/**
+	* Query the audio file and make sure it's actually audio
+	* @param string $file The full file path to check
+	*/
+	public function queryAudio($file) {
+		if(!file_exists($file) || !is_readable($file)) {
+			return false;
+		}
+		$last = exec('sox '.$file.' -n stat 2>&1',$output,$ret);
+		if(preg_match('/not sound/',$last)) {
+			return false;
+		}
+		$data = array();
+		foreach($output as $o) {
+			$parts = explode(":",$o);
+			$key = preg_replace("/\W/","",$parts[0]);
+			$data[$key] = trim($parts[1]);
+		}
+		return $data;
 	}
 
 	/**
