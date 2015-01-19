@@ -1,6 +1,12 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 class Cdr implements BMO {
+	//supported playback formats
+	public $supportedFormats = array(
+		"oga" => "ogg",
+		"wav" => "wav"
+	);
+
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
 			throw new Exception("Not given a FreePBX Object");
@@ -51,16 +57,15 @@ class Cdr implements BMO {
 
 	}
 
-	public function getRecordByIDExtension($rid,$ext) {
-		$sql = "SELECT * FROM cdr WHERE uniqueid = ? AND (src = ? OR dst = ?)";
+	public function getRecordByIDExtension($rid,$ext, $generateMedia = false) {
+		$sql = "SELECT * FROM cdr WHERE uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :dstchannel)";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
-			$sth->execute(array(str_replace("_",".",$rid),$ext,$ext));
+			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':dstchannel' => '%/'.$ext.'-%'));
 			$recording = $sth->fetch(PDO::FETCH_ASSOC);
 		} catch(\Exception $e) {
 			return false;
 		}
-
 		if(!empty($recording['recordingfile'])) {
 			$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
 			$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
@@ -70,9 +75,23 @@ class Cdr implements BMO {
 			$fday = substr($rec_parts[3],6,2);
 			$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
 			$file = "$monitor_base/$fyear/$fmonth/$fday/" . $recording['recordingfile'];
-			if(file_exists($file)) {
-				$format = strtolower(pathinfo($file,PATHINFO_EXTENSION));
-				$recording['recordingformat'] = $format;
+			if($this->queryAudio($file)) {
+				if($generateMedia) {
+					$this->generateAdditionalMediaFormats($file, false);
+				}
+				$sha = sha1_file($file);
+				$filename = pathinfo($file,PATHINFO_FILENAME);
+				$basename = dirname($file);
+				foreach($this->supportedFormats as $format => $extension) {
+					$mf = $basename."/".$filename."_".$sha.".".$extension;
+					if($this->queryAudio($mf)) {
+						$recording['recordings']['format'][$format] = array(
+							"filename" => basename($mf),
+							"path" => dirname($mf),
+							"length" => filesize($mf)
+						);
+					}
+				}
 				$recording['recordings']['format'][$format] = array(
 					'path' => dirname($file),
 					'filename' => basename($file),
@@ -86,7 +105,7 @@ class Cdr implements BMO {
 	public function readRecordingBinaryByRecordingIDExtension($msgid,$ext,$format,$start=0,$buffer=8192) {
 		$record = $this->getRecordByIDExtension($msgid,$ext);
 		$fpath = $record['recordings']['format'][$format]['path']."/".$record['recordings']['format'][$format]['filename'];
-		if(!empty($record) && !empty($record['recordings']['format'][$format]) && file_exists($fpath)) {
+		if(!empty($record) && !empty($record['recordings']['format'][$format]) && $this->queryAudio($fpath)) {
 			$end = $record['recordings']['format'][$format]['length'] - 1;
 			$fp = fopen($fpath, "rb");
 			fseek($fp, $start);
@@ -120,16 +139,19 @@ class Cdr implements BMO {
 		}
 		$order = ($order == 'desc') ? 'desc' : 'asc';
 		if(!empty($search)) {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (dstchannel LIKE :dstchannel OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
+			$sth->execute(array(':dstchannel' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
 		} else {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (dstchannel LIKE :dstchannel OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':extension' => $extension, ':extensionv' => 'vmu'.$extension));
+			$sth->execute(array(':dstchannel' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
 		}
 		$calls = $sth->fetchAll(PDO::FETCH_ASSOC);
 		foreach($calls as &$call) {
+			if(empty($call['dst']) && preg_match('/\/(.*)\-/',$call['dstchannel'],$matches)) {
+				$call['dst'] = $matches[1];
+			}
 			if($call['duration'] > 59) {
 				$min = floor($call['duration'] / 60);
 				if($min > 59) {
@@ -151,7 +173,23 @@ class Cdr implements BMO {
 				$fday = substr($rec_parts[3],6,2);
 				$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
 				$file = "$monitor_base/$fyear/$fmonth/$fday/" . $call['recordingfile'];
-				if(!file_exists($file)) {
+				if($this->queryAudio($file)) {
+					$this->generateAdditionalMediaFormats($file);
+					$sha = sha1_file($file);
+					$filename = pathinfo($file,PATHINFO_FILENAME);
+					$basename = dirname($file);
+					foreach($this->supportedFormats as $format => $extension) {
+						$mf = $basename."/".$filename."_".$sha.".".$extension;
+						if($this->queryAudio($mf)) {
+							$call['format'][$format] = array(
+								"filename" => basename($mf),
+								"path" => dirname($mf),
+								"length" => filesize($mf)
+							);
+						}
+					}
+				} else {
+					$call['format'] = array();
 					$call['recordingfile'] = "";
 					$call['recordingformat'] = "";
 				}
@@ -160,11 +198,52 @@ class Cdr implements BMO {
 		return $calls;
 	}
 
+	private function generateAdditionalMediaFormats($file,$background = true) {
+		$b = ($background) ? '&' : ''; //this is so very important
+		$path = dirname($file);
+		$filename = pathinfo($file,PATHINFO_FILENAME);
+		if(!$this->queryAudio($file)) {
+			return false;
+		}
+		$sha1 = sha1_file($file);
+		foreach($this->supportedFormats as $format) {
+			switch($format) {
+				case "ogg":
+				if(!file_exists($path . "/" . $filename . "_".$sha1.".ogg")) {
+					exec("sox $file " . $path . "/" . $filename . "_".$sha1.".ogg > /dev/null 2>&1 ".$b);
+				}
+				break;
+			}
+		}
+		return true;
+	}
+
 	/**
-	 * Get the Number of Pages by limit for extension
-	 * @param {int} $extension The Extension to lookup
-	 * @param {int} $limit=100 The limit of results per page
-	 */
+	* Query the audio file and make sure it's actually audio
+	* @param string $file The full file path to check
+	*/
+	public function queryAudio($file) {
+		if(!file_exists($file) || !is_readable($file)) {
+			return false;
+		}
+		$last = exec('sox '.$file.' -n stat 2>&1',$output,$ret);
+		if(preg_match('/not sound/',$last)) {
+			return false;
+		}
+		$data = array();
+		foreach($output as $o) {
+			$parts = explode(":",$o);
+			$key = preg_replace("/\W/","",$parts[0]);
+			$data[$key] = trim($parts[1]);
+		}
+		return $data;
+	}
+
+	/**
+	* Get the Number of Pages by limit for extension
+	* @param {int} $extension The Extension to lookup
+	* @param {int} $limit=100 The limit of results per page
+	*/
 	public function getPages($extension,$search='',$limit=100) {
 		if(!empty($search)) {
 			$sql = "SELECT count(*) as count FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search)";
