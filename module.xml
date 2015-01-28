@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>12.0.13</version>
+	<version>12.0.14</version>
 	<publisher>Schmooze Com Inc</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*12.0.14* FREEPBX-8325 Seperate Call History/Recordings in the UCP from settings
 		*12.0.13* Better media handling for in browser playback in UCP, added error reporting as well
 		*12.0.12* FREEPBX-7518
 		*12.0.11* Contact Manager Support in UCP

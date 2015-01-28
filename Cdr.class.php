@@ -26,16 +26,47 @@ class Cdr implements BMO {
 		$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
 		$dbt = !empty($dbt) ? $dbt : 'mysql';
 		$db_type = $db_hash[$dbt];
-		$db_name = !empty($db_name)?$db_name:"asteriskcdrdb";
-		$db_host = !empty($db_host)?$db_host:"localhost";
+		$db_name = !empty($db_name) ? $db_name : "asteriskcdrdb";
+		$db_host = !empty($db_host) ? $db_host : "localhost";
 		$db_port = empty($db_port) ? '' :  ':' . $db_port;
 		$db_user = empty($db_user) ? $amp_conf['AMPDBUSER'] : $db_user;
 		$db_pass = empty($db_pass) ? $amp_conf['AMPDBPASS'] : $db_pass;
 		try {
-			$this->cdrdb = new Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass);
+			$this->cdrdb = new \Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass);
 		} catch(\Exception $e) {
 			die('Unable to connect to CDR Database using string:'.$db_type.':host='.$db_host.$db_port.';dbname='.$db_name.','.$db_user.','.$db_pass);
 		}
+	}
+
+	public function processUCPAdminDisplay($user) {
+		if(!empty($_POST['ucp|cdr'])) {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','assigned',$_POST['ucp|cdr']);
+		} else {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','assigned',array());
+		}
+	}
+
+	/**
+	* get the Admin display in UCP
+	* @param array $user The user array
+	*/
+	public function getUCPAdminDisplay($user) {
+		$fpbxusers = array();
+		$cul = array();
+		foreach(core_users_list() as $list) {
+			$cul[$list[0]] = array(
+				"name" => $list[1],
+				"vmcontext" => $list[2]
+			);
+		}
+		$cdrassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Cdr','assigned');
+		$cdrassigned = !empty($cdrassigned) ? $cdrassigned : array();
+		foreach($user['assigned'] as $assigned) {
+			$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$cdrassigned));
+		}
+		$html['description'] = '<a href="#" class="info">'._("Allowed CDR").':<span>'._("These are the assigned and active extensions which will show up for this user to control and edit in UCP").'</span></a>';
+		$html['content'] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
+		return $html;
 	}
 
 	public function doConfigPageInit($page) {
@@ -57,6 +88,12 @@ class Cdr implements BMO {
 
 	}
 
+	/**
+	 * Get CDR record by record ID and extension
+	 * @param int $rid           The record ID
+	 * @param string $ext           The extension
+	 * @param bool $generateMedia Whether to generate HTML assets or not
+	 */
 	public function getRecordByIDExtension($rid,$ext, $generateMedia = false) {
 		$sql = "SELECT * FROM cdr WHERE uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :dstchannel)";
 		$sth = $this->cdrdb->prepare($sql);
@@ -102,6 +139,15 @@ class Cdr implements BMO {
 		return $recording;
 	}
 
+	/**
+	 * Read Message Binary Data by message ID
+	 * Used during playback to intercommunicate with UCP
+	 * @param string  $msgid  The message ID
+	 * @param int  $ext    The extension
+	 * @param string  $format The format of the file to use
+	 * @param int $start  The starting byte position
+	 * @param int $buffer The buffer size to pass
+	 */
 	public function readRecordingBinaryByRecordingIDExtension($msgid,$ext,$format,$start=0,$buffer=8192) {
 		$record = $this->getRecordByIDExtension($msgid,$ext);
 		$fpath = $record['recordings']['format'][$format]['path']."/".$record['recordings']['format'][$format]['filename'];
@@ -122,6 +168,15 @@ class Cdr implements BMO {
 		return false;
 	}
 
+	/**
+	 * Get all CDR call records
+	 * @param int  $extension The extension
+	 * @param integer $page      The page number to start at
+	 * @param string  $orderby   Order the results by
+	 * @param string  $order     Order ASC or DESC
+	 * @param string  $search    The search string to use
+	 * @param integer $limit     The number of results to return
+	 */
 	public function getCalls($extension,$page=1,$orderby='date',$order='desc',$search='',$limit=100) {
 		$start = ($limit * ($page - 1));
 		$end = $limit;
@@ -198,6 +253,11 @@ class Cdr implements BMO {
 		return $calls;
 	}
 
+	/**
+	 * Generate Media Formats for use in HTML5 playback
+	 * @param string $file       The filename
+	 * @param bool $background Whether to background this process or stall PHP
+	 */
 	private function generateAdditionalMediaFormats($file,$background = true) {
 		$b = ($background) ? '&' : ''; //this is so very important
 		$path = dirname($file);
@@ -226,6 +286,10 @@ class Cdr implements BMO {
 		if(!file_exists($file) || !is_readable($file)) {
 			return false;
 		}
+		if(in_array($file,$this->validFiles)) {
+			return true;
+		}
+		//TODO: do this part during retrieve conf and remove the files from the hard drive and db if invalid!
 		$last = exec('sox '.$file.' -n stat 2>&1',$output,$ret);
 		if(preg_match('/not sound/',$last)) {
 			return false;
@@ -236,6 +300,7 @@ class Cdr implements BMO {
 			$key = preg_replace("/\W/","",$parts[0]);
 			$data[$key] = trim($parts[1]);
 		}
+		$this->validFiles[] = $file;
 		return $data;
 	}
 

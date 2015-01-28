@@ -166,3 +166,21 @@ if (!$freepbx_conf->conf_setting_exists('CEL_ENABLED')) {
 	$set['type'] = CONF_TYPE_BOOL;
 	$freepbx_conf->define_conf_setting('CEL_ENABLED',$set,true);
 }
+$info = FreePBX::Modules()->getInfo("cdr");
+if(version_compare_freepbx($info['cdr']['dbversion'], "12.0.13", "<=")) {
+	if(FreePBX::Modules()->checkStatus('ucp') && FreePBX::Modules()->checkStatus('userman')) {
+		$users = FreePBX::Userman()->getAllUsers();
+		foreach($users as $user) {
+			$exts = FreePBX::Ucp()->getSetting($user['username'],'Settings','assigned');
+			if(!empty($exts)) {
+				FreePBX::Ucp()->setSetting($user['username'],'Cdr','assigned',$exts);
+			}
+		}
+	} elseif(FreePBX::Modules()->checkStatus('ucp',MODULE_STATUS_NEEDUPGRADE)) {
+		out(_("Please upgrade UCP before this module so that settings can be properly migrated"));
+		return false;
+	} elseif(FreePBX::Modules()->checkStatus('userman',MODULE_STATUS_NEEDUPGRADE)) {
+		out(_("Please upgrade Usermanager before this module so that settings can be properly migrated"));
+		return false;
+	}
+}
