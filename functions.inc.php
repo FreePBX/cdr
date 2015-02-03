@@ -5,72 +5,10 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //  Portions Copyright (C) 2011 Mikael Carlsson
 //	Copyright 2013 Schmooze Com Inc.
 //
-class cdr_conf {
-	private static $obj;
-	var $_cel_general = array();
-
-	// FreePBX magic ::create() call
-	public static function create() {
-		if (!isset(self::$obj))
-			self::$obj = new cdr_conf();
-
-		return self::$obj;
-	}
-
-	function __construct() {
-		self::$obj = $this;
-	}
-
-	// return an array of filenames to write
-	function get_filename() {
-		global $chan_dahdi;
-
-		$files = array(
-			'cel_general_additional.conf',
-		);
-
-		return $files;
-	}
-
-	function generateConf($file) {
-		global $version;
-		global $amp_conf;
-
-		switch ($file) {
-			case 'cel_general_additional.conf':
-				return $this->generate_cel_general_additional($version);
-				break;
-		}
-	}
-
-	function generate_cel_general_additional($ast_version) {
-		$output = '';
-
-		if (!empty($this->_cel_general)) {
-			foreach ($this->_cel_general as $values) {
-				$output .= $values['key']."=".$values['value']."\n";
-			}
-		}
-		return $output;
-	}
-
-	function addCelGeneral($key, $value) {
-		$this->_cel_general[] = array('key' => $key, 'value' => $value);
-	}
-}
-
 function cdr_get_config($engine) {
-  global $core_conf, $cdr_conf, $amp_conf;
+  global $core_conf, $amp_conf;
   switch($engine) {
     case "asterisk":
-	    if (isset($cdr_conf) && is_a($cdr_conf, "cdr_conf")) {
-				$cdr_conf->addCelGeneral('enable', 'yes');
-				$cdr_conf->addCelGeneral('apps', 'all');
-				$cdr_conf->addCelGeneral('events', 'all');
-				$cdr_conf->addCelGeneral('dateformat', '%F %T');
-			}
-			/*
-			 */
 	    if (isset($core_conf) && is_a($core_conf, "core_conf")) {
 				$section = 'asteriskcdrdb';
 				$core_conf->addResOdbc($section, array('enabled' => 'yes'));

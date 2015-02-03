@@ -104,68 +104,6 @@ if (empty($check)) {
 	}
 }
 
-$db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:$db_name;
-$db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
-outn(_("Creating $db_cel_table_name if needed.."));
-$sql = "
-CREATE TABLE IF NOT EXISTS `" . $db_cel_name . "`.`" . $db_cel_table_name . "` (
-  `id` int(11) NOT NULL auto_increment,
-  `eventtype` varchar(30) NOT NULL,
-  `eventtime` datetime NOT NULL,
-  `cid_name` varchar(80) NOT NULL,
-  `cid_num` varchar(80) NOT NULL,
-  `cid_ani` varchar(80) NOT NULL,
-  `cid_rdnis` varchar(80) NOT NULL,
-  `cid_dnid` varchar(80) NOT NULL,
-  `exten` varchar(80) NOT NULL,
-  `context` varchar(80) NOT NULL,
-  `channame` varchar(80) NOT NULL,
-  `src` varchar(80) NOT NULL,
-  `dst` varchar(80) NOT NULL,
-  `channel` varchar(80) NOT NULL,
-  `dstchannel` varchar(80) NOT NULL,
-  `appname` varchar(80) NOT NULL,
-  `appdata` varchar(80) NOT NULL,
-  `amaflags` int(11) NOT NULL,
-  `accountcode` varchar(20) NOT NULL,
-  `uniqueid` varchar(32) NOT NULL,
-  `linkedid` varchar(32) NOT NULL,
-  `peer` varchar(80) NOT NULL,
-  `userdeftype` varchar(255) NOT NULL,
-  `eventextra` varchar(255) NOT NULL,
-  `userfield` varchar(255) NOT NULL,
-  PRIMARY KEY  (`id`),
-  KEY `uniqueid_index` (`uniqueid`),
-  KEY `linkedid_index` (`linkedid`)
-)
-";
-$check = $dbcdr->query($sql);
-if(DB::IsError($check)) {
-	die_freepbx("Can not create $db_cel_table_name table");
-} else {
-	out(_("OK"));
-}
-
-$freepbx_conf =& freepbx_conf::create();
-if (!$freepbx_conf->conf_setting_exists('CEL_ENABLED')) {
-	// CEL_ENABLED
-	//
-	//$value = $dbcdr->getOne("SELECT count(*) FROM $db_cel_name.$db_cel_table_name") > 0 ? true : false;
-	$value = true;
-	$set['value'] = $value;
-	$set['defaultval'] = false;
-	$set['readonly'] = 0;
-	$set['hidden'] = 0;
-	$set['level'] = 3;
-	$set['module'] = 'cdr';
-	$set['category'] = 'CDR Report Module';
-	$set['emptyok'] = 0;
-	$set['sortorder'] = 10;
-	$set['name'] = 'Enable CEL Reporting';
-	$set['description'] = 'Setting this true will enable the CDR module to drill down on CEL data for each CDR. Although the CDR module will assure there is a CEL table available, the reporting functionality in Asterisk and associated ODBC database and CEL configuration must be done outside of FreePBX either by the user or at the Distro level.';
-	$set['type'] = CONF_TYPE_BOOL;
-	$freepbx_conf->define_conf_setting('CEL_ENABLED',$set,true);
-}
 $info = FreePBX::Modules()->getInfo("cdr");
 if(version_compare_freepbx($info['cdr']['dbversion'], "12.0.13", "<=")) {
 	if(FreePBX::Modules()->checkStatus('ucp') && FreePBX::Modules()->checkStatus('userman')) {
