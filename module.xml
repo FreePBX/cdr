@@ -69,6 +69,7 @@
 	</changelog>
 	<depends>
 		<module>core ge 12.0.8</module>
+		<module>cel ge 13.0.0beta1</module>
 	</depends>
 	<supported>
 		<version>13.0</version>
