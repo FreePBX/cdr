@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-30 00:04+0400\n"
+"POT-Creation-Date: 2015-02-11 17:36-0500\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -28,208 +28,47 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "CDR Reports"
-msgstr "Отчёты CDR"
-
-msgid "Reports"
-msgstr "Отчёты"
-
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr "Просмотр записей о совершенных звонках"
-
-msgid "UniqueID"
-msgstr "Идентификатор"
-
-msgid "Channel"
-msgstr "Канал"
-
-msgid "CallerID"
-msgstr "Имя звонящего"
-
-msgid "DID"
-msgstr "Входящий номер"
-
-msgid "Application"
-msgstr "Приложение"
-
-msgid "Destination Context"
-msgstr "Контекст"
-
-msgid "AMA Flag"
-msgstr "AMA-флаг"
-
-msgid "Billing Duration"
-msgstr "Время разговора"
-
-msgid "Checking if field did is present in cdr table.."
-msgstr "Проверка наличия входящего номера в таблице CDR.."
-
-msgid "Adding did field to cdr"
-msgstr "Добавляем поле входящего номера в CDR"
-
-msgid "This might take a while......"
-msgstr "Возможно придется подождать..."
-
-msgid "Added field did to cdr"
-msgstr "Поле входящего номера добавлено в CDR"
-
-msgid "did field already present."
-msgstr "Поле входящего номера уже присутствует."
-
-msgid "Checking if field recordingfile is present in cdr table.."
-msgstr "Проверка имеется ли файл записи разговора в таблице CDR.."
-
-msgid "Adding recordingfile field to cdr"
-msgstr "Добавление поля файла записи разговора в CDR"
-
-msgid "Unable to add recordingfile field to cdr table"
-msgstr "Не могу добавить поле recordingfile в таблицу cdr"
-
-msgid "Added field recordingfile to cdr"
-msgstr "Поле recordingfile добавлено в CDR"
-
-msgid "recordingfile field already present."
-msgstr "Поле recordingfile уже имеется."
-
-msgid "Call Detail Record Search"
-msgstr "Отчет по звонкам"
-
-msgid "Order By"
-msgstr "Сортировать по"
-
-msgid "Search conditions"
-msgstr "Условия поиска"
-
-msgid ""
-"Select time span for your report. You can select Date, Month, Year, Hour and "
-"Minute to narrow your search"
+#: /usr/src/freepbx/cdr/Cdr.class.php:213
+#, php-format
+msgid "%s hour, %s min, %s sec"
 msgstr ""
-"Выберите интервал времени за который Вы хотите получить отчет. Вы можите "
-"указать: День, Месяц, Год, Час и Минуту для более точного поиска "
 
-msgid "Call Date"
-msgstr "Дата звонка"
-
-msgid "From"
-msgstr "Между"
-
-msgid "January"
-msgstr "Январь"
-
-msgid "February"
-msgstr "Февраль"
-
-msgid "March"
-msgstr "Март"
-
-msgid "April"
-msgstr "Апрель"
-
-msgid "May"
-msgstr "Май"
-
-msgid "June"
-msgstr "Июнь"
-
-msgid "July"
-msgstr "Июль"
-
-msgid "August"
-msgstr "Август"
-
-msgid "September"
-msgstr "Сентябрь"
-
-msgid "October"
-msgstr "Октябрь"
-
-msgid "November"
-msgstr "Ноябрь"
-
-msgid "December"
-msgstr "Декабрь"
-
-msgid "To"
-msgstr "и"
-
-msgid "Extra options"
-msgstr "Дополнительно"
-
-msgid "Report type"
-msgstr "Показать"
-
-msgid "CDR search"
-msgstr "Список звонков"
-
-msgid "CSV file"
-msgstr "Дамп в CSV-файл"
-
-msgid "Call Graph"
-msgstr "Суммарный график"
-
-msgid "Concurrent Calls"
-msgstr "Одновременные звонки"
-
-msgid "Result limit"
-msgstr "Записей"
-
-msgid ""
-"Select Source Channel to search for. You can enter just the channel type "
-"like SIP, IAX2 or Local. You can also include the destination for the "
-"channel, like SIP/1234."
+#: /usr/src/freepbx/cdr/Cdr.class.php:215
+#, php-format
+msgid "%s min, %s sec"
 msgstr ""
-"Выберите канал источника. Вы можите просто ввести тип канала, например SIP, "
-"IAX2, Local. Или ввести полное имя канала, например SIP/1234."
 
-msgid "Src Channel"
-msgstr "Вх. канал"
-
-msgid "Not"
-msgstr "Не"
-
-msgid "Begins With"
-msgstr "Начинается с"
-
-msgid "Contains"
-msgstr "Содержит"
-
-msgid "Ends With"
-msgstr "Оканчивается на"
-
-msgid "Exactly"
-msgstr "Равно"
-
-msgid ""
-"Search for source calls. You can enter multiple sources separated by a "
-"comma. This field support Asterisk regular expression. Example<br>"
+#: /usr/src/freepbx/cdr/Cdr.class.php:218
+#, php-format
+msgid "%s sec"
 msgstr ""
-"Поиск по номеру звонящего. Можно ввести один номер или несколько Asterisk "
-"совместимых регулярных выражений разделенных запятой, например:<br>"
 
-msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr ""
-"<b>_2XXN, _562., _.0075</b> эквивалентно любому номеру подпадающему под "
-"любой из этих трех шаблонов<br>"
+#: /usr/src/freepbx/cdr/page.cdr.php:333 /usr/src/freepbx/cdr/page.cdr.php:908
+msgid "10 Minutes"
+msgstr "10 минут"
 
-msgid ""
-"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
-"numbers"
-msgstr ""
-"<b>_!2XXN, _562., _.0075</b> найти все номера которые не совпадают со всеми "
-"этими тремя шаблонами</br>"
+#: /usr/src/freepbx/cdr/page.cdr.php:182 /usr/src/freepbx/cdr/page.cdr.php:214
+#: /usr/src/freepbx/cdr/page.cdr.php:245
+msgid "<b>.</b> = wildcard, matches one or more characters<br>"
+msgstr "<b>.</b> = один или несколько любых символов<br>"
 
-msgid "<br>Asterisk pattern matching<br>"
-msgstr "<br>Регулярные выражения Asterisk<br>"
-
-msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr "<b>X</b> = любому числу от 0 до 9<br>"
-
-msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr "<b>Z</b> = любому числу от 1 до 9<br>"
-
+#: /usr/src/freepbx/cdr/page.cdr.php:180 /usr/src/freepbx/cdr/page.cdr.php:212
+#: /usr/src/freepbx/cdr/page.cdr.php:243
 msgid "<b>N</b> = matches any digit from 2-9<br>"
 msgstr "<b>N</b> = любому числу от 2 до 9<br>"
 
+#: /usr/src/freepbx/cdr/page.cdr.php:178 /usr/src/freepbx/cdr/page.cdr.php:210
+#: /usr/src/freepbx/cdr/page.cdr.php:241
+msgid "<b>X</b> = matches any digit from 0-9<br>"
+msgstr "<b>X</b> = любому числу от 0 до 9<br>"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:179 /usr/src/freepbx/cdr/page.cdr.php:211
+#: /usr/src/freepbx/cdr/page.cdr.php:242
+msgid "<b>Z</b> = matches any digit from 1-9<br>"
+msgstr "<b>Z</b> = любому числу от 1 до 9<br>"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:181 /usr/src/freepbx/cdr/page.cdr.php:213
+#: /usr/src/freepbx/cdr/page.cdr.php:244
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
@@ -237,33 +76,556 @@ msgstr ""
 "<b>[1237-9]</b> = любое число или буква из скобок<br>( здесь например это: "
 "1,2,3,7,8,9<br>"
 
-msgid "<b>.</b> = wildcard, matches one or more characters<br>"
-msgstr "<b>.</b> = один или несколько любых символов<br>"
-
-msgid "Source"
-msgstr "Кто звонил"
-
+#: /usr/src/freepbx/cdr/page.cdr.php:176 /usr/src/freepbx/cdr/page.cdr.php:208
+#: /usr/src/freepbx/cdr/page.cdr.php:239
 msgid ""
-"Search for CallerID. If your CallerID begins with \" then you must supply "
-"this in your search if you select Begins With."
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
 msgstr ""
-"Поиск по имени и номеру звонящего. Если имя начинается с \" Вам нужно "
-"указать это если Вы выбрали поиск по началу строки"
+"<b>_!2XXN, _562., _.0075</b> найти все номера которые не совпадают со всеми "
+"этими тремя шаблонами</br>"
 
+#: /usr/src/freepbx/cdr/page.cdr.php:175 /usr/src/freepbx/cdr/page.cdr.php:207
+#: /usr/src/freepbx/cdr/page.cdr.php:238
+msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
+msgstr ""
+"<b>_2XXN, _562., _.0075</b> эквивалентно любому номеру подпадающему под "
+"любой из этих трех шаблонов<br>"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:177 /usr/src/freepbx/cdr/page.cdr.php:209
+#: /usr/src/freepbx/cdr/page.cdr.php:240
+msgid "<br>Asterisk pattern matching<br>"
+msgstr "<br>Регулярные выражения Asterisk<br>"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:406
+msgid "AMA"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:1147
+#: /usr/src/freepbx/cdr/page.cdr.php:1223
+msgid "AMA Flag"
+msgstr "AMA-флаг"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:404
+#: /usr/src/freepbx/cdr/page.cdr.php:1111
+msgid "ANI"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:714
+msgid "Account"
+msgstr "Account"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:283 /usr/src/freepbx/cdr/page.cdr.php:328
+#: /usr/src/freepbx/cdr/page.cdr.php:849
+msgid "Account Code"
+msgstr "Account Code"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:327
+msgid "Account Information"
+msgstr "Учетная информация"
+
+#: /usr/src/freepbx/cdr/install.php:50
+msgid "Added field did to cdr"
+msgstr "Поле входящего номера добавлено в CDR"
+
+#: /usr/src/freepbx/cdr/install.php:66
+msgid "Added field recordingfile to cdr"
+msgstr "Поле recordingfile добавлено в CDR"
+
+#: /usr/src/freepbx/cdr/install.php:43
+msgid "Adding did field to cdr"
+msgstr "Добавляем поле входящего номера в CDR"
+
+#: /usr/src/freepbx/cdr/install.php:103
+msgid "Adding index to uniqueid field in the cdr table"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/install.php:59
+msgid "Adding recordingfile field to cdr"
+msgstr "Добавление поля файла записи разговора в CDR"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:308
+msgid "All Dispositions"
+msgstr "Любой статус"
+
+#: /usr/src/freepbx/cdr/Cdr.class.php:67
+msgid "Allowed CDR"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:297
+msgid "And"
+msgstr "и"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:309
+msgid "Answered"
+msgstr "Отвечено"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:409 /usr/src/freepbx/cdr/page.cdr.php:709
+msgid "App"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:1117
+msgid "Application"
+msgstr "Приложение"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "April"
+msgstr "Апрель"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "August"
+msgstr "Август"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:944
+msgid "Average Call Time"
+msgstr "Средняя продолжительность звонка"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:186 /usr/src/freepbx/cdr/page.cdr.php:198
+#: /usr/src/freepbx/cdr/page.cdr.php:218 /usr/src/freepbx/cdr/page.cdr.php:230
+#: /usr/src/freepbx/cdr/page.cdr.php:249 /usr/src/freepbx/cdr/page.cdr.php:263
+#: /usr/src/freepbx/cdr/page.cdr.php:275 /usr/src/freepbx/cdr/page.cdr.php:286
+msgid "Begins With"
+msgstr "Начинается с"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:295
+msgid "Between"
+msgstr "Между"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:1154
+msgid "Billing Duration"
+msgstr "Время разговора"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:310
+msgid "Busy"
+msgstr "Занято"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:74
+msgid "CDR Reports"
+msgstr "Отчёты CDR"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:150
+msgid "CDR search"
+msgstr "Список звонков"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:402
+msgid "CNAM"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:403
+msgid "CNUM"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:151
+msgid "CSV file"
+msgstr "Дамп в CSV-файл"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:89 /usr/src/freepbx/cdr/page.cdr.php:703
+msgid "Call Date"
+msgstr "Дата звонка"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:941
+msgid "Call Detail Record - Call Graph by"
+msgstr "Отчет по звонкам - суммарные графики"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:1041
+msgid "Call Detail Record - Concurrent Calls by"
+msgstr "Отчет по звонкам - одновременные звонки"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:689
+msgid "Call Detail Record - Search Returned"
+msgstr "Отчет по звонкам - Результат поиска"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:80
+msgid "Call Detail Record Search"
+msgstr "Отчет по звонкам"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:385
+msgid "Call Event Log - Search Returned"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:152
+msgid "Call Graph"
+msgstr "Суммарный график"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:345 /usr/src/freepbx/cdr/page.cdr.php:861
+#: /usr/src/freepbx/cdr/page.cdr.php:1190
+msgid "Caller ID Name"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:344 /usr/src/freepbx/cdr/page.cdr.php:858
+#: /usr/src/freepbx/cdr/page.cdr.php:1195
+msgid "Caller ID Number"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:706
+#: /usr/src/freepbx/cdr/page.cdr.php:1094
+msgid "CallerID"
+msgstr "Имя звонящего"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:195
+msgid "CallerID Name"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:183
+msgid "CallerID Number"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:689
+msgid "Calls"
+msgstr "Звонки"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:1086
+#: /usr/src/freepbx/cdr/page.cdr.php:1101
+#: /usr/src/freepbx/cdr/page.cdr.php:1128
+#: /usr/src/freepbx/cdr/page.cdr.php:1251
+msgid "Channel"
+msgstr "Канал"
+
+#: /usr/src/freepbx/cdr/install.php:39
+msgid "Checking if field did is present in cdr table.."
+msgstr "Проверка наличия входящего номера в таблице CDR.."
+
+#: /usr/src/freepbx/cdr/install.php:55
+msgid "Checking if field recordingfile is present in cdr table.."
+msgstr "Проверка имеется ли файл записи разговора в таблице CDR.."
+
+#: /usr/src/freepbx/cdr/page.cdr.php:154
+msgid "Concurrent Calls"
+msgstr "Одновременные звонки"
+
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:274
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:278
+msgid "Conference"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/ucp/views/settings.php:2
+#, php-format
+msgid "Conference \"%s\" Settings"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:187 /usr/src/freepbx/cdr/page.cdr.php:199
+#: /usr/src/freepbx/cdr/page.cdr.php:219 /usr/src/freepbx/cdr/page.cdr.php:231
+#: /usr/src/freepbx/cdr/page.cdr.php:250 /usr/src/freepbx/cdr/page.cdr.php:264
+#: /usr/src/freepbx/cdr/page.cdr.php:276 /usr/src/freepbx/cdr/page.cdr.php:287
+msgid "Contains"
+msgstr "Содержит"
+
+#: /usr/src/freepbx/cdr/ucp/views/view.php:26
+msgid "Controls"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:227 /usr/src/freepbx/cdr/page.cdr.php:343
+#: /usr/src/freepbx/cdr/page.cdr.php:405 /usr/src/freepbx/cdr/page.cdr.php:708
+#: /usr/src/freepbx/cdr/page.cdr.php:855
+#: /usr/src/freepbx/cdr/page.cdr.php:1106
+msgid "DID"
+msgstr "Входящий номер"
+
+#: /usr/src/freepbx/cdr/ucp/views/view.php:23
+msgid "Date"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:331
+msgid "Date/Time"
+msgstr "Дата/Время"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:337 /usr/src/freepbx/cdr/page.cdr.php:914
+msgid "Day"
+msgstr "День"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:336 /usr/src/freepbx/cdr/page.cdr.php:898
+msgid "Day of week"
+msgstr "День недели"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "December"
+msgstr "Декабрь"
+
+#: /usr/src/freepbx/cdr/ucp/views/view.php:24
+msgid "Description"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:246 /usr/src/freepbx/cdr/page.cdr.php:710
+msgid "Destination"
+msgstr "Куда звонил"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:870
+msgid "Destination Caller ID Name"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:260
+msgid "Destination CallerID Name"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:1128
+msgid "Destination Context"
+msgstr "Контекст"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:342 /usr/src/freepbx/cdr/page.cdr.php:852
+msgid "Destination Number"
+msgstr "Куда звонил"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:1205
+msgid "Dialplan context"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:1200
+msgid "Dialplan exten"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:304 /usr/src/freepbx/cdr/page.cdr.php:711
+msgid "Disposition"
+msgstr "Статус звонка"
+
+#: /usr/src/freepbx/cdr/ucp/views/view.php:48
+msgid "Download"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:294 /usr/src/freepbx/cdr/page.cdr.php:712
+#: /usr/src/freepbx/cdr/ucp/views/view.php:25
+msgid "Duration"
+msgstr "Длительность"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:200
+#: /usr/src/freepbx/cdr/page.cdr.php:220 /usr/src/freepbx/cdr/page.cdr.php:232
+#: /usr/src/freepbx/cdr/page.cdr.php:251 /usr/src/freepbx/cdr/page.cdr.php:265
+#: /usr/src/freepbx/cdr/page.cdr.php:277 /usr/src/freepbx/cdr/page.cdr.php:288
+msgid "Ends With"
+msgstr "Оканчивается на"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:401
+msgid "Event"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:1243
+msgid "Event Extra"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:412
+msgid "EventExtra"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:385
+msgid "Events"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:201
+#: /usr/src/freepbx/cdr/page.cdr.php:221 /usr/src/freepbx/cdr/page.cdr.php:233
+#: /usr/src/freepbx/cdr/page.cdr.php:252 /usr/src/freepbx/cdr/page.cdr.php:266
+#: /usr/src/freepbx/cdr/page.cdr.php:278 /usr/src/freepbx/cdr/page.cdr.php:289
+msgid "Exactly"
+msgstr "Равно"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:145
+msgid "Extra options"
+msgstr "Дополнительно"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:311
+msgid "Failed"
+msgstr "Неудавшийся"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "February"
+msgstr "Февраль"
+
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:340
+msgid "Forbidden"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:90
+msgid "From"
+msgstr "Между"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:946
+msgid "Go to the CDR Graph"
+msgstr "Перейти к графикам"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:945
+msgid "Go to the top of the CDR table"
+msgstr "Перейти к списку звонков"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:325
+msgid "Group By"
+msgstr "Группировать по"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:334 /usr/src/freepbx/cdr/page.cdr.php:878
+msgid "Hour"
+msgstr "Час"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:335 /usr/src/freepbx/cdr/page.cdr.php:883
+msgid "Hour of day"
+msgstr "Час дня"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "January"
+msgstr "Январь"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "July"
+msgstr "Июль"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "June"
+msgstr "Июнь"
+
+#: /usr/src/freepbx/cdr/ucp/views/view.php:62
+msgid "Loading"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "March"
+msgstr "Март"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:943
+#: /usr/src/freepbx/cdr/page.cdr.php:1043
+msgid "Max Calls"
+msgstr "Максимально звонков"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "May"
+msgstr "Май"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:332 /usr/src/freepbx/cdr/page.cdr.php:903
+msgid "Minute"
+msgstr "Минута"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:339 /usr/src/freepbx/cdr/page.cdr.php:893
+msgid "Month"
+msgstr "Месяц"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:321
+msgid "Newest First"
+msgstr "Сначала более ранние"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:312
+msgid "No Answer"
+msgstr "Без ответа"
+
+#: /usr/src/freepbx/cdr/ucp/views/view.php:99
+msgid "No History"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:185 /usr/src/freepbx/cdr/page.cdr.php:197
+#: /usr/src/freepbx/cdr/page.cdr.php:217 /usr/src/freepbx/cdr/page.cdr.php:229
+#: /usr/src/freepbx/cdr/page.cdr.php:248 /usr/src/freepbx/cdr/page.cdr.php:262
+#: /usr/src/freepbx/cdr/page.cdr.php:274 /usr/src/freepbx/cdr/page.cdr.php:285
+#: /usr/src/freepbx/cdr/page.cdr.php:314
+msgid "Not"
+msgstr "Не"
+
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:46
+msgid "Not Authorized"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "November"
+msgstr "Ноябрь"
+
+#: /usr/src/freepbx/cdr/install.php:146
+msgid "OK"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "October"
+msgstr "Октябрь"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:320
+msgid "Oldest First"
+msgstr "Сначала более давние"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:83
+msgid "Order By"
+msgstr "Сортировать по"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:347 /usr/src/freepbx/cdr/page.cdr.php:867
+msgid "Outbound Caller ID Name"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:346 /usr/src/freepbx/cdr/page.cdr.php:864
+msgid "Outbound Caller ID Number"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:707
+msgid "Outbound CallerID"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:215
+msgid "Outbound CallerID Number"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/ucp/views/view.php:45
+msgid "Play"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/install.php:180
+msgid ""
+"Please upgrade UCP before this module so that settings can be properly "
+"migrated"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/install.php:183
+msgid ""
+"Please upgrade Usermanager before this module so that settings can be "
+"properly migrated"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:704
+msgid "Recording"
+msgstr "Запись"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:691
+msgid "Related Call Detail Records"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:148
+msgid "Report type"
+msgstr "Показать"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:159
+msgid "Result limit"
+msgstr "Записей"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:357
+#: /usr/src/freepbx/cdr/ucp/views/view.php:12
+msgid "Search"
+msgstr "Искать"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:84
+msgid "Search conditions"
+msgstr "Условия поиска"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:226
 msgid "Search for a DID."
 msgstr "Поиск заданного входящего номера."
 
+#: /usr/src/freepbx/cdr/page.cdr.php:282
+msgid "Search for accountcode."
+msgstr "Поиск по accountcode."
+
+#: /usr/src/freepbx/cdr/page.cdr.php:174
 msgid ""
-"Select Destination Channel to search for. It can be just the channel type "
-"like SIP, IAX2 or Local. It can include the destination for the channel, "
-"like SIP/1234."
+"Search for calls based on CallerID Number. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
 msgstr ""
-"Выберите канал назначения. Вы можите просто ввести тип канала, например SIP, "
-"IAX2, Local. Или ввести полное имя канала, например SIP/1234."
 
-msgid "Dst Channel"
-msgstr "Исх. канал"
+#: /usr/src/freepbx/cdr/page.cdr.php:206
+msgid ""
+"Search for calls based on outbound CID used. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
 
+#: /usr/src/freepbx/cdr/page.cdr.php:303
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr "Поиск по статусу звонка: Отвечен / Занят / Неудавшийся / Без ответа"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:293
+msgid "Search for calls that matches the call length specified."
+msgstr "Поиск звонков определенной длительности."
+
+#: /usr/src/freepbx/cdr/page.cdr.php:237
 msgid ""
 "Search for destination calls. You can enter multiple sources separated by a "
 "comma. This field support Asterisk regular expression. Example<br>"
@@ -271,168 +633,221 @@ msgstr ""
 "Поиск по номеру назначения. Можно ввести один номер или несколько Asterisk "
 "совместимых регулярных выражений разделенных запятой, например:<br>"
 
-msgid "Destination"
-msgstr "Куда звонил"
-
+#: /usr/src/freepbx/cdr/page.cdr.php:271
 msgid "Search for userfield data (if enabled)."
 msgstr "Поиск по дополнительному полю Userfield ( если используется )"
 
-msgid "Userfield"
-msgstr "Userfield"
-
-msgid "Search for accountcode."
-msgstr "Поиск по accountcode."
-
-msgid "Account Code"
-msgstr "Account Code"
-
-msgid "Search for calls that matches the call length specified."
-msgstr "Поиск звонков определенной длительности."
-
-msgid "Duration"
-msgstr "Длительность"
-
-msgid "Between"
-msgstr "Между"
-
-msgid "And"
-msgstr "и"
-
+#: /usr/src/freepbx/cdr/page.cdr.php:299
 msgid "Seconds"
 msgstr "Секунд"
 
+#: /usr/src/freepbx/cdr/page.cdr.php:194
+msgid "Select CallerID Name to search for."
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:259
+msgid "Select Destination Caller Name to search for."
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:88
 msgid ""
-"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
-msgstr "Поиск по статусу звонка: Отвечен / Занят / Неудавшийся / Без ответа"
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
+msgstr ""
+"Выберите интервал времени за который Вы хотите получить отчет. Вы можите "
+"указать: День, Месяц, Год, Час и Минуту для более точного поиска "
 
-msgid "Disposition"
-msgstr "Статус звонка"
+#: /usr/src/freepbx/cdr/page.cdr.php:94
+msgid "September"
+msgstr "Сентябрь"
 
-msgid "All Dispositions"
-msgstr "Любой статус"
+#: /usr/src/freepbx/cdr/ucp/views/nav.php:8
+msgid "Settings"
+msgstr ""
 
-msgid "Answered"
-msgstr "Отвечено"
-
-msgid "Busy"
-msgstr "Занято"
-
-msgid "Failed"
-msgstr "Неудавшийся"
-
-msgid "No Answer"
-msgstr "Без ответа"
-
-msgid "Oldest First"
-msgstr "Сначала более давние"
-
-msgid "Newest First"
-msgstr "Сначала более ранние"
-
-msgid "Group By"
-msgstr "Группировать по"
-
-msgid "Account Information"
-msgstr "Учетная информация"
-
-msgid "User Field"
-msgstr "User Field"
-
-msgid "Date/Time"
-msgstr "Дата/Время"
-
-msgid "Minute"
-msgstr "Минута"
-
-msgid "10 Minutes"
-msgstr "10 минут"
-
-msgid "Hour"
-msgstr "Час"
-
-msgid "Hour of day"
-msgstr "Час дня"
-
-msgid "Day of week"
-msgstr "День недели"
-
-msgid "Day"
-msgstr "День"
-
-msgid "Week ( Sun-Sat )"
-msgstr "Неделя (Вск-Суб)"
-
-msgid "Month"
-msgstr "Месяц"
-
-msgid "Telephone Number"
-msgstr "Номера телефона"
-
-msgid "Source Number"
-msgstr "Кто звонил"
-
-msgid "Destination Number"
-msgstr "Куда звонил"
-
-msgid "Tech info"
-msgstr "Техническая информация"
-
-msgid "Search"
-msgstr "Искать"
-
-msgid "Call Detail Record - Search Returned"
-msgstr "Отчет по звонкам - Результат поиска"
-
-msgid "Calls"
-msgstr "Звонки"
-
-msgid "Recording"
-msgstr "Запись"
-
+#: /usr/src/freepbx/cdr/page.cdr.php:705
 msgid "System"
 msgstr "Идентификатор"
 
-msgid "Src Chan."
-msgstr "Входящий канал."
+#: /usr/src/freepbx/cdr/page.cdr.php:350
+msgid "Tech info"
+msgstr "Техническая информация"
 
-msgid "App."
-msgstr "Приложение."
+#: /usr/src/freepbx/cdr/page.cdr.php:341
+msgid "Telephone Number"
+msgstr "Номера телефона"
 
-msgid "Dest."
-msgstr "Куда."
+#: /usr/src/freepbx/cdr/Cdr.class.php:67
+msgid ""
+"These are the assigned and active extensions which will show up for this "
+"user to control and edit in UCP"
+msgstr ""
 
-msgid "Dst. Chan."
-msgstr "Исх. канал."
+#: /usr/src/freepbx/cdr/install.php:44
+msgid "This might take a while......"
+msgstr "Возможно придется подождать..."
 
-msgid "Account"
-msgstr "Account"
+#: /usr/src/freepbx/cdr/page.cdr.php:400
+#: /usr/src/freepbx/cdr/page.cdr.php:1044
+msgid "Time"
+msgstr "Время"
 
-msgid "Call Detail Record - Call Graph by"
-msgstr "Отчет по звонкам - суммарные графики"
+#: /usr/src/freepbx/cdr/page.cdr.php:116
+msgid "To"
+msgstr "и"
 
+#: /usr/src/freepbx/cdr/ucp/views/view.php:89
+#, php-format
+msgid ""
+"To play the media you will need to either update your browser to a recent "
+"version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:943
+#: /usr/src/freepbx/cdr/page.cdr.php:1043
 msgid "Total Calls"
 msgstr "Всего звонков"
 
-msgid "Max Calls"
-msgstr "Максимально звонков"
-
+#: /usr/src/freepbx/cdr/page.cdr.php:943
 msgid "Total Duration"
 msgstr "Суммарная продолжительность"
 
-msgid "Average Call Time"
-msgstr "Средняя продолжительность звонка"
+#: /usr/src/freepbx/cdr/install.php:100
+msgid "Unable to add index to uniqueid field in cdr table"
+msgstr ""
 
-msgid "Go to the top of the CDR table"
-msgstr "Перейти к списку звонков"
+#: /usr/src/freepbx/cdr/install.php:63
+msgid "Unable to add recordingfile field to cdr table"
+msgstr "Не могу добавить поле recordingfile в таблицу cdr"
 
-msgid "Go to the CDR Graph"
-msgstr "Перейти к графикам"
+#: /usr/src/freepbx/cdr/page.cdr.php:1077
+#: /usr/src/freepbx/cdr/page.cdr.php:1080
+msgid "UniqueID"
+msgstr "Идентификатор"
 
-msgid "Call Detail Record - Concurrent Calls by"
-msgstr "Отчет по звонкам - одновременные звонки"
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:304
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:325
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:329
+msgid "Unknown"
+msgstr ""
 
-msgid "Time"
-msgstr "Время"
+#: /usr/src/freepbx/cdr/ucp/views/view.php:88
+msgid "Update Required"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:329 /usr/src/freepbx/cdr/page.cdr.php:873
+msgid "User Field"
+msgstr "User Field"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:411
+#: /usr/src/freepbx/cdr/page.cdr.php:1237
+msgid "UserDefType"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:272 /usr/src/freepbx/cdr/page.cdr.php:713
+msgid "Userfield"
+msgstr "Userfield"
+
+#: /usr/src/freepbx/cdr/ucp/views/nav.php:3
+msgid "View History"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:260
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:265
+msgid "Voicemail"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:338 /usr/src/freepbx/cdr/page.cdr.php:888
+msgid "Week ( Sun-Sat )"
+msgstr "Неделя (Вск-Суб)"
+
+#: /usr/src/freepbx/cdr/page.cdr.php:410
+msgid "channel"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/page.cdr.php:408
+msgid "context"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:292
+msgid "denied by COS"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/install.php:52
+msgid "did field already present."
+msgstr "Поле входящего номера уже присутствует."
+
+#: /usr/src/freepbx/cdr/page.cdr.php:407
+msgid "exten"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/ucp/Cdr.class.php:288
+msgid "kicked from conference"
+msgstr ""
+
+#: /usr/src/freepbx/cdr/install.php:69
+msgid "recordingfile field already present."
+msgstr "Поле recordingfile уже имеется."
+
+#~ msgid "Reports"
+#~ msgstr "Отчёты"
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr "Просмотр записей о совершенных звонках"
+
+#~ msgid ""
+#~ "Select Source Channel to search for. You can enter just the channel type "
+#~ "like SIP, IAX2 or Local. You can also include the destination for the "
+#~ "channel, like SIP/1234."
+#~ msgstr ""
+#~ "Выберите канал источника. Вы можите просто ввести тип канала, например "
+#~ "SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
+
+#~ msgid "Src Channel"
+#~ msgstr "Вх. канал"
+
+#~ msgid ""
+#~ "Search for source calls. You can enter multiple sources separated by a "
+#~ "comma. This field support Asterisk regular expression. Example<br>"
+#~ msgstr ""
+#~ "Поиск по номеру звонящего. Можно ввести один номер или несколько Asterisk "
+#~ "совместимых регулярных выражений разделенных запятой, например:<br>"
+
+#~ msgid "Source"
+#~ msgstr "Кто звонил"
+
+#~ msgid ""
+#~ "Search for CallerID. If your CallerID begins with \" then you must supply "
+#~ "this in your search if you select Begins With."
+#~ msgstr ""
+#~ "Поиск по имени и номеру звонящего. Если имя начинается с \" Вам нужно "
+#~ "указать это если Вы выбрали поиск по началу строки"
+
+#~ msgid ""
+#~ "Select Destination Channel to search for. It can be just the channel type "
+#~ "like SIP, IAX2 or Local. It can include the destination for the channel, "
+#~ "like SIP/1234."
+#~ msgstr ""
+#~ "Выберите канал назначения. Вы можите просто ввести тип канала, например "
+#~ "SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
+
+#~ msgid "Dst Channel"
+#~ msgstr "Исх. канал"
+
+#~ msgid "Source Number"
+#~ msgstr "Кто звонил"
+
+#~ msgid "Src Chan."
+#~ msgstr "Входящий канал."
+
+#~ msgid "App."
+#~ msgstr "Приложение."
+
+#~ msgid "Dest."
+#~ msgstr "Куда."
+
+#~ msgid "Dst. Chan."
+#~ msgstr "Исх. канал."
 
 #~ msgid "File"
 #~ msgstr "Файл"
