@@ -45,7 +45,7 @@
 								<a class="subplay" alt="<?php echo _('Play');?>" data-msg="<?php echo $call['niceUniqueid']?>">
 									<i class="fa fa-play"></i>
 								</a>
-								<a class="hidden-xs download" alt="<?php echo _('Download');?>" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid=<?php echo $call['niceUniqueid']?>&amp;type=download&amp;format=<?php echo $call['recordingformat']?>&amp;ext=<?php echo $_REQUEST['sub']?>" target="_blank">
+								<a class="download" alt="<?php echo _('Download');?>" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid=<?php echo $call['niceUniqueid']?>&amp;type=download&amp;format=<?php echo $call['recordingformat']?>&amp;ext=<?php echo $_REQUEST['sub']?>" target="_blank">
 									<i class="fa fa-cloud-download"></i>
 								</a>
 							</div>
