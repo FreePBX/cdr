@@ -71,6 +71,8 @@ class Cdr extends Modules{
 				$displayvars['desktop'] = (!$this->UCP->Session->isMobile && !$this->UCP->Session->isTablet);
 				$displayvars['order'] = !empty($_REQUEST['order']) ? $_REQUEST['order'] : 'desc';
 				$displayvars['orderby'] = !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'date';
+				$displayvars['showDownload'] = $this->_checkDownload($ext);
+				$displayvars['showPlayback'] = $this->_checkPlayback($ext);
 				$html .= $this->load_view(__DIR__.'/views/view.php',$displayvars);
 			break;
 		}
@@ -132,12 +134,18 @@ class Cdr extends Modules{
 				$msgid = $_REQUEST['msgid'];
 				$format = $_REQUEST['format'];
 				$ext = $_REQUEST['ext'];
+				if(!$this->_checkDownload($ext)) {
+					return false;
+				}
 				$this->readRemoteFile($msgid,$ext,$format,true);
 				return true;
 			case "listen":
 				$msgid = $_REQUEST['msgid'];
 				$format = $_REQUEST['format'];
 				$ext = $_REQUEST['ext'];
+				if(!$this->_checkPlayback($ext)) {
+					return false;
+				}
 				$this->readRemoteFile($msgid,$ext,$format);
 				return true;
 			break;
@@ -506,5 +514,23 @@ class Cdr extends Modules{
 		$user = $this->UCP->User->getUser();
 		$extensions = $this->UCP->getSetting($user['username'],'Cdr','assigned');
 		return in_array($extension,$extensions);
+	}
+
+	private function _checkDownload($extension) {
+		if($this->_checkExtension($extension)) {
+			$user = $this->UCP->User->getUser();
+			$dl = $this->UCP->getSetting($user['username'],'Cdr','download');
+			return is_null($dl) ? true : $dl;
+		}
+		return false;
+	}
+
+	private function _checkPlayback($extension) {
+		if($this->_checkExtension($extension)) {
+			$user = $this->UCP->User->getUser();
+			$pb = $this->UCP->getSetting($user['username'],'Cdr','playback');
+			return is_null($pb) ? true : $pb;
+		}
+		return false;
 	}
 }

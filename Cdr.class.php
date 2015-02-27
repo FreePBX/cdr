@@ -44,6 +44,16 @@ class Cdr implements BMO {
 		} else {
 			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','assigned',array());
 		}
+		if(!empty($_REQUEST['cdr|download']) && $_REQUEST['cdr|download'] == 'yes') {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','download',true);
+		} else {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','download',false);
+		}
+		if(!empty($_REQUEST['cdr|playback']) && $_REQUEST['cdr|playback'] == 'yes') {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','playback',true);
+		} else {
+			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','playback',false);
+		}
 	}
 
 	/**
@@ -59,13 +69,21 @@ class Cdr implements BMO {
 				"vmcontext" => $list[2]
 			);
 		}
+		$download = $this->FreePBX->Ucp->getSetting($user['username'],'Cdr','download');
+		$playback = $this->FreePBX->Ucp->getSetting($user['username'],'Cdr','playback');
+		$download = is_null($download) ? true : $download;
+		$playback = is_null($playback) ? true : $playback;
 		$cdrassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Cdr','assigned');
 		$cdrassigned = !empty($cdrassigned) ? $cdrassigned : array();
 		foreach($user['assigned'] as $assigned) {
 			$fpbxusers[] = array("ext" => $assigned, "data" => $cul[$assigned], "selected" => in_array($assigned,$cdrassigned));
 		}
-		$html['description'] = '<a href="#" class="info">'._("Allowed CDR").':<span>'._("These are the assigned and active extensions which will show up for this user to control and edit in UCP").'</span></a>';
-		$html['content'] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
+		$html[0]['description'] = '<a href="#" class="info">'._("Allowed CDR").':<span>'._("These are the assigned and active extensions which will show up for this user to control and edit in UCP").'</span></a>';
+		$html[0]['content'] = load_view(dirname(__FILE__)."/views/ucp_config.php",array("fpbxusers" => $fpbxusers));
+		$html[1]['description'] = '<a href="#" class="info">'._("Allow CDR Playback").':<span>'._("Allow this user to playback recordings in UCP").'</span></a>';
+		$html[1]['content'] = load_view(dirname(__FILE__)."/views/ucp_config_playback.php",array("playback" => $playback));
+		$html[2]['description'] = '<a href="#" class="info">'._("Allow CDR Downloads").':<span>'._("Allow users to download recordings in UCP").'</span></a>';
+		$html[2]['content'] = load_view(dirname(__FILE__)."/views/ucp_config_downloads.php",array("download" => $download));
 		return $html;
 	}
 
