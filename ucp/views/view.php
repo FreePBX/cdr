@@ -42,17 +42,21 @@
 					<td class="actions">
 						<?php if(!empty($call['recordingfile'])) { ?>
 							<div>
-								<a class="subplay" alt="<?php echo _('Play');?>" data-msg="<?php echo $call['niceUniqueid']?>">
-									<i class="fa fa-play"></i>
-								</a>
-								<a class="download" alt="<?php echo _('Download');?>" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid=<?php echo $call['niceUniqueid']?>&amp;type=download&amp;format=<?php echo $call['recordingformat']?>&amp;ext=<?php echo $_REQUEST['sub']?>" target="_blank">
-									<i class="fa fa-cloud-download"></i>
-								</a>
+								<?php if($showPlayback) { ?>
+									<a class="subplay" alt="<?php echo _('Play');?>" data-msg="<?php echo $call['niceUniqueid']?>">
+										<i class="fa fa-play"></i>
+									</a>
+								<?php } ?>
+								<?php if($showDownload) { ?>
+									<a class="download" alt="<?php echo _('Download');?>" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid=<?php echo $call['niceUniqueid']?>&amp;type=download&amp;format=<?php echo $call['recordingformat']?>&amp;ext=<?php echo $_REQUEST['sub']?>" target="_blank">
+										<i class="fa fa-cloud-download"></i>
+									</a>
+								<?php } ?>
 							</div>
 						<?php } ?>
 					</td>
 				</tr>
-				<?php if(!empty($call['recordingfile'])) { ?>
+				<?php if(!empty($call['recordingfile']) && $showPlayback) { ?>
 					<tr id="cdr-playback-<?php echo $call['niceUniqueid']?>" class="cdr-playback">
 						<td colspan="4">
 							<div id="jquery_jplayer_<?php echo $call['niceUniqueid']?>" class="jp-jplayer"></div>
