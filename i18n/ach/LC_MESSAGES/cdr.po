@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-20 19:05-0500\n"
+"POT-Creation-Date: 2015-02-26 19:29-0500\n"
 "PO-Revision-Date: 2015-02-20 19:05-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:213
+#: Cdr.class.php:231
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:215
+#: Cdr.class.php:233
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:218
+#: Cdr.class.php:236
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -120,7 +120,23 @@ msgstr ""
 msgid "All Dispositions"
 msgstr ""
 
-#: Cdr.class.php:67
+#: Cdr.class.php:85
+msgid "Allow CDR Downloads"
+msgstr ""
+
+#: Cdr.class.php:83
+msgid "Allow CDR Playback"
+msgstr ""
+
+#: Cdr.class.php:83
+msgid "Allow this user to playback recordings in UCP"
+msgstr ""
+
+#: Cdr.class.php:85
+msgid "Allow users to download recordings in UCP"
+msgstr ""
+
+#: Cdr.class.php:81
 msgid "Allowed CDR"
 msgstr ""
 
@@ -169,10 +185,6 @@ msgstr ""
 
 #: page.cdr.php:310
 msgid "Busy"
-msgstr ""
-
-#: cdr.i18n.php:18
-msgid "CDR Report Module"
 msgstr ""
 
 #: cdr.i18n.php:3 /usr/src/freepbx/cdr/cdr.i18n.php:6 cdr.i18n.php:8
@@ -268,7 +280,7 @@ msgstr ""
 msgid "Concurrent Calls"
 msgstr ""
 
-#: ucp/Cdr.class.php:274 ucp/Cdr.class.php:278
+#: ucp/Cdr.class.php:282 ucp/Cdr.class.php:286
 msgid "Conference"
 msgstr ""
 
@@ -349,17 +361,13 @@ msgstr ""
 msgid "Disposition"
 msgstr ""
 
-#: ucp/views/view.php:48
+#: ucp/views/view.php:51
 msgid "Download"
 msgstr ""
 
 #: page.cdr.php:294 /usr/src/freepbx/cdr/page.cdr.php:712
 #: ucp/views/view.php:25
 msgid "Duration"
-msgstr ""
-
-#: cdr.i18n.php:16
-msgid "Enable CEL Reporting"
 msgstr ""
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:200 page.cdr.php:220
@@ -404,7 +412,7 @@ msgstr ""
 msgid "February"
 msgstr ""
 
-#: ucp/Cdr.class.php:340
+#: ucp/Cdr.class.php:348
 msgid "Forbidden"
 msgstr ""
 
@@ -444,7 +452,7 @@ msgstr ""
 msgid "June"
 msgstr ""
 
-#: ucp/views/view.php:62
+#: ucp/views/view.php:66
 msgid "Loading"
 msgstr ""
 
@@ -476,7 +484,7 @@ msgstr ""
 msgid "No Answer"
 msgstr ""
 
-#: ucp/views/view.php:99
+#: ucp/views/view.php:103
 msgid "No History"
 msgstr ""
 
@@ -527,7 +535,7 @@ msgstr ""
 msgid "Outbound CallerID Number"
 msgstr ""
 
-#: ucp/views/view.php:45
+#: ucp/views/view.php:46
 msgid "Play"
 msgstr ""
 
@@ -634,15 +642,6 @@ msgstr ""
 msgid "September"
 msgstr ""
 
-#: cdr.i18n.php:20
-msgid ""
-"Setting this true will enable the CDR module to drill down on CEL data for "
-"each CDR. Although the CDR module will assure there is a CEL table "
-"available, the reporting functionality in Asterisk and associated ODBC "
-"database and CEL configuration must be done outside of FreePBX either by the "
-"user or at the Distro level."
-msgstr ""
-
 #: ucp/views/nav.php:8
 msgid "Settings"
 msgstr ""
@@ -659,7 +658,7 @@ msgstr ""
 msgid "Telephone Number"
 msgstr ""
 
-#: Cdr.class.php:67
+#: Cdr.class.php:81
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -677,7 +676,7 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#: ucp/views/view.php:89
+#: ucp/views/view.php:93
 #, php-format
 msgid ""
 "To play the media you will need to either update your browser to a recent "
@@ -704,11 +703,11 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:304 ucp/Cdr.class.php:325 ucp/Cdr.class.php:329
+#: ucp/Cdr.class.php:312 ucp/Cdr.class.php:333 ucp/Cdr.class.php:337
 msgid "Unknown"
 msgstr ""
 
-#: ucp/views/view.php:88
+#: ucp/views/view.php:92
 msgid "Update Required"
 msgstr ""
 
@@ -728,7 +727,7 @@ msgstr ""
 msgid "View History"
 msgstr ""
 
-#: ucp/Cdr.class.php:260 ucp/Cdr.class.php:265
+#: ucp/Cdr.class.php:268 ucp/Cdr.class.php:273
 msgid "Voicemail"
 msgstr ""
 
@@ -744,7 +743,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:292
+#: ucp/Cdr.class.php:300
 msgid "denied by COS"
 msgstr ""
 
@@ -756,7 +755,7 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:288
+#: ucp/Cdr.class.php:296
 msgid "kicked from conference"
 msgstr ""
 
