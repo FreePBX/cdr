@@ -44,6 +44,11 @@ $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb"
 $db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRDBTABLENAME']:"cdr";
 $system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."/monitor":"/var/spool/asterisk/monitor";
 
+// FREEPBX-8845
+foreach ($_POST as $k => $v) {
+	$_POST[$k] = mysql_real_escape_string($v);
+}
+
 // if CDRDBHOST and CDRDBTYPE are not empty then we assume an external connection and don't use the default connection
 //
 if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
