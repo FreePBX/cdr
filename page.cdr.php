@@ -33,7 +33,7 @@ switch ($action) {
 		break;
 }
 
-global $amp_conf;
+global $amp_conf, $db;
 // Are a crypt password specified? If not, use the supplied.
 $REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
 $dispnum = "cdr";
@@ -43,11 +43,6 @@ $db_result_limit = 100;
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
 $db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRDBTABLENAME']:"cdr";
 $system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."/monitor":"/var/spool/asterisk/monitor";
-
-// FREEPBX-8845
-foreach ($_POST as $k => $v) {
-	$_POST[$k] = mysql_real_escape_string($v);
-}
 
 // if CDRDBHOST and CDRDBTYPE are not empty then we assume an external connection and don't use the default connection
 //
@@ -65,6 +60,11 @@ if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
 	}
 } else {
 	$dbcdr = $db;
+}
+
+// FREEPBX-8845
+foreach ($_POST as $k => $v) {
+	$_POST[$k] = $dbcdr->escapeSimple($v);
 }
 
 $h_step = 30;
@@ -347,7 +347,7 @@ if (isset($_POST['limit']) ) {
 <?php
 foreach ( array_keys($_POST) as $key ) {
 	$_POST[$key] = preg_replace('/;/', ' ', $_POST[$key]);
-	$_POST[$key] = mysql_real_escape_string($_POST[$key]);
+	$_POST[$key] = $dbcdr->escapeSimple($_POST[$key]);
 }
 
 $startmonth = empty($_POST['startmonth']) ? date('m') : $_POST['startmonth'];
