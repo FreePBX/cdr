@@ -72,6 +72,7 @@ foreach ($_POST as $k => $v) {
 }
 
 $h_step = 30;
+if(!isset($_POST['need_csv'])) {
 ?>
 	<h3><?php echo _('CDR Reports'); ?></h3><hr>
 	<div id="maincdr">
@@ -446,8 +447,9 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile`, `cnum`, `cnam`, `outbound_cnum`, `outbound_cnam`, `dst_cnam` FROM $db_name.$db_table_name $where";
 	$resultscdr = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 }
-
-echo '<a id="CDR"></a>';
+if(!isset($_POST['need_csv'])) {
+       echo '<a id="CDR"></a>';
+}
 
 $startmonth = empty($_POST['startmonth']) ? date('m') : $_POST['startmonth'];
 $startyear = empty($_POST['startyear']) ? date('Y') : $_POST['startyear'];
