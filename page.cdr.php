@@ -10,7 +10,7 @@ if(isset($_POST['need_csv'])) {
 	ob_clean();
 }
 
-global $amp_conf;
+global $amp_conf, $db;
 // Are a crypt password specified? If not, use the supplied.
 $REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
 $dispnum = "cdr";
@@ -66,7 +66,10 @@ switch ($action) {
 		break;
 }
 
-
+// FREEPBX-8845
+foreach ($_POST as $k => $v) {
+	$_POST[$k] = preg_replace('/;/', ' ', $dbcdr->escapeSimple($v));
+}
 
 $h_step = 30;
 if(!isset($_POST['need_csv'])) {
@@ -445,11 +448,7 @@ if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_s
 	$resultscdr = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 }
 if(!isset($_POST['need_csv'])) {
-	echo '<a id="CDR"></a>';
-}
-foreach ( array_keys($_POST) as $key ) {
-	$_POST[$key] = preg_replace('/;/', ' ', $_POST[$key]);
-	$_POST[$key] = $db->escapeSimple($_POST[$key]);
+       echo '<a id="CDR"></a>';
 }
 
 $startmonth = empty($_POST['startmonth']) ? date('m') : $_POST['startmonth'];
