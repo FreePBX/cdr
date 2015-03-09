@@ -20,383 +20,553 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-03-10 07:23+1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "CDR Reports"
+#: page.cdr.php:316 /usr/src/freepbx/cdr/page.cdr.php:691
+msgid "10 Minutes"
 msgstr ""
 
-msgid "Reports"
+#: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:243
+msgid "<b>.</b> = wildcard, matches one or more characters<br>"
 msgstr ""
 
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr ""
-
-msgid "UniqueID"
-msgstr ""
-
-msgid "Channel"
-msgstr ""
-
-msgid "CallerID"
-msgstr ""
-
-msgid "DID"
-msgstr ""
-
-msgid "Application"
-msgstr ""
-
-msgid "Destination Context"
-msgstr ""
-
-msgid "AMA Flag"
-msgstr ""
-
-msgid "Billing Duration"
-msgstr ""
-
-msgid "Checking if field did is present in cdr table.."
-msgstr ""
-
-msgid "Adding did field to cdr"
-msgstr ""
-
-msgid "This might take a while......"
-msgstr ""
-
-msgid "Added field did to cdr"
-msgstr ""
-
-msgid "did field already present."
-msgstr ""
-
-msgid "Call Detail Record Search"
-msgstr ""
-
-msgid "Order By"
-msgstr ""
-
-msgid "Search conditions"
-msgstr ""
-
-msgid ""
-"Select time span for your report. You can select Date, Month, Year, Hour and "
-"Minute to narrow your search"
-msgstr ""
-
-msgid "Call Date"
-msgstr ""
-
-msgid "From"
-msgstr ""
-
-msgid "January"
-msgstr ""
-
-msgid "February"
-msgstr ""
-
-msgid "March"
-msgstr ""
-
-msgid "April"
-msgstr ""
-
-msgid "May"
-msgstr ""
-
-msgid "June"
-msgstr ""
-
-msgid "July"
-msgstr ""
-
-msgid "August"
-msgstr ""
-
-msgid "September"
-msgstr ""
-
-msgid "October"
-msgstr ""
-
-msgid "November"
-msgstr ""
-
-msgid "December"
-msgstr ""
-
-msgid "To"
-msgstr ""
-
-msgid "Extra options"
-msgstr ""
-
-msgid "Report type"
-msgstr ""
-
-msgid "CDR search"
-msgstr ""
-
-msgid "CSV file"
-msgstr ""
-
-msgid "Call Graph"
-msgstr ""
-
-msgid "Concurrent Calls"
-msgstr ""
-
-msgid "Result limit"
-msgstr ""
-
-msgid ""
-"Select Source Channel to search for. You can enter just the channel type "
-"like SIP, IAX2 or Local. You can also include the destination for the "
-"channel, like SIP/1234."
-msgstr ""
-
-msgid "Src Channel"
-msgstr ""
-
-msgid "Not"
-msgstr ""
-
-msgid "Begins With"
-msgstr ""
-
-msgid "Contains"
-msgstr ""
-
-msgid "Ends With"
-msgstr ""
-
-msgid "Exactly"
-msgstr ""
-
-msgid ""
-"Search for source calls. You can enter multiple sources separated by a "
-"comma. This field support Asterisk regular expression. Example<br>"
-msgstr ""
-
-msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr ""
-
-msgid ""
-"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
-"numbers"
-msgstr ""
-
-msgid "<br>Asterisk pattern matching<br>"
-msgstr ""
-
-msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr ""
-
-msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr ""
-
+#: page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:241
 msgid "<b>N</b> = matches any digit from 2-9<br>"
 msgstr ""
 
+#: page.cdr.php:187 /usr/src/freepbx/cdr/page.cdr.php:239
+msgid "<b>X</b> = matches any digit from 0-9<br>"
+msgstr ""
+
+#: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:240
+msgid "<b>Z</b> = matches any digit from 1-9<br>"
+msgstr ""
+
+#: page.cdr.php:190 /usr/src/freepbx/cdr/page.cdr.php:242
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
 msgstr ""
 
-msgid "<b>.</b> = wildcard, matches one or more characters<br>"
+#: page.cdr.php:185 /usr/src/freepbx/cdr/page.cdr.php:237
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
 msgstr ""
 
-msgid "Source"
+#: page.cdr.php:184 /usr/src/freepbx/cdr/page.cdr.php:236
+msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
 msgstr ""
 
+#: page.cdr.php:186 /usr/src/freepbx/cdr/page.cdr.php:238
+msgid "<br>Asterisk pattern matching<br>"
+msgstr ""
+
+#: functions.inc.php:85
+msgid "AMA Flag"
+msgstr ""
+
+#: page.cdr.php:571
+msgid "Account"
+msgstr ""
+
+#: page.cdr.php:266 /usr/src/freepbx/cdr/page.cdr.php:311 page.cdr.php:647
+msgid "Account Code"
+msgstr ""
+
+#: page.cdr.php:310
+msgid "Account Information"
+msgstr ""
+
+#: install.php:64
+msgid "Added field did to cdr"
+msgstr ""
+
+#: install.php:80
+msgid "Added field recordingfile to cdr"
+msgstr ""
+
+#: install.php:57
+msgid "Adding did field to cdr"
+msgstr ""
+
+#: install.php:73
+msgid "Adding recordingfile field to cdr"
+msgstr ""
+
+#: page.cdr.php:291
+msgid "All Dispositions"
+msgstr ""
+
+#: page.cdr.php:280
+msgid "And"
+msgstr ""
+
+#: page.cdr.php:292
+msgid "Answered"
+msgstr ""
+
+#: page.cdr.php:565
+msgid "App."
+msgstr ""
+
+#: functions.inc.php:61
+msgid "Application"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "April"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "August"
+msgstr ""
+
+#: page.cdr.php:727
+msgid "Average Call Time"
+msgstr ""
+
+#: page.cdr.php:176 /usr/src/freepbx/cdr/page.cdr.php:195 page.cdr.php:206
+#: /usr/src/freepbx/cdr/page.cdr.php:217 page.cdr.php:228
+#: /usr/src/freepbx/cdr/page.cdr.php:247 page.cdr.php:258
+#: /usr/src/freepbx/cdr/page.cdr.php:269
+msgid "Begins With"
+msgstr ""
+
+#: page.cdr.php:278
+msgid "Between"
+msgstr ""
+
+#: functions.inc.php:92
+msgid "Billing Duration"
+msgstr ""
+
+#: page.cdr.php:293
+msgid "Busy"
+msgstr ""
+
+#: cdr.i18n.php:16
+msgid "CDR Report Module"
+msgstr ""
+
+#: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:72
+msgid "CDR Reports"
+msgstr ""
+
+#: page.cdr.php:148
+msgid "CDR search"
+msgstr ""
+
+#: page.cdr.php:149
+msgid "CSV file"
+msgstr ""
+
+#: cdr.i18n.php:8
+msgid "Call Data Record report tools for viewing reports of your calls"
+msgstr ""
+
+#: page.cdr.php:87 /usr/src/freepbx/cdr/page.cdr.php:559
+msgid "Call Date"
+msgstr ""
+
+#: page.cdr.php:724
+msgid "Call Detail Record - Call Graph by"
+msgstr ""
+
+#: page.cdr.php:824
+msgid "Call Detail Record - Concurrent Calls by"
+msgstr ""
+
+#: page.cdr.php:548
+msgid "Call Detail Record - Search Returned"
+msgstr ""
+
+#: page.cdr.php:78
+msgid "Call Detail Record Search"
+msgstr ""
+
+#: page.cdr.php:150
+msgid "Call Graph"
+msgstr ""
+
+#: functions.inc.php:52 page.cdr.php:203
+msgid "CallerID"
+msgstr ""
+
+#: page.cdr.php:548
+msgid "Calls"
+msgstr ""
+
+#: functions.inc.php:44
+msgid "Channel"
+msgstr ""
+
+#: install.php:53
+msgid "Checking if field did is present in cdr table.."
+msgstr ""
+
+#: install.php:69
+msgid "Checking if field recordingfile is present in cdr table.."
+msgstr ""
+
+#: page.cdr.php:152
+msgid "Concurrent Calls"
+msgstr ""
+
+#: page.cdr.php:177 /usr/src/freepbx/cdr/page.cdr.php:196 page.cdr.php:207
+#: /usr/src/freepbx/cdr/page.cdr.php:218 page.cdr.php:229
+#: /usr/src/freepbx/cdr/page.cdr.php:248 page.cdr.php:259
+#: /usr/src/freepbx/cdr/page.cdr.php:270
+msgid "Contains"
+msgstr ""
+
+#: functions.inc.php:57 page.cdr.php:214 /usr/src/freepbx/cdr/page.cdr.php:564
+msgid "DID"
+msgstr ""
+
+#: page.cdr.php:314
+msgid "Date/Time"
+msgstr ""
+
+#: page.cdr.php:320 /usr/src/freepbx/cdr/page.cdr.php:697
+msgid "Day"
+msgstr ""
+
+#: page.cdr.php:319 /usr/src/freepbx/cdr/page.cdr.php:681
+msgid "Day of week"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "December"
+msgstr ""
+
+#: page.cdr.php:566
+msgid "Dest."
+msgstr ""
+
+#: page.cdr.php:244
+msgid "Destination"
+msgstr ""
+
+#: functions.inc.php:66
+msgid "Destination Context"
+msgstr ""
+
+#: page.cdr.php:326 /usr/src/freepbx/cdr/page.cdr.php:650
+msgid "Destination Number"
+msgstr ""
+
+#: page.cdr.php:287 /usr/src/freepbx/cdr/page.cdr.php:568
+msgid "Disposition"
+msgstr ""
+
+#: page.cdr.php:225
+msgid "Dst Channel"
+msgstr ""
+
+#: page.cdr.php:567
+msgid "Dst. Chan."
+msgstr ""
+
+#: page.cdr.php:277 /usr/src/freepbx/cdr/page.cdr.php:569
+msgid "Duration"
+msgstr ""
+
+#: cdr.i18n.php:14
+msgid "Enable CEL Reporting"
+msgstr ""
+
+#: page.cdr.php:178 /usr/src/freepbx/cdr/page.cdr.php:197 page.cdr.php:208
+#: /usr/src/freepbx/cdr/page.cdr.php:219 page.cdr.php:230
+#: /usr/src/freepbx/cdr/page.cdr.php:249 page.cdr.php:260
+#: /usr/src/freepbx/cdr/page.cdr.php:271
+msgid "Ends With"
+msgstr ""
+
+#: page.cdr.php:179 /usr/src/freepbx/cdr/page.cdr.php:198 page.cdr.php:209
+#: /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:231
+#: /usr/src/freepbx/cdr/page.cdr.php:250 page.cdr.php:261
+#: /usr/src/freepbx/cdr/page.cdr.php:272
+msgid "Exactly"
+msgstr ""
+
+#: page.cdr.php:143
+msgid "Extra options"
+msgstr ""
+
+#: page.cdr.php:294
+msgid "Failed"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "February"
+msgstr ""
+
+#: page.cdr.php:88
+msgid "From"
+msgstr ""
+
+#: page.cdr.php:729
+msgid "Go to the CDR Graph"
+msgstr ""
+
+#: page.cdr.php:728
+msgid "Go to the top of the CDR table"
+msgstr ""
+
+#: page.cdr.php:308
+msgid "Group By"
+msgstr ""
+
+#: page.cdr.php:317 /usr/src/freepbx/cdr/page.cdr.php:661
+msgid "Hour"
+msgstr ""
+
+#: page.cdr.php:318 /usr/src/freepbx/cdr/page.cdr.php:666
+msgid "Hour of day"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "January"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "July"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "June"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "March"
+msgstr ""
+
+#: page.cdr.php:726 /usr/src/freepbx/cdr/page.cdr.php:826
+msgid "Max Calls"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "May"
+msgstr ""
+
+#: page.cdr.php:315 /usr/src/freepbx/cdr/page.cdr.php:686
+msgid "Minute"
+msgstr ""
+
+#: page.cdr.php:322 /usr/src/freepbx/cdr/page.cdr.php:676
+msgid "Month"
+msgstr ""
+
+#: page.cdr.php:304
+msgid "Newest First"
+msgstr ""
+
+#: page.cdr.php:295
+msgid "No Answer"
+msgstr ""
+
+#: page.cdr.php:175 /usr/src/freepbx/cdr/page.cdr.php:194 page.cdr.php:205
+#: /usr/src/freepbx/cdr/page.cdr.php:216 page.cdr.php:227
+#: /usr/src/freepbx/cdr/page.cdr.php:246 page.cdr.php:257
+#: /usr/src/freepbx/cdr/page.cdr.php:268 page.cdr.php:297
+msgid "Not"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "November"
+msgstr ""
+
+#: page.cdr.php:92
+msgid "October"
+msgstr ""
+
+#: page.cdr.php:303
+msgid "Oldest First"
+msgstr ""
+
+#: page.cdr.php:81
+msgid "Order By"
+msgstr ""
+
+#: page.cdr.php:560
+msgid "Recording"
+msgstr ""
+
+#: page.cdr.php:146
+msgid "Report type"
+msgstr ""
+
+#: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
+msgid "Reports"
+msgstr ""
+
+#: page.cdr.php:157
+msgid "Result limit"
+msgstr ""
+
+#: page.cdr.php:335
+msgid "Search"
+msgstr ""
+
+#: page.cdr.php:82
+msgid "Search conditions"
+msgstr ""
+
+#: page.cdr.php:202
 msgid ""
 "Search for CallerID. If your CallerID begins with \" then you must supply "
 "this in your search if you select Begins With."
 msgstr ""
 
+#: page.cdr.php:213
 msgid "Search for a DID."
 msgstr ""
 
+#: page.cdr.php:265
+msgid "Search for accountcode."
+msgstr ""
+
+#: page.cdr.php:286
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr ""
+
+#: page.cdr.php:276
+msgid "Search for calls that matches the call length specified."
+msgstr ""
+
+#: page.cdr.php:235
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+
+#: page.cdr.php:183
+msgid ""
+"Search for source calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+
+#: page.cdr.php:254
+msgid "Search for userfield data (if enabled)."
+msgstr ""
+
+#: page.cdr.php:282
+msgid "Seconds"
+msgstr ""
+
+#: page.cdr.php:224
 msgid ""
 "Select Destination Channel to search for. It can be just the channel type "
 "like SIP, IAX2 or Local. It can include the destination for the channel, "
 "like SIP/1234."
 msgstr ""
 
-msgid "Dst Channel"
-msgstr ""
-
+#: page.cdr.php:172
 msgid ""
-"Search for destination calls. You can enter multiple sources separated by a "
-"comma. This field support Asterisk regular expression. Example<br>"
+"Select Source Channel to search for. You can enter just the channel type "
+"like SIP, IAX2 or Local. You can also include the destination for the "
+"channel, like SIP/1234."
 msgstr ""
 
-msgid "Destination"
-msgstr ""
-
-msgid "Search for userfield data (if enabled)."
-msgstr ""
-
-msgid "Userfield"
-msgstr ""
-
-msgid "Search for accountcode."
-msgstr ""
-
-msgid "Account Code"
-msgstr ""
-
-msgid "Search for calls that matches the call length specified."
-msgstr ""
-
-msgid "Duration"
-msgstr ""
-
-msgid "Between"
-msgstr ""
-
-msgid "And"
-msgstr ""
-
-msgid "Seconds"
-msgstr ""
-
+#: page.cdr.php:86
 msgid ""
-"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
 msgstr ""
 
-msgid "Disposition"
+#: page.cdr.php:92
+msgid "September"
 msgstr ""
 
-msgid "All Dispositions"
+#: cdr.i18n.php:18
+msgid ""
+"Setting this true will enable the CDR module to drill down on CEL data for "
+"each CDR. Although the CDR module will assure there is a CEL table "
+"available, the reporting functionality in Asterisk and associated ODBC "
+"database and CEL configuration must be done outside of FreePBX either by the "
+"user or at the Distro level."
 msgstr ""
 
-msgid "Answered"
+#: page.cdr.php:192 /usr/src/freepbx/cdr/page.cdr.php:563
+msgid "Source"
 msgstr ""
 
-msgid "Busy"
-msgstr ""
-
-msgid "Failed"
-msgstr ""
-
-msgid "No Answer"
-msgstr ""
-
-msgid "Oldest First"
-msgstr ""
-
-msgid "Newest First"
-msgstr ""
-
-msgid "Group By"
-msgstr ""
-
-msgid "Account Information"
-msgstr ""
-
-msgid "User Field"
-msgstr ""
-
-msgid "Date/Time"
-msgstr ""
-
-msgid "Minute"
-msgstr ""
-
-msgid "10 Minutes"
-msgstr ""
-
-msgid "Hour"
-msgstr ""
-
-msgid "Hour of day"
-msgstr ""
-
-msgid "Day of week"
-msgstr ""
-
-msgid "Day"
-msgstr ""
-
-msgid "Week ( Sun-Sat )"
-msgstr ""
-
-msgid "Month"
-msgstr ""
-
-msgid "Telephone Number"
-msgstr ""
-
+#: page.cdr.php:325 /usr/src/freepbx/cdr/page.cdr.php:653
 msgid "Source Number"
 msgstr ""
 
-msgid "Destination Number"
-msgstr ""
-
-msgid "Tech info"
-msgstr ""
-
-msgid "Search"
-msgstr ""
-
-msgid "Call Detail Record - Search Returned"
-msgstr ""
-
-msgid "Calls"
-msgstr ""
-
-msgid "File"
-msgstr ""
-
-msgid "System"
-msgstr ""
-
+#: page.cdr.php:562
 msgid "Src Chan."
 msgstr ""
 
-msgid "App."
+#: page.cdr.php:173
+msgid "Src Channel"
 msgstr ""
 
-msgid "Dest."
+#: page.cdr.php:561
+msgid "System"
 msgstr ""
 
-msgid "Dst. Chan."
+#: page.cdr.php:328
+msgid "Tech info"
 msgstr ""
 
-msgid "Account"
+#: page.cdr.php:324
+msgid "Telephone Number"
 msgstr ""
 
-msgid "Call Detail Record - Call Graph by"
+#: install.php:58
+msgid "This might take a while......"
 msgstr ""
 
+#: page.cdr.php:827
+msgid "Time"
+msgstr ""
+
+#: page.cdr.php:114
+msgid "To"
+msgstr ""
+
+#: page.cdr.php:726 /usr/src/freepbx/cdr/page.cdr.php:826
 msgid "Total Calls"
 msgstr ""
 
-msgid "Max Calls"
-msgstr ""
-
+#: page.cdr.php:726
 msgid "Total Duration"
 msgstr ""
 
-msgid "Average Call Time"
+#: install.php:77
+msgid "Unable to add recordingfile field to cdr table"
 msgstr ""
 
-msgid "Go to the top of the CDR table"
+#: functions.inc.php:38
+msgid "UniqueID"
 msgstr ""
 
-msgid "Go to the CDR Graph"
+#: page.cdr.php:312 /usr/src/freepbx/cdr/page.cdr.php:656
+msgid "User Field"
 msgstr ""
 
-msgid "Call Detail Record - Concurrent Calls by"
+#: page.cdr.php:255 /usr/src/freepbx/cdr/page.cdr.php:570
+msgid "Userfield"
 msgstr ""
 
-msgid "Time"
+#: page.cdr.php:321 /usr/src/freepbx/cdr/page.cdr.php:671
+msgid "Week ( Sun-Sat )"
+msgstr ""
+
+#: install.php:66
+msgid "did field already present."
+msgstr ""
+
+#: install.php:83
+msgid "recordingfile field already present."
 msgstr ""
