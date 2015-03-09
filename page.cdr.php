@@ -66,8 +66,9 @@ switch ($action) {
 		break;
 }
 
+// FREEPBX-8845
 foreach ($_POST as $k => $v) {
-	$_POST[$k] = preg_replace('/;/', ' ', $dbcdr->escapeSimple($v);
+	$_POST[$k] = preg_replace('/;/', ' ', $dbcdr->escapeSimple($v));
 }
 
 $h_step = 30;
