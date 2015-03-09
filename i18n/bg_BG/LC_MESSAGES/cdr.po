@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 08:06+1000\n"
+"POT-Creation-Date: 2015-03-10 08:10+1000\n"
 "PO-Revision-Date: 2011-09-23 09:52+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -506,10 +506,6 @@ msgstr ""
 msgid "November"
 msgstr ""
 
-#: install.php:146
-msgid "OK"
-msgstr ""
-
 #: page.cdr.php:97
 msgid "October"
 msgstr ""
@@ -542,13 +538,13 @@ msgstr ""
 msgid "Play"
 msgstr ""
 
-#: install.php:180
+#: install.php:118
 msgid ""
 "Please upgrade UCP before this module so that settings can be properly "
 "migrated"
 msgstr ""
 
-#: install.php:183
+#: install.php:121
 msgid ""
 "Please upgrade Usermanager before this module so that settings can be "
 "properly migrated"

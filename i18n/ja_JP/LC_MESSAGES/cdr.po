@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 08:06+1000\n"
+"POT-Creation-Date: 2015-03-10 08:10+1000\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -548,10 +548,6 @@ msgstr ""
 msgid "November"
 msgstr "11月"
 
-#: install.php:146
-msgid "OK"
-msgstr "OK"
-
 #: page.cdr.php:97
 msgid "October"
 msgstr "10月"
@@ -584,13 +580,13 @@ msgstr "アウトバウンドCallerIDの番号"
 msgid "Play"
 msgstr ""
 
-#: install.php:180
+#: install.php:118
 msgid ""
 "Please upgrade UCP before this module so that settings can be properly "
 "migrated"
 msgstr ""
 
-#: install.php:183
+#: install.php:121
 msgid ""
 "Please upgrade Usermanager before this module so that settings can be "
 "properly migrated"
@@ -832,6 +828,9 @@ msgstr ""
 #: install.php:69
 msgid "recordingfile field already present."
 msgstr "recordingfileフィールドは既に存在しています。"
+
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #~ msgid ""
 #~ "Select Source Channel to search for. You can enter just the channel type "

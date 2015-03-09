@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 08:06+1000\n"
+"POT-Creation-Date: 2015-03-10 08:10+1000\n"
 "PO-Revision-Date: 2014-07-25 21:52+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/cdr/bg/>\n"
@@ -511,10 +511,6 @@ msgstr ""
 msgid "November"
 msgstr "Ноември"
 
-#: install.php:146
-msgid "OK"
-msgstr ""
-
 #: page.cdr.php:97
 msgid "October"
 msgstr "Октомври"
@@ -547,13 +543,13 @@ msgstr ""
 msgid "Play"
 msgstr ""
 
-#: install.php:180
+#: install.php:118
 msgid ""
 "Please upgrade UCP before this module so that settings can be properly "
 "migrated"
 msgstr ""
 
-#: install.php:183
+#: install.php:121
 msgid ""
 "Please upgrade Usermanager before this module so that settings can be "
 "properly migrated"
