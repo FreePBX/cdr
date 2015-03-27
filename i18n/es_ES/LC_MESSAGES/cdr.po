@@ -13,6 +13,7 @@ msgstr ""
 "PO-Revision-Date: 2015-03-10 08:06+1000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -35,7 +36,7 @@ msgstr ""
 
 #: page.cdr.php:336 /usr/src/freepbx/cdr/page.cdr.php:907
 msgid "10 Minutes"
-msgstr ""
+msgstr "10 Minutos"
 
 #: page.cdr.php:185 /usr/src/freepbx/cdr/page.cdr.php:217 page.cdr.php:248
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
@@ -87,15 +88,15 @@ msgstr ""
 
 #: page.cdr.php:713
 msgid "Account"
-msgstr ""
+msgstr "Cuenta"
 
 #: page.cdr.php:286 /usr/src/freepbx/cdr/page.cdr.php:331 page.cdr.php:848
 msgid "Account Code"
-msgstr ""
+msgstr "Código Cuenta"
 
 #: page.cdr.php:330
 msgid "Account Information"
-msgstr ""
+msgstr "Información Cuenta"
 
 #: install.php:50
 msgid "Added field did to cdr"
@@ -119,7 +120,7 @@ msgstr ""
 
 #: page.cdr.php:311
 msgid "All Dispositions"
-msgstr ""
+msgstr "Disposición Todos"
 
 #: Cdr.class.php:85
 msgid "Allow CDR Downloads"
@@ -143,11 +144,11 @@ msgstr ""
 
 #: page.cdr.php:300
 msgid "And"
-msgstr ""
+msgstr "Y"
 
 #: page.cdr.php:312
 msgid "Answered"
-msgstr ""
+msgstr "Contestado"
 
 #: page.cdr.php:412 /usr/src/freepbx/cdr/page.cdr.php:708
 msgid "App"
@@ -155,38 +156,38 @@ msgstr ""
 
 #: page.cdr.php:1116
 msgid "Application"
-msgstr ""
+msgstr "Aplicación"
 
 #: page.cdr.php:97
 msgid "April"
-msgstr ""
+msgstr "Abril"
 
 #: page.cdr.php:97
 msgid "August"
-msgstr ""
+msgstr "Agosto"
 
 #: page.cdr.php:943
 msgid "Average Call Time"
-msgstr ""
+msgstr "Tiempo promedio"
 
 #: page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:201 page.cdr.php:221
 #: /usr/src/freepbx/cdr/page.cdr.php:233 page.cdr.php:252
 #: /usr/src/freepbx/cdr/page.cdr.php:266 page.cdr.php:278
 #: /usr/src/freepbx/cdr/page.cdr.php:289
 msgid "Begins With"
-msgstr ""
+msgstr "Comienza con"
 
 #: page.cdr.php:298
 msgid "Between"
-msgstr ""
+msgstr "Entre"
 
 #: page.cdr.php:1153
 msgid "Billing Duration"
-msgstr ""
+msgstr "Duración"
 
 #: page.cdr.php:313
 msgid "Busy"
-msgstr ""
+msgstr "Ocupado"
 
 #: cdr.i18n.php:16
 msgid "CDR Report Module"
@@ -194,11 +195,11 @@ msgstr ""
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
 msgid "CDR Reports"
-msgstr ""
+msgstr "Reporte de Llamadas"
 
 #: page.cdr.php:153
 msgid "CDR search"
-msgstr ""
+msgstr "Buscar CDR"
 
 #: page.cdr.php:405
 msgid "CNAM"
@@ -210,31 +211,31 @@ msgstr ""
 
 #: page.cdr.php:154
 msgid "CSV file"
-msgstr ""
+msgstr "fichero CSV"
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr ""
+msgstr "Herramienta de informe de Registro de llamadas"
 
 #: page.cdr.php:92 /usr/src/freepbx/cdr/page.cdr.php:702
 msgid "Call Date"
-msgstr ""
+msgstr "Fecha Llamada"
 
 #: page.cdr.php:940
 msgid "Call Detail Record - Call Graph by"
-msgstr ""
+msgstr "Reporte Llamadas - por Gráfico"
 
 #: page.cdr.php:1040
 msgid "Call Detail Record - Concurrent Calls by"
-msgstr ""
+msgstr "Reporte Llamadas - Llamadas Concurrentes por"
 
 #: page.cdr.php:688
 msgid "Call Detail Record - Search Returned"
-msgstr ""
+msgstr "Reporte Llamadas - Resultado de Búsqueda"
 
 #: page.cdr.php:83
 msgid "Call Detail Record Search"
-msgstr ""
+msgstr "Buscar CDR"
 
 #: page.cdr.php:388
 msgid "Call Event Log - Search Returned"
@@ -242,7 +243,7 @@ msgstr ""
 
 #: page.cdr.php:155
 msgid "Call Graph"
-msgstr ""
+msgstr "Gráfico Llamadas"
 
 #: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:860 page.cdr.php:1189
 msgid "Caller ID Name"
@@ -254,23 +255,23 @@ msgstr ""
 
 #: page.cdr.php:705 page.cdr.php:1093
 msgid "CallerID"
-msgstr ""
+msgstr "ID Llamante"
 
 #: page.cdr.php:198
 msgid "CallerID Name"
-msgstr ""
+msgstr "Nombre Llamante"
 
 #: page.cdr.php:186
 msgid "CallerID Number"
-msgstr ""
+msgstr "Número Llamante"
 
 #: page.cdr.php:688
 msgid "Calls"
-msgstr ""
+msgstr "Llamadas"
 
 #: page.cdr.php:1085 page.cdr.php:1100 page.cdr.php:1127 page.cdr.php:1250
 msgid "Channel"
-msgstr ""
+msgstr "Canal"
 
 #: install.php:39
 msgid "Checking if field did is present in cdr table.."
@@ -282,7 +283,7 @@ msgstr ""
 
 #: page.cdr.php:157
 msgid "Concurrent Calls"
-msgstr ""
+msgstr "Llamadas Concurrentes"
 
 #: ucp/Cdr.class.php:282 ucp/Cdr.class.php:286
 msgid "Conference"
@@ -298,7 +299,7 @@ msgstr ""
 #: /usr/src/freepbx/cdr/page.cdr.php:267 page.cdr.php:279
 #: /usr/src/freepbx/cdr/page.cdr.php:290
 msgid "Contains"
-msgstr ""
+msgstr "Contiene"
 
 #: ucp/views/view.php:26
 msgid "Controls"
@@ -315,19 +316,19 @@ msgstr ""
 
 #: page.cdr.php:334
 msgid "Date/Time"
-msgstr ""
+msgstr "Fecha/Hora"
 
 #: page.cdr.php:340 /usr/src/freepbx/cdr/page.cdr.php:913
 msgid "Day"
-msgstr ""
+msgstr "Día"
 
 #: page.cdr.php:339 /usr/src/freepbx/cdr/page.cdr.php:897
 msgid "Day of week"
-msgstr ""
+msgstr "Día Semana"
 
 #: page.cdr.php:97
 msgid "December"
-msgstr ""
+msgstr "Diciembre"
 
 #: ucp/views/view.php:24
 msgid "Description"
@@ -335,7 +336,7 @@ msgstr ""
 
 #: page.cdr.php:249 /usr/src/freepbx/cdr/page.cdr.php:709
 msgid "Destination"
-msgstr ""
+msgstr "Número Destino"
 
 #: page.cdr.php:351 /usr/src/freepbx/cdr/page.cdr.php:869
 msgid "Destination Caller ID Name"
@@ -343,15 +344,15 @@ msgstr ""
 
 #: page.cdr.php:263
 msgid "Destination CallerID Name"
-msgstr ""
+msgstr "Nombre Destino"
 
 #: page.cdr.php:1127
 msgid "Destination Context"
-msgstr ""
+msgstr "Contexto Destino"
 
 #: page.cdr.php:345 /usr/src/freepbx/cdr/page.cdr.php:851
 msgid "Destination Number"
-msgstr ""
+msgstr "Número Destino"
 
 #: page.cdr.php:1204
 msgid "Dialplan context"
@@ -363,7 +364,7 @@ msgstr ""
 
 #: page.cdr.php:307 /usr/src/freepbx/cdr/page.cdr.php:710
 msgid "Disposition"
-msgstr ""
+msgstr "Disposición"
 
 #: ucp/views/view.php:51
 msgid "Download"
@@ -372,7 +373,7 @@ msgstr ""
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:711
 #: ucp/views/view.php:25
 msgid "Duration"
-msgstr ""
+msgstr "Duración"
 
 #: cdr.i18n.php:14
 msgid "Enable CEL Reporting"
@@ -383,7 +384,7 @@ msgstr ""
 #: /usr/src/freepbx/cdr/page.cdr.php:268 page.cdr.php:280
 #: /usr/src/freepbx/cdr/page.cdr.php:291
 msgid "Ends With"
-msgstr ""
+msgstr "Termina con"
 
 #: page.cdr.php:404
 msgid "Event"
@@ -406,19 +407,19 @@ msgstr ""
 #: /usr/src/freepbx/cdr/page.cdr.php:269 page.cdr.php:281
 #: /usr/src/freepbx/cdr/page.cdr.php:292
 msgid "Exactly"
-msgstr ""
+msgstr "Exacto"
 
 #: page.cdr.php:148
 msgid "Extra options"
-msgstr ""
+msgstr "Opciones Extras"
 
 #: page.cdr.php:314
 msgid "Failed"
-msgstr ""
+msgstr "Fallida"
 
 #: page.cdr.php:97
 msgid "February"
-msgstr ""
+msgstr "Febrero"
 
 #: ucp/Cdr.class.php:348
 msgid "Forbidden"
@@ -426,39 +427,39 @@ msgstr ""
 
 #: page.cdr.php:93
 msgid "From"
-msgstr ""
+msgstr "Desde"
 
 #: page.cdr.php:945
 msgid "Go to the CDR Graph"
-msgstr ""
+msgstr "Ir al Gráfico de Llamadas"
 
 #: page.cdr.php:944
 msgid "Go to the top of the CDR table"
-msgstr ""
+msgstr "Ir al principio de la Tabla"
 
 #: page.cdr.php:328
 msgid "Group By"
-msgstr ""
+msgstr "Por Grupo"
 
 #: page.cdr.php:337 /usr/src/freepbx/cdr/page.cdr.php:877
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 #: page.cdr.php:338 /usr/src/freepbx/cdr/page.cdr.php:882
 msgid "Hour of day"
-msgstr ""
+msgstr "Hora"
 
 #: page.cdr.php:97
 msgid "January"
-msgstr ""
+msgstr "Enero"
 
 #: page.cdr.php:97
 msgid "July"
-msgstr ""
+msgstr "Julio"
 
 #: page.cdr.php:97
 msgid "June"
-msgstr ""
+msgstr "Junio"
 
 #: ucp/views/view.php:66
 msgid "Loading"
@@ -466,31 +467,31 @@ msgstr ""
 
 #: page.cdr.php:97
 msgid "March"
-msgstr ""
+msgstr "Marzo"
 
 #: page.cdr.php:942 page.cdr.php:1042
 msgid "Max Calls"
-msgstr ""
+msgstr "Max Llamadas"
 
 #: page.cdr.php:97
 msgid "May"
-msgstr ""
+msgstr "Mayo"
 
 #: page.cdr.php:335 /usr/src/freepbx/cdr/page.cdr.php:902
 msgid "Minute"
-msgstr ""
+msgstr "Minuto"
 
 #: page.cdr.php:342 /usr/src/freepbx/cdr/page.cdr.php:892
 msgid "Month"
-msgstr ""
+msgstr "Mes"
 
 #: page.cdr.php:324
 msgid "Newest First"
-msgstr ""
+msgstr "Recientes Primero"
 
 #: page.cdr.php:315
 msgid "No Answer"
-msgstr ""
+msgstr "No Contestada"
 
 #: ucp/views/view.php:103
 msgid "No History"
@@ -501,7 +502,7 @@ msgstr ""
 #: /usr/src/freepbx/cdr/page.cdr.php:265 page.cdr.php:277
 #: /usr/src/freepbx/cdr/page.cdr.php:288 page.cdr.php:317
 msgid "Not"
-msgstr ""
+msgstr "No"
 
 #: ucp/Cdr.class.php:46
 msgid "Not Authorized"
@@ -509,7 +510,7 @@ msgstr ""
 
 #: page.cdr.php:97
 msgid "November"
-msgstr ""
+msgstr "Noviembre"
 
 #: install.php:146
 msgid "OK"
@@ -517,15 +518,15 @@ msgstr ""
 
 #: page.cdr.php:97
 msgid "October"
-msgstr ""
+msgstr "Octubre"
 
 #: page.cdr.php:323
 msgid "Oldest First"
-msgstr ""
+msgstr "Antiguas Primero"
 
 #: page.cdr.php:86
 msgid "Order By"
-msgstr ""
+msgstr "Ordenar por"
 
 #: page.cdr.php:350 /usr/src/freepbx/cdr/page.cdr.php:866
 msgid "Outbound Caller ID Name"
@@ -537,11 +538,11 @@ msgstr ""
 
 #: page.cdr.php:706
 msgid "Outbound CallerID"
-msgstr ""
+msgstr "Número Saliente"
 
 #: page.cdr.php:218
 msgid "Outbound CallerID Number"
-msgstr ""
+msgstr "Número Llamante Saliente"
 
 #: ucp/views/view.php:46
 msgid "Play"
@@ -561,7 +562,7 @@ msgstr ""
 
 #: page.cdr.php:703
 msgid "Recording"
-msgstr ""
+msgstr "Grabaciones"
 
 #: page.cdr.php:690
 msgid "Related Call Detail Records"
@@ -569,23 +570,23 @@ msgstr ""
 
 #: page.cdr.php:151
 msgid "Report type"
-msgstr ""
+msgstr "Tipo Reporte"
 
 #: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
 msgid "Reports"
-msgstr ""
+msgstr "Reportes"
 
 #: page.cdr.php:162
 msgid "Result limit"
-msgstr ""
+msgstr "Límite Resultado"
 
 #: page.cdr.php:360 ucp/views/view.php:12
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: page.cdr.php:87
 msgid "Search conditions"
-msgstr ""
+msgstr "Condiciones de Búsqueda"
 
 #: page.cdr.php:229
 msgid "Search for a DID."
@@ -593,7 +594,7 @@ msgstr ""
 
 #: page.cdr.php:285
 msgid "Search for accountcode."
-msgstr ""
+msgstr "Buscar por accountcode"
 
 #: page.cdr.php:177
 msgid ""
@@ -613,10 +614,12 @@ msgstr ""
 msgid ""
 "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
 msgstr ""
+"Buscar para Llamadas que coincidan con CONTESTADO, OCUPADO, FALLIDO O NO "
+"CONTESTADO."
 
 #: page.cdr.php:296
 msgid "Search for calls that matches the call length specified."
-msgstr ""
+msgstr "Buscar para Llamadas que coincidan con la duración especificada."
 
 #: page.cdr.php:240
 msgid ""
@@ -626,11 +629,11 @@ msgstr ""
 
 #: page.cdr.php:274
 msgid "Search for userfield data (if enabled)."
-msgstr ""
+msgstr "Buscar para campo usuario (si está disponible)."
 
 #: page.cdr.php:302
 msgid "Seconds"
-msgstr ""
+msgstr "Segundos"
 
 #: page.cdr.php:197
 msgid "Select CallerID Name to search for."
@@ -648,7 +651,7 @@ msgstr ""
 
 #: page.cdr.php:97
 msgid "September"
-msgstr ""
+msgstr "Septiembre"
 
 #: cdr.i18n.php:18
 msgid ""
@@ -665,7 +668,7 @@ msgstr ""
 
 #: page.cdr.php:704
 msgid "System"
-msgstr ""
+msgstr "Sistema"
 
 #: page.cdr.php:353
 msgid "Tech info"
@@ -673,7 +676,7 @@ msgstr ""
 
 #: page.cdr.php:344
 msgid "Telephone Number"
-msgstr ""
+msgstr "Número Teléfono"
 
 #: Cdr.class.php:81
 msgid ""
@@ -687,11 +690,11 @@ msgstr ""
 
 #: page.cdr.php:403 page.cdr.php:1043
 msgid "Time"
-msgstr ""
+msgstr "Hora"
 
 #: page.cdr.php:119
 msgid "To"
-msgstr ""
+msgstr "Hasta"
 
 #: ucp/views/view.php:93
 #, php-format
@@ -702,11 +705,11 @@ msgstr ""
 
 #: page.cdr.php:942 page.cdr.php:1042
 msgid "Total Calls"
-msgstr ""
+msgstr "Total Llamadas"
 
 #: page.cdr.php:942
 msgid "Total Duration"
-msgstr ""
+msgstr "Duración Total"
 
 #: install.php:100
 msgid "Unable to add index to uniqueid field in cdr table"
@@ -730,7 +733,7 @@ msgstr ""
 
 #: page.cdr.php:332 /usr/src/freepbx/cdr/page.cdr.php:872
 msgid "User Field"
-msgstr ""
+msgstr "Campo Usuario"
 
 #: page.cdr.php:414 page.cdr.php:1236
 msgid "UserDefType"
@@ -738,7 +741,7 @@ msgstr ""
 
 #: page.cdr.php:275 /usr/src/freepbx/cdr/page.cdr.php:712
 msgid "Userfield"
-msgstr ""
+msgstr "Campo Usuario"
 
 #: ucp/views/nav.php:3
 msgid "View History"
@@ -750,7 +753,7 @@ msgstr ""
 
 #: page.cdr.php:341 /usr/src/freepbx/cdr/page.cdr.php:887
 msgid "Week ( Sun-Sat )"
-msgstr ""
+msgstr "Semana (Dom-Sáb)"
 
 #: page.cdr.php:413
 msgid "channel"
