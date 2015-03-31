@@ -404,7 +404,7 @@ msgstr "Extra Evento"
 
 #: page.cdr.php:415
 msgid "EventExtra"
-msgstr "EventExtra"
+msgstr "\"EventExtra\""
 
 #: page.cdr.php:388
 msgid "Events"
@@ -606,7 +606,7 @@ msgstr "Búsqueda por un DID."
 
 #: page.cdr.php:285
 msgid "Search for accountcode."
-msgstr "Buscar por accountcode"
+msgstr "Buscar por accountcode."
 
 #: page.cdr.php:177
 msgid ""
