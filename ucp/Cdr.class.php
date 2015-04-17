@@ -200,7 +200,7 @@ class Cdr extends Modules{
 								$call['icons'][] = 'fa-arrow-left in';
 								$call['text'] = htmlentities($call['clid']);
 							} elseif($call['cnum'] == $self) {
-								$call['icons'][] = 'fa-arrow-left out';
+								$call['icons'][] = 'fa-arrow-right out';
 								$call['text'] = htmlentities($call['clid']);
 							} else {
 								$call['icons'][] = 'fa-arrow-left in';
@@ -220,7 +220,7 @@ class Cdr extends Modules{
 								$call['icons'][] = 'fa-arrow-left in';
 								$call['text'] = htmlentities($call['clid']);
 							} elseif($call['cnum'] == $self) {
-								$call['icons'][] = 'fa-arrow-left out';
+								$call['icons'][] = 'fa-arrow-right out';
 								$call['text'] = htmlentities($call['clid']);
 							} else {
 								$call['text'] = htmlentities($call['src']);
@@ -237,7 +237,7 @@ class Cdr extends Modules{
 								$call['icons'][] = 'fa-clock-o';
 								$call['text'] = $call['clid'];
 							} elseif($call['cnum'] == $self) {
-								$call['icons'][] = 'fa-arrow-left out';
+								$call['icons'][] = 'fa-arrow-right out';
 								$call['text'] = htmlentities($call['clid']);
 							} else {
 								$call['text'] = htmlentities($call['src']);
