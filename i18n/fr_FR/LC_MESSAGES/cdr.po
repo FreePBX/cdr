@@ -10,96 +10,107 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-16 21:54-0400\n"
-"PO-Revision-Date: 2015-04-16 21:54-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2015-04-22 20:01+0200\n"
+"Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: Cdr.class.php:231
 #, php-format
 msgid "%s hour, %s min, %s sec"
-msgstr ""
+msgstr "%s heure, %s min, %s sec"
 
 #: Cdr.class.php:233
 #, php-format
 msgid "%s min, %s sec"
-msgstr ""
+msgstr "%s min, %s sec"
 
 #: Cdr.class.php:236
 #, php-format
 msgid "%s sec"
-msgstr ""
+msgstr "%s sec"
 
 #: page.cdr.php:336 /usr/src/freepbx/cdr/page.cdr.php:907
 msgid "10 Minutes"
-msgstr ""
+msgstr "10 Minutes"
 
 #: page.cdr.php:185 /usr/src/freepbx/cdr/page.cdr.php:217 page.cdr.php:248
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
 msgstr ""
+"<b> . </b> = caractères spéciaux, correspond à un ou plusieurs caractères "
+"<br>"
 
 #: page.cdr.php:183 /usr/src/freepbx/cdr/page.cdr.php:215 page.cdr.php:246
 msgid "<b>N</b> = matches any digit from 2-9<br>"
-msgstr ""
+msgstr "<b>N</b> = correspond à tout chiffre de 2-9<br>"
 
 #: page.cdr.php:181 /usr/src/freepbx/cdr/page.cdr.php:213 page.cdr.php:244
 msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr ""
+msgstr "<b>X</b> = correspond à tout chiffre de 0-9<br>"
 
 #: page.cdr.php:182 /usr/src/freepbx/cdr/page.cdr.php:214 page.cdr.php:245
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr ""
+msgstr "<b>Z</b> = correspond à tout chiffre de 1-9<br>"
 
 #: page.cdr.php:184 /usr/src/freepbx/cdr/page.cdr.php:216 page.cdr.php:247
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
 msgstr ""
+"<b>[1237-9]</b> =  correspond à n'importe quel chiffre ou lettre entre les "
+"crochets <br> (dans cet exemple , 1,2,3,7,8,9 ) <br>"
 
 #: page.cdr.php:179 /usr/src/freepbx/cdr/page.cdr.php:211 page.cdr.php:242
 msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
 msgstr ""
+"<b>_!2XXN, _562., _.0075</b> = Rechercher une correspondance <b>sauf</b> "
+"pour ces numéros"
 
 #: page.cdr.php:178 /usr/src/freepbx/cdr/page.cdr.php:210 page.cdr.php:241
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
 msgstr ""
+"<b>_2XXN, _562., _.0075</b> = Rechercher une correspondance pour n'importe "
+"lequel de ces numéros<br>"
 
 #: page.cdr.php:180 /usr/src/freepbx/cdr/page.cdr.php:212 page.cdr.php:243
 msgid "<br>Asterisk pattern matching<br>"
-msgstr ""
+msgstr "<br>Motif asterisk correspondant<br>"
 
 #: page.cdr.php:409
 msgid "AMA"
-msgstr ""
+msgstr "CMA"
 
 #: page.cdr.php:1146 page.cdr.php:1222
 msgid "AMA Flag"
-msgstr ""
+msgstr "Marqueur CMA"
 
 #: page.cdr.php:407 page.cdr.php:1110
 msgid "ANI"
-msgstr ""
+msgstr "IAN"
 
 #: page.cdr.php:713
 msgid "Account"
-msgstr ""
+msgstr "Compte"
 
 #: page.cdr.php:286 /usr/src/freepbx/cdr/page.cdr.php:331 page.cdr.php:848
 msgid "Account Code"
-msgstr ""
+msgstr "N° de compte"
 
 #: page.cdr.php:330
 msgid "Account Information"
-msgstr ""
+msgstr "Information sur le compte"
 
 #: install.php:50
 msgid "Added field did to cdr"
-msgstr ""
+msgstr "Champ ajouté SDA au cdr"
 
 #: install.php:66
 msgid "Added field recordingfile to cdr"
@@ -298,7 +309,7 @@ msgstr ""
 
 #: ucp/views/view.php:26
 msgid "Controls"
-msgstr ""
+msgstr "Contrôles"
 
 #: page.cdr.php:230 /usr/src/freepbx/cdr/page.cdr.php:346 page.cdr.php:408
 #: /usr/src/freepbx/cdr/page.cdr.php:707 page.cdr.php:854 page.cdr.php:1105
@@ -368,7 +379,7 @@ msgstr ""
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:711
 #: ucp/views/view.php:25
 msgid "Duration"
-msgstr ""
+msgstr "Durée"
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
 #: /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:254
@@ -573,7 +584,7 @@ msgstr ""
 
 #: page.cdr.php:360 ucp/views/view.php:12
 msgid "Search"
-msgstr ""
+msgstr "Rechercher"
 
 #: page.cdr.php:87
 msgid "Search conditions"
