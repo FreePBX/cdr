@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-16 21:54-0400\n"
-"PO-Revision-Date: 2015-04-22 20:01+0200\n"
+"PO-Revision-Date: 2015-04-23 00:16+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
@@ -453,118 +453,122 @@ msgstr ""
 
 #: page.cdr.php:97
 msgid "January"
-msgstr ""
+msgstr "Janvier"
 
 #: page.cdr.php:97
 msgid "July"
-msgstr ""
+msgstr "Juillet"
 
 #: page.cdr.php:97
 msgid "June"
-msgstr ""
+msgstr "Juin"
 
 #: ucp/views/view.php:66
 msgid "Loading"
-msgstr ""
+msgstr "Chargement"
 
 #: page.cdr.php:97
 msgid "March"
-msgstr ""
+msgstr "Mars"
 
 #: page.cdr.php:942 page.cdr.php:1042
 msgid "Max Calls"
-msgstr ""
+msgstr "Appels maximum"
 
 #: page.cdr.php:97
 msgid "May"
-msgstr ""
+msgstr "Mai"
 
 #: page.cdr.php:335 /usr/src/freepbx/cdr/page.cdr.php:902
 msgid "Minute"
-msgstr ""
+msgstr "Minute"
 
 #: page.cdr.php:342 /usr/src/freepbx/cdr/page.cdr.php:892
 msgid "Month"
-msgstr ""
+msgstr "Mois"
 
 #: page.cdr.php:324
 msgid "Newest First"
-msgstr ""
+msgstr "Plus récent en premier"
 
 #: page.cdr.php:315
 msgid "No Answer"
-msgstr ""
+msgstr "Pas de réponse"
 
 #: ucp/views/view.php:103
 msgid "No History"
-msgstr ""
+msgstr "Pas d'historique"
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:200 page.cdr.php:220
 #: /usr/src/freepbx/cdr/page.cdr.php:232 page.cdr.php:251
 #: /usr/src/freepbx/cdr/page.cdr.php:265 page.cdr.php:277
 #: /usr/src/freepbx/cdr/page.cdr.php:288 page.cdr.php:317
 msgid "Not"
-msgstr ""
+msgstr "Pas"
 
 #: ucp/Cdr.class.php:46
 msgid "Not Authorized"
-msgstr ""
+msgstr "Non autorisé"
 
 #: page.cdr.php:97
 msgid "November"
-msgstr ""
+msgstr "Novembre"
 
 #: install.php:146
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: page.cdr.php:97
 msgid "October"
-msgstr ""
+msgstr "Octobre"
 
 #: page.cdr.php:323
 msgid "Oldest First"
-msgstr ""
+msgstr "Plus ancien en premier"
 
 #: page.cdr.php:86
 msgid "Order By"
-msgstr ""
+msgstr "Ordonner par"
 
 #: page.cdr.php:350 /usr/src/freepbx/cdr/page.cdr.php:866
 msgid "Outbound Caller ID Name"
-msgstr ""
+msgstr "Nom de l'identifiant de l'appelant en sortie"
 
 #: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:863
 msgid "Outbound Caller ID Number"
-msgstr ""
+msgstr "Numéro de l'identifiant de l'appelant en sortie"
 
 #: page.cdr.php:706
 msgid "Outbound CallerID"
-msgstr ""
+msgstr "Identifiant de l'appelant en sortie"
 
 #: page.cdr.php:218
 msgid "Outbound CallerID Number"
-msgstr ""
+msgstr "Numéro de l'identifiant de l'appelant en sortie"
 
 #: ucp/views/view.php:46
 msgid "Play"
-msgstr ""
+msgstr "Jouer"
 
 #: install.php:180
 msgid ""
 "Please upgrade UCP before this module so that settings can be properly "
 "migrated"
 msgstr ""
+"Veuillez mettre à jour UCP avant d'utiliser ce module afin que les "
+"paramètres soit correctement migrés"
 
 #: install.php:183
 msgid ""
 "Please upgrade Usermanager before this module so that settings can be "
 "properly migrated"
 msgstr ""
+"Veuillez mettre à jour Usermanager avant d'utiliser ce module afin que les "
+"paramètres soit correctement migrés"
 
 #: page.cdr.php:703
 msgid "Recording"
-msgstr ""
+msgstr "Enregistrement"
 
 #: page.cdr.php:690
 msgid "Related Call Detail Records"
@@ -736,7 +740,7 @@ msgstr ""
 
 #: ucp/views/nav.php:3
 msgid "View History"
-msgstr ""
+msgstr "Afficher l'historique"
 
 #: ucp/Cdr.class.php:268 ucp/Cdr.class.php:273
 msgid "Voicemail"
