@@ -21,7 +21,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="cdr_download-help" class="help-block fpbx-help-block"><?php echo _("Allow this user to playback recordings in UCP")?></span>
+			<span id="cdr_enable-help" class="help-block fpbx-help-block"><?php echo _("Enable CDR (Call History) in UCP for this user")?></span>
 		</div>
 	</div>
 </div>

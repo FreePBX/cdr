@@ -71,7 +71,7 @@
 		*2.10.0.alpha0* Not released to public
 	</changelog>
 	<hooks>
-		<sysadmin class="Ucp">
+		<ucp class="Ucp">
 			<method class="Cdr" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
 			<method class="Cdr" callingMethod="addUser">ucpAddUser</method>
 			<method class="Cdr" callingMethod="updateUser">ucpUpdateUser</method>
@@ -79,7 +79,7 @@
 			<method class="Cdr" callingMethod="addGroup">ucpAddGroup</method>
 			<method class="Cdr" callingMethod="updateGroup">ucpUpdateGroup</method>
 			<method class="Cdr" callingMethod="delGroup">ucpDelGroup</method>
-		</sysadmin>
+		</ucp>
 	</hooks>
 	<depends>
 		<module>core ge 12.0.8</module>
