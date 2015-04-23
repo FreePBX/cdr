@@ -38,34 +38,100 @@ class Cdr implements BMO {
 		}
 	}
 
-	public function processUCPAdminDisplay($user) {
-		if(!empty($_POST['ucp_cdr'])) {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','assigned',$_POST['ucp_cdr']);
+	public function ucpDelGroup($id,$display,$data) {
+	}
+
+	public function ucpAddGroup($id, $display, $data) {
+		$this->ucpUpdateGroup($id,$display,$data);
+	}
+
+	public function ucpUpdateGroup($id,$display,$data) {
+		if(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "yes") {
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','enable',true);
 		} else {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','assigned',array());
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','enable',false);
+		}
+		if(!empty($_POST['ucp_cdr'])) {
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','assigned',$_POST['ucp_cdr']);
+		} else {
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','assigned',array('self'));
 		}
 		if(!empty($_REQUEST['cdr_download']) && $_REQUEST['cdr_download'] == 'yes') {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','download',true);
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','download',true);
 		} else {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','download',false);
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','download',false);
 		}
 		if(!empty($_REQUEST['cdr_playback']) && $_REQUEST['cdr_playback'] == 'yes') {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','playback',true);
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','playback',true);
 		} else {
-			$this->FreePBX->Ucp->setSetting($user['username'],'Cdr','playback',false);
+			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','playback',false);
 		}
 	}
 
 	/**
-	* get the Admin display in UCP
-	* @param array $user The user array
+	* Hook functionality from userman when a user is deleted
+	* @param {int} $id      The userman user id
+	* @param {string} $display The display page name where this was executed
+	* @param {array} $data    Array of data to be able to use
 	*/
-	public function getUCPAdminDisplay($user, $action) {
-		$download = $this->FreePBX->Ucp->getSetting($user['username'],'Cdr','download');
-		$playback = $this->FreePBX->Ucp->getSetting($user['username'],'Cdr','playback');
+	public function ucpDelUser($id, $display, $ucpStatus, $data) {
+
+	}
+
+	/**
+	* Hook functionality from userman when a user is added
+	* @param {int} $id      The userman user id
+	* @param {string} $display The display page name where this was executed
+	* @param {array} $data    Array of data to be able to use
+	*/
+	public function ucpAddUser($id, $display, $ucpStatus, $data) {
+		$this->ucpUpdateUser($id, $display, $ucpStatus, $data);
+	}
+
+	/**
+	* Hook functionality from userman when a user is updated
+	* @param {int} $id      The userman user id
+	* @param {string} $display The display page name where this was executed
+	* @param {array} $data    Array of data to be able to use
+	*/
+	public function ucpUpdateUser($id, $display, $ucpStatus, $data) {
+		if(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "yes") {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',true);
+		} else {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',false);
+		}
+		if(!empty($_POST['ucp_cdr'])) {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','assigned',$_POST['ucp_cdr']);
+		} else {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','assigned',array());
+		}
+		if(!empty($_REQUEST['cdr_download']) && $_REQUEST['cdr_download'] == 'yes') {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',true);
+		} else {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',false);
+		}
+		if(!empty($_REQUEST['cdr_playback']) && $_REQUEST['cdr_playback'] == 'yes') {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',true);
+		} else {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',false);
+		}
+	}
+
+	public function ucpConfigPage($mode, $user, $action) {
+		if($mode == 'group') {
+			$enable = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','enable');
+			$download = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','download');
+			$playback = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','playback');
+			$cdrassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','assigned');
+		} else {
+			$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','enable');
+			$download = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','download');
+			$playback = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','playback');
+			$cdrassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','assigned');
+		}
+
 		$download = is_null($download) ? true : $download;
 		$playback = is_null($playback) ? true : $playback;
-		$cdrassigned = $this->FreePBX->Ucp->getSetting($user['username'],'Cdr','assigned');
 		$cdrassigned = !empty($cdrassigned) ? $cdrassigned : array();
 
 		$ausers = array();
@@ -79,9 +145,9 @@ class Cdr implements BMO {
 			$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
 		}
 		$html[0] = array(
-			"title" => _("CDR Reports"),
+			"title" => _("Call History"),
 			"rawname" => "cdrreports",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("cdrassigned" => $cdrassigned, "ausers" => $ausers, "playback" => $playback,"download" => $download))
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("disable" => !($enable), "cdrassigned" => $cdrassigned, "ausers" => $ausers, "playback" => $playback,"download" => $download))
 		);
 		return $html;
 	}
