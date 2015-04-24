@@ -194,6 +194,10 @@ msgstr "Время разговора"
 msgid "Busy"
 msgstr "Занято"
 
+#: cdr.i18n.php:16
+msgid "CDR Report Module"
+msgstr ""
+
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
 msgid "CDR Reports"
 msgstr "Отчёты CDR"
@@ -376,6 +380,10 @@ msgstr ""
 msgid "Duration"
 msgstr "Длительность"
 
+#: cdr.i18n.php:14
+msgid "Enable CEL Reporting"
+msgstr ""
+
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
 #: /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:254
 #: /usr/src/freepbx/cdr/page.cdr.php:268 page.cdr.php:280
@@ -509,6 +517,10 @@ msgstr ""
 msgid "November"
 msgstr "Ноябрь"
 
+#: install.php:146
+msgid "OK"
+msgstr ""
+
 #: page.cdr.php:97
 msgid "October"
 msgstr "Октябрь"
@@ -629,6 +641,10 @@ msgstr "Выберите интервал времени за который В�
 msgid "September"
 msgstr "Сентябрь"
 
+#: cdr.i18n.php:18
+msgid "Setting this true will enable the CDR module to drill down on CEL data for each CDR. Although the CDR module will assure there is a CEL table available, the reporting functionality in Asterisk and associated ODBC database and CEL configuration must be done outside of FreePBX either by the user or at the Distro level."
+msgstr ""
+
 #: ucp/views/nav.php:8
 msgid "Settings"
 msgstr ""
@@ -746,20 +762,8 @@ msgstr ""
 msgid "recordingfile field already present."
 msgstr "Поле recordingfile уже имеется."
 
-#: install.php:146
-msgid "OK"
-msgstr ""
-
-#: cdr.i18n.php:16
-msgid "CDR Report Module"
-msgstr ""
-
-#: cdr.i18n.php:14
-msgid "Enable CEL Reporting"
-msgstr ""
-
-#: cdr.i18n.php:18
-msgid "Setting this true will enable the CDR module to drill down on CEL data for each CDR. Although the CDR module will assure there is a CEL table available, the reporting functionality in Asterisk and associated ODBC database and CEL configuration must be done outside of FreePBX either by the user or at the Distro level."
+#: ucp/Cdr.class.php:167
+msgid "Call History"
 msgstr ""
 
 #~ msgid "App."

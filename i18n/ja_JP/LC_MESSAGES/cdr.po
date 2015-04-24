@@ -766,6 +766,10 @@ msgstr ""
 msgid "recordingfile field already present."
 msgstr "recordingfileフィールドは既に存在しています。"
 
+#: ucp/Cdr.class.php:167
+msgid "Call History"
+msgstr ""
+
 #~ msgid "CDR Report Module"
 #~ msgstr "CDRレポートモジュール"
 
