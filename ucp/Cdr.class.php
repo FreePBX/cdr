@@ -164,7 +164,7 @@ class Cdr extends Modules{
 		if(!empty($extensions)) {
 			$menu = array(
 				"rawname" => "cdr",
-				"name" => "Call History",
+				"name" => _("Call History"),
 				"badge" => false
 			);
 			foreach($extensions as $e) {
