@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-16 21:54-0400\n"
+"POT-Creation-Date: 2015-04-24 16:21-0400\n"
 "PO-Revision-Date: 2014-07-25 21:52+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/cdr/bg/>\n"
@@ -238,6 +238,10 @@ msgstr ""
 
 #: page.cdr.php:155
 msgid "Call Graph"
+msgstr ""
+
+#: ucp/Cdr.class.php:167
+msgid "Call History"
 msgstr ""
 
 #: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:860 page.cdr.php:1189
