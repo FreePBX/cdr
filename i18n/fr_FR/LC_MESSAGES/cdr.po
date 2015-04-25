@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-16 21:54-0400\n"
-"PO-Revision-Date: 2015-04-24 21:49+0200\n"
+"PO-Revision-Date: 2015-04-25 00:16+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
@@ -690,10 +690,12 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Ce sont les postes assignés et actifs qui s'afficheront pour cet utilisateur "
+"et qu'il pourra contrôler et modifier de UCP"
 
 #: install.php:44
 msgid "This might take a while......"
-msgstr ""
+msgstr "Cela pourrait prendre un certain temps ......"
 
 #: page.cdr.php:403 page.cdr.php:1043
 msgid "Time"
@@ -709,6 +711,9 @@ msgid ""
 "To play the media you will need to either update your browser to a recent "
 "version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
 msgstr ""
+"Pour jouer les fichiers audio vous devrez soit mettre à jour votre "
+"navigateur pour une version récente ou mettre à jour votre <a href=\"%s\" "
+"target=\"_blank\">plugin Flash</a>"
 
 #: page.cdr.php:942 page.cdr.php:1042
 msgid "Total Calls"
@@ -720,11 +725,11 @@ msgstr "Durée Totale"
 
 #: install.php:100
 msgid "Unable to add index to uniqueid field in cdr table"
-msgstr ""
+msgstr "Incapable d'ajouter l'index au champ uniqueid de la table cdr"
 
 #: install.php:63
 msgid "Unable to add recordingfile field to cdr table"
-msgstr ""
+msgstr "Incapable d'ajouter le champ recordingfile à la table cdr"
 
 #: page.cdr.php:1076 page.cdr.php:1079
 msgid "UniqueID"
@@ -744,7 +749,7 @@ msgstr "Champ utilisateur"
 
 #: page.cdr.php:414 page.cdr.php:1236
 msgid "UserDefType"
-msgstr ""
+msgstr "UserDefType"
 
 #: page.cdr.php:275 /usr/src/freepbx/cdr/page.cdr.php:712
 msgid "Userfield"
@@ -772,7 +777,7 @@ msgstr "contexte"
 
 #: ucp/Cdr.class.php:300
 msgid "denied by COS"
-msgstr ""
+msgstr "pas permis par le COS"
 
 #: install.php:52
 msgid "did field already present."
