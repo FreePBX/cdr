@@ -19,17 +19,17 @@ msgstr ""
 #: Cdr.class.php:231
 #, php-format
 msgid "%s hour, %s min, %s sec"
-msgstr ""
+msgstr "%s hora, %s min, %s seg"
 
 #: Cdr.class.php:233
 #, php-format
 msgid "%s min, %s sec"
-msgstr ""
+msgstr "%s min, %s seg"
 
 #: Cdr.class.php:236
 #, php-format
 msgid "%s sec"
-msgstr ""
+msgstr "%s seg"
 
 #: page.cdr.php:336 /usr/src/freepbx/cdr/page.cdr.php:907
 msgid "10 Minutes"
@@ -37,23 +37,23 @@ msgstr "10 Minutos"
 
 #: page.cdr.php:185 /usr/src/freepbx/cdr/page.cdr.php:217 page.cdr.php:248
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
-msgstr ""
+msgstr "<b>.</b> = wildcard, coincide com um ou mais caracteres<br>"
 
 #: page.cdr.php:183 /usr/src/freepbx/cdr/page.cdr.php:215 page.cdr.php:246
 msgid "<b>N</b> = matches any digit from 2-9<br>"
-msgstr ""
+msgstr "<b>N</b> = coincide qualquer digito de 2-9<br>"
 
 #: page.cdr.php:181 /usr/src/freepbx/cdr/page.cdr.php:213 page.cdr.php:244
 msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr ""
+msgstr "<b>X</b> = coincide qualquer digito de 0-9<br>"
 
 #: page.cdr.php:182 /usr/src/freepbx/cdr/page.cdr.php:214 page.cdr.php:245
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr ""
+msgstr "<b>Z</b> = coincide qualquer digito de 1-9<br>"
 
 #: page.cdr.php:184 /usr/src/freepbx/cdr/page.cdr.php:216 page.cdr.php:247
 msgid "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>"
-msgstr ""
+msgstr "<b>[1237-9]</b> = coincide qualquer digito ou letra no colchetes<br>(neste exemplo, 1,2,3,7,8,9)<br>"
 
 #: page.cdr.php:179 /usr/src/freepbx/cdr/page.cdr.php:211 page.cdr.php:242
 msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
@@ -238,6 +238,10 @@ msgstr ""
 msgid "Call Graph"
 msgstr "Gráfico de Chamadas"
 
+#: ucp/Cdr.class.php:167
+msgid "Call History"
+msgstr ""
+
 #: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:860 page.cdr.php:1189
 msgid "Caller ID Name"
 msgstr ""
@@ -248,7 +252,7 @@ msgstr ""
 
 #: page.cdr.php:705 page.cdr.php:1093
 msgid "CallerID"
-msgstr "Bina"
+msgstr "ID de Chamada"
 
 #: page.cdr.php:198
 msgid "CallerID Name"
@@ -748,10 +752,6 @@ msgstr ""
 
 #: install.php:69
 msgid "recordingfile field already present."
-msgstr ""
-
-#: ucp/Cdr.class.php:167
-msgid "Call History"
 msgstr ""
 
 #~ msgid "App."

@@ -266,6 +266,10 @@ msgstr "コールイベント記録 ‐ 検索結果"
 msgid "Call Graph"
 msgstr "グラフ形式"
 
+#: ucp/Cdr.class.php:167
+msgid "Call History"
+msgstr ""
+
 #: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:860 page.cdr.php:1189
 msgid "Caller ID Name"
 msgstr "CallerIDの名前"
@@ -765,10 +769,6 @@ msgstr ""
 #: install.php:69
 msgid "recordingfile field already present."
 msgstr "recordingfileフィールドは既に存在しています。"
-
-#: ucp/Cdr.class.php:167
-msgid "Call History"
-msgstr ""
 
 #~ msgid "CDR Report Module"
 #~ msgstr "CDRレポートモジュール"

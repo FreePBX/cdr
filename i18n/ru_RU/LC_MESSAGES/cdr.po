@@ -31,17 +31,17 @@ msgstr ""
 #: Cdr.class.php:231
 #, php-format
 msgid "%s hour, %s min, %s sec"
-msgstr ""
+msgstr "%s час, %s мин, %s сек"
 
 #: Cdr.class.php:233
 #, php-format
 msgid "%s min, %s sec"
-msgstr ""
+msgstr "%s мин, %s сек"
 
 #: Cdr.class.php:236
 #, php-format
 msgid "%s sec"
-msgstr ""
+msgstr "%s сек"
 
 #: page.cdr.php:336 /usr/src/freepbx/cdr/page.cdr.php:907
 msgid "10 Minutes"
@@ -69,7 +69,7 @@ msgstr "<b>[1237-9]</b> = любое число или буква из скоб�
 
 #: page.cdr.php:179 /usr/src/freepbx/cdr/page.cdr.php:211 page.cdr.php:242
 msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
-msgstr "<b>_!2XXN, _562., _.0075</b> найти все номера которые не совпадают со всеми этими тремя шаблонами</br>"
+msgstr "<b>_!2XXN, _562., _.0075</b> = найти все совпадения, которые <b>не совпадают</b> со всеми этими тремя шаблонами"
 
 #: page.cdr.php:178 /usr/src/freepbx/cdr/page.cdr.php:210 page.cdr.php:241
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
@@ -117,7 +117,7 @@ msgstr "Добавляем поле входящего номера в CDR"
 
 #: install.php:103
 msgid "Adding index to uniqueid field in the cdr table"
-msgstr ""
+msgstr "Добавление индекса к уникальному полю в таблице CDR"
 
 #: install.php:59
 msgid "Adding recordingfile field to cdr"
@@ -129,11 +129,11 @@ msgstr "Любой статус"
 
 #: Cdr.class.php:85
 msgid "Allow CDR Downloads"
-msgstr ""
+msgstr "Разрешить загрузку CDR"
 
 #: Cdr.class.php:83
 msgid "Allow CDR Playback"
-msgstr ""
+msgstr "Разрешить воспроизведение CDR"
 
 #: Cdr.class.php:83
 msgid "Allow this user to playback recordings in UCP"
@@ -249,6 +249,10 @@ msgstr ""
 #: page.cdr.php:155
 msgid "Call Graph"
 msgstr "Суммарный график"
+
+#: ucp/Cdr.class.php:167
+msgid "Call History"
+msgstr ""
 
 #: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:860 page.cdr.php:1189
 msgid "Caller ID Name"
@@ -607,7 +611,7 @@ msgstr ""
 
 #: page.cdr.php:306
 msgid "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
-msgstr "Поиск по статусу звонка: Отвечен / Занят / Неудавшийся / Без ответа"
+msgstr "Поиск по статусу звонка: Отвечен / Занят / Неудавшийся / Без ответа."
 
 #: page.cdr.php:296
 msgid "Search for calls that matches the call length specified."
@@ -619,7 +623,7 @@ msgstr "Поиск по номеру назначения. Можно ввест
 
 #: page.cdr.php:274
 msgid "Search for userfield data (if enabled)."
-msgstr "Поиск по дополнительному полю Userfield ( если используется )"
+msgstr "Поиск по данным пользователя (если используется)."
 
 #: page.cdr.php:302
 msgid "Seconds"
@@ -635,7 +639,7 @@ msgstr ""
 
 #: page.cdr.php:91
 msgid "Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search"
-msgstr "Выберите интервал времени за который Вы хотите получить отчет. Вы можите указать: День, Месяц, Год, Час и Минуту для более точного поиска "
+msgstr "Выберите промежуток времени для отчета. Вы можете указать: День, Месяц, Год, Час и Минуту для более точного поиска"
 
 #: page.cdr.php:97
 msgid "September"
@@ -712,7 +716,7 @@ msgstr ""
 
 #: page.cdr.php:332 /usr/src/freepbx/cdr/page.cdr.php:872
 msgid "User Field"
-msgstr "User Field"
+msgstr "Пользовательское поле"
 
 #: page.cdr.php:414 page.cdr.php:1236
 msgid "UserDefType"
@@ -720,7 +724,7 @@ msgstr ""
 
 #: page.cdr.php:275 /usr/src/freepbx/cdr/page.cdr.php:712
 msgid "Userfield"
-msgstr "Userfield"
+msgstr "Пользовательское поле"
 
 #: ucp/views/nav.php:3
 msgid "View History"
@@ -761,10 +765,6 @@ msgstr ""
 #: install.php:69
 msgid "recordingfile field already present."
 msgstr "Поле recordingfile уже имеется."
-
-#: ucp/Cdr.class.php:167
-msgid "Call History"
-msgstr ""
 
 #~ msgid "App."
 #~ msgstr "Приложение."

@@ -238,6 +238,10 @@ msgstr ""
 msgid "Call Graph"
 msgstr ""
 
+#: ucp/Cdr.class.php:167
+msgid "Call History"
+msgstr ""
+
 #: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:860 page.cdr.php:1189
 msgid "Caller ID Name"
 msgstr ""
@@ -748,8 +752,4 @@ msgstr ""
 
 #: install.php:69
 msgid "recordingfile field already present."
-msgstr ""
-
-#: ucp/Cdr.class.php:167
-msgid "Call History"
 msgstr ""
