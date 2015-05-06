@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-24 16:21-0400\n"
+"POT-Creation-Date: 2015-05-06 15:57-0400\n"
 "PO-Revision-Date: 2015-02-20 19:05-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -188,7 +188,7 @@ msgstr "计费长度"
 msgid "Busy"
 msgstr "忙"
 
-#: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
+#: page.cdr.php:77
 msgid "CDR Reports"
 msgstr "呼叫记录报表"
 
@@ -207,10 +207,6 @@ msgstr ""
 #: page.cdr.php:154
 msgid "CSV file"
 msgstr "CSV文件"
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr "呼叫数据记录工具支持查看系统呼叫报表"
 
 #: page.cdr.php:92 /usr/src/freepbx/cdr/page.cdr.php:702
 msgid "Call Date"
@@ -567,10 +563,6 @@ msgstr ""
 msgid "Report type"
 msgstr "报表类型"
 
-#: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
-msgid "Reports"
-msgstr "报表"
-
 #: page.cdr.php:162
 msgid "Result limit"
 msgstr "结果限制"
@@ -766,3 +758,9 @@ msgstr ""
 #: install.php:69
 msgid "recordingfile field already present."
 msgstr ""
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr "呼叫数据记录工具支持查看系统呼叫报表"
+
+#~ msgid "Reports"
+#~ msgstr "报表"

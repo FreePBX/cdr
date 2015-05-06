@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-24 16:21-0400\n"
+"POT-Creation-Date: 2015-05-06 15:57-0400\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -203,7 +203,7 @@ msgstr "Debiterbar längd"
 msgid "Busy"
 msgstr "Upptaget"
 
-#: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
+#: page.cdr.php:77
 msgid "CDR Reports"
 msgstr ""
 
@@ -222,10 +222,6 @@ msgstr ""
 #: page.cdr.php:154
 msgid "CSV file"
 msgstr "CSV-fil"
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr "Rapportverktyg för samtalsregister"
 
 #: page.cdr.php:92 /usr/src/freepbx/cdr/page.cdr.php:702
 msgid "Call Date"
@@ -582,10 +578,6 @@ msgstr ""
 msgid "Report type"
 msgstr "Rapporttyp"
 
-#: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
-msgid "Reports"
-msgstr ""
-
 #: page.cdr.php:162
 msgid "Result limit"
 msgstr "Begränsa resultat"
@@ -785,6 +777,9 @@ msgstr ""
 #: install.php:69
 msgid "recordingfile field already present."
 msgstr ""
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr "Rapportverktyg för samtalsregister"
 
 #~ msgid ""
 #~ "Select Source Channel to search for. You can enter just the channel type "
