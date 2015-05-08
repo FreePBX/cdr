@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-06 15:57-0400\n"
+"POT-Creation-Date: 2015-05-08 18:58-0400\n"
 "PO-Revision-Date: 2015-04-25 03:25+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -21,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Cdr.class.php:231
+#: Cdr.class.php:306
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s heure, %s min, %s sec"
 
-#: Cdr.class.php:233
+#: Cdr.class.php:308
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s sec"
 
-#: Cdr.class.php:236
+#: Cdr.class.php:311
 #, php-format
 msgid "%s sec"
 msgstr "%s sec"
@@ -132,25 +132,25 @@ msgstr "Ajout du champ recordingfile au cdr"
 msgid "All Dispositions"
 msgstr "Tous les états de l'appel"
 
-#: Cdr.class.php:85
+#: views/ucp_config.php:7
+msgid "Allow CDR"
+msgstr ""
+
+#: views/ucp_config.php:95
 msgid "Allow CDR Downloads"
 msgstr "Permettre le téléchargement du CDR"
 
-#: Cdr.class.php:83
+#: views/ucp_config.php:64
 msgid "Allow CDR Playback"
 msgstr "Permettre la lecture du CDR"
 
-#: Cdr.class.php:83
+#: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
 msgstr "Permettre à cet utilisateur d'écouter les enregistrements dans UCP"
 
-#: Cdr.class.php:85
+#: views/ucp_config.php:116
 msgid "Allow users to download recordings in UCP"
 msgstr "Permettre aux utilisateurs de télécharger les enregistrements dans UCP"
-
-#: Cdr.class.php:81
-msgid "Allowed CDR"
-msgstr "Permettre le CDR"
 
 #: page.cdr.php:300
 msgid "And"
@@ -198,6 +198,10 @@ msgstr "Durée facturée"
 #: page.cdr.php:313
 msgid "Busy"
 msgstr "Occupé"
+
+#: views/ucp_config.php:38
+msgid "CDR Access"
+msgstr ""
 
 #: page.cdr.php:77
 msgid "CDR Reports"
@@ -247,7 +251,7 @@ msgstr "Journal des événements d'appel - Recherche retourne"
 msgid "Call Graph"
 msgstr "Graphique d'appel"
 
-#: ucp/Cdr.class.php:167
+#: Cdr.class.php:158 ucp/Cdr.class.php:167
 msgid "Call History"
 msgstr "Historique d'appel"
 
@@ -381,6 +385,10 @@ msgstr "Téléchargement"
 msgid "Duration"
 msgstr "Durée"
 
+#: views/ucp_config.php:28
+msgid "Enable CDR (Call History) in UCP for this user"
+msgstr ""
+
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
 #: /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:254
 #: /usr/src/freepbx/cdr/page.cdr.php:268 page.cdr.php:280
@@ -451,6 +459,10 @@ msgstr "Heure"
 msgid "Hour of day"
 msgstr "Heure du jour"
 
+#: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
+msgid "Inherit"
+msgstr ""
+
 #: page.cdr.php:97
 msgid "January"
 msgstr "Janvier"
@@ -491,6 +503,10 @@ msgstr "Mois"
 msgid "Newest First"
 msgstr "Plus récent en premier"
 
+#: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
+msgid "No"
+msgstr ""
+
 #: page.cdr.php:315
 msgid "No Answer"
 msgstr "Pas de réponse"
@@ -513,10 +529,6 @@ msgstr "Non autorisé"
 #: page.cdr.php:97
 msgid "November"
 msgstr "Novembre"
-
-#: install.php:146
-msgid "OK"
-msgstr "OK"
 
 #: page.cdr.php:97
 msgid "October"
@@ -550,7 +562,7 @@ msgstr "Numéro de l'identifiant de l'appelant en sortie"
 msgid "Play"
 msgstr "Jouer"
 
-#: install.php:180
+#: install.php:118
 msgid ""
 "Please upgrade UCP before this module so that settings can be properly "
 "migrated"
@@ -558,7 +570,7 @@ msgstr ""
 "Veuillez mettre à jour UCP avant d'utiliser ce module afin que les "
 "paramètres soit correctement migrés"
 
-#: install.php:183
+#: install.php:121
 msgid ""
 "Please upgrade Usermanager before this module so that settings can be "
 "properly migrated"
@@ -681,7 +693,7 @@ msgstr "Information technique"
 msgid "Telephone Number"
 msgstr "Numéro de téléphone"
 
-#: Cdr.class.php:81
+#: views/ucp_config.php:54
 msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
@@ -743,6 +755,10 @@ msgstr "Modification requise"
 msgid "User Field"
 msgstr "Champ utilisateur"
 
+#: Cdr.class.php:149
+msgid "User Primary Extension"
+msgstr ""
+
 #: page.cdr.php:414 page.cdr.php:1236
 msgid "UserDefType"
 msgstr "UserDefType"
@@ -762,6 +778,10 @@ msgstr "Boite vocale"
 #: page.cdr.php:341 /usr/src/freepbx/cdr/page.cdr.php:887
 msgid "Week ( Sun-Sat )"
 msgstr "Semaine ( Dim-Sam )"
+
+#: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
+msgid "Yes"
+msgstr ""
 
 #: page.cdr.php:413
 msgid "channel"
@@ -790,6 +810,12 @@ msgstr "sorti de la conférence"
 #: install.php:69
 msgid "recordingfile field already present."
 msgstr "le champ recordingfile est déjà présent."
+
+#~ msgid "Allowed CDR"
+#~ msgstr "Permettre le CDR"
+
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #~ msgid "Call Data Record report tools for viewing reports of your calls"
 #~ msgstr "Outil de rapport pour visualiser la liste de vos appels"
