@@ -124,17 +124,24 @@ class Cdr implements BMO {
 	}
 
 	public function ucpConfigPage($mode, $user, $action) {
-		if($mode == 'group') {
-			$enable = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','enable');
-			$download = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','download');
-			$playback = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','playback');
-			$cdrassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','assigned');
+		if(empty($user)) {
+			$enable = ($mode == 'group') ? true : null;
+			$download = ($mode == 'group') ? true : null;
+			$playback = ($mode == 'group') ? true : null;
 		} else {
-			$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','enable');
-			$download = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','download');
-			$playback = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','playback');
-			$cdrassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','assigned');
+			if($mode == 'group') {
+				$enable = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','enable');
+				$download = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','download');
+				$playback = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','playback');
+				$cdrassigned = $this->FreePBX->Ucp->getSettingByGID($user['id'],'Cdr','assigned');
+			} else {
+				$enable = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','enable');
+				$download = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','download');
+				$playback = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','playback');
+				$cdrassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','assigned');
+			}
 		}
+
 		$cdrassigned = !empty($cdrassigned) ? $cdrassigned : array();
 
 		$ausers = array();
