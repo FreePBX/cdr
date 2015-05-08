@@ -97,23 +97,29 @@ class Cdr implements BMO {
 	public function ucpUpdateUser($id, $display, $ucpStatus, $data) {
 		if(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "yes") {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',true);
-		} else {
+		} elseif(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "no") {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',false);
+		} elseif(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "inherit") {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',null);
 		}
 		if(!empty($_POST['ucp_cdr'])) {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','assigned',$_POST['ucp_cdr']);
 		} else {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','assigned',array());
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','assigned',null);
 		}
 		if(!empty($_REQUEST['cdr_download']) && $_REQUEST['cdr_download'] == 'yes') {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',true);
-		} else {
+		} elseif(!empty($_POST['cdr_download']) && $_POST['cdr_download'] == "no") {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',false);
+		} elseif(!empty($_POST['cdr_download']) && $_POST['cdr_download'] == "inherit") {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',null);
 		}
 		if(!empty($_REQUEST['cdr_playback']) && $_REQUEST['cdr_playback'] == 'yes') {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',true);
-		} else {
+		} elseif(!empty($_POST['cdr_playback']) && $_POST['cdr_playback'] == "no") {
 			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',false);
+		} elseif(!empty($_POST['cdr_playback']) && $_POST['cdr_playback'] == "inherit") {
+			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',null);
 		}
 	}
 
@@ -129,9 +135,6 @@ class Cdr implements BMO {
 			$playback = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','playback');
 			$cdrassigned = $this->FreePBX->Ucp->getSettingByID($user['id'],'Cdr','assigned');
 		}
-
-		$download = is_null($download) ? true : $download;
-		$playback = is_null($playback) ? true : $playback;
 		$cdrassigned = !empty($cdrassigned) ? $cdrassigned : array();
 
 		$ausers = array();
@@ -147,7 +150,7 @@ class Cdr implements BMO {
 		$html[0] = array(
 			"title" => _("Call History"),
 			"rawname" => "cdrreports",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("disable" => !($enable), "cdrassigned" => $cdrassigned, "ausers" => $ausers, "playback" => $playback,"download" => $download))
+			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("mode"  => $mode, "enable" => $enable, "cdrassigned" => $cdrassigned, "ausers" => $ausers, "playback" => $playback,"download" => $download))
 		);
 		return $html;
 	}

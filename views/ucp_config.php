@@ -9,10 +9,14 @@
 					</div>
 					<div class="col-md-9">
 						<span class="radioset">
-							<input type="radio" name="cdr_enable" id="cdr_enable_yes" value="yes" <?php echo !($disable) ? 'checked' : ''?>>
+							<input type="radio" name="cdr_enable" id="cdr_enable_yes" value="yes" <?php echo ($enable) ? 'checked' : ''?>>
 							<label for="cdr_enable_yes"><?php echo _('Yes')?></label>
-							<input type="radio" name="cdr_enable" id="cdr_enable_no" value="no" <?php echo ($disable) ? 'checked' : ''?>>
+							<input type="radio" name="cdr_enable" id="cdr_enable_no" value="no" <?php echo (!is_null($enable) && !$enable) ? 'checked' : ''?>>
 							<label for="cdr_enable_no"><?php echo _('No')?></label>
+							<?php if($mode == "user") {?>
+								<input type="radio" id="cdr_enable_inherit" name="cdr_enable" value='inherit' <?php echo is_null($enable) ? 'checked' : ''?>>
+								<label for="cdr_enable_inherit"><?php echo _('Inherit')?></label>
+							<?php } ?>
 						</span>
 					</div>
 				</div>
@@ -35,7 +39,7 @@
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="ucp_cdr"></i>
 					</div>
 					<div class="col-md-9">
-						<select data-placeholder="Extensions" id="ucp_cdr" class="form-control chosenmultiselect ucp-cdr" name="ucp_cdr[]" multiple="multiple" <?php echo ($disable) ? "disabled" : ""?>>
+						<select data-placeholder="Extensions" id="ucp_cdr" class="form-control chosenmultiselect ucp-cdr" name="ucp_cdr[]" multiple="multiple" <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
 							<?php foreach($ausers as $key => $value) {?>
 								<option value="<?php echo $key?>" <?php echo in_array($key,$cdrassigned) ? 'selected' : '' ?>><?php echo $value?></option>
 							<?php } ?>
@@ -62,10 +66,14 @@
 					</div>
 					<div class="col-md-9">
 						<span class="radioset">
-							<input type="radio" class="ucp-cdr" name="cdr_download" id="cdr_download_yes" value="yes" <?php echo ($download) ? 'checked' : ''?> <?php echo ($disable) ? "disabled" : ""?>>
+							<input type="radio" class="ucp-cdr" name="cdr_download" id="cdr_download_yes" value="yes" <?php echo ($download) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
 							<label for="cdr_download_yes"><?php echo _('Yes')?></label>
-							<input type="radio" class="ucp-cdr" name="cdr_download" id="cdr_download_no" value="no" <?php echo !($download) ? 'checked' : ''?> <?php echo ($disable) ? "disabled" : ""?>>
+							<input type="radio" class="ucp-cdr" name="cdr_download" id="cdr_download_no" value="no" <?php echo (!is_null($download) && !$download) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
 							<label for="cdr_download_no"><?php echo _('No')?></label>
+							<?php if($mode == "user") {?>
+								<input type="radio" class="ucp-cdr" id="cdr_download_inherit" name="cdr_download" value='inherit' <?php echo is_null($download) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
+								<label for="cdr_download_inherit"><?php echo _('Inherit')?></label>
+							<?php } ?>
 						</span>
 					</div>
 				</div>
@@ -89,10 +97,14 @@
 					</div>
 					<div class="col-md-9">
 						<span class="radioset">
-							<input type="radio" class="ucp-cdr" name="cdr_playback" id="cdr_playback_yes" value="yes" <?php echo ($playback) ? 'checked' : ''?> <?php echo ($disable) ? "disabled" : ""?>>
+							<input type="radio" class="ucp-cdr" name="cdr_playback" id="cdr_playback_yes" value="yes" <?php echo ($playback) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
 							<label for="cdr_playback_yes"><?php echo _('Yes')?></label>
-							<input type="radio" class="ucp-cdr" name="cdr_playback" id="cdr_playback_no" value="no" <?php echo !($playback) ? 'checked' : ''?> <?php echo ($disable) ? "disabled" : ""?>>
+							<input type="radio" class="ucp-cdr" name="cdr_playback" id="cdr_playback_no" value="no" <?php echo (!is_null($playback) && !$playback) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
 							<label for="cdr_playback_no"><?php echo _('No')?></label>
+							<?php if($mode == "user") {?>
+								<input type="radio" class="ucp-cdr" id="cdr_playback_inherit" name="cdr_playback" value='inherit' <?php echo is_null($playback) ? 'checked' : ''?> <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
+								<label for="cdr_playback_inherit"><?php echo _('Inherit')?></label>
+							<?php } ?>
 						</span>
 					</div>
 				</div>
@@ -107,7 +119,7 @@
 </div>
 <script>
 	$("input[name=cdr_enable]").change(function() {
-		if($(this).val() == "yes") {
+		if($(this).val() == "yes" || $(this).val() == "inherit") {
 			$(".ucp-cdr").prop("disabled",false).trigger("chosen:updated");;
 		} else {
 			$(".ucp-cdr").prop("disabled",true).trigger("chosen:updated");;

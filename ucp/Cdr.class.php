@@ -159,7 +159,7 @@ class Cdr extends Modules{
 
 	public function getMenuItems() {
 		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getSetting($user['username'],'Cdr','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','assigned');
 		$menu = array();
 		if(!empty($extensions)) {
 			$menu = array(
@@ -512,14 +512,14 @@ class Cdr extends Modules{
 
 	private function _checkExtension($extension) {
 		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getSetting($user['username'],'Cdr','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','assigned');
 		return in_array($extension,$extensions);
 	}
 
 	private function _checkDownload($extension) {
 		if($this->_checkExtension($extension)) {
 			$user = $this->UCP->User->getUser();
-			$dl = $this->UCP->getSetting($user['username'],'Cdr','download');
+			$dl = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','download');
 			return is_null($dl) ? true : $dl;
 		}
 		return false;
@@ -528,7 +528,7 @@ class Cdr extends Modules{
 	private function _checkPlayback($extension) {
 		if($this->_checkExtension($extension)) {
 			$user = $this->UCP->User->getUser();
-			$pb = $this->UCP->getSetting($user['username'],'Cdr','playback');
+			$pb = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','playback');
 			return is_null($pb) ? true : $pb;
 		}
 		return false;
