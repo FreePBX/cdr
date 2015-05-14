@@ -104,6 +104,19 @@ if (empty($check)) {
 	}
 }
 
+$sql = "SHOW KEYS FROM $db_name.$db_table_name WHERE Key_name='did'";
+$check = $dbcdr->getOne($sql);
+if (empty($check)) {
+	$sql = "ALTER TABLE $db_name.$db_table_name ADD INDEX `did` (`did` ASC)";
+	$result = $dbcdr->query($sql);
+	if(DB::IsError($result)) {
+		out(_("Unable to add index todid field in cdr table"));
+		freepbx_log(FPBX_LOG_ERROR, "Failed to add index to did field in the cdr table");
+	} else {
+		out(_("Adding index to did field in the cdr table"));
+	}
+}
+
 $db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:$db_name;
 $db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
 outn(_("Creating $db_cel_table_name if needed.."));
