@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-06 15:57-0400\n"
+"POT-Creation-Date: 2015-05-14 17:26-0400\n"
 "PO-Revision-Date: 2015-04-25 03:25+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -119,6 +119,10 @@ msgstr "Ajouter le champ recordingfile au cdr"
 #: install.php:43
 msgid "Adding did field to cdr"
 msgstr "Ajouter le champ did au cdr"
+
+#: install.php:116
+msgid "Adding index to did field in the cdr table"
+msgstr ""
 
 #: install.php:103
 msgid "Adding index to uniqueid field in the cdr table"
@@ -514,7 +518,7 @@ msgstr "Non autorisé"
 msgid "November"
 msgstr "Novembre"
 
-#: install.php:146
+#: install.php:159
 msgid "OK"
 msgstr "OK"
 
@@ -550,7 +554,7 @@ msgstr "Numéro de l'identifiant de l'appelant en sortie"
 msgid "Play"
 msgstr "Jouer"
 
-#: install.php:180
+#: install.php:193
 msgid ""
 "Please upgrade UCP before this module so that settings can be properly "
 "migrated"
@@ -558,7 +562,7 @@ msgstr ""
 "Veuillez mettre à jour UCP avant d'utiliser ce module afin que les "
 "paramètres soit correctement migrés"
 
-#: install.php:183
+#: install.php:196
 msgid ""
 "Please upgrade Usermanager before this module so that settings can be "
 "properly migrated"
@@ -722,6 +726,10 @@ msgstr "Durée Totale"
 #: install.php:100
 msgid "Unable to add index to uniqueid field in cdr table"
 msgstr "Incapable d'ajouter l'index au champ uniqueid de la table cdr"
+
+#: install.php:113
+msgid "Unable to add index todid field in cdr table"
+msgstr ""
 
 #: install.php:63
 msgid "Unable to add recordingfile field to cdr table"

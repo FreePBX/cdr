@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-06 15:57-0400\n"
+"POT-Creation-Date: 2015-05-14 17:26-0400\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -122,6 +122,10 @@ msgstr ""
 
 #: install.php:43
 msgid "Adding did field to cdr"
+msgstr ""
+
+#: install.php:116
+msgid "Adding index to did field in the cdr table"
 msgstr ""
 
 #: install.php:103
@@ -518,7 +522,7 @@ msgstr ""
 msgid "November"
 msgstr "November"
 
-#: install.php:146
+#: install.php:159
 msgid "OK"
 msgstr ""
 
@@ -554,13 +558,13 @@ msgstr ""
 msgid "Play"
 msgstr ""
 
-#: install.php:180
+#: install.php:193
 msgid ""
 "Please upgrade UCP before this module so that settings can be properly "
 "migrated"
 msgstr ""
 
-#: install.php:183
+#: install.php:196
 msgid ""
 "Please upgrade Usermanager before this module so that settings can be "
 "properly migrated"
@@ -708,6 +712,10 @@ msgstr "Total längd"
 
 #: install.php:100
 msgid "Unable to add index to uniqueid field in cdr table"
+msgstr ""
+
+#: install.php:113
+msgid "Unable to add index todid field in cdr table"
 msgstr ""
 
 #: install.php:63
