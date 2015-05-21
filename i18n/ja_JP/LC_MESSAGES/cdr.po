@@ -69,9 +69,7 @@ msgstr "10分毎"
 
 #: page.cdr.php:185 /usr/src/freepbx/cdr/page.cdr.php:217 page.cdr.php:248
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
-msgstr ""
-"<b>.</b> : ワイルドカードです。すべての1文字以上の数字または文字と一致します"
-"<br/>"
+msgstr "<b>.</b> : ワイルドカードです。すべての1文字以上の数字または文字と一致します<br/>"
 
 #: page.cdr.php:183 /usr/src/freepbx/cdr/page.cdr.php:215 page.cdr.php:246
 msgid "<b>N</b> = matches any digit from 2-9<br>"
@@ -86,25 +84,16 @@ msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr "<b>Z</b> : 1-9のいずれの数字に一致します<br/>"
 
 #: page.cdr.php:184 /usr/src/freepbx/cdr/page.cdr.php:216 page.cdr.php:247
-msgid ""
-"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
-"example, 1,2,3,7,8,9)<br>"
-msgstr ""
-"<b>[1237-9]</b> = 括弧内の任意の数字や文字に一致する条件で検索します<br>(この"
-"例では、 1,2,3,7,8,9)<br>"
+msgid "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>"
+msgstr "<b>[1237-9]</b> = 括弧内の任意の数字や文字に一致する条件で検索します<br>(この例では、 1,2,3,7,8,9)<br>"
 
 #: page.cdr.php:179 /usr/src/freepbx/cdr/page.cdr.php:211 page.cdr.php:242
-msgid ""
-"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
-"numbers"
-msgstr ""
-"<b>_!2XXN, _562., _.0075</b> : この場合、指定した番号以外の番号が検索されます"
+msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
+msgstr "<b>_!2XXN, _562., _.0075</b> : この場合、指定した番号以外の番号が検索されます"
 
 #: page.cdr.php:178 /usr/src/freepbx/cdr/page.cdr.php:210 page.cdr.php:241
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr ""
-"<b>_2XXN, _562., _.0075</b> : この場合いずれかに一致する番号が検索されます"
-"<br/>"
+msgstr "<b>_2XXN, _562., _.0075</b> : この場合いずれかに一致する番号が検索されます<br/>"
 
 #: page.cdr.php:180 /usr/src/freepbx/cdr/page.cdr.php:212 page.cdr.php:243
 msgid "<br>Asterisk pattern matching<br>"
@@ -589,15 +578,11 @@ msgid "Play"
 msgstr ""
 
 #: install.php:118
-msgid ""
-"Please upgrade UCP before this module so that settings can be properly "
-"migrated"
+msgid "Please upgrade UCP before this module so that settings can be properly migrated"
 msgstr ""
 
 #: install.php:121
-msgid ""
-"Please upgrade Usermanager before this module so that settings can be "
-"properly migrated"
+msgid "Please upgrade Usermanager before this module so that settings can be properly migrated"
 msgstr ""
 
 #: page.cdr.php:703
@@ -633,42 +618,24 @@ msgid "Search for accountcode."
 msgstr "アカウントコードを検索します。"
 
 #: page.cdr.php:177
-msgid ""
-"Search for calls based on CallerID Number. You can enter multiple numbers "
-"separated by a comma. This field support Asterisk regular expression. "
-"Example<br>"
-msgstr ""
-"CallerID の番号で検索します。コンマ区切りで複数の番号を指定することができま"
-"す。また、このフィールドでは、Asterisk の正規表現を利用できます。<br/>例) "
-"<br/>"
+msgid "Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
+msgstr "CallerID の番号で検索します。コンマ区切りで複数の番号を指定することができます。また、このフィールドでは、Asterisk の正規表現を利用できます。<br/>例) <br/>"
 
 #: page.cdr.php:209
-msgid ""
-"Search for calls based on outbound CID used. You can enter multiple numbers "
-"separated by a comma. This field support Asterisk regular expression. "
-"Example<br>"
-msgstr ""
-"外部発信したCIDを使用して検索します。コンマ区切りで複数の番号を指定することが"
-"できます。また、このフィールドでは、Asteriskの正規表現を利用できます。<br/>"
-"例) <br/>"
+msgid "Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
+msgstr "外部発信したCIDを使用して検索します。コンマ区切りで複数の番号を指定することができます。また、このフィールドでは、Asteriskの正規表現を利用できます。<br/>例) <br/>"
 
 #: page.cdr.php:306
-msgid ""
-"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
-msgstr ""
-"通話結果（応答あり、通話中、失敗、応答なし）に一致するコールを検索します。"
+msgid "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr "通話結果（応答あり、通話中、失敗、応答なし）に一致するコールを検索します。"
 
 #: page.cdr.php:296
 msgid "Search for calls that matches the call length specified."
 msgstr "通話時間による検索。"
 
 #: page.cdr.php:240
-msgid ""
-"Search for destination calls. You can enter multiple sources separated by a "
-"comma. This field support Asterisk regular expression. Example<br>"
-msgstr ""
-"発信先で検索します。コンマ区切りで複数のソースを指定することができます。ま"
-"た、このフィールドでは、Asteriskの正規表現を利用できます。<br/>例) <br/>"
+msgid "Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
+msgstr "発信先で検索します。コンマ区切りで複数のソースを指定することができます。また、このフィールドでは、Asteriskの正規表現を利用できます。<br/>例) <br/>"
 
 #: page.cdr.php:274
 msgid "Search for userfield data (if enabled)."
@@ -687,12 +654,8 @@ msgid "Select Destination Caller Name to search for."
 msgstr "発信先の名前による検索"
 
 #: page.cdr.php:91
-msgid ""
-"Select time span for your report. You can select Date, Month, Year, Hour and "
-"Minute to narrow your search"
-msgstr ""
-"レポートする期間を選択してください。日、月、年、時、分を選択して検索結果の範"
-"囲を絞り込むことができます。"
+msgid "Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search"
+msgstr "レポートする期間を選択してください。日、月、年、時、分を選択して検索結果の範囲を絞り込むことができます。"
 
 #: page.cdr.php:97
 msgid "September"
@@ -715,9 +678,7 @@ msgid "Telephone Number"
 msgstr "電話番号"
 
 #: views/ucp_config.php:54
-msgid ""
-"These are the assigned and active extensions which will show up for this "
-"user to control and edit in UCP"
+msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
 msgstr ""
 
 #: install.php:44
@@ -734,9 +695,7 @@ msgstr "終了日時"
 
 #: ucp/views/view.php:93
 #, php-format
-msgid ""
-"To play the media you will need to either update your browser to a recent "
-"version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
+msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
 msgstr ""
 
 #: page.cdr.php:942 page.cdr.php:1042
@@ -827,14 +786,26 @@ msgstr ""
 msgid "recordingfile field already present."
 msgstr "recordingfileフィールドは既に存在しています。"
 
-#~ msgid "Call Data Record report tools for viewing reports of your calls"
-#~ msgstr "通話記録を閲覧するためのコールデータレコードのレポートツール"
+#: install.php:116
+msgid "Adding index to did field in the cdr table"
+msgstr ""
 
-#~ msgid "Reports"
-#~ msgstr "レポート"
+#: Cdr.class.php:81
+msgid "Allowed CDR"
+msgstr ""
+
+#: install.php:113
+msgid "Unable to add index todid field in cdr table"
+msgstr ""
+
+#~ msgid "OK"
+#~ msgstr "OK"
 
 #~ msgid "CDR Report Module"
 #~ msgstr "CDRレポートモジュール"
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr "通話記録を閲覧するためのコールデータレコードのレポートツール"
 
 #~ msgid "Dest."
 #~ msgstr "Dest."
@@ -851,46 +822,20 @@ msgstr "recordingfileフィールドは既に存在しています。"
 #~ msgid "File"
 #~ msgstr "ファイル"
 
-#~ msgid "OK"
-#~ msgstr "OK"
+#~ msgid "Reports"
+#~ msgstr "レポート"
 
-#~ msgid ""
-#~ "Search for CallerID. If your CallerID begins with \" then you must supply "
-#~ "this in your search if you select Begins With."
-#~ msgstr ""
-#~ "発信者IDを検索します。発信者IDが\"から始まり、前方一致検索を選択した際、発"
-#~ "信者IDを入力しなければなりません。"
+#~ msgid "Search for CallerID. If your CallerID begins with \" then you must supply this in your search if you select Begins With."
+#~ msgstr "発信者IDを検索します。発信者IDが\"から始まり、前方一致検索を選択した際、発信者IDを入力しなければなりません。"
 
-#~ msgid ""
-#~ "Select Destination Channel to search for. It can be just the channel type "
-#~ "like SIP, IAX2 or Local. It can include the destination for the channel, "
-#~ "like SIP/1234."
-#~ msgstr ""
-#~ "検索する宛先チャンネルを選択してください。また、SIP、IAX2またはローカルの"
-#~ "ようなチャンネルタイプを使用できます。それはSIP/1234のように、チャンネルの"
-#~ "送信先を含めることができます。"
+#~ msgid "Select Destination Channel to search for. It can be just the channel type like SIP, IAX2 or Local. It can include the destination for the channel, like SIP/1234."
+#~ msgstr "検索する宛先チャンネルを選択してください。また、SIP、IAX2またはローカルのようなチャンネルタイプを使用できます。それはSIP/1234のように、チャンネルの送信先を含めることができます。"
 
-#~ msgid ""
-#~ "Select Source Channel to search for. You can enter just the channel type "
-#~ "like SIP, IAX2 or Local. You can also include the destination for the "
-#~ "channel, like SIP/1234."
-#~ msgstr ""
-#~ "検索するソースチャンネルを選択してください。SIP、IAX2またはローカルと同じ"
-#~ "ようにチャンネルタイプを入力することができます。またSIP/1234ように、チャン"
-#~ "ネルの送信先を含めることができます。"
+#~ msgid "Select Source Channel to search for. You can enter just the channel type like SIP, IAX2 or Local. You can also include the destination for the channel, like SIP/1234."
+#~ msgstr "検索するソースチャンネルを選択してください。SIP、IAX2またはローカルと同じようにチャンネルタイプを入力することができます。またSIP/1234ように、チャンネルの送信先を含めることができます。"
 
-#~ msgid ""
-#~ "Setting this true will enable the CDR module to drill down on CEL data "
-#~ "for each CDR. Although the CDR module will assure there is a CEL table "
-#~ "available, the reporting functionality in Asterisk and associated ODBC "
-#~ "database and CEL configuration must be done outside of FreePBX either by "
-#~ "the user or at the Distro level."
-#~ msgstr ""
-#~ "trueに設定すると、CDRごとにCDRモジュールがCELデータを深堀することを可能に"
-#~ "します。CDRモジュールは、利用できるCELテーブルの有無を確証しますが、"
-#~ "Asteriskのレポーティング機能や関連するODBCデータベース、又はCELの設定は"
-#~ "FreePBXの外部で完結する為、ユーザー、若しくはディストリビューションレベル"
-#~ "で行う必要があります。"
+#~ msgid "Setting this true will enable the CDR module to drill down on CEL data for each CDR. Although the CDR module will assure there is a CEL table available, the reporting functionality in Asterisk and associated ODBC database and CEL configuration must be done outside of FreePBX either by the user or at the Distro level."
+#~ msgstr "trueに設定すると、CDRごとにCDRモジュールがCELデータを深堀することを可能にします。CDRモジュールは、利用できるCELテーブルの有無を確証しますが、Asteriskのレポーティング機能や関連するODBCデータベース、又はCELの設定はFreePBXの外部で完結する為、ユーザー、若しくはディストリビューションレベルで行う必要があります。"
 
 #~ msgid "Source"
 #~ msgstr "ソース"
