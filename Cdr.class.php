@@ -6,6 +6,7 @@ class Cdr implements BMO {
 		"oga" => "ogg",
 		"wav" => "wav"
 	);
+	private $validFiles = array();
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
