@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-21 17:24-0400\n"
+"POT-Creation-Date: 2015-07-07 13:01-0400\n"
 "PO-Revision-Date: 2015-04-25 03:25+0200\n"
 "Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -21,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Cdr.class.php:306
+#: Cdr.class.php:307
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s heure, %s min, %s sec"
 
-#: Cdr.class.php:308
+#: Cdr.class.php:309
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s sec"
 
-#: Cdr.class.php:311
+#: Cdr.class.php:312
 #, php-format
 msgid "%s sec"
 msgstr "%s sec"
@@ -255,7 +255,7 @@ msgstr "Journal des événements d'appel - Recherche retourne"
 msgid "Call Graph"
 msgstr "Graphique d'appel"
 
-#: Cdr.class.php:158 ucp/Cdr.class.php:167
+#: Cdr.class.php:159 ucp/Cdr.class.php:167
 msgid "Call History"
 msgstr "Historique d'appel"
 
@@ -763,7 +763,7 @@ msgstr "Modification requise"
 msgid "User Field"
 msgstr "Champ utilisateur"
 
-#: Cdr.class.php:149
+#: Cdr.class.php:150
 msgid "User Primary Extension"
 msgstr ""
 

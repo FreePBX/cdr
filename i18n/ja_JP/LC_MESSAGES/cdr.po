@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-21 17:24-0400\n"
+"POT-Creation-Date: 2015-07-07 13:01-0400\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -48,17 +48,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
-#: Cdr.class.php:306
+#: Cdr.class.php:307
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:308
+#: Cdr.class.php:309
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:311
+#: Cdr.class.php:312
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -281,7 +281,7 @@ msgstr "コールイベント記録 ‐ 検索結果"
 msgid "Call Graph"
 msgstr "グラフ形式"
 
-#: Cdr.class.php:158 ucp/Cdr.class.php:167
+#: Cdr.class.php:159 ucp/Cdr.class.php:167
 msgid "Call History"
 msgstr ""
 
@@ -779,7 +779,7 @@ msgstr ""
 msgid "User Field"
 msgstr "ユーザーフィールド"
 
-#: Cdr.class.php:149
+#: Cdr.class.php:150
 msgid "User Primary Extension"
 msgstr ""
 
