@@ -373,7 +373,7 @@ if (isset($_POST['limit']) ) {
 // Determine all CEL events associated with this uid, and then get all CDR records related to this event stream
 // to display below
 //
-if ($amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_show') {
+if (isset($amp_conf['CEL_ENABLED']) && $amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_show') {
 	echo '<a id="CEL"></a>';
 	$cdr_uids = array();
 
@@ -773,45 +773,38 @@ if ( $tot_calls_raw ) {
 		echo "    <td></td>\n";
 		echo "  </tr>\n";
 		echo '<tr id="playback-'.$id.'" class="playback" style="display:none;"><td colspan="14"><div id="jquery_jplayer_'.$id.'" class="jp-jplayer"></div>
-  <div id="jp_container_'.$id.'" class="jp-audio">
-    <div class="jp-type-single">
-      <div class="jp-gui jp-interface">
-        <ul class="jp-controls">
-          <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-          <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-          <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
-          <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-          <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-          <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
-        </ul>
-        <div class="jp-progress">
-          <div class="jp-seek-bar">
-            <div class="jp-play-bar"></div>
-          </div>
-        </div>
-        <div class="jp-volume-bar">
-          <div class="jp-volume-bar-value"></div>
-        </div>
-        <div class="jp-time-holder">
-          <div class="jp-current-time"></div>
-          <div class="jp-duration"></div>
-          <ul class="jp-toggles">
-            <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
-            <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="jp-details">
-        <ul>
-          <li><span class="jp-title"></span></li>
-        </ul>
-      </div>
-      <div class="jp-no-solution">
-        <span>Update Required</span>
-        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-      </div>
-    </div>
-  </div>';
+		<div id="jp_container_'.$id.'" data-player="jquery_jplayer_'.$id.'" class="jp-audio-freepbx" role="application" aria-label="media player">
+			<div class="jp-type-single">
+				<div class="jp-gui jp-interface">
+					<div class="jp-controls">
+						<i class="fa fa-play jp-play"></i>
+						<i class="fa fa-repeat jp-repeat"></i>
+					</div>
+					<div class="jp-progress">
+						<div class="jp-seek-bar progress">
+							<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+							<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>
+							<div class="jp-play-bar progress-bar"></div>
+							<div class="jp-play-bar">
+								<div class="jp-ball"></div>
+							</div>
+							<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+						</div>
+					</div>
+					<div class="jp-volume-controls">
+						<i class="fa fa-volume-up jp-mute"></i>
+						<i class="fa fa-volume-off jp-unmute"></i>
+					</div>
+				</div>
+				<div class="jp-details">
+					<div class="jp-title" aria-label="title">&nbsp;</div>
+				</div>
+				<div class="jp-no-solution">
+					<span>Update Required</span>
+					To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+				</div>
+			</div>
+		</div>';
 	}
 	echo "</table>";
 }
@@ -1071,7 +1064,7 @@ function cdr_formatUniqueID($uniqueid) {
 	global $amp_conf;
 
 	$system = explode('-', $uniqueid, 2);
-	if ($amp_conf['CEL_ENABLED']) {
+	if (isset($amp_conf['CEL_ENABLED']) && $amp_conf['CEL_ENABLED']) {
 		$href=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode($uniqueid);
 		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' .
 			'<a href="' . $href . '" >' . $system[0] . '</a></td>';
