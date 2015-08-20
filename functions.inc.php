@@ -91,6 +91,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 	//
 	while (!$done) {
 		unset($next);
+    $next = array();
 		foreach ($pass as $set) {
 			$next[] = $set['uniqueid'];
 			$next[] = $set['linkedid'];
