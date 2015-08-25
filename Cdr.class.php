@@ -182,6 +182,73 @@ class Cdr implements BMO {
 
 	}
 
+	public function ajaxRequest($req, &$setting) {
+		$setting['authenticate'] = false;
+		$setting['allowremote'] = false;
+		switch($req) {
+			case "gethtml5":
+			case "playback":
+			case "download":
+				return true;
+			break;
+		}
+		return false;
+	}
+
+	public function ajaxCustomHandler() {
+		switch($_REQUEST['command']) {
+			case "playback":
+			case "download":
+				$media = $this->FreePBX->Media();
+				$media->getHTML5File($_REQUEST['file']);
+			break;
+		}
+	}
+
+	public function ajaxHandler() {
+		switch($_REQUEST['command']) {
+			case "gethtml5":
+				$media = $this->FreePBX->Media();
+				$info = $this->getRecordByID($_POST['uid']);
+				if(!empty($info['recordingfile'])) {
+					$media->load($info['recordingfile']);
+					$files = $media->generateHTML5();
+					$final = array();
+					foreach($files as $format => $name) {
+						$final[$format] = "ajax.php?module=cdr&command=playback&file=".$name;
+					}
+					return array("status" => true, "files" => $final);
+				}
+				return array("status" => false);
+			break;
+		}
+	}
+
+	public function getRecordByID($rid) {
+		$sql = "SELECT * FROM cdr WHERE uniqueid = :uid";
+		$sth = $this->cdrdb->prepare($sql);
+		try {
+			$sth->execute(array("uid" => str_replace("_",".",$rid)));
+			$recording = $sth->fetch(PDO::FETCH_ASSOC);
+		} catch(\Exception $e) {
+			return array();
+		}
+		if(!empty($recording['recordingfile'])) {
+			$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
+			$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
+			$rec_parts = explode('-',$recording['recordingfile']);
+			$fyear = substr($rec_parts[3],0,4);
+			$fmonth = substr($rec_parts[3],4,2);
+			$fday = substr($rec_parts[3],6,2);
+			$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
+			$recording['recordingfile'] = "$monitor_base/$fyear/$fmonth/$fday/" . $recording['recordingfile'];
+			if(!file_exists($recording['recordingfile'])) {
+				unset($recording['recordingfile']);
+			}
+		}
+		return $recording;
+	}
+
 	/**
 	 * Get CDR record by record ID and extension
 	 * @param int $rid           The record ID
@@ -391,6 +458,9 @@ class Cdr implements BMO {
 		$data = array();
 		foreach($output as $o) {
 			$parts = explode(":",$o);
+			if(count($parts) < 2) {
+				continue;
+			}
 			$key = preg_replace("/\W/","",$parts[0]);
 			$data[$key] = trim($parts[1]);
 		}

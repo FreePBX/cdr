@@ -1164,12 +1164,11 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id, $uid) {
 	if ($recordingfile) {
 		$crypt = new Crypt();
 		// Encrypt the complete file
-		$audio = urlencode($crypt->encrypt($recordingfile, $REC_CRYPT_PASSWORD));
-		$recurl=$_SERVER['SCRIPT_NAME']."?quietmode=1&display=cdr&action=cdr_play&recordingpath=$audio";
+
 		$download_url=$_SERVER['SCRIPT_NAME']."?display=cdr&action=download_audio&cdr_file=$uid";
 		$playbackRow = $id +1;
 		//
-		echo "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$recurl','$uid'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a>
+		echo "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$uid'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a>
 		<a href=\"$download_url\"><img src=\"assets/cdr/images/cdr_download.png\" alt=\"Call recording\" /></a></td>";
 
 	} else {

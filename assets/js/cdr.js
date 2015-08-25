@@ -1,5 +1,5 @@
 var playing = null;
-function cdr_play(rowNum, link, title) {
+function cdr_play(rowNum, uid) {
 	var playerId = (rowNum - 1);
 	if (playing !== null && playing != playerId) {
 		$("#jquery_jplayer_" + playing).jPlayer("stop", 0);
@@ -9,10 +9,7 @@ function cdr_play(rowNum, link, title) {
 	}
 	$("#jquery_jplayer_" + playerId).jPlayer({
 		ready: function() {
-			$(this).jPlayer("setMedia", {
-				title: title,
-				wav: link
-			});
+
 		},
 		timeupdate: function(event) {
 			$("#jp_container_" + playerId).find(".jp-ball").css("left",event.jPlayer.status.currentPercentAbsolute + "%");
@@ -32,8 +29,43 @@ function cdr_play(rowNum, link, title) {
 	});
 	$(".playback").hide("fast");
 	$("#playback-" + playerId).slideDown("fast", function(event) {
-		$("#jquery_jplayer_" + playerId).jPlayer("play", 0);
+		$("#jp_container_" + playerId).addClass("jp-state-loading");
+		$.ajax({
+			type: 'POST',
+			url: "ajax.php",
+			data: {module: "cdr", command: "gethtml5", uid: uid},
+			dataType: 'json',
+			timeout: 30000,
+			success: function(data) {
+				var player = $("#jquery_jplayer_" + playerId);
+				if(data.status) {
+					player.on($.jPlayer.event.error, function(event) {
+						console.log(event);
+					});
+					data.files.title = uid;
+					player.jPlayer( "setMedia", data.files)
+					player.one($.jPlayer.event.canplay, function(event) {
+						player.jPlayer("play");
+						$("#jp_container_" + playerId).removeClass("jp-state-loading");
+					});
+					player.on($.jPlayer.event.play, function(event) {
+						player.jPlayer("pauseOthers", 0);
+					});
+				}
+			}
+		});
+		//$("#jquery_jplayer_" + playerId).jPlayer("play", 0);
+		/*
+		$(this).jPlayer("setMedia", {
+			title: title,
+			wav: link
+		});
+		 */
 	});
+	$("#jquery_jplayer_" + playerId).on($.jPlayer.event.play, function(event) {
+		$(this).jPlayer("pauseOthers");
+	});
+
 
 	var acontainer = null;
 	$('.jp-play-bar').mousedown(function (e) {
