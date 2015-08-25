@@ -40,10 +40,9 @@ function cdr_play(rowNum, uid) {
 				var player = $("#jquery_jplayer_" + playerId);
 				if(data.status) {
 					player.on($.jPlayer.event.error, function(event) {
+						$("#jp_container_" + playerId).removeClass("jp-state-loading");
 						console.log(event);
 					});
-					data.files.title = uid;
-					player.jPlayer( "setMedia", data.files)
 					player.one($.jPlayer.event.canplay, function(event) {
 						player.jPlayer("play");
 						$("#jp_container_" + playerId).removeClass("jp-state-loading");
@@ -51,16 +50,10 @@ function cdr_play(rowNum, uid) {
 					player.on($.jPlayer.event.play, function(event) {
 						player.jPlayer("pauseOthers", 0);
 					});
+					player.jPlayer( "setMedia", data.files);
 				}
 			}
 		});
-		//$("#jquery_jplayer_" + playerId).jPlayer("play", 0);
-		/*
-		$(this).jPlayer("setMedia", {
-			title: title,
-			wav: link
-		});
-		 */
 	});
 	$("#jquery_jplayer_" + playerId).on($.jPlayer.event.play, function(event) {
 		$(this).jPlayer("pauseOthers");

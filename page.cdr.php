@@ -796,9 +796,6 @@ if ( $tot_calls_raw ) {
 						<i class="fa fa-volume-off jp-unmute"></i>
 					</div>
 				</div>
-				<div class="jp-details">
-					<div class="jp-title" aria-label="title">&nbsp;</div>
-				</div>
 				<div class="jp-no-solution">
 					<span>Update Required</span>
 					To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
