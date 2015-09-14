@@ -367,6 +367,7 @@ if (isset($_POST['limit']) ) {
 </td>
 </tr>
 </table>
+<script>var supportedHTML5 = "<?php echo implode(",",FreePBX::Media()->getSupportedHTML5Formats())?>";</script>
 <?php
 }
 

@@ -18,7 +18,7 @@ function cdr_play(rowNum, uid) {
 			$("#jp_container_" + playerId).find(".jp-ball").css("left","0%");
 		},
 		swfPath: "/js",
-		supplied: "wav",
+		supplied: supportedHTML5,
 		cssSelectorAncestor: "#jp_container_" + playerId,
 		wmode: "window",
 		useStateClassSkin: true,
