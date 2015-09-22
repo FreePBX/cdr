@@ -47,25 +47,27 @@ class Cdr implements BMO {
 	}
 
 	public function ucpUpdateGroup($id,$display,$data) {
-		if(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "yes") {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','enable',true);
-		} else {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','enable',false);
-		}
-		if(!empty($_POST['ucp_cdr'])) {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','assigned',$_POST['ucp_cdr']);
-		} else {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','assigned',array('self'));
-		}
-		if(!empty($_REQUEST['cdr_download']) && $_REQUEST['cdr_download'] == 'yes') {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','download',true);
-		} else {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','download',false);
-		}
-		if(!empty($_REQUEST['cdr_playback']) && $_REQUEST['cdr_playback'] == 'yes') {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','playback',true);
-		} else {
-			$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','playback',false);
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'group') {
+			if(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','enable',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','enable',false);
+			}
+			if(!empty($_POST['ucp_cdr'])) {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','assigned',$_POST['ucp_cdr']);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','assigned',array('self'));
+			}
+			if(!empty($_REQUEST['cdr_download']) && $_REQUEST['cdr_download'] == 'yes') {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','download',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','download',false);
+			}
+			if(!empty($_REQUEST['cdr_playback']) && $_REQUEST['cdr_playback'] == 'yes') {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','playback',true);
+			} else {
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','playback',false);
+			}
 		}
 	}
 
@@ -96,31 +98,33 @@ class Cdr implements BMO {
 	* @param {array} $data    Array of data to be able to use
 	*/
 	public function ucpUpdateUser($id, $display, $ucpStatus, $data) {
-		if(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "yes") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',true);
-		} elseif(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "no") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',false);
-		} elseif(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "inherit") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',null);
-		}
-		if(!empty($_POST['ucp_cdr'])) {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','assigned',$_POST['ucp_cdr']);
-		} else {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','assigned',null);
-		}
-		if(!empty($_REQUEST['cdr_download']) && $_REQUEST['cdr_download'] == 'yes') {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',true);
-		} elseif(!empty($_POST['cdr_download']) && $_POST['cdr_download'] == "no") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',false);
-		} elseif(!empty($_POST['cdr_download']) && $_POST['cdr_download'] == "inherit") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',null);
-		}
-		if(!empty($_REQUEST['cdr_playback']) && $_REQUEST['cdr_playback'] == 'yes') {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',true);
-		} elseif(!empty($_POST['cdr_playback']) && $_POST['cdr_playback'] == "no") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',false);
-		} elseif(!empty($_POST['cdr_playback']) && $_POST['cdr_playback'] == "inherit") {
-			$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',null);
+		if($display == 'userman' && isset($_POST['type']) && $_POST['type'] == 'user') {
+			if(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "yes") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',true);
+			} elseif(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',false);
+			} elseif(!empty($_POST['cdr_enable']) && $_POST['cdr_enable'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','enable',null);
+			}
+			if(!empty($_POST['ucp_cdr'])) {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','assigned',$_POST['ucp_cdr']);
+			} else {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','assigned',null);
+			}
+			if(!empty($_REQUEST['cdr_download']) && $_REQUEST['cdr_download'] == 'yes') {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',true);
+			} elseif(!empty($_POST['cdr_download']) && $_POST['cdr_download'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',false);
+			} elseif(!empty($_POST['cdr_download']) && $_POST['cdr_download'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','download',null);
+			}
+			if(!empty($_REQUEST['cdr_playback']) && $_REQUEST['cdr_playback'] == 'yes') {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',true);
+			} elseif(!empty($_POST['cdr_playback']) && $_POST['cdr_playback'] == "no") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',false);
+			} elseif(!empty($_POST['cdr_playback']) && $_POST['cdr_playback'] == "inherit") {
+				$this->FreePBX->Ucp->setSettingByID($id,'Cdr','playback',null);
+			}
 		}
 	}
 
