@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 11:14-0700\n"
+"POT-Creation-Date: 2015-09-22 13:07-0700\n"
 "PO-Revision-Date: 2015-02-20 19:05-0500\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,17 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh_CN\n"
 
-#: Cdr.class.php:374
+#: Cdr.class.php:378
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:376
+#: Cdr.class.php:380
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:379
+#: Cdr.class.php:383
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Call Graph"
 msgstr "呼叫图表"
 
-#: Cdr.class.php:159 ucp/Cdr.class.php:167
+#: Cdr.class.php:163 ucp/Cdr.class.php:167
 msgid "Call History"
 msgstr ""
 
@@ -731,7 +731,7 @@ msgstr ""
 msgid "User Field"
 msgstr ""
 
-#: Cdr.class.php:150
+#: Cdr.class.php:154
 msgid "User Primary Extension"
 msgstr ""
 
