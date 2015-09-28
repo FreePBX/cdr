@@ -1,5 +1,5 @@
 <div class="col-md-12">
-	<script>var extension = <?php echo $_REQUEST['sub']?>;</script>
+	<script>var extension = "<?php echo $_REQUEST['sub']?>";</script>
 	<?php if(!empty($message)) { ?>
 		<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
 	<?php } ?>
