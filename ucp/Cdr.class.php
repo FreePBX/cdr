@@ -201,7 +201,7 @@ class Cdr extends Modules{
 								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
-								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities($call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} else {
 								$call['icons'][] = 'fa-arrow-left in';
 								$call['text'] = htmlentities($call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
@@ -221,7 +221,7 @@ class Cdr extends Modules{
 								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
-								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities($call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} else {
 								$call['text'] = htmlentities($call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							}
@@ -238,7 +238,7 @@ class Cdr extends Modules{
 								$call['text'] = $call['clid'];
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
-								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities($call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} else {
 								$call['text'] = htmlentities($call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							}
