@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>13.0.16</version>
+	<version>13.0.17</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*13.0.17* FREEPBX-9777 CDR module connects to wrong database when downloading file
 		*13.0.16* FREEPBX-9401 UCP Call history displays outbound CID instead of called number
 		*13.0.15* FREEPBX-9384 Extensions in UCP need to be strings not integers
 		*13.0.14* Fix permission management in User Manager
