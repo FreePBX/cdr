@@ -16,27 +16,6 @@ var CdrC = UCPMC.extend({
 				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
 			}
 		});
-		$(".cdr-header th[class!=\"noclick\"]").click( function() {
-			var icon = $(this).children("i"),
-					visible = icon.is(":visible"),
-					direction = icon.hasClass("fa-chevron-down") ? "up" : "down",
-					type = $(this).data("type"),
-					search = (typeof $.url().param("search") !== "undefined") ? "&search=" + $.url().param("search") : "",
-					uadd = null;
-			if (!visible) {
-				$(".cdr-header th i").addClass("hidden");
-				icon.removeClass("hidden");
-			}
-			if (direction == "up") {
-				uadd = "&order=asc&orderby=" + type + search;
-				icon.removeClass("fa-chevron-down").addClass("fa-chevron-up");
-			} else {
-				uadd = "&order=desc&orderby=" + type + search;
-				icon.removeClass("fa-chevron-up").addClass("fa-chevron-down");
-			}
-			$(".cdr-header th[class!=\"noclick\"]").off("click");
-			$.pjax({ url: "?display=dashboard&mod=cdr&sub=" + $.url().param("sub") + uadd, container: "#dashboard-content" });
-		});
 		$(".subplay").click(function() {
 			var id = $(this).data("msg"),
 					date = $("#cdr-item-" + id + " .date").html(),
@@ -95,29 +74,7 @@ var CdrC = UCPMC.extend({
 				}
 			}
 		});
-		$("#search-text").keypress(function(e) {
-			var code = (e.keyCode ? e.keyCode : e.which);
-			if (code == 13) {
-				Cdr.search($(this).val());
-				e.preventDefault();
-			}
-		});
-		$("#search-btn").click(function() {
-			Cdr.search($("#search-text").val());
-		});
-	},
-	search: function(text) {
-		if (text !== "") {
-			$.pjax({
-				url: "?display=dashboard&mod=cdr&search=" + encodeURIComponent(text) + "&sub=" + $.url().param("sub"),
-				container: "#dashboard-content"
-			});
-		} else {
-			$.pjax({
-				url: "?display=dashboard&mod=cdr&sub=" + $.url().param("sub"),
-				container: "#dashboard-content"
-			});
-		}
+
 	},
 	hide: function(event) {
 		$(document).off("click", "[vm-pjax] a, a[vm-pjax]");
@@ -130,12 +87,28 @@ var CdrC = UCPMC.extend({
 	windowState: function(state) {
 		//console.log(state);
 	},
-	saveSettings: function(data) {
-		data.conference = conference;
-		$.post( "index.php?quietmode=1&module=conferencespro&command=settings", data, function( data ) {
-			$(".conferencesettings #message").text(data.message).addClass("alert-" + data.alert).fadeIn("fast", function() {
-				$(this).delay(5000).fadeOut("fast");
-			});
+	formatDescription: function (value, row, index) {
+		var icons = '';
+		$.each(row.icons, function(i, v) {
+			icons += '<i class="fa '+v+'"></i> ';
 		});
-	}
+		return icons + " " + value;
+	},
+	formatActions: function (value, row, index) {
+		if(row.recordingfile === '' || !showDownload) {
+			return '';
+		}
+		var link = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid='+row.niceUniqueid+'&amp;type=download&amp;format='+row.recordingformat+'&amp;ext='+extension+'" target="_blank"><i class="fa fa-cloud-download"></i></a>';
+		return link;
+	},
+	formatPlayback: function (value, row, index) {
+		return '';
+	},
+	formatDuration: function (value, row, index) {
+		console.log(row);
+		return row.niceDuration;
+	},
+	formatDate: function(value, row, index) {
+		return UCP.dateFormatter(value);
+	},
 }), Cdr = new CdrC();

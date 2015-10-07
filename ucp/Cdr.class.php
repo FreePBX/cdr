@@ -94,6 +94,7 @@ class Cdr extends Modules{
 	*/
 	function ajaxRequest($command, $settings) {
 		switch($command) {
+			case 'grid':
 			case 'download':
 			case 'listen':
 				return true;
@@ -114,6 +115,22 @@ class Cdr extends Modules{
 	function ajaxHandler() {
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
+			case "grid":
+				$limit = $_REQUEST['limit'];
+				$ext = $_REQUEST['extension'];
+				$order = $_REQUEST['order'];
+				$orderby = $_REQUEST['sort'];
+				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
+				$pages = $this->cdr->getPages($ext,$search,$limit);
+				$total = $pages * $limit;
+				$offset = $_REQUEST['offset'];
+				$page = ($offset / $limit) + 1;
+				$data = $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$limit),$ext);
+				return array(
+					"total" => $total,
+					"rows" => $data
+				);
+			break;
 			default:
 				return false;
 			break;
@@ -338,6 +355,7 @@ class Cdr extends Modules{
 			} else {
 				$call['text'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable' data-type='number' data-primary='phone'>$1</span>&gt;",$call['text']);
 			}
+			$call['formattedTime'] = date('m/d/y h:i:sa',$call['timestamp']);
 		}
 		return $calls;
 	}
