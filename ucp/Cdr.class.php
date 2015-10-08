@@ -119,7 +119,7 @@ class Cdr extends Modules{
 				$limit = $_REQUEST['limit'];
 				$ext = $_REQUEST['extension'];
 				$order = $_REQUEST['order'];
-				$orderby = $_REQUEST['sort'];
+				$orderby = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "date";
 				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
 				$pages = $this->cdr->getPages($ext,$search,$limit);
 				$total = $pages * $limit;

@@ -105,7 +105,6 @@ var CdrC = UCPMC.extend({
 		return '';
 	},
 	formatDuration: function (value, row, index) {
-		console.log(row);
 		return row.niceDuration;
 	},
 	formatDate: function(value, row, index) {
