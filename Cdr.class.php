@@ -351,6 +351,11 @@ class Cdr implements BMO {
 		$fmonth = substr($rec_parts[3],4,2);
 		$fday = substr($rec_parts[3],6,2);
 		$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
-		return "$monitor_base/$fyear/$fmonth/$fday/" . $recordingFile;
+		$recordingFile = "$monitor_base/$fyear/$fmonth/$fday/" . $recordingFile;
+		//check to make sure the file size is bigger than 44 bytes (header size)
+		if(file_exists($recordingFile) && is_readable($recordingFile) && filesize($recordingFile) > 44) {
+			return $recordingFile;
+		}
+		return '';
 	}
 }
