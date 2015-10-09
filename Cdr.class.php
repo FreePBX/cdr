@@ -237,19 +237,7 @@ class Cdr implements BMO {
 		} catch(\Exception $e) {
 			return array();
 		}
-		if(!empty($recording['recordingfile'])) {
-			$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
-			$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
-			$rec_parts = explode('-',$recording['recordingfile']);
-			$fyear = substr($rec_parts[3],0,4);
-			$fmonth = substr($rec_parts[3],4,2);
-			$fday = substr($rec_parts[3],6,2);
-			$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
-			$recording['recordingfile'] = "$monitor_base/$fyear/$fmonth/$fday/" . $recording['recordingfile'];
-			if(!file_exists($recording['recordingfile'])) {
-				unset($recording['recordingfile']);
-			}
-		}
+		$recording['recordingfile'] = $this->processPath($recording['recordingfile']);
 		return $recording;
 	}
 
@@ -259,7 +247,7 @@ class Cdr implements BMO {
 	 * @param string $ext           The extension
 	 * @param bool $generateMedia Whether to generate HTML assets or not
 	 */
-	public function getRecordByIDExtension($rid,$ext, $generateMedia = false) {
+	public function getRecordByIDExtension($rid,$ext) {
 		$sql = "SELECT * FROM cdr WHERE uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :dstchannel)";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
@@ -268,69 +256,8 @@ class Cdr implements BMO {
 		} catch(\Exception $e) {
 			return false;
 		}
-		if(!empty($recording['recordingfile'])) {
-			$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
-			$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
-			$rec_parts = explode('-',$recording['recordingfile']);
-			$fyear = substr($rec_parts[3],0,4);
-			$fmonth = substr($rec_parts[3],4,2);
-			$fday = substr($rec_parts[3],6,2);
-			$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
-			$file = "$monitor_base/$fyear/$fmonth/$fday/" . $recording['recordingfile'];
-			if($this->queryAudio($file)) {
-				if($generateMedia) {
-					$this->generateAdditionalMediaFormats($file, false);
-				}
-				$sha = sha1_file($file);
-				$filename = pathinfo($file,PATHINFO_FILENAME);
-				$basename = dirname($file);
-				foreach($this->supportedFormats as $format => $extension) {
-					$mf = $basename."/".$filename."_".$sha.".".$extension;
-					if($this->queryAudio($mf)) {
-						$recording['recordings']['format'][$format] = array(
-							"filename" => basename($mf),
-							"path" => dirname($mf),
-							"length" => filesize($mf)
-						);
-					}
-				}
-				$recording['recordings']['format'][$format] = array(
-					'path' => dirname($file),
-					'filename' => basename($file),
-					'length' => filesize($file)
-				);
-			}
-		}
+		$recording['recordingfile'] = $this->processPath($recording['recordingfile']);
 		return $recording;
-	}
-
-	/**
-	 * Read Message Binary Data by message ID
-	 * Used during playback to intercommunicate with UCP
-	 * @param string  $msgid  The message ID
-	 * @param int  $ext    The extension
-	 * @param string  $format The format of the file to use
-	 * @param int $start  The starting byte position
-	 * @param int $buffer The buffer size to pass
-	 */
-	public function readRecordingBinaryByRecordingIDExtension($msgid,$ext,$format,$start=0,$buffer=8192) {
-		$record = $this->getRecordByIDExtension($msgid,$ext);
-		$fpath = $record['recordings']['format'][$format]['path']."/".$record['recordings']['format'][$format]['filename'];
-		if(!empty($record) && !empty($record['recordings']['format'][$format]) && $this->queryAudio($fpath)) {
-			$end = $record['recordings']['format'][$format]['length'] - 1;
-			$fp = fopen($fpath, "rb");
-			fseek($fp, $start);
-			if(!feof($fp) && ($p = ftell($fp)) <= $end) {
-				if ($p + $buffer > $end) {
-					$buffer = $end - $p + 1;
-				}
-				$contents = fread($fp, $buffer);
-				fclose($fp);
-				return $contents;
-			}
-			fclose($fp);
-		}
-		return false;
 	}
 
 	/**
@@ -384,92 +311,9 @@ class Cdr implements BMO {
 			}
 			$call['niceUniqueid'] = str_replace(".","_",$call['uniqueid']);
 			$call['recordingformat'] = !empty($call['recordingfile']) ? strtolower(pathinfo($call['recordingfile'],PATHINFO_EXTENSION)) : '';
-			if(!empty($call['recordingfile'])) {
-				$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
-				$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
-				$rec_parts = explode('-',$call['recordingfile']);
-				$fyear = substr($rec_parts[3],0,4);
-				$fmonth = substr($rec_parts[3],4,2);
-				$fday = substr($rec_parts[3],6,2);
-				$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
-				$file = "$monitor_base/$fyear/$fmonth/$fday/" . $call['recordingfile'];
-				if($this->queryAudio($file)) {
-					$this->generateAdditionalMediaFormats($file);
-					$sha = sha1_file($file);
-					$filename = pathinfo($file,PATHINFO_FILENAME);
-					$basename = dirname($file);
-					foreach($this->supportedFormats as $format => $extension) {
-						$mf = $basename."/".$filename."_".$sha.".".$extension;
-						if($this->queryAudio($mf)) {
-							$call['format'][$format] = array(
-								"filename" => basename($mf),
-								"path" => dirname($mf),
-								"length" => filesize($mf)
-							);
-						}
-					}
-				} else {
-					$call['format'] = array();
-					$call['recordingfile'] = "";
-					$call['recordingformat'] = "";
-				}
-			}
+			$call['recordingfile'] = $this->processPath($call['recordingfile']);
 		}
 		return $calls;
-	}
-
-	/**
-	 * Generate Media Formats for use in HTML5 playback
-	 * @param string $file       The filename
-	 * @param bool $background Whether to background this process or stall PHP
-	 */
-	private function generateAdditionalMediaFormats($file,$background = true) {
-		$b = ($background) ? '&' : ''; //this is so very important
-		$path = dirname($file);
-		$filename = pathinfo($file,PATHINFO_FILENAME);
-		if(!$this->queryAudio($file)) {
-			return false;
-		}
-		$sha1 = sha1_file($file);
-		foreach($this->supportedFormats as $format) {
-			switch($format) {
-				case "ogg":
-				if(!file_exists($path . "/" . $filename . "_".$sha1.".ogg")) {
-					exec("sox $file " . $path . "/" . $filename . "_".$sha1.".ogg > /dev/null 2>&1 ".$b);
-				}
-				break;
-			}
-		}
-		return true;
-	}
-
-	/**
-	* Query the audio file and make sure it's actually audio
-	* @param string $file The full file path to check
-	*/
-	public function queryAudio($file) {
-		if(!file_exists($file) || !is_readable($file)) {
-			return false;
-		}
-		if(in_array($file,$this->validFiles)) {
-			return true;
-		}
-		//TODO: do this part during retrieve conf and remove the files from the hard drive and db if invalid!
-		$last = exec('sox '.$file.' -n stat 2>&1',$output,$ret);
-		if(preg_match('/not sound/',$last)) {
-			return false;
-		}
-		$data = array();
-		foreach($output as $o) {
-			$parts = explode(":",$o);
-			if(count($parts) < 2) {
-				continue;
-			}
-			$key = preg_replace("/\W/","",$parts[0]);
-			$data[$key] = trim($parts[1]);
-		}
-		$this->validFiles[] = $file;
-		return $data;
 	}
 
 	/**
@@ -494,5 +338,19 @@ class Cdr implements BMO {
 		} else {
 			return false;
 		}
+	}
+
+	private function processPath($recordingFile) {
+		if(empty($recordingFile)) {
+			return '';
+		}
+		$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
+		$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
+		$rec_parts = explode('-',$recordingFile);
+		$fyear = substr($rec_parts[3],0,4);
+		$fmonth = substr($rec_parts[3],4,2);
+		$fday = substr($rec_parts[3],6,2);
+		$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
+		return "$monitor_base/$fyear/$fmonth/$fday/" . $recordingFile;
 	}
 }

@@ -6,6 +6,7 @@ var CdrC = UCPMC.extend({
 
 	},
 	display: function(event) {
+		var $this = this;
 		$(document).on("click", "[vm-pjax] a, a[vm-pjax]", function(event) {
 			var container = $("#dashboard-content");
 			$.pjax.click(event, { container: container });
@@ -16,72 +17,16 @@ var CdrC = UCPMC.extend({
 				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
 			}
 		});
-		$(".subplay").click(function() {
-			var id = $(this).data("msg"),
-					date = $("#cdr-item-" + id + " .date").html(),
-					clid = $("#cdr-item-" + id + " .clid .text").html();
-			if (Cdr.playing === null || Cdr.playing != id) {
-				if (Cdr.playing !== null) {
-					$("#jquery_jplayer_" + Cdr.playing).jPlayer("stop", 0);
-				}
-				$("#jquery_jplayer_" + id).jPlayer({
-					ready: function() {
-					$(this).jPlayer("setMedia", {
-						title: clid,
-						wav: "?quietmode=1&module=cdr&command=listen&msgid=" + id + "&format=wav&type=playback&ext=" + extension,
-						oga: "?quietmode=1&module=cdr&command=listen&msgid=" + id + "&format=oga&type=playback&ext=" + extension,
-					});
-					},
-					swfPath: "/js",
-					supplied: supportedMediaFormats,
-					cssSelectorAncestor: "#jp_container_" + id
-				}).bind($.jPlayer.event.loadstart, function(event) {
-					$("#jp_container_" + id + " .jp-message-window").show();
-					$("#jp_container_" + id + " .jp-message-window .message").css("color","");
-					$("#jp_container_" + id + " .jp-seek-bar").css("background", 'url("modules/Cdr/assets/images/jplayer.blue.monday.seeking.gif") 0 0 repeat-x');
-				});
-
-				$("#cdr-playback-" + id + " .title-text").html(date + " " + clid);
-				$(".cdr-playback").slideUp("fast");
-				$("#cdr-playback-" + id).slideDown("fast", function() {
-					$("#jquery_jplayer_" + id).bind($.jPlayer.event.error, function(event) {
-						$("#jp_container_" + id + " .jp-message-window").show();
-						$("#jp_container_" + id + " .message").text(event.jPlayer.error.message).css("color","red");
-						$("#jp_container_" + id + " .jp-seek-bar").css("background","");
-					});
-					$("#jquery_jplayer_" + id).bind($.jPlayer.event.canplay, function(event) {
-						$(".jp-message-window").fadeOut("fast");
-						$("#jp_container_" + id + " .jp-seek-bar").css("background","");
-					});
-					$("#jquery_jplayer_" + id).bind($.jPlayer.event.play, function(event) { // Add a listener to report the time play began
-						$("#cdr-item-" + id + " .subplay i").removeClass("fa-play").addClass("fa-pause");
-					});
-					$("#jquery_jplayer_" + id).bind($.jPlayer.event.pause, function(event) { // Add a listener to report the time play began
-						$("#cdr-item-" + id + " .subplay i").removeClass("fa-pause").addClass("fa-play");
-					});
-					$("#jquery_jplayer_" + id).bind($.jPlayer.event.stop, function(event) { // Add a listener to report the time play began
-						$("#cdr-item-" + id + " .subplay i").removeClass("fa-pause").addClass("fa-play");
-					});
-					$("#jquery_jplayer_" + id).jPlayer("play", 0);
-
-				});
-				Cdr.playing = id;
-			} else {
-				if ($("#cdr-item-" + Cdr.playing + " .subplay i").hasClass("fa-pause")) {
-					$("#jquery_jplayer_" + Cdr.playing).jPlayer("pause");
-				} else {
-					$("#jquery_jplayer_" + Cdr.playing).jPlayer("play");
-				}
-			}
+		$('#cdr-grid').on("post-body.bs.table", function () {
+			$this.bindPlayers();
 		});
-
 	},
 	hide: function(event) {
 		$(document).off("click", "[vm-pjax] a, a[vm-pjax]");
 		$(".clickable").off("click");
-		if(Cdr.playing !== null) {
+		if(this.playing !== null) {
 			$("#jquery_jplayer_" + Cdr.playing).jPlayer("stop", 0);
-			Cdr.playing = null;
+			this.playing = null;
 		}
 	},
 	windowState: function(state) {
@@ -98,11 +43,42 @@ var CdrC = UCPMC.extend({
 		if(row.recordingfile === '' || !showDownload) {
 			return '';
 		}
-		var link = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid='+row.niceUniqueid+'&amp;type=download&amp;format='+row.recordingformat+'&amp;ext='+extension+'" target="_blank"><i class="fa fa-cloud-download"></i></a>';
+		var link = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid='+row.uniqueid+'&amp;type=download&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
 		return link;
 	},
 	formatPlayback: function (value, row, index) {
-		return '';
+		if(row.recordingfile.length === 0) {
+			return '';
+		}
+		return '<div id="jquery_jplayer_'+row.niceUniqueid+'" class="jp-jplayer" data-container="#jp_container_'+row.niceUniqueid+'" data-id="'+row.uniqueid+'"></div><div id="jp_container_'+row.niceUniqueid+'" data-player="jquery_jplayer_'+row.niceUniqueid+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
+			'<div class="jp-type-single">'+
+				'<div class="jp-gui jp-interface">'+
+					'<div class="jp-controls">'+
+						'<i class="fa fa-play jp-play"></i>'+
+						'<i class="fa fa-repeat jp-repeat"></i>'+
+					'</div>'+
+					'<div class="jp-progress">'+
+						'<div class="jp-seek-bar progress">'+
+							'<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>'+
+							'<div class="progress-bar progress-bar-striped active" style="width: 100%;"></div>'+
+							'<div class="jp-play-bar progress-bar"></div>'+
+							'<div class="jp-play-bar">'+
+								'<div class="jp-ball"></div>'+
+							'</div>'+
+							'<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>'+
+						'</div>'+
+					'</div>'+
+					'<div class="jp-volume-controls">'+
+						'<i class="fa fa-volume-up jp-mute"></i>'+
+						'<i class="fa fa-volume-off jp-unmute"></i>'+
+					'</div>'+
+				'</div>'+
+				'<div class="jp-no-solution">'+
+					'<span>Update Required</span>'+
+					sprintf(_("You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"),"http://wiki.freepbx.org/display/FOP/Installing+Media+Conversion+Libraries")+
+				'</div>'+
+			'</div>'+
+		'</div>';
 	},
 	formatDuration: function (value, row, index) {
 		return row.niceDuration;
@@ -110,4 +86,107 @@ var CdrC = UCPMC.extend({
 	formatDate: function(value, row, index) {
 		return UCP.dateFormatter(value);
 	},
-}), Cdr = new CdrC();
+	bindPlayers: function() {
+		$(".jp-jplayer").each(function() {
+			var container = $(this).data("container"),
+					player = $(this),
+					id = $(this).data("id");
+			$(this).jPlayer({
+				ready: function() {
+					$(container + " .jp-play").click(function() {
+						if($(this).parents(".jp-controls").hasClass("recording")) {
+							var type = $(this).parents(".jp-audio-freepbx").data("type");
+							$this.recordGreeting(type);
+							return;
+						}
+						if(!player.data("jPlayer").status.srcSet) {
+							$(container).addClass("jp-state-loading");
+							$.ajax({
+								type: 'POST',
+								url: "index.php?quietmode=1",
+								data: {module: "cdr", command: "gethtml5", id: id, ext: extension},
+								dataType: 'json',
+								timeout: 30000,
+								success: function(data) {
+									if(data.status) {
+										player.on($.jPlayer.event.error, function(event) {
+											$(container).removeClass("jp-state-loading");
+											console.log(event);
+										});
+										player.one($.jPlayer.event.canplay, function(event) {
+											$(container).removeClass("jp-state-loading");
+											player.jPlayer("play");
+										});
+										player.jPlayer( "setMedia", data.files);
+									} else {
+										alert(data.message);
+										$(container).removeClass("jp-state-loading");
+									}
+								}
+							});
+						}
+					});
+				},
+				timeupdate: function(event) {
+					$(container).find(".jp-ball").css("left",event.jPlayer.status.currentPercentAbsolute + "%");
+				},
+				ended: function(event) {
+					$(container).find(".jp-ball").css("left","0%");
+				},
+				swfPath: "/js",
+				supplied: supportedHTML5,
+				cssSelectorAncestor: container,
+				wmode: "window",
+				useStateClassSkin: true,
+				autoBlur: false,
+				keyEnabled: true,
+				remainingDuration: true,
+				toggleDuration: true
+			});
+			$(this).on($.jPlayer.event.play, function(event) {
+				$(this).jPlayer("pauseOthers");
+			});
+		});
+
+		var acontainer = null;
+		$('.jp-play-bar').mousedown(function (e) {
+			acontainer = $(this).parents(".jp-audio-freepbx");
+			updatebar(e.pageX);
+		});
+		$(document).mouseup(function (e) {
+			if (acontainer) {
+				updatebar(e.pageX);
+				acontainer = null;
+			}
+		});
+		$(document).mousemove(function (e) {
+			if (acontainer) {
+				updatebar(e.pageX);
+			}
+		});
+
+		//update Progress Bar control
+		var updatebar = function (x) {
+			var player = $("#" + acontainer.data("player")),
+					progress = acontainer.find('.jp-progress'),
+					maxduration = player.data("jPlayer").status.duration,
+					position = x - progress.offset().left,
+					percentage = 100 * position / progress.width();
+
+			//Check within range
+			if (percentage > 100) {
+				percentage = 100;
+			}
+			if (percentage < 0) {
+				percentage = 0;
+			}
+
+			player.jPlayer("playHead", percentage);
+
+			//Update progress bar and video currenttime
+			acontainer.find('.jp-ball').css('left', percentage+'%');
+			acontainer.find('.jp-play-bar').css('width', percentage + '%');
+			player.jPlayer.currentTime = maxduration * percentage / 100;
+		};
+	}
+});
