@@ -57,7 +57,7 @@ class Cdr extends Modules{
 			'calls' => $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$this->limit),$ext),
 		);
 		$html = '';
-		$html = "<script>var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';</script>";
+		$html = "<script>var showPlayback = ".json_encode($this->_checkPlayback($ext)).";var showDownload = ".json_encode($this->_checkDownload($ext))."; var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';</script>";
 		switch($view) {
 			case 'settings':
 				$html .= $this->load_view(__DIR__.'/views/settings.php',$displayvars);
@@ -95,10 +95,14 @@ class Cdr extends Modules{
 	function ajaxRequest($command, $settings) {
 		switch($command) {
 			case 'grid':
-			case 'download':
-			case 'playback':
-			case 'gethtml5':
 				return true;
+			break;
+			case 'download':
+				return $this->_checkDownload($_REQUEST['ext']);
+			break;
+			case 'gethtml5':
+			case 'playback':
+				return $this->_checkPlayback($_REQUEST['ext']);
 			break;
 			default:
 				return false;
