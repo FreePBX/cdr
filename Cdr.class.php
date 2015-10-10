@@ -340,6 +340,11 @@ class Cdr implements BMO {
 		}
 	}
 
+	/**
+	 * Tear apart the file name to get our correct path
+	 * @param  string $recordingFile The recording file
+	 * @return string                The full path
+	 */
 	private function processPath($recordingFile) {
 		if(empty($recordingFile)) {
 			return '';

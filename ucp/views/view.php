@@ -6,8 +6,8 @@
 	<table id="cdr-grid"
         data-url="index.php?quietmode=1&amp;module=cdr&amp;command=grid&amp;extension=<?php echo $_REQUEST['sub']?>"
         data-cache="false"
-        data-state-save="true"
-        data-state-save-id-table="ucp-cdr-table"
+        data-cookie="true"
+        data-cookie-id-table="ucp-cdr-table"
         data-maintain-selected="true"
         data-show-columns="true"
         data-show-toggle="true"
@@ -18,7 +18,11 @@
 				data-sort-name="timestamp"
 				data-side-pagination="server"
 				data-show-refresh="true"
-        class="table table-hover table-bordered cdr-table">
+				data-silent-sort="false"
+				data-mobile-responsive="true"
+				data-check-on-init="true"
+				data-min-width="992"
+        class="table table-hover">
     <thead>
             <tr class="cdr-header">
             <th data-field="timestamp" data-sortable="true" data-formatter="UCP.Modules.Cdr.formatDate"><?php echo _("Date")?></th>
