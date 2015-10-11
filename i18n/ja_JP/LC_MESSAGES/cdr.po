@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-22 13:07-0700\n"
+"POT-Creation-Date: 2015-10-10 12:21-0700\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -48,17 +48,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
-#: Cdr.class.php:378
+#: Cdr.class.php:305
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:380
+#: Cdr.class.php:307
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:383
+#: Cdr.class.php:310
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -281,7 +281,7 @@ msgstr "コールイベント記録 ‐ 検索結果"
 msgid "Call Graph"
 msgstr "グラフ形式"
 
-#: Cdr.class.php:163 ucp/Cdr.class.php:167
+#: Cdr.class.php:163 ucp/Cdr.class.php:194
 msgid "Call History"
 msgstr ""
 
@@ -325,7 +325,7 @@ msgstr "recordingfileフィールドがcdrテーブルに存在しているか�
 msgid "Concurrent Calls"
 msgstr "同時呼び出し"
 
-#: ucp/Cdr.class.php:282 ucp/Cdr.class.php:286
+#: ucp/Cdr.class.php:309 ucp/Cdr.class.php:313
 msgid "Conference"
 msgstr ""
 
@@ -341,7 +341,7 @@ msgstr ""
 msgid "Contains"
 msgstr "部分一致"
 
-#: ucp/views/view.php:26
+#: ucp/views/view.php:34
 msgid "Controls"
 msgstr ""
 
@@ -350,7 +350,7 @@ msgstr ""
 msgid "DID"
 msgstr "DID"
 
-#: ucp/views/view.php:23
+#: ucp/views/view.php:28
 msgid "Date"
 msgstr ""
 
@@ -370,7 +370,7 @@ msgstr "曜日毎"
 msgid "December"
 msgstr "12月"
 
-#: ucp/views/view.php:24
+#: ucp/views/view.php:29
 msgid "Description"
 msgstr ""
 
@@ -406,12 +406,12 @@ msgstr "ダイヤルプランexten"
 msgid "Disposition"
 msgstr "通話結果"
 
-#: ucp/views/view.php:51
+#: ucp/assets/js/global.js:46
 msgid "Download"
 msgstr ""
 
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:712
-#: ucp/views/view.php:25
+#: ucp/views/view.php:30
 msgid "Duration"
 msgstr "通話時間"
 
@@ -461,7 +461,11 @@ msgstr "失敗"
 msgid "February"
 msgstr "2月"
 
-#: ucp/Cdr.class.php:348
+#: ucp/Cdr.class.php:143
+msgid "File does not exist"
+msgstr ""
+
+#: ucp/Cdr.class.php:381
 msgid "Forbidden"
 msgstr ""
 
@@ -505,10 +509,6 @@ msgstr "7月"
 msgid "June"
 msgstr "6月"
 
-#: ucp/views/view.php:66
-msgid "Loading"
-msgstr ""
-
 #: page.cdr.php:97
 msgid "March"
 msgstr "3月"
@@ -541,10 +541,6 @@ msgstr ""
 msgid "No Answer"
 msgstr "応答なし"
 
-#: ucp/views/view.php:103
-msgid "No History"
-msgstr ""
-
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:200 page.cdr.php:220
 #: /usr/src/freepbx/cdr/page.cdr.php:232 page.cdr.php:251
 #: /usr/src/freepbx/cdr/page.cdr.php:265 page.cdr.php:277
@@ -554,6 +550,10 @@ msgstr "Not"
 
 #: ucp/Cdr.class.php:46
 msgid "Not Authorized"
+msgstr ""
+
+#: ucp/Cdr.class.php:387
+msgid "Not Found"
 msgstr ""
 
 #: page.cdr.php:97
@@ -588,8 +588,8 @@ msgstr "外部発信CallerID"
 msgid "Outbound CallerID Number"
 msgstr "アウトバウンドCallerIDの番号"
 
-#: ucp/views/view.php:46
-msgid "Play"
+#: ucp/views/view.php:32
+msgid "Playback"
 msgstr ""
 
 #: install.php:131
@@ -620,7 +620,7 @@ msgstr "レポートタイプ"
 msgid "Result limit"
 msgstr "表示件数"
 
-#: page.cdr.php:360 ucp/views/view.php:12
+#: page.cdr.php:360
 msgid "Search"
 msgstr "検索"
 
@@ -736,13 +736,6 @@ msgstr "時刻"
 msgid "To"
 msgstr "終了日時"
 
-#: ucp/views/view.php:93
-#, php-format
-msgid ""
-"To play the media you will need to either update your browser to a recent "
-"version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
-msgstr ""
-
 #: page.cdr.php:933 page.cdr.php:1033
 msgid "Total Calls"
 msgstr "合計コール数"
@@ -767,12 +760,8 @@ msgstr "recordingfileフィールドをcdrテーブルに追加できません�
 msgid "UniqueID"
 msgstr "ユニークID"
 
-#: ucp/Cdr.class.php:312 ucp/Cdr.class.php:333 ucp/Cdr.class.php:337
+#: ucp/Cdr.class.php:339 ucp/Cdr.class.php:360 ucp/Cdr.class.php:364
 msgid "Unknown"
-msgstr ""
-
-#: ucp/views/view.php:92
-msgid "Update Required"
 msgstr ""
 
 #: page.cdr.php:332 /usr/src/freepbx/cdr/page.cdr.php:863
@@ -795,7 +784,7 @@ msgstr "ユーザーフィールド"
 msgid "View History"
 msgstr ""
 
-#: ucp/Cdr.class.php:268 ucp/Cdr.class.php:273
+#: ucp/Cdr.class.php:295 ucp/Cdr.class.php:300
 msgid "Voicemail"
 msgstr ""
 
@@ -807,6 +796,15 @@ msgstr "1 週毎(日曜-土曜)"
 msgid "Yes"
 msgstr ""
 
+#: page.cdr.php:802 ucp/assets/js/global.js:78
+#, perl-format, php-format
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
+msgstr ""
+
 #: page.cdr.php:414
 msgid "channel"
 msgstr "チャネル"
@@ -815,7 +813,7 @@ msgstr "チャネル"
 msgid "context"
 msgstr "コンテキスト"
 
-#: ucp/Cdr.class.php:300
+#: ucp/Cdr.class.php:327
 msgid "denied by COS"
 msgstr ""
 
@@ -827,7 +825,7 @@ msgstr "didフィールドは既に存在します。"
 msgid "exten"
 msgstr "exten"
 
-#: ucp/Cdr.class.php:296
+#: ucp/Cdr.class.php:323
 msgid "kicked from conference"
 msgstr ""
 

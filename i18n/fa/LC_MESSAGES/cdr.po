@@ -12,12 +12,11 @@ msgstr ""
 "POT-Creation-Date: 2015-09-22 13:07-0700\n"
 "PO-Revision-Date: 2015-10-10 15:09+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cdr/fa/>"
-"\n"
-"Language: fa\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cdr/fa/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -57,15 +56,11 @@ msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr ""
 
 #: page.cdr.php:184 /usr/src/freepbx/cdr/page.cdr.php:216 page.cdr.php:247
-msgid ""
-"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
-"example, 1,2,3,7,8,9)<br>"
+msgid "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>"
 msgstr ""
 
 #: page.cdr.php:179 /usr/src/freepbx/cdr/page.cdr.php:211 page.cdr.php:242
-msgid ""
-"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
-"numbers"
+msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
 msgstr ""
 
 #: page.cdr.php:178 /usr/src/freepbx/cdr/page.cdr.php:210 page.cdr.php:241
@@ -559,15 +554,11 @@ msgid "Play"
 msgstr ""
 
 #: install.php:131
-msgid ""
-"Please upgrade UCP before this module so that settings can be properly "
-"migrated"
+msgid "Please upgrade UCP before this module so that settings can be properly migrated"
 msgstr ""
 
 #: install.php:134
-msgid ""
-"Please upgrade Usermanager before this module so that settings can be "
-"properly migrated"
+msgid "Please upgrade Usermanager before this module so that settings can be properly migrated"
 msgstr ""
 
 #: page.cdr.php:704
@@ -603,22 +594,15 @@ msgid "Search for accountcode."
 msgstr ""
 
 #: page.cdr.php:177
-msgid ""
-"Search for calls based on CallerID Number. You can enter multiple numbers "
-"separated by a comma. This field support Asterisk regular expression. "
-"Example<br>"
+msgid "Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
 
 #: page.cdr.php:209
-msgid ""
-"Search for calls based on outbound CID used. You can enter multiple numbers "
-"separated by a comma. This field support Asterisk regular expression. "
-"Example<br>"
+msgid "Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
 
 #: page.cdr.php:306
-msgid ""
-"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgid "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
 msgstr ""
 
 #: page.cdr.php:296
@@ -626,9 +610,7 @@ msgid "Search for calls that matches the call length specified."
 msgstr ""
 
 #: page.cdr.php:240
-msgid ""
-"Search for destination calls. You can enter multiple sources separated by a "
-"comma. This field support Asterisk regular expression. Example<br>"
+msgid "Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
 
 #: page.cdr.php:274
@@ -648,9 +630,7 @@ msgid "Select Destination Caller Name to search for."
 msgstr ""
 
 #: page.cdr.php:91
-msgid ""
-"Select time span for your report. You can select Date, Month, Year, Hour and "
-"Minute to narrow your search"
+msgid "Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search"
 msgstr ""
 
 #: page.cdr.php:97
@@ -674,9 +654,7 @@ msgid "Telephone Number"
 msgstr ""
 
 #: views/ucp_config.php:54
-msgid ""
-"These are the assigned and active extensions which will show up for this "
-"user to control and edit in UCP"
+msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
 msgstr ""
 
 #: install.php:44
@@ -693,9 +671,7 @@ msgstr ""
 
 #: ucp/views/view.php:93
 #, php-format
-msgid ""
-"To play the media you will need to either update your browser to a recent "
-"version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
+msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
 msgstr ""
 
 #: page.cdr.php:933 page.cdr.php:1033
@@ -788,4 +764,21 @@ msgstr ""
 
 #: install.php:69
 msgid "recordingfile field already present."
+msgstr ""
+
+#: ucp/Cdr.class.php:143
+msgid "File does not exist"
+msgstr ""
+
+#: ucp/Cdr.class.php:387
+msgid "Not Found"
+msgstr ""
+
+#: ucp/views/view.php:32
+msgid "Playback"
+msgstr ""
+
+#: page.cdr.php:802 ucp/assets/js/global.js:78
+#, perl-format, php-format
+msgid "You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"
 msgstr ""
