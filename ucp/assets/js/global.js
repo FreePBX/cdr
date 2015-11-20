@@ -34,9 +34,11 @@ var CdrC = UCPMC.extend({
 	},
 	formatDescription: function (value, row, index) {
 		var icons = '';
-		$.each(row.icons, function(i, v) {
-			icons += '<i class="fa '+v+'"></i> ';
-		});
+		if(typeof row.icons !== "undefined") {
+			$.each(row.icons, function(i, v) {
+				icons += '<i class="fa '+v+'"></i> ';
+			});
+		}
 		return icons + " " + value;
 	},
 	formatActions: function (value, row, index) {

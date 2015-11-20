@@ -34,6 +34,7 @@ class Cdr extends Modules{
 	function __construct($Modules) {
 		$this->Modules = $Modules;
 		$this->cdr = $this->UCP->FreePBX->Cdr;
+		$this->user = $this->UCP->User->getUser();
 		if($this->UCP->Session->isMobile || $this->UCP->Session->isTablet) {
 			$this->limit = 7;
 		}
@@ -186,6 +187,10 @@ class Cdr extends Modules{
 
 	public function getMenuItems() {
 		$user = $this->UCP->User->getUser();
+		$enabled = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','enable');
+		if(!$enabled) {
+			return array();
+		}
 		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','assigned');
 		$menu = array();
 		if(!empty($extensions)) {
@@ -395,24 +400,33 @@ class Cdr extends Modules{
 	}
 
 	private function _checkExtension($extension) {
-		$user = $this->UCP->User->getUser();
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','assigned');
+		$enabled = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','enable');
+		if(!$enabled) {
+			return false;
+		}
+		$extensions = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','assigned');
 		return in_array($extension,$extensions);
 	}
 
 	private function _checkDownload($extension) {
+		$enabled = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','enable');
+		if(!$enabled) {
+			return false;
+		}
 		if($this->_checkExtension($extension)) {
-			$user = $this->UCP->User->getUser();
-			$dl = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','download');
+			$dl = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','download');
 			return is_null($dl) ? true : $dl;
 		}
 		return false;
 	}
 
 	private function _checkPlayback($extension) {
+		$enabled = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','enable');
+		if(!$enabled) {
+			return false;
+		}
 		if($this->_checkExtension($extension)) {
-			$user = $this->UCP->User->getUser();
-			$pb = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','playback');
+			$pb = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','playback');
 			return is_null($pb) ? true : $pb;
 		}
 		return false;
