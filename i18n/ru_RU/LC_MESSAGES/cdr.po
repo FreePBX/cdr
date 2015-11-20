@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-10 12:21-0700\n"
+"POT-Creation-Date: 2015-11-19 17:37-0800\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -212,7 +212,7 @@ msgstr "Занято"
 msgid "CDR Access"
 msgstr ""
 
-#: page.cdr.php:77
+#: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
 msgid "CDR Reports"
 msgstr "Отчёты CDR"
 
@@ -231,6 +231,10 @@ msgstr "СNUМ"
 #: page.cdr.php:154
 msgid "CSV file"
 msgstr "Дамп в CSV-файл"
+
+#: cdr.i18n.php:8
+msgid "Call Data Record report tools for viewing reports of your calls"
+msgstr "Просмотр записей о совершенных звонках"
 
 #: page.cdr.php:92 /usr/src/freepbx/cdr/page.cdr.php:703
 msgid "Call Date"
@@ -260,7 +264,7 @@ msgstr "Журнал вызовов - Результат поиска"
 msgid "Call Graph"
 msgstr "Суммарный график"
 
-#: Cdr.class.php:163 ucp/Cdr.class.php:194
+#: Cdr.class.php:163 ucp/Cdr.class.php:199
 msgid "Call History"
 msgstr "История звонков"
 
@@ -304,7 +308,7 @@ msgstr "Проверка имеется ли файл записи разгов�
 msgid "Concurrent Calls"
 msgstr "Одновременные звонки"
 
-#: ucp/Cdr.class.php:309 ucp/Cdr.class.php:313
+#: ucp/Cdr.class.php:314 ucp/Cdr.class.php:318
 msgid "Conference"
 msgstr "Конференция"
 
@@ -385,7 +389,7 @@ msgstr "расш. плана набора"
 msgid "Disposition"
 msgstr "Статус звонка"
 
-#: ucp/assets/js/global.js:46
+#: ucp/assets/js/global.js:48
 msgid "Download"
 msgstr "Загрузить"
 
@@ -440,11 +444,11 @@ msgstr "Неудавшийся"
 msgid "February"
 msgstr "Февраль"
 
-#: ucp/Cdr.class.php:143
+#: ucp/Cdr.class.php:144
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:381
+#: ucp/Cdr.class.php:386
 msgid "Forbidden"
 msgstr "Запрещено"
 
@@ -527,11 +531,11 @@ msgstr "Без ответа"
 msgid "Not"
 msgstr "Не"
 
-#: ucp/Cdr.class.php:46
+#: ucp/Cdr.class.php:47
 msgid "Not Authorized"
 msgstr "Не авторизованный"
 
-#: ucp/Cdr.class.php:387
+#: ucp/Cdr.class.php:392
 msgid "Not Found"
 msgstr ""
 
@@ -598,6 +602,10 @@ msgstr "Детализация связанных звонков"
 #: page.cdr.php:151
 msgid "Report type"
 msgstr "Показать"
+
+#: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
+msgid "Reports"
+msgstr "Отчёты"
 
 #: page.cdr.php:162
 msgid "Result limit"
@@ -744,7 +752,7 @@ msgstr "Не могу добавить поле recordingfile в таблицу 
 msgid "UniqueID"
 msgstr "Идентификатор"
 
-#: ucp/Cdr.class.php:339 ucp/Cdr.class.php:360 ucp/Cdr.class.php:364
+#: ucp/Cdr.class.php:344 ucp/Cdr.class.php:365 ucp/Cdr.class.php:369
 msgid "Unknown"
 msgstr "Неизвестно"
 
@@ -768,7 +776,7 @@ msgstr "Пользовательское поле"
 msgid "View History"
 msgstr "Просмотр истории"
 
-#: ucp/Cdr.class.php:295 ucp/Cdr.class.php:300
+#: ucp/Cdr.class.php:300 ucp/Cdr.class.php:305
 msgid "Voicemail"
 msgstr "Голосовая почта"
 
@@ -780,7 +788,7 @@ msgstr "Неделя (Вск-Суб)"
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:802 ucp/assets/js/global.js:78
+#: page.cdr.php:802 ucp/assets/js/global.js:80
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -797,7 +805,7 @@ msgstr "канал"
 msgid "context"
 msgstr "контекст"
 
-#: ucp/Cdr.class.php:327
+#: ucp/Cdr.class.php:332
 msgid "denied by COS"
 msgstr "отказано COS"
 
@@ -809,7 +817,7 @@ msgstr "Поле входящего номера уже присутствует
 msgid "exten"
 msgstr "расш"
 
-#: ucp/Cdr.class.php:323
+#: ucp/Cdr.class.php:328
 msgid "kicked from conference"
 msgstr "выпнут из конференции"
 
@@ -851,9 +859,6 @@ msgstr "Поле recordingfile уже имеется."
 #~ msgid "CDR Viewer"
 #~ msgstr "Отчет по звонкам"
 
-#~ msgid "Call Data Record report tools for viewing reports of your calls"
-#~ msgstr "Просмотр записей о совершенных звонках"
-
 #~ msgid "Dest."
 #~ msgstr "Куда."
 
@@ -865,9 +870,6 @@ msgstr "Поле recordingfile уже имеется."
 
 #~ msgid "File"
 #~ msgstr "Файл"
-
-#~ msgid "Reports"
-#~ msgstr "Отчёты"
 
 #~ msgid ""
 #~ "Search for CallerID. If your CallerID begins with \" then you must supply "
