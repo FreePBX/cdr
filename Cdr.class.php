@@ -7,6 +7,7 @@ class Cdr implements BMO {
 		"wav" => "wav"
 	);
 	private $validFiles = array();
+	private $db_table = 'cdr';
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
@@ -22,11 +23,13 @@ class Cdr implements BMO {
 		$db_port = $config->get('CDRDBPORT');
 		$db_user = $config->get('CDRDBUSER');
 		$db_pass = $config->get('CDRDBPASS');
+		$db_table = $config->get('CDRDBTABLENAME');
 		$dbt = $config->get('CDRDBTYPE');
 
 		$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
 		$dbt = !empty($dbt) ? $dbt : 'mysql';
 		$db_type = $db_hash[$dbt];
+		$this->db_table = !empty($db_table) ? $db_table : "cdr";
 		$db_name = !empty($db_name) ? $db_name : "asteriskcdrdb";
 		$db_host = !empty($db_host) ? $db_host : "localhost";
 		$db_port = empty($db_port) ? '' :  ';port=' . $db_port;
@@ -229,7 +232,7 @@ class Cdr implements BMO {
 	}
 
 	public function getRecordByID($rid) {
-		$sql = "SELECT * FROM cdr WHERE uniqueid = :uid";
+		$sql = "SELECT * FROM ".$this->db_table." WHERE uniqueid = :uid";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
 			$sth->execute(array("uid" => str_replace("_",".",$rid)));
@@ -248,7 +251,7 @@ class Cdr implements BMO {
 	 * @param bool $generateMedia Whether to generate HTML assets or not
 	 */
 	public function getRecordByIDExtension($rid,$ext) {
-		$sql = "SELECT * FROM cdr WHERE uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :dstchannel)";
+		$sql = "SELECT * FROM ".$this->db_table." WHERE uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :dstchannel)";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
 			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':dstchannel' => '%/'.$ext.'-%'));
@@ -286,11 +289,11 @@ class Cdr implements BMO {
 		}
 		$order = ($order == 'desc') ? 'desc' : 'asc';
 		if(!empty($search)) {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (dstchannel LIKE :dstchannel OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :dstchannel OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':dstchannel' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
 		} else {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM cdr WHERE (dstchannel LIKE :dstchannel OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :dstchannel OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':dstchannel' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
 		}
@@ -323,11 +326,11 @@ class Cdr implements BMO {
 	*/
 	public function getPages($extension,$search='',$limit=100) {
 		if(!empty($search)) {
-			$sql = "SELECT count(*) as count FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search)";
+			$sql = "SELECT count(*) as count FROM ".$this->db_table." WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search)";
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%',':extensionv' => 'vmu'.$extension));
 		} else {
-			$sql = "SELECT count(*) as count FROM cdr WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension)";
+			$sql = "SELECT count(*) as count FROM ".$this->db_table." WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension)";
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':extension' => $extension,':extensionv' => 'vmu'.$extension));
 		}

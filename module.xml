@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>13.0.19</version>
+	<version>13.0.20</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*13.0.20* FREEPBX-10816
 		*13.0.19* If there are no icons in the row then dont attempt to process them
 		*13.0.18* Use boostrap tables and new HTML5 player
 		*13.0.17* FREEPBX-9777 CDR module connects to wrong database when downloading file
