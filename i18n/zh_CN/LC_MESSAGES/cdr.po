@@ -9,29 +9,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 17:37-0800\n"
+"POT-Creation-Date: 2015-12-10 17:30-0800\n"
 "PO-Revision-Date: 2015-11-23 13:57+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
-"Language-Team: Simplified Chinese "
-"<http://weblate.freepbx.org/projects/freepbx/cdr/zh_CN/>\n"
-"Language: zh_CN\n"
+"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
+"freepbx/cdr/zh_CN/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Cdr.class.php:305
+#: Cdr.class.php:308
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s 小时, %s 分钟, %s 秒"
 
-#: Cdr.class.php:307
+#: Cdr.class.php:310
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s 分, %s 秒"
 
-#: Cdr.class.php:310
+#: Cdr.class.php:313
 #, php-format
 msgid "%s sec"
 msgstr "%s 秒"
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Call Graph"
 msgstr "呼叫图表"
 
-#: Cdr.class.php:163 ucp/Cdr.class.php:199
+#: Cdr.class.php:166 ucp/Cdr.class.php:199
 msgid "Call History"
 msgstr "呼叫记录"
 
@@ -733,7 +733,7 @@ msgstr ""
 msgid "User Field"
 msgstr ""
 
-#: Cdr.class.php:154
+#: Cdr.class.php:157
 msgid "User Primary Extension"
 msgstr ""
 
