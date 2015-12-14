@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-10 17:30-0800\n"
+"POT-Creation-Date: 2015-12-14 13:43+1000\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -233,6 +233,10 @@ msgstr "通話中"
 msgid "CDR Access"
 msgstr ""
 
+#: cdr.i18n.php:16
+msgid "CDR Report Module"
+msgstr "CDRレポートモジュール"
+
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
 msgid "CDR Reports"
 msgstr "CDRレポート"
@@ -422,6 +426,10 @@ msgstr "通話時間"
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr ""
+
+#: cdr.i18n.php:14
+msgid "Enable CEL Reporting"
+msgstr "CELレポートを有効にする"
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
 #: /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:254
@@ -710,6 +718,20 @@ msgstr ""
 msgid "September"
 msgstr "9月"
 
+#: cdr.i18n.php:18
+msgid ""
+"Setting this true will enable the CDR module to drill down on CEL data for "
+"each CDR. Although the CDR module will assure there is a CEL table "
+"available, the reporting functionality in Asterisk and associated ODBC "
+"database and CEL configuration must be done outside of FreePBX either by the "
+"user or at the Distro level."
+msgstr ""
+"trueに設定すると、CDRごとにCDRモジュールがCELデータを深堀することを可能にしま"
+"す。CDRモジュールは、利用できるCELテーブルの有無を確証しますが、Asteriskのレ"
+"ポーティング機能や関連するODBCデータベース、又はCELの設定はFreePBXの外部で完"
+"結する為、ユーザー、若しくはディストリビューションレベルで行う必要がありま"
+"す。"
+
 #: ucp/views/nav.php:8
 msgid "Settings"
 msgstr ""
@@ -844,9 +866,6 @@ msgstr "recordingfileフィールドは既に存在しています。"
 #~ msgid "OK"
 #~ msgstr "OK"
 
-#~ msgid "CDR Report Module"
-#~ msgstr "CDRレポートモジュール"
-
 #~ msgid "Dest."
 #~ msgstr "Dest."
 
@@ -855,9 +874,6 @@ msgstr "recordingfileフィールドは既に存在しています。"
 
 #~ msgid "Dst. Chan."
 #~ msgstr "Dst. Chan."
-
-#~ msgid "Enable CEL Reporting"
-#~ msgstr "CELレポートを有効にする"
 
 #~ msgid "File"
 #~ msgstr "ファイル"
@@ -886,19 +902,6 @@ msgstr "recordingfileフィールドは既に存在しています。"
 #~ "検索するソースチャンネルを選択してください。SIP、IAX2またはローカルと同じ"
 #~ "ようにチャンネルタイプを入力することができます。またSIP/1234ように、チャン"
 #~ "ネルの送信先を含めることができます。"
-
-#~ msgid ""
-#~ "Setting this true will enable the CDR module to drill down on CEL data "
-#~ "for each CDR. Although the CDR module will assure there is a CEL table "
-#~ "available, the reporting functionality in Asterisk and associated ODBC "
-#~ "database and CEL configuration must be done outside of FreePBX either by "
-#~ "the user or at the Distro level."
-#~ msgstr ""
-#~ "trueに設定すると、CDRごとにCDRモジュールがCELデータを深堀することを可能に"
-#~ "します。CDRモジュールは、利用できるCELテーブルの有無を確証しますが、"
-#~ "Asteriskのレポーティング機能や関連するODBCデータベース、又はCELの設定は"
-#~ "FreePBXの外部で完結する為、ユーザー、若しくはディストリビューションレベル"
-#~ "で行う必要があります。"
 
 #~ msgid "Source"
 #~ msgstr "ソース"
