@@ -37,12 +37,12 @@ if (! function_exists("out")) {
         }
 }
 out(_("Checking if field did is present in cdr table.."));
-$sql = "SELECT did FROM $db_name.$db_table_name";
+$sql = "SELECT did FROM `$db_name`.`$db_table_name`";
 $confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($confs)) { // no error... Already there
   out(_("Adding did field to cdr"));
   out(_("This might take a while......"));
-  $sql = "ALTER TABLE $db_name.$db_table_name ADD did VARCHAR ( 50 ) NOT NULL DEFAULT ''";
+  $sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD did VARCHAR ( 50 ) NOT NULL DEFAULT ''";
   $results = $dbcdr->query($sql);
   if(DB::IsError($results)) {
     die($results->getMessage());
@@ -53,11 +53,11 @@ if (DB::IsError($confs)) { // no error... Already there
 }
 
 out(_("Checking if field recordingfile is present in cdr table.."));
-$sql = "SELECT recordingfile FROM $db_name.$db_table_name";
+$sql = "SELECT recordingfile FROM `$db_name`.`$db_table_name`";
 $confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($confs)) { // no error... Already there
     out(_("Adding recordingfile field to cdr"));
-    $sql = "ALTER TABLE $db_name.$db_table_name ADD recordingfile VARCHAR ( 255 ) NOT NULL DEFAULT ''";
+    $sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD recordingfile VARCHAR ( 255 ) NOT NULL DEFAULT ''";
     $results = $dbcdr->query($sql);
     if(DB::IsError($results)) {
         out(_('Unable to add recordingfile field to cdr table'));
@@ -72,11 +72,11 @@ if (DB::IsError($confs)) { // no error... Already there
 $cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam');
 foreach($cid_fields as $cf) {
 	out(_("Checking if field $cf is present in cdr table.."));
-	$sql = "SELECT $cf FROM $db_name.$db_table_name";
+	$sql = "SELECT $cf FROM `$db_name`.`$db_table_name`";
 	$confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
 	if (DB::IsError($confs)) { // no error... Already there
     	out(_("Adding $cf field to cdr"));
-    	$sql = "ALTER TABLE $db_name.$db_table_name ADD $cf VARCHAR ( 40 ) NOT NULL DEFAULT ''";
+	$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD $cf VARCHAR ( 40 ) NOT NULL DEFAULT ''";
     	$results = $dbcdr->query($sql);
     	if(DB::IsError($results)) {
         	out(_("Unable to add $cf field to cdr table"));
@@ -91,10 +91,10 @@ foreach($cid_fields as $cf) {
 	}
 }
 
-$sql = "SHOW KEYS FROM $db_name.$db_table_name WHERE Key_name='uniqueid'";
+$sql = "SHOW KEYS FROM `$db_name`.`$db_table_name` WHERE Key_name='uniqueid'";
 $check = $dbcdr->getOne($sql);
 if (empty($check)) {
-	$sql = "ALTER TABLE $db_name.$db_table_name ADD INDEX `uniqueid` (`uniqueid` ASC)";
+	$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD INDEX `uniqueid` (`uniqueid` ASC)";
 	$result = $dbcdr->query($sql);
 	if(DB::IsError($result)) {
 		out(_("Unable to add index to uniqueid field in cdr table"));
@@ -104,10 +104,10 @@ if (empty($check)) {
 	}
 }
 
-$sql = "SHOW KEYS FROM $db_name.$db_table_name WHERE Key_name='did'";
+$sql = "SHOW KEYS FROM `$db_name`.`$db_table_name` WHERE Key_name='did'";
 $check = $dbcdr->getOne($sql);
 if (empty($check)) {
-	$sql = "ALTER TABLE $db_name.$db_table_name ADD INDEX `did` (`did` ASC)";
+	$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD INDEX `did` (`did` ASC)";
 	$result = $dbcdr->query($sql);
 	if(DB::IsError($result)) {
 		out(_("Unable to add index todid field in cdr table"));
