@@ -42,14 +42,14 @@ var CdrC = UCPMC.extend({
 		return icons + " " + value;
 	},
 	formatActions: function (value, row, index) {
-		if(row.recordingfile === '' || !showDownload) {
+		if(row.recordingfile === '' || showDownload === "0") {
 			return '';
 		}
 		var link = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid='+row.uniqueid+'&amp;type=download&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
 		return link;
 	},
 	formatPlayback: function (value, row, index) {
-		if(row.recordingfile.length === 0) {
+		if(row.recordingfile.length === 0 || showPlayback === "0") {
 			return '';
 		}
 		return '<div id="jquery_jplayer_'+row.niceUniqueid+'" class="jp-jplayer" data-container="#jp_container_'+row.niceUniqueid+'" data-id="'+row.uniqueid+'"></div><div id="jp_container_'+row.niceUniqueid+'" data-player="jquery_jplayer_'+row.niceUniqueid+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
