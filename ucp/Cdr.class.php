@@ -373,7 +373,7 @@ class Cdr extends Modules{
 					break;
 					case "gsm":
 						$ct = "audio/x-gsm";
-						$format = "wav";
+						$format = "gsm";
 					break;
 					case "g729":
 						$ct = "audio/x-g729";

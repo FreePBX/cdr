@@ -4,7 +4,8 @@ class Cdr implements BMO {
 	//supported playback formats
 	public $supportedFormats = array(
 		"oga" => "ogg",
-		"wav" => "wav"
+		"wav" => "wav",
+		"gsm" => "gsm"
 	);
 
 	public function __construct($freepbx = null) {
