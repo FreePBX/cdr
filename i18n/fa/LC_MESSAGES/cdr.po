@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-10 17:30-0800\n"
+"POT-Creation-Date: 2015-12-14 13:43+1000\n"
 "PO-Revision-Date: 2015-10-10 15:09+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cdr/fa/"
@@ -197,6 +197,10 @@ msgstr ""
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
+msgstr ""
+
+#: cdr.i18n.php:16
+msgid "CDR Report Module"
 msgstr ""
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
@@ -387,6 +391,10 @@ msgstr ""
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
+msgstr ""
+
+#: cdr.i18n.php:14
+msgid "Enable CEL Reporting"
 msgstr ""
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
@@ -663,6 +671,15 @@ msgstr ""
 
 #: page.cdr.php:97
 msgid "September"
+msgstr ""
+
+#: cdr.i18n.php:18
+msgid ""
+"Setting this true will enable the CDR module to drill down on CEL data for "
+"each CDR. Although the CDR module will assure there is a CEL table "
+"available, the reporting functionality in Asterisk and associated ODBC "
+"database and CEL configuration must be done outside of FreePBX either by the "
+"user or at the Distro level."
 msgstr ""
 
 #: ucp/views/nav.php:8
