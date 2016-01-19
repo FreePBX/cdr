@@ -1,12 +1,6 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 class Cdr implements BMO {
-	//supported playback formats
-	public $supportedFormats = array(
-		"oga" => "ogg",
-		"wav" => "wav",
-		"gsm" => "gsm"
-	);
 	private $validFiles = array();
 	private $db_table = 'cdr';
 
