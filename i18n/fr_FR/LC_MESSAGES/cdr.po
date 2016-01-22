@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 13:43+1000\n"
-"PO-Revision-Date: 2016-01-22 06:41+0200\n"
+"PO-Revision-Date: 2016-01-22 07:06+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
@@ -109,19 +109,19 @@ msgstr "Information sur le compte"
 
 #: install.php:50
 msgid "Added field did to cdr"
-msgstr "Champ ajouté SDA au cdr"
+msgstr "Champ did ajouté à la table cdr"
 
 #: install.php:66
 msgid "Added field recordingfile to cdr"
-msgstr "Ajouter le champ recordingfile au cdr"
+msgstr "Champ recordingfile ajouté à la table cdr"
 
 #: install.php:43
 msgid "Adding did field to cdr"
-msgstr "Ajouter le champ did au cdr"
+msgstr "Ajout du champ did à la table cdr"
 
 #: install.php:116
 msgid "Adding index to did field in the cdr table"
-msgstr ""
+msgstr "Ajout de l'index au champ did dans la table cdr"
 
 #: install.php:103
 msgid "Adding index to uniqueid field in the cdr table"
@@ -129,7 +129,7 @@ msgstr "Ajout de l'index au champ uniqueid dans la table cdr"
 
 #: install.php:59
 msgid "Adding recordingfile field to cdr"
-msgstr "Ajout du champ recordingfile au cdr"
+msgstr "Ajout du champ recordingfile à la table cdr"
 
 #: page.cdr.php:311
 msgid "All Dispositions"
