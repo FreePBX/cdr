@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 13:43+1000\n"
-"PO-Revision-Date: 2016-01-23 06:58+0200\n"
+"PO-Revision-Date: 2016-01-23 07:03+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
@@ -775,7 +775,7 @@ msgstr "Champ utilisateur"
 
 #: Cdr.class.php:157
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Poste primaire de l'utilisateur"
 
 #: page.cdr.php:415 page.cdr.php:1226
 msgid "UserDefType"
@@ -799,7 +799,7 @@ msgstr "Semaine ( Dim-Sam )"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: page.cdr.php:802 ucp/assets/js/global.js:80
 #, perl-format, php-format
