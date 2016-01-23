@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 13:43+1000\n"
-"PO-Revision-Date: 2016-01-22 07:06+0200\n"
+"PO-Revision-Date: 2016-01-23 06:58+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
@@ -448,7 +448,7 @@ msgstr "Février"
 
 #: ucp/Cdr.class.php:144
 msgid "File does not exist"
-msgstr ""
+msgstr "Le fichier n'existe pas"
 
 #: ucp/Cdr.class.php:386
 msgid "Forbidden"
@@ -480,7 +480,7 @@ msgstr "Heure du jour"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Hérite"
 
 #: page.cdr.php:97
 msgid "January"
@@ -520,7 +520,7 @@ msgstr "Plus récent en premier"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: page.cdr.php:315
 msgid "No Answer"
@@ -539,7 +539,7 @@ msgstr "Non autorisé"
 
 #: ucp/Cdr.class.php:392
 msgid "Not Found"
-msgstr ""
+msgstr "Non trouvé"
 
 #: page.cdr.php:97
 msgid "November"
@@ -575,7 +575,7 @@ msgstr "Numéro de l'identifiant de l'appelant en sortie"
 
 #: ucp/views/view.php:32
 msgid "Playback"
-msgstr ""
+msgstr "Écouter"
 
 #: install.php:131
 msgid ""
