@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 13:43+1000\n"
-"PO-Revision-Date: 2016-01-23 07:03+0200\n"
+"PO-Revision-Date: 2016-01-23 21:14+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
@@ -137,7 +137,7 @@ msgstr "Tous les états de l'appel"
 
 #: views/ucp_config.php:7
 msgid "Allow CDR"
-msgstr ""
+msgstr "Permettre l'accès au CDR"
 
 #: views/ucp_config.php:95
 msgid "Allow CDR Downloads"
@@ -204,11 +204,11 @@ msgstr "Occupé"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
-msgstr ""
+msgstr "Accès au CDR"
 
 #: cdr.i18n.php:16
 msgid "CDR Report Module"
-msgstr ""
+msgstr "Module de rapport du CDR"
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
 msgid "CDR Reports"
@@ -399,10 +399,12 @@ msgstr "Durée"
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr ""
+"Permettre l'accès au CDR (Historique des appels) dans l'UCP pour cet "
+"utlisateur"
 
 #: cdr.i18n.php:14
 msgid "Enable CEL Reporting"
-msgstr ""
+msgstr "Permettre l'accès au CEL"
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
 #: /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:254
