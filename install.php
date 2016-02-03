@@ -36,73 +36,6 @@ if (! function_exists("out")) {
                 echo $text."<br />";
         }
 }
-out(_("Checking if field did is present in cdr table.."));
-$sql = "SELECT did FROM `$db_name`.`$db_table_name`";
-$confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
-if (DB::IsError($confs)) { // no error... Already there
-  out(_("Adding did field to cdr"));
-  out(_("This might take a while......"));
-  $sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD did VARCHAR ( 50 ) NOT NULL DEFAULT ''";
-  $results = $dbcdr->query($sql);
-  if(DB::IsError($results)) {
-    die($results->getMessage());
-  }
-  out(_("Added field did to cdr"));
-} else {
-  out(_("did field already present."));
-}
-
-out(_("Checking if field recordingfile is present in cdr table.."));
-$sql = "SELECT recordingfile FROM `$db_name`.`$db_table_name`";
-$confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
-if (DB::IsError($confs)) { // no error... Already there
-    out(_("Adding recordingfile field to cdr"));
-    $sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD recordingfile VARCHAR ( 255 ) NOT NULL DEFAULT ''";
-    $results = $dbcdr->query($sql);
-    if(DB::IsError($results)) {
-        out(_('Unable to add recordingfile field to cdr table'));
-        freepbx_log(FPBX_LOG_ERROR,"failed to add recordingfile field to cdr table");
-    } else {
-        out(_("Added field recordingfile to cdr"));
-    }
-} else {
-      out(_("recordingfile field already present."));
-}
-
-$cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam');
-foreach($cid_fields as $cf) {
-	out(_("Checking if field $cf is present in cdr table.."));
-	$sql = "SELECT $cf FROM `$db_name`.`$db_table_name`";
-	$confs = $dbcdr->getRow($sql, DB_FETCHMODE_ASSOC);
-	if (DB::IsError($confs)) { // no error... Already there
-    	out(_("Adding $cf field to cdr"));
-	$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD $cf VARCHAR ( 40 ) NOT NULL DEFAULT ''";
-    	$results = $dbcdr->query($sql);
-    	if(DB::IsError($results)) {
-        	out(_("Unable to add $cf field to cdr table"));
-        	freepbx_log(FPBX_LOG_ERROR,"failed to add $cf field to cdr table");
-    	} else {
-        	out(_("Added field $cf to cdr"));
-					// TODO: put onetime notification about old src field searches and query that could be
-					// done if user wants to get that into cnum field.
-    	}
-	} else {
-      	out(_("$cf field already present."));
-	}
-}
-
-$sql = "SHOW KEYS FROM `$db_name`.`$db_table_name` WHERE Key_name='uniqueid'";
-$check = $dbcdr->getOne($sql);
-if (empty($check)) {
-	$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD INDEX `uniqueid` (`uniqueid` ASC)";
-	$result = $dbcdr->query($sql);
-	if(DB::IsError($result)) {
-		out(_("Unable to add index to uniqueid field in cdr table"));
-		freepbx_log(FPBX_LOG_ERROR, "Failed to add index to uniqueid field in the cdr table");
-	} else {
-		out(_("Adding index to uniqueid field in the cdr table"));
-	}
-}
 
 $sql = "SHOW KEYS FROM `$db_name`.`$db_table_name` WHERE Key_name='did'";
 $check = $dbcdr->getOne($sql);
@@ -117,21 +50,3 @@ if (empty($check)) {
 	}
 }
 
-$info = FreePBX::Modules()->getInfo("cdr");
-if(version_compare_freepbx($info['cdr']['dbversion'], "12.0.13", "<=")) {
-	if(FreePBX::Modules()->checkStatus('ucp') && FreePBX::Modules()->checkStatus('userman')) {
-		$users = FreePBX::Userman()->getAllUsers();
-		foreach($users as $user) {
-			$exts = FreePBX::Ucp()->getSetting($user['username'],'Settings','assigned');
-			if(!empty($exts)) {
-				FreePBX::Ucp()->setSetting($user['username'],'Cdr','assigned',$exts);
-			}
-		}
-	} elseif(FreePBX::Modules()->checkStatus('ucp',MODULE_STATUS_NEEDUPGRADE)) {
-		out(_("Please upgrade UCP before this module so that settings can be properly migrated"));
-		return false;
-	} elseif(FreePBX::Modules()->checkStatus('userman',MODULE_STATUS_NEEDUPGRADE)) {
-		out(_("Please upgrade Usermanager before this module so that settings can be properly migrated"));
-		return false;
-	}
-}
