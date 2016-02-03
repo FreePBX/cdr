@@ -6,21 +6,18 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	Copyright 2013 Schmooze Com Inc.
 //
 function cdr_get_config($engine) {
-  global $core_conf, $amp_conf;
-  switch($engine) {
-    case "asterisk":
-	    if (isset($core_conf) && is_a($core_conf, "core_conf")) {
-				$section = 'asteriskcdrdb';
-				$core_conf->addResOdbc($section, array('enabled' => 'yes'));
-				$core_conf->addResOdbc($section, array('dsn' => 'MySQL-'.(!empty($amp_conf['CDRDBNAME']) ? $amp_conf['CDRDBNAME'] : 'asteriskcdrdb')));
-				$core_conf->addResOdbc($section, array('pooling' => 'no'));
-				$core_conf->addResOdbc($section, array('limit' => '1'));
-				$core_conf->addResOdbc($section, array('pre-connect' => 'yes'));
-				$core_conf->addResOdbc($section, array('username' => !empty($amp_conf['CDRDBUSER']) ? $amp_conf['CDRDBUSER'] : $amp_conf['AMPDBUSER']));
-				$core_conf->addResOdbc($section, array('password' => !empty($amp_conf['CDRDBPASS']) ? $amp_conf['CDRDBPASS'] : $amp_conf['AMPDBPASS']));
-			}
-    break;
-  }
+	global $core_conf, $amp_conf;
+	if (isset($core_conf) && is_a($core_conf, "core_conf")) {
+		$section = 'asteriskcdrdb';
+		$core_conf->addResOdbc($section, array('enabled' => 'yes'));
+		$core_conf->addResOdbc($section, array('dsn' => 'MySQL-asteriskcdrdb')));
+		$core_conf->addResOdbc($section, array('pooling' => 'no'));
+		$core_conf->addResOdbc($section, array('limit' => '1'));
+		$core_conf->addResOdbc($section, array('pre-connect' => 'yes'));
+		$core_conf->addResOdbc($section, array('username' => !empty($amp_conf['CDRDBUSER']) ? $amp_conf['CDRDBUSER'] : $amp_conf['AMPDBUSER']));
+		$core_conf->addResOdbc($section, array('password' => !empty($amp_conf['CDRDBPASS']) ? $amp_conf['CDRDBPASS'] : $amp_conf['AMPDBPASS']));
+		$core_conf->addResOdbc($section, array('database' => !empty($amp_conf['CDRDBNAME']) ? $amp_conf['CDRDBNAME'] : 'asteriskcdrdb'));
+	}
 }
 
 
