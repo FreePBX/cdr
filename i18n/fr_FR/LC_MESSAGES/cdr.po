@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 13:43+1000\n"
-"PO-Revision-Date: 2015-04-25 03:25+0200\n"
-"Last-Translator: philippebolduc <philippe@florenceinc.com>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
-">\n"
+"PO-Revision-Date: 2016-01-29 18:28+0200\n"
+"Last-Translator: Nicolas <forums@riendeau.org>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -43,8 +43,7 @@ msgstr "10 Minutes"
 #: page.cdr.php:185 /usr/src/freepbx/cdr/page.cdr.php:217 page.cdr.php:248
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
 msgstr ""
-"<b> . </b> = caractères spéciaux, correspond à un ou plusieurs caractères "
-"<br>"
+"<b>.</b> = caractères spéciaux, correspond à un ou plusieurs caractères<br>"
 
 #: page.cdr.php:183 /usr/src/freepbx/cdr/page.cdr.php:215 page.cdr.php:246
 msgid "<b>N</b> = matches any digit from 2-9<br>"
@@ -110,19 +109,19 @@ msgstr "Information sur le compte"
 
 #: install.php:50
 msgid "Added field did to cdr"
-msgstr "Champ ajouté SDA au cdr"
+msgstr "Champ did ajouté à la table cdr"
 
 #: install.php:66
 msgid "Added field recordingfile to cdr"
-msgstr "Ajouter le champ recordingfile au cdr"
+msgstr "Champ recordingfile ajouté à la table cdr"
 
 #: install.php:43
 msgid "Adding did field to cdr"
-msgstr "Ajouter le champ did au cdr"
+msgstr "Ajout du champ did à la table cdr"
 
 #: install.php:116
 msgid "Adding index to did field in the cdr table"
-msgstr ""
+msgstr "Ajout de l'index au champ did dans la table cdr"
 
 #: install.php:103
 msgid "Adding index to uniqueid field in the cdr table"
@@ -130,7 +129,7 @@ msgstr "Ajout de l'index au champ uniqueid dans la table cdr"
 
 #: install.php:59
 msgid "Adding recordingfile field to cdr"
-msgstr "Ajout du champ recordingfile au cdr"
+msgstr "Ajout du champ recordingfile à la table cdr"
 
 #: page.cdr.php:311
 msgid "All Dispositions"
@@ -138,7 +137,7 @@ msgstr "Tous les états de l'appel"
 
 #: views/ucp_config.php:7
 msgid "Allow CDR"
-msgstr ""
+msgstr "Permettre l'accès au CDR"
 
 #: views/ucp_config.php:95
 msgid "Allow CDR Downloads"
@@ -205,11 +204,11 @@ msgstr "Occupé"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
-msgstr ""
+msgstr "Accès au CDR"
 
 #: cdr.i18n.php:16
 msgid "CDR Report Module"
-msgstr ""
+msgstr "Module de rapport du CDR"
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
 msgid "CDR Reports"
@@ -400,10 +399,12 @@ msgstr "Durée"
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr ""
+"Permettre l'accès au CDR (Historique des appels) dans l'UCP pour cet "
+"utlisateur"
 
 #: cdr.i18n.php:14
 msgid "Enable CEL Reporting"
-msgstr ""
+msgstr "Permettre l'accès au CEL"
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
 #: /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:254
@@ -449,7 +450,7 @@ msgstr "Février"
 
 #: ucp/Cdr.class.php:144
 msgid "File does not exist"
-msgstr ""
+msgstr "Le fichier n'existe pas"
 
 #: ucp/Cdr.class.php:386
 msgid "Forbidden"
@@ -481,7 +482,7 @@ msgstr "Heure du jour"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Hérite"
 
 #: page.cdr.php:97
 msgid "January"
@@ -521,7 +522,7 @@ msgstr "Plus récent en premier"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: page.cdr.php:315
 msgid "No Answer"
@@ -540,7 +541,7 @@ msgstr "Non autorisé"
 
 #: ucp/Cdr.class.php:392
 msgid "Not Found"
-msgstr ""
+msgstr "Non trouvé"
 
 #: page.cdr.php:97
 msgid "November"
@@ -576,7 +577,7 @@ msgstr "Numéro de l'identifiant de l'appelant en sortie"
 
 #: ucp/views/view.php:32
 msgid "Playback"
-msgstr ""
+msgstr "Écouter"
 
 #: install.php:131
 msgid ""
@@ -776,7 +777,7 @@ msgstr "Champ utilisateur"
 
 #: Cdr.class.php:157
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Poste primaire de l'utilisateur"
 
 #: page.cdr.php:415 page.cdr.php:1226
 msgid "UserDefType"
@@ -800,7 +801,7 @@ msgstr "Semaine ( Dim-Sam )"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: page.cdr.php:802 ucp/assets/js/global.js:80
 #, perl-format, php-format
@@ -810,6 +811,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Le support pour l'écoute dans ce navigateur est absent. Pour supporter "
+"l'écoute en HTML5, vous devez installer des programmes qui ne peuvent pas "
+"être distribués avec le PBX. Si vous désirez installer les exécutables "
+"requis pour ces conversions cliquer <a href='%s'>ici</a>"
 
 #: page.cdr.php:414
 msgid "channel"

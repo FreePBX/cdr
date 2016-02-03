@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-14 13:43+1000\n"
-"PO-Revision-Date: 2015-04-25 08:05+0200\n"
+"PO-Revision-Date: 2016-01-03 11:25+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cdr/"
-"es_ES/>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/cdr/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
@@ -136,7 +136,7 @@ msgstr "Disposición Todos"
 
 #: views/ucp_config.php:7
 msgid "Allow CDR"
-msgstr ""
+msgstr "Permitir CDR"
 
 #: views/ucp_config.php:95
 msgid "Allow CDR Downloads"
@@ -203,7 +203,7 @@ msgstr "Ocupado"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
-msgstr ""
+msgstr "Accesar CDR"
 
 #: cdr.i18n.php:16
 msgid "CDR Report Module"
@@ -397,7 +397,7 @@ msgstr "Duración"
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
-msgstr ""
+msgstr "Habilitar CDR (Historial de llamadas) en la UCP para este usuario"
 
 #: cdr.i18n.php:14
 msgid "Enable CEL Reporting"
@@ -447,7 +447,7 @@ msgstr "Febrero"
 
 #: ucp/Cdr.class.php:144
 msgid "File does not exist"
-msgstr ""
+msgstr "Fichero no existe"
 
 #: ucp/Cdr.class.php:386
 msgid "Forbidden"
@@ -479,7 +479,7 @@ msgstr "Hora"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Hereda"
 
 #: page.cdr.php:97
 msgid "January"
@@ -519,7 +519,7 @@ msgstr "Recientes Primero"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: page.cdr.php:315
 msgid "No Answer"
@@ -538,7 +538,7 @@ msgstr "No Autorizado"
 
 #: ucp/Cdr.class.php:392
 msgid "Not Found"
-msgstr ""
+msgstr "No Encontrado"
 
 #: page.cdr.php:97
 msgid "November"
@@ -574,7 +574,7 @@ msgstr "Número Llamante Saliente"
 
 #: ucp/views/view.php:32
 msgid "Playback"
-msgstr ""
+msgstr "Reproducir"
 
 #: install.php:131
 msgid ""
@@ -779,7 +779,7 @@ msgstr "Campo Usuario"
 
 #: Cdr.class.php:157
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Extension Primaria del Usuario"
 
 #: page.cdr.php:415 page.cdr.php:1226
 msgid "UserDefType"
@@ -803,7 +803,7 @@ msgstr "Semana (Dom-Sáb)"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
-msgstr ""
+msgstr "Si"
 
 #: page.cdr.php:802 ucp/assets/js/global.js:80
 #, perl-format, php-format
@@ -813,6 +813,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Esta falando  el soporte para la reproducción en este navegador. Para apoyar "
+"plenamente la reproducción navegador HTML5 tendrá que instalar programas que "
+"no pueden ser distribuidos con la central. Si desea instalar los binarios "
+"necesarios para estas conversiones, haga clic en <a href='%s'>aquí</a>"
 
 #: page.cdr.php:414
 msgid "channel"
