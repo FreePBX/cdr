@@ -9,29 +9,29 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-14 13:43+1000\n"
+"POT-Creation-Date: 2016-02-03 10:31+1000\n"
 "PO-Revision-Date: 2016-01-29 18:28+0200\n"
 "Last-Translator: Nicolas <forums@riendeau.org>\n"
-"Language-Team: French "
-"<http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
-"Language: fr_FR\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
+">\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Cdr.class.php:308
+#: Cdr.class.php:303
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s heure, %s min, %s sec"
 
-#: Cdr.class.php:310
+#: Cdr.class.php:305
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s sec"
 
-#: Cdr.class.php:313
+#: Cdr.class.php:308
 #, php-format
 msgid "%s sec"
 msgstr "%s sec"
@@ -107,29 +107,9 @@ msgstr "N° de compte"
 msgid "Account Information"
 msgstr "Information sur le compte"
 
-#: install.php:50
-msgid "Added field did to cdr"
-msgstr "Champ did ajouté à la table cdr"
-
-#: install.php:66
-msgid "Added field recordingfile to cdr"
-msgstr "Champ recordingfile ajouté à la table cdr"
-
-#: install.php:43
-msgid "Adding did field to cdr"
-msgstr "Ajout du champ did à la table cdr"
-
-#: install.php:116
+#: install.php:49
 msgid "Adding index to did field in the cdr table"
 msgstr "Ajout de l'index au champ did dans la table cdr"
-
-#: install.php:103
-msgid "Adding index to uniqueid field in the cdr table"
-msgstr "Ajout de l'index au champ uniqueid dans la table cdr"
-
-#: install.php:59
-msgid "Adding recordingfile field to cdr"
-msgstr "Ajout du champ recordingfile à la table cdr"
 
 #: page.cdr.php:311
 msgid "All Dispositions"
@@ -206,10 +186,6 @@ msgstr "Occupé"
 msgid "CDR Access"
 msgstr "Accès au CDR"
 
-#: cdr.i18n.php:16
-msgid "CDR Report Module"
-msgstr "Module de rapport du CDR"
-
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
 msgid "CDR Reports"
 msgstr "Rapports CDR"
@@ -262,7 +238,7 @@ msgstr "Journal des événements d'appel - Recherche retourne"
 msgid "Call Graph"
 msgstr "Graphique d'appel"
 
-#: Cdr.class.php:166 ucp/Cdr.class.php:199
+#: Cdr.class.php:161 ucp/Cdr.class.php:199
 msgid "Call History"
 msgstr "Historique d'appel"
 
@@ -294,14 +270,6 @@ msgstr "Appels"
 msgid "Channel"
 msgstr "Canal"
 
-#: install.php:39
-msgid "Checking if field did is present in cdr table.."
-msgstr "Vérifier si le champ did est présent dans la table cdr.."
-
-#: install.php:55
-msgid "Checking if field recordingfile is present in cdr table.."
-msgstr "Vérifier si le champ recordingfile est présent dans la table cdr.."
-
 #: page.cdr.php:157
 msgid "Concurrent Calls"
 msgstr "Appels simultanés"
@@ -322,7 +290,7 @@ msgstr "Paramètres \"%s\" de la conférence"
 msgid "Contains"
 msgstr "Contient"
 
-#: ucp/views/view.php:34
+#: ucp/views/view.php:33
 msgid "Controls"
 msgstr "Contrôles"
 
@@ -331,7 +299,7 @@ msgstr "Contrôles"
 msgid "DID"
 msgstr "DID"
 
-#: ucp/views/view.php:28
+#: ucp/views/view.php:27
 msgid "Date"
 msgstr "Date"
 
@@ -351,7 +319,7 @@ msgstr "Jour de la semaine"
 msgid "December"
 msgstr "Décembre"
 
-#: ucp/views/view.php:29
+#: ucp/views/view.php:28
 msgid "Description"
 msgstr "Description"
 
@@ -392,7 +360,7 @@ msgid "Download"
 msgstr "Téléchargement"
 
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:712
-#: ucp/views/view.php:30
+#: ucp/views/view.php:29
 msgid "Duration"
 msgstr "Durée"
 
@@ -401,10 +369,6 @@ msgid "Enable CDR (Call History) in UCP for this user"
 msgstr ""
 "Permettre l'accès au CDR (Historique des appels) dans l'UCP pour cet "
 "utlisateur"
-
-#: cdr.i18n.php:14
-msgid "Enable CEL Reporting"
-msgstr "Permettre l'accès au CEL"
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
 #: /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:254
@@ -575,25 +539,9 @@ msgstr "Identifiant de l'appelant en sortie"
 msgid "Outbound CallerID Number"
 msgstr "Numéro de l'identifiant de l'appelant en sortie"
 
-#: ucp/views/view.php:32
+#: ucp/views/view.php:31
 msgid "Playback"
 msgstr "Écouter"
-
-#: install.php:131
-msgid ""
-"Please upgrade UCP before this module so that settings can be properly "
-"migrated"
-msgstr ""
-"Veuillez mettre à jour UCP avant d'utiliser ce module afin que les "
-"paramètres soit correctement migrés"
-
-#: install.php:134
-msgid ""
-"Please upgrade Usermanager before this module so that settings can be "
-"properly migrated"
-msgstr ""
-"Veuillez mettre à jour Usermanager avant d'utiliser ce module afin que les "
-"paramètres soit correctement migrés"
 
 #: page.cdr.php:704
 msgid "Recording"
@@ -698,15 +646,6 @@ msgstr ""
 msgid "September"
 msgstr "Septembre"
 
-#: cdr.i18n.php:18
-msgid ""
-"Setting this true will enable the CDR module to drill down on CEL data for "
-"each CDR. Although the CDR module will assure there is a CEL table "
-"available, the reporting functionality in Asterisk and associated ODBC "
-"database and CEL configuration must be done outside of FreePBX either by the "
-"user or at the Distro level."
-msgstr ""
-
 #: ucp/views/nav.php:8
 msgid "Settings"
 msgstr "Paramètres"
@@ -731,10 +670,6 @@ msgstr ""
 "Ce sont les postes assignés et actifs qui s'afficheront pour cet utilisateur "
 "et qu'il pourra contrôler et modifier de UCP"
 
-#: install.php:44
-msgid "This might take a while......"
-msgstr "Cela pourrait prendre un certain temps ......"
-
 #: page.cdr.php:404 page.cdr.php:1034
 msgid "Time"
 msgstr "Temps"
@@ -751,17 +686,9 @@ msgstr "Total d'appels"
 msgid "Total Duration"
 msgstr "Durée Totale"
 
-#: install.php:100
-msgid "Unable to add index to uniqueid field in cdr table"
-msgstr "Incapable d'ajouter l'index au champ uniqueid de la table cdr"
-
-#: install.php:113
+#: install.php:46
 msgid "Unable to add index todid field in cdr table"
 msgstr ""
-
-#: install.php:63
-msgid "Unable to add recordingfile field to cdr table"
-msgstr "Incapable d'ajouter le champ recordingfile à la table cdr"
 
 #: page.cdr.php:1067 page.cdr.php:1070
 msgid "UniqueID"
@@ -775,7 +702,7 @@ msgstr "Inconnu"
 msgid "User Field"
 msgstr "Champ utilisateur"
 
-#: Cdr.class.php:157
+#: Cdr.class.php:152
 msgid "User Primary Extension"
 msgstr "Poste primaire de l'utilisateur"
 
@@ -828,10 +755,6 @@ msgstr "contexte"
 msgid "denied by COS"
 msgstr "pas permis par le COS"
 
-#: install.php:52
-msgid "did field already present."
-msgstr "le champ did est déjà présent."
-
 #: page.cdr.php:411
 msgid "exten"
 msgstr "numéro"
@@ -840,9 +763,61 @@ msgstr "numéro"
 msgid "kicked from conference"
 msgstr "sorti de la conférence"
 
-#: install.php:69
-msgid "recordingfile field already present."
-msgstr "le champ recordingfile est déjà présent."
+#~ msgid "Added field did to cdr"
+#~ msgstr "Champ did ajouté à la table cdr"
+
+#~ msgid "Added field recordingfile to cdr"
+#~ msgstr "Champ recordingfile ajouté à la table cdr"
+
+#~ msgid "Adding did field to cdr"
+#~ msgstr "Ajout du champ did à la table cdr"
+
+#~ msgid "Adding index to uniqueid field in the cdr table"
+#~ msgstr "Ajout de l'index au champ uniqueid dans la table cdr"
+
+#~ msgid "Adding recordingfile field to cdr"
+#~ msgstr "Ajout du champ recordingfile à la table cdr"
+
+#~ msgid "CDR Report Module"
+#~ msgstr "Module de rapport du CDR"
+
+#~ msgid "Checking if field did is present in cdr table.."
+#~ msgstr "Vérifier si le champ did est présent dans la table cdr.."
+
+#~ msgid "Checking if field recordingfile is present in cdr table.."
+#~ msgstr "Vérifier si le champ recordingfile est présent dans la table cdr.."
+
+#~ msgid "Enable CEL Reporting"
+#~ msgstr "Permettre l'accès au CEL"
+
+#~ msgid ""
+#~ "Please upgrade UCP before this module so that settings can be properly "
+#~ "migrated"
+#~ msgstr ""
+#~ "Veuillez mettre à jour UCP avant d'utiliser ce module afin que les "
+#~ "paramètres soit correctement migrés"
+
+#~ msgid ""
+#~ "Please upgrade Usermanager before this module so that settings can be "
+#~ "properly migrated"
+#~ msgstr ""
+#~ "Veuillez mettre à jour Usermanager avant d'utiliser ce module afin que "
+#~ "les paramètres soit correctement migrés"
+
+#~ msgid "This might take a while......"
+#~ msgstr "Cela pourrait prendre un certain temps ......"
+
+#~ msgid "Unable to add index to uniqueid field in cdr table"
+#~ msgstr "Incapable d'ajouter l'index au champ uniqueid de la table cdr"
+
+#~ msgid "Unable to add recordingfile field to cdr table"
+#~ msgstr "Incapable d'ajouter le champ recordingfile à la table cdr"
+
+#~ msgid "did field already present."
+#~ msgstr "le champ did est déjà présent."
+
+#~ msgid "recordingfile field already present."
+#~ msgstr "le champ recordingfile est déjà présent."
 
 #~ msgid "Loading"
 #~ msgstr "Chargement"

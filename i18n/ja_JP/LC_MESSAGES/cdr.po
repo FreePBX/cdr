@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-14 13:43+1000\n"
+"POT-Creation-Date: 2016-02-03 10:31+1000\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -48,17 +48,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
-#: Cdr.class.php:308
+#: Cdr.class.php:303
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:310
+#: Cdr.class.php:305
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:313
+#: Cdr.class.php:308
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -134,29 +134,9 @@ msgstr "アカウントコード"
 msgid "Account Information"
 msgstr "アカウント情報"
 
-#: install.php:50
-msgid "Added field did to cdr"
-msgstr "didフィールドをcdrテーブルに追加しました。"
-
-#: install.php:66
-msgid "Added field recordingfile to cdr"
-msgstr "recordingfileフィールドをcdrテーブルに追加しました"
-
-#: install.php:43
-msgid "Adding did field to cdr"
-msgstr "didフィールドをcdrテーブルに追加します。"
-
-#: install.php:116
+#: install.php:49
 msgid "Adding index to did field in the cdr table"
 msgstr ""
-
-#: install.php:103
-msgid "Adding index to uniqueid field in the cdr table"
-msgstr ""
-
-#: install.php:59
-msgid "Adding recordingfile field to cdr"
-msgstr "recordingfileフィールドをcdrテーブルに追加中"
 
 #: page.cdr.php:311
 msgid "All Dispositions"
@@ -233,10 +213,6 @@ msgstr "通話中"
 msgid "CDR Access"
 msgstr ""
 
-#: cdr.i18n.php:16
-msgid "CDR Report Module"
-msgstr "CDRレポートモジュール"
-
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
 msgid "CDR Reports"
 msgstr "CDRレポート"
@@ -289,7 +265,7 @@ msgstr "コールイベント記録 ‐ 検索結果"
 msgid "Call Graph"
 msgstr "グラフ形式"
 
-#: Cdr.class.php:166 ucp/Cdr.class.php:199
+#: Cdr.class.php:161 ucp/Cdr.class.php:199
 msgid "Call History"
 msgstr ""
 
@@ -321,14 +297,6 @@ msgstr "件"
 msgid "Channel"
 msgstr "チャネル"
 
-#: install.php:39
-msgid "Checking if field did is present in cdr table.."
-msgstr "cdrテーブルにdidフィールドが存在しているか確認中.."
-
-#: install.php:55
-msgid "Checking if field recordingfile is present in cdr table.."
-msgstr "recordingfileフィールドがcdrテーブルに存在しているか確認中..."
-
 #: page.cdr.php:157
 msgid "Concurrent Calls"
 msgstr "同時呼び出し"
@@ -349,7 +317,7 @@ msgstr ""
 msgid "Contains"
 msgstr "部分一致"
 
-#: ucp/views/view.php:34
+#: ucp/views/view.php:33
 msgid "Controls"
 msgstr ""
 
@@ -358,7 +326,7 @@ msgstr ""
 msgid "DID"
 msgstr "DID"
 
-#: ucp/views/view.php:28
+#: ucp/views/view.php:27
 msgid "Date"
 msgstr ""
 
@@ -378,7 +346,7 @@ msgstr "曜日毎"
 msgid "December"
 msgstr "12月"
 
-#: ucp/views/view.php:29
+#: ucp/views/view.php:28
 msgid "Description"
 msgstr ""
 
@@ -419,17 +387,13 @@ msgid "Download"
 msgstr ""
 
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:712
-#: ucp/views/view.php:30
+#: ucp/views/view.php:29
 msgid "Duration"
 msgstr "通話時間"
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr ""
-
-#: cdr.i18n.php:14
-msgid "Enable CEL Reporting"
-msgstr "CELレポートを有効にする"
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
 #: /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:254
@@ -600,20 +564,8 @@ msgstr "外部発信CallerID"
 msgid "Outbound CallerID Number"
 msgstr "アウトバウンドCallerIDの番号"
 
-#: ucp/views/view.php:32
+#: ucp/views/view.php:31
 msgid "Playback"
-msgstr ""
-
-#: install.php:131
-msgid ""
-"Please upgrade UCP before this module so that settings can be properly "
-"migrated"
-msgstr ""
-
-#: install.php:134
-msgid ""
-"Please upgrade Usermanager before this module so that settings can be "
-"properly migrated"
 msgstr ""
 
 #: page.cdr.php:704
@@ -718,20 +670,6 @@ msgstr ""
 msgid "September"
 msgstr "9月"
 
-#: cdr.i18n.php:18
-msgid ""
-"Setting this true will enable the CDR module to drill down on CEL data for "
-"each CDR. Although the CDR module will assure there is a CEL table "
-"available, the reporting functionality in Asterisk and associated ODBC "
-"database and CEL configuration must be done outside of FreePBX either by the "
-"user or at the Distro level."
-msgstr ""
-"trueに設定すると、CDRごとにCDRモジュールがCELデータを深堀することを可能にしま"
-"す。CDRモジュールは、利用できるCELテーブルの有無を確証しますが、Asteriskのレ"
-"ポーティング機能や関連するODBCデータベース、又はCELの設定はFreePBXの外部で完"
-"結する為、ユーザー、若しくはディストリビューションレベルで行う必要がありま"
-"す。"
-
 #: ucp/views/nav.php:8
 msgid "Settings"
 msgstr ""
@@ -754,10 +692,6 @@ msgid ""
 "user to control and edit in UCP"
 msgstr ""
 
-#: install.php:44
-msgid "This might take a while......"
-msgstr "しばらくお待ちください......"
-
 #: page.cdr.php:404 page.cdr.php:1034
 msgid "Time"
 msgstr "時刻"
@@ -774,17 +708,9 @@ msgstr "合計コール数"
 msgid "Total Duration"
 msgstr "合計通話時間"
 
-#: install.php:100
-msgid "Unable to add index to uniqueid field in cdr table"
-msgstr ""
-
-#: install.php:113
+#: install.php:46
 msgid "Unable to add index todid field in cdr table"
 msgstr ""
-
-#: install.php:63
-msgid "Unable to add recordingfile field to cdr table"
-msgstr "recordingfileフィールドをcdrテーブルに追加できません。"
 
 #: page.cdr.php:1067 page.cdr.php:1070
 msgid "UniqueID"
@@ -798,7 +724,7 @@ msgstr ""
 msgid "User Field"
 msgstr "ユーザーフィールド"
 
-#: Cdr.class.php:157
+#: Cdr.class.php:152
 msgid "User Primary Extension"
 msgstr ""
 
@@ -847,10 +773,6 @@ msgstr "コンテキスト"
 msgid "denied by COS"
 msgstr ""
 
-#: install.php:52
-msgid "did field already present."
-msgstr "didフィールドは既に存在します。"
-
 #: page.cdr.php:411
 msgid "exten"
 msgstr "exten"
@@ -859,9 +781,54 @@ msgstr "exten"
 msgid "kicked from conference"
 msgstr ""
 
-#: install.php:69
-msgid "recordingfile field already present."
-msgstr "recordingfileフィールドは既に存在しています。"
+#~ msgid "Added field did to cdr"
+#~ msgstr "didフィールドをcdrテーブルに追加しました。"
+
+#~ msgid "Added field recordingfile to cdr"
+#~ msgstr "recordingfileフィールドをcdrテーブルに追加しました"
+
+#~ msgid "Adding did field to cdr"
+#~ msgstr "didフィールドをcdrテーブルに追加します。"
+
+#~ msgid "Adding recordingfile field to cdr"
+#~ msgstr "recordingfileフィールドをcdrテーブルに追加中"
+
+#~ msgid "CDR Report Module"
+#~ msgstr "CDRレポートモジュール"
+
+#~ msgid "Checking if field did is present in cdr table.."
+#~ msgstr "cdrテーブルにdidフィールドが存在しているか確認中.."
+
+#~ msgid "Checking if field recordingfile is present in cdr table.."
+#~ msgstr "recordingfileフィールドがcdrテーブルに存在しているか確認中..."
+
+#~ msgid "Enable CEL Reporting"
+#~ msgstr "CELレポートを有効にする"
+
+#~ msgid ""
+#~ "Setting this true will enable the CDR module to drill down on CEL data "
+#~ "for each CDR. Although the CDR module will assure there is a CEL table "
+#~ "available, the reporting functionality in Asterisk and associated ODBC "
+#~ "database and CEL configuration must be done outside of FreePBX either by "
+#~ "the user or at the Distro level."
+#~ msgstr ""
+#~ "trueに設定すると、CDRごとにCDRモジュールがCELデータを深堀することを可能に"
+#~ "します。CDRモジュールは、利用できるCELテーブルの有無を確証しますが、"
+#~ "Asteriskのレポーティング機能や関連するODBCデータベース、又はCELの設定は"
+#~ "FreePBXの外部で完結する為、ユーザー、若しくはディストリビューションレベル"
+#~ "で行う必要があります。"
+
+#~ msgid "This might take a while......"
+#~ msgstr "しばらくお待ちください......"
+
+#~ msgid "Unable to add recordingfile field to cdr table"
+#~ msgstr "recordingfileフィールドをcdrテーブルに追加できません。"
+
+#~ msgid "did field already present."
+#~ msgstr "didフィールドは既に存在します。"
+
+#~ msgid "recordingfile field already present."
+#~ msgstr "recordingfileフィールドは既に存在しています。"
 
 #~ msgid "OK"
 #~ msgstr "OK"
