@@ -24,6 +24,7 @@ msgstr ""
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -123,7 +124,7 @@ msgstr "Любой статус"
 
 #: views/ucp_config.php:7
 msgid "Allow CDR"
-msgstr ""
+msgstr "Разврешить CDR"
 
 #: views/ucp_config.php:95
 msgid "Allow CDR Downloads"
@@ -190,7 +191,7 @@ msgstr "Занято"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
-msgstr ""
+msgstr "Доступ к CDR"
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:77
 msgid "CDR Reports"
@@ -373,6 +374,8 @@ msgstr "Длительность"
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr ""
+"Включить CDR(история вызовов) в Панели Управления Пользователями для этого "
+"пользователя"
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:203 page.cdr.php:223
 #: /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:254
@@ -418,7 +421,7 @@ msgstr "Февраль"
 
 #: ucp/Cdr.class.php:144
 msgid "File does not exist"
-msgstr ""
+msgstr "Файл не существует"
 
 #: ucp/Cdr.class.php:386
 msgid "Forbidden"
@@ -450,7 +453,7 @@ msgstr "Час дня"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Наследовать"
 
 #: page.cdr.php:97
 msgid "January"
@@ -490,7 +493,7 @@ msgstr "Сначала более ранние"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: page.cdr.php:315
 msgid "No Answer"
@@ -509,7 +512,7 @@ msgstr "Не авторизованный"
 
 #: ucp/Cdr.class.php:392
 msgid "Not Found"
-msgstr ""
+msgstr "Не найдено"
 
 #: page.cdr.php:97
 msgid "November"
@@ -545,7 +548,7 @@ msgstr "Номер исх. CallerID"
 
 #: ucp/views/view.php:31
 msgid "Playback"
-msgstr ""
+msgstr "Воспроизведение"
 
 #: page.cdr.php:704
 msgid "Recording"
@@ -706,7 +709,7 @@ msgstr "Пользовательское поле"
 
 #: Cdr.class.php:152
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Основной внутренний номер пользователя"
 
 #: page.cdr.php:415 page.cdr.php:1226
 msgid "UserDefType"
@@ -730,7 +733,7 @@ msgstr "Неделя (Вск-Суб)"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: page.cdr.php:802 ucp/assets/js/global.js:80
 #, perl-format, php-format
@@ -740,6 +743,10 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Этот браузер не поддерживает воспроизведение. Для полной поддержки "
+"воспроизведение HTML5 необходимо устанвоить программы,которые не "
+"распространяюься вместе с FreePBX. Если Вы желаете установить бинарные файлы "
+"для перекодирования, то нажмите <a href='%s'>здесь</a>"
 
 #: page.cdr.php:414
 msgid "channel"
