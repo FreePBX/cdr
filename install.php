@@ -37,6 +37,7 @@ if (! function_exists("out")) {
         }
 }
 
+// Remove this section in FreePBX 14
 $sql = "SHOW KEYS FROM `$db_name`.`$db_table_name` WHERE Key_name='did'";
 $check = $dbcdr->getOne($sql);
 if (empty($check)) {
@@ -49,4 +50,24 @@ if (empty($check)) {
 		out(_("Adding index to did field in the cdr table"));
 	}
 }
+
+// Remove this section in FreePBX 14
+$pdo = \FreePBX::Database();
+$cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam');
+
+foreach($cid_fields as $cf) {
+	outn(_("Checking if field $cf is present in cdr table.."));
+	try {
+		$sql = "SELECT $cf FROM `$db_name`.`$db_table_name`";
+		$confs = $pdo->query($sql, DB_FETCHMODE_ASSOC);
+		// If we didn't throw an exception, we're done.
+		out(_("OK!"));
+		continue;
+	} catch (\Exception $e) {
+		out(_("Adding!"));
+		$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD $cf VARCHAR ( 80 ) NOT NULL default ''";
+		$pdo->query($sql);
+	}
+}
+
 
