@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 10:31+1000\n"
+"POT-Creation-Date: 2016-02-23 23:34+1000\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -114,9 +114,13 @@ msgstr "Код Учетки"
 msgid "Account Information"
 msgstr "Учетная информация"
 
-#: install.php:49
+#: install.php:50
 msgid "Adding index to did field in the cdr table"
 msgstr "Добавление индекса к полю did в таблице cdr"
+
+#: install.php:67
+msgid "Adding!"
+msgstr ""
 
 #: page.cdr.php:311
 msgid "All Dispositions"
@@ -518,6 +522,10 @@ msgstr "Не найдено"
 msgid "November"
 msgstr "Ноябрь"
 
+#: install.php:64
+msgid "OK!"
+msgstr ""
+
 #: page.cdr.php:97
 msgid "October"
 msgstr "Октябрь"
@@ -691,9 +699,9 @@ msgstr "Всего звонков"
 msgid "Total Duration"
 msgstr "Суммарная продолжительность"
 
-#: install.php:46
-msgid "Unable to add index todid field in cdr table"
-msgstr "Невозможно добавить индекс поля todid в таблице cdr"
+#: install.php:47
+msgid "Unable to add index to did field in the cdr table"
+msgstr ""
 
 #: page.cdr.php:1067 page.cdr.php:1070
 msgid "UniqueID"
@@ -767,6 +775,9 @@ msgstr "расш"
 #: ucp/Cdr.class.php:328
 msgid "kicked from conference"
 msgstr "выпнут из конференции"
+
+#~ msgid "Unable to add index todid field in cdr table"
+#~ msgstr "Невозможно добавить индекс поля todid в таблице cdr"
 
 #~ msgid "Added field did to cdr"
 #~ msgstr "Поле входящего номера добавлено в CDR"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 10:31+1000\n"
+"POT-Creation-Date: 2016-02-23 23:34+1000\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -107,9 +107,13 @@ msgstr "N° de compte"
 msgid "Account Information"
 msgstr "Information sur le compte"
 
-#: install.php:49
+#: install.php:50
 msgid "Adding index to did field in the cdr table"
 msgstr "Ajout de l'index au champ did dans la table cdr"
+
+#: install.php:67
+msgid "Adding!"
+msgstr ""
 
 #: page.cdr.php:311
 msgid "All Dispositions"
@@ -511,6 +515,10 @@ msgstr "Non trouvé"
 msgid "November"
 msgstr "Novembre"
 
+#: install.php:64
+msgid "OK!"
+msgstr ""
+
 #: page.cdr.php:97
 msgid "October"
 msgstr "Octobre"
@@ -686,9 +694,9 @@ msgstr "Total d'appels"
 msgid "Total Duration"
 msgstr "Durée Totale"
 
-#: install.php:46
-msgid "Unable to add index todid field in cdr table"
-msgstr "Incapable d'ajouter l'index au champ did dans la table cdr"
+#: install.php:47
+msgid "Unable to add index to did field in the cdr table"
+msgstr ""
 
 #: page.cdr.php:1067 page.cdr.php:1070
 msgid "UniqueID"
@@ -762,6 +770,9 @@ msgstr "numéro"
 #: ucp/Cdr.class.php:328
 msgid "kicked from conference"
 msgstr "sorti de la conférence"
+
+#~ msgid "Unable to add index todid field in cdr table"
+#~ msgstr "Incapable d'ajouter l'index au champ did dans la table cdr"
 
 #~ msgid "Added field did to cdr"
 #~ msgstr "Champ did ajouté à la table cdr"

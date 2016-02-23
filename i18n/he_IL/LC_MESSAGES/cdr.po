@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-03 10:31+1000\n"
+"POT-Creation-Date: 2016-02-23 23:34+1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,8 +107,12 @@ msgstr ""
 msgid "Account Information"
 msgstr ""
 
-#: install.php:49
+#: install.php:50
 msgid "Adding index to did field in the cdr table"
+msgstr ""
+
+#: install.php:67
+msgid "Adding!"
 msgstr ""
 
 #: page.cdr.php:311
@@ -509,6 +513,10 @@ msgstr ""
 msgid "November"
 msgstr ""
 
+#: install.php:64
+msgid "OK!"
+msgstr ""
+
 #: page.cdr.php:97
 msgid "October"
 msgstr ""
@@ -670,8 +678,8 @@ msgstr ""
 msgid "Total Duration"
 msgstr ""
 
-#: install.php:46
-msgid "Unable to add index todid field in cdr table"
+#: install.php:47
+msgid "Unable to add index to did field in the cdr table"
 msgstr ""
 
 #: page.cdr.php:1067 page.cdr.php:1070
