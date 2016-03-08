@@ -675,6 +675,14 @@ if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
 if ( empty($resultcdr) && isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
 	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile`, `cnum`, `cnam`, `outbound_cnum`, `outbound_cnam`, `dst_cnam`  FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
 	$resultscdr = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
+	$resultscdr = is_array($resultscdr) ? $resultscdr : array();
+	foreach($resultscdr as &$call) {
+		$file = FreePBX::Cdr()->processPath($call['recordingfile']);
+		if(empty($file)) {
+			//hide files that dont exist
+			$call['recordingfile'] = '';
+		}
+	}
 }
 if ( isset($resultscdr) ) {
 	$tot_calls_raw = sizeof($resultscdr);

@@ -227,7 +227,7 @@ class Cdr implements BMO {
 	}
 
 	public function getRecordByID($rid) {
-		$sql = "SELECT * FROM ".$this->db_table." WHERE uniqueid = :uid";
+		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND uniqueid = :uid";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
 			$sth->execute(array("uid" => str_replace("_",".",$rid)));
@@ -246,7 +246,7 @@ class Cdr implements BMO {
 	 * @param bool $generateMedia Whether to generate HTML assets or not
 	 */
 	public function getRecordByIDExtension($rid,$ext) {
-		$sql = "SELECT * FROM ".$this->db_table." WHERE uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :dstchannel)";
+		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :dstchannel)";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
 			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':dstchannel' => '%/'.$ext.'-%'));
@@ -343,7 +343,7 @@ class Cdr implements BMO {
 	 * @param  string $recordingFile The recording file
 	 * @return string                The full path
 	 */
-	private function processPath($recordingFile) {
+	public function processPath($recordingFile) {
 		if(empty($recordingFile)) {
 			return '';
 		}
