@@ -9,7 +9,14 @@ function cdr_play(rowNum, uid) {
 	}
 	$("#jquery_jplayer_" + playerId).jPlayer({
 		ready: function() {
-
+			var $this = this;
+			$("#jp_container_" + playerId + " .jp-restart").click(function() {
+				if($($this).data("jPlayer").status.paused) {
+					$($this).jPlayer("pause",0);
+				} else {
+					$($this).jPlayer("play",0);
+				}
+			});
 		},
 		timeupdate: function(event) {
 			$("#jp_container_" + playerId).find(".jp-ball").css("left",event.jPlayer.status.currentPercentAbsolute + "%");
