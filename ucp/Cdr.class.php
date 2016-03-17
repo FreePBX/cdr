@@ -392,10 +392,13 @@ class Cdr extends Modules{
 			echo _("Not Found");
 			exit;
 		}
+		$media = $this->UCP->FreePBX->Media;
+		$mimetype = $media->getMIMEtype($record['recordingfile']);
 		header("Content-length: " . filesize($record['recordingfile']));
 		header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 		header('Content-Disposition: attachment;filename="' . basename($record['recordingfile']).'"');
+		header('Content-type: ' . $mimetype);
 		readfile($record['recordingfile']);
 	}
 
