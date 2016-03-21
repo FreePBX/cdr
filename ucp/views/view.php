@@ -20,6 +20,7 @@
 				data-silent-sort="false"
 				data-mobile-responsive="true"
 				data-check-on-init="true"
+				data-show-export="true"
 				data-min-width="992"
         class="table table-hover">
     <thead>

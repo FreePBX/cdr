@@ -20,6 +20,12 @@ var CdrC = UCPMC.extend({
 		$('#cdr-grid').on("post-body.bs.table", function () {
 			$this.bindPlayers();
 		});
+		$("#cdr-grid").bootstrapTable('refreshOptions', {
+			exportOptions: {
+				fileName:"Call_History_"+extension,
+				ignoreColumn: ['playback','controls']
+			}
+		});
 	},
 	hide: function(event) {
 		$(document).off("click", "[vm-pjax] a, a[vm-pjax]");
