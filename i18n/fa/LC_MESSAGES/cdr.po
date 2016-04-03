@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-03-08 12:43-0800\n"
-"PO-Revision-Date: 2016-03-19 17:19+0300\n"
+"PO-Revision-Date: 2016-04-02 19:12+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cdr/fa/>"
 "\n"
@@ -50,27 +50,26 @@ msgstr "<<b>N</b> = matches any digit from 2-9<br>"
 
 #: page.cdr.php:181 /usr/src/freepbx/cdr/page.cdr.php:213 page.cdr.php:244
 msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr "<b>X</b> = matches any digit from 0-9<br>"
+msgstr "<b>X</b> = اعداد بین 0-9<br>"
 
 #: page.cdr.php:182 /usr/src/freepbx/cdr/page.cdr.php:214 page.cdr.php:245
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr "<b>Z</b> = matches any digit from 1-9<br>"
+msgstr "<b>Z</b> = اعداد بین 1-9<br>"
 
 #: page.cdr.php:184 /usr/src/freepbx/cdr/page.cdr.php:216 page.cdr.php:247
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
 msgstr ""
-"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
-"example, 1,2,3,7,8,9)<br>"
+"<b>[1237-9]</b> = اعداد یا کراکتر داخل براکت<br>(in this example, "
+"1,2,3,7,8,9)<br>"
 
 #: page.cdr.php:179 /usr/src/freepbx/cdr/page.cdr.php:211 page.cdr.php:242
 msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
 msgstr ""
-"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
-"numbers"
+"<b>_!2XXN, _562., _.0075</b> = جستجو برای هر مورد <b>به جز</b>این شماره ها"
 
 #: page.cdr.php:178 /usr/src/freepbx/cdr/page.cdr.php:210 page.cdr.php:241
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
@@ -87,7 +86,7 @@ msgstr "AMA"
 
 #: page.cdr.php:1145 page.cdr.php:1220
 msgid "AMA Flag"
-msgstr "AMA Flag"
+msgstr "پرچم AMA"
 
 #: page.cdr.php:408 page.cdr.php:1109
 msgid "ANI"
@@ -230,7 +229,7 @@ msgstr "ثبت جزییات تماس - پاسخ جستجو"
 
 #: page.cdr.php:83
 msgid "Call Detail Record Search"
-msgstr "جستجوی ثبت جزییات تماس "
+msgstr "جستجوی ثبت جزییات تماس"
 
 #: page.cdr.php:389
 msgid "Call Event Log - Search Returned"
@@ -597,14 +596,14 @@ msgid ""
 "Search for calls based on outbound CID used. You can enter multiple numbers "
 "separated by a comma. This field support Asterisk regular expression. "
 "Example<br>"
-msgstr "جستجو بر اساس CID خروجی اختصاص داده شده."
+msgstr "جستجو بر اساس CID خروجی اختصاص داده شده. مانند<br>"
 
 #: page.cdr.php:306
 msgid ""
 "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
 msgstr ""
 "جستجو برای تماسهایی که پاسخ داده شده ،اشغال بوده ،ناموفق بوده یا بی پاسخ "
-"مانده اند"
+"مانده اند."
 
 #: page.cdr.php:296
 msgid "Search for calls that matches the call length specified."
@@ -614,7 +613,8 @@ msgstr "جستجو برای تماسهایی که با طول تماس مشخص 
 msgid ""
 "Search for destination calls. You can enter multiple sources separated by a "
 "comma. This field support Asterisk regular expression. Example<br>"
-msgstr "جستجو برای مقصد تماسها. مقاصد مختلف با ویرگول از هم جدا میشوند."
+msgstr ""
+"جستجو برای مقصد تماسها. مقاصد مختلف با ویرگول از هم جدا میشوند.مانند<br>"
 
 #: page.cdr.php:274
 msgid "Search for userfield data (if enabled)."
@@ -637,8 +637,8 @@ msgid ""
 "Select time span for your report. You can select Date, Month, Year, Hour and "
 "Minute to narrow your search"
 msgstr ""
-"یک  مدت زمان برای گزارش خود انتخاب کنید. شما میتوانید تاریخ، ماه، سال، ساعت "
-"و دقیقه را جستجو کنید "
+"یک مدت زمان برای گزارش خود انتخاب کنید. شما میتوانید تاریخ، ماه، سال، ساعت و "
+"دقیقه را جستجو کنید"
 
 #: page.cdr.php:97
 msgid "September"
@@ -747,7 +747,7 @@ msgstr "چهارچوب"
 
 #: ucp/Cdr.class.php:332
 msgid "denied by COS"
-msgstr "denied by COS"
+msgstr "لغو توسط COS"
 
 #: page.cdr.php:411
 msgid "exten"
