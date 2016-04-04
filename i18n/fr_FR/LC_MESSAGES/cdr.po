@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-08 12:43-0800\n"
+"POT-Creation-Date: 2016-04-04 16:24-0700\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -294,7 +294,7 @@ msgstr "Paramètres \"%s\" de la conférence"
 msgid "Contains"
 msgstr "Contient"
 
-#: ucp/views/view.php:33
+#: ucp/views/view.php:34
 msgid "Controls"
 msgstr "Contrôles"
 
@@ -303,7 +303,7 @@ msgstr "Contrôles"
 msgid "DID"
 msgstr "DID"
 
-#: ucp/views/view.php:27
+#: ucp/views/view.php:28
 msgid "Date"
 msgstr "Date"
 
@@ -323,7 +323,7 @@ msgstr "Jour de la semaine"
 msgid "December"
 msgstr "Décembre"
 
-#: ucp/views/view.php:28
+#: ucp/views/view.php:29
 msgid "Description"
 msgstr "Description"
 
@@ -359,12 +359,12 @@ msgstr "Numéro du plan de numérotation"
 msgid "Disposition"
 msgstr "État de l'appel"
 
-#: ucp/assets/js/global.js:48
+#: ucp/assets/js/global.js:54
 msgid "Download"
 msgstr "Téléchargement"
 
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:720
-#: ucp/views/view.php:29
+#: ucp/views/view.php:30
 msgid "Duration"
 msgstr "Durée"
 
@@ -547,7 +547,7 @@ msgstr "Identifiant de l'appelant en sortie"
 msgid "Outbound CallerID Number"
 msgstr "Numéro de l'identifiant de l'appelant en sortie"
 
-#: ucp/views/view.php:31
+#: ucp/views/view.php:32
 msgid "Playback"
 msgstr "Écouter"
 
@@ -738,7 +738,7 @@ msgstr "Semaine ( Dim-Sam )"
 msgid "Yes"
 msgstr "Oui"
 
-#: page.cdr.php:810 ucp/assets/js/global.js:80
+#: page.cdr.php:810 ucp/assets/js/global.js:86
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

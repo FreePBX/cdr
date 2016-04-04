@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-08 12:43-0800\n"
+"POT-Creation-Date: 2016-04-04 16:24-0700\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -301,7 +301,7 @@ msgstr "Настройки \"%s\" конференции"
 msgid "Contains"
 msgstr "Содержит"
 
-#: ucp/views/view.php:33
+#: ucp/views/view.php:34
 msgid "Controls"
 msgstr "Управления"
 
@@ -310,7 +310,7 @@ msgstr "Управления"
 msgid "DID"
 msgstr "Входящий номер"
 
-#: ucp/views/view.php:27
+#: ucp/views/view.php:28
 msgid "Date"
 msgstr "Дата"
 
@@ -330,7 +330,7 @@ msgstr "День недели"
 msgid "December"
 msgstr "Декабрь"
 
-#: ucp/views/view.php:28
+#: ucp/views/view.php:29
 msgid "Description"
 msgstr "Описание"
 
@@ -366,12 +366,12 @@ msgstr "расш. плана набора"
 msgid "Disposition"
 msgstr "Статус звонка"
 
-#: ucp/assets/js/global.js:48
+#: ucp/assets/js/global.js:54
 msgid "Download"
 msgstr "Загрузить"
 
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:720
-#: ucp/views/view.php:29
+#: ucp/views/view.php:30
 msgid "Duration"
 msgstr "Длительность"
 
@@ -554,7 +554,7 @@ msgstr "Исходящий CallerID"
 msgid "Outbound CallerID Number"
 msgstr "Номер исх. CallerID"
 
-#: ucp/views/view.php:31
+#: ucp/views/view.php:32
 msgid "Playback"
 msgstr "Воспроизведение"
 
@@ -743,7 +743,7 @@ msgstr "Неделя (Вск-Суб)"
 msgid "Yes"
 msgstr "Да"
 
-#: page.cdr.php:810 ucp/assets/js/global.js:80
+#: page.cdr.php:810 ucp/assets/js/global.js:86
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

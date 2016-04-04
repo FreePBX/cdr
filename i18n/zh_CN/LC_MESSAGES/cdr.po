@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-08 12:43-0800\n"
+"POT-Creation-Date: 2016-04-04 16:24-0700\n"
 "PO-Revision-Date: 2015-11-23 13:57+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -289,7 +289,7 @@ msgstr "会议 \"%s\" 设置"
 msgid "Contains"
 msgstr "包含"
 
-#: ucp/views/view.php:33
+#: ucp/views/view.php:34
 msgid "Controls"
 msgstr "控制"
 
@@ -298,7 +298,7 @@ msgstr "控制"
 msgid "DID"
 msgstr ""
 
-#: ucp/views/view.php:27
+#: ucp/views/view.php:28
 msgid "Date"
 msgstr "日期"
 
@@ -318,7 +318,7 @@ msgstr "周几"
 msgid "December"
 msgstr "十二月"
 
-#: ucp/views/view.php:28
+#: ucp/views/view.php:29
 msgid "Description"
 msgstr "描述"
 
@@ -354,12 +354,12 @@ msgstr ""
 msgid "Disposition"
 msgstr "呼叫结果"
 
-#: ucp/assets/js/global.js:48
+#: ucp/assets/js/global.js:54
 msgid "Download"
 msgstr "下载"
 
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:720
-#: ucp/views/view.php:29
+#: ucp/views/view.php:30
 msgid "Duration"
 msgstr "时长"
 
@@ -540,7 +540,7 @@ msgstr ""
 msgid "Outbound CallerID Number"
 msgstr ""
 
-#: ucp/views/view.php:31
+#: ucp/views/view.php:32
 msgid "Playback"
 msgstr "回放"
 
@@ -717,7 +717,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:810 ucp/assets/js/global.js:80
+#: page.cdr.php:810 ucp/assets/js/global.js:86
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

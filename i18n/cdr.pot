@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-08 12:43-0800\n"
+"POT-Creation-Date: 2016-04-04 16:24-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -303,7 +303,7 @@ msgstr ""
 msgid "Contains"
 msgstr ""
 
-#: ucp/views/view.php:33
+#: ucp/views/view.php:34
 msgid "Controls"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgstr ""
 msgid "DID"
 msgstr ""
 
-#: ucp/views/view.php:27
+#: ucp/views/view.php:28
 msgid "Date"
 msgstr ""
 
@@ -334,7 +334,7 @@ msgstr ""
 msgid "December"
 msgstr ""
 
-#: ucp/views/view.php:28
+#: ucp/views/view.php:29
 msgid "Description"
 msgstr ""
 
@@ -370,12 +370,12 @@ msgstr ""
 msgid "Disposition"
 msgstr ""
 
-#: ucp/assets/js/global.js:48
+#: ucp/assets/js/global.js:54
 msgid "Download"
 msgstr ""
 
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:720
-#: ucp/views/view.php:29
+#: ucp/views/view.php:30
 msgid "Duration"
 msgstr ""
 
@@ -562,7 +562,7 @@ msgstr ""
 msgid "Outbound CallerID Number"
 msgstr ""
 
-#: ucp/views/view.php:31
+#: ucp/views/view.php:32
 msgid "Playback"
 msgstr ""
 
@@ -749,7 +749,7 @@ msgid "Yes"
 msgstr ""
 
 #: page.cdr.php:810
-#: ucp/assets/js/global.js:80
+#: ucp/assets/js/global.js:86
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

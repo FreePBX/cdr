@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-08 12:43-0800\n"
+"POT-Creation-Date: 2016-04-04 16:24-0700\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -321,7 +321,7 @@ msgstr ""
 msgid "Contains"
 msgstr "部分一致"
 
-#: ucp/views/view.php:33
+#: ucp/views/view.php:34
 msgid "Controls"
 msgstr ""
 
@@ -330,7 +330,7 @@ msgstr ""
 msgid "DID"
 msgstr "DID"
 
-#: ucp/views/view.php:27
+#: ucp/views/view.php:28
 msgid "Date"
 msgstr ""
 
@@ -350,7 +350,7 @@ msgstr "曜日毎"
 msgid "December"
 msgstr "12月"
 
-#: ucp/views/view.php:28
+#: ucp/views/view.php:29
 msgid "Description"
 msgstr ""
 
@@ -386,12 +386,12 @@ msgstr "ダイヤルプランexten"
 msgid "Disposition"
 msgstr "通話結果"
 
-#: ucp/assets/js/global.js:48
+#: ucp/assets/js/global.js:54
 msgid "Download"
 msgstr ""
 
 #: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:720
-#: ucp/views/view.php:29
+#: ucp/views/view.php:30
 msgid "Duration"
 msgstr "通話時間"
 
@@ -572,7 +572,7 @@ msgstr "外部発信CallerID"
 msgid "Outbound CallerID Number"
 msgstr "アウトバウンドCallerIDの番号"
 
-#: ucp/views/view.php:31
+#: ucp/views/view.php:32
 msgid "Playback"
 msgstr ""
 
@@ -760,7 +760,7 @@ msgstr "1 週毎(日曜-土曜)"
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:810 ucp/assets/js/global.js:80
+#: page.cdr.php:810 ucp/assets/js/global.js:86
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
