@@ -57,6 +57,7 @@ switch ($action) {
 				$fmonth = substr($rec_parts[3],4,2);
 				$fday = substr($rec_parts[3],6,2);
 				$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
+				$file = pathinfo($file, PATHINFO_EXTENSION) == 'wav49'? pathinfo($file, PATHINFO_FILENAME).'.WAV' : $file;
 				$file = "$monitor_base/$fyear/$fmonth/$fday/" . $file;
 				download_file($file, '', '', true);
 			}
@@ -729,6 +730,7 @@ if ( $tot_calls_raw ) {
 			$fday = substr($rec_parts[3],6,2);
 			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 			$recordingfile = "$monitor_base/$fyear/$fmonth/$fday/" . $row['recordingfile'];
+			$recordingfile = pathinfo($recordingfile, PATHINFO_EXTENSION) == 'wav49'? "$monitor_base/$fyear/$fmonth/$fday/" . pathinfo($recordingfile, PATHINFO_FILENAME).'.WAV' : $recordingfile;    
 			if (!file_exists($recordingfile)) {
 				$recordingfile = '';
 			}

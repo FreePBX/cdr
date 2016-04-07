@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>12.0.24</version>
+	<version>12.0.25</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*12.0.25* Fix play and download icons - sr377
 		*12.0.24* FREEPBX-11032 support GSM to the best of our abilities in 12
 		*12.0.23* FREEPBX-9384 Extensions in UCP need to be strings not integers
 		*12.0.22* Invalid port declaration
