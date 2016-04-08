@@ -52,7 +52,25 @@ if (empty($check)) {
 }
 
 // Remove this section in FreePBX 14
-$pdo = \FreePBX::Database();
+$db_name = FreePBX::Config()->get('CDRDBNAME');
+$db_host = FreePBX::Config()->get('CDRDBHOST');
+$db_port = FreePBX::Config()->get('CDRDBPORT');
+$db_user = FreePBX::Config()->get('CDRDBUSER');
+$db_pass = FreePBX::Config()->get('CDRDBPASS');
+$db_table = FreePBX::Config()->get('CDRDBTABLENAME');
+$dbt = FreePBX::Config()->get('CDRDBTYPE');
+
+$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
+$dbt = !empty($dbt) ? $dbt : 'mysql';
+$db_type = $db_hash[$dbt];
+$db_table_name = !empty($db_table) ? $db_table : "cdr";
+$db_name = !empty($db_name) ? $db_name : "asteriskcdrdb";
+$db_host = !empty($db_host) ? $db_host : "localhost";
+$db_port = empty($db_port) ? '' :  ';port=' . $db_port;
+$db_user = empty($db_user) ? $amp_conf['AMPDBUSER'] : $db_user;
+$db_pass = empty($db_pass) ? $amp_conf['AMPDBPASS'] : $db_pass;
+
+$pdo = new \Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass);
 $cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam');
 
 foreach($cid_fields as $cf) {
@@ -69,5 +87,3 @@ foreach($cid_fields as $cf) {
 		$pdo->query($sql);
 	}
 }
-
-
