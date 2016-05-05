@@ -10,11 +10,11 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-08 09:42-0700\n"
-"PO-Revision-Date: 2016-04-11 15:44+0200\n"
+"PO-Revision-Date: 2016-05-05 04:23+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/cdr/fa/>"
-"\n"
-"Language: fa\n"
+"Language-Team: Persian (Iran) "
+"<http://weblate.freepbx.org/projects/freepbx/cdr/fa_IR/>\n"
+"Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,15 +118,15 @@ msgstr "تمامی گرایشات"
 
 #: views/ucp_config.php:7
 msgid "Allow CDR"
-msgstr "مجوز CDR"
+msgstr "مجوز جزئیات تماس"
 
 #: views/ucp_config.php:95
 msgid "Allow CDR Downloads"
-msgstr "مجوز دانلود CDR"
+msgstr "مجوز دانلود جزئیات تماس"
 
 #: views/ucp_config.php:64
 msgid "Allow CDR Playback"
-msgstr "مجوز پخش CDR"
+msgstr "مجوز پخش جزئیات تماس"
 
 #: views/ucp_config.php:85
 msgid "Allow this user to playback recordings in UCP"
@@ -185,15 +185,15 @@ msgstr "اشغال"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
-msgstr "دسترسی CDR"
+msgstr "دسترسی جزئیات تماس"
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:78
 msgid "CDR Reports"
-msgstr "گزارشهای CDR"
+msgstr "گزارشهای جزئیات تماس"
 
 #: page.cdr.php:154
 msgid "CDR search"
-msgstr "جستجو CDR"
+msgstr "جستجو جزئیات تماس"
 
 #: page.cdr.php:407
 msgid "CNAM"
