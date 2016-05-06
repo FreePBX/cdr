@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-08 09:42-0700\n"
-"PO-Revision-Date: 2016-05-05 04:23+0200\n"
+"PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/fa_IR/>\n"
@@ -298,7 +298,7 @@ msgstr "کنترلها"
 #: page.cdr.php:231 /usr/src/freepbx/cdr/page.cdr.php:347 page.cdr.php:410
 #: /usr/src/freepbx/cdr/page.cdr.php:717 page.cdr.php:855 page.cdr.php:1106
 msgid "DID"
-msgstr "DID"
+msgstr "داخلی مستقیم (DID)"
 
 #: ucp/views/view.php:28
 msgid "Date"
@@ -576,7 +576,7 @@ msgstr "شرایط جستجو"
 
 #: page.cdr.php:230
 msgid "Search for a DID."
-msgstr "جستجو برای یک DID ."
+msgstr "جستجو برای یک داخلی مستقیم."
 
 #: page.cdr.php:286
 msgid "Search for accountcode."
