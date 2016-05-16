@@ -11,14 +11,14 @@ var CdrC = UCPMC.extend({
 			var container = $("#dashboard-content");
 			$.pjax.click(event, { container: container });
 		});
-		$(".clickable").click(function(e) {
-			var text = $(this).text();
-			if (UCP.validMethod("Contactmanager", "showActionDialog")) {
-				UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
-			}
-		});
 		$('#cdr-grid').on("post-body.bs.table", function () {
 			$this.bindPlayers();
+			$("#cdr-grid .clickable").click(function(e) {
+				var text = $(this).text();
+				if (UCP.validMethod("Contactmanager", "showActionDialog")) {
+					UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
+				}
+			});
 		});
 		$("#cdr-grid").bootstrapTable('refreshOptions', {
 			exportOptions: {
