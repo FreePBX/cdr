@@ -739,7 +739,7 @@ if ( $tot_calls_raw ) {
 			$fday = substr($rec_parts[3],6,2);
 			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 			$recordingfile = "$monitor_base/$fyear/$fmonth/$fday/" . $row['recordingfile'];
-			$recordingfile = pathinfo($recordingfile, PATHINFO_EXTENSION) == 'wav49'? "$monitor_base/$fyear/$fmonth/$fday/" . pathinfo($recordingfile, PATHINFO_FILENAME).'.WAV' : $recordingfile;    
+			$recordingfile = pathinfo($recordingfile, PATHINFO_EXTENSION) == 'wav49'? "$monitor_base/$fyear/$fmonth/$fday/" . pathinfo($recordingfile, PATHINFO_FILENAME).'.WAV' : $recordingfile;
 			if (!file_exists($recordingfile)) {
 				$recordingfile = '';
 			}
@@ -1097,7 +1097,7 @@ function cdr_formatSrc($src, $clid) {
 
 function cdr_formatCallerID($cnam, $cnum, $channel) {
 	$dcnum = $cnum == '' && $cnam == '' ? '' : htmlspecialchars('<' . $cnum . '>');
-	$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . ' "');
+	$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . '" ');
 	echo '<td title="' ._("Channel") . ": " . $channel . '">' . $dcnam . $dcnum . '</td>';
 }
 
