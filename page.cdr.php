@@ -20,14 +20,6 @@ $db_result_limit = 100;
 $db_name = !empty($amp_conf['CDRDBNAME'])?$amp_conf['CDRDBNAME']:"asteriskcdrdb";
 $db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRDBTABLENAME']:"cdr";
 
-// Make sure they're both escaped with backticks.
-if ($db_name[0] !== '`') {
-	$db_name = "`$db_name`";
-}
-if ($db_table_name[0] !== '`') {
-	$db_table_name = "`$db_table_name`";
-}
-
 $system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."/monitor":"/var/spool/asterisk/monitor";
 
 // if CDRDBHOST and CDRDBTYPE are not empty then we assume an external connection and don't use the default connection
@@ -46,6 +38,14 @@ if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
 	}
 } else {
 	$dbcdr = $db;
+}
+
+// Make sure they're both escaped with backticks.
+if ($db_name[0] !== '`') {
+	$db_name = "`$db_name`";
+}
+if ($db_table_name[0] !== '`') {
+	$db_table_name = "`$db_table_name`";
 }
 
 // For use in encrypt-decrypt of path and filename for the recordings
@@ -748,7 +748,7 @@ if ( $tot_calls_raw ) {
 			$fday = substr($rec_parts[3],6,2);
 			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
 			$recordingfile = "$monitor_base/$fyear/$fmonth/$fday/" . $row['recordingfile'];
-			$recordingfile = pathinfo($recordingfile, PATHINFO_EXTENSION) == 'wav49'? "$monitor_base/$fyear/$fmonth/$fday/" . pathinfo($recordingfile, PATHINFO_FILENAME).'.WAV' : $recordingfile;    
+			$recordingfile = pathinfo($recordingfile, PATHINFO_EXTENSION) == 'wav49'? "$monitor_base/$fyear/$fmonth/$fday/" . pathinfo($recordingfile, PATHINFO_FILENAME).'.WAV' : $recordingfile;
 			if (!file_exists($recordingfile)) {
 				$recordingfile = '';
 			}

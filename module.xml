@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>13.0.29.1</version>
+	<version>13.0.29.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*13.0.29.2* Add backticks after we construct the dsn string
 		*13.0.29.1* Make sure DB Names are escaped with backticks
 		*13.0.29* FREEPBX-11617 UCP Quick Link(s) to Return Calls to Voicemail
 		*13.0.28* FREEPBX-12006 during install use remote db
