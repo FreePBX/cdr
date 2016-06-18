@@ -1106,7 +1106,7 @@ function cdr_formatSrc($src, $clid) {
 
 function cdr_formatCallerID($cnam, $cnum, $channel) {
 	$dcnum = $cnum == '' && $cnam == '' ? '' : htmlspecialchars('<' . $cnum . '>');
-	$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . ' "');
+	$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . '" ');
 	echo '<td title="' ._("Channel") . ": " . $channel . '">' . $dcnam . $dcnum . '</td>';
 }
 
