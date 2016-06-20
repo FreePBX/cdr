@@ -3,7 +3,7 @@
 		<div class="alert alert-<?php echo $message['type']?>"><?php echo $message['message']?></div>
 	<?php } ?>
 	<table id="cdr-grid"
-        data-url="index.php?quietmode=1&amp;module=cdr&amp;command=grid&amp;extension=<?php echo $_REQUEST['sub']?>"
+        data-url="index.php?quietmode=1&amp;module=cdr&amp;command=grid&amp;extension=<?php echo htmlentities($ext)?>"
         data-cache="false"
         data-cookie="true"
         data-cookie-id-table="ucp-cdr-table"
