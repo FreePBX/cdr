@@ -65,7 +65,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 
 	// common query components
 	//
-	$sql_base = "SELECT * FROM $cel_table WHERE ";
+	$sql_base = "SELECT *, unix_timestamp(eventtime) as `event_timestamp` FROM $cel_table WHERE ";
 	$sql_order = " ORDER BY eventtime, id";
 
 

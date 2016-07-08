@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>13.0.29.4</version>
+	<version>14.0.1alpha1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,92 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
-		*13.0.29.4* FREEPBX-12361 XSS in sub argument
-		*13.0.29.3* FREEPBX-12161 Caller ID format
-		*13.0.29.2* Add backticks after we construct the dsn string
-		*13.0.29.1* Make sure DB Names are escaped with backticks
-		*13.0.29* FREEPBX-11617 UCP Quick Link(s) to Return Calls to Voicemail
-		*13.0.28* FREEPBX-12006 during install use remote db
-		*13.0.27* FREEPBX-11754 Add export function to table, requires UCP update
-		*13.0.26* Use mime type checks for ucp downloads
-		*13.0.25* FREEPBX-10571 remove repeat add restart button to player
-		*13.0.24* FREEPBX-11538 make sure to select a field with a recording
-		*13.0.23* #11644 - Fix missing cols in CDR table
-		*13.0.22* FREEPBX-11304 UCP/Cannot disable call playback ability
-		*13.0.21* Fix ODBC DSN name
-		*13.0.20.1* Fix dbnames not being escaped on install
-		*13.0.20* FREEPBX-10816
-		*13.0.19* If there are no icons in the row then dont attempt to process them
-		*13.0.18* Use boostrap tables and new HTML5 player
-		*13.0.17* FREEPBX-9777 CDR module connects to wrong database when downloading file
-		*13.0.16* FREEPBX-9401 UCP Call history displays outbound CID instead of called number
-		*13.0.15* FREEPBX-9384 Extensions in UCP need to be strings not integers
-		*13.0.14* Fix permission management in User Manager
-		*13.0.13* FREEPBX-10209 htmlentities need to use UTF-8
-		*13.0.12* Showing title is completely useless
-		*13.0.11* Full HTML5 Support
-		*13.0.10* More invalid arrayness
-		*13.0.8* Invalid port declaration
-		*13.0.8* FREEPBX-9610 Cannot access Call History or Call Event Logs
-		*13.0.7* Performance improvements
-		*13.0.6* New group settings in Usermanager
-		*13.0.5* Look and feel in usermanager
-		*13.0.4* Remove CEL Depends
-		*13.0.3* FREEPBX-8845 SQL Injection Vulnerability
-		*13.0.2* Move CEL configuration and table creation to cel module.
-		*12.0.14* FREEPBX-8325 Seperate Call History/Recordings in the UCP from settings
-		*12.0.13* Better media handling for in browser playback in UCP, added error reporting as well
-		*12.0.12* FREEPBX-7518
-		*12.0.11* Contact Manager Support in UCP
-		*12.0.10* FREEPBX-8257 UCP Not playing back Call recordings or Download attempts forward to blank page and no file
-		*12.0.9* Updates to CDR display in UCP
-		*12.0.8* FREEPBX-8226 Names dont show up on virtual extensions in UCP
-		*12.0.7* Dont support range on a download, cleanup so that cdr and this look similar
-		*12.0.6* Fixes to allow playback in Safari and Mobile devices (yes including apple and android)
-		*12.0.5* Fixes issue with exporting CSV records with quotes
-		*12.0.4* FREEPBX-8081, FREEPBX-7696 enable CEL logging in advanced settings does not enable CEL
-		*12.0.3* Small fix for CDRs in UCP
-		*12.0.2* FREEPBX-7996 call history in UCP not capturing all calls, check cnum as well as others
-		*12.0.1alpha8* Remove old 2.9 color schemes
-		*12.0.1alpha7* Undefined Variables cleanup
-		*12.0.1alpha6* Database connection fixes
-		*12.0.1alpha5* Database connection fixes
-		*12.0.1alpha4* Database connection fixes
-		*12.0.1alpha3* More UCP work
-		*12.0.1alpha2* Added UCP module
-		*12.0.1alpha1* HTML5 Playback Support
-		*2.11.0.11* #7338
-		*2.11.0.10* generate license file
-		*2.11.0.8* #6798 - fix query which returned incorrect results
-		*2.11.0.7* #6798
-		*2.11.0.6* Database Abstraction Layer Fixes
-		*2.11.0.5* #6123
-		*2.11.0.4* #6545, #6540, #6736
-		*2.11.0.3* #6603
-		*2.11.0.2* #6391
-		*2.11.0.1* #6255
-		*2.11.0.0* finish #5782 generate cel and res_odbc conf files, requires odbc.ini to be configured
-		*2.11.0.beta1.2* #6134 again
-		*2.11.0.beta1.1* #6134
-		*2.11.0.beta1.0* adds proper cid fields
-		*2.11.0.alpha2* #5788, #5782 more
-		*2.11.0.alpha1* #5782 Adds some CEL support ODBC and CEL manual setup required see cel.man.zip
-		*2.10.0.4* formatting tweaks
-		*2.10.0.3* #5500
-		*2.10.0.2* #5478, $5479
-		*2.10.0.1* add call recordings to CDR
-		*2.10.0.0* #1426
-		*2.10.0.beta4*  Bug fixes, re-categorizations
-		*2.10.0.beta3*  Speed up download of csv
-		*2.10.0.beta2*  Bug fixes
-		*2.10.0.beta1*  Play recorded files
-		*2.10.0.alpha6* Bug fix in recordings settings
-		*2.10.0.alpha5* Added localization
-		*2.10.0.alpha4* Added csv export
-		*2.10.0.alpha3* First public release
-		*2.10.0.alpha2* Not released to public
-		*2.10.0.alpha1* Not released to public
-		*2.10.0.alpha0* Not released to public
+		*14.0.1alpha1* Inital Release
 	</changelog>
 	<hooks>
 		<ucp class="Ucp">
@@ -115,7 +30,7 @@
 		<module>core ge 12.0.8</module>
 	</depends>
 	<supported>
-		<version>13.0</version>
+		<version>14.0</version>
 	</supported>
 	<location>release/2.11/cdr-2.11.0.4.tgz</location>
 	<md5sum>31321560b9a2b33615d20239544812a5</md5sum>

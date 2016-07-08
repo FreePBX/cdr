@@ -431,7 +431,7 @@ if (isset($amp_conf['CEL_ENABLED']) && $amp_conf['CEL_ENABLED'] && !isset($_POST
 			}
 
 			echo "  <tr class=\"record\">\n";
-			cdr_formatCallDate($row['eventtime']);
+			cdr_formatCallDate($row['event_timestamp']);
 			cdr_cel_formatEventType($row['eventtype']);
 			cdr_formatCNAM($row['cid_name']);
 			cdr_formatCNUM($row['cid_num']);
@@ -757,7 +757,7 @@ if ( $tot_calls_raw ) {
 		}
 
 		echo "  <tr class=\"record\">\n";
-		cdr_formatCallDate($row['calldate']);
+		cdr_formatCallDate($row['call_timestamp']);
 		cdr_formatRecordingFile($recordingfile, $row['recordingfile'], $id, $row['uniqueid']);
 		cdr_formatUniqueID($row['uniqueid']);
 
@@ -1074,7 +1074,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 <?php
 /* CDR Table Display Functions */
 function cdr_formatCallDate($calldate) {
-	echo "<td>".$calldate."</td>";
+	echo "<td>".FreePBX::View()->getDateTime($calldate)."</td>";
 }
 
 function cdr_formatUniqueID($uniqueid) {

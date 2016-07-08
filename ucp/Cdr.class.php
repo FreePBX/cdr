@@ -370,7 +370,7 @@ class Cdr extends Modules{
 			} else {
 				$call['text'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable' data-type='number' data-primary='phone'>$1</span>&gt;",$call['text']);
 			}
-			$call['formattedTime'] = date('m/d/y h:i:sa',$call['timestamp']);
+			$call['formattedTime'] = $this->UCP->View->getDateTime($call['timestamp']);
 		}
 		return $calls;
 	}
