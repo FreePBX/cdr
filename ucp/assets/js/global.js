@@ -92,7 +92,7 @@ var CdrC = UCPMC.extend({
 		return row.niceDuration;
 	},
 	formatDate: function(value, row, index) {
-		return UCP.dateFormatter(value);
+		return UCP.dateTimeFormatter(value);
 	},
 	bindPlayers: function() {
 		$(".jp-jplayer").each(function() {
