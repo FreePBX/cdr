@@ -185,7 +185,7 @@ class Cdr implements BMO {
 	}
 
 	public function ajaxRequest($req, &$setting) {
-		$setting['authenticate'] = false;
+		$setting['authenticate'] = true;
 		$setting['allowremote'] = false;
 		switch($req) {
 			case "gethtml5":
