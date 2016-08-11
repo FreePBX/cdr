@@ -61,7 +61,7 @@
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="cdr_download"><?php echo _("Allow CDR Playback")?></label>
+						<label class="control-label" for="cdr_download"><?php echo _("Allow CDR Downloads")?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="cdr_download"></i>
 					</div>
 					<div class="col-md-9">
@@ -82,7 +82,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="cdr_download-help" class="help-block fpbx-help-block"><?php echo _("Allow this user to playback recordings in UCP")?></span>
+			<span id="cdr_download-help" class="help-block fpbx-help-block"><?php echo _("Allow users to download recordings in UCP")?></span>
 		</div>
 	</div>
 </div>
@@ -92,7 +92,7 @@
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="cdr_playback"><?php echo _("Allow CDR Downloads")?></label>
+						<label class="control-label" for="cdr_playback"><?php echo _("Allow CDR Playback")?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="cdr_playback"></i>
 					</div>
 					<div class="col-md-9">
@@ -113,7 +113,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="cdr_playback-help" class="help-block fpbx-help-block"><?php echo _("Allow users to download recordings in UCP")?></span>
+			<span id="cdr_playback-help" class="help-block fpbx-help-block"><?php echo _("Allow this user to playback recordings in UCP")?></span>
 		</div>
 	</div>
 </div>
