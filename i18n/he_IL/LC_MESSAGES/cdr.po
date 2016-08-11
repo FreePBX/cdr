@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-17 08:07+1000\n"
+"POT-Creation-Date: 2016-08-10 17:31-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -123,19 +123,19 @@ msgstr ""
 msgid "Allow CDR"
 msgstr ""
 
-#: views/ucp_config.php:95
+#: views/ucp_config.php:64
 msgid "Allow CDR Downloads"
 msgstr ""
 
-#: views/ucp_config.php:64
+#: views/ucp_config.php:95
 msgid "Allow CDR Playback"
 msgstr ""
 
-#: views/ucp_config.php:85
+#: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
 msgstr ""
 
-#: views/ucp_config.php:116
+#: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
 msgstr ""
 

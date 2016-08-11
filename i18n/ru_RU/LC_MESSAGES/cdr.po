@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-17 08:07+1000\n"
+"POT-Creation-Date: 2016-08-10 17:31-0700\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -130,19 +130,19 @@ msgstr "Любой статус"
 msgid "Allow CDR"
 msgstr "Разврешить CDR"
 
-#: views/ucp_config.php:95
+#: views/ucp_config.php:64
 msgid "Allow CDR Downloads"
 msgstr "Разрешить загрузку CDR"
 
-#: views/ucp_config.php:64
+#: views/ucp_config.php:95
 msgid "Allow CDR Playback"
 msgstr "Разрешить воспроизведение CDR"
 
-#: views/ucp_config.php:85
+#: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
 msgstr "Разрешить пользователю воспроизводить записи в UCP"
 
-#: views/ucp_config.php:116
+#: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
 msgstr "Разрешить пользователю скачивать записи в UCP"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-17 08:07+1000\n"
+"POT-Creation-Date: 2016-08-10 17:31-0700\n"
 "PO-Revision-Date: 2016-06-06 20:50+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -122,19 +122,19 @@ msgstr "Disposición Todos"
 msgid "Allow CDR"
 msgstr "Permitir CDR"
 
-#: views/ucp_config.php:95
+#: views/ucp_config.php:64
 msgid "Allow CDR Downloads"
 msgstr "Permitir bajar CDR"
 
-#: views/ucp_config.php:64
+#: views/ucp_config.php:95
 msgid "Allow CDR Playback"
 msgstr "Permitir reproducir CDR"
 
-#: views/ucp_config.php:85
+#: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
 msgstr "Permitir a este usuario escuchar grabaciones en UCP"
 
-#: views/ucp_config.php:116
+#: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
 msgstr "Permitir usuarios a bajar grabaciones en UCP"
 
