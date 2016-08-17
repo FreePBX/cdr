@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-07 17:06-0700\n"
+"POT-Creation-Date: 2016-08-17 15:45-0700\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,17 +29,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:303
+#: Cdr.class.php:306
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:305
+#: Cdr.class.php:308
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:308
+#: Cdr.class.php:311
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -65,16 +65,25 @@ msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr "<b>Z</b> = matchar alla siffror från 1-9<br>"
 
 #: page.cdr.php:194 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:257
-msgid "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>"
-msgstr "<b>[1237-9]</b> = matchar alla siffror och bokstäver inom hakperanteserna<br>(i detta exempel, 1,2,3,7,8,9)<br>"
+msgid ""
+"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
+"example, 1,2,3,7,8,9)<br>"
+msgstr ""
+"<b>[1237-9]</b> = matchar alla siffror och bokstäver inom "
+"hakperanteserna<br>(i detta exempel, 1,2,3,7,8,9)<br>"
 
 #: page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:221 page.cdr.php:252
-msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
-msgstr "<b>_!2XXN, _562., _.0075</b> = Sök efter någon match <b>förutom</b> dessa nummer"
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
+msgstr ""
+"<b>_!2XXN, _562., _.0075</b> = Sök efter någon match <b>förutom</b> dessa "
+"nummer"
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:251
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr "<b>_2XXN, _562., _.0075</b> = sök efter någon match för dessa nummer<br>"
+msgstr ""
+"<b>_2XXN, _562., _.0075</b> = sök efter någon match för dessa nummer<br>"
 
 #: page.cdr.php:190 /usr/src/freepbx/cdr/page.cdr.php:222 page.cdr.php:253
 msgid "<br>Asterisk pattern matching<br>"
@@ -120,19 +129,19 @@ msgstr "Alla dispositioner"
 msgid "Allow CDR"
 msgstr ""
 
-#: views/ucp_config.php:95
+#: views/ucp_config.php:64
 msgid "Allow CDR Downloads"
 msgstr ""
 
-#: views/ucp_config.php:64
+#: views/ucp_config.php:95
 msgid "Allow CDR Playback"
 msgstr ""
 
-#: views/ucp_config.php:85
+#: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
 msgstr ""
 
-#: views/ucp_config.php:116
+#: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
 msgstr ""
 
@@ -583,15 +592,22 @@ msgid "Search for accountcode."
 msgstr "Sök efter kontokod"
 
 #: page.cdr.php:187
-msgid "Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
+msgid ""
+"Search for calls based on CallerID Number. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
 msgstr ""
 
 #: page.cdr.php:219
-msgid "Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
+msgid ""
+"Search for calls based on outbound CID used. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
 msgstr ""
 
 #: page.cdr.php:316
-msgid "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
 msgstr "Sök efter samtal som matchar ANSWERED, BUSY, FAILED eller NO ANSWER."
 
 #: page.cdr.php:306
@@ -599,8 +615,12 @@ msgid "Search for calls that matches the call length specified."
 msgstr "Sök efter samtal som matchar den angivna samtalsintervallen"
 
 #: page.cdr.php:250
-msgid "Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
-msgstr "Sök efter destinationssamtal. Du kan ange flera källor separerade med ett komma. Detta fält stöder Asterisk reguljära uttryck."
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+"Sök efter destinationssamtal. Du kan ange flera källor separerade med ett "
+"komma. Detta fält stöder Asterisk reguljära uttryck."
 
 #: page.cdr.php:284
 msgid "Search for userfield data (if enabled)."
@@ -619,8 +639,12 @@ msgid "Select Destination Caller Name to search for."
 msgstr ""
 
 #: page.cdr.php:101
-msgid "Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search"
-msgstr "Välj period för din rapport. Du kan välja datum, månad, timme och minut för att begränsa din sökning."
+msgid ""
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
+msgstr ""
+"Välj period för din rapport. Du kan välja datum, månad, timme och minut för "
+"att begränsa din sökning."
 
 #: page.cdr.php:107
 msgid "September"
@@ -643,7 +667,9 @@ msgid "Telephone Number"
 msgstr "Telefonnummer"
 
 #: views/ucp_config.php:54
-msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
+msgid ""
+"These are the assigned and active extensions which will show up for this "
+"user to control and edit in UCP"
 msgstr ""
 
 #: page.cdr.php:414 page.cdr.php:1053
@@ -708,7 +734,11 @@ msgstr ""
 
 #: page.cdr.php:821 ucp/assets/js/global.js:86
 #, perl-format, php-format
-msgid "You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
 msgstr ""
 
 #: page.cdr.php:424
@@ -746,17 +776,37 @@ msgstr ""
 #~ msgid "File"
 #~ msgstr "Fil"
 
-#~ msgid "Search for CallerID. If your CallerID begins with \" then you must supply this in your search if you select Begins With."
-#~ msgstr "Sök efter nummerpresentation. Om din nummerpresentation börjar med ett \"-tecken måste du ange detta om du väljer Börjar med."
+#~ msgid ""
+#~ "Search for CallerID. If your CallerID begins with \" then you must supply "
+#~ "this in your search if you select Begins With."
+#~ msgstr ""
+#~ "Sök efter nummerpresentation. Om din nummerpresentation börjar med ett \"-"
+#~ "tecken måste du ange detta om du väljer Börjar med."
 
-#~ msgid "Search for source calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
-#~ msgstr "Sök efter källsamtal. Du kan skriva in flera källor separerade med komma. Detta fält stöder Asterisk reguljära uttryck. Exempel<br>"
+#~ msgid ""
+#~ "Search for source calls. You can enter multiple sources separated by a "
+#~ "comma. This field support Asterisk regular expression. Example<br>"
+#~ msgstr ""
+#~ "Sök efter källsamtal. Du kan skriva in flera källor separerade med komma. "
+#~ "Detta fält stöder Asterisk reguljära uttryck. Exempel<br>"
 
-#~ msgid "Select Destination Channel to search for. It can be just the channel type like SIP, IAX2 or Local. It can include the destination for the channel, like SIP/1234."
-#~ msgstr "Välj destinationskanal at söka efter. Det kan vara endast kanaltypen såsom IP, IAX2 eller Local. Du kan även ange destinationen för kanalen såsom SIP/1234"
+#~ msgid ""
+#~ "Select Destination Channel to search for. It can be just the channel type "
+#~ "like SIP, IAX2 or Local. It can include the destination for the channel, "
+#~ "like SIP/1234."
+#~ msgstr ""
+#~ "Välj destinationskanal at söka efter. Det kan vara endast kanaltypen "
+#~ "såsom IP, IAX2 eller Local. Du kan även ange destinationen för kanalen "
+#~ "såsom SIP/1234"
 
-#~ msgid "Select Source Channel to search for. You can enter just the channel type like SIP, IAX2 or Local. You can also include the destination for the channel, like SIP/1234."
-#~ msgstr "Mata in sökvillkor för källkanal. Du kan skriva endast kanaltypen såsom SIP, IAX2 eller Local. Du kan även begränsa sökningen genom att ange destinationen såsom SIP/1234"
+#~ msgid ""
+#~ "Select Source Channel to search for. You can enter just the channel type "
+#~ "like SIP, IAX2 or Local. You can also include the destination for the "
+#~ "channel, like SIP/1234."
+#~ msgstr ""
+#~ "Mata in sökvillkor för källkanal. Du kan skriva endast kanaltypen såsom "
+#~ "SIP, IAX2 eller Local. Du kan även begränsa sökningen genom att ange "
+#~ "destinationen såsom SIP/1234"
 
 #~ msgid "Source"
 #~ msgstr "Källa"

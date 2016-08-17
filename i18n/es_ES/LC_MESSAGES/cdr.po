@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-07 17:06-0700\n"
+"POT-Creation-Date: 2016-08-17 15:45-0700\n"
 "PO-Revision-Date: 2016-06-06 20:50+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cdr/es_ES/>\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cdr/"
+"es_ES/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Cdr.class.php:303
+#: Cdr.class.php:306
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s horas, %s minutos, %s segundos"
 
-#: Cdr.class.php:305
+#: Cdr.class.php:308
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s minutos, %s segundos"
 
-#: Cdr.class.php:308
+#: Cdr.class.php:311
 #, php-format
 msgid "%s sec"
 msgstr "%s segundos"
@@ -56,16 +57,26 @@ msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr "<b>Z</b> = coincide con cualquier dígito 1-9<br>"
 
 #: page.cdr.php:194 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:257
-msgid "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>"
-msgstr "<b>[1237-9]</b> = coincide con cualquier dígito o letra de los indicados entre corchetes <br>(en este ejemplo, 1,2,3,7,8,9)<br>"
+msgid ""
+"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
+"example, 1,2,3,7,8,9)<br>"
+msgstr ""
+"<b>[1237-9]</b> = coincide con cualquier dígito o letra de los indicados "
+"entre corchetes <br>(en este ejemplo, 1,2,3,7,8,9)<br>"
 
 #: page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:221 page.cdr.php:252
-msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
-msgstr "<b>_!2XXN, _!562., _!.0075</b> = Buscar cualquier coincidencia <b>excepto</b> de estos números"
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
+msgstr ""
+"<b>_!2XXN, _!562., _!.0075</b> = Buscar cualquier coincidencia <b>excepto</"
+"b> de estos números"
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:251
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr "<b>_2XXN, _562., _.0075</b> = Buscar cualquier coincidencia de cualquiera  de estos números"
+msgstr ""
+"<b>_2XXN, _562., _.0075</b> = Buscar cualquier coincidencia de cualquiera  "
+"de estos números"
 
 #: page.cdr.php:190 /usr/src/freepbx/cdr/page.cdr.php:222 page.cdr.php:253
 msgid "<br>Asterisk pattern matching<br>"
@@ -111,19 +122,19 @@ msgstr "Disposición Todos"
 msgid "Allow CDR"
 msgstr "Permitir CDR"
 
-#: views/ucp_config.php:95
+#: views/ucp_config.php:64
 msgid "Allow CDR Downloads"
 msgstr "Permitir bajar CDR"
 
-#: views/ucp_config.php:64
+#: views/ucp_config.php:95
 msgid "Allow CDR Playback"
 msgstr "Permitir reproducir CDR"
 
-#: views/ucp_config.php:85
+#: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
 msgstr "Permitir a este usuario escuchar grabaciones en UCP"
 
-#: views/ucp_config.php:116
+#: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
 msgstr "Permitir usuarios a bajar grabaciones en UCP"
 
@@ -574,24 +585,43 @@ msgid "Search for accountcode."
 msgstr "Buscar por accountcode."
 
 #: page.cdr.php:187
-msgid "Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
-msgstr "Búsqueda de llamadas basados en Número de identificación de llamadas. Puede introducir varios números separados por una coma. Este campo soporta expresiones regulares Asterisk. Ejemplo <br>"
+msgid ""
+"Search for calls based on CallerID Number. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
+"Búsqueda de llamadas basados en Número de identificación de llamadas. Puede "
+"introducir varios números separados por una coma. Este campo soporta "
+"expresiones regulares Asterisk. Ejemplo <br>"
 
 #: page.cdr.php:219
-msgid "Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
-msgstr "Búsqueda de llamadas en función de CID saliente utilizado. Puede introducir varios números separados por una coma. Este campo soporta expresiones regulares Asterisk. Ejemplo <br>"
+msgid ""
+"Search for calls based on outbound CID used. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
+"Búsqueda de llamadas en función de CID saliente utilizado. Puede introducir "
+"varios números separados por una coma. Este campo soporta expresiones "
+"regulares Asterisk. Ejemplo <br>"
 
 #: page.cdr.php:316
-msgid "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
-msgstr "Buscar para Llamadas que coincidan con CONTESTADO, OCUPADO, FALLIDO O NO CONTESTADO."
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr ""
+"Buscar para Llamadas que coincidan con CONTESTADO, OCUPADO, FALLIDO O NO "
+"CONTESTADO."
 
 #: page.cdr.php:306
 msgid "Search for calls that matches the call length specified."
 msgstr "Buscar para Llamadas que coincidan con la duración especificada."
 
 #: page.cdr.php:250
-msgid "Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
-msgstr "Búsqueda de llamadas por destino. Puede entrar varios números separados por coma. Este campo soporta expresiones regulares Asterisk. Ejemplo <br>"
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+"Búsqueda de llamadas por destino. Puede entrar varios números separados por "
+"coma. Este campo soporta expresiones regulares Asterisk. Ejemplo <br>"
 
 #: page.cdr.php:284
 msgid "Search for userfield data (if enabled)."
@@ -610,8 +640,12 @@ msgid "Select Destination Caller Name to search for."
 msgstr "Selecciones Nombre del llamante Destino a buscar."
 
 #: page.cdr.php:101
-msgid "Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search"
-msgstr "Seleccione rango de tiempo para su reporte, Usted puede seleccionar Fecha, mes, Día, Hora y minuto para acotar su búsqueda"
+msgid ""
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
+msgstr ""
+"Seleccione rango de tiempo para su reporte, Usted puede seleccionar Fecha, "
+"mes, Día, Hora y minuto para acotar su búsqueda"
 
 #: page.cdr.php:107
 msgid "September"
@@ -634,8 +668,12 @@ msgid "Telephone Number"
 msgstr "Número Teléfono"
 
 #: views/ucp_config.php:54
-msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
-msgstr "Estas son las extensiones asignadas y activas que se mostrará para este usuario controlar y editar en UCP"
+msgid ""
+"These are the assigned and active extensions which will show up for this "
+"user to control and edit in UCP"
+msgstr ""
+"Estas son las extensiones asignadas y activas que se mostrará para este "
+"usuario controlar y editar en UCP"
 
 #: page.cdr.php:414 page.cdr.php:1053
 msgid "Time"
@@ -699,8 +737,16 @@ msgstr "Si"
 
 #: page.cdr.php:821 ucp/assets/js/global.js:86
 #, perl-format, php-format
-msgid "You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"
-msgstr "Esta falando  el soporte para la reproducción en este navegador. Para apoyar plenamente la reproducción navegador HTML5 tendrá que instalar programas que no pueden ser distribuidos con la central. Si desea instalar los binarios necesarios para estas conversiones, haga clic en <a href='%s'>aquí</a>"
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
+msgstr ""
+"Esta falando  el soporte para la reproducción en este navegador. Para apoyar "
+"plenamente la reproducción navegador HTML5 tendrá que instalar programas que "
+"no pueden ser distribuidos con la central. Si desea instalar los binarios "
+"necesarios para estas conversiones, haga clic en <a href='%s'>aquí</a>"
 
 #: page.cdr.php:424
 msgid "channel"
@@ -764,20 +810,44 @@ msgstr "Sacado de la conferencia"
 #~ msgid "Play"
 #~ msgstr "Reproducir"
 
-#~ msgid "Please upgrade UCP before this module so that settings can be properly migrated"
-#~ msgstr "Por favor actualice UCP antes de este modulo de manera que esta configuración pueda ser migrada apropiadamente"
+#~ msgid ""
+#~ "Please upgrade UCP before this module so that settings can be properly "
+#~ "migrated"
+#~ msgstr ""
+#~ "Por favor actualice UCP antes de este modulo de manera que esta "
+#~ "configuración pueda ser migrada apropiadamente"
 
-#~ msgid "Please upgrade Usermanager before this module so that settings can be properly migrated"
-#~ msgstr "Por favor actualice Usermanager antes de este modulo de manera que la configuración pueda ser migrada apropiadamente"
+#~ msgid ""
+#~ "Please upgrade Usermanager before this module so that settings can be "
+#~ "properly migrated"
+#~ msgstr ""
+#~ "Por favor actualice Usermanager antes de este modulo de manera que la "
+#~ "configuración pueda ser migrada apropiadamente"
 
-#~ msgid "Setting this true will enable the CDR module to drill down on CEL data for each CDR. Although the CDR module will assure there is a CEL table available, the reporting functionality in Asterisk and associated ODBC database and CEL configuration must be done outside of FreePBX either by the user or at the Distro level."
-#~ msgstr "Al establecer este en \"verdadero\" será activado el módulo CDR para profundizar en los datos de  CEL para cada CDR. Aunque el módulo CDR asegurará que hay una tabla de CEL disponible, la funcionalidad de informes en el Asterisk y la configuración de base de datos ODBC y CEL asociado deben ser hechas fuera de FreePBX ya sea por el usuario o en el nivel Distro."
+#~ msgid ""
+#~ "Setting this true will enable the CDR module to drill down on CEL data "
+#~ "for each CDR. Although the CDR module will assure there is a CEL table "
+#~ "available, the reporting functionality in Asterisk and associated ODBC "
+#~ "database and CEL configuration must be done outside of FreePBX either by "
+#~ "the user or at the Distro level."
+#~ msgstr ""
+#~ "Al establecer este en \"verdadero\" será activado el módulo CDR para "
+#~ "profundizar en los datos de  CEL para cada CDR. Aunque el módulo CDR "
+#~ "asegurará que hay una tabla de CEL disponible, la funcionalidad de "
+#~ "informes en el Asterisk y la configuración de base de datos ODBC y CEL "
+#~ "asociado deben ser hechas fuera de FreePBX ya sea por el usuario o en el "
+#~ "nivel Distro."
 
 #~ msgid "This might take a while......"
 #~ msgstr "Esto podría tomar un rato....."
 
-#~ msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
-#~ msgstr "Para reproducir la media usted tendrá que actualice su navegador a una versión más reciente o actualizar su <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
+#~ msgid ""
+#~ "To play the media you will need to either update your browser to a recent "
+#~ "version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
+#~ msgstr ""
+#~ "Para reproducir la media usted tendrá que actualice su navegador a una "
+#~ "versión más reciente o actualizar su <a href=\"%s\" target=\"_blank"
+#~ "\">Flash plugin</a>"
 
 #~ msgid "Unable to add index to uniqueid field in cdr table"
 #~ msgstr "No se puede agregar el índice de campo uniqueid en la tabla cdr"
