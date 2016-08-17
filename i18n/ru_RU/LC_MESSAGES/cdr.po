@@ -65,26 +65,16 @@ msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr "<b>Z</b> = любому числу от 1 до 9<br>"
 
 #: page.cdr.php:194 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:257
-msgid ""
-"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
-"example, 1,2,3,7,8,9)<br>"
-msgstr ""
-"<b>[1237-9]</b> = любое число или буква из скобок<br>( здесь например это: "
-"1,2,3,7,8,9<br>"
+msgid "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>"
+msgstr "<b>[1237-9]</b> = любое число или буква из скобок<br>( здесь например это: 1,2,3,7,8,9<br>"
 
 #: page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:221 page.cdr.php:252
-msgid ""
-"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
-"numbers"
-msgstr ""
-"<b>_!2XXN, _562., _.0075</b> = найти все совпадения, которые <b>не "
-"совпадают</b> со всеми этими тремя шаблонами"
+msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
+msgstr "<b>_!2XXN, _562., _.0075</b> = найти все совпадения, которые <b>не совпадают</b> со всеми этими тремя шаблонами"
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:251
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr ""
-"<b>_2XXN, _562., _.0075</b> эквивалентно любому номеру подпадающему под "
-"любой из этих трех шаблонов<br>"
+msgstr "<b>_2XXN, _562., _.0075</b> эквивалентно любому номеру подпадающему под любой из этих трех шаблонов<br>"
 
 #: page.cdr.php:190 /usr/src/freepbx/cdr/page.cdr.php:222 page.cdr.php:253
 msgid "<br>Asterisk pattern matching<br>"
@@ -377,9 +367,7 @@ msgstr "Длительность"
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
-msgstr ""
-"Включить CDR(история вызовов) в Панели Управления Пользователями для этого "
-"пользователя"
+msgstr "Включить CDR(история вызовов) в Панели Управления Пользователями для этого пользователя"
 
 #: page.cdr.php:201 /usr/src/freepbx/cdr/page.cdr.php:213 page.cdr.php:233
 #: /usr/src/freepbx/cdr/page.cdr.php:245 page.cdr.php:264
@@ -595,28 +583,15 @@ msgid "Search for accountcode."
 msgstr "Поиск по accountcode."
 
 #: page.cdr.php:187
-msgid ""
-"Search for calls based on CallerID Number. You can enter multiple numbers "
-"separated by a comma. This field support Asterisk regular expression. "
-"Example<br>"
-msgstr ""
-"Поиск для звонков на основе CallerID номера. Вы можете ввести несколько "
-"чисел, разделенных запятыми. Это поле поддерживает регулярное выражение "
-"Asterisk. Например<br>"
+msgid "Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
+msgstr "Поиск для звонков на основе CallerID номера. Вы можете ввести несколько чисел, разделенных запятыми. Это поле поддерживает регулярное выражение Asterisk. Например<br>"
 
 #: page.cdr.php:219
-msgid ""
-"Search for calls based on outbound CID used. You can enter multiple numbers "
-"separated by a comma. This field support Asterisk regular expression. "
-"Example<br>"
-msgstr ""
-"Поиск для звонков на основе использования исходящего CID. Вы можете ввести "
-"несколько чисел, разделенных запятыми. Это поле поддерживает регулярное "
-"выражение Asterisk. Например<br>"
+msgid "Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
+msgstr "Поиск для звонков на основе использования исходящего CID. Вы можете ввести несколько чисел, разделенных запятыми. Это поле поддерживает регулярное выражение Asterisk. Например<br>"
 
 #: page.cdr.php:316
-msgid ""
-"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgid "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
 msgstr "Поиск по статусу звонка: Отвечен / Занят / Неудавшийся / Без ответа."
 
 #: page.cdr.php:306
@@ -624,12 +599,8 @@ msgid "Search for calls that matches the call length specified."
 msgstr "Поиск звонков определенной длительности."
 
 #: page.cdr.php:250
-msgid ""
-"Search for destination calls. You can enter multiple sources separated by a "
-"comma. This field support Asterisk regular expression. Example<br>"
-msgstr ""
-"Поиск по номеру назначения. Можно ввести один номер или несколько Asterisk "
-"совместимых регулярных выражений разделенных запятой, например:<br>"
+msgid "Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
+msgstr "Поиск по номеру назначения. Можно ввести один номер или несколько Asterisk совместимых регулярных выражений разделенных запятой, например:<br>"
 
 #: page.cdr.php:284
 msgid "Search for userfield data (if enabled)."
@@ -648,12 +619,8 @@ msgid "Select Destination Caller Name to search for."
 msgstr "Выберите имя куда звонил для поиска."
 
 #: page.cdr.php:101
-msgid ""
-"Select time span for your report. You can select Date, Month, Year, Hour and "
-"Minute to narrow your search"
-msgstr ""
-"Выберите промежуток времени для отчета. Вы можете указать: День, Месяц, Год, "
-"Час и Минуту для более точного поиска"
+msgid "Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search"
+msgstr "Выберите промежуток времени для отчета. Вы можете указать: День, Месяц, Год, Час и Минуту для более точного поиска"
 
 #: page.cdr.php:107
 msgid "September"
@@ -676,12 +643,8 @@ msgid "Telephone Number"
 msgstr "Номера телефона"
 
 #: views/ucp_config.php:54
-msgid ""
-"These are the assigned and active extensions which will show up for this "
-"user to control and edit in UCP"
-msgstr ""
-"Эти назначенные и активные расширения, которые будут отображаться для этого "
-"пользователя, чтобы контролировать и редактировать в UCP"
+msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
+msgstr "Эти назначенные и активные расширения, которые будут отображаться для этого пользователя, чтобы контролировать и редактировать в UCP"
 
 #: page.cdr.php:414 page.cdr.php:1053
 msgid "Time"
@@ -745,16 +708,8 @@ msgstr "Да"
 
 #: page.cdr.php:821 ucp/assets/js/global.js:86
 #, perl-format, php-format
-msgid ""
-"You are missing support for playback in this browser. To fully support HTML5 "
-"browser playback you will need to install programs that can not be "
-"distributed with the PBX. If you'd like to install the binaries needed for "
-"these conversions click <a href='%s'>here</a>"
-msgstr ""
-"Этот браузер не поддерживает воспроизведение. Для полной поддержки "
-"воспроизведение HTML5 необходимо устанвоить программы,которые не "
-"распространяюься вместе с FreePBX. Если Вы желаете установить бинарные файлы "
-"для перекодирования, то нажмите <a href='%s'>здесь</a>"
+msgid "You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"
+msgstr "Этот браузер не поддерживает воспроизведение. Для полной поддержки воспроизведение HTML5 необходимо устанвоить программы,которые не распространяюься вместе с FreePBX. Если Вы желаете установить бинарные файлы для перекодирования, то нажмите <a href='%s'>здесь</a>"
 
 #: page.cdr.php:424
 msgid "channel"
@@ -776,9 +731,6 @@ msgstr "расш"
 msgid "kicked from conference"
 msgstr "выпнут из конференции"
 
-#~ msgid "Unable to add index todid field in cdr table"
-#~ msgstr "Невозможно добавить индекс поля todid в таблице cdr"
-
 #~ msgid "Added field did to cdr"
 #~ msgstr "Поле входящего номера добавлено в CDR"
 
@@ -794,65 +746,8 @@ msgstr "выпнут из конференции"
 #~ msgid "Adding recordingfile field to cdr"
 #~ msgstr "Добавление поля файла записи разговора в CDR"
 
-#~ msgid "Checking if field did is present in cdr table.."
-#~ msgstr "Проверка наличия входящего номера в таблице CDR.."
-
-#~ msgid "Checking if field recordingfile is present in cdr table.."
-#~ msgstr "Проверка имеется ли файл записи разговора в таблице CDR.."
-
-#~ msgid ""
-#~ "Please upgrade UCP before this module so that settings can be properly "
-#~ "migrated"
-#~ msgstr ""
-#~ "Пожалуйста, обновите UCP перед этим модулем, чтоб настройки могли быть "
-#~ "перенесены правильно"
-
-#~ msgid ""
-#~ "Please upgrade Usermanager before this module so that settings can be "
-#~ "properly migrated"
-#~ msgstr ""
-#~ "Пожалуйста, обновите Usermanager перед этим модулем, чтоб настройки могли "
-#~ "быть перенесены правильно"
-
-#~ msgid "This might take a while......"
-#~ msgstr "Возможно придется подождать..."
-
-#~ msgid "Unable to add index to uniqueid field in cdr table"
-#~ msgstr "Невозможно добавить индекс в поле uniqueid в таблице cdr"
-
-#~ msgid "Unable to add recordingfile field to cdr table"
-#~ msgstr "Не могу добавить поле recordingfile в таблицу cdr"
-
-#~ msgid "did field already present."
-#~ msgstr "Поле входящего номера уже присутствует."
-
-#~ msgid "recordingfile field already present."
-#~ msgstr "Поле recordingfile уже имеется."
-
-#~ msgid "Loading"
-#~ msgstr "Загрузка"
-
-#~ msgid "No History"
-#~ msgstr "Нет истории"
-
-#~ msgid "Play"
-#~ msgstr "Воспроизвести"
-
-#~ msgid ""
-#~ "To play the media you will need to either update your browser to a recent "
-#~ "version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
-#~ msgstr ""
-#~ "Для воспроизведения медиа вы должны либо обновить браузер до последней "
-#~ "версии, или обновить  <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
-
-#~ msgid "Update Required"
-#~ msgstr "Необходимо обновить"
-
 #~ msgid "Allowed CDR"
 #~ msgstr "Разрешенные CDR"
-
-#~ msgid "OK"
-#~ msgstr "ОК"
 
 #~ msgid "App."
 #~ msgstr "Приложение."
@@ -862,6 +757,12 @@ msgstr "выпнут из конференции"
 
 #~ msgid "CDR Viewer"
 #~ msgstr "Отчет по звонкам"
+
+#~ msgid "Checking if field did is present in cdr table.."
+#~ msgstr "Проверка наличия входящего номера в таблице CDR.."
+
+#~ msgid "Checking if field recordingfile is present in cdr table.."
+#~ msgstr "Проверка имеется ли файл записи разговора в таблице CDR.."
 
 #~ msgid "Dest."
 #~ msgstr "Куда."
@@ -875,35 +776,35 @@ msgstr "выпнут из конференции"
 #~ msgid "File"
 #~ msgstr "Файл"
 
-#~ msgid ""
-#~ "Search for CallerID. If your CallerID begins with \" then you must supply "
-#~ "this in your search if you select Begins With."
-#~ msgstr ""
-#~ "Поиск по имени и номеру звонящего. Если имя начинается с \" Вам нужно "
-#~ "указать это если Вы выбрали поиск по началу строки"
+#~ msgid "Loading"
+#~ msgstr "Загрузка"
 
-#~ msgid ""
-#~ "Search for source calls. You can enter multiple sources separated by a "
-#~ "comma. This field support Asterisk regular expression. Example<br>"
-#~ msgstr ""
-#~ "Поиск по номеру звонящего. Можно ввести один номер или несколько Asterisk "
-#~ "совместимых регулярных выражений разделенных запятой, например:<br>"
+#~ msgid "No History"
+#~ msgstr "Нет истории"
 
-#~ msgid ""
-#~ "Select Destination Channel to search for. It can be just the channel type "
-#~ "like SIP, IAX2 or Local. It can include the destination for the channel, "
-#~ "like SIP/1234."
-#~ msgstr ""
-#~ "Выберите канал назначения. Вы можите просто ввести тип канала, например "
-#~ "SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
+#~ msgid "OK"
+#~ msgstr "ОК"
 
-#~ msgid ""
-#~ "Select Source Channel to search for. You can enter just the channel type "
-#~ "like SIP, IAX2 or Local. You can also include the destination for the "
-#~ "channel, like SIP/1234."
-#~ msgstr ""
-#~ "Выберите канал источника. Вы можите просто ввести тип канала, например "
-#~ "SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
+#~ msgid "Play"
+#~ msgstr "Воспроизвести"
+
+#~ msgid "Please upgrade UCP before this module so that settings can be properly migrated"
+#~ msgstr "Пожалуйста, обновите UCP перед этим модулем, чтоб настройки могли быть перенесены правильно"
+
+#~ msgid "Please upgrade Usermanager before this module so that settings can be properly migrated"
+#~ msgstr "Пожалуйста, обновите Usermanager перед этим модулем, чтоб настройки могли быть перенесены правильно"
+
+#~ msgid "Search for CallerID. If your CallerID begins with \" then you must supply this in your search if you select Begins With."
+#~ msgstr "Поиск по имени и номеру звонящего. Если имя начинается с \" Вам нужно указать это если Вы выбрали поиск по началу строки"
+
+#~ msgid "Search for source calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
+#~ msgstr "Поиск по номеру звонящего. Можно ввести один номер или несколько Asterisk совместимых регулярных выражений разделенных запятой, например:<br>"
+
+#~ msgid "Select Destination Channel to search for. It can be just the channel type like SIP, IAX2 or Local. It can include the destination for the channel, like SIP/1234."
+#~ msgstr "Выберите канал назначения. Вы можите просто ввести тип канала, например SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
+
+#~ msgid "Select Source Channel to search for. You can enter just the channel type like SIP, IAX2 or Local. You can also include the destination for the channel, like SIP/1234."
+#~ msgstr "Выберите канал источника. Вы можите просто ввести тип канала, например SIP, IAX2, Local. Или ввести полное имя канала, например SIP/1234."
 
 #~ msgid "Source"
 #~ msgstr "Кто звонил"
@@ -919,3 +820,27 @@ msgstr "выпнут из конференции"
 
 #~ msgid "System Administration"
 #~ msgstr "Системное администрирование"
+
+#~ msgid "This might take a while......"
+#~ msgstr "Возможно придется подождать..."
+
+#~ msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
+#~ msgstr "Для воспроизведения медиа вы должны либо обновить браузер до последней версии, или обновить  <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
+
+#~ msgid "Unable to add index to uniqueid field in cdr table"
+#~ msgstr "Невозможно добавить индекс в поле uniqueid в таблице cdr"
+
+#~ msgid "Unable to add index todid field in cdr table"
+#~ msgstr "Невозможно добавить индекс поля todid в таблице cdr"
+
+#~ msgid "Unable to add recordingfile field to cdr table"
+#~ msgstr "Не могу добавить поле recordingfile в таблицу cdr"
+
+#~ msgid "Update Required"
+#~ msgstr "Необходимо обновить"
+
+#~ msgid "did field already present."
+#~ msgstr "Поле входящего номера уже присутствует."
+
+#~ msgid "recordingfile field already present."
+#~ msgstr "Поле recordingfile уже имеется."
