@@ -246,10 +246,10 @@ class Cdr implements BMO {
 	 * @param bool $generateMedia Whether to generate HTML assets or not
 	 */
 	public function getRecordByIDExtension($rid,$ext) {
-		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :dstchannel)";
+		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :chan OR channel LIKE :chan)";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
-			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':dstchannel' => '%/'.$ext.'-%'));
+			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':chan' => '%/'.$ext.'-%'));
 			$recording = $sth->fetch(PDO::FETCH_ASSOC);
 		} catch(\Exception $e) {
 			return false;
