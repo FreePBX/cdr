@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>13.0.29.7</version>
+	<version>13.0.29.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*13.0.29.8* FREEPBX-12997 Connection should be UTF8
 		*13.0.29.7* FREEPBX-12997 try to clean up invalid UTF8
 		*13.0.29.6* FREEPBX-12783 The two options are backwards in UCP Allow Playback and Allow Downloads
 		*13.0.29.5* Update Ajax

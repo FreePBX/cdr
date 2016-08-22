@@ -31,9 +31,9 @@ class Cdr implements BMO {
 		$db_user = empty($db_user) ? $amp_conf['AMPDBUSER'] : $db_user;
 		$db_pass = empty($db_pass) ? $amp_conf['AMPDBPASS'] : $db_pass;
 		try {
-			$this->cdrdb = new \Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass);
+			$this->cdrdb = new \Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name.';charset=utf8',$db_user,$db_pass);
 		} catch(\Exception $e) {
-			die('Unable to connect to CDR Database using string:'.$db_type.':host='.$db_host.$db_port.';dbname='.$db_name.','.$db_user.','.$db_pass);
+			die('Unable to connect to CDR Database using string:'.$db_type.':host='.$db_host.$db_port.';dbname='.$db_name.';charset=utf8,'.$db_user.','.$db_pass);
 		}
 	}
 
