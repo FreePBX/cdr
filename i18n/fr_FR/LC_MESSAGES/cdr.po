@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-10 17:31-0700\n"
+"POT-Creation-Date: 2016-08-22 14:24-0700\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -21,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Cdr.class.php:303
+#: Cdr.class.php:306
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s heure, %s min, %s sec"
 
-#: Cdr.class.php:305
+#: Cdr.class.php:308
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s sec"
 
-#: Cdr.class.php:308
+#: Cdr.class.php:311
 #, php-format
 msgid "%s sec"
 msgstr "%s sec"
@@ -420,7 +420,7 @@ msgstr "Février"
 msgid "File does not exist"
 msgstr "Le fichier n'existe pas"
 
-#: ucp/Cdr.class.php:386
+#: ucp/Cdr.class.php:416
 msgid "Forbidden"
 msgstr "Interdit"
 
@@ -507,7 +507,7 @@ msgstr "Pas"
 msgid "Not Authorized"
 msgstr "Non autorisé"
 
-#: ucp/Cdr.class.php:392
+#: ucp/Cdr.class.php:422
 msgid "Not Found"
 msgstr "Non trouvé"
 

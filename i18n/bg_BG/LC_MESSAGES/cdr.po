@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-10 17:31-0700\n"
+"POT-Creation-Date: 2016-08-22 14:24-0700\n"
 "PO-Revision-Date: 2011-09-23 09:52+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -13,17 +13,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:303
+#: Cdr.class.php:306
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s часа, %s мин, %s сек"
 
-#: Cdr.class.php:305
+#: Cdr.class.php:308
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s мин, %s сек"
 
-#: Cdr.class.php:308
+#: Cdr.class.php:311
 #, php-format
 msgid "%s sec"
 msgstr "%s сек"
@@ -403,7 +403,7 @@ msgstr "Февруари"
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:386
+#: ucp/Cdr.class.php:416
 msgid "Forbidden"
 msgstr ""
 
@@ -490,7 +490,7 @@ msgstr ""
 msgid "Not Authorized"
 msgstr ""
 
-#: ucp/Cdr.class.php:392
+#: ucp/Cdr.class.php:422
 msgid "Not Found"
 msgstr ""
 
