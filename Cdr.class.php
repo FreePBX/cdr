@@ -1,40 +1,144 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
-class Cdr implements BMO {
+//
+// This is the main interface to the CDR Database.
+//
+// It is used by multiple modules. Please don't alter it without
+// running complete unit tests!
+// 
+// The License for this FreePBX module can be found in the license file inside the
+// module directory
+//
+// Copyright 2015, 2016 Sangoma Technologies Corporation
+
+namespace FreePBX\modules;
+
+class Cdr implements \BMO {
+
 	private $validFiles = array();
-	private $db_table = 'cdr';
+
+	/** Public variable for access to the raw PDO handle */
+	public $cdrdb;
+
+	/** Cache of the FreePBX BMO Object */
+	private $FreePBX;
+
+	/** CDR Table name, set in __construct */
+	private $db_table;
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
-			throw new Exception("Not given a FreePBX Object");
+			throw new \Exception("Not given a FreePBX Object");
 		}
 
-		$amp_conf = FreePBX::$conf;
-		$this->FreePBX = $freepbx;
-		$this->db = $freepbx->Database;
-		$config = $this->FreePBX->Config;
-		$db_name = $config->get('CDRDBNAME');
-		$db_host = $config->get('CDRDBHOST');
-		$db_port = $config->get('CDRDBPORT');
-		$db_user = $config->get('CDRDBUSER');
-		$db_pass = $config->get('CDRDBPASS');
-		$db_table = $config->get('CDRDBTABLENAME');
-		$dbt = $config->get('CDRDBTYPE');
+		// Variables to try. If the key is blank/unset, use the value instead.
+		$vars = array(
+			"CDRDBHOST" => "AMPDBHOST",
+			"CDRDBPORT" => "AMPDBPORT",
+			"CDRDBUSER" => "AMPDBUSER",
+			"CDRDBPASS" => "AMPDBPASS",
+			"CDRDBTYPE" => "AMPDBTYPE",
+			// This is removed if unset
+			"CDRDBSOCK" => "AMPDBSOCK",
+			// Note - no default, we check later.
+			"CDRDBNAME" => "CDRDBNAME",
+			"CDRDBTABLENAME" => "CDRDBTABLENAME",
+		);
 
-		$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
-		$dbt = !empty($dbt) ? $dbt : 'mysql';
-		$db_type = $db_hash[$dbt];
-		$this->db_table = !empty($db_table) ? $db_table : "cdr";
-		$db_name = !empty($db_name) ? $db_name : "asteriskcdrdb";
-		$db_host = !empty($db_host) ? $db_host : "localhost";
-		$db_port = empty($db_port) ? '' :  ';port=' . $db_port;
-		$db_user = empty($db_user) ? $amp_conf['AMPDBUSER'] : $db_user;
-		$db_pass = empty($db_pass) ? $amp_conf['AMPDBPASS'] : $db_pass;
+		$cdr = array();
+		foreach ($vars as $conf => $default) {
+			$tmp = \FreePBX::Config()->get($conf);
+			// Is our config blank for this setting?
+			if (!$tmp) {
+				// How about the default?
+				$defvalue = \FreePBX::Config()->get($default);
+				if ($defvalue) {
+					$cdr[$conf] = $defalue;
+				} else {
+					// Well that's blank. Is it part of FreePBX::$conf? (That's the parsed output of /etc/freepbx.conf)
+					if (empty(\FreePBX::$conf[$default])) {
+						// No. Set it to blank.
+						$cdr[$conf] = "";
+					} else {
+						$cdr[$conf] = \FreePBX::$conf[$default];
+					}
+				}
+			} else {
+				// We have a setting
+				$cdr[$conf] = $tmp;
+			}
+		}
+
+		// If CDRDBNAME is blank, set it to asteriskcdrdb
+		if (!$cdr['CDRDBNAME']) {
+			$dsnarray = array("dbname" => "asteriskcdrdb");
+		} else {
+			$dsnarray = array("dbname" => $cdr['CDRDBNAME']);
+        }
+
+		// If we don't have a type (bogus install, possibly?), assume mysql
+		if (!$cdr['CDRDBTYPE']) {
+			$engine = "mysql";
+		} else {
+			// The db 'type' name can be wrong. Remap it to the correct one if it is
+			if ($cdr['CDRDBTYPE'] == "postgres") {
+				$engine = "pgsql";
+			} else {
+				$engine = $cdr['CDRDBTYPE'];
+			}
+		}
+
+		// If we have a socket, we don't want host and port.
+		if ($cdr['CDRDBSOCK']) {
+			$dsnarray['unix_socket'] = $cdr['CDRDBSOCK'];
+		} else {
+			$dsnarray['host'] = $cdr['CDRDBHOST'];
+			// Do we have a port?
+			if ($cdr['CDRDBPORT']) {
+				$dsnarray['port'] = $cdr['CDRDBPORT'];
+			}
+		}
+
+		// If there's no cdrdbtablename, set it to cdr
+		if (!$cdr['CDRDBTABLENAME']) {
+			$this->db_table = "cdr";
+		} else {
+			$this->db_table = $cdr['CDRDBTABLENAME'];
+		}
+
+		// If this is sqlite, ignore everything we've just done.
+		if (strpos($engine, "sqlite") === 0) {
+			// This is our raw parsed variables from /etc/freepbx.conf
+			$ampconf = \FreePBX::$amp_conf;
+			if (isset($amp_conf['cdrdatasource'])) {
+				$dsn = "$engine:".$amp_conf['cdrdatasource'];
+			} elseif (!empty($amp_conf['datasource'])) {
+				$dsn = "$engine:".$amp_conf['datasource'];
+			} else {
+				throw new \Exception("Datasource set to sqlite, but no cdrdatasource or datasource provided");
+			}
+			$user = "";
+			$pass = "";
+		} else {
+			// Not SQLite.
+			$user = $cdr["CDRDBUSER"];
+			$pass = $cdr["CDRDBPASS"];
+
+			// Note - http_build_query() is a simple shortcut to change a key=>value array
+			// to a string.
+			$dsn = "$engine:".http_build_query($dsnarray, '', ';');
+		}
+		// Now try to get a DB handle using our DSN
 		try {
-			$this->cdrdb = new \Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name.';charset=utf8',$db_user,$db_pass);
+			$this->cdrdb = new \Database($dsn, $user, $pass);
 		} catch(\Exception $e) {
-			die('Unable to connect to CDR Database using string:'.$db_type.':host='.$db_host.$db_port.';dbname='.$db_name.';charset=utf8,'.$db_user.','.$db_pass);
+			die("Unable to connect to CDR Database using dsn '$dsn' with user '$user' and password '$pass' - ".$e->getMessage());
 		}
+	}
+
+	public function getCdrDbHandle() {
+		// Simply returns the DB Handle created in __construct
+		return $this->cdrdb;
 	}
 
 	public function ucpDelGroup($id,$display,$data) {
