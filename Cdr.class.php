@@ -29,6 +29,8 @@ class Cdr implements \BMO {
 			throw new \Exception("Not given a FreePBX Object");
 		}
 
+		$this->FreePBX = $freepbx;
+
 		// Variables to try. If the key is blank/unset, use the value instead.
 		$vars = array(
 			"CDRDBHOST" => "AMPDBHOST",
