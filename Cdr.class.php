@@ -15,8 +15,6 @@ namespace FreePBX\modules;
 
 class Cdr implements \BMO {
 
-	private $validFiles = array();
-
 	/** Public variable for access to the raw PDO handle */
 	public $cdrdb;
 
