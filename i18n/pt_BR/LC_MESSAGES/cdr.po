@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 06:24+1000\n"
+"POT-Creation-Date: 2016-09-09 08:02+1000\n"
 "PO-Revision-Date: 2015-02-04 00:43+0200\n"
 "Last-Translator: Rafael <rafael@ibinetwork.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://git.freepbx.org/projects/freepbx/"
@@ -17,17 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
-#: Cdr.class.php:408
+#: Cdr.class.php:410
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s hora, %s min, %s seg"
 
-#: Cdr.class.php:410
+#: Cdr.class.php:412
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s seg"
 
-#: Cdr.class.php:413
+#: Cdr.class.php:415
 #, php-format
 msgid "%s sec"
 msgstr "%s seg"
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Call Graph"
 msgstr "Gráfico de Chamadas"
 
-#: Cdr.class.php:263 ucp/Cdr.class.php:199
+#: Cdr.class.php:265 ucp/Cdr.class.php:199
 msgid "Call History"
 msgstr ""
 
@@ -685,7 +685,7 @@ msgstr ""
 msgid "User Field"
 msgstr "Usuário"
 
-#: Cdr.class.php:254
+#: Cdr.class.php:256
 msgid "User Primary Extension"
 msgstr ""
 
