@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>13.0.30.1</version>
+	<version>13.0.30.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,7 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
-		*13.0.30.1* Rewrite/modernize contstructor
+		*13.0.30.2* Rewrite/modernize contstructor
 		*13.0.29.8* FREEPBX-12997 Connection should be UTF8
 		*13.0.29.7* FREEPBX-12997 try to clean up invalid UTF8
 		*13.0.29.6* FREEPBX-12783 The two options are backwards in UCP Allow Playback and Allow Downloads
@@ -106,13 +106,13 @@
 	</changelog>
 	<hooks>
 		<ucp class="Ucp">
-			<method class="Cdr" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
-			<method class="Cdr" callingMethod="addUser">ucpAddUser</method>
-			<method class="Cdr" callingMethod="updateUser">ucpUpdateUser</method>
-			<method class="Cdr" callingMethod="delUser">ucpDelUser</method>
-			<method class="Cdr" callingMethod="addGroup">ucpAddGroup</method>
-			<method class="Cdr" callingMethod="updateGroup">ucpUpdateGroup</method>
-			<method class="Cdr" callingMethod="delGroup">ucpDelGroup</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="addUser">ucpAddUser</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="updateUser">ucpUpdateUser</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="delUser">ucpDelUser</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="addGroup">ucpAddGroup</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="updateGroup">ucpUpdateGroup</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="delGroup">ucpDelGroup</method>
 		</ucp>
 	</hooks>
 	<depends>
