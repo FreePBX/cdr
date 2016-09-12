@@ -335,7 +335,7 @@ class Cdr implements \BMO {
 		$sth = $this->cdrdb->prepare($sql);
 		try {
 			$sth->execute(array("uid" => str_replace("_",".",$rid)));
-			$recording = $sth->fetch(PDO::FETCH_ASSOC);
+			$recording = $sth->fetch(\PDO::FETCH_ASSOC);
 		} catch(\Exception $e) {
 			return array();
 		}
@@ -354,7 +354,7 @@ class Cdr implements \BMO {
 		$sth = $this->cdrdb->prepare($sql);
 		try {
 			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':chan' => '%/'.$ext.'-%'));
-			$recording = $sth->fetch(PDO::FETCH_ASSOC);
+			$recording = $sth->fetch(\PDO::FETCH_ASSOC);
 		} catch(\Exception $e) {
 			return false;
 		}
@@ -396,7 +396,7 @@ class Cdr implements \BMO {
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
 		}
-		$calls = $sth->fetchAll(PDO::FETCH_ASSOC);
+		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		foreach($calls as &$call) {
 			if(empty($call['dst']) && preg_match('/\/(.*)\-/',$call['dstchannel'],$matches)) {
 				$call['dst'] = $matches[1];
@@ -436,7 +436,7 @@ class Cdr implements \BMO {
 			$sth = $this->cdrdb->prepare($sql);
 			$sth->execute(array(':extension' => $extension,':extensionv' => 'vmu'.$extension));
 		}
-		$res = $sth->fetch(PDO::FETCH_ASSOC);
+		$res = $sth->fetch(\PDO::FETCH_ASSOC);
 		$total = $res['count'];
 		if(!empty($total)) {
 			return ceil($total/$limit);
