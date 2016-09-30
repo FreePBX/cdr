@@ -21,13 +21,17 @@ msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-09 08:02+1000\n"
-"PO-Revision-Date: 2011-07-29 20:45+0200\n"
-"Last-Translator: Postmet <ceo@postmet.com>\n"
-"Language-Team: Postmet <ceo@postmet.org>\n"
+"PO-Revision-Date: 2016-09-30 13:30+0200\n"
+"Last-Translator: Maxim <maxim@ua.fm>\n"
+"Language-Team: Russian "
+"<http://weblate.freepbx.org/projects/freepbx/cdr/ru_RU/>\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Cdr.class.php:410
 #, php-format
@@ -120,7 +124,7 @@ msgstr "Добавление индекса к полю did в таблице cd
 
 #: install.php:85
 msgid "Adding!"
-msgstr ""
+msgstr "Добавлено!"
 
 #: page.cdr.php:321
 msgid "All Dispositions"
@@ -524,7 +528,7 @@ msgstr "Ноябрь"
 
 #: install.php:82
 msgid "OK!"
-msgstr ""
+msgstr "Хорошо!"
 
 #: page.cdr.php:107
 msgid "October"
@@ -701,7 +705,7 @@ msgstr "Суммарная продолжительность"
 
 #: install.php:47
 msgid "Unable to add index to did field in the cdr table"
-msgstr ""
+msgstr "Невозможно добавить индекс поля в таблице cdr"
 
 #: page.cdr.php:1086 page.cdr.php:1089
 msgid "UniqueID"
