@@ -224,11 +224,11 @@ class Cdr extends Modules{
 				case 'dial':
 					switch($call['disposition']) {
 						case 'ANSWERED':
-							if($call['src'] == $self) {
+							if($call['src'] == $self || strpos($call['channel'], "/".$self."-") !== false) {
 								$call['icons'][] = 'fa-arrow-right out';
 								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
 								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst'];
-							} elseif($call['dst'] == $self) {
+							} elseif($call['dst'] == $self || strpos($call['dstchannel'], "/".$self."-") !== false) {
 								$call['icons'][] = 'fa-arrow-left in';
 								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} elseif($call['cnum'] == $self) {
@@ -242,12 +242,12 @@ class Cdr extends Modules{
 						case 'NO ANSWER':
 							//Remove the recording reference as these are almost always errors (from what I've seen)
 							$call['recordingfile'] = '';
-							if($call['src'] == $self) {
+							if($call['src'] == $self || strpos($call['channel'], "/".$self."-") !== false) {
 								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
 								$call['icons'][] = 'fa-arrow-right out';
 								$call['icons'][] = 'fa-ban';
 								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst'];
-							} elseif($call['dst'] == $self) {
+							} elseif($call['dst'] == $self || strpos($call['dstchannel'], "/".$self."-") !== false) {
 								$call['icons'][] = 'fa-ban';
 								$call['icons'][] = 'fa-arrow-left in';
 								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
@@ -259,12 +259,12 @@ class Cdr extends Modules{
 							}
 						break;
 						case 'BUSY':
-							if($call['src'] == $self) {
+							if($call['src'] == $self || strpos($call['channel'], "/".$self."-") !== false) {
 								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
 								$call['icons'][] = 'fa-arrow-right out';
 								$call['icons'][] = 'fa-clock-o';
 								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst'];
-							} elseif($call['dst'] == $self) {
+							} elseif($call['dst'] == $self || strpos($call['dstchannel'], "/".$self."-") !== false) {
 								$call['icons'][] = 'fa-ban';
 								$call['icons'][] = 'fa-clock-o';
 								$call['text'] = $call['clid'];
@@ -368,11 +368,41 @@ class Cdr extends Modules{
 			if(empty($call['text'])) {
 				$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
 			} else {
+				$call['text'] = $this->cleanUTF8($call['text']);
 				$call['text'] = preg_replace("/&lt;(.*)&gt;/i","&lt;<span class='clickable' data-type='number' data-primary='phone'>$1</span>&gt;",$call['text']);
 			}
 			$call['formattedTime'] = $this->UCP->View->getDateTime($call['timestamp']);
 		}
 		return $calls;
+	}
+
+	/**
+	 * If you have come across the cursed ‘Invalid Character‘ error while
+	 * using PHP’s XML or JSON parser then you may be interested in this.
+	 *
+	 * Unfortunately, PHP’s XML and JSON parsers do not ignore non-UTF8
+	 * characters, but rather they stop and throw a rather unhelpful error.
+	 * I found the below code form net and work excellently for me.
+	 *
+	 * http://stackoverflow.com/a/37438731
+	 *
+	 * @param  string $string String to check
+	 * @return string         Fixed characters
+	 */
+	private function cleanUTF8($string) {
+		//reject overly long 2 byte sequences, as well as characters above U+10000 and replace with ?
+		$string = preg_replace('/[\x00-\x08\x10\x0B\x0C\x0E-\x19\x7F]'.
+		 '|[\x00-\x7F][\x80-\xBF]+'.
+		 '|([\xC0\xC1]|[\xF0-\xFF])[\x80-\xBF]*'.
+		 '|[\xC2-\xDF]((?![\x80-\xBF])|[\x80-\xBF]{2,})'.
+		 '|[\xE0-\xEF](([\x80-\xBF](?![\x80-\xBF]))|(?![\x80-\xBF]{2})|[\x80-\xBF]{3,})/S',
+		 '?', $string );
+
+		//reject overly long 3 byte sequences and UTF-16 surrogates and replace with ?
+		$string = preg_replace('/\xE0[\x80-\x9F][\x80-\xBF]'.
+		 '|\xED[\xA0-\xBF][\x80-\xBF]/S','?', $string );
+
+		 return $string;
 	}
 
 	/**

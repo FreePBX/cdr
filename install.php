@@ -76,7 +76,7 @@ $cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam'
 foreach($cid_fields as $cf) {
 	outn(_("Checking if field $cf is present in cdr table.."));
 	try {
-		$sql = "SELECT $cf FROM `$db_name`.`$db_table_name`";
+		$sql = "SELECT $cf FROM `$db_name`.`$db_table_name` limit 1";
 		$confs = $pdo->query($sql, DB_FETCHMODE_ASSOC);
 		// If we didn't throw an exception, we're done.
 		out(_("OK!"));

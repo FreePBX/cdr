@@ -8,8 +8,7 @@ msgstr ""
 "POT-Creation-Date: 2016-08-17 15:45-0700\n"
 "PO-Revision-Date: 2015-02-04 00:43+0200\n"
 "Last-Translator: Rafael <rafael@ibinetwork.com.br>\n"
-"Language-Team: Portuguese (Brazil) <http://git.freepbx.org/projects/freepbx/"
-"cdr/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <http://git.freepbx.org/projects/freepbx/cdr/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,17 +52,11 @@ msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr "<b>Z</b> = coincide qualquer digito de 1-9<br>"
 
 #: page.cdr.php:194 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:257
-msgid ""
-"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
-"example, 1,2,3,7,8,9)<br>"
-msgstr ""
-"<b>[1237-9]</b> = coincide qualquer digito ou letra no colchetes<br>(neste "
-"exemplo, 1,2,3,7,8,9)<br>"
+msgid "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>"
+msgstr "<b>[1237-9]</b> = coincide qualquer digito ou letra no colchetes<br>(neste exemplo, 1,2,3,7,8,9)<br>"
 
 #: page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:221 page.cdr.php:252
-msgid ""
-"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
-"numbers"
+msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
 msgstr ""
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:251
@@ -577,22 +570,15 @@ msgid "Search for accountcode."
 msgstr "Pesquisar por Numero da Conta."
 
 #: page.cdr.php:187
-msgid ""
-"Search for calls based on CallerID Number. You can enter multiple numbers "
-"separated by a comma. This field support Asterisk regular expression. "
-"Example<br>"
+msgid "Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
 
 #: page.cdr.php:219
-msgid ""
-"Search for calls based on outbound CID used. You can enter multiple numbers "
-"separated by a comma. This field support Asterisk regular expression. "
-"Example<br>"
+msgid "Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
 
 #: page.cdr.php:316
-msgid ""
-"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgid "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
 msgstr ""
 
 #: page.cdr.php:306
@@ -600,9 +586,7 @@ msgid "Search for calls that matches the call length specified."
 msgstr ""
 
 #: page.cdr.php:250
-msgid ""
-"Search for destination calls. You can enter multiple sources separated by a "
-"comma. This field support Asterisk regular expression. Example<br>"
+msgid "Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
 
 #: page.cdr.php:284
@@ -622,9 +606,7 @@ msgid "Select Destination Caller Name to search for."
 msgstr ""
 
 #: page.cdr.php:101
-msgid ""
-"Select time span for your report. You can select Date, Month, Year, Hour and "
-"Minute to narrow your search"
+msgid "Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search"
 msgstr ""
 
 #: page.cdr.php:107
@@ -648,9 +630,7 @@ msgid "Telephone Number"
 msgstr "Numero Telefone"
 
 #: views/ucp_config.php:54
-msgid ""
-"These are the assigned and active extensions which will show up for this "
-"user to control and edit in UCP"
+msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
 msgstr ""
 
 #: page.cdr.php:414 page.cdr.php:1053
@@ -715,11 +695,7 @@ msgstr ""
 
 #: page.cdr.php:821 ucp/assets/js/global.js:86
 #, perl-format, php-format
-msgid ""
-"You are missing support for playback in this browser. To fully support HTML5 "
-"browser playback you will need to install programs that can not be "
-"distributed with the PBX. If you'd like to install the binaries needed for "
-"these conversions click <a href='%s'>here</a>"
+msgid "You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"
 msgstr ""
 
 #: page.cdr.php:424
