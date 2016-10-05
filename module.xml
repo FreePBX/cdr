@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>14.0.1alpha3</version>
+	<version>14.0.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,17 +12,18 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*14.0.2* Fix namespace issues
 		*14.0.1alpha1* Inital Release
 	</changelog>
 	<hooks>
 		<ucp class="Ucp">
-			<method class="Cdr" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
-			<method class="Cdr" callingMethod="addUser">ucpAddUser</method>
-			<method class="Cdr" callingMethod="updateUser">ucpUpdateUser</method>
-			<method class="Cdr" callingMethod="delUser">ucpDelUser</method>
-			<method class="Cdr" callingMethod="addGroup">ucpAddGroup</method>
-			<method class="Cdr" callingMethod="updateGroup">ucpUpdateGroup</method>
-			<method class="Cdr" callingMethod="delGroup">ucpDelGroup</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="constructModuleConfigPages">ucpConfigPage</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="addUser">ucpAddUser</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="updateUser">ucpUpdateUser</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="delUser">ucpDelUser</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="addGroup">ucpAddGroup</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="updateGroup">ucpUpdateGroup</method>
+			<method namespace="FreePBX\modules" class="Cdr" callingMethod="delGroup">ucpDelGroup</method>
 		</ucp>
 	</hooks>
 	<depends>

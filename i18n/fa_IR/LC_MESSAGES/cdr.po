@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 15:45-0700\n"
+"POT-Creation-Date: 2016-10-05 23:36+0000\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/cdr/fa_IR/>\n"
+"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
+"cdr/fa_IR/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Cdr.class.php:306
+#: Cdr.class.php:410
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s ساعت, %s دقیقه, %sثانیه"
 
-#: Cdr.class.php:308
+#: Cdr.class.php:412
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s دقیقه, %sثانیه"
 
-#: Cdr.class.php:311
+#: Cdr.class.php:415
 #, php-format
 msgid "%s sec"
 msgstr "%sثانیه"
@@ -56,16 +57,24 @@ msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr "<b>Z</b> = اعداد بین 1-9<br>"
 
 #: page.cdr.php:194 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:257
-msgid "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>"
-msgstr "<b>[1237-9]</b> = اعداد یا کراکتر داخل براکت<br>(in this example, 1,2,3,7,8,9)<br>"
+msgid ""
+"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
+"example, 1,2,3,7,8,9)<br>"
+msgstr ""
+"<b>[1237-9]</b> = اعداد یا کراکتر داخل براکت<br>(in this example, "
+"1,2,3,7,8,9)<br>"
 
 #: page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:221 page.cdr.php:252
-msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
-msgstr "<b>_!2XXN, _562., _.0075</b> = جستجو برای هر مورد <b>به جز</b>این شماره ها"
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
+msgstr ""
+"<b>_!2XXN, _562., _.0075</b> = جستجو برای هر مورد <b>به جز</b>این شماره ها"
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:251
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr "<<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
+msgstr ""
+"<<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
 
 #: page.cdr.php:190 /usr/src/freepbx/cdr/page.cdr.php:222 page.cdr.php:253
 msgid "<br>Asterisk pattern matching<br>"
@@ -230,7 +239,7 @@ msgstr "ثبت جزییات تماس - پاسخ جستجو"
 msgid "Call Graph"
 msgstr "گراف تماس"
 
-#: Cdr.class.php:161 ucp/Cdr.class.php:199
+#: Cdr.class.php:265 ucp/Cdr.class.php:199
 msgid "Call History"
 msgstr "تاریخچه تماس"
 
@@ -406,7 +415,7 @@ msgstr "فبریه"
 msgid "File does not exist"
 msgstr "فایلی وجود ندارد"
 
-#: ucp/Cdr.class.php:386
+#: ucp/Cdr.class.php:416
 msgid "Forbidden"
 msgstr "قدغن"
 
@@ -493,7 +502,7 @@ msgstr "نه"
 msgid "Not Authorized"
 msgstr "غیر مجاز"
 
-#: ucp/Cdr.class.php:392
+#: ucp/Cdr.class.php:422
 msgid "Not Found"
 msgstr "پیدا نشد"
 
@@ -574,24 +583,38 @@ msgid "Search for accountcode."
 msgstr "جستجو برای کد حساب."
 
 #: page.cdr.php:187
-msgid "Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
-msgstr "جستجوی تماس گیرنده ها از روی شماره شناسه تماس گیرنده. این فیلد از دستورات استریسک پشتیبانی میکند. مثل ‹br›"
+msgid ""
+"Search for calls based on CallerID Number. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
+"جستجوی تماس گیرنده ها از روی شماره شناسه تماس گیرنده. این فیلد از دستورات "
+"استریسک پشتیبانی میکند. مثل ‹br›"
 
 #: page.cdr.php:219
-msgid "Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
+msgid ""
+"Search for calls based on outbound CID used. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
 msgstr "جستجو بر اساس CID خروجی اختصاص داده شده. مانند<br>"
 
 #: page.cdr.php:316
-msgid "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
-msgstr "جستجو برای تماسهایی که پاسخ داده شده ،اشغال بوده ،ناموفق بوده یا بی پاسخ مانده اند."
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr ""
+"جستجو برای تماسهایی که پاسخ داده شده ،اشغال بوده ،ناموفق بوده یا بی پاسخ "
+"مانده اند."
 
 #: page.cdr.php:306
 msgid "Search for calls that matches the call length specified."
 msgstr "جستجو برای تماسهایی که با طول تماس مشخص شده مطابق باشد."
 
 #: page.cdr.php:250
-msgid "Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
-msgstr "جستجو برای مقصد تماسها. مقاصد مختلف با ویرگول از هم جدا میشوند.مانند<br>"
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+"جستجو برای مقصد تماسها. مقاصد مختلف با ویرگول از هم جدا میشوند.مانند<br>"
 
 #: page.cdr.php:284
 msgid "Search for userfield data (if enabled)."
@@ -610,8 +633,12 @@ msgid "Select Destination Caller Name to search for."
 msgstr "انتخاب نام مقصد تماس گیرنده برای جستجو."
 
 #: page.cdr.php:101
-msgid "Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search"
-msgstr "یک مدت زمان برای گزارش خود انتخاب کنید. شما میتوانید تاریخ، ماه، سال، ساعت و دقیقه را جستجو کنید"
+msgid ""
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
+msgstr ""
+"یک مدت زمان برای گزارش خود انتخاب کنید. شما میتوانید تاریخ، ماه، سال، ساعت و "
+"دقیقه را جستجو کنید"
 
 #: page.cdr.php:107
 msgid "September"
@@ -634,8 +661,12 @@ msgid "Telephone Number"
 msgstr "شماره تلفن"
 
 #: views/ucp_config.php:54
-msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
-msgstr "اینها داخلی های فعالی هستند که به کاربر در پنل کاربری برای کنترل و یا ویرایش نمایش داده میشوند"
+msgid ""
+"These are the assigned and active extensions which will show up for this "
+"user to control and edit in UCP"
+msgstr ""
+"اینها داخلی های فعالی هستند که به کاربر در پنل کاربری برای کنترل و یا ویرایش "
+"نمایش داده میشوند"
 
 #: page.cdr.php:414 page.cdr.php:1053
 msgid "Time"
@@ -669,7 +700,7 @@ msgstr "نا شناخته"
 msgid "User Field"
 msgstr "فیلد کاربری"
 
-#: Cdr.class.php:152
+#: Cdr.class.php:256
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
@@ -699,7 +730,11 @@ msgstr "بله"
 
 #: page.cdr.php:821 ucp/assets/js/global.js:86
 #, perl-format, php-format
-msgid "You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
 msgstr "مرورگر شما از پخش پشتیبانی نمیکند."
 
 #: page.cdr.php:424

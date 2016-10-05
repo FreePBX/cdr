@@ -9,10 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 15:45-0700\n"
+"POT-Creation-Date: 2016-10-05 23:36+0000\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
-"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/>\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
+">\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Cdr.class.php:306
+#: Cdr.class.php:410
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s heure, %s min, %s sec"
 
-#: Cdr.class.php:308
+#: Cdr.class.php:412
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s sec"
 
-#: Cdr.class.php:311
+#: Cdr.class.php:415
 #, php-format
 msgid "%s sec"
 msgstr "%s sec"
@@ -41,7 +42,8 @@ msgstr "10 Minutes"
 
 #: page.cdr.php:195 /usr/src/freepbx/cdr/page.cdr.php:227 page.cdr.php:258
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
-msgstr "<b>.</b> = caractères spéciaux, correspond à un ou plusieurs caractères<br>"
+msgstr ""
+"<b>.</b> = caractères spéciaux, correspond à un ou plusieurs caractères<br>"
 
 #: page.cdr.php:193 /usr/src/freepbx/cdr/page.cdr.php:225 page.cdr.php:256
 msgid "<b>N</b> = matches any digit from 2-9<br>"
@@ -56,16 +58,26 @@ msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr "<b>Z</b> = correspond à tout chiffre de 1-9<br>"
 
 #: page.cdr.php:194 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:257
-msgid "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>"
-msgstr "<b>[1237-9]</b> =  correspond à n'importe quel chiffre ou lettre entre les crochets <br> (dans cet exemple , 1,2,3,7,8,9 ) <br>"
+msgid ""
+"<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
+"example, 1,2,3,7,8,9)<br>"
+msgstr ""
+"<b>[1237-9]</b> =  correspond à n'importe quel chiffre ou lettre entre les "
+"crochets <br> (dans cet exemple , 1,2,3,7,8,9 ) <br>"
 
 #: page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:221 page.cdr.php:252
-msgid "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these numbers"
-msgstr "<b>_!2XXN, _562., _.0075</b> = Rechercher une correspondance <b>sauf</b> pour ces numéros"
+msgid ""
+"<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
+"numbers"
+msgstr ""
+"<b>_!2XXN, _562., _.0075</b> = Rechercher une correspondance <b>sauf</b> "
+"pour ces numéros"
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:251
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr "<b>_2XXN, _562., _.0075</b> = Rechercher une correspondance pour n'importe lequel de ces numéros<br>"
+msgstr ""
+"<b>_2XXN, _562., _.0075</b> = Rechercher une correspondance pour n'importe "
+"lequel de ces numéros<br>"
 
 #: page.cdr.php:190 /usr/src/freepbx/cdr/page.cdr.php:222 page.cdr.php:253
 msgid "<br>Asterisk pattern matching<br>"
@@ -230,7 +242,7 @@ msgstr "Journal des événements d'appel - Recherche retourne"
 msgid "Call Graph"
 msgstr "Graphique d'appel"
 
-#: Cdr.class.php:161 ucp/Cdr.class.php:199
+#: Cdr.class.php:265 ucp/Cdr.class.php:199
 msgid "Call History"
 msgstr "Historique d'appel"
 
@@ -358,7 +370,9 @@ msgstr "Durée"
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
-msgstr "Permettre l'accès au CDR (Historique des appels) dans l'UCP pour cet utlisateur"
+msgstr ""
+"Permettre l'accès au CDR (Historique des appels) dans l'UCP pour cet "
+"utlisateur"
 
 #: page.cdr.php:201 /usr/src/freepbx/cdr/page.cdr.php:213 page.cdr.php:233
 #: /usr/src/freepbx/cdr/page.cdr.php:245 page.cdr.php:264
@@ -406,7 +420,7 @@ msgstr "Février"
 msgid "File does not exist"
 msgstr "Le fichier n'existe pas"
 
-#: ucp/Cdr.class.php:386
+#: ucp/Cdr.class.php:416
 msgid "Forbidden"
 msgstr "Interdit"
 
@@ -493,7 +507,7 @@ msgstr "Pas"
 msgid "Not Authorized"
 msgstr "Non autorisé"
 
-#: ucp/Cdr.class.php:392
+#: ucp/Cdr.class.php:422
 msgid "Not Found"
 msgstr "Non trouvé"
 
@@ -574,24 +588,43 @@ msgid "Search for accountcode."
 msgstr "Rechercher pour un accountcode."
 
 #: page.cdr.php:187
-msgid "Search for calls based on CallerID Number. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
-msgstr "Rechercher les appels basés sur le numéro de l'appelant. Vous pouvez entrer plusieurs numéros séparés par une virgule  Ce champ supporte les expression régulière de Asterisk Exemple<br>"
+msgid ""
+"Search for calls based on CallerID Number. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
+"Rechercher les appels basés sur le numéro de l'appelant. Vous pouvez entrer "
+"plusieurs numéros séparés par une virgule  Ce champ supporte les expression "
+"régulière de Asterisk Exemple<br>"
 
 #: page.cdr.php:219
-msgid "Search for calls based on outbound CID used. You can enter multiple numbers separated by a comma. This field support Asterisk regular expression. Example<br>"
-msgstr "Rechercher les appels basés sur le numéro externe de l'appelant. Vous pouvez entrer plusieurs numéros séparés par une virgule  Ce champ supporte les expression régulière de Asterisk Exemple<br>"
+msgid ""
+"Search for calls based on outbound CID used. You can enter multiple numbers "
+"separated by a comma. This field support Asterisk regular expression. "
+"Example<br>"
+msgstr ""
+"Rechercher les appels basés sur le numéro externe de l'appelant. Vous pouvez "
+"entrer plusieurs numéros séparés par une virgule  Ce champ supporte les "
+"expression régulière de Asterisk Exemple<br>"
 
 #: page.cdr.php:316
-msgid "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
-msgstr "Recherche pour les appels qui sont Répondu,Occupé, manqué ou Non répondu."
+msgid ""
+"Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
+msgstr ""
+"Recherche pour les appels qui sont Répondu,Occupé, manqué ou Non répondu."
 
 #: page.cdr.php:306
 msgid "Search for calls that matches the call length specified."
 msgstr "Rechercher pour les appels qui correspondent à la longueur spécifié ."
 
 #: page.cdr.php:250
-msgid "Search for destination calls. You can enter multiple sources separated by a comma. This field support Asterisk regular expression. Example<br>"
-msgstr "Rechercher pour les appels de destination. Vous pouvez entrer plusieurs sources séparées par une virgule . Ce champ supporte les expression régulière de Asterisk. Exemple<br>"
+msgid ""
+"Search for destination calls. You can enter multiple sources separated by a "
+"comma. This field support Asterisk regular expression. Example<br>"
+msgstr ""
+"Rechercher pour les appels de destination. Vous pouvez entrer plusieurs "
+"sources séparées par une virgule . Ce champ supporte les expression "
+"régulière de Asterisk. Exemple<br>"
 
 #: page.cdr.php:284
 msgid "Search for userfield data (if enabled)."
@@ -610,8 +643,12 @@ msgid "Select Destination Caller Name to search for."
 msgstr "Sélectionner le nom de l'appelant de destination à rechercher."
 
 #: page.cdr.php:101
-msgid "Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search"
-msgstr "Sélectionnez le laps de temps pour votre rapport. Vous pouvez sélectionner la date, mois, année , heure et minute pour affiner votre recherche"
+msgid ""
+"Select time span for your report. You can select Date, Month, Year, Hour and "
+"Minute to narrow your search"
+msgstr ""
+"Sélectionnez le laps de temps pour votre rapport. Vous pouvez sélectionner "
+"la date, mois, année , heure et minute pour affiner votre recherche"
 
 #: page.cdr.php:107
 msgid "September"
@@ -634,8 +671,12 @@ msgid "Telephone Number"
 msgstr "Numéro de téléphone"
 
 #: views/ucp_config.php:54
-msgid "These are the assigned and active extensions which will show up for this user to control and edit in UCP"
-msgstr "Ce sont les postes assignés et actifs qui s'afficheront pour cet utilisateur et qu'il pourra contrôler et modifier de UCP"
+msgid ""
+"These are the assigned and active extensions which will show up for this "
+"user to control and edit in UCP"
+msgstr ""
+"Ce sont les postes assignés et actifs qui s'afficheront pour cet utilisateur "
+"et qu'il pourra contrôler et modifier de UCP"
 
 #: page.cdr.php:414 page.cdr.php:1053
 msgid "Time"
@@ -669,7 +710,7 @@ msgstr "Inconnu"
 msgid "User Field"
 msgstr "Champ utilisateur"
 
-#: Cdr.class.php:152
+#: Cdr.class.php:256
 msgid "User Primary Extension"
 msgstr "Poste primaire de l'utilisateur"
 
@@ -699,8 +740,16 @@ msgstr "Oui"
 
 #: page.cdr.php:821 ucp/assets/js/global.js:86
 #, perl-format, php-format
-msgid "You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"
-msgstr "Le support pour l'écoute dans ce navigateur est absent. Pour supporter l'écoute en HTML5, vous devez installer des programmes qui ne peuvent pas être distribués avec le PBX. Si vous désirez installer les exécutables requis pour ces conversions cliquer <a href='%s'>ici</a>"
+msgid ""
+"You are missing support for playback in this browser. To fully support HTML5 "
+"browser playback you will need to install programs that can not be "
+"distributed with the PBX. If you'd like to install the binaries needed for "
+"these conversions click <a href='%s'>here</a>"
+msgstr ""
+"Le support pour l'écoute dans ce navigateur est absent. Pour supporter "
+"l'écoute en HTML5, vous devez installer des programmes qui ne peuvent pas "
+"être distribués avec le PBX. Si vous désirez installer les exécutables "
+"requis pour ces conversions cliquer <a href='%s'>ici</a>"
 
 #: page.cdr.php:424
 msgid "channel"
@@ -764,17 +813,30 @@ msgstr "sorti de la conférence"
 #~ msgid "Play"
 #~ msgstr "Jouer"
 
-#~ msgid "Please upgrade UCP before this module so that settings can be properly migrated"
-#~ msgstr "Veuillez mettre à jour UCP avant d'utiliser ce module afin que les paramètres soit correctement migrés"
+#~ msgid ""
+#~ "Please upgrade UCP before this module so that settings can be properly "
+#~ "migrated"
+#~ msgstr ""
+#~ "Veuillez mettre à jour UCP avant d'utiliser ce module afin que les "
+#~ "paramètres soit correctement migrés"
 
-#~ msgid "Please upgrade Usermanager before this module so that settings can be properly migrated"
-#~ msgstr "Veuillez mettre à jour Usermanager avant d'utiliser ce module afin que les paramètres soit correctement migrés"
+#~ msgid ""
+#~ "Please upgrade Usermanager before this module so that settings can be "
+#~ "properly migrated"
+#~ msgstr ""
+#~ "Veuillez mettre à jour Usermanager avant d'utiliser ce module afin que "
+#~ "les paramètres soit correctement migrés"
 
 #~ msgid "This might take a while......"
 #~ msgstr "Cela pourrait prendre un certain temps ......"
 
-#~ msgid "To play the media you will need to either update your browser to a recent version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
-#~ msgstr "Pour jouer les fichiers audio vous devrez soit mettre à jour votre navigateur pour une version récente ou mettre à jour votre <a href=\"%s\" target=\"_blank\">plugin Flash</a>"
+#~ msgid ""
+#~ "To play the media you will need to either update your browser to a recent "
+#~ "version or update your <a href=\"%s\" target=\"_blank\">Flash plugin</a>"
+#~ msgstr ""
+#~ "Pour jouer les fichiers audio vous devrez soit mettre à jour votre "
+#~ "navigateur pour une version récente ou mettre à jour votre <a href=\"%s\" "
+#~ "target=\"_blank\">plugin Flash</a>"
 
 #~ msgid "Unable to add index to uniqueid field in cdr table"
 #~ msgstr "Incapable d'ajouter l'index au champ uniqueid de la table cdr"
