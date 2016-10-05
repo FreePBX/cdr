@@ -110,7 +110,7 @@ msgstr "Добавление индекса к полю did в таблице cd
 
 #: install.php:85
 msgid "Adding!"
-msgstr ""
+msgstr "Добавлено!"
 
 #: page.cdr.php:321
 msgid "All Dispositions"
@@ -512,7 +512,7 @@ msgstr "Ноябрь"
 
 #: install.php:82
 msgid "OK!"
-msgstr ""
+msgstr "Хорошо!"
 
 #: page.cdr.php:107
 msgid "October"
@@ -664,7 +664,7 @@ msgstr "Суммарная продолжительность"
 
 #: install.php:47
 msgid "Unable to add index to did field in the cdr table"
-msgstr ""
+msgstr "Невозможно добавить индекс поля в таблице cdr"
 
 #: page.cdr.php:1086 page.cdr.php:1089
 msgid "UniqueID"
