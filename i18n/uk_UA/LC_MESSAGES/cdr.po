@@ -10,14 +10,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-09 08:02+1000\n"
-"PO-Revision-Date: 2016-09-09 08:02+1000\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-10-05 18:36+0200\n"
+"Last-Translator: Maxim <maxim@ua.fm>\n"
+"Language-Team: Ukrainian "
+"<http://weblate.freepbx.org/projects/freepbx/cdr/uk_UA/>\n"
+"Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Cdr.class.php:410
 #, php-format
@@ -36,7 +39,7 @@ msgstr ""
 
 #: page.cdr.php:346 /usr/src/freepbx/cdr/page.cdr.php:917
 msgid "10 Minutes"
-msgstr ""
+msgstr "10 хвилин"
 
 #: page.cdr.php:195 /usr/src/freepbx/cdr/page.cdr.php:227 page.cdr.php:258
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
@@ -44,15 +47,15 @@ msgstr ""
 
 #: page.cdr.php:193 /usr/src/freepbx/cdr/page.cdr.php:225 page.cdr.php:256
 msgid "<b>N</b> = matches any digit from 2-9<br>"
-msgstr ""
+msgstr "<b>N</b> = будь-якій цифрі з 2-9 <br>"
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:223 page.cdr.php:254
 msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr ""
+msgstr "<b>X</b> = будь-якій цифрі з 0-9<br>"
 
 #: page.cdr.php:192 /usr/src/freepbx/cdr/page.cdr.php:224 page.cdr.php:255
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr ""
+msgstr "<b>Z</b> = будь-якій цифрі з 1-9<br>"
 
 #: page.cdr.php:194 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:257
 msgid ""
@@ -88,15 +91,15 @@ msgstr ""
 
 #: page.cdr.php:732
 msgid "Account"
-msgstr ""
+msgstr "Обліковий запис"
 
 #: page.cdr.php:296 /usr/src/freepbx/cdr/page.cdr.php:341 page.cdr.php:858
 msgid "Account Code"
-msgstr ""
+msgstr "Код облікового запису"
 
 #: page.cdr.php:340
 msgid "Account Information"
-msgstr ""
+msgstr "Інформація облікового запису"
 
 #: install.php:50
 msgid "Adding index to did field in the cdr table"
@@ -104,19 +107,19 @@ msgstr ""
 
 #: install.php:85
 msgid "Adding!"
-msgstr ""
+msgstr "Додано!"
 
 #: page.cdr.php:321
 msgid "All Dispositions"
-msgstr ""
+msgstr "Будь-який стан"
 
 #: views/ucp_config.php:7
 msgid "Allow CDR"
-msgstr ""
+msgstr "Дозволити CDR"
 
 #: views/ucp_config.php:64
 msgid "Allow CDR Downloads"
-msgstr ""
+msgstr "Дозволити завантажити CDR"
 
 #: views/ucp_config.php:95
 msgid "Allow CDR Playback"
@@ -132,7 +135,7 @@ msgstr ""
 
 #: page.cdr.php:310
 msgid "And"
-msgstr ""
+msgstr "Та"
 
 #: page.cdr.php:322
 msgid "Answered"
@@ -148,11 +151,11 @@ msgstr ""
 
 #: page.cdr.php:107
 msgid "April"
-msgstr ""
+msgstr "Квітень"
 
 #: page.cdr.php:107
 msgid "August"
-msgstr ""
+msgstr "Серпень"
 
 #: page.cdr.php:953
 msgid "Average Call Time"
@@ -167,19 +170,19 @@ msgstr ""
 
 #: page.cdr.php:308
 msgid "Between"
-msgstr ""
+msgstr "Між"
 
 #: page.cdr.php:1163
 msgid "Billing Duration"
-msgstr ""
+msgstr "Тривалість розмови"
 
 #: page.cdr.php:323
 msgid "Busy"
-msgstr ""
+msgstr "Зайнято"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
-msgstr ""
+msgstr "Доступ до CDR"
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:87
 msgid "CDR Reports"
@@ -207,7 +210,7 @@ msgstr ""
 
 #: page.cdr.php:102 /usr/src/freepbx/cdr/page.cdr.php:721
 msgid "Call Date"
-msgstr ""
+msgstr "Дата виклику"
 
 #: page.cdr.php:950
 msgid "Call Detail Record - Call Graph by"
