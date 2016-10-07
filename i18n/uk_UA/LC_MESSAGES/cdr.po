@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-09 08:02+1000\n"
-"PO-Revision-Date: 2016-10-07 14:48+0200\n"
+"PO-Revision-Date: 2016-10-07 16:42+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/uk_UA/>\n"
@@ -259,72 +259,73 @@ msgstr "Ім'я CallerID"
 
 #: page.cdr.php:196
 msgid "CallerID Number"
-msgstr ""
+msgstr "Номер CallerID"
 
 #: page.cdr.php:707
 msgid "Calls"
-msgstr ""
+msgstr "Виклики"
 
 #: page.cdr.php:1095 page.cdr.php:1110 page.cdr.php:1137 page.cdr.php:1259
 msgid "Channel"
-msgstr ""
+msgstr "Канал"
 
 #: page.cdr.php:167
 msgid "Concurrent Calls"
-msgstr ""
+msgstr "Одночасні виклики"
 
 #: ucp/Cdr.class.php:314 ucp/Cdr.class.php:318
 msgid "Conference"
-msgstr ""
+msgstr "Конференція"
 
 #: ucp/views/settings.php:2
 #, php-format
 msgid "Conference \"%s\" Settings"
-msgstr ""
+msgstr "Налаштування конференції \"%s\""
 
 #: page.cdr.php:200 /usr/src/freepbx/cdr/page.cdr.php:212 page.cdr.php:232
 #: /usr/src/freepbx/cdr/page.cdr.php:244 page.cdr.php:263
 #: /usr/src/freepbx/cdr/page.cdr.php:277 page.cdr.php:289
 #: /usr/src/freepbx/cdr/page.cdr.php:300
 msgid "Contains"
-msgstr ""
+msgstr "Містить"
 
 #: ucp/views/view.php:34
 msgid "Controls"
-msgstr ""
+msgstr "Керування"
 
 #: page.cdr.php:240 /usr/src/freepbx/cdr/page.cdr.php:356 page.cdr.php:419
 #: /usr/src/freepbx/cdr/page.cdr.php:726 page.cdr.php:864 page.cdr.php:1115
+#, fuzzy
 msgid "DID"
-msgstr ""
+msgstr "DID"
 
 #: ucp/views/view.php:28
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 #: page.cdr.php:344
 msgid "Date/Time"
-msgstr ""
+msgstr "Дата/Час"
 
 #: page.cdr.php:350 /usr/src/freepbx/cdr/page.cdr.php:923
 msgid "Day"
-msgstr ""
+msgstr "День"
 
 #: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:907
 msgid "Day of week"
-msgstr ""
+msgstr "День тижня"
 
 #: page.cdr.php:107
 msgid "December"
-msgstr ""
+msgstr "Грудень"
 
 #: ucp/views/view.php:29
 msgid "Description"
-msgstr ""
+msgstr "Опис"
 
 #: page.cdr.php:259 /usr/src/freepbx/cdr/page.cdr.php:728
 msgid "Destination"
-msgstr ""
+msgstr "Призначення"
 
 #: page.cdr.php:361 /usr/src/freepbx/cdr/page.cdr.php:879
 msgid "Destination Caller ID Name"
