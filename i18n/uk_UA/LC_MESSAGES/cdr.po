@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-09 08:02+1000\n"
-"PO-Revision-Date: 2016-10-05 18:36+0200\n"
+"PO-Revision-Date: 2016-10-07 14:48+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/uk_UA/>\n"
@@ -25,17 +25,17 @@ msgstr ""
 #: Cdr.class.php:410
 #, php-format
 msgid "%s hour, %s min, %s sec"
-msgstr ""
+msgstr "%s год, %s хв, %s сек"
 
 #: Cdr.class.php:412
 #, php-format
 msgid "%s min, %s sec"
-msgstr ""
+msgstr "%s хв, %s сек"
 
 #: Cdr.class.php:415
 #, php-format
 msgid "%s sec"
-msgstr ""
+msgstr "%s сек"
 
 #: page.cdr.php:346 /usr/src/freepbx/cdr/page.cdr.php:917
 msgid "10 Minutes"
@@ -43,7 +43,7 @@ msgstr "10 хвилин"
 
 #: page.cdr.php:195 /usr/src/freepbx/cdr/page.cdr.php:227 page.cdr.php:258
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
-msgstr ""
+msgstr "<b>.</b> = груповий символ, відповідає одному або більше символів<br>"
 
 #: page.cdr.php:193 /usr/src/freepbx/cdr/page.cdr.php:225 page.cdr.php:256
 msgid "<b>N</b> = matches any digit from 2-9<br>"
@@ -166,7 +166,7 @@ msgstr ""
 #: /usr/src/freepbx/cdr/page.cdr.php:276 page.cdr.php:288
 #: /usr/src/freepbx/cdr/page.cdr.php:299
 msgid "Begins With"
-msgstr ""
+msgstr "Починається з"
 
 #: page.cdr.php:308
 msgid "Between"
@@ -186,23 +186,23 @@ msgstr "Доступ до CDR"
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:87
 msgid "CDR Reports"
-msgstr ""
+msgstr "Звіти CDR"
 
 #: page.cdr.php:163
 msgid "CDR search"
-msgstr ""
+msgstr "CDR пошук"
 
 #: page.cdr.php:416
 msgid "CNAM"
-msgstr ""
+msgstr "Ім'я того, хто викликає"
 
 #: page.cdr.php:417
 msgid "CNUM"
-msgstr ""
+msgstr "Номер того, хто викликає"
 
 #: page.cdr.php:164
 msgid "CSV file"
-msgstr ""
+msgstr "CSV-файл"
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -234,27 +234,28 @@ msgstr ""
 
 #: page.cdr.php:165
 msgid "Call Graph"
-msgstr ""
+msgstr "Граф викликів"
 
 #: Cdr.class.php:265 ucp/Cdr.class.php:199
 msgid "Call History"
-msgstr ""
+msgstr "Історія дзвінків"
 
 #: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1198
 msgid "Caller ID Name"
-msgstr ""
+msgstr "Ім'я Caller ID"
 
 #: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1203
 msgid "Caller ID Number"
-msgstr ""
+msgstr "Номер Caller ID"
 
 #: page.cdr.php:724 page.cdr.php:1103
+#, fuzzy
 msgid "CallerID"
-msgstr ""
+msgstr "CallerID"
 
 #: page.cdr.php:208
 msgid "CallerID Name"
-msgstr ""
+msgstr "Ім'я CallerID"
 
 #: page.cdr.php:196
 msgid "CallerID Number"
