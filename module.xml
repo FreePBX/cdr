@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>13.0.30.4</version>
+	<version>13.0.30.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*13.0.30.5* FREEPBX-13535 Minor text changes
 		*13.0.30.4* Rewrite/modernize contstructor, #13130
 		*13.0.29.8* FREEPBX-12997 Connection should be UTF8
 		*13.0.29.7* FREEPBX-12997 try to clean up invalid UTF8
