@@ -99,7 +99,7 @@ if(!isset($_POST['need_csv'])) {
 			</tr>
 			<tr>
 				<?php $calldate_tooltip = _("Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search");?>
-				<td><input <?php if (empty($_POST['order']) || $_POST['order'] == 'calldate') { echo 'checked="checked"'; } ?> type="radio" name="order" value="calldate" />&nbsp;<?php echo "<a href=\"#\" class=\"info\">"._("Call Date")."<span>".$calldate_tooltip."</span></a>"?>:</td>
+				<td><input <?php if (empty($_POST['order']) || $_POST['order'] == 'calldate') { echo 'checked="checked"'; } ?> type="radio" name="order" value="calldate" />&nbsp;<label for='order'><?php echo "<a href=\"#\" class=\"info\">"._("Call Date")."<span>".$calldate_tooltip."</span></a>"?>:</label></td>
 				<td><?php echo _("From")?>:
 				<input type="text" name="startday" id="startday" size="2" maxlength="2" value="<?php if (isset($_POST['startday'])) { echo htmlspecialchars($_POST['startday']); } else { echo '01'; } ?>" />
 				<select name="startmonth" id="startmonth">
@@ -237,7 +237,7 @@ if (isset($_POST['limit']) ) {
 
 <tr>
 <?php $did_tooltip = _("Search for a DID.");?>
-<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'did') { echo 'checked="checked"'; } ?> type="radio" name="order" value="did" />&nbsp;<label for="did"><?php echo "<a href=\"#\" class=\"info\">"._("DID")."<span>$did_tooltip</span></a>"?></label></td>
+<td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'did') { echo 'checked="checked"'; } ?> type="radio" name="order" value="did" />&nbsp;<label for="did"><?php echo "<a href=\"#\" class=\"info\">"._("DID")."<span>$did_tooltip</span></a>"?>:</label></td>
 <td><input type="text" name="did" id="did" value="<?php if (isset($_POST['did'])) { echo htmlspecialchars($_POST['did']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['did_neg'] ) && $_POST['did_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="did_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['did_mod']) || $_POST['did_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="begins_with" />
