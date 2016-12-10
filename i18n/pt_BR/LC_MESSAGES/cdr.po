@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-09 08:02+1000\n"
-"PO-Revision-Date: 2016-12-09 21:59+0200\n"
+"PO-Revision-Date: 2016-12-09 22:14+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/pt_BR/>\n"
@@ -629,17 +629,19 @@ msgstr "Segundos"
 
 #: page.cdr.php:207
 msgid "Select CallerID Name to search for."
-msgstr ""
+msgstr "Selecione o Nome ID da chamada para pesquisar."
 
 #: page.cdr.php:272
 msgid "Select Destination Caller Name to search for."
-msgstr ""
+msgstr "Selecione Nome do Chamador de Destino para pesquisar."
 
 #: page.cdr.php:101
 msgid ""
 "Select time span for your report. You can select Date, Month, Year, Hour and "
 "Minute to narrow your search"
 msgstr ""
+"Selecione período de tempo para seu relatório. Você pode selecionar Data, "
+"Mês, Ano, Hora e Minuto para restringir sua pesquisa"
 
 #: page.cdr.php:107
 msgid "September"
@@ -647,7 +649,7 @@ msgstr "Setembro"
 
 #: ucp/views/nav.php:8
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #: page.cdr.php:723
 msgid "System"
@@ -666,6 +668,8 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Estas são os ramais atribuídos e ativos que aparecerão para que este usuário "
+"controle e edite no PCU"
 
 #: page.cdr.php:414 page.cdr.php:1053
 msgid "Time"
@@ -685,7 +689,7 @@ msgstr "Duração Total"
 
 #: install.php:47
 msgid "Unable to add index to did field in the cdr table"
-msgstr ""
+msgstr "Não foi possível adicionar índice ao campo did na tabela cdr"
 
 #: page.cdr.php:1086 page.cdr.php:1089
 msgid "UniqueID"
@@ -693,7 +697,7 @@ msgstr "ÚnicoID"
 
 #: ucp/Cdr.class.php:344 ucp/Cdr.class.php:365 ucp/Cdr.class.php:369
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: page.cdr.php:342 /usr/src/freepbx/cdr/page.cdr.php:882
 msgid "User Field"
@@ -701,7 +705,7 @@ msgstr "Usuário"
 
 #: Cdr.class.php:256
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Ramal Principal do Usuário"
 
 #: page.cdr.php:425 page.cdr.php:1245
 msgid "UserDefType"
@@ -713,11 +717,11 @@ msgstr "Usuário"
 
 #: ucp/views/nav.php:3
 msgid "View History"
-msgstr ""
+msgstr "Visualizar Histórico"
 
 #: ucp/Cdr.class.php:300 ucp/Cdr.class.php:305
 msgid "Voicemail"
-msgstr ""
+msgstr "Correio de Voz"
 
 #: page.cdr.php:351 /usr/src/freepbx/cdr/page.cdr.php:897
 msgid "Week ( Sun-Sat )"
@@ -725,7 +729,7 @@ msgstr "Semana (Dom-Sab)"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: page.cdr.php:821 ucp/assets/js/global.js:86
 #, perl-format, php-format
@@ -735,26 +739,30 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Falta suporte para reprodução neste navegador. Para suportar totalmente a "
+"reprodução do navegador HTML5, você precisará instalar programas que não "
+"podem ser distribuídos com o PBX. Se pretender instalar os binários "
+"necessários para estas conversões, clique <a href='%s'>aqui</a>"
 
 #: page.cdr.php:424
 msgid "channel"
-msgstr ""
+msgstr "Canal"
 
 #: page.cdr.php:422
 msgid "context"
-msgstr ""
+msgstr "contexto"
 
 #: ucp/Cdr.class.php:332
 msgid "denied by COS"
-msgstr ""
+msgstr "Negado por COS"
 
 #: page.cdr.php:421
 msgid "exten"
-msgstr ""
+msgstr "ramal"
 
 #: ucp/Cdr.class.php:328
 msgid "kicked from conference"
-msgstr ""
+msgstr "Expulso da conferência"
 
 #~ msgid "App."
 #~ msgstr "App."
