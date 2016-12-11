@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-09 08:02+1000\n"
-"PO-Revision-Date: 2016-12-09 22:14+0200\n"
+"PO-Revision-Date: 2016-12-11 04:36+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/pt_BR/>\n"
@@ -243,15 +243,15 @@ msgstr "Histórico de Chamadas"
 
 #: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1198
 msgid "Caller ID Name"
-msgstr "Nome do ID de Chamada"
+msgstr "Nome do ID do Chamador"
 
 #: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1203
 msgid "Caller ID Number"
-msgstr "Número do ID de Chamada"
+msgstr "Número do ID do Chamador"
 
 #: page.cdr.php:724 page.cdr.php:1103
 msgid "CallerID"
-msgstr "ID de Chamada"
+msgstr "ID do Chamador"
 
 #: page.cdr.php:208
 msgid "CallerID Name"
@@ -328,11 +328,11 @@ msgstr "Destino"
 
 #: page.cdr.php:361 /usr/src/freepbx/cdr/page.cdr.php:879
 msgid "Destination Caller ID Name"
-msgstr "Nome do Identificador de Chamadas de Destino"
+msgstr "Nome do ID Chamador de Destino"
 
 #: page.cdr.php:273
 msgid "Destination CallerID Name"
-msgstr "Nome do ID de Destino"
+msgstr "Nome do ID Chamador de Destino"
 
 #: page.cdr.php:1137
 msgid "Destination Context"
@@ -526,19 +526,19 @@ msgstr "Ordenar por"
 
 #: page.cdr.php:360 /usr/src/freepbx/cdr/page.cdr.php:876
 msgid "Outbound Caller ID Name"
-msgstr "Nome do ID de Chamada de Saída"
+msgstr "Nome do ID Chamador de Saída"
 
 #: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:873
 msgid "Outbound Caller ID Number"
-msgstr "Número do ID de Chamada de Saída"
+msgstr "Número do ID Chamador de Saída"
 
 #: page.cdr.php:725
 msgid "Outbound CallerID"
-msgstr "ID de Chamada de Saída"
+msgstr "ID Chamador de Saída"
 
 #: page.cdr.php:228
 msgid "Outbound CallerID Number"
-msgstr "Número ID do Chamador de Saída"
+msgstr "Número ID Chamador de Saída"
 
 #: ucp/views/view.php:32
 msgid "Playback"
@@ -586,9 +586,9 @@ msgid ""
 "separated by a comma. This field support Asterisk regular expression. "
 "Example<br>"
 msgstr ""
-"Pesquise chamadas com base no Número de Identificação de Chamadas. Você pode "
-"inserir vários números separados por uma vírgula. Este campo suporta a "
-"expressão regular Asterisk. Exemplo <br>"
+"Pesquise chamadas com base no Número do ID Chamador. Você pode inserir "
+"vários números separados por uma vírgula. Este campo suporta a expressão "
+"regular Asterisk. Exemplo <br>"
 
 #: page.cdr.php:219
 msgid ""
@@ -629,11 +629,11 @@ msgstr "Segundos"
 
 #: page.cdr.php:207
 msgid "Select CallerID Name to search for."
-msgstr "Selecione o Nome ID da chamada para pesquisar."
+msgstr "Selecione o Nome do ID Chamador para pesquisar."
 
 #: page.cdr.php:272
 msgid "Select Destination Caller Name to search for."
-msgstr "Selecione Nome do Chamador de Destino para pesquisar."
+msgstr "Selecione Nome do Usuário Chamador de Destino para pesquisar."
 
 #: page.cdr.php:101
 msgid ""
