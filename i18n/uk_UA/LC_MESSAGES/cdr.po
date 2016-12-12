@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-09 08:02+1000\n"
-"PO-Revision-Date: 2016-12-09 21:38+0200\n"
+"PO-Revision-Date: 2016-12-12 15:56+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/uk_UA/>\n"
@@ -360,74 +360,74 @@ msgstr ""
 
 #: ucp/assets/js/global.js:54
 msgid "Download"
-msgstr ""
+msgstr "Завантажити"
 
 #: page.cdr.php:307 /usr/src/freepbx/cdr/page.cdr.php:730
 #: ucp/views/view.php:30
 msgid "Duration"
-msgstr ""
+msgstr "Тривалість"
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
-msgstr ""
+msgstr "Включити CDR (Журнал викликів) в UCP для цього користувача"
 
 #: page.cdr.php:201 /usr/src/freepbx/cdr/page.cdr.php:213 page.cdr.php:233
 #: /usr/src/freepbx/cdr/page.cdr.php:245 page.cdr.php:264
 #: /usr/src/freepbx/cdr/page.cdr.php:278 page.cdr.php:290
 #: /usr/src/freepbx/cdr/page.cdr.php:301
 msgid "Ends With"
-msgstr ""
+msgstr "Закінчується на"
 
 #: page.cdr.php:415
 msgid "Event"
-msgstr ""
+msgstr "Подія"
 
 #: page.cdr.php:1251
 msgid "Event Extra"
-msgstr ""
+msgstr "Екстра подія"
 
 #: page.cdr.php:426
 msgid "EventExtra"
-msgstr ""
+msgstr "Екстраподія"
 
 #: page.cdr.php:399
 msgid "Events"
-msgstr ""
+msgstr "Події"
 
 #: page.cdr.php:202 /usr/src/freepbx/cdr/page.cdr.php:214 page.cdr.php:234
 #: /usr/src/freepbx/cdr/page.cdr.php:246 page.cdr.php:265
 #: /usr/src/freepbx/cdr/page.cdr.php:279 page.cdr.php:291
 #: /usr/src/freepbx/cdr/page.cdr.php:302
 msgid "Exactly"
-msgstr ""
+msgstr "Точно"
 
 #: page.cdr.php:158
 msgid "Extra options"
-msgstr ""
+msgstr "Додаткові опції"
 
 #: page.cdr.php:324
 msgid "Failed"
-msgstr ""
+msgstr "Не вдалося"
 
 #: page.cdr.php:107
 msgid "February"
-msgstr ""
+msgstr "Лютий"
 
 #: ucp/Cdr.class.php:144
 msgid "File does not exist"
-msgstr ""
+msgstr "Файл не існує"
 
 #: ucp/Cdr.class.php:416
 msgid "Forbidden"
-msgstr ""
+msgstr "Заборонений"
 
 #: page.cdr.php:103
 msgid "From"
-msgstr ""
+msgstr "З"
 
 #: page.cdr.php:955
 msgid "Go to the CDR Graph"
-msgstr ""
+msgstr "Перейти до CDR графіків"
 
 #: page.cdr.php:954
 msgid "Go to the top of the CDR table"
@@ -435,78 +435,78 @@ msgstr ""
 
 #: page.cdr.php:338
 msgid "Group By"
-msgstr ""
+msgstr "Групувати за"
 
 #: page.cdr.php:347 /usr/src/freepbx/cdr/page.cdr.php:887
 msgid "Hour"
-msgstr ""
+msgstr "Година"
 
 #: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:892
 msgid "Hour of day"
-msgstr ""
+msgstr "Година дня"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Успадковувати"
 
 #: page.cdr.php:107
 msgid "January"
-msgstr ""
+msgstr "Січень"
 
 #: page.cdr.php:107
 msgid "July"
-msgstr ""
+msgstr "Липень"
 
 #: page.cdr.php:107
 msgid "June"
-msgstr ""
+msgstr "Червень"
 
 #: page.cdr.php:107
 msgid "March"
-msgstr ""
+msgstr "Березень"
 
 #: page.cdr.php:952 page.cdr.php:1052
 msgid "Max Calls"
-msgstr ""
+msgstr "Максимум викликів"
 
 #: page.cdr.php:107
 msgid "May"
-msgstr ""
+msgstr "Травень"
 
 #: page.cdr.php:345 /usr/src/freepbx/cdr/page.cdr.php:912
 msgid "Minute"
-msgstr ""
+msgstr "Хвилина"
 
 #: page.cdr.php:352 /usr/src/freepbx/cdr/page.cdr.php:902
 msgid "Month"
-msgstr ""
+msgstr "Місяць"
 
 #: page.cdr.php:334
 msgid "Newest First"
-msgstr ""
+msgstr "Новіші першими"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 #: page.cdr.php:325
 msgid "No Answer"
-msgstr ""
+msgstr "Без відповіді"
 
 #: page.cdr.php:198 /usr/src/freepbx/cdr/page.cdr.php:210 page.cdr.php:230
 #: /usr/src/freepbx/cdr/page.cdr.php:242 page.cdr.php:261
 #: /usr/src/freepbx/cdr/page.cdr.php:275 page.cdr.php:287
 #: /usr/src/freepbx/cdr/page.cdr.php:298 page.cdr.php:327
 msgid "Not"
-msgstr ""
+msgstr "Ні"
 
 #: ucp/Cdr.class.php:47
 msgid "Not Authorized"
-msgstr ""
+msgstr "Не авторизований"
 
 #: ucp/Cdr.class.php:422
 msgid "Not Found"
-msgstr ""
+msgstr "Не знайдено"
 
 #: page.cdr.php:107
 msgid "November"
