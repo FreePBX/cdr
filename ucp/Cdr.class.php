@@ -40,44 +40,69 @@ class Cdr extends Modules{
 		}
 	}
 
-	function getDisplay() {
-		$view = !empty($_REQUEST['view']) ? $_REQUEST['view'] : 'history';
-		$ext = !empty($_REQUEST['sub']) ? $_REQUEST['sub'] : '';
-		if(!$this->_checkExtension($ext)) {
-			return _('Not Authorized');
-		}
-		$page = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 1;
-		$order = !empty($_REQUEST['order']) && ($_REQUEST['order'] == 'asc') ? 'asc' : 'desc';
-		$orderby = !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'date';
-		$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : '';
+	public function getWidgetList() {
+		$widgets = array();
 
-		$totalPages = $this->cdr->getPages($ext,$search,$this->limit);
-		$displayvars = array(
-			'ext' => $ext,
-			'activeList' => $view,
-			'calls' => $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$this->limit),$ext),
-		);
-		$html = '';
-		$html = "<script>var extension = '".htmlentities($ext)."';var showPlayback = ".json_encode($this->_checkPlayback($ext)).";var showDownload = ".json_encode($this->_checkDownload($ext))."; var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';</script>";
-		switch($view) {
-			case 'settings':
-				$html .= $this->load_view(__DIR__.'/views/settings.php',$displayvars);
-			break;
-			case 'history':
-			default:
-				$searchl = !empty($search) ? '&amp;search='.urlencode($search) : '';
-				$link = '?display=dashboard&mod=cdr&sub='.$ext.'&view=history&order='.$order.'&orderby='.$orderby.$searchl;
-				$displayvars['pagnation'] = $this->UCP->Template->generatePagnation($totalPages,$page,$link,$this->break);
-				$displayvars['search'] = $search;
-				$displayvars['desktop'] = (!$this->UCP->Session->isMobile && !$this->UCP->Session->isTablet);
-				$displayvars['order'] = !empty($_REQUEST['order']) ? $_REQUEST['order'] : 'desc';
-				$displayvars['orderby'] = !empty($_REQUEST['orderby']) ? $_REQUEST['orderby'] : 'date';
-				$displayvars['showDownload'] = $this->_checkDownload($ext);
-				$displayvars['showPlayback'] = $this->_checkPlayback($ext);
-				$html .= $this->load_view(__DIR__.'/views/view.php',$displayvars);
-			break;
+		$user = $this->UCP->User->getUser();
+		$enabled = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','enable');
+		if (!$enabled) {
+			return array();
 		}
-		return $html;
+		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','assigned');
+
+		if (!empty($extensions)) {
+			foreach($extensions as $extension) {
+				$data = $this->UCP->FreePBX->Core->getDevice($extension);
+				if(empty($data) || empty($data['description'])) {
+					$data = $this->UCP->FreePBX->Core->getUser($extension);
+					$name = $data['name'];
+				} else {
+					$name = $data['description'];
+				}
+
+				$widgets[$extension] = array(
+					"display" => $name,
+					"description" => sprintf(_("Call History for %s"),$name),
+					"defaultsize" => array("height" => 6, "width" => 5),
+					"minsize" => array("height" => 6, "width" => 4)
+				);
+			}
+		}
+
+		if (empty($widgets)) {
+			return array();
+		}
+
+		return array(
+			"rawname" => "cdr",
+			"display" => _("Call History"),
+			"icon" => "fa fa-database",
+			"list" => $widgets
+		);
+	}
+
+	public function getWidgetDisplay($id) {
+		if (!$this->_checkExtension($id)) {
+			return array();
+		}
+
+		$displayvars = array(
+			'ext' => $id,
+			'activeList' => $view,
+			'calls' => $this->postProcessCalls($this->cdr->getCalls($id, 1, 'desc', 'date', '', $this->limit), $id),
+
+			'showPlayback' => $this->_checkPlayback($id),
+		);
+
+		$html = "<script>var extension = '".htmlentities($id)."';var showPlayback = ".json_encode($this->_checkPlayback($id)).";var showDownload = ".json_encode($this->_checkDownload($id))."; var supportedHTML5 = '".implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())."';</script>";
+		$html.= $this->load_view(__DIR__.'/views/widget.php',$displayvars);
+
+		$display = array(
+			'title' => _("Follow Me"),
+			'html' => $html
+		);
+
+		return $display;
 	}
 
 	function poll($data) {
@@ -128,12 +153,11 @@ class Cdr extends Modules{
 				$orderby = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "date";
 				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
 				$pages = $this->cdr->getPages($ext,$search,$limit);
-				$total = $pages * $limit;
 				$offset = $_REQUEST['offset'];
 				$page = ($offset / $limit) + 1;
 				$data = $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$limit),$ext);
 				return array(
-					"total" => $total,
+					"total" => count($data),
 					"rows" => $data
 				);
 			break;
@@ -182,39 +206,6 @@ class Cdr extends Modules{
 			break;
 		}
 		return false;
-	}
-
-
-	public function getMenuItems() {
-		$user = $this->UCP->User->getUser();
-		$enabled = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','enable');
-		if(!$enabled) {
-			return array();
-		}
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','assigned');
-		$menu = array();
-		if(!empty($extensions)) {
-			$menu = array(
-				"rawname" => "cdr",
-				"name" => _("Call History"),
-				"badge" => false
-			);
-			foreach($extensions as $e) {
-				$data = $this->UCP->FreePBX->Core->getDevice($e);
-				if(empty($data) || empty($data['description'])) {
-					$data = $this->UCP->FreePBX->Core->getUser($e);
-					$name = $data['name'];
-				} else {
-					$name = $data['description'];
-				}
-				$menu["menu"][] = array(
-					"rawname" => $e,
-					"name" => $e . (!empty($name) ? " - " . $name : ""),
-					"badge" => false
-				);
-			}
-		}
-		return !empty($menu["menu"]) ? $menu : array();
 	}
 
 	private function postProcessCalls($calls,$self) {

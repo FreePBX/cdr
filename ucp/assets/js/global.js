@@ -2,41 +2,33 @@ var CdrC = UCPMC.extend({
 	init: function() {
 		this.playing = null;
 	},
+	resize: function(widget_id) {
+		$(".grid-stack-item[data-id='"+widget_id+"'] .cdr-grid").bootstrapTable('resetView',{height: $(".grid-stack-item[data-id='"+widget_id+"'] .widget-content").height()});
+	},
 	poll: function(data, url) {
 
 	},
-	display: function(event) {
-		var $this = this;
-		$(document).on("click", "[vm-pjax] a, a[vm-pjax]", function(event) {
-			var container = $("#dashboard-content");
-			$.pjax.click(event, { container: container });
+	displayWidget: function(widget_id, dashboard_id) {
+		var self = this;
+
+		self.init();
+		self.extension = extension;
+
+		$(".grid-stack-item[data-id='"+widget_id+"'] .cdr-grid").one("post-body.bs.table", function() {
+			setTimeout(function() {
+				self.resize(widget_id);
+			},250);
 		});
-		$('#cdr-grid').on("post-body.bs.table", function () {
-			$this.bindPlayers();
-			$("#cdr-grid .clickable").click(function(e) {
+
+		$('.cdr-grid').on("post-body.bs.table", function () {
+			self.bindPlayers();
+			$(".cdr-grid .clickable").click(function(e) {
 				var text = $(this).text();
 				if (UCP.validMethod("Contactmanager", "showActionDialog")) {
 					UCP.Modules.Contactmanager.showActionDialog("number", text, "phone");
 				}
 			});
 		});
-		$("#cdr-grid").bootstrapTable('refreshOptions', {
-			exportOptions: {
-				fileName:"Call_History_"+extension,
-				ignoreColumn: ['playback','controls']
-			}
-		});
-	},
-	hide: function(event) {
-		$(document).off("click", "[vm-pjax] a, a[vm-pjax]");
-		$(".clickable").off("click");
-		if(this.playing !== null) {
-			$("#jquery_jplayer_" + Cdr.playing).jPlayer("stop", 0);
-			this.playing = null;
-		}
-	},
-	windowState: function(state) {
-		//console.log(state);
 	},
 	formatDescription: function (value, row, index) {
 		var icons = '';
