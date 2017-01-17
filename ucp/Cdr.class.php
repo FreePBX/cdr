@@ -98,7 +98,7 @@ class Cdr extends Modules{
 		$html.= $this->load_view(__DIR__.'/views/widget.php',$displayvars);
 
 		$display = array(
-			'title' => _("Follow Me"),
+			'title' => _("Call History"),
 			'html' => $html
 		);
 
