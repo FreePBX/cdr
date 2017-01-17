@@ -76,7 +76,7 @@ class Cdr extends Modules{
 		return array(
 			"rawname" => "cdr",
 			"display" => _("Call History"),
-			"icon" => "fa fa-database",
+			"icon" => "fa fa-hourglass-half",
 			"list" => $widgets
 		);
 	}
