@@ -3,7 +3,7 @@ var CdrC = UCPMC.extend({
 		this.playing = null;
 	},
 	resize: function(widget_id) {
-		$(".grid-stack-item[data-id='"+widget_id+"'] .cdr-grid").bootstrapTable('resetView',{height: $(".grid-stack-item[data-id='"+widget_id+"'] .widget-content").height()});
+		$(".grid-stack-item[data-id='"+widget_id+"'] .cdr-grid").bootstrapTable('resetView',{height: $(".grid-stack-item[data-id='"+widget_id+"'] .widget-content").height()-1});
 	},
 	poll: function(data, url) {
 
