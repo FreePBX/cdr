@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-09 08:02+1000\n"
-"PO-Revision-Date: 2017-01-09 20:10+0200\n"
-"Last-Translator: Sven <spiderrs4@web.de>\n"
+"PO-Revision-Date: 2017-03-06 03:05+0200\n"
+"Last-Translator: hammer125 <auswertung@aon.at>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/de_DE/>\n"
 "Language: de_DE\n"
@@ -126,11 +126,11 @@ msgstr "CDR-Wiedergabe zulassen"
 
 #: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
-msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben."
+msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben"
 
 #: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
-msgstr "Benutzern erlauben, Aufzeichnungen in UCP zu herunterzuladen."
+msgstr "Benutzern erlauben, Aufzeichnungen in UCP zu herunterzuladen"
 
 #: page.cdr.php:310
 msgid "And"
