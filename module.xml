@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>14.0.4</version>
+	<version>14.0.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*14.0.5* Fix display of records in UCP
 		*14.0.3* UCP 14
 		*14.0.2* Fix namespace issues
 		*14.0.1alpha1* Inital Release

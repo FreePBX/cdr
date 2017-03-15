@@ -155,9 +155,10 @@ class Cdr extends Modules{
 				$pages = $this->cdr->getPages($ext,$search,$limit);
 				$offset = $_REQUEST['offset'];
 				$page = ($offset / $limit) + 1;
+				$total = $this->cdr->getCalls($ext,1,$orderby,$order,$search);
 				$data = $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$limit),$ext);
 				return array(
-					"total" => count($data),
+					"total" => count($total),
 					"rows" => $data
 				);
 			break;
