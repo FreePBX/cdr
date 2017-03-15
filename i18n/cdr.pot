@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:14-0800\n"
+"POT-Creation-Date: 2017-03-14 17:29-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -293,8 +293,8 @@ msgstr ""
 msgid "Concurrent Calls"
 msgstr ""
 
-#: ucp/Cdr.class.php:305
-#: ucp/Cdr.class.php:309
+#: ucp/Cdr.class.php:306
+#: ucp/Cdr.class.php:310
 msgid "Conference"
 msgstr ""
 
@@ -427,11 +427,11 @@ msgstr ""
 msgid "February"
 msgstr ""
 
-#: ucp/Cdr.class.php:168
+#: ucp/Cdr.class.php:169
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:407
+#: ucp/Cdr.class.php:408
 msgid "Forbidden"
 msgstr ""
 
@@ -520,7 +520,7 @@ msgstr ""
 msgid "Not"
 msgstr ""
 
-#: ucp/Cdr.class.php:413
+#: ucp/Cdr.class.php:414
 msgid "Not Found"
 msgstr ""
 
@@ -700,9 +700,9 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:335
-#: ucp/Cdr.class.php:356
-#: ucp/Cdr.class.php:360
+#: ucp/Cdr.class.php:336
+#: ucp/Cdr.class.php:357
+#: ucp/Cdr.class.php:361
 msgid "Unknown"
 msgstr ""
 
@@ -723,8 +723,8 @@ msgstr ""
 msgid "Userfield"
 msgstr ""
 
-#: ucp/Cdr.class.php:291
-#: ucp/Cdr.class.php:296
+#: ucp/Cdr.class.php:292
+#: ucp/Cdr.class.php:297
 msgid "Voicemail"
 msgstr ""
 
@@ -756,7 +756,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:323
+#: ucp/Cdr.class.php:324
 msgid "denied by COS"
 msgstr ""
 
@@ -764,6 +764,6 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:319
+#: ucp/Cdr.class.php:320
 msgid "kicked from conference"
 msgstr ""

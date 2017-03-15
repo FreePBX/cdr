@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:14-0800\n"
+"POT-Creation-Date: 2017-03-14 17:29-0700\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -280,7 +280,7 @@ msgstr "کانال"
 msgid "Concurrent Calls"
 msgstr "تماسهای فعلی"
 
-#: ucp/Cdr.class.php:305 ucp/Cdr.class.php:309
+#: ucp/Cdr.class.php:306 ucp/Cdr.class.php:310
 msgid "Conference"
 msgstr "کنفرانس"
 
@@ -411,11 +411,11 @@ msgstr "انجام نشد"
 msgid "February"
 msgstr "فبریه"
 
-#: ucp/Cdr.class.php:168
+#: ucp/Cdr.class.php:169
 msgid "File does not exist"
 msgstr "فایلی وجود ندارد"
 
-#: ucp/Cdr.class.php:407
+#: ucp/Cdr.class.php:408
 msgid "Forbidden"
 msgstr "قدغن"
 
@@ -498,7 +498,7 @@ msgstr "بدون پاسخ"
 msgid "Not"
 msgstr "نه"
 
-#: ucp/Cdr.class.php:413
+#: ucp/Cdr.class.php:414
 msgid "Not Found"
 msgstr "پیدا نشد"
 
@@ -684,7 +684,7 @@ msgstr "ناتوانی در افزودن فهرست به جدول cdr"
 msgid "UniqueID"
 msgstr "شناسه یکتا"
 
-#: ucp/Cdr.class.php:335 ucp/Cdr.class.php:356 ucp/Cdr.class.php:360
+#: ucp/Cdr.class.php:336 ucp/Cdr.class.php:357 ucp/Cdr.class.php:361
 msgid "Unknown"
 msgstr "نا شناخته"
 
@@ -704,7 +704,7 @@ msgstr "نوع تعریف شده توسط کاربر"
 msgid "Userfield"
 msgstr "فیلد کاربر"
 
-#: ucp/Cdr.class.php:291 ucp/Cdr.class.php:296
+#: ucp/Cdr.class.php:292 ucp/Cdr.class.php:297
 msgid "Voicemail"
 msgstr "ایمیل صوتی"
 
@@ -733,7 +733,7 @@ msgstr "کانال"
 msgid "context"
 msgstr "زمینه"
 
-#: ucp/Cdr.class.php:323
+#: ucp/Cdr.class.php:324
 msgid "denied by COS"
 msgstr "لغو توسط COS"
 
@@ -741,7 +741,7 @@ msgstr "لغو توسط COS"
 msgid "exten"
 msgstr "داخلی"
 
-#: ucp/Cdr.class.php:319
+#: ucp/Cdr.class.php:320
 msgid "kicked from conference"
 msgstr "بیرون انداختن از کنفرانس"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-01 18:14-0800\n"
+"POT-Creation-Date: 2017-03-14 17:29-0700\n"
 "PO-Revision-Date: 2015-11-23 13:57+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -278,7 +278,7 @@ msgstr "通道"
 msgid "Concurrent Calls"
 msgstr "并发呼叫"
 
-#: ucp/Cdr.class.php:305 ucp/Cdr.class.php:309
+#: ucp/Cdr.class.php:306 ucp/Cdr.class.php:310
 msgid "Conference"
 msgstr "会议"
 
@@ -409,11 +409,11 @@ msgstr "失败"
 msgid "February"
 msgstr "二月"
 
-#: ucp/Cdr.class.php:168
+#: ucp/Cdr.class.php:169
 msgid "File does not exist"
 msgstr "文件不存在"
 
-#: ucp/Cdr.class.php:407
+#: ucp/Cdr.class.php:408
 msgid "Forbidden"
 msgstr "禁止"
 
@@ -496,7 +496,7 @@ msgstr "无应答"
 msgid "Not"
 msgstr "不是"
 
-#: ucp/Cdr.class.php:413
+#: ucp/Cdr.class.php:414
 msgid "Not Found"
 msgstr "没有发现"
 
@@ -673,7 +673,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:335 ucp/Cdr.class.php:356 ucp/Cdr.class.php:360
+#: ucp/Cdr.class.php:336 ucp/Cdr.class.php:357 ucp/Cdr.class.php:361
 msgid "Unknown"
 msgstr ""
 
@@ -693,7 +693,7 @@ msgstr ""
 msgid "Userfield"
 msgstr ""
 
-#: ucp/Cdr.class.php:291 ucp/Cdr.class.php:296
+#: ucp/Cdr.class.php:292 ucp/Cdr.class.php:297
 msgid "Voicemail"
 msgstr ""
 
@@ -722,7 +722,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:323
+#: ucp/Cdr.class.php:324
 msgid "denied by COS"
 msgstr ""
 
@@ -730,7 +730,7 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:319
+#: ucp/Cdr.class.php:320
 msgid "kicked from conference"
 msgstr ""
 
