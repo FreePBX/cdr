@@ -11,9 +11,8 @@ function cdr_get_config($engine) {
 		$section = 'asteriskcdrdb';
 		$core_conf->addResOdbc($section, array('enabled' => 'yes'));
 		$core_conf->addResOdbc($section, array('dsn' => 'MySQL-asteriskcdrdb'));
-		$core_conf->addResOdbc($section, array('pooling' => 'no'));
-		$core_conf->addResOdbc($section, array('limit' => '1'));
 		$core_conf->addResOdbc($section, array('pre-connect' => 'yes'));
+		$core_conf->addResOdbc($section, array('max_connections' => '5'));
 		$core_conf->addResOdbc($section, array('username' => !empty($amp_conf['CDRDBUSER']) ? $amp_conf['CDRDBUSER'] : $amp_conf['AMPDBUSER']));
 		$core_conf->addResOdbc($section, array('password' => !empty($amp_conf['CDRDBPASS']) ? $amp_conf['CDRDBPASS'] : $amp_conf['AMPDBPASS']));
 		$core_conf->addResOdbc($section, array('database' => !empty($amp_conf['CDRDBNAME']) ? $amp_conf['CDRDBNAME'] : 'asteriskcdrdb'));
