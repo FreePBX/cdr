@@ -87,3 +87,31 @@ foreach($cid_fields as $cf) {
 		$pdo->query($sql);
 	}
 }
+
+/*Add standard fields: linkedid, peeraccount, sequence*/
+$stdfields=array('linkedid'=>array('VARCHAR',32,'\'\''),'peeraccount'=>array('VARCHAR',80,'\'\''),'sequence'=>array('INT',11,0));
+foreach($stdfields as $name => $type) {
+    try {
+        outn(_("Checking if field $name is present in cdr table.."));
+        $sql = "SELECT $name FROM `$db_name`.`$db_table_name` LIMIT 1";
+        $confs = $pdo->query($sql, DB_FETCHMODE_ASSOC);
+        out(_("OK!"));
+        continue;
+    } catch (\Exception $e) {
+        out(_("Adding!"));
+        $alterclauses[] = ' ADD `'.$name.'` '.$type[0].'('.$type[1].') NOT NULL DEFAULT '.$type[2];
+    }
+}
+
+if (count($alterclauses)) {
+    $sql = "ALTER TABLE `$db_name`.`$db_table_name`";
+    $sql .= implode(",", $alterclauses);
+    $result = $pdo->query($sql);
+    if(DB::IsError($result)) {
+        out($sql);
+        out(_("ERROR failed to update database"));
+    } else {
+        out(_("OK!"));
+    }
+}
+
