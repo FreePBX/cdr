@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 17:29-0700\n"
+"POT-Creation-Date: 2017-05-15 17:20-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,11 +88,11 @@ msgstr ""
 msgid "AMA"
 msgstr ""
 
-#: page.cdr.php:1156 page.cdr.php:1231
+#: page.cdr.php:1157 page.cdr.php:1232
 msgid "AMA Flag"
 msgstr ""
 
-#: page.cdr.php:418 page.cdr.php:1120
+#: page.cdr.php:418 page.cdr.php:1121
 msgid "ANI"
 msgstr ""
 
@@ -152,7 +152,7 @@ msgstr ""
 msgid "App"
 msgstr ""
 
-#: page.cdr.php:1126
+#: page.cdr.php:1127
 msgid "Application"
 msgstr ""
 
@@ -164,7 +164,7 @@ msgstr ""
 msgid "August"
 msgstr ""
 
-#: page.cdr.php:953
+#: page.cdr.php:954
 msgid "Average Call Time"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Between"
 msgstr ""
 
-#: page.cdr.php:1163
+#: page.cdr.php:1164
 msgid "Billing Duration"
 msgstr ""
 
@@ -219,11 +219,11 @@ msgstr ""
 msgid "Call Date"
 msgstr ""
 
-#: page.cdr.php:950
+#: page.cdr.php:951
 msgid "Call Detail Record - Call Graph by"
 msgstr ""
 
-#: page.cdr.php:1050
+#: page.cdr.php:1051
 msgid "Call Detail Record - Concurrent Calls by"
 msgstr ""
 
@@ -252,15 +252,15 @@ msgstr ""
 msgid "Call History for %s"
 msgstr ""
 
-#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1198
+#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1199
 msgid "Caller ID Name"
 msgstr ""
 
-#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1203
+#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1204
 msgid "Caller ID Number"
 msgstr ""
 
-#: page.cdr.php:724 page.cdr.php:1103
+#: page.cdr.php:724 page.cdr.php:1104
 msgid "CallerID"
 msgstr ""
 
@@ -276,7 +276,7 @@ msgstr ""
 msgid "Calls"
 msgstr ""
 
-#: page.cdr.php:1095 page.cdr.php:1110 page.cdr.php:1137 page.cdr.php:1259
+#: page.cdr.php:1096 page.cdr.php:1111 page.cdr.php:1138 page.cdr.php:1260
 msgid "Channel"
 msgstr ""
 
@@ -300,7 +300,7 @@ msgid "Controls"
 msgstr ""
 
 #: page.cdr.php:240 /usr/src/freepbx/cdr/page.cdr.php:356 page.cdr.php:419
-#: /usr/src/freepbx/cdr/page.cdr.php:726 page.cdr.php:864 page.cdr.php:1115
+#: /usr/src/freepbx/cdr/page.cdr.php:726 page.cdr.php:864 page.cdr.php:1116
 msgid "DID"
 msgstr ""
 
@@ -340,7 +340,7 @@ msgstr ""
 msgid "Destination CallerID Name"
 msgstr ""
 
-#: page.cdr.php:1137
+#: page.cdr.php:1138
 msgid "Destination Context"
 msgstr ""
 
@@ -348,11 +348,11 @@ msgstr ""
 msgid "Destination Number"
 msgstr ""
 
-#: page.cdr.php:1213
+#: page.cdr.php:1214
 msgid "Dialplan context"
 msgstr ""
 
-#: page.cdr.php:1208
+#: page.cdr.php:1209
 msgid "Dialplan exten"
 msgstr ""
 
@@ -384,7 +384,7 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: page.cdr.php:1251
+#: page.cdr.php:1252
 msgid "Event Extra"
 msgstr ""
 
@@ -427,11 +427,11 @@ msgstr ""
 msgid "From"
 msgstr ""
 
-#: page.cdr.php:955
+#: page.cdr.php:956
 msgid "Go to the CDR Graph"
 msgstr ""
 
-#: page.cdr.php:954
+#: page.cdr.php:955
 msgid "Go to the top of the CDR table"
 msgstr ""
 
@@ -467,7 +467,7 @@ msgstr ""
 msgid "March"
 msgstr ""
 
-#: page.cdr.php:952 page.cdr.php:1052
+#: page.cdr.php:953 page.cdr.php:1053
 msgid "Max Calls"
 msgstr ""
 
@@ -655,7 +655,7 @@ msgid ""
 "user to control and edit in UCP"
 msgstr ""
 
-#: page.cdr.php:414 page.cdr.php:1053
+#: page.cdr.php:414 page.cdr.php:1054
 msgid "Time"
 msgstr ""
 
@@ -663,11 +663,11 @@ msgstr ""
 msgid "To"
 msgstr ""
 
-#: page.cdr.php:952 page.cdr.php:1052
+#: page.cdr.php:953 page.cdr.php:1053
 msgid "Total Calls"
 msgstr ""
 
-#: page.cdr.php:952
+#: page.cdr.php:953
 msgid "Total Duration"
 msgstr ""
 
@@ -675,7 +675,7 @@ msgstr ""
 msgid "Unable to add index to did field in the cdr table"
 msgstr ""
 
-#: page.cdr.php:1086 page.cdr.php:1089
+#: page.cdr.php:1087 page.cdr.php:1090
 msgid "UniqueID"
 msgstr ""
 
@@ -691,7 +691,7 @@ msgstr ""
 msgid "User Primary Extension"
 msgstr ""
 
-#: page.cdr.php:425 page.cdr.php:1245
+#: page.cdr.php:425 page.cdr.php:1246
 msgid "UserDefType"
 msgstr ""
 

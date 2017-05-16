@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 17:29-0700\n"
+"POT-Creation-Date: 2017-05-15 17:20-0700\n"
 "PO-Revision-Date: 2016-06-06 20:50+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -86,11 +86,11 @@ msgstr "<br>Patrón de coincidencia Asterisk<br>"
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1156 page.cdr.php:1231
+#: page.cdr.php:1157 page.cdr.php:1232
 msgid "AMA Flag"
 msgstr "Bandera AMA"
 
-#: page.cdr.php:418 page.cdr.php:1120
+#: page.cdr.php:418 page.cdr.php:1121
 msgid "ANI"
 msgstr "ANI"
 
@@ -150,7 +150,7 @@ msgstr "Contestado"
 msgid "App"
 msgstr "APP"
 
-#: page.cdr.php:1126
+#: page.cdr.php:1127
 msgid "Application"
 msgstr "Aplicación"
 
@@ -162,7 +162,7 @@ msgstr "Abril"
 msgid "August"
 msgstr "Agosto"
 
-#: page.cdr.php:953
+#: page.cdr.php:954
 msgid "Average Call Time"
 msgstr "Tiempo promedio"
 
@@ -177,7 +177,7 @@ msgstr "Comienza con"
 msgid "Between"
 msgstr "Entre"
 
-#: page.cdr.php:1163
+#: page.cdr.php:1164
 msgid "Billing Duration"
 msgstr "Duración"
 
@@ -217,11 +217,11 @@ msgstr "Herramienta de informe de Registro de llamadas"
 msgid "Call Date"
 msgstr "Fecha Llamada"
 
-#: page.cdr.php:950
+#: page.cdr.php:951
 msgid "Call Detail Record - Call Graph by"
 msgstr "Reporte Llamadas - por Gráfico"
 
-#: page.cdr.php:1050
+#: page.cdr.php:1051
 msgid "Call Detail Record - Concurrent Calls by"
 msgstr "Reporte Llamadas - Llamadas Concurrentes por"
 
@@ -250,15 +250,15 @@ msgstr "Historia de Llamadas"
 msgid "Call History for %s"
 msgstr ""
 
-#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1198
+#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1199
 msgid "Caller ID Name"
 msgstr "Nombre ID de Llamada"
 
-#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1203
+#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1204
 msgid "Caller ID Number"
 msgstr "Numero ID de llamada"
 
-#: page.cdr.php:724 page.cdr.php:1103
+#: page.cdr.php:724 page.cdr.php:1104
 msgid "CallerID"
 msgstr "ID Llamante"
 
@@ -274,7 +274,7 @@ msgstr "Número Llamante"
 msgid "Calls"
 msgstr "Llamadas"
 
-#: page.cdr.php:1095 page.cdr.php:1110 page.cdr.php:1137 page.cdr.php:1259
+#: page.cdr.php:1096 page.cdr.php:1111 page.cdr.php:1138 page.cdr.php:1260
 msgid "Channel"
 msgstr "Canal"
 
@@ -298,7 +298,7 @@ msgid "Controls"
 msgstr "Controles"
 
 #: page.cdr.php:240 /usr/src/freepbx/cdr/page.cdr.php:356 page.cdr.php:419
-#: /usr/src/freepbx/cdr/page.cdr.php:726 page.cdr.php:864 page.cdr.php:1115
+#: /usr/src/freepbx/cdr/page.cdr.php:726 page.cdr.php:864 page.cdr.php:1116
 msgid "DID"
 msgstr "DID"
 
@@ -338,7 +338,7 @@ msgstr "Nombre Identificador de Llamada Destino"
 msgid "Destination CallerID Name"
 msgstr "Nombre Destino"
 
-#: page.cdr.php:1137
+#: page.cdr.php:1138
 msgid "Destination Context"
 msgstr "Contexto Destino"
 
@@ -346,11 +346,11 @@ msgstr "Contexto Destino"
 msgid "Destination Number"
 msgstr "Número Destino"
 
-#: page.cdr.php:1213
+#: page.cdr.php:1214
 msgid "Dialplan context"
 msgstr "Contexto Plan de Marcación"
 
-#: page.cdr.php:1208
+#: page.cdr.php:1209
 msgid "Dialplan exten"
 msgstr "exten Plan de Marcacion"
 
@@ -382,7 +382,7 @@ msgstr "Termina con"
 msgid "Event"
 msgstr "Evento"
 
-#: page.cdr.php:1251
+#: page.cdr.php:1252
 msgid "Event Extra"
 msgstr "Extra Evento"
 
@@ -425,11 +425,11 @@ msgstr "Prohibido"
 msgid "From"
 msgstr "Desde"
 
-#: page.cdr.php:955
+#: page.cdr.php:956
 msgid "Go to the CDR Graph"
 msgstr "Ir al Gráfico de Llamadas"
 
-#: page.cdr.php:954
+#: page.cdr.php:955
 msgid "Go to the top of the CDR table"
 msgstr "Ir al principio de la Tabla"
 
@@ -465,7 +465,7 @@ msgstr "Junio"
 msgid "March"
 msgstr "Marzo"
 
-#: page.cdr.php:952 page.cdr.php:1052
+#: page.cdr.php:953 page.cdr.php:1053
 msgid "Max Calls"
 msgstr "Max Llamadas"
 
@@ -667,7 +667,7 @@ msgstr ""
 "Estas son las extensiones asignadas y activas que se mostrará para este "
 "usuario controlar y editar en UCP"
 
-#: page.cdr.php:414 page.cdr.php:1053
+#: page.cdr.php:414 page.cdr.php:1054
 msgid "Time"
 msgstr "Hora"
 
@@ -675,11 +675,11 @@ msgstr "Hora"
 msgid "To"
 msgstr "Hasta"
 
-#: page.cdr.php:952 page.cdr.php:1052
+#: page.cdr.php:953 page.cdr.php:1053
 msgid "Total Calls"
 msgstr "Total Llamadas"
 
-#: page.cdr.php:952
+#: page.cdr.php:953
 msgid "Total Duration"
 msgstr "Duración Total"
 
@@ -687,7 +687,7 @@ msgstr "Duración Total"
 msgid "Unable to add index to did field in the cdr table"
 msgstr "No se puede añadir indice al campo did de la tabla cdr"
 
-#: page.cdr.php:1086 page.cdr.php:1089
+#: page.cdr.php:1087 page.cdr.php:1090
 msgid "UniqueID"
 msgstr "Uniqueid"
 
@@ -703,7 +703,7 @@ msgstr "Campo Usuario"
 msgid "User Primary Extension"
 msgstr "Extension Primaria del Usuario"
 
-#: page.cdr.php:425 page.cdr.php:1245
+#: page.cdr.php:425 page.cdr.php:1246
 msgid "UserDefType"
 msgstr "\"UserDefType\""
 

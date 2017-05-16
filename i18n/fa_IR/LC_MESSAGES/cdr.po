@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-14 17:29-0700\n"
+"POT-Creation-Date: 2017-05-15 17:20-0700\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -84,11 +84,11 @@ msgstr "<br> مطابقت پترن استریسک <br>"
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1156 page.cdr.php:1231
+#: page.cdr.php:1157 page.cdr.php:1232
 msgid "AMA Flag"
 msgstr "پرچم AMA"
 
-#: page.cdr.php:418 page.cdr.php:1120
+#: page.cdr.php:418 page.cdr.php:1121
 msgid "ANI"
 msgstr "ANI"
 
@@ -148,7 +148,7 @@ msgstr "پاسخ داده شده"
 msgid "App"
 msgstr "نرم افزار"
 
-#: page.cdr.php:1126
+#: page.cdr.php:1127
 msgid "Application"
 msgstr "درخواست"
 
@@ -160,7 +160,7 @@ msgstr "آپریل"
 msgid "August"
 msgstr "آگوست"
 
-#: page.cdr.php:953
+#: page.cdr.php:954
 msgid "Average Call Time"
 msgstr "میانگین زمان تماس"
 
@@ -175,7 +175,7 @@ msgstr "شروع با"
 msgid "Between"
 msgstr "بین"
 
-#: page.cdr.php:1163
+#: page.cdr.php:1164
 msgid "Billing Duration"
 msgstr "هزینه مدت زمان"
 
@@ -215,11 +215,11 @@ msgstr "ابزار گزارش تماس برای مشاهده انواع گزار
 msgid "Call Date"
 msgstr "تاریخ تماس"
 
-#: page.cdr.php:950
+#: page.cdr.php:951
 msgid "Call Detail Record - Call Graph by"
 msgstr "ثبت جزییات تماس - گراف تماس با"
 
-#: page.cdr.php:1050
+#: page.cdr.php:1051
 msgid "Call Detail Record - Concurrent Calls by"
 msgstr "ثبت جزییات تماس - تماسهای فعلی با"
 
@@ -248,15 +248,15 @@ msgstr "تاریخچه تماس"
 msgid "Call History for %s"
 msgstr ""
 
-#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1198
+#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1199
 msgid "Caller ID Name"
 msgstr "نام شناسه تماس"
 
-#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1203
+#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1204
 msgid "Caller ID Number"
 msgstr "شماره شناسه تماس"
 
-#: page.cdr.php:724 page.cdr.php:1103
+#: page.cdr.php:724 page.cdr.php:1104
 msgid "CallerID"
 msgstr "شناسه تماس گیرنده"
 
@@ -272,7 +272,7 @@ msgstr "شماره تماس گیرنده"
 msgid "Calls"
 msgstr "تماسها"
 
-#: page.cdr.php:1095 page.cdr.php:1110 page.cdr.php:1137 page.cdr.php:1259
+#: page.cdr.php:1096 page.cdr.php:1111 page.cdr.php:1138 page.cdr.php:1260
 msgid "Channel"
 msgstr "کانال"
 
@@ -296,7 +296,7 @@ msgid "Controls"
 msgstr "کنترلها"
 
 #: page.cdr.php:240 /usr/src/freepbx/cdr/page.cdr.php:356 page.cdr.php:419
-#: /usr/src/freepbx/cdr/page.cdr.php:726 page.cdr.php:864 page.cdr.php:1115
+#: /usr/src/freepbx/cdr/page.cdr.php:726 page.cdr.php:864 page.cdr.php:1116
 msgid "DID"
 msgstr "داخلی مستقیم (DID)"
 
@@ -336,7 +336,7 @@ msgstr "مقصدنام تماس گیرنده"
 msgid "Destination CallerID Name"
 msgstr "مقصدنام تماس گیرنده"
 
-#: page.cdr.php:1137
+#: page.cdr.php:1138
 msgid "Destination Context"
 msgstr "چهارچوب مقصد"
 
@@ -344,11 +344,11 @@ msgstr "چهارچوب مقصد"
 msgid "Destination Number"
 msgstr "شماره مقصد"
 
-#: page.cdr.php:1213
+#: page.cdr.php:1214
 msgid "Dialplan context"
 msgstr "چهار چوب پلان تماس"
 
-#: page.cdr.php:1208
+#: page.cdr.php:1209
 msgid "Dialplan exten"
 msgstr "داخلی پلان تماس"
 
@@ -380,7 +380,7 @@ msgstr "خاتمه با"
 msgid "Event"
 msgstr "رویداد"
 
-#: page.cdr.php:1251
+#: page.cdr.php:1252
 msgid "Event Extra"
 msgstr "رویداد بیشتر"
 
@@ -423,11 +423,11 @@ msgstr "قدغن"
 msgid "From"
 msgstr "از"
 
-#: page.cdr.php:955
+#: page.cdr.php:956
 msgid "Go to the CDR Graph"
 msgstr "مرلجعه به گراف CDR"
 
-#: page.cdr.php:954
+#: page.cdr.php:955
 msgid "Go to the top of the CDR table"
 msgstr "مراجعه به بالای جدول CDR"
 
@@ -463,7 +463,7 @@ msgstr "جون"
 msgid "March"
 msgstr "مارچ"
 
-#: page.cdr.php:952 page.cdr.php:1052
+#: page.cdr.php:953 page.cdr.php:1053
 msgid "Max Calls"
 msgstr "بیشترین تماسها"
 
@@ -660,7 +660,7 @@ msgstr ""
 "اینها داخلی های فعالی هستند که به کاربر در پنل کاربری برای کنترل و یا ویرایش "
 "نمایش داده میشوند"
 
-#: page.cdr.php:414 page.cdr.php:1053
+#: page.cdr.php:414 page.cdr.php:1054
 msgid "Time"
 msgstr "ساعت"
 
@@ -668,11 +668,11 @@ msgstr "ساعت"
 msgid "To"
 msgstr "به"
 
-#: page.cdr.php:952 page.cdr.php:1052
+#: page.cdr.php:953 page.cdr.php:1053
 msgid "Total Calls"
 msgstr "مجموع تماسها"
 
-#: page.cdr.php:952
+#: page.cdr.php:953
 msgid "Total Duration"
 msgstr "مجموع مدتها"
 
@@ -680,7 +680,7 @@ msgstr "مجموع مدتها"
 msgid "Unable to add index to did field in the cdr table"
 msgstr "ناتوانی در افزودن فهرست به جدول cdr"
 
-#: page.cdr.php:1086 page.cdr.php:1089
+#: page.cdr.php:1087 page.cdr.php:1090
 msgid "UniqueID"
 msgstr "شناسه یکتا"
 
@@ -696,7 +696,7 @@ msgstr "فیلد کاربری"
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
-#: page.cdr.php:425 page.cdr.php:1245
+#: page.cdr.php:425 page.cdr.php:1246
 msgid "UserDefType"
 msgstr "نوع تعریف شده توسط کاربر"
 
