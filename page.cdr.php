@@ -930,7 +930,8 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 	$tot_calls = 0;
 	$tot_duration = 0;
 	$max_calls = 0;
-	$max_duration = 0;
+	//This can NEVER be 0 because later this number is multiplied by 100 then divided
+	$max_duration = 1;
 	$tot_duration_secs = 0;
 	$result_array = array();
 	foreach($result2 as $row) {
