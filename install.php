@@ -87,3 +87,31 @@ foreach($cid_fields as $cf) {
 		$pdo->query($sql);
 	}
 }
+
+/*Add standard fields: linkedid, peeraccount*/
+$stdfields=array('linkedid'=>32,'peeraccount'=>80);
+foreach($stdfields as $name => $size) {
+	outn(_("Checking if field $name is present in cdr table.."));
+	try {
+		$sql = "SELECT $name FROM `$db_name`.`$db_table_name` limit 1";
+		$confs = $pdo->query($sql, DB_FETCHMODE_ASSOC);
+		out(_("OK!"));
+		continue;
+	} catch (\Exception $e) {
+		out(_("Adding!"));
+		$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD $name VARCHAR ( $size ) NOT NULL default ''";
+		$pdo->query($sql);
+	}
+}
+
+/*Add sequence field*/
+outn(_("Checking if field sequence is present in cdr table.."));
+try {
+	$sql = "SELECT sequence FROM `$db_name`.`$db_table_name` limit 1";
+	$confs = $pdo->query($sql, DB_FETCHMODE_ASSOC);
+	out(_("OK!"));
+} catch (\Exception $e) {
+	out(_("Adding!"));
+	$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD sequence INT NOT NULL";
+	$pdo->query($sql);
+}
