@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-15 17:20-0700\n"
+"POT-Creation-Date: 2017-06-01 17:16-0700\n"
 "PO-Revision-Date: 2016-06-06 20:50+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -110,7 +110,7 @@ msgstr "Información Cuenta"
 msgid "Adding index to did field in the cdr table"
 msgstr "Agregando índice al campo did in la tabla cdr"
 
-#: install.php:85
+#: install.php:85 /usr/src/freepbx/cdr/install.php:101
 msgid "Adding!"
 msgstr "Agregando!"
 
@@ -367,6 +367,10 @@ msgstr "Bajar"
 msgid "Duration"
 msgstr "Duración"
 
+#: install.php:112
+msgid "ERROR failed to update database"
+msgstr ""
+
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr "Habilitar CDR (Historial de llamadas) en la UCP para este usuario"
@@ -508,7 +512,7 @@ msgstr "No Encontrado"
 msgid "November"
 msgstr "Noviembre"
 
-#: install.php:82
+#: install.php:82 /usr/src/freepbx/cdr/install.php:98 install.php:114
 msgid "OK!"
 msgstr "Ok!"
 
