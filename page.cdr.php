@@ -94,7 +94,7 @@ if(!isset($_POST['need_csv'])) {
 			<table width="100%">
 			<tr>
 				<th><?php echo _("Order By")?></th>
-				<th><?php echo _("Search conditions")?></th>
+				<th><?php echo _("Search Conditions")?></th>
 				<th>&nbsp;</th>
 			</tr>
 			<tr>
@@ -155,13 +155,13 @@ for ( $i = 2000; $i <= date('Y'); $i++) {
 	</td>
 <td rowspan="10" valign='top' align='right'>
 <fieldset>
-<legend class="title"><?php echo _("Extra options")?></legend>
+<legend class="title"><?php echo _("Extra Options")?></legend>
 <table>
 <tr>
-<td><?php echo _("Report type")?> : </td>
+<td><label for="Report Type"><?php echo _("Report Type")?> : </label></td>
 <td>
 <input <?php if ( (empty($_POST['need_html']) && empty($_POST['need_chart']) && empty($_POST['need_chart_cc']) && empty($_POST['need_csv'])) || ( ! empty($_POST['need_html']) &&  $_POST['need_html'] == 'true' ) ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_html" value="true" /> : <?php echo _("CDR search")?><br />
-<input <?php if ( ! empty($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_csv" value="true" /> : <?php echo _("CSV file")?><br/>
+<input <?php if ( ! empty($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_csv" value="true" /> : <?php echo _("CSV File")?><br/>
 <input <?php if ( ! empty($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_chart" value="true" /> : <?php echo _("Call Graph")?><br />
 <!--
 <input <?php if ( ! empty($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_chart_cc" value="true" /> : <?php echo _("Concurrent Calls")?><br />
@@ -169,7 +169,7 @@ for ( $i = 2000; $i <= date('Y'); $i++) {
 </td>
 </tr>
 <tr>
-<td><label for="Result limit"><?php echo _("Result limit")?> : </label></td>
+<td><label for="Result Limit"><?php echo _("Result Limit")?> : </label></td>
 <td>
 <input value="<?php
 if (isset($_POST['limit']) ) {
@@ -345,8 +345,8 @@ if (isset($_POST['limit']) ) {
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'minutes1') { echo 'selected="selected"'; } ?> value="minutes1"><?php echo _("Minute")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'minutes10') { echo 'selected="selected"'; } ?> value="minutes10"><?php echo _("10 Minutes")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'hour') { echo 'selected="selected"'; } ?> value="hour"><?php echo _("Hour")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'hour_of_day') { echo 'selected="selected"'; } ?> value="hour_of_day"><?php echo _("Hour of day")?></option>
-<option <?php if (isset($_POST['group']) && $_POST['group'] == 'day_of_week') { echo 'selected="selected"'; } ?> value="day_of_week"><?php echo _("Day of week")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'hour_of_day') { echo 'selected="selected"'; } ?> value="hour_of_day"><?php echo _("Hour of Day")?></option>
+<option <?php if (isset($_POST['group']) && $_POST['group'] == 'day_of_week') { echo 'selected="selected"'; } ?> value="day_of_week"><?php echo _("Day of Week")?></option>
 <option <?php if (empty($_POST['group']) || $_POST['group'] == 'day') { echo 'selected="selected"'; } ?> value="day"><?php echo _("Day")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'week') { echo 'selected="selected"'; } ?> value="week"><?php echo _("Week ( Sun-Sat )")?></option>
 <option <?php if (isset($_POST['group']) && $_POST['group'] == 'month') { echo 'selected="selected"'; } ?> value="month"><?php echo _("Month")?></option>
