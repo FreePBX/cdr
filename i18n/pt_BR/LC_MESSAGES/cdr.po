@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-09-09 08:02+1000\n"
-"PO-Revision-Date: 2015-02-04 00:43+0200\n"
-"Last-Translator: Rafael <rafael@ibinetwork.com.br>\n"
-"Language-Team: Portuguese (Brazil) <http://git.freepbx.org/projects/freepbx/"
-"cdr/pt_BR/>\n"
+"PO-Revision-Date: 2017-03-08 21:13+0200\n"
+"Last-Translator: Kingvoice <suporte@kingvoice.com.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/cdr/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 1.10-dev\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Cdr.class.php:410
 #, php-format
@@ -65,18 +65,22 @@ msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
 msgstr ""
+"<b>_!2XXN, _562., _.0075</b> = Pesquisar qualquer correspondência "
+"<b>exceto</b> para estes números"
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:251
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
 msgstr ""
+"<b>_2XXN, _562., _.0075</b> = Pesquisar qualquer correspondência destes "
+"números<br>"
 
 #: page.cdr.php:190 /usr/src/freepbx/cdr/page.cdr.php:222 page.cdr.php:253
 msgid "<br>Asterisk pattern matching<br>"
-msgstr ""
+msgstr "<br>Padrão de correspondência Asterisk<br>"
 
 #: page.cdr.php:420
 msgid "AMA"
-msgstr ""
+msgstr "AMA"
 
 #: page.cdr.php:1156 page.cdr.php:1231
 msgid "AMA Flag"
@@ -84,7 +88,7 @@ msgstr "Flag AMA"
 
 #: page.cdr.php:418 page.cdr.php:1120
 msgid "ANI"
-msgstr ""
+msgstr "ANI"
 
 #: page.cdr.php:732
 msgid "Account"
@@ -100,35 +104,35 @@ msgstr "Informação da Conta"
 
 #: install.php:50
 msgid "Adding index to did field in the cdr table"
-msgstr ""
+msgstr "Adicionando índice ao campo did na tabela cdr"
 
 #: install.php:85
 msgid "Adding!"
-msgstr ""
+msgstr "Adicionando!"
 
 #: page.cdr.php:321
 msgid "All Dispositions"
-msgstr ""
+msgstr "Todas as Disposições"
 
 #: views/ucp_config.php:7
 msgid "Allow CDR"
-msgstr ""
+msgstr "Permitir CDR"
 
 #: views/ucp_config.php:64
 msgid "Allow CDR Downloads"
-msgstr ""
+msgstr "Permitir baixar CDR"
 
 #: views/ucp_config.php:95
 msgid "Allow CDR Playback"
-msgstr ""
+msgstr "Permitir reproduzir CDR"
 
 #: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "Permite este usuário reproduzir gravações no PCU"
 
 #: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "Permitir usuários baixarem gravações no PCU"
 
 #: page.cdr.php:310
 msgid "And"
@@ -140,7 +144,7 @@ msgstr "Atendida"
 
 #: page.cdr.php:423 /usr/src/freepbx/cdr/page.cdr.php:727
 msgid "App"
-msgstr ""
+msgstr "App"
 
 #: page.cdr.php:1126
 msgid "Application"
@@ -179,7 +183,7 @@ msgstr "Ocupado"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
-msgstr ""
+msgstr "Acessar CDR"
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:87
 msgid "CDR Reports"
@@ -191,11 +195,11 @@ msgstr "Pesquisa CDR"
 
 #: page.cdr.php:416
 msgid "CNAM"
-msgstr ""
+msgstr "CNAM"
 
 #: page.cdr.php:417
 msgid "CNUM"
-msgstr ""
+msgstr "CNUM"
 
 #: page.cdr.php:164
 msgid "CSV file"
@@ -211,23 +215,23 @@ msgstr "Data / Hora"
 
 #: page.cdr.php:950
 msgid "Call Detail Record - Call Graph by"
-msgstr ""
+msgstr "Registro Detalhado de Chamadas - Gráfico de Chamadas por"
 
 #: page.cdr.php:1050
 msgid "Call Detail Record - Concurrent Calls by"
-msgstr ""
+msgstr "Registro Detalhado de Chamadas - Chamadas Concorrentes por"
 
 #: page.cdr.php:707
 msgid "Call Detail Record - Search Returned"
-msgstr ""
+msgstr "Registro Detalhado de Chamadas - Pesquisa Retornada"
 
 #: page.cdr.php:93
 msgid "Call Detail Record Search"
-msgstr ""
+msgstr "Pesquisa de Registro Detalhado de Chamadas"
 
 #: page.cdr.php:399
 msgid "Call Event Log - Search Returned"
-msgstr ""
+msgstr "Registro de Evento de Chamadas - Pesquisa Retornada"
 
 #: page.cdr.php:165
 msgid "Call Graph"
@@ -235,27 +239,27 @@ msgstr "Gráfico de Chamadas"
 
 #: Cdr.class.php:265 ucp/Cdr.class.php:199
 msgid "Call History"
-msgstr ""
+msgstr "Histórico de Chamadas"
 
 #: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1198
 msgid "Caller ID Name"
-msgstr ""
+msgstr "Nome do ID do Chamador"
 
 #: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1203
 msgid "Caller ID Number"
-msgstr ""
+msgstr "Número do ID do Chamador"
 
 #: page.cdr.php:724 page.cdr.php:1103
 msgid "CallerID"
-msgstr "ID de Chamada"
+msgstr "ID do Chamador"
 
 #: page.cdr.php:208
 msgid "CallerID Name"
-msgstr ""
+msgstr "Nome ID do Chamador"
 
 #: page.cdr.php:196
 msgid "CallerID Number"
-msgstr ""
+msgstr "Número ID do Chamador"
 
 #: page.cdr.php:707
 msgid "Calls"
@@ -271,12 +275,12 @@ msgstr "Chamadas Simultaneas"
 
 #: ucp/Cdr.class.php:314 ucp/Cdr.class.php:318
 msgid "Conference"
-msgstr ""
+msgstr "Conferência"
 
 #: ucp/views/settings.php:2
 #, php-format
 msgid "Conference \"%s\" Settings"
-msgstr ""
+msgstr "Conferência \"%s\" Configurações"
 
 #: page.cdr.php:200 /usr/src/freepbx/cdr/page.cdr.php:212 page.cdr.php:232
 #: /usr/src/freepbx/cdr/page.cdr.php:244 page.cdr.php:263
@@ -287,7 +291,7 @@ msgstr "Contem"
 
 #: ucp/views/view.php:34
 msgid "Controls"
-msgstr ""
+msgstr "Controles"
 
 #: page.cdr.php:240 /usr/src/freepbx/cdr/page.cdr.php:356 page.cdr.php:419
 #: /usr/src/freepbx/cdr/page.cdr.php:726 page.cdr.php:864 page.cdr.php:1115
@@ -296,7 +300,7 @@ msgstr "DID"
 
 #: ucp/views/view.php:28
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: page.cdr.php:344
 msgid "Date/Time"
@@ -316,7 +320,7 @@ msgstr "Dezembro"
 
 #: ucp/views/view.php:29
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: page.cdr.php:259 /usr/src/freepbx/cdr/page.cdr.php:728
 msgid "Destination"
@@ -324,11 +328,11 @@ msgstr "Destino"
 
 #: page.cdr.php:361 /usr/src/freepbx/cdr/page.cdr.php:879
 msgid "Destination Caller ID Name"
-msgstr ""
+msgstr "Nome do ID Chamador de Destino"
 
 #: page.cdr.php:273
 msgid "Destination CallerID Name"
-msgstr ""
+msgstr "Nome do ID Chamador de Destino"
 
 #: page.cdr.php:1137
 msgid "Destination Context"
@@ -340,19 +344,19 @@ msgstr "Numero de Destino"
 
 #: page.cdr.php:1213
 msgid "Dialplan context"
-msgstr ""
+msgstr "Contexto do Plano de Discagem"
 
 #: page.cdr.php:1208
 msgid "Dialplan exten"
-msgstr ""
+msgstr "Ramal Plano de Discagem"
 
 #: page.cdr.php:317 /usr/src/freepbx/cdr/page.cdr.php:729
 msgid "Disposition"
-msgstr ""
+msgstr "Disposição"
 
 #: ucp/assets/js/global.js:54
 msgid "Download"
-msgstr ""
+msgstr "Baixar"
 
 #: page.cdr.php:307 /usr/src/freepbx/cdr/page.cdr.php:730
 #: ucp/views/view.php:30
@@ -361,7 +365,7 @@ msgstr "Duração"
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
-msgstr ""
+msgstr "Habilitar CDR (Histórico de Chamadas) no PCU para este usuário"
 
 #: page.cdr.php:201 /usr/src/freepbx/cdr/page.cdr.php:213 page.cdr.php:233
 #: /usr/src/freepbx/cdr/page.cdr.php:245 page.cdr.php:264
@@ -372,19 +376,19 @@ msgstr "Termina com"
 
 #: page.cdr.php:415
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 #: page.cdr.php:1251
 msgid "Event Extra"
-msgstr ""
+msgstr "Evento Extra"
 
 #: page.cdr.php:426
 msgid "EventExtra"
-msgstr ""
+msgstr "Evento Extra"
 
 #: page.cdr.php:399
 msgid "Events"
-msgstr ""
+msgstr "Eventos"
 
 #: page.cdr.php:202 /usr/src/freepbx/cdr/page.cdr.php:214 page.cdr.php:234
 #: /usr/src/freepbx/cdr/page.cdr.php:246 page.cdr.php:265
@@ -407,11 +411,11 @@ msgstr "Fevereiro"
 
 #: ucp/Cdr.class.php:144
 msgid "File does not exist"
-msgstr ""
+msgstr "Arquivo não existe"
 
 #: ucp/Cdr.class.php:416
 msgid "Forbidden"
-msgstr ""
+msgstr "Proibido"
 
 #: page.cdr.php:103
 msgid "From"
@@ -419,11 +423,11 @@ msgstr "De"
 
 #: page.cdr.php:955
 msgid "Go to the CDR Graph"
-msgstr ""
+msgstr "Ir para o Gráfico CDR"
 
 #: page.cdr.php:954
 msgid "Go to the top of the CDR table"
-msgstr ""
+msgstr "Ir para o início da tabela CDR"
 
 #: page.cdr.php:338
 msgid "Group By"
@@ -439,7 +443,7 @@ msgstr "Hora do dia"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "Herdar"
 
 #: page.cdr.php:107
 msgid "January"
@@ -479,7 +483,7 @@ msgstr "Novo primeiro"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
-msgstr ""
+msgstr "Não"
 
 #: page.cdr.php:325
 msgid "No Answer"
@@ -494,11 +498,11 @@ msgstr "Exceto"
 
 #: ucp/Cdr.class.php:47
 msgid "Not Authorized"
-msgstr ""
+msgstr "Não Autorizado"
 
 #: ucp/Cdr.class.php:422
 msgid "Not Found"
-msgstr ""
+msgstr "Não Encontrado"
 
 #: page.cdr.php:107
 msgid "November"
@@ -506,7 +510,7 @@ msgstr "Novembro"
 
 #: install.php:82
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: page.cdr.php:107
 msgid "October"
@@ -522,31 +526,31 @@ msgstr "Ordenar por"
 
 #: page.cdr.php:360 /usr/src/freepbx/cdr/page.cdr.php:876
 msgid "Outbound Caller ID Name"
-msgstr ""
+msgstr "Nome do ID Chamador de Saída"
 
 #: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:873
 msgid "Outbound Caller ID Number"
-msgstr ""
+msgstr "Número do ID Chamador de Saída"
 
 #: page.cdr.php:725
 msgid "Outbound CallerID"
-msgstr ""
+msgstr "ID Chamador de Saída"
 
 #: page.cdr.php:228
 msgid "Outbound CallerID Number"
-msgstr ""
+msgstr "Número ID Chamador de Saída"
 
 #: ucp/views/view.php:32
 msgid "Playback"
-msgstr ""
+msgstr "Reproduzir"
 
 #: page.cdr.php:722
 msgid "Recording"
-msgstr ""
+msgstr "Gravação"
 
 #: page.cdr.php:709
 msgid "Related Call Detail Records"
-msgstr ""
+msgstr "Registros Detalhados de Chamadas Relacionadas"
 
 #: page.cdr.php:161
 msgid "Report type"
@@ -582,6 +586,9 @@ msgid ""
 "separated by a comma. This field support Asterisk regular expression. "
 "Example<br>"
 msgstr ""
+"Pesquise chamadas com base no Número do ID Chamador. Você pode inserir "
+"vários números separados por uma vírgula. Este campo suporta a expressão "
+"regular Asterisk. Exemplo <br>"
 
 #: page.cdr.php:219
 msgid ""
@@ -589,21 +596,28 @@ msgid ""
 "separated by a comma. This field support Asterisk regular expression. "
 "Example<br>"
 msgstr ""
+"Pesquise chamadas baseadas no CID de saída utilizado. Você pode inserir "
+"vários números separados por uma vírgula. Este campo suporta a expressão "
+"regular Asterisk. Exemplo <br>"
 
 #: page.cdr.php:316
 msgid ""
 "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
 msgstr ""
+"Pesquise chamadas que correspondam às respostas RESPONDIDO, OCUPADO, FALHOU "
+"ou SEM RESPOSTA."
 
 #: page.cdr.php:306
 msgid "Search for calls that matches the call length specified."
-msgstr ""
+msgstr "Pesquise chamadas que correspondam à duração da chamada especificada."
 
 #: page.cdr.php:250
 msgid ""
 "Search for destination calls. You can enter multiple sources separated by a "
 "comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
+"Pesquisar chamadas por destino. Você pode digitar vários números separados "
+"por vírgula. Este campo suporta a expressão regular Asterisk. Exemplo <br>"
 
 #: page.cdr.php:284
 msgid "Search for userfield data (if enabled)."
@@ -615,17 +629,19 @@ msgstr "Segundos"
 
 #: page.cdr.php:207
 msgid "Select CallerID Name to search for."
-msgstr ""
+msgstr "Selecione o Nome do ID Chamador para pesquisar."
 
 #: page.cdr.php:272
 msgid "Select Destination Caller Name to search for."
-msgstr ""
+msgstr "Selecione Nome do Usuário Chamador de Destino para pesquisar."
 
 #: page.cdr.php:101
 msgid ""
 "Select time span for your report. You can select Date, Month, Year, Hour and "
 "Minute to narrow your search"
 msgstr ""
+"Selecione período de tempo para seu relatório. Você pode selecionar Data, "
+"Mês, Ano, Hora e Minuto para restringir sua pesquisa"
 
 #: page.cdr.php:107
 msgid "September"
@@ -633,7 +649,7 @@ msgstr "Setembro"
 
 #: ucp/views/nav.php:8
 msgid "Settings"
-msgstr ""
+msgstr "Configurações"
 
 #: page.cdr.php:723
 msgid "System"
@@ -652,6 +668,8 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Estas são os ramais atribuídos e ativos que aparecerão para que este usuário "
+"controle e edite no PCU"
 
 #: page.cdr.php:414 page.cdr.php:1053
 msgid "Time"
@@ -671,7 +689,7 @@ msgstr "Duração Total"
 
 #: install.php:47
 msgid "Unable to add index to did field in the cdr table"
-msgstr ""
+msgstr "Não foi possível adicionar índice ao campo did na tabela cdr"
 
 #: page.cdr.php:1086 page.cdr.php:1089
 msgid "UniqueID"
@@ -679,7 +697,7 @@ msgstr "ÚnicoID"
 
 #: ucp/Cdr.class.php:344 ucp/Cdr.class.php:365 ucp/Cdr.class.php:369
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: page.cdr.php:342 /usr/src/freepbx/cdr/page.cdr.php:882
 msgid "User Field"
@@ -687,11 +705,11 @@ msgstr "Usuário"
 
 #: Cdr.class.php:256
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Ramal Principal do Usuário"
 
 #: page.cdr.php:425 page.cdr.php:1245
 msgid "UserDefType"
-msgstr ""
+msgstr "TipoDefUsuario"
 
 #: page.cdr.php:285 /usr/src/freepbx/cdr/page.cdr.php:731
 msgid "Userfield"
@@ -699,11 +717,11 @@ msgstr "Usuário"
 
 #: ucp/views/nav.php:3
 msgid "View History"
-msgstr ""
+msgstr "Visualizar Histórico"
 
 #: ucp/Cdr.class.php:300 ucp/Cdr.class.php:305
 msgid "Voicemail"
-msgstr ""
+msgstr "Correio de Voz"
 
 #: page.cdr.php:351 /usr/src/freepbx/cdr/page.cdr.php:897
 msgid "Week ( Sun-Sat )"
@@ -711,7 +729,7 @@ msgstr "Semana (Dom-Sab)"
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: page.cdr.php:821 ucp/assets/js/global.js:86
 #, perl-format, php-format
@@ -721,26 +739,30 @@ msgid ""
 "distributed with the PBX. If you'd like to install the binaries needed for "
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
+"Falta suporte para reprodução neste navegador. Para suportar totalmente a "
+"reprodução do navegador HTML5, você precisará instalar programas que não "
+"podem ser distribuídos com o PBX. Se pretender instalar os binários "
+"necessários para estas conversões, clique <a href='%s'>aqui</a>"
 
 #: page.cdr.php:424
 msgid "channel"
-msgstr ""
+msgstr "Canal"
 
 #: page.cdr.php:422
 msgid "context"
-msgstr ""
+msgstr "contexto"
 
 #: ucp/Cdr.class.php:332
 msgid "denied by COS"
-msgstr ""
+msgstr "Negado por COS"
 
 #: page.cdr.php:421
 msgid "exten"
-msgstr ""
+msgstr "ramal"
 
 #: ucp/Cdr.class.php:328
 msgid "kicked from conference"
-msgstr ""
+msgstr "Expulso da conferência"
 
 #~ msgid "App."
 #~ msgstr "App."
