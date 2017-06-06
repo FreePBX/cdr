@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-01 17:16-0700\n"
+"POT-Creation-Date: 2017-06-06 09:42-0700\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -207,8 +207,8 @@ msgid "CNUM"
 msgstr "CNUM"
 
 #: page.cdr.php:164
-msgid "CSV file"
-msgstr "Fichier CSV"
+msgid "CSV File"
+msgstr ""
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -315,7 +315,11 @@ msgstr "Date/Heure"
 msgid "Day"
 msgstr "Jour"
 
-#: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:907
+#: page.cdr.php:349
+msgid "Day of Week"
+msgstr ""
+
+#: page.cdr.php:907
 msgid "Day of week"
 msgstr "Jour de la semaine"
 
@@ -409,8 +413,8 @@ msgid "Exactly"
 msgstr "Exactement"
 
 #: page.cdr.php:158
-msgid "Extra options"
-msgstr "Options extra"
+msgid "Extra Options"
+msgstr ""
 
 #: page.cdr.php:324
 msgid "Failed"
@@ -448,7 +452,11 @@ msgstr "Grouper par"
 msgid "Hour"
 msgstr "Heure"
 
-#: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:892
+#: page.cdr.php:348
+msgid "Hour of Day"
+msgstr ""
+
+#: page.cdr.php:892
 msgid "Hour of day"
 msgstr "Heure du jour"
 
@@ -560,24 +568,24 @@ msgid "Related Call Detail Records"
 msgstr "Enregistrements détaillés des appels connexes"
 
 #: page.cdr.php:161
-msgid "Report type"
-msgstr "Type de rapport"
+msgid "Report Type"
+msgstr ""
 
 #: cdr.i18n.php:6
 msgid "Reports"
 msgstr "Rapports"
 
 #: page.cdr.php:172
-msgid "Result limit"
-msgstr "Limiter le résultat"
+msgid "Result Limit"
+msgstr ""
 
 #: page.cdr.php:370
 msgid "Search"
 msgstr "Rechercher"
 
 #: page.cdr.php:97
-msgid "Search conditions"
-msgstr "Conditions de recherche"
+msgid "Search Conditions"
+msgstr ""
 
 #: page.cdr.php:239
 msgid "Search for a DID."
@@ -762,6 +770,21 @@ msgstr "numéro"
 #: ucp/Cdr.class.php:320
 msgid "kicked from conference"
 msgstr "sorti de la conférence"
+
+#~ msgid "CSV file"
+#~ msgstr "Fichier CSV"
+
+#~ msgid "Extra options"
+#~ msgstr "Options extra"
+
+#~ msgid "Report type"
+#~ msgstr "Type de rapport"
+
+#~ msgid "Result limit"
+#~ msgstr "Limiter le résultat"
+
+#~ msgid "Search conditions"
+#~ msgstr "Conditions de recherche"
 
 #~ msgid "Conference \"%s\" Settings"
 #~ msgstr "Paramètres \"%s\" de la conférence"

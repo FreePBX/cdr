@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-01 17:16-0700\n"
+"POT-Creation-Date: 2017-06-06 09:42-0700\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -234,8 +234,8 @@ msgid "CNUM"
 msgstr "CNUM"
 
 #: page.cdr.php:164
-msgid "CSV file"
-msgstr "CSVファイル"
+msgid "CSV File"
+msgstr ""
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -342,7 +342,11 @@ msgstr "日時"
 msgid "Day"
 msgstr "日付毎"
 
-#: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:907
+#: page.cdr.php:349
+msgid "Day of Week"
+msgstr ""
+
+#: page.cdr.php:907
 msgid "Day of week"
 msgstr "曜日毎"
 
@@ -434,8 +438,8 @@ msgid "Exactly"
 msgstr "完全一致"
 
 #: page.cdr.php:158
-msgid "Extra options"
-msgstr "出力形式・表示方法の設定"
+msgid "Extra Options"
+msgstr ""
 
 #: page.cdr.php:324
 msgid "Failed"
@@ -473,7 +477,11 @@ msgstr "グラフの集計条件"
 msgid "Hour"
 msgstr "1時間毎"
 
-#: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:892
+#: page.cdr.php:348
+msgid "Hour of Day"
+msgstr ""
+
+#: page.cdr.php:892
 msgid "Hour of day"
 msgstr "1時間毎(年月日は無視)"
 
@@ -585,24 +593,24 @@ msgid "Related Call Detail Records"
 msgstr "関連したコール記録"
 
 #: page.cdr.php:161
-msgid "Report type"
-msgstr "レポートタイプ"
+msgid "Report Type"
+msgstr ""
 
 #: cdr.i18n.php:6
 msgid "Reports"
 msgstr "レポート"
 
 #: page.cdr.php:172
-msgid "Result limit"
-msgstr "表示件数"
+msgid "Result Limit"
+msgstr ""
 
 #: page.cdr.php:370
 msgid "Search"
 msgstr "検索"
 
 #: page.cdr.php:97
-msgid "Search conditions"
-msgstr "検索条件"
+msgid "Search Conditions"
+msgstr ""
 
 #: page.cdr.php:239
 msgid "Search for a DID."
@@ -780,6 +788,21 @@ msgstr "exten"
 #: ucp/Cdr.class.php:320
 msgid "kicked from conference"
 msgstr ""
+
+#~ msgid "CSV file"
+#~ msgstr "CSVファイル"
+
+#~ msgid "Extra options"
+#~ msgstr "出力形式・表示方法の設定"
+
+#~ msgid "Report type"
+#~ msgstr "レポートタイプ"
+
+#~ msgid "Result limit"
+#~ msgstr "表示件数"
+
+#~ msgid "Search conditions"
+#~ msgstr "検索条件"
 
 #~ msgid "Added field did to cdr"
 #~ msgstr "didフィールドをcdrテーブルに追加しました。"

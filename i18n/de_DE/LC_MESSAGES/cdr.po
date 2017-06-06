@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-01 17:16-0700\n"
+"POT-Creation-Date: 2017-06-06 09:42-0700\n"
 "PO-Revision-Date: 2017-01-09 20:10+0200\n"
 "Last-Translator: Sven <spiderrs4@web.de>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/cdr/de_DE/"
@@ -200,8 +200,8 @@ msgid "CNUM"
 msgstr ""
 
 #: page.cdr.php:164
-msgid "CSV file"
-msgstr "CSV Datei"
+msgid "CSV File"
+msgstr ""
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -308,7 +308,11 @@ msgstr "Datum/Uhrzeit"
 msgid "Day"
 msgstr "Tag"
 
-#: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:907
+#: page.cdr.php:349
+msgid "Day of Week"
+msgstr ""
+
+#: page.cdr.php:907
 msgid "Day of week"
 msgstr "Wochentag"
 
@@ -400,8 +404,8 @@ msgid "Exactly"
 msgstr "Genau"
 
 #: page.cdr.php:158
-msgid "Extra options"
-msgstr "Zusätzliche Optionen"
+msgid "Extra Options"
+msgstr ""
 
 #: page.cdr.php:324
 msgid "Failed"
@@ -439,7 +443,11 @@ msgstr "Gruppiere nach"
 msgid "Hour"
 msgstr "Stunde"
 
-#: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:892
+#: page.cdr.php:348
+msgid "Hour of Day"
+msgstr ""
+
+#: page.cdr.php:892
 msgid "Hour of day"
 msgstr "Stunde des Tages"
 
@@ -551,24 +559,24 @@ msgid "Related Call Detail Records"
 msgstr ""
 
 #: page.cdr.php:161
-msgid "Report type"
-msgstr "Berichtstyp"
+msgid "Report Type"
+msgstr ""
 
 #: cdr.i18n.php:6
 msgid "Reports"
 msgstr "Berichte"
 
 #: page.cdr.php:172
-msgid "Result limit"
-msgstr "Ausgabelimit"
+msgid "Result Limit"
+msgstr ""
 
 #: page.cdr.php:370
 msgid "Search"
 msgstr "Suche"
 
 #: page.cdr.php:97
-msgid "Search conditions"
-msgstr "Suchbedingungen"
+msgid "Search Conditions"
+msgstr ""
 
 #: page.cdr.php:239
 msgid "Search for a DID."
@@ -739,6 +747,21 @@ msgstr ""
 #: ucp/Cdr.class.php:320
 msgid "kicked from conference"
 msgstr "Konferenz beendet"
+
+#~ msgid "CSV file"
+#~ msgstr "CSV Datei"
+
+#~ msgid "Extra options"
+#~ msgstr "Zusätzliche Optionen"
+
+#~ msgid "Report type"
+#~ msgstr "Berichtstyp"
+
+#~ msgid "Result limit"
+#~ msgstr "Ausgabelimit"
+
+#~ msgid "Search conditions"
+#~ msgstr "Suchbedingungen"
 
 #~ msgid "Conference \"%s\" Settings"
 #~ msgstr "Konferenz \"%s\" Einstellungen"
