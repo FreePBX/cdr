@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 08:02+1000\n"
+"POT-Creation-Date: 2017-06-06 12:38-0400\n"
 "PO-Revision-Date: 2016-09-30 13:30+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -218,8 +218,8 @@ msgid "CNUM"
 msgstr "СNUМ"
 
 #: page.cdr.php:164
-msgid "CSV file"
-msgstr "Дамп в CSV-файл"
+msgid "CSV File"
+msgstr ""
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -326,7 +326,11 @@ msgstr "Дата/Время"
 msgid "Day"
 msgstr "День"
 
-#: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:907
+#: page.cdr.php:349
+msgid "Day of Week"
+msgstr ""
+
+#: page.cdr.php:907
 msgid "Day of week"
 msgstr "День недели"
 
@@ -416,8 +420,8 @@ msgid "Exactly"
 msgstr "Равно"
 
 #: page.cdr.php:158
-msgid "Extra options"
-msgstr "Дополнительно"
+msgid "Extra Options"
+msgstr ""
 
 #: page.cdr.php:324
 msgid "Failed"
@@ -455,7 +459,11 @@ msgstr "Группировать по"
 msgid "Hour"
 msgstr "Час"
 
-#: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:892
+#: page.cdr.php:348
+msgid "Hour of Day"
+msgstr ""
+
+#: page.cdr.php:892
 msgid "Hour of day"
 msgstr "Час дня"
 
@@ -571,24 +579,24 @@ msgid "Related Call Detail Records"
 msgstr "Детализация связанных звонков"
 
 #: page.cdr.php:161
-msgid "Report type"
-msgstr "Показать"
+msgid "Report Type"
+msgstr ""
 
-#: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
+#: cdr.i18n.php:6
 msgid "Reports"
 msgstr "Отчёты"
 
 #: page.cdr.php:172
-msgid "Result limit"
-msgstr "Записей"
+msgid "Result Limit"
+msgstr ""
 
 #: page.cdr.php:370
 msgid "Search"
 msgstr "Искать"
 
 #: page.cdr.php:97
-msgid "Search conditions"
-msgstr "Условия поиска"
+msgid "Search Conditions"
+msgstr ""
 
 #: page.cdr.php:239
 msgid "Search for a DID."
@@ -779,6 +787,21 @@ msgstr "расш"
 #: ucp/Cdr.class.php:328
 msgid "kicked from conference"
 msgstr "выпнут из конференции"
+
+#~ msgid "CSV file"
+#~ msgstr "Дамп в CSV-файл"
+
+#~ msgid "Extra options"
+#~ msgstr "Дополнительно"
+
+#~ msgid "Report type"
+#~ msgstr "Показать"
+
+#~ msgid "Result limit"
+#~ msgstr "Записей"
+
+#~ msgid "Search conditions"
+#~ msgstr "Условия поиска"
 
 #~ msgid "Unable to add index todid field in cdr table"
 #~ msgstr "Невозможно добавить индекс поля todid в таблице cdr"

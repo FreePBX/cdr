@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for cdr
-# Copyright (C) 2008-2016 Sangoma, Inc.
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 08:02+1000\n"
+"POT-Creation-Date: 2017-06-06 12:38-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -208,7 +208,7 @@ msgid "CNUM"
 msgstr ""
 
 #: page.cdr.php:164
-msgid "CSV file"
+msgid "CSV File"
 msgstr ""
 
 #: cdr.i18n.php:8
@@ -326,7 +326,11 @@ msgstr ""
 msgid "Day"
 msgstr ""
 
-#: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:907
+#: page.cdr.php:349
+msgid "Day of Week"
+msgstr ""
+
+#: page.cdr.php:907
 msgid "Day of week"
 msgstr ""
 
@@ -414,7 +418,7 @@ msgid "Exactly"
 msgstr ""
 
 #: page.cdr.php:158
-msgid "Extra options"
+msgid "Extra Options"
 msgstr ""
 
 #: page.cdr.php:324
@@ -453,7 +457,11 @@ msgstr ""
 msgid "Hour"
 msgstr ""
 
-#: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:892
+#: page.cdr.php:348
+msgid "Hour of Day"
+msgstr ""
+
+#: page.cdr.php:892
 msgid "Hour of day"
 msgstr ""
 
@@ -575,15 +583,15 @@ msgid "Related Call Detail Records"
 msgstr ""
 
 #: page.cdr.php:161
-msgid "Report type"
+msgid "Report Type"
 msgstr ""
 
-#: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
+#: cdr.i18n.php:6
 msgid "Reports"
 msgstr ""
 
 #: page.cdr.php:172
-msgid "Result limit"
+msgid "Result Limit"
 msgstr ""
 
 #: page.cdr.php:370
@@ -591,7 +599,7 @@ msgid "Search"
 msgstr ""
 
 #: page.cdr.php:97
-msgid "Search conditions"
+msgid "Search Conditions"
 msgstr ""
 
 #: page.cdr.php:239

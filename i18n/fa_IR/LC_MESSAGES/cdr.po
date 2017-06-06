@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 08:02+1000\n"
+"POT-Creation-Date: 2017-06-06 12:38-0400\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -204,8 +204,8 @@ msgid "CNUM"
 msgstr "CNUM"
 
 #: page.cdr.php:164
-msgid "CSV file"
-msgstr "فایل CSV"
+msgid "CSV File"
+msgstr ""
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -312,7 +312,11 @@ msgstr "تاریخ/ساعت"
 msgid "Day"
 msgstr "روز"
 
-#: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:907
+#: page.cdr.php:349
+msgid "Day of Week"
+msgstr ""
+
+#: page.cdr.php:907
 msgid "Day of week"
 msgstr "روز هفته"
 
@@ -400,8 +404,8 @@ msgid "Exactly"
 msgstr "دقیقا"
 
 #: page.cdr.php:158
-msgid "Extra options"
-msgstr "گزینه های بیشتر"
+msgid "Extra Options"
+msgstr ""
 
 #: page.cdr.php:324
 msgid "Failed"
@@ -439,7 +443,11 @@ msgstr "گروه با"
 msgid "Hour"
 msgstr "ساعت"
 
-#: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:892
+#: page.cdr.php:348
+msgid "Hour of Day"
+msgstr ""
+
+#: page.cdr.php:892
 msgid "Hour of day"
 msgstr "ساعت از روز"
 
@@ -555,24 +563,24 @@ msgid "Related Call Detail Records"
 msgstr "مربوط به جزییات تماس"
 
 #: page.cdr.php:161
-msgid "Report type"
-msgstr "نوع گزارش"
+msgid "Report Type"
+msgstr ""
 
-#: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
+#: cdr.i18n.php:6
 msgid "Reports"
 msgstr "گزارشات"
 
 #: page.cdr.php:172
-msgid "Result limit"
-msgstr "محدودیت نتیجه"
+msgid "Result Limit"
+msgstr ""
 
 #: page.cdr.php:370
 msgid "Search"
 msgstr "جستجو"
 
 #: page.cdr.php:97
-msgid "Search conditions"
-msgstr "شرایط جستجو"
+msgid "Search Conditions"
+msgstr ""
 
 #: page.cdr.php:239
 msgid "Search for a DID."
@@ -756,3 +764,18 @@ msgstr "داخلی"
 #: ucp/Cdr.class.php:328
 msgid "kicked from conference"
 msgstr "بیرون انداختن از کنفرانس"
+
+#~ msgid "CSV file"
+#~ msgstr "فایل CSV"
+
+#~ msgid "Extra options"
+#~ msgstr "گزینه های بیشتر"
+
+#~ msgid "Report type"
+#~ msgstr "نوع گزارش"
+
+#~ msgid "Result limit"
+#~ msgstr "محدودیت نتیجه"
+
+#~ msgid "Search conditions"
+#~ msgstr "شرایط جستجو"

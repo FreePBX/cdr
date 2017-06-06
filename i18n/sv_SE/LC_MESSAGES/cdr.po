@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-09 08:02+1000\n"
+"POT-Creation-Date: 2017-06-06 12:38-0400\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -212,8 +212,8 @@ msgid "CNUM"
 msgstr ""
 
 #: page.cdr.php:164
-msgid "CSV file"
-msgstr "CSV-fil"
+msgid "CSV File"
+msgstr ""
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -320,7 +320,11 @@ msgstr "Datum/tid"
 msgid "Day"
 msgstr "Dag"
 
-#: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:907
+#: page.cdr.php:349
+msgid "Day of Week"
+msgstr ""
+
+#: page.cdr.php:907
 msgid "Day of week"
 msgstr "Veckodag"
 
@@ -408,8 +412,8 @@ msgid "Exactly"
 msgstr "Exakt"
 
 #: page.cdr.php:158
-msgid "Extra options"
-msgstr "Extraval"
+msgid "Extra Options"
+msgstr ""
 
 #: page.cdr.php:324
 msgid "Failed"
@@ -447,7 +451,11 @@ msgstr "Gruppera enligt"
 msgid "Hour"
 msgstr "Timme"
 
-#: page.cdr.php:348 /usr/src/freepbx/cdr/page.cdr.php:892
+#: page.cdr.php:348
+msgid "Hour of Day"
+msgstr ""
+
+#: page.cdr.php:892
 msgid "Hour of day"
 msgstr "Per timme"
 
@@ -563,24 +571,24 @@ msgid "Related Call Detail Records"
 msgstr ""
 
 #: page.cdr.php:161
-msgid "Report type"
-msgstr "Rapporttyp"
+msgid "Report Type"
+msgstr ""
 
-#: cdr.i18n.php:6 /usr/src/freepbx/cdr/cdr.i18n.php:12
+#: cdr.i18n.php:6
 msgid "Reports"
 msgstr ""
 
 #: page.cdr.php:172
-msgid "Result limit"
-msgstr "Begränsa resultat"
+msgid "Result Limit"
+msgstr ""
 
 #: page.cdr.php:370
 msgid "Search"
 msgstr "Sök"
 
 #: page.cdr.php:97
-msgid "Search conditions"
-msgstr "Sökvillkor"
+msgid "Search Conditions"
+msgstr ""
 
 #: page.cdr.php:239
 msgid "Search for a DID."
@@ -759,6 +767,21 @@ msgstr ""
 #: ucp/Cdr.class.php:328
 msgid "kicked from conference"
 msgstr ""
+
+#~ msgid "CSV file"
+#~ msgstr "CSV-fil"
+
+#~ msgid "Extra options"
+#~ msgstr "Extraval"
+
+#~ msgid "Report type"
+#~ msgstr "Rapporttyp"
+
+#~ msgid "Result limit"
+#~ msgstr "Begränsa resultat"
+
+#~ msgid "Search conditions"
+#~ msgstr "Sökvillkor"
 
 #~ msgid "Ascending"
 #~ msgstr "Ökande"
