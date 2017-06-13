@@ -10,64 +10,73 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-06 12:38-0400\n"
-"PO-Revision-Date: 2017-06-06 12:38-0400\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-06-13 17:03+0200\n"
+"Last-Translator: Peter Trinh <ftek@ymail.com>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/cdr/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Cdr.class.php:410
 #, php-format
 msgid "%s hour, %s min, %s sec"
-msgstr ""
+msgstr "%s giờ, %s phút, %s giây"
 
 #: Cdr.class.php:412
 #, php-format
 msgid "%s min, %s sec"
-msgstr ""
+msgstr "%s phút, %s giây"
 
 #: Cdr.class.php:415
 #, php-format
 msgid "%s sec"
-msgstr ""
+msgstr "%s giây"
 
 #: page.cdr.php:346 /usr/src/freepbx/cdr/page.cdr.php:917
 msgid "10 Minutes"
-msgstr ""
+msgstr "10 phút"
 
 #: page.cdr.php:195 /usr/src/freepbx/cdr/page.cdr.php:227 page.cdr.php:258
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
-msgstr ""
+msgstr "<b>.</b> = ký tự đại diện, ghép một hoặc nhiều kí tự <br>"
 
 #: page.cdr.php:193 /usr/src/freepbx/cdr/page.cdr.php:225 page.cdr.php:256
 msgid "<b>N</b> = matches any digit from 2-9<br>"
-msgstr ""
+msgstr "<b>N</b> = Ghép bất kỳ chữ số nào từ 2 đến 9<br>"
 
 #: page.cdr.php:191 /usr/src/freepbx/cdr/page.cdr.php:223 page.cdr.php:254
 msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr ""
+msgstr "<b>N</b> = Ghép bất kỳ chữ số nào từ 0 đến 9<br>"
 
 #: page.cdr.php:192 /usr/src/freepbx/cdr/page.cdr.php:224 page.cdr.php:255
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr ""
+msgstr "<b>Z</b> = ghép bất kỳ chữ số nào từ 1-9<br>"
 
 #: page.cdr.php:194 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:257
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
 msgstr ""
+"<b>[1237-9]</b> = ghép bất kỳ chữ số nào hoặc ký tự nào trong giấu ngoặc "
+"<br>(ví dụ, 1,2,3,7,8,9)<br>"
 
 #: page.cdr.php:189 /usr/src/freepbx/cdr/page.cdr.php:221 page.cdr.php:252
 msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
 msgstr ""
+"<b>_!2XXN, _562., _.0075</b> = Tìm kiếm bất kỳ đối sánh <b>ngoại trừ</b> "
+"những số này"
 
 #: page.cdr.php:188 /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:251
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
 msgstr ""
+"<b>_2XXN, _562., _.0075</b> = tìm kiếm bất kỳ đối sánh nào cho những số "
+"này<br>"
 
 #: page.cdr.php:190 /usr/src/freepbx/cdr/page.cdr.php:222 page.cdr.php:253
 msgid "<br>Asterisk pattern matching<br>"
@@ -75,146 +84,147 @@ msgstr ""
 
 #: page.cdr.php:420
 msgid "AMA"
-msgstr ""
+msgstr "AMA"
 
 #: page.cdr.php:1156 page.cdr.php:1231
 msgid "AMA Flag"
-msgstr ""
+msgstr "Cờ AMA"
 
 #: page.cdr.php:418 page.cdr.php:1120
 msgid "ANI"
-msgstr ""
+msgstr "ANI"
 
 #: page.cdr.php:732
 msgid "Account"
-msgstr ""
+msgstr "Tài khoản"
 
 #: page.cdr.php:296 /usr/src/freepbx/cdr/page.cdr.php:341 page.cdr.php:858
 msgid "Account Code"
-msgstr ""
+msgstr "Mã tài khoản"
 
 #: page.cdr.php:340
 msgid "Account Information"
-msgstr ""
+msgstr "Thông tin tài khoản"
 
 #: install.php:50
 msgid "Adding index to did field in the cdr table"
-msgstr ""
+msgstr "Thêm chỉ mục tới trường đã làm trong bảng cdr"
 
 #: install.php:85
 msgid "Adding!"
-msgstr ""
+msgstr "Đang thêm!"
 
 #: page.cdr.php:321
 msgid "All Dispositions"
-msgstr ""
+msgstr "Tất cả các sắp đặt"
 
 #: views/ucp_config.php:7
 msgid "Allow CDR"
-msgstr ""
+msgstr "Cheo phép CDR"
 
 #: views/ucp_config.php:64
 msgid "Allow CDR Downloads"
-msgstr ""
+msgstr "Cho phép các Download CDR"
 
 #: views/ucp_config.php:95
 msgid "Allow CDR Playback"
-msgstr ""
+msgstr "Cho phép phát lại CDR"
 
 #: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "Cho phép người dùng này phát lại các ghi âm trong UCP"
 
 #: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "Cho phép người dùng tải xuống các ghi âm trong UCP"
 
 #: page.cdr.php:310
 msgid "And"
-msgstr ""
+msgstr "Và"
 
 #: page.cdr.php:322
 msgid "Answered"
-msgstr ""
+msgstr "Đã trả lời"
 
 #: page.cdr.php:423 /usr/src/freepbx/cdr/page.cdr.php:727
 msgid "App"
-msgstr ""
+msgstr "Ứng dụng"
 
 #: page.cdr.php:1126
 msgid "Application"
-msgstr ""
+msgstr "Ứng dụng"
 
 #: page.cdr.php:107
 msgid "April"
-msgstr ""
+msgstr "Tháng tư"
 
 #: page.cdr.php:107
 msgid "August"
-msgstr ""
+msgstr "Tháng tám"
 
 #: page.cdr.php:953
 msgid "Average Call Time"
-msgstr ""
+msgstr "Thời gian gọi trung bình"
 
 #: page.cdr.php:199 /usr/src/freepbx/cdr/page.cdr.php:211 page.cdr.php:231
 #: /usr/src/freepbx/cdr/page.cdr.php:243 page.cdr.php:262
 #: /usr/src/freepbx/cdr/page.cdr.php:276 page.cdr.php:288
 #: /usr/src/freepbx/cdr/page.cdr.php:299
 msgid "Begins With"
-msgstr ""
+msgstr "Bắt đầu với"
 
 #: page.cdr.php:308
 msgid "Between"
-msgstr ""
+msgstr "Giữa"
 
 #: page.cdr.php:1163
 msgid "Billing Duration"
-msgstr ""
+msgstr "Thời hạn thanh toán cước"
 
 #: page.cdr.php:323
 msgid "Busy"
-msgstr ""
+msgstr "Bận"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
-msgstr ""
+msgstr "Truy nhập CDR"
 
 #: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:87
 msgid "CDR Reports"
-msgstr ""
+msgstr "Báo cáo CDR"
 
 #: page.cdr.php:163
 msgid "CDR search"
-msgstr ""
+msgstr "Tìm kiếm CDR"
 
 #: page.cdr.php:416
 msgid "CNAM"
-msgstr ""
+msgstr "CNAM"
 
 #: page.cdr.php:417
 msgid "CNUM"
-msgstr ""
+msgstr "CNUM"
 
 #: page.cdr.php:164
 msgid "CSV File"
-msgstr ""
+msgstr "Tệp CSV"
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr ""
+"Công cụ báo cáo bản ghi dữ liệu cuộc gọi để xem các báo cáo cuộc gọi của bạn"
 
 #: page.cdr.php:102 /usr/src/freepbx/cdr/page.cdr.php:721
 msgid "Call Date"
-msgstr ""
+msgstr "Ngày gọi"
 
 #: page.cdr.php:950
 msgid "Call Detail Record - Call Graph by"
-msgstr ""
+msgstr "Bản ghi chi tiết cuộc gọi- Biểu đồ cuộc gọi bằng"
 
 #: page.cdr.php:1050
 msgid "Call Detail Record - Concurrent Calls by"
-msgstr ""
+msgstr "Bản ghi chi tiết cuộc gọi- Các cuộc gọi  đồng thời bởi"
 
 #: page.cdr.php:707
 msgid "Call Detail Record - Search Returned"
