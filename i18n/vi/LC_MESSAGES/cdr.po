@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-06 12:38-0400\n"
-"PO-Revision-Date: 2017-06-13 17:03+0200\n"
+"PO-Revision-Date: 2017-06-14 22:34+0200\n"
 "Last-Translator: Peter Trinh <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/vi/>\n"
@@ -228,116 +228,116 @@ msgstr "Bản ghi chi tiết cuộc gọi- Các cuộc gọi  đồng thời b�
 
 #: page.cdr.php:707
 msgid "Call Detail Record - Search Returned"
-msgstr ""
+msgstr "Ghi âm chi tiết cuộc goi- Tìm kiếm được trả về"
 
 #: page.cdr.php:93
 msgid "Call Detail Record Search"
-msgstr ""
+msgstr "Tìm kiếm ghi âm chi tiết cuộc gọi"
 
 #: page.cdr.php:399
 msgid "Call Event Log - Search Returned"
-msgstr ""
+msgstr "Nhật ký sự kiện cuộc gọi- Tìm kiến được trả về"
 
 #: page.cdr.php:165
 msgid "Call Graph"
-msgstr ""
+msgstr "Biểu đồ cuộc gọi"
 
 #: Cdr.class.php:265 ucp/Cdr.class.php:199
 msgid "Call History"
-msgstr ""
+msgstr "Lịch sử cuộc gọi"
 
 #: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:870 page.cdr.php:1198
 msgid "Caller ID Name"
-msgstr ""
+msgstr "Tên ID người gọi"
 
 #: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:867 page.cdr.php:1203
 msgid "Caller ID Number"
-msgstr ""
+msgstr "Số ID người gọi"
 
 #: page.cdr.php:724 page.cdr.php:1103
 msgid "CallerID"
-msgstr ""
+msgstr "Tính năng nhận dạng số người gọi Caller ID"
 
 #: page.cdr.php:208
 msgid "CallerID Name"
-msgstr ""
+msgstr "Tên CallerID"
 
 #: page.cdr.php:196
 msgid "CallerID Number"
-msgstr ""
+msgstr "Số CalleID"
 
 #: page.cdr.php:707
 msgid "Calls"
-msgstr ""
+msgstr "Các cuộc gọi"
 
 #: page.cdr.php:1095 page.cdr.php:1110 page.cdr.php:1137 page.cdr.php:1259
 msgid "Channel"
-msgstr ""
+msgstr "Kênh"
 
 #: page.cdr.php:167
 msgid "Concurrent Calls"
-msgstr ""
+msgstr "Các cuộc gọi đồng thời"
 
 #: ucp/Cdr.class.php:314 ucp/Cdr.class.php:318
 msgid "Conference"
-msgstr ""
+msgstr "Hội nghị"
 
 #: ucp/views/settings.php:2
 #, php-format
 msgid "Conference \"%s\" Settings"
-msgstr ""
+msgstr "Cài đặt \"%s\" hội nghị"
 
 #: page.cdr.php:200 /usr/src/freepbx/cdr/page.cdr.php:212 page.cdr.php:232
 #: /usr/src/freepbx/cdr/page.cdr.php:244 page.cdr.php:263
 #: /usr/src/freepbx/cdr/page.cdr.php:277 page.cdr.php:289
 #: /usr/src/freepbx/cdr/page.cdr.php:300
 msgid "Contains"
-msgstr ""
+msgstr "Bao gồm"
 
 #: ucp/views/view.php:34
 msgid "Controls"
-msgstr ""
+msgstr "Điều khiển"
 
 #: page.cdr.php:240 /usr/src/freepbx/cdr/page.cdr.php:356 page.cdr.php:419
 #: /usr/src/freepbx/cdr/page.cdr.php:726 page.cdr.php:864 page.cdr.php:1115
 msgid "DID"
-msgstr ""
+msgstr "Tính năng Gọi vào trực tiếp DID (Direct Inward Dialing)"
 
 #: ucp/views/view.php:28
 msgid "Date"
-msgstr ""
+msgstr "Ngày"
 
 #: page.cdr.php:344
 msgid "Date/Time"
-msgstr ""
+msgstr "Ngày/ Thời gian"
 
 #: page.cdr.php:350 /usr/src/freepbx/cdr/page.cdr.php:923
 msgid "Day"
-msgstr ""
+msgstr "Ngày"
 
 #: page.cdr.php:349
 msgid "Day of Week"
-msgstr ""
+msgstr "Ngày của tuần"
 
 #: page.cdr.php:907
 msgid "Day of week"
-msgstr ""
+msgstr "Ngày của tuần"
 
 #: page.cdr.php:107
 msgid "December"
-msgstr ""
+msgstr "Tháng mười hai"
 
 #: ucp/views/view.php:29
 msgid "Description"
-msgstr ""
+msgstr "Mô tả"
 
 #: page.cdr.php:259 /usr/src/freepbx/cdr/page.cdr.php:728
 msgid "Destination"
-msgstr ""
+msgstr "Điểm đến"
 
 #: page.cdr.php:361 /usr/src/freepbx/cdr/page.cdr.php:879
 msgid "Destination Caller ID Name"
-msgstr ""
+msgstr "Tên Caller ID điểm đến"
 
 #: page.cdr.php:273
 msgid "Destination CallerID Name"
@@ -704,7 +704,7 @@ msgstr ""
 
 #: Cdr.class.php:256
 msgid "User Primary Extension"
-msgstr ""
+msgstr "Số máy nhánh chính của người dùng"
 
 #: page.cdr.php:425 page.cdr.php:1245
 msgid "UserDefType"
