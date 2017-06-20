@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-06 12:38-0400\n"
-"PO-Revision-Date: 2017-06-20 07:22+0200\n"
+"PO-Revision-Date: 2017-06-20 07:40+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/vi/>\n"
@@ -492,7 +492,7 @@ msgstr "Tháng"
 
 #: page.cdr.php:334
 msgid "Newest First"
-msgstr "Đầu tiên mới nhất"
+msgstr "Mới nhất trước tiên"
 
 #: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
@@ -535,7 +535,7 @@ msgstr "Cũ nhất trước tiên"
 
 #: page.cdr.php:96
 msgid "Order By"
-msgstr "Đặt bởi"
+msgstr "Chỉ thị bởi"
 
 #: page.cdr.php:360 /usr/src/freepbx/cdr/page.cdr.php:876
 msgid "Outbound Caller ID Name"
