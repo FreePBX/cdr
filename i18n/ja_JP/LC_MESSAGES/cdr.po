@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 09:42-0700\n"
+"POT-Creation-Date: 2017-06-23 14:13-0700\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -269,7 +269,7 @@ msgstr "コールイベント記録 ‐ 検索結果"
 msgid "Call Graph"
 msgstr "グラフ形式"
 
-#: Cdr.class.php:265 ucp/Cdr.class.php:78 ucp/Cdr.class.php:101
+#: Cdr.class.php:265 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
 msgid "Call History"
 msgstr ""
 
@@ -310,7 +310,7 @@ msgstr "チャネル"
 msgid "Concurrent Calls"
 msgstr "同時呼び出し"
 
-#: ucp/Cdr.class.php:306 ucp/Cdr.class.php:310
+#: ucp/Cdr.class.php:316 ucp/Cdr.class.php:320
 msgid "Conference"
 msgstr ""
 
@@ -390,7 +390,7 @@ msgstr "ダイヤルプランexten"
 msgid "Disposition"
 msgstr "通話結果"
 
-#: ucp/assets/js/global.js:46
+#: ucp/assets/js/global.js:45
 msgid "Download"
 msgstr ""
 
@@ -449,11 +449,11 @@ msgstr "失敗"
 msgid "February"
 msgstr "2月"
 
-#: ucp/Cdr.class.php:169
+#: ucp/Cdr.class.php:179
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:408
+#: ucp/Cdr.class.php:418
 msgid "Forbidden"
 msgstr ""
 
@@ -540,7 +540,7 @@ msgstr "応答なし"
 msgid "Not"
 msgstr "Not"
 
-#: ucp/Cdr.class.php:414
+#: ucp/Cdr.class.php:424
 msgid "Not Found"
 msgstr ""
 
@@ -728,7 +728,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr "ユニークID"
 
-#: ucp/Cdr.class.php:336 ucp/Cdr.class.php:357 ucp/Cdr.class.php:361
+#: ucp/Cdr.class.php:346 ucp/Cdr.class.php:367 ucp/Cdr.class.php:371
 msgid "Unknown"
 msgstr ""
 
@@ -748,7 +748,7 @@ msgstr "ユーザー定義タイプ"
 msgid "Userfield"
 msgstr "ユーザーフィールド"
 
-#: ucp/Cdr.class.php:292 ucp/Cdr.class.php:297
+#: ucp/Cdr.class.php:302 ucp/Cdr.class.php:307
 msgid "Voicemail"
 msgstr ""
 
@@ -760,7 +760,7 @@ msgstr "1 週毎(日曜-土曜)"
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:821 ucp/assets/js/global.js:78
+#: page.cdr.php:821 ucp/assets/js/global.js:79
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -777,7 +777,7 @@ msgstr "チャネル"
 msgid "context"
 msgstr "コンテキスト"
 
-#: ucp/Cdr.class.php:324
+#: ucp/Cdr.class.php:334
 msgid "denied by COS"
 msgstr ""
 
@@ -785,7 +785,7 @@ msgstr ""
 msgid "exten"
 msgstr "exten"
 
-#: ucp/Cdr.class.php:320
+#: ucp/Cdr.class.php:330
 msgid "kicked from conference"
 msgstr ""
 

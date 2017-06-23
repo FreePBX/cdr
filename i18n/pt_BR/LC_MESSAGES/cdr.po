@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 09:42-0700\n"
+"POT-Creation-Date: 2017-06-23 14:13-0700\n"
 "PO-Revision-Date: 2015-02-04 00:43+0200\n"
 "Last-Translator: Rafael <rafael@ibinetwork.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://git.freepbx.org/projects/freepbx/"
@@ -233,7 +233,7 @@ msgstr ""
 msgid "Call Graph"
 msgstr "Gráfico de Chamadas"
 
-#: Cdr.class.php:265 ucp/Cdr.class.php:78 ucp/Cdr.class.php:101
+#: Cdr.class.php:265 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
 msgid "Call History"
 msgstr ""
 
@@ -274,7 +274,7 @@ msgstr "Canal"
 msgid "Concurrent Calls"
 msgstr "Chamadas Simultaneas"
 
-#: ucp/Cdr.class.php:306 ucp/Cdr.class.php:310
+#: ucp/Cdr.class.php:316 ucp/Cdr.class.php:320
 msgid "Conference"
 msgstr ""
 
@@ -354,7 +354,7 @@ msgstr ""
 msgid "Disposition"
 msgstr ""
 
-#: ucp/assets/js/global.js:46
+#: ucp/assets/js/global.js:45
 msgid "Download"
 msgstr ""
 
@@ -413,11 +413,11 @@ msgstr "Falha"
 msgid "February"
 msgstr "Fevereiro"
 
-#: ucp/Cdr.class.php:169
+#: ucp/Cdr.class.php:179
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:408
+#: ucp/Cdr.class.php:418
 msgid "Forbidden"
 msgstr ""
 
@@ -504,7 +504,7 @@ msgstr "Não Atendida"
 msgid "Not"
 msgstr "Exceto"
 
-#: ucp/Cdr.class.php:414
+#: ucp/Cdr.class.php:424
 msgid "Not Found"
 msgstr ""
 
@@ -681,7 +681,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr "ÚnicoID"
 
-#: ucp/Cdr.class.php:336 ucp/Cdr.class.php:357 ucp/Cdr.class.php:361
+#: ucp/Cdr.class.php:346 ucp/Cdr.class.php:367 ucp/Cdr.class.php:371
 msgid "Unknown"
 msgstr ""
 
@@ -701,7 +701,7 @@ msgstr ""
 msgid "Userfield"
 msgstr "Usuário"
 
-#: ucp/Cdr.class.php:292 ucp/Cdr.class.php:297
+#: ucp/Cdr.class.php:302 ucp/Cdr.class.php:307
 msgid "Voicemail"
 msgstr ""
 
@@ -713,7 +713,7 @@ msgstr "Semana (Dom-Sab)"
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:821 ucp/assets/js/global.js:78
+#: page.cdr.php:821 ucp/assets/js/global.js:79
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -730,7 +730,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:324
+#: ucp/Cdr.class.php:334
 msgid "denied by COS"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:320
+#: ucp/Cdr.class.php:330
 msgid "kicked from conference"
 msgstr ""
 

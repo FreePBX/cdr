@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 09:42-0700\n"
+"POT-Creation-Date: 2017-06-23 14:13-0700\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -239,7 +239,7 @@ msgstr "ثبت جزییات تماس - پاسخ جستجو"
 msgid "Call Graph"
 msgstr "گراف تماس"
 
-#: Cdr.class.php:265 ucp/Cdr.class.php:78 ucp/Cdr.class.php:101
+#: Cdr.class.php:265 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
 msgid "Call History"
 msgstr "تاریخچه تماس"
 
@@ -280,7 +280,7 @@ msgstr "کانال"
 msgid "Concurrent Calls"
 msgstr "تماسهای فعلی"
 
-#: ucp/Cdr.class.php:306 ucp/Cdr.class.php:310
+#: ucp/Cdr.class.php:316 ucp/Cdr.class.php:320
 msgid "Conference"
 msgstr "کنفرانس"
 
@@ -360,7 +360,7 @@ msgstr "داخلی پلان تماس"
 msgid "Disposition"
 msgstr "وضعیت"
 
-#: ucp/assets/js/global.js:46
+#: ucp/assets/js/global.js:45
 msgid "Download"
 msgstr "دانلود"
 
@@ -419,11 +419,11 @@ msgstr "انجام نشد"
 msgid "February"
 msgstr "فبریه"
 
-#: ucp/Cdr.class.php:169
+#: ucp/Cdr.class.php:179
 msgid "File does not exist"
 msgstr "فایلی وجود ندارد"
 
-#: ucp/Cdr.class.php:408
+#: ucp/Cdr.class.php:418
 msgid "Forbidden"
 msgstr "قدغن"
 
@@ -510,7 +510,7 @@ msgstr "بدون پاسخ"
 msgid "Not"
 msgstr "نه"
 
-#: ucp/Cdr.class.php:414
+#: ucp/Cdr.class.php:424
 msgid "Not Found"
 msgstr "پیدا نشد"
 
@@ -696,7 +696,7 @@ msgstr "ناتوانی در افزودن فهرست به جدول cdr"
 msgid "UniqueID"
 msgstr "شناسه یکتا"
 
-#: ucp/Cdr.class.php:336 ucp/Cdr.class.php:357 ucp/Cdr.class.php:361
+#: ucp/Cdr.class.php:346 ucp/Cdr.class.php:367 ucp/Cdr.class.php:371
 msgid "Unknown"
 msgstr "نا شناخته"
 
@@ -716,7 +716,7 @@ msgstr "نوع تعریف شده توسط کاربر"
 msgid "Userfield"
 msgstr "فیلد کاربر"
 
-#: ucp/Cdr.class.php:292 ucp/Cdr.class.php:297
+#: ucp/Cdr.class.php:302 ucp/Cdr.class.php:307
 msgid "Voicemail"
 msgstr "ایمیل صوتی"
 
@@ -728,7 +728,7 @@ msgstr "هفته (شنبه،یکشنبه )"
 msgid "Yes"
 msgstr "بله"
 
-#: page.cdr.php:821 ucp/assets/js/global.js:78
+#: page.cdr.php:821 ucp/assets/js/global.js:79
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -745,7 +745,7 @@ msgstr "کانال"
 msgid "context"
 msgstr "زمینه"
 
-#: ucp/Cdr.class.php:324
+#: ucp/Cdr.class.php:334
 msgid "denied by COS"
 msgstr "لغو توسط COS"
 
@@ -753,7 +753,7 @@ msgstr "لغو توسط COS"
 msgid "exten"
 msgstr "داخلی"
 
-#: ucp/Cdr.class.php:320
+#: ucp/Cdr.class.php:330
 msgid "kicked from conference"
 msgstr "بیرون انداختن از کنفرانس"
 

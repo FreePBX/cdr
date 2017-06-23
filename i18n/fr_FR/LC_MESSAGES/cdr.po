@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-06 09:42-0700\n"
+"POT-Creation-Date: 2017-06-23 14:13-0700\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -242,7 +242,7 @@ msgstr "Journal des événements d'appel - Recherche retourne"
 msgid "Call Graph"
 msgstr "Graphique d'appel"
 
-#: Cdr.class.php:265 ucp/Cdr.class.php:78 ucp/Cdr.class.php:101
+#: Cdr.class.php:265 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
 msgid "Call History"
 msgstr "Historique d'appel"
 
@@ -283,7 +283,7 @@ msgstr "Canal"
 msgid "Concurrent Calls"
 msgstr "Appels simultanés"
 
-#: ucp/Cdr.class.php:306 ucp/Cdr.class.php:310
+#: ucp/Cdr.class.php:316 ucp/Cdr.class.php:320
 msgid "Conference"
 msgstr "Conférence"
 
@@ -363,7 +363,7 @@ msgstr "Numéro du plan de numérotation"
 msgid "Disposition"
 msgstr "État de l'appel"
 
-#: ucp/assets/js/global.js:46
+#: ucp/assets/js/global.js:45
 msgid "Download"
 msgstr "Téléchargement"
 
@@ -424,11 +424,11 @@ msgstr "Non répondu"
 msgid "February"
 msgstr "Février"
 
-#: ucp/Cdr.class.php:169
+#: ucp/Cdr.class.php:179
 msgid "File does not exist"
 msgstr "Le fichier n'existe pas"
 
-#: ucp/Cdr.class.php:408
+#: ucp/Cdr.class.php:418
 msgid "Forbidden"
 msgstr "Interdit"
 
@@ -515,7 +515,7 @@ msgstr "Pas de réponse"
 msgid "Not"
 msgstr "Pas"
 
-#: ucp/Cdr.class.php:414
+#: ucp/Cdr.class.php:424
 msgid "Not Found"
 msgstr "Non trouvé"
 
@@ -706,7 +706,7 @@ msgstr "impossible d'ajouter index au champs DID dans la table des CDR"
 msgid "UniqueID"
 msgstr "Identifiant unique"
 
-#: ucp/Cdr.class.php:336 ucp/Cdr.class.php:357 ucp/Cdr.class.php:361
+#: ucp/Cdr.class.php:346 ucp/Cdr.class.php:367 ucp/Cdr.class.php:371
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -726,7 +726,7 @@ msgstr "UserDefType"
 msgid "Userfield"
 msgstr "Champ utilisateur"
 
-#: ucp/Cdr.class.php:292 ucp/Cdr.class.php:297
+#: ucp/Cdr.class.php:302 ucp/Cdr.class.php:307
 msgid "Voicemail"
 msgstr "Boite vocale"
 
@@ -738,7 +738,7 @@ msgstr "Semaine ( Dim-Sam )"
 msgid "Yes"
 msgstr "Oui"
 
-#: page.cdr.php:821 ucp/assets/js/global.js:78
+#: page.cdr.php:821 ucp/assets/js/global.js:79
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -759,7 +759,7 @@ msgstr "canal"
 msgid "context"
 msgstr "contexte"
 
-#: ucp/Cdr.class.php:324
+#: ucp/Cdr.class.php:334
 msgid "denied by COS"
 msgstr "pas permis par le COS"
 
@@ -767,7 +767,7 @@ msgstr "pas permis par le COS"
 msgid "exten"
 msgstr "numéro"
 
-#: ucp/Cdr.class.php:320
+#: ucp/Cdr.class.php:330
 msgid "kicked from conference"
 msgstr "sorti de la conférence"
 
