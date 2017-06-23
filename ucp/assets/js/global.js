@@ -9,10 +9,8 @@ var CdrC = UCPMC.extend({
 
 	},
 	displayWidget: function(widget_id, dashboard_id) {
-		var self = this;
-
-		self.init();
-		self.extension = extension;
+		var self = this,
+				extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
 
 		$(".grid-stack-item[data-id='"+widget_id+"'] .cdr-grid").one("post-body.bs.table", function() {
 			setTimeout(function() {
@@ -20,8 +18,8 @@ var CdrC = UCPMC.extend({
 			},250);
 		});
 
-		$('.cdr-grid').on("post-body.bs.table", function () {
-			self.bindPlayers();
+		$('.grid-stack-item[data-id='+widget_id+'] .cdr-grid').on("post-body.bs.table", function () {
+			self.bindPlayers(widget_id);
 			$(".cdr-grid .clickable").click(function(e) {
 				var text = $(this).text();
 				if (UCP.validMethod("Contactmanager", "showActionDialog")) {
@@ -40,17 +38,20 @@ var CdrC = UCPMC.extend({
 		return icons + " " + value;
 	},
 	formatActions: function (value, row, index) {
-		if(row.recordingfile === '' || showDownload === "0") {
+		var settings = UCP.Modules.Cdr.staticsettings;
+		if(row.recordingfile === '' || settings.showDownload === "0") {
 			return '';
 		}
-		var link = '<a class="download" alt="'+_("Download")+'" href="?quietmode=1&amp;module=cdr&amp;command=download&amp;msgid='+row.uniqueid+'&amp;type=download&amp;ext='+extension+'"><i class="fa fa-cloud-download"></i></a>';
+		var link = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cdr&amp;command=download&amp;msgid='+row.uniqueid+'&amp;type=download&amp;ext='+row.requestingExtension+'"><i class="fa fa-cloud-download"></i></a>';
 		return link;
 	},
 	formatPlayback: function (value, row, index) {
-		if(row.recordingfile.length === 0 || showPlayback === "0") {
+		var settings = UCP.Modules.Cdr.staticsettings,
+				rand = Math.floor(Math.random() * 10000);
+		if(row.recordingfile.length === 0 || settings.showPlayback === "0") {
 			return '';
 		}
-		return '<div id="jquery_jplayer_'+row.niceUniqueid+'" class="jp-jplayer" data-container="#jp_container_'+row.niceUniqueid+'" data-id="'+row.uniqueid+'"></div><div id="jp_container_'+row.niceUniqueid+'" data-player="jquery_jplayer_'+row.niceUniqueid+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
+		return '<div id="jquery_jplayer_'+row.niceUniqueid+'-'+rand+'" class="jp-jplayer" data-container="#jp_container_'+row.niceUniqueid+'-'+rand+'" data-id="'+row.uniqueid+'"></div><div id="jp_container_'+row.niceUniqueid+'-'+rand+'" data-player="jquery_jplayer_'+row.niceUniqueid+'-'+rand+'" class="jp-audio-freepbx" role="application" aria-label="media player">'+
 			'<div class="jp-type-single">'+
 				'<div class="jp-gui jp-interface">'+
 					'<div class="jp-controls">'+
@@ -86,8 +87,9 @@ var CdrC = UCPMC.extend({
 	formatDate: function(value, row, index) {
 		return UCP.dateTimeFormatter(value);
 	},
-	bindPlayers: function() {
-		$(".jp-jplayer").each(function() {
+	bindPlayers: function(widget_id) {
+		var extension = $("div[data-id='"+widget_id+"']").data("widget_type_id");
+		$(".grid-stack-item[data-id="+widget_id+"] .jp-jplayer").each(function() {
 			var container = $(this).data("container"),
 					player = $(this),
 					id = $(this).data("id");
@@ -142,7 +144,7 @@ var CdrC = UCPMC.extend({
 					$(container).find(".jp-ball").css("left","0%");
 				},
 				swfPath: "/js",
-				supplied: supportedHTML5,
+				supplied: UCP.Modules.Cdr.staticsettings.supportedHTML5,
 				cssSelectorAncestor: container,
 				wmode: "window",
 				useStateClassSkin: true,

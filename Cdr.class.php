@@ -5,7 +5,7 @@
 //
 // It is used by multiple modules. Please don't alter it without
 // running complete unit tests!
-// 
+//
 // The License for this FreePBX module can be found in the license file inside the
 // module directory
 //
@@ -417,6 +417,7 @@ class Cdr implements \BMO {
 			$call['niceUniqueid'] = str_replace(".","_",$call['uniqueid']);
 			$call['recordingformat'] = !empty($call['recordingfile']) ? strtolower(pathinfo($call['recordingfile'],PATHINFO_EXTENSION)) : '';
 			$call['recordingfile'] = $this->processPath($call['recordingfile']);
+			$call['requestingExtension'] = $extension;
 		}
 		return $calls;
 	}

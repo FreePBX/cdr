@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>14.0.5.7</version>
+	<version>14.0.5.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*14.0.5.8* FREEPBX-15139 Recordings playing/downloading in call history doesn't work with multiple widget in the same dashboard
 		*14.0.5.7* FREEPBX-13535 Minor styling issue with Call Date row in CDR Reports module
 		*14.0.5.6* Add missing fields
 		*14.0.5.4* FREEPBX-14750 make max duration is 1
