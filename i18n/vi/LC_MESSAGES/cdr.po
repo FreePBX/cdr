@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-06-06 12:38-0400\n"
-"PO-Revision-Date: 2017-06-20 15:09+0200\n"
+"PO-Revision-Date: 2017-07-14 10:15+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/vi/>\n"
@@ -539,19 +539,19 @@ msgstr "Chỉ thị bởi"
 
 #: page.cdr.php:360 /usr/src/freepbx/cdr/page.cdr.php:876
 msgid "Outbound Caller ID Name"
-msgstr "Tên Caller ID khi gọi ra"
+msgstr "Tên Caller ID của cuộc gọi ra"
 
 #: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:873
 msgid "Outbound Caller ID Number"
-msgstr "Số của Caller ID khi gọi ra"
+msgstr "Số của Caller ID của cuộc gọi ra"
 
 #: page.cdr.php:725
 msgid "Outbound CallerID"
-msgstr "CallerID gọi ra"
+msgstr "CallerID của cuộc gọi ra"
 
 #: page.cdr.php:228
 msgid "Outbound CallerID Number"
-msgstr "Số của CallerID khi gọi ra"
+msgstr "Số của CallerID của cuộc gọi ra"
 
 #: ucp/views/view.php:32
 msgid "Playback"
