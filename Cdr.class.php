@@ -446,6 +446,25 @@ class Cdr implements \BMO {
 		}
 	}
 
+	public function getTotalCalls($extension,$search='') {
+		if(!empty($search)) {
+			$sql = "SELECT count(*) as count FROM ".$this->db_table." WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search)";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute(array(':extension' => $extension, ':search' => '%'.$search.'%',':extensionv' => 'vmu'.$extension));
+		} else {
+			$sql = "SELECT count(*) as count FROM ".$this->db_table." WHERE (src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension)";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute(array(':extension' => $extension,':extensionv' => 'vmu'.$extension));
+		}
+		$res = $sth->fetch(\PDO::FETCH_ASSOC);
+		$total = $res['count'];
+		if(!empty($total)) {
+			return $total;
+		} else {
+			return 0;
+		}
+	}
+
 	/**
 	 * Tear apart the file name to get our correct path
 	 * @param  string $recordingFile The recording file
