@@ -390,7 +390,8 @@ if (isset($amp_conf['CEL_ENABLED']) && $amp_conf['CEL_ENABLED'] && !isset($_POST
 
 	$uid = $dbcdr->escapeSimple($_REQUEST['uid']);
 
-	$db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:"asteriskcdrdb";
+	// If it's not defined, use $db_name, which is already escaped above.
+	$db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:$db_name;
 	$db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
 	$cel = cdr_get_cel($uid, $db_cel_name . '.' . $db_cel_table_name);
 	$tot_cel_events = count($cel);
