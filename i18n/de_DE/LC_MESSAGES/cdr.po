@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-22 21:37+0000\n"
-"PO-Revision-Date: 2017-12-08 21:58+0200\n"
+"PO-Revision-Date: 2017-12-09 00:30+0200\n"
 "Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/de_DE/>\n"
@@ -109,7 +109,7 @@ msgstr "Kontoinformationen"
 
 #: install.php:50
 msgid "Adding index to did field in the cdr table"
-msgstr ""
+msgstr "Index wird zu DID-Feld in CRD-Tabelle hinzugefügt"
 
 #: install.php:85
 msgid "Adding!"
@@ -230,7 +230,7 @@ msgstr "Call Detail Record - Gleichzeitige Anrufe von"
 
 #: page.cdr.php:708
 msgid "Call Detail Record - Search Returned"
-msgstr ""
+msgstr "Call Detail Record - Suche zurückgeführt"
 
 #: page.cdr.php:93
 msgid "Call Detail Record Search"
@@ -238,7 +238,7 @@ msgstr "Call Detail Record Suche"
 
 #: page.cdr.php:400
 msgid "Call Event Log - Search Returned"
-msgstr ""
+msgstr "Anrufereignisprotokoll - Suche zurückgeführt"
 
 #: page.cdr.php:165
 msgid "Call Graph"
@@ -390,14 +390,12 @@ msgid "Event"
 msgstr "Ereignis"
 
 #: page.cdr.php:1252
-#, fuzzy
 msgid "Event Extra"
-msgstr "Event Extra"
+msgstr "Zusätzliches Ereignis"
 
 #: page.cdr.php:427
-#, fuzzy
 msgid "EventExtra"
-msgstr "EventExtra"
+msgstr "ZusätzlichesEreignis"
 
 #: page.cdr.php:400
 msgid "Events"
@@ -543,19 +541,19 @@ msgstr "Sortieren nach"
 
 #: page.cdr.php:360 /usr/src/freepbx/cdr/page.cdr.php:877
 msgid "Outbound Caller ID Name"
-msgstr ""
+msgstr "Abgehender Anrufer ID Name"
 
 #: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:874
 msgid "Outbound Caller ID Number"
-msgstr ""
+msgstr "Abgehender Anrufer ID Nummer"
 
 #: page.cdr.php:726
 msgid "Outbound CallerID"
-msgstr ""
+msgstr "Ausgehender Anrufer ID"
 
 #: page.cdr.php:228
 msgid "Outbound CallerID Number"
-msgstr ""
+msgstr "Ausgehender AnruferID Nummer"
 
 #: ucp/views/view.php:32
 msgid "Playback"
@@ -567,11 +565,11 @@ msgstr "Aufnahme"
 
 #: page.cdr.php:710
 msgid "Related Call Detail Records"
-msgstr ""
+msgstr "Verbundene Call Detail Records"
 
 #: page.cdr.php:161
 msgid "Report Type"
-msgstr ""
+msgstr "Berichtstyp"
 
 #: cdr.i18n.php:6
 msgid "Reports"
@@ -579,7 +577,7 @@ msgstr "Berichte"
 
 #: page.cdr.php:172
 msgid "Result Limit"
-msgstr ""
+msgstr "Ergebnisgrenze"
 
 #: page.cdr.php:370
 msgid "Search"
@@ -587,15 +585,15 @@ msgstr "Suche"
 
 #: page.cdr.php:97
 msgid "Search Conditions"
-msgstr ""
+msgstr "Suchbedingungen"
 
 #: page.cdr.php:239
 msgid "Search for a DID."
-msgstr ""
+msgstr "Nach einem DID suchen."
 
 #: page.cdr.php:295
 msgid "Search for accountcode."
-msgstr ""
+msgstr "Nach Kontocode suchen."
 
 #: page.cdr.php:187
 msgid ""
@@ -603,6 +601,9 @@ msgid ""
 "separated by a comma. This field support Asterisk regular expression. "
 "Example<br>"
 msgstr ""
+"Suche nach Anrufen basierend auf AnruferID-Nummer. Sie können mehrere durch "
+"Komma getrennte Nummern eingeben. Dieses Feld unterstützt den regulären "
+"Ausdruck Stern. Beispiel<br>"
 
 #: page.cdr.php:219
 msgid ""
@@ -610,25 +611,32 @@ msgid ""
 "separated by a comma. This field support Asterisk regular expression. "
 "Example<br>"
 msgstr ""
+"Suche nach Anrufen basierend auf verwendeten CID ausgehender Anrufe. Sie "
+"können mehrere durch Komma getrennte Nummern eingeben,\n"
+"Dieses Feld unterstützt den regulären Ausdruck Stern. Beispiel<br>"
 
 #: page.cdr.php:316
 msgid ""
 "Search for calls that matches either ANSWERED, BUSY, FAILED or NO ANSWER."
 msgstr ""
+"Nach Anrufen suchen, die entweder BEANTWORTET, BESETZT, FEHLGESCHLAGEN oder "
+"KEINE ANTWORT entsprechen."
 
 #: page.cdr.php:306
 msgid "Search for calls that matches the call length specified."
-msgstr ""
+msgstr "Nach Anrufen suchen, die der angegebenen Anruflänge entsprechen."
 
 #: page.cdr.php:250
 msgid ""
 "Search for destination calls. You can enter multiple sources separated by a "
 "comma. This field support Asterisk regular expression. Example<br>"
 msgstr ""
+"Nach Zielanrufen suchen. Sie können mehrere durch Komma getrennte Quellen "
+"eingeben. Dieses Feld unterstützt den regulären Ausdruck Stern. Beispiel<br>"
 
 #: page.cdr.php:284
 msgid "Search for userfield data (if enabled)."
-msgstr ""
+msgstr "Nach Benutzerfelddaten suchen (falls aktiviert)."
 
 #: page.cdr.php:312
 msgid "Seconds"
@@ -636,17 +644,19 @@ msgstr "Sekunden"
 
 #: page.cdr.php:207
 msgid "Select CallerID Name to search for."
-msgstr ""
+msgstr "AnruferID-Name auswählen, nach dem gesucht werden soll."
 
 #: page.cdr.php:272
 msgid "Select Destination Caller Name to search for."
-msgstr ""
+msgstr "Zielanrufer-Name auswählen, nach dem gesucht werden soll."
 
 #: page.cdr.php:101
 msgid ""
 "Select time span for your report. You can select Date, Month, Year, Hour and "
 "Minute to narrow your search"
 msgstr ""
+"Zeitspanne für Ihren Bericht auswählen. Sie können Datum, Monat, Jahr, "
+"Stunde und Minute auswählen, um Ihre Suche zu verfeinern"
 
 #: page.cdr.php:107
 msgid "September"
@@ -662,7 +672,7 @@ msgstr "System"
 
 #: page.cdr.php:363
 msgid "Tech info"
-msgstr ""
+msgstr "Technische Daten"
 
 #: page.cdr.php:354
 msgid "Telephone Number"
@@ -673,6 +683,8 @@ msgid ""
 "These are the assigned and active extensions which will show up for this "
 "user to control and edit in UCP"
 msgstr ""
+"Dies sind die zugeordneten und aktiven Erweiterungen, die diesem Benutzer "
+"zur Steuerung und Bearbeitung in UCP angezeigt werden"
 
 #: page.cdr.php:415 /usr/src/freepbx/cdr/page.cdr.php:1054
 msgid "Time"
@@ -692,11 +704,11 @@ msgstr "Gesamtdauer"
 
 #: install.php:47
 msgid "Unable to add index to did field in the cdr table"
-msgstr ""
+msgstr "Kann Index nicht zu DID-Feld in der CDR-Tabelle hinzufügen"
 
 #: page.cdr.php:1087 page.cdr.php:1090
 msgid "UniqueID"
-msgstr ""
+msgstr "EinmaligeID"
 
 #: ucp/Cdr.class.php:344 ucp/Cdr.class.php:365 ucp/Cdr.class.php:369
 msgid "Unknown"
@@ -712,7 +724,7 @@ msgstr "Primäre Benutzernebenstelle"
 
 #: page.cdr.php:426 /usr/src/freepbx/cdr/page.cdr.php:1246
 msgid "UserDefType"
-msgstr ""
+msgstr "BenutzerDefTyp"
 
 #: page.cdr.php:285 /usr/src/freepbx/cdr/page.cdr.php:732
 msgid "Userfield"
@@ -757,11 +769,11 @@ msgstr "Kontext"
 
 #: ucp/Cdr.class.php:332
 msgid "denied by COS"
-msgstr ""
+msgstr "abgelehnt von COS"
 
 #: page.cdr.php:422
 msgid "exten"
-msgstr ""
+msgstr "exten"
 
 #: ucp/Cdr.class.php:328
 msgid "kicked from conference"
