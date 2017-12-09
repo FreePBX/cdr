@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-22 21:37+0000\n"
-"PO-Revision-Date: 2017-12-09 00:30+0200\n"
+"PO-Revision-Date: 2017-12-09 05:19+0200\n"
 "Last-Translator: tranlsated <noemi@translated.net>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/de_DE/>\n"
@@ -145,7 +145,7 @@ msgstr "Und"
 
 #: page.cdr.php:322
 msgid "Answered"
-msgstr "Antwort"
+msgstr "Beantwortet"
 
 #: page.cdr.php:424 /usr/src/freepbx/cdr/page.cdr.php:728
 msgid "App"
@@ -153,7 +153,7 @@ msgstr "App"
 
 #: page.cdr.php:1127
 msgid "Application"
-msgstr "Applikation"
+msgstr "Anwendung"
 
 #: page.cdr.php:107
 msgid "April"
@@ -222,11 +222,11 @@ msgstr "Anrufdatum"
 
 #: page.cdr.php:951
 msgid "Call Detail Record - Call Graph by"
-msgstr "Call Detail Record - Anrufdiagramm von"
+msgstr "Call Detail Record - Anrufdiagramm nach"
 
 #: page.cdr.php:1051
 msgid "Call Detail Record - Concurrent Calls by"
-msgstr "Call Detail Record - Gleichzeitige Anrufe von"
+msgstr "Call Detail Record - Gleichzeitige Anrufe nach"
 
 #: page.cdr.php:708
 msgid "Call Detail Record - Search Returned"
@@ -298,7 +298,7 @@ msgstr "Enthält"
 
 #: ucp/views/view.php:34
 msgid "Controls"
-msgstr "Steuerung"
+msgstr "Steuerungen"
 
 #: page.cdr.php:240 /usr/src/freepbx/cdr/page.cdr.php:356 page.cdr.php:420
 #: /usr/src/freepbx/cdr/page.cdr.php:727 page.cdr.php:865
@@ -458,7 +458,7 @@ msgstr "Stunde des Tages"
 
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr "Erben"
+msgstr "Übernehmen"
 
 #: page.cdr.php:107
 msgid "January"
@@ -541,11 +541,11 @@ msgstr "Sortieren nach"
 
 #: page.cdr.php:360 /usr/src/freepbx/cdr/page.cdr.php:877
 msgid "Outbound Caller ID Name"
-msgstr "Abgehender Anrufer ID Name"
+msgstr "Ausgehender Anrufer ID Name"
 
 #: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:874
 msgid "Outbound Caller ID Number"
-msgstr "Abgehender Anrufer ID Nummer"
+msgstr "Ausgehender Anrufer ID Nummer"
 
 #: page.cdr.php:726
 msgid "Outbound CallerID"
@@ -603,7 +603,7 @@ msgid ""
 msgstr ""
 "Suche nach Anrufen basierend auf AnruferID-Nummer. Sie können mehrere durch "
 "Komma getrennte Nummern eingeben. Dieses Feld unterstützt den regulären "
-"Ausdruck Stern. Beispiel<br>"
+"Asterisk-Ausdruck. Beispiel<br>"
 
 #: page.cdr.php:219
 msgid ""
@@ -613,7 +613,7 @@ msgid ""
 msgstr ""
 "Suche nach Anrufen basierend auf verwendeten CID ausgehender Anrufe. Sie "
 "können mehrere durch Komma getrennte Nummern eingeben,\n"
-"Dieses Feld unterstützt den regulären Ausdruck Stern. Beispiel<br>"
+"Dieses Feld unterstützt den regulären Asterisk-Ausdruck. Beispiel<br>"
 
 #: page.cdr.php:316
 msgid ""
