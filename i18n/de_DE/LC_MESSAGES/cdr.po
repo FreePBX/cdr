@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-22 21:37+0000\n"
-"PO-Revision-Date: 2017-12-18 16:40+0200\n"
+"PO-Revision-Date: 2017-12-18 17:06+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/de_DE/>\n"
@@ -243,7 +243,7 @@ msgstr "Anrufdiagramm"
 
 #: Cdr.class.php:265 ucp/Cdr.class.php:199
 msgid "Call History"
-msgstr "Anrufsverlauf"
+msgstr "Anrufverlauf"
 
 #: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:871 page.cdr.php:1199
 msgid "Caller ID Name"
@@ -255,15 +255,15 @@ msgstr "Anrufer-ID Nummer"
 
 #: page.cdr.php:725 /usr/src/freepbx/cdr/page.cdr.php:1104
 msgid "CallerID"
-msgstr "AnruferID"
+msgstr "Anrufer ID"
 
 #: page.cdr.php:208
 msgid "CallerID Name"
-msgstr "AnruferID Name"
+msgstr "Anrufer ID Name"
 
 #: page.cdr.php:196
 msgid "CallerID Number"
-msgstr "AnruferID Nummer"
+msgstr "Anrufer ID Nummer"
 
 #: page.cdr.php:708
 msgid "Calls"
