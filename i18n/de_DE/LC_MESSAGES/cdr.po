@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-22 21:37+0000\n"
-"PO-Revision-Date: 2017-12-18 17:06+0200\n"
+"PO-Revision-Date: 2017-12-18 17:32+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/de_DE/>\n"
@@ -136,7 +136,7 @@ msgstr "Ermöglicht diesem Benutzer, Aufzeichnungen in UCP wiederzugeben"
 
 #: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
-msgstr "Benutzern erlauben, Aufzeichnungen in UCP zu herunterzuladen"
+msgstr "Benutzern erlauben, Aufzeichnungen in UCP herunterzuladen"
 
 #: page.cdr.php:310
 msgid "And"
@@ -586,7 +586,7 @@ msgstr "Suchbedingungen"
 
 #: page.cdr.php:239
 msgid "Search for a DID."
-msgstr "Nach einem DID suchen."
+msgstr "Nach einer DID suchen."
 
 #: page.cdr.php:295
 msgid "Search for accountcode."
@@ -752,9 +752,9 @@ msgid ""
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
 "Ihr Browser unterstützt keine HTML5 Wiedergabe. Für volle HTML5 Audio "
-"Wiedergabe unterstützung benötigen Sie zusätzliche Programme, welche "
-"zusammen mit der PBX nicht zur verfügung gestellt werden können. Möchten Sie "
-"die benötigten binaries installieren klicken Sie <a href='%s'>hier</a>"
+"Wiedergabenunterstützung benötigen Sie zusätzliche Programme, welche "
+"zusammen mit der PBX nicht zur Verfügung gestellt werden können. Möchten Sie "
+"die benötigten binaries installieren - klicken Sie <a href='%s'>hier</a>"
 
 #: page.cdr.php:425
 msgid "channel"
