@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-22 21:37+0000\n"
-"PO-Revision-Date: 2017-12-09 05:19+0200\n"
-"Last-Translator: tranlsated <noemi@translated.net>\n"
+"PO-Revision-Date: 2017-12-18 16:40+0200\n"
+"Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German "
 "<http://weblate.freepbx.org/projects/freepbx/cdr/de_DE/>\n"
 "Language: de_DE\n"
@@ -91,7 +91,6 @@ msgid "AMA Flag"
 msgstr "AMA Flagge"
 
 #: page.cdr.php:419 /usr/src/freepbx/cdr/page.cdr.php:1121
-#, fuzzy
 msgid "ANI"
 msgstr "ANI"
 
@@ -199,12 +198,10 @@ msgid "CDR search"
 msgstr "CDR-Suche"
 
 #: page.cdr.php:417
-#, fuzzy
 msgid "CNAM"
 msgstr "CNAM"
 
 #: page.cdr.php:418
-#, fuzzy
 msgid "CNUM"
 msgstr "CNUM"
 
