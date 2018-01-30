@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-22 10:55-0800\n"
+"POT-Creation-Date: 2018-01-30 08:27-0800\n"
 "PO-Revision-Date: 2017-06-20 15:09+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -106,11 +106,23 @@ msgstr "Mã tài khoản"
 msgid "Account Information"
 msgstr "Thông tin tài khoản"
 
-#: install.php:50
+#: install.php:51
 msgid "Adding index to did field in the cdr table"
 msgstr "Thêm chỉ mục tới trường đã làm trong bảng cdr"
 
-#: install.php:85 /usr/src/freepbx/cdr/install.php:101
+#: install.php:44
+msgid "Adding index to did field..."
+msgstr ""
+
+#: install.php:66
+msgid "Adding index to recordingfile field in the cdr table"
+msgstr ""
+
+#: install.php:59
+msgid "Adding index to recordingfile field..."
+msgstr ""
+
+#: install.php:102 /usr/src/freepbx/cdr/install.php:118
 msgid "Adding!"
 msgstr "Đang thêm!"
 
@@ -364,6 +376,10 @@ msgstr "Kế hoạch quay số máy nhánh"
 msgid "Disposition"
 msgstr "Trạng thái (có trả lời hay không)"
 
+#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+msgid "Done"
+msgstr ""
+
 #: ucp/assets/js/global.js:45
 msgid "Download"
 msgstr "Tải xuống"
@@ -373,7 +389,7 @@ msgstr "Tải xuống"
 msgid "Duration"
 msgstr "Khoảng thời gian"
 
-#: install.php:112
+#: install.php:129
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -522,7 +538,7 @@ msgstr "Không tìm thấy"
 msgid "November"
 msgstr "Tháng mười một"
 
-#: install.php:82 /usr/src/freepbx/cdr/install.php:98 install.php:114
+#: install.php:99 /usr/src/freepbx/cdr/install.php:115 install.php:131
 msgid "OK!"
 msgstr "OK!"
 
@@ -697,9 +713,13 @@ msgstr "Tổng các cuộc gọi"
 msgid "Total Duration"
 msgstr "Tổng khoảng thời gian"
 
-#: install.php:47
+#: install.php:48
 msgid "Unable to add index to did field in the cdr table"
 msgstr "Không thể thêm chỉ mục vào trường did trong bảng cdr"
+
+#: install.php:63
+msgid "Unable to add index to recordingfile field in the cdr table"
+msgstr ""
 
 #: page.cdr.php:1088 page.cdr.php:1091
 msgid "UniqueID"

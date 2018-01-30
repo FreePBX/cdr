@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-22 10:55-0800\n"
+"POT-Creation-Date: 2018-01-30 08:27-0800\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -104,11 +104,23 @@ msgstr "کد حساب"
 msgid "Account Information"
 msgstr "اطلاعات تماس"
 
-#: install.php:50
+#: install.php:51
 msgid "Adding index to did field in the cdr table"
 msgstr "افزودن فهرست به فیلدی که در جدول تماس وجود دارد"
 
-#: install.php:85 /usr/src/freepbx/cdr/install.php:101
+#: install.php:44
+msgid "Adding index to did field..."
+msgstr ""
+
+#: install.php:66
+msgid "Adding index to recordingfile field in the cdr table"
+msgstr ""
+
+#: install.php:59
+msgid "Adding index to recordingfile field..."
+msgstr ""
+
+#: install.php:102 /usr/src/freepbx/cdr/install.php:118
 msgid "Adding!"
 msgstr "افزودن!"
 
@@ -361,6 +373,10 @@ msgstr "داخلی پلان تماس"
 msgid "Disposition"
 msgstr "وضعیت"
 
+#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+msgid "Done"
+msgstr ""
+
 #: ucp/assets/js/global.js:45
 msgid "Download"
 msgstr "دانلود"
@@ -370,7 +386,7 @@ msgstr "دانلود"
 msgid "Duration"
 msgstr "مدت زمان"
 
-#: install.php:112
+#: install.php:129
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -519,7 +535,7 @@ msgstr "پیدا نشد"
 msgid "November"
 msgstr "نوامبر"
 
-#: install.php:82 /usr/src/freepbx/cdr/install.php:98 install.php:114
+#: install.php:99 /usr/src/freepbx/cdr/install.php:115 install.php:131
 msgid "OK!"
 msgstr "تایید!"
 
@@ -689,9 +705,13 @@ msgstr "مجموع تماسها"
 msgid "Total Duration"
 msgstr "مجموع مدتها"
 
-#: install.php:47
+#: install.php:48
 msgid "Unable to add index to did field in the cdr table"
 msgstr "ناتوانی در افزودن فهرست به جدول cdr"
+
+#: install.php:63
+msgid "Unable to add index to recordingfile field in the cdr table"
+msgstr ""
 
 #: page.cdr.php:1088 page.cdr.php:1091
 msgid "UniqueID"

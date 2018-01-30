@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-22 10:55-0800\n"
+"POT-Creation-Date: 2018-01-30 08:27-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,11 +107,23 @@ msgstr ""
 msgid "Account Information"
 msgstr ""
 
-#: install.php:50
+#: install.php:51
 msgid "Adding index to did field in the cdr table"
 msgstr ""
 
-#: install.php:85 /usr/src/freepbx/cdr/install.php:101
+#: install.php:44
+msgid "Adding index to did field..."
+msgstr ""
+
+#: install.php:66
+msgid "Adding index to recordingfile field in the cdr table"
+msgstr ""
+
+#: install.php:59
+msgid "Adding index to recordingfile field..."
+msgstr ""
+
+#: install.php:102 /usr/src/freepbx/cdr/install.php:118
 msgid "Adding!"
 msgstr ""
 
@@ -373,6 +385,10 @@ msgstr ""
 msgid "Disposition"
 msgstr ""
 
+#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+msgid "Done"
+msgstr ""
+
 #: ucp/assets/js/global.js:45
 msgid "Download"
 msgstr ""
@@ -382,7 +398,7 @@ msgstr ""
 msgid "Duration"
 msgstr ""
 
-#: install.php:112
+#: install.php:129
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -536,8 +552,8 @@ msgstr ""
 msgid "November"
 msgstr ""
 
-#: install.php:82 /usr/src/freepbx/cdr/install.php:98
-#: install.php:114
+#: install.php:99 /usr/src/freepbx/cdr/install.php:115
+#: install.php:131
 msgid "OK!"
 msgstr ""
 
@@ -698,8 +714,12 @@ msgstr ""
 msgid "Total Duration"
 msgstr ""
 
-#: install.php:47
+#: install.php:48
 msgid "Unable to add index to did field in the cdr table"
+msgstr ""
+
+#: install.php:63
+msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr ""
 
 #: page.cdr.php:1088
