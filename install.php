@@ -41,6 +41,7 @@ if (! function_exists("out")) {
 $sql = "SHOW KEYS FROM `$db_name`.`$db_table_name` WHERE Key_name='did'";
 $check = $dbcdr->getOne($sql);
 if (empty($check)) {
+	outn(_('Adding index to did field...'));
 	$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD INDEX `did` (`did` ASC)";
 	$result = $dbcdr->query($sql);
 	if(DB::IsError($result)) {
@@ -49,6 +50,22 @@ if (empty($check)) {
 	} else {
 		out(_("Adding index to did field in the cdr table"));
 	}
+	out(_('Done'));
+}
+
+$sql = "SHOW KEYS FROM `$db_name`.`$db_table_name` WHERE Key_name='recordingfile'";
+$check = $dbcdr->getOne($sql);
+if (empty($check)) {
+	outn(_('Adding index to recordingfile field...'));
+	$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD INDEX `recordingfile` (`recordingfile` ASC)";
+	$result = $dbcdr->query($sql);
+	if(DB::IsError($result)) {
+		out(_("Unable to add index to recordingfile field in the cdr table"));
+		freepbx_log(FPBX_LOG_ERROR, "Failed to add index to recordingfile field in the cdr table");
+	} else {
+		out(_("Adding index to recordingfile field in the cdr table"));
+	}
+	out(_('Done'));
 }
 
 // Remove this section in FreePBX 14
@@ -114,4 +131,3 @@ if (count($alterclauses)) {
         out(_("OK!"));
     }
 }
-
