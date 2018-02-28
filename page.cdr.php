@@ -57,7 +57,7 @@ switch ($action) {
 		exit;
 		break;
 	case 'download_audio':
-			$file = $dbcdr->getOne('SELECT recordingfile FROM ' . $db_name.'.'.$db_table_name . ' WHERE uniqueid = ?',
+			$file = $dbcdr->getOne('SELECT recordingfile FROM ' . $db_name.'.'.$db_table_name . ' WHERE uniqueid = ? AND recordingfile != "" LIMIT 1',
 			 array($_REQUEST['cdr_file']));
 			db_e($file);
 			if ($file) {
