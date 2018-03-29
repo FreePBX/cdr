@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>14.0.5.13</version>
+	<version>14.0.5.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*14.0.5.14* Fixing FREEPBX-17091 making total duration default value to 1. 
 		*14.0.5.13* Changed query to avoid getting empty recording files and limited the output to 1 in case of registers that have same uniqueid 
 		*14.0.5.12* Add index to recordingfield
 		*14.0.5.11* FREEPBX-14302 jPlayer takes control of all input in UCP 14
