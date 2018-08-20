@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-30 08:27-0800\n"
+"POT-Creation-Date: 2018-08-20 12:42-0400\n"
 "PO-Revision-Date: 2018-07-31 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/cdr/de/>\n"
@@ -20,17 +20,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 3.0.1\n"
 
-#: Cdr.class.php:410
+#: Cdr.class.php:443
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s Std, %s Min, %s Sek"
 
-#: Cdr.class.php:412
+#: Cdr.class.php:445
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s Min, %s Sek"
 
-#: Cdr.class.php:415
+#: Cdr.class.php:448
 #, php-format
 msgid "%s sec"
 msgstr "%s Sek"

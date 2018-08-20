@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-30 08:27-0800\n"
+"POT-Creation-Date: 2018-08-20 12:42-0400\n"
 "PO-Revision-Date: 2011-09-23 09:52+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -14,17 +14,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:410
+#: Cdr.class.php:443
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s часа, %s мин, %s сек"
 
-#: Cdr.class.php:412
+#: Cdr.class.php:445
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s мин, %s сек"
 
-#: Cdr.class.php:415
+#: Cdr.class.php:448
 #, php-format
 msgid "%s sec"
 msgstr "%s сек"
