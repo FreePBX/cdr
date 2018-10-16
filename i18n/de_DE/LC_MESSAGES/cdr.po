@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-01-30 08:27-0800\n"
-"PO-Revision-Date: 2018-07-31 16:00+0000\n"
+"PO-Revision-Date: 2018-10-17 13:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/cdr/de/>\n"
 "Language: de_DE\n"
@@ -194,7 +194,7 @@ msgstr "Abrechnungszeitraum"
 
 #: page.cdr.php:323
 msgid "Busy"
-msgstr "Beschäftigt"
+msgstr "Besetzt"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
@@ -268,7 +268,7 @@ msgstr "Anrufer-ID Name"
 
 #: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:868 page.cdr.php:1205
 msgid "Caller ID Number"
-msgstr "Anrufer-ID Nummer"
+msgstr "Anruferkennungsnummer"
 
 #: page.cdr.php:725 /usr/src/freepbx/cdr/page.cdr.php:1105
 msgid "CallerID"
@@ -280,7 +280,7 @@ msgstr "Anrufer ID Name"
 
 #: page.cdr.php:196
 msgid "CallerID Number"
-msgstr "Anrufer ID Nummer"
+msgstr "Anruferkennungsnummer"
 
 #: page.cdr.php:708
 msgid "Calls"
