@@ -20,4 +20,23 @@ class Restore Extends Base\RestoreBase{
     }
     return false;
   }
+
+  public function processLegacy($pdo, $data, $tables, $unknownTables, $tmpfiledir){
+    $data['modname'] = "cdr";
+    try {
+        $connection = new \Database('mysql:dbname=asteriskcdrdb;host=localhost', 'root','');
+    } catch(\Exception $e) {
+        return array("status" => false, "message" => $e->getMessage());
+    }
+    $sth = $connection->query("SHOW TABLES");
+    $res = $sth->fetchAll(\PDO::FETCH_ASSOC);
+
+    foreach($res as $loadedTables){
+        if ($loadedTables['Tables_in_asteriskcdrdb'] == $data['modname']){
+            $truncate = "DROP TABLE asteriskcdrdb.".$data['modname'];
+            $this->FreePBX->Database->query($truncate);
+            $loadedTables = $pdo->query("ALTER TABLE asterisktemp.".$data['modname']." RENAME TO asteriskcdrdb.".$data['modname']);
+        }
+    }
+  }
 }
