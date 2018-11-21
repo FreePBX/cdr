@@ -43,6 +43,7 @@ class Cdr implements \BMO {
 			// Note - no default, we check later.
 			"CDRDBNAME" => "CDRDBNAME",
 			"CDRDBTABLENAME" => "CDRDBTABLENAME",
+			"CDRUSEGMT" => "CDRUSEGMT",
 		);
 
 		$cdr = array();
@@ -131,6 +132,10 @@ class Cdr implements \BMO {
 		// Now try to get a DB handle using our DSN
 		try {
 			$this->cdrdb = new \Database($dsn, $user, $pass);
+			//Set the CDR session timezone to GMT if CDRUSEGMT is true
+			if ($cdr["CDRUSEGMT"]) {
+				$this->cdrdb->execute("SET time_zone = '+00:00'");
+			}
 		} catch(\Exception $e) {
 			die("Unable to connect to CDR Database using dsn '$dsn' with user '$user' and password '$pass' - ".$e->getMessage());
 		}
