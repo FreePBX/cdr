@@ -25,7 +25,7 @@ function cdr_get_config($engine) {
 
 	if ($amp_conf['CDRUSEGMT'] && file_exists($amp_conf['ASTETCDIR'] . '/cdr_adapative_odbc.conf')) {
 		//Parse the existing file
-		$cdrConf = parse_ini_file($amp_conf['ASTETCDIR'] . '/cdr_adapative_odbc.conf', true);
+		$cdrConf = @parse_ini_file($amp_conf['ASTETCDIR'] . '/cdr_adapative_odbc.conf', true);
 		//Modify the data
 		$content = "";
 		if (empty($cdrConf)) {
@@ -45,7 +45,7 @@ function cdr_get_config($engine) {
 			$content .= "\n";
 		}
 		//Rewrite the file
-		file_put_contents($amp_conf['ASTETCDIR'] . '/cdr_adapative_odbc.conf', $content);
+		\FreePBX::WriteConfig()->writeConfig('cdr_adapative_odbc.conf', $content, false);
 	}
 }
 
