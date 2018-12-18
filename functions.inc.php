@@ -22,6 +22,31 @@ function cdr_get_config($engine) {
 		$core_conf->addResOdbc($section, array('password' => !empty($amp_conf['CDRDBPASS']) ? $amp_conf['CDRDBPASS'] : $amp_conf['AMPDBPASS']));
 		$core_conf->addResOdbc($section, array('database' => !empty($amp_conf['CDRDBNAME']) ? $amp_conf['CDRDBNAME'] : 'asteriskcdrdb'));
 	}
+
+	if ($amp_conf['CDRUSEGMT'] && file_exists($amp_conf['ASTETCDIR'] . '/cdr_adapative_odbc.conf')) {
+		//Parse the existing file
+		$cdrConf = @parse_ini_file($amp_conf['ASTETCDIR'] . '/cdr_adapative_odbc.conf', true);
+		//Modify the data
+		$content = "";
+		if (empty($cdrConf)) {
+			return;
+		}
+
+		foreach ($cdrConf as $section => $data) {
+			$content .= "[$section]\n";
+			$data['usegmtime'] = 'yes';
+			foreach ($data as $key => $value) {
+				if ($key == 'alias start') {
+					$content .= $key . " =" . $value . "\n";
+				} else {
+					$content .= $key . "=" . $value . "\n";
+				}
+			}
+			$content .= "\n";
+		}
+		//Rewrite the file
+		\FreePBX::WriteConfig()->writeConfig('cdr_adapative_odbc.conf', $content, false);
+	}
 }
 
 
