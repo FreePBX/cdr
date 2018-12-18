@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>15.0.3</version>
+	<version>15.0.4</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*15.0.4* Feature/FREEPBX-18632 
 		*15.0.3* New Backup and Restore for 15 Legacy 
 		*15.0.2* Packaging of ver 15.0.2
 		*15.0.1* Backup 15.
