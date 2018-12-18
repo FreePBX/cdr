@@ -40,6 +40,11 @@ if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
 	$dbcdr = $db;
 }
 
+//Set the CDR session timezone to GMT if CDRUSEGMT is true
+if ($amp_conf["CDRUSEGMT"]) {
+	$dbcdr->execute("SET time_zone = '+00:00'");
+}
+
 // Make sure they're both escaped with backticks.
 if ($db_name[0] !== '`') {
 	$db_name = "`$db_name`";
