@@ -12,7 +12,7 @@ class Backup Extends Base\BackupBase{
     $cdruser = $this->FreePBX->Config->get('CDRDBUSER');
     $cdrpass = $this->FreePBX->Config->get('CDRDBPASS');
     $cdrport = $this->FreePBX->Config->get('CDRDBPORT');
-    $command = ['/usr/bin/mysqldump'];
+    $command = [fpbx_which('mysqldump')];
     if(!empty($cdrhost)){
         $command[] = '--host';
         $command[] = $cdrhost;
@@ -38,7 +38,7 @@ class Backup Extends Base\BackupBase{
     $command[] = '--no-create-info';
     $command[] = '--fields-terminated-by="," --fields-enclosed-by="\"" --lines-terminated-by="\r\n"';
     $command[] = '|';
-    $command[] = '/usr/bin/gzip';
+    $command[] = fpbx_which('gzip');
     $command[] = '>';
     $command[] = $tmpdir.'/cdr.csv.gz';
     $command = (implode(" ", $command));
