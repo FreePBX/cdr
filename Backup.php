@@ -40,6 +40,7 @@ class Backup Extends Base\BackupBase{
     $command[] = '--table';
     $command[] = $tablename;
     $command[] = '--skip-lock-tables';
+    $command[] = '--skip-triggers';
     $command[] = '--no-create-info';
 		$command[] = '>';
 		$command[] = $tmpdir.'/cdr.sql';
@@ -49,6 +50,8 @@ class Backup Extends Base\BackupBase{
 		$process->mustRun();
 		$fileObj = new \SplFileInfo($tmpdir . '/cdr.sql');
 		$this->addSplFile($fileObj);
-		$this->addDirectories([$fileObj->getPath()]);
+    $this->addDirectories([$fileObj->getPath()]);
+
+    $this->addGarbage($tmpdir);
   }
 }
