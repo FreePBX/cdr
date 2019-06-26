@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>15.0.12</version>
+	<version>15.0.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*15.0.13* Fixing FREEPBX-20172 
 		*15.0.12* FREEPBX-19882
 		*15.0.11* Fixing FREEI-427 Call history on UCP not showing correctly issue
 		*15.0.10* FREEI-435
