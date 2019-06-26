@@ -107,6 +107,7 @@ foreach($cid_fields as $cf) {
 	}
 }
 
+$alterclauses = array();
 /*Add standard fields: linkedid, peeraccount, sequence*/
 $stdfields=array('linkedid'=>array('VARCHAR',32,'\'\''),'peeraccount'=>array('VARCHAR',80,'\'\''),'sequence'=>array('INT',11,0));
 foreach($stdfields as $name => $type) {
