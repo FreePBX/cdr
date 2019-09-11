@@ -3,7 +3,7 @@ namespace FreePBX\modules\Cdr;
 use Symfony\Component\Process\Process;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
-	public function runRestore($jobid){
+	public function runRestore(){
 		$files = $this->getFiles();
 		if(empty($files[0])) {
 			return false;
