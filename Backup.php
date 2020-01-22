@@ -42,13 +42,14 @@ class Backup Extends Base\BackupBase{
     $command[] = '--skip-lock-tables';
     $command[] = '--skip-triggers';
     $command[] = '--no-create-info';
-		$command[] = '>';
-		$command[] = $tmpdir.'/cdr.sql';
+    $tmpfile = $tmpdir.'/cdr.sql';
+		$command[] = '--result-file='. $tmpfile;
 		$command = implode(" ", $command);
+		$this->log($command);
 		$process= new Process($command);
 		$process->disableOutput();
 		$process->mustRun();
-		$fileObj = new \SplFileInfo($tmpdir . '/cdr.sql');
+		$fileObj = new \SplFileInfo($tmpfile);
 		$this->addSplFile($fileObj);
     $this->addDirectories([$fileObj->getPath()]);
 
