@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 14:45+0530\n"
+"POT-Creation-Date: 2020-01-22 14:59+0530\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -199,7 +199,7 @@ msgstr "اشغال"
 msgid "CDR Access"
 msgstr "دسترسی جزئیات تماس"
 
-#: cdr.i18n.php:4 /dev/shm/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:94
+#: page.cdr.php:94
 msgid "CDR Reports"
 msgstr "گزارشهای جزئیات تماس"
 
@@ -218,10 +218,6 @@ msgstr "CNUM"
 #: page.cdr.php:171
 msgid "CSV File"
 msgstr ""
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr "ابزار گزارش تماس برای مشاهده انواع گزارشهای تماس"
 
 #: page.cdr.php:109 /dev/shm/freepbx/cdr/page.cdr.php:729
 msgid "Call Date"
@@ -583,10 +579,6 @@ msgstr "مربوط به جزییات تماس"
 msgid "Report Type"
 msgstr ""
 
-#: cdr.i18n.php:6
-msgid "Reports"
-msgstr "گزارشات"
-
 #: page.cdr.php:179
 msgid "Result Limit"
 msgstr ""
@@ -777,6 +769,12 @@ msgstr "داخلی"
 #: ucp/Cdr.class.php:330
 msgid "kicked from conference"
 msgstr "بیرون انداختن از کنفرانس"
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr "ابزار گزارش تماس برای مشاهده انواع گزارشهای تماس"
+
+#~ msgid "Reports"
+#~ msgstr "گزارشات"
 
 #~ msgid "CSV file"
 #~ msgstr "فایل CSV"

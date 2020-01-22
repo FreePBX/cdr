@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 14:45+0530\n"
+"POT-Creation-Date: 2020-01-22 14:59+0530\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -229,7 +229,7 @@ msgstr "通話中"
 msgid "CDR Access"
 msgstr ""
 
-#: cdr.i18n.php:4 /dev/shm/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:94
+#: page.cdr.php:94
 msgid "CDR Reports"
 msgstr "CDRレポート"
 
@@ -248,10 +248,6 @@ msgstr "CNUM"
 #: page.cdr.php:171
 msgid "CSV File"
 msgstr ""
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr "通話記録を閲覧するためのコールデータレコードのレポートツール"
 
 #: page.cdr.php:109 /dev/shm/freepbx/cdr/page.cdr.php:729
 msgid "Call Date"
@@ -613,10 +609,6 @@ msgstr "関連したコール記録"
 msgid "Report Type"
 msgstr ""
 
-#: cdr.i18n.php:6
-msgid "Reports"
-msgstr "レポート"
-
 #: page.cdr.php:179
 msgid "Result Limit"
 msgstr ""
@@ -809,6 +801,12 @@ msgstr "exten"
 #: ucp/Cdr.class.php:330
 msgid "kicked from conference"
 msgstr ""
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr "通話記録を閲覧するためのコールデータレコードのレポートツール"
+
+#~ msgid "Reports"
+#~ msgstr "レポート"
 
 #~ msgid "CSV file"
 #~ msgstr "CSVファイル"

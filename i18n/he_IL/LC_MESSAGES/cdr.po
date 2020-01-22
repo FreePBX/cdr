@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-26 14:45+0530\n"
+"POT-Creation-Date: 2020-01-22 14:59+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -203,7 +203,7 @@ msgstr ""
 msgid "CDR Access"
 msgstr ""
 
-#: cdr.i18n.php:4 /dev/shm/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:94
+#: page.cdr.php:94
 msgid "CDR Reports"
 msgstr ""
 
@@ -221,10 +221,6 @@ msgstr ""
 
 #: page.cdr.php:171
 msgid "CSV File"
-msgstr ""
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr ""
 
 #: page.cdr.php:109 /dev/shm/freepbx/cdr/page.cdr.php:729
@@ -585,10 +581,6 @@ msgstr ""
 
 #: page.cdr.php:168
 msgid "Report Type"
-msgstr ""
-
-#: cdr.i18n.php:6
-msgid "Reports"
 msgstr ""
 
 #: page.cdr.php:179
