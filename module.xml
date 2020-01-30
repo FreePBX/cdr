@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>15.0.16</version>
+	<version>16.0.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,22 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
-		*15.0.16* FREEPBX-21063 Misuse of shell builtins 
-		*15.0.15* Related to FREEPBX-20414: removed $jobid from runRestore() 
-		*15.0.14* Fixed FREEPBX-20444: removed $tmpfiledir from processLegacy() 
-		*15.0.13* Fixing FREEPBX-20172 
-		*15.0.12* FREEPBX-19882
-		*15.0.11* Fixing FREEI-427 Call history on UCP not showing correctly issue
-		*15.0.10* FREEI-435
-		*15.0.9* backup and restore
-		*15.0.8* Bugfix/FREEPBX-18883
-		*15.0.7* FREEPBX-18954 fallback to AMPDBHOST
-		*15.0.6* Packaging of ver 15.0.6
-		*15.0.5* Fixing FREEPBX-18783 sql exception issue
-		*15.0.4* Feature/FREEPBX-18632
-		*15.0.3* New Backup and Restore for 15 Legacy
-		*15.0.2* Packaging of ver 15.0.2
-		*15.0.1* Backup 15.
+		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
 	<hooks>
 		<ucp class="Ucp">
@@ -45,6 +30,6 @@
 		<module>core ge 12.0.8</module>
 	</depends>
 	<supported>
-		<version>15.0</version>
+		<version>16.0</version>
 	</supported>
 </module>
