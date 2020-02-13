@@ -43,8 +43,9 @@ class Restore Extends Base\RestoreBase{
 		$dbhandle = $this->FreePBX->Cdr->getCdrDbHandle();
 		$dbhandle->query("TRUNCATE $tablename");
 		$restore = fpbx_which('mysql').' '.implode(" ", $command).' '.$cdrname.' < '.$dumpfile;
-		$sql = new Process($restore);
-		$sql->mustRun();
+		$process = new Process($restore);
+		$process->setTimeout(3600);
+		$process->mustRun();
 		return true;
 	}
 
@@ -73,5 +74,5 @@ class Restore Extends Base\RestoreBase{
 						$loadedTables = $pdo->query("ALTER TABLE asterisktemp.".$tablename." RENAME TO asteriskcdrdb.".$tablename);
 				}
 		}
-	}
+}
 }
