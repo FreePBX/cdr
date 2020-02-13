@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>15.0.16</version>
+	<version>15.0.17</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*15.0.17* FREEPBX-21178 CDR Restore timeout 
 		*15.0.16* FREEPBX-21063 Misuse of shell builtins 
 		*15.0.15* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.14* Fixed FREEPBX-20444: removed $tmpfiledir from processLegacy() 

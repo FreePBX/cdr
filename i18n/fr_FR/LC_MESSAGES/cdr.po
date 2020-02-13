@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 14:59+0530\n"
+"POT-Creation-Date: 2020-02-13 11:59+0530\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -202,7 +202,7 @@ msgstr "Occupé"
 msgid "CDR Access"
 msgstr "Accès au CDR"
 
-#: page.cdr.php:94
+#: cdr.i18n.php:4 /dev/shm/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:94
 msgid "CDR Reports"
 msgstr "Rapports CDR"
 
@@ -221,6 +221,10 @@ msgstr "CNUM"
 #: page.cdr.php:171
 msgid "CSV File"
 msgstr ""
+
+#: cdr.i18n.php:8
+msgid "Call Data Record report tools for viewing reports of your calls"
+msgstr "Outil de rapport pour visualiser la liste de vos appels"
 
 #: page.cdr.php:109 /dev/shm/freepbx/cdr/page.cdr.php:729
 msgid "Call Date"
@@ -584,6 +588,10 @@ msgstr "Enregistrements détaillés des appels connexes"
 msgid "Report Type"
 msgstr ""
 
+#: cdr.i18n.php:6
+msgid "Reports"
+msgstr "Rapports"
+
 #: page.cdr.php:179
 msgid "Result Limit"
 msgstr ""
@@ -783,12 +791,6 @@ msgstr "numéro"
 #: ucp/Cdr.class.php:330
 msgid "kicked from conference"
 msgstr "sorti de la conférence"
-
-#~ msgid "Call Data Record report tools for viewing reports of your calls"
-#~ msgstr "Outil de rapport pour visualiser la liste de vos appels"
-
-#~ msgid "Reports"
-#~ msgstr "Rapports"
 
 #~ msgid "CSV file"
 #~ msgstr "Fichier CSV"
