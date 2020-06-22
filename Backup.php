@@ -45,7 +45,6 @@ class Backup Extends Base\BackupBase{
     $tmpfile = $tmpdir.'/cdr.sql';
 		$command[] = '--result-file='. $tmpfile;
 		$command = implode(" ", $command);
-		$this->log($command);
 		$process= new Process($command);
 		$process->disableOutput();
 		$process->mustRun();
