@@ -41,7 +41,7 @@
 					<div class="col-md-9">
 						<select data-placeholder="Extensions" id="ucp_cdr" class="form-control chosenmultiselect ucp-cdr" name="ucp_cdr[]" multiple="multiple" <?php echo (!is_null($enable) && !$enable) ? "disabled" : ""?>>
 							<?php foreach($ausers as $key => $value) {?>
-								<option value="<?php echo $key?>" <?php echo in_array($key,$cdrassigned) ? 'selected' : '' ?>><?php echo $value?></option>
+								<option value="<?php echo htmlentities($key)?>" <?php echo in_array($key,$cdrassigned) ? 'selected' : '' ?>><?php echo htmlentities($value)?></option>
 							<?php } ?>
 						</select>
 					</div>

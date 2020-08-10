@@ -122,14 +122,14 @@ class Cdr extends Modules{
 		$return = array("status" => false, "message" => "");
 		switch($_REQUEST['command']) {
 			case "grid":
-				$limit = $_REQUEST['limit'];
+				$limit = filter_var($_REQUEST['limit'], FILTER_SANITIZE_NUMBER_INT);
 				$ext = $_REQUEST['extension'];
 				$order = $_REQUEST['order'];
 				$orderby = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "date";
 				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
 				$pages = $this->cdr->getPages($ext,$search,$limit);
 				$total = $pages * $limit;
-				$offset = $_REQUEST['offset'];
+				$offset = filter_var($_REQUEST['offset'], FILTER_SANITIZE_NUMBER_INT);
 				$page = ($offset / $limit) + 1;
 				$data = $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$limit),$ext);
 				return array(
