@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>13.0.33</version>
+	<version>13.0.34</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*13.0.34* FREEI-1763
 		*13.0.33* FREEPBX-18954 fallback to AMPDBHOST 
 		*13.0.32* Changed query to avoid getting empty recording files and limited the output to 1 in case of registers that have same uniqueid 
 		*13.0.31* Don't assume database name when it's been set to something else
