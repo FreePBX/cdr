@@ -2,8 +2,9 @@
 	<rawname>cdr</rawname>
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
+	<more-info>https://wiki.freepbx.org/display/F2/CDR+Reports+Module</more-info>
 	<name>CDR Reports</name>
-	<version>15.0.17.1</version>
+	<version>15.0.17.2</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*15.0.17.2* Packaging of ver 15.0.17.2
 		*15.0.17.1* FREEI-1782 
 		*15.0.17* FREEPBX-21178 CDR Restore timeout 
 		*15.0.16* FREEPBX-21063 Misuse of shell builtins 
