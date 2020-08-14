@@ -2,6 +2,7 @@
 	<rawname>cdr</rawname>
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
+	<more-info>https://wiki.freepbx.org/display/F2/CDR+Reports+Module</more-info>
 	<name>CDR Reports</name>
 	<version>13.0.34</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
