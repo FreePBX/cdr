@@ -4,7 +4,7 @@
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<more-info>https://wiki.freepbx.org/display/F2/CDR+Reports+Module</more-info>
 	<name>CDR Reports</name>
-	<version>13.0.34</version>
+	<version>13.0.35</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*13.0.35* Packaging of ver 13.0.35
 		*13.0.34* FREEI-1763
 		*13.0.33* FREEPBX-18954 fallback to AMPDBHOST 
 		*13.0.32* Changed query to avoid getting empty recording files and limited the output to 1 in case of registers that have same uniqueid 
