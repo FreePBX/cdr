@@ -16,7 +16,7 @@ class Backup Extends Base\BackupBase{
 		$cdrhost = $this->FreePBX->Config->get('CDRDBHOST') ? $this->FreePBX->Config->get('CDRDBHOST') : $amp_conf['AMPDBHOST'];
 		$cdruser = $this->FreePBX->Config->get('CDRDBUSER') ? $this->FreePBX->Config->get('CDRDBUSER') : $amp_conf['AMPDBUSER'];
 		$cdrpass = $this->FreePBX->Config->get('CDRDBPASS') ? $this->FreePBX->Config->get('CDRDBPASS') : $amp_conf['AMPDBPASS'];
-		$cdrport = $this->FreePBX->Config->get('CDRDBPORT');
+		$cdrport = $this->FreePBX->Config->get('CDRDBPORT') ? $this->FreePBX->Config->get('CDRDBPORT') : $amp_conf['AMPDBPORT'];
 
     $command = [fpbx_which('mysqldump')];
     if(!empty($cdrhost)){
@@ -45,7 +45,6 @@ class Backup Extends Base\BackupBase{
     $tmpfile = $tmpdir.'/cdr.sql';
 		$command[] = '--result-file='. $tmpfile;
 		$command = implode(" ", $command);
-		$this->log($command);
 		$process= new Process($command);
 		$process->disableOutput();
 		$process->mustRun();
