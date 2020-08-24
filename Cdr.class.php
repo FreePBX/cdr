@@ -266,7 +266,7 @@ class Cdr implements \BMO {
 			$cdrassigned = array('self');
 		}
 		foreach(core_users_list() as $list) {
-			$ausers[$list[0]] = $list[1] . " &#60;".$list[0]."&#62;";
+			$ausers[$list[0]] = sprintf("%s <%s>", $list[1], $list[0]);
 		}
 		$html[0] = array(
 			"title" => _("Call History"),
