@@ -21,7 +21,7 @@ class Restore Extends Base\RestoreBase{
 		$cdrhost = $this->FreePBX->Config->get('CDRDBHOST') ? $this->FreePBX->Config->get('CDRDBHOST') : $amp_conf['AMPDBHOST'];
 		$cdruser = $this->FreePBX->Config->get('CDRDBUSER') ? $this->FreePBX->Config->get('CDRDBUSER') : $amp_conf['AMPDBUSER'];
 		$cdrpass = $this->FreePBX->Config->get('CDRDBPASS') ? $this->FreePBX->Config->get('CDRDBPASS') : $amp_conf['AMPDBPASS'];
-		$cdrport = $this->FreePBX->Config->get('CDRDBPORT');
+		$cdrport = $this->FreePBX->Config->get('CDRDBPORT') ? $this->FreePBX->Config->get('CDRDBPORT') : $amp_conf['AMPDBPORT'];
 
 		$command = [];
 		if(!empty($cdrhost)){
@@ -57,10 +57,12 @@ class Restore Extends Base\RestoreBase{
 		$cdrhost = $this->FreePBX->Config->get('CDRDBHOST') ? $this->FreePBX->Config->get('CDRDBHOST') : $amp_conf['AMPDBHOST'];
 		$cdruser = $this->FreePBX->Config->get('CDRDBUSER') ? $this->FreePBX->Config->get('CDRDBUSER') : $amp_conf['AMPDBUSER'];
 		$cdrpass = $this->FreePBX->Config->get('CDRDBPASS') ? $this->FreePBX->Config->get('CDRDBPASS') : $amp_conf['AMPDBPASS'];
-		$cdrport = $this->FreePBX->Config->get('CDRDBPORT');
+		$cdrport = $this->FreePBX->Config->get('CDRDBPORT') ? $this->FreePBX->Config->get('CDRDBPORT') : $amp_conf['AMPDBPORT'];
+
+		$cdrport = empty($cdrport) ? '' :  ';port=' . $cdrport;
 
 		try {
-				$connection = new \Database('mysql:dbname='.$cdrname.';host=localhost', $cdruser,$cdrpass);
+				$connection = new \Database('mysql:dbname='.$cdrname.';host='.$cdrhost.$cdrport, $cdruser,$cdrpass);
 		} catch(\Exception $e) {
 				return array("status" => false, "message" => $e->getMessage());
 		}
