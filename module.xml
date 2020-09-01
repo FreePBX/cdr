@@ -4,7 +4,7 @@
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<more-info>https://wiki.freepbx.org/display/F2/CDR+Reports+Module</more-info>
 	<name>CDR Reports</name>
-	<version>14.0.5.22</version>
+	<version>14.0.5.23</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*14.0.5.23* FREEI-2099 extensions name shown incorrectly. 
 		*14.0.5.22* Packaging of ver 14.0.5.22
 		*14.0.5.21* Fixing FREEI-1763 
 		*14.0.5.20* Fixing FREEPBX-20172 
