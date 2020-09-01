@@ -4,7 +4,7 @@
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<more-info>https://wiki.freepbx.org/display/F2/CDR+Reports+Module</more-info>
 	<name>CDR Reports</name>
-	<version>15.0.17.4</version>
+	<version>15.0.17.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*15.0.17.5* FREEI-2099 extensions name shown incorrectly. 
 		*15.0.17.4* FREEPBX-21776: User Edit &amp;gt; UCP &amp;gt; Call History &amp;gt; CDR Access &amp;gt; not displayed correctly 
 		*15.0.17.3* database port missing 
 		*15.0.17.2* Packaging of ver 15.0.17.2
