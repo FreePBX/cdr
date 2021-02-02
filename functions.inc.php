@@ -23,9 +23,9 @@ function cdr_get_config($engine) {
 		$core_conf->addResOdbc($section, array('database' => !empty($amp_conf['CDRDBNAME']) ? $amp_conf['CDRDBNAME'] : 'asteriskcdrdb'));
 	}
 
-	if ($amp_conf['CDRUSEGMT'] && file_exists($amp_conf['ASTETCDIR'] . '/cdr_adapative_odbc.conf')) {
+	if (isset($amp_conf['CDRUSEGMT']) && file_exists($amp_conf['ASTETCDIR'] . '/cdr_adaptive_odbc.conf')) {
 		//Parse the existing file
-		$cdrConf = @parse_ini_file($amp_conf['ASTETCDIR'] . '/cdr_adapative_odbc.conf', true);
+		$cdrConf = @parse_ini_file($amp_conf['ASTETCDIR'] . '/cdr_adaptive_odbc.conf', true);
 		//Modify the data
 		$content = "";
 		if (empty($cdrConf)) {
@@ -34,7 +34,11 @@ function cdr_get_config($engine) {
 
 		foreach ($cdrConf as $section => $data) {
 			$content .= "[$section]\n";
-			$data['usegmtime'] = 'yes';
+			if($amp_conf['CDRUSEGMT'] == 1){
+				$data['usegmtime'] = 'yes';
+			} else {
+				unset($data['usegmtime']);
+			}
 			foreach ($data as $key => $value) {
 				if ($key == 'alias start') {
 					$content .= $key . " =" . $value . "\n";
@@ -45,7 +49,7 @@ function cdr_get_config($engine) {
 			$content .= "\n";
 		}
 		//Rewrite the file
-		\FreePBX::WriteConfig()->writeConfig('cdr_adapative_odbc.conf', $content, false);
+		\FreePBX::WriteConfig()->writeConfig('cdr_adaptive_odbc.conf', $content, false);
 	}
 }
 
