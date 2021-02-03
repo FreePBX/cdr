@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>16.0.4</version>
+	<version>16.0.5</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*16.0.5* FREEI-2660 UCC timestamp mismatch on main CDR module 
 		*16.0.4* FREEI-2099 extensions name shown incorrectly. 
 		*16.0.3* FREEPBX-21776: User Edit &amp;gt; UCP &amp;gt; Call History &amp;gt; CDR Access &amp;gt; not displayed correctly 
 		*16.0.2* database port missing 
