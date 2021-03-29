@@ -495,4 +495,82 @@ class Cdr implements \BMO {
 		}
 		return '';
 	}
+
+	public function postProcessCalls($calls,$self) {
+		foreach($calls as &$call) {
+			$app = strtolower($call['lastapp']);
+			switch($app) {
+				case 'dial':
+					switch($call['disposition']) {
+						case 'ANSWERED':
+							if($call['src'] == $self || strpos($call['channel'], "/".$self."-") !== false) {
+								$call['status'] = 'OUTGOING';
+								$call['number'] = $call['dst'];
+							} elseif($call['dst'] == $self || strpos($call['dstchannel'], "/".$self."-") !== false) {
+								$call['status'] = 'INCOMING';
+								$call['number'] = $call['src'];
+							} elseif($call['cnum'] == $self) {
+								$call['status'] = 'OUTGOING';
+								$call['number'] = $call['cnum'];
+							}
+						break;
+						case 'NO ANSWER':
+							if($call['src'] == $self || strpos($call['channel'], "/".$self."-") !== false) {
+								$call['status'] = 'OUTGOING';
+								$call['number'] = $call['dst'];
+							} elseif($call['dst'] == $self || strpos($call['dstchannel'], "/".$self."-") !== false) {
+								if ($call['billsec'] > '0') {
+									$call['status'] = 'INCOMING';
+								} else {
+									$call['status'] = 'HANGUP';
+									$call['duration'] = '0';
+								}
+								$call['number'] = $call['src'];
+							} elseif($call['cnum'] == $self) {
+								$call['status'] = 'OUTGOING';
+								$call['number'] = $call['src'];
+							}
+						break;
+					}
+				 break;
+				case 'voicemail':
+					if($call['src'] == $self) {
+						$call['status'] = 'OUTGOING';
+						$call['number'] = $call['dst'];
+					} elseif($call['dst'] == $self) {
+						$call['status'] = 'INCOMING';
+						$call['number'] = $call['src'];
+					} else {
+						$call['status'] = 'VOICEMAIL';
+						$call['number'] = $call['src'];
+					}
+				break;
+				case 'confbridge':
+				case 'meetme':
+					if($call['src'] == $self) {
+						$call['status'] = 'OUTGOING';
+						$call['number'] = $call['dst'];
+					} elseif($call['dst'] == $self) {
+						$call['status'] = 'INCOMING';
+						$call['number'] = $call['src'];
+					} else {
+						$call['icons'][] = 'CONFERENCE';
+					}
+				break;
+				default:
+					if($call['src'] == $self) {
+						$call['status'] = 'OUTGOING';
+						$call['number'] = $call['dst'];
+					} elseif($call['dst'] == $self) {
+						$call['status'] = 'INCOMING';
+						$call['number'] = $call['src'];
+					}
+				break;
+			}
+
+		}
+
+		return $calls;
+	}
+
 }
