@@ -685,7 +685,7 @@ if (isset($dst)) {
 $where = "WHERE $date_range $cnum $outbound_cnum $cnam $dst_cnam $did $dst $userfield $accountcode $disposition $duration";
 
 if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
-	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield, cnum, cnam, outbound_cnum, outbound_cnam, dst_cnam FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
+	$query = "(SELECT calldate, clid, did, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield, cnum, cnam, outbound_cnum, outbound_cnam, dst_cnam, recordingfile, linkedid, peeraccount, sequence FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit)";
 	$resultcsv = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
 	cdr_export_csv($resultcsv);
 }
