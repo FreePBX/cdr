@@ -155,7 +155,7 @@ function cdr_export_csv($csvdata) {
 	// TODO: make this value a setting in Advanced Settings
 	set_time_limit(3000);
 	$fname		= "cdr__" .  (string) time() . $_SERVER["SERVER_NAME"] . ".csv";
-	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield";
+	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield,did,cnum,cnam,outbound_cnum,outbound_cnam,dst_cnam,recordingfile,linkedid,peeraccount,sequence";
 
 	$mimetype = "application/octet-stream";
 
