@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-16 11:40+0000\n"
+"POT-Creation-Date: 2021-06-04 05:39+0000\n"
 "PO-Revision-Date: 2018-09-04 08:02+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cdr/cs/>\n"
@@ -35,27 +35,27 @@ msgstr "%s min, %s s"
 msgid "%s sec"
 msgstr "%s s"
 
-#: page.cdr.php:353 /usr/src/freepbx/cdr/page.cdr.php:925
+#: page.cdr.php:353 /dev/shm/freepbx/cdr/page.cdr.php:925
 msgid "10 Minutes"
 msgstr "10 Minut"
 
-#: page.cdr.php:202 /usr/src/freepbx/cdr/page.cdr.php:234 page.cdr.php:265
+#: page.cdr.php:202 /dev/shm/freepbx/cdr/page.cdr.php:234 page.cdr.php:265
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
 msgstr "<b>.</b> = zástupný znak, odpovídá jednomu nebo více znakům<br>"
 
-#: page.cdr.php:200 /usr/src/freepbx/cdr/page.cdr.php:232 page.cdr.php:263
+#: page.cdr.php:200 /dev/shm/freepbx/cdr/page.cdr.php:232 page.cdr.php:263
 msgid "<b>N</b> = matches any digit from 2-9<br>"
 msgstr "<b>N</b> = odpovídá číslicím 2-9<br>"
 
-#: page.cdr.php:198 /usr/src/freepbx/cdr/page.cdr.php:230 page.cdr.php:261
+#: page.cdr.php:198 /dev/shm/freepbx/cdr/page.cdr.php:230 page.cdr.php:261
 msgid "<b>X</b> = matches any digit from 0-9<br>"
 msgstr "<b>X</b> = odpovídá číslicím 0-9<br>"
 
-#: page.cdr.php:199 /usr/src/freepbx/cdr/page.cdr.php:231 page.cdr.php:262
+#: page.cdr.php:199 /dev/shm/freepbx/cdr/page.cdr.php:231 page.cdr.php:262
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr "<b>Z</b> = odpovídá číslicím 1-9<br>"
 
-#: page.cdr.php:201 /usr/src/freepbx/cdr/page.cdr.php:233 page.cdr.php:264
+#: page.cdr.php:201 /dev/shm/freepbx/cdr/page.cdr.php:233 page.cdr.php:264
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
@@ -63,7 +63,7 @@ msgstr ""
 "<b>[1237-9]</b> = odpovídá libovolné číslici nebo písmenu v závorce <br> (v "
 "tomto případě 1,2,3,7,8,9)<br>"
 
-#: page.cdr.php:196 /usr/src/freepbx/cdr/page.cdr.php:228 page.cdr.php:259
+#: page.cdr.php:196 /dev/shm/freepbx/cdr/page.cdr.php:228 page.cdr.php:259
 msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
@@ -71,12 +71,12 @@ msgstr ""
 "<b>_!2XXN, _562., _.0075</b> = Vyhledat jakoukoliv shodu <b>kromě</b> pro "
 "tyto čísla"
 
-#: page.cdr.php:195 /usr/src/freepbx/cdr/page.cdr.php:227 page.cdr.php:258
+#: page.cdr.php:195 /dev/shm/freepbx/cdr/page.cdr.php:227 page.cdr.php:258
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
 msgstr ""
 "<b>_2XXN, _562., _.0075</b> = vyhledat libovolnou shodu těchto čísel<br>"
 
-#: page.cdr.php:197 /usr/src/freepbx/cdr/page.cdr.php:229 page.cdr.php:260
+#: page.cdr.php:197 /dev/shm/freepbx/cdr/page.cdr.php:229 page.cdr.php:260
 msgid "<br>Asterisk pattern matching<br>"
 msgstr "<br>Shoda vzoru Asterisku<br>"
 
@@ -88,7 +88,7 @@ msgstr "AMA"
 msgid "AMA Flag"
 msgstr "AMA příznak"
 
-#: page.cdr.php:426 /usr/src/freepbx/cdr/page.cdr.php:1129
+#: page.cdr.php:426 /dev/shm/freepbx/cdr/page.cdr.php:1129
 msgid "ANI"
 msgstr "ANI"
 
@@ -96,7 +96,7 @@ msgstr "ANI"
 msgid "Account"
 msgstr "Účet"
 
-#: page.cdr.php:303 /usr/src/freepbx/cdr/page.cdr.php:348 page.cdr.php:866
+#: page.cdr.php:303 /dev/shm/freepbx/cdr/page.cdr.php:348 page.cdr.php:866
 msgid "Account Code"
 msgstr "Kód účtu"
 
@@ -120,7 +120,7 @@ msgstr "Přidání indexu do pole záznamového souboru v tabulce cdr"
 msgid "Adding index to recordingfile field..."
 msgstr "Přidání indexu do pole záznamového souboru ..."
 
-#: install.php:104 /usr/src/freepbx/cdr/install.php:121
+#: install.php:104 /dev/shm/freepbx/cdr/install.php:121
 msgid "Adding!"
 msgstr "Přidání!"
 
@@ -156,7 +156,7 @@ msgstr "A"
 msgid "Answered"
 msgstr "Odpovězeno"
 
-#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:735
+#: page.cdr.php:431 /dev/shm/freepbx/cdr/page.cdr.php:735
 msgid "App"
 msgstr "Aplikace"
 
@@ -176,10 +176,10 @@ msgstr "Srpen"
 msgid "Average Call Time"
 msgstr "Průměrná doba hovoru"
 
-#: page.cdr.php:206 /usr/src/freepbx/cdr/page.cdr.php:218 page.cdr.php:238
-#: /usr/src/freepbx/cdr/page.cdr.php:250 page.cdr.php:269
-#: /usr/src/freepbx/cdr/page.cdr.php:283 page.cdr.php:295
-#: /usr/src/freepbx/cdr/page.cdr.php:306
+#: page.cdr.php:206 /dev/shm/freepbx/cdr/page.cdr.php:218 page.cdr.php:238
+#: /dev/shm/freepbx/cdr/page.cdr.php:250 page.cdr.php:269
+#: /dev/shm/freepbx/cdr/page.cdr.php:283 page.cdr.php:295
+#: /dev/shm/freepbx/cdr/page.cdr.php:306
 msgid "Begins With"
 msgstr "Začíná s"
 
@@ -199,7 +199,7 @@ msgstr "Zaneprázdněný"
 msgid "CDR Access"
 msgstr "CDR přístup"
 
-#: cdr.i18n.php:4 /usr/src/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:94
+#: cdr.i18n.php:4 /dev/shm/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:94
 msgid "CDR Reports"
 msgstr "CDR reporty"
 
@@ -223,7 +223,7 @@ msgstr "Soubor CSV"
 msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr "CDR reportingové nástroje pro zobrazení reportů o vašich hovorech"
 
-#: page.cdr.php:109 /usr/src/freepbx/cdr/page.cdr.php:729
+#: page.cdr.php:109 /dev/shm/freepbx/cdr/page.cdr.php:729
 msgid "Call Date"
 msgstr "Datum hovoru"
 
@@ -260,15 +260,15 @@ msgstr "Historie volání"
 msgid "Call History for %s"
 msgstr "Historie volání pro %s"
 
-#: page.cdr.php:365 /usr/src/freepbx/cdr/page.cdr.php:878 page.cdr.php:1207
+#: page.cdr.php:365 /dev/shm/freepbx/cdr/page.cdr.php:878 page.cdr.php:1207
 msgid "Caller ID Name"
 msgstr "Jméno volajícího"
 
-#: page.cdr.php:364 /usr/src/freepbx/cdr/page.cdr.php:875 page.cdr.php:1212
+#: page.cdr.php:364 /dev/shm/freepbx/cdr/page.cdr.php:875 page.cdr.php:1212
 msgid "Caller ID Number"
 msgstr "Číslo volajícího"
 
-#: page.cdr.php:732 /usr/src/freepbx/cdr/page.cdr.php:1112
+#: page.cdr.php:732 /dev/shm/freepbx/cdr/page.cdr.php:1112
 msgid "CallerID"
 msgstr "ID volajícího"
 
@@ -296,10 +296,10 @@ msgstr "Současné hovory"
 msgid "Conference"
 msgstr "Konference"
 
-#: page.cdr.php:207 /usr/src/freepbx/cdr/page.cdr.php:219 page.cdr.php:239
-#: /usr/src/freepbx/cdr/page.cdr.php:251 page.cdr.php:270
-#: /usr/src/freepbx/cdr/page.cdr.php:284 page.cdr.php:296
-#: /usr/src/freepbx/cdr/page.cdr.php:307
+#: page.cdr.php:207 /dev/shm/freepbx/cdr/page.cdr.php:219 page.cdr.php:239
+#: /dev/shm/freepbx/cdr/page.cdr.php:251 page.cdr.php:270
+#: /dev/shm/freepbx/cdr/page.cdr.php:284 page.cdr.php:296
+#: /dev/shm/freepbx/cdr/page.cdr.php:307
 msgid "Contains"
 msgstr "Obsahuje"
 
@@ -307,9 +307,9 @@ msgstr "Obsahuje"
 msgid "Controls"
 msgstr "Řízení"
 
-#: page.cdr.php:247 /usr/src/freepbx/cdr/page.cdr.php:363 page.cdr.php:427
-#: /usr/src/freepbx/cdr/page.cdr.php:734 page.cdr.php:872
-#: /usr/src/freepbx/cdr/page.cdr.php:1124
+#: page.cdr.php:247 /dev/shm/freepbx/cdr/page.cdr.php:363 page.cdr.php:427
+#: /dev/shm/freepbx/cdr/page.cdr.php:734 page.cdr.php:872
+#: /dev/shm/freepbx/cdr/page.cdr.php:1124
 msgid "DID"
 msgstr "DID"
 
@@ -321,7 +321,7 @@ msgstr "Datum"
 msgid "Date/Time"
 msgstr "Datum/Čas"
 
-#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:931
+#: page.cdr.php:357 /dev/shm/freepbx/cdr/page.cdr.php:931
 msgid "Day"
 msgstr "Den"
 
@@ -341,11 +341,11 @@ msgstr "Prosinec"
 msgid "Description"
 msgstr "Popis"
 
-#: page.cdr.php:266 /usr/src/freepbx/cdr/page.cdr.php:736
+#: page.cdr.php:266 /dev/shm/freepbx/cdr/page.cdr.php:736
 msgid "Destination"
 msgstr "Cíl"
 
-#: page.cdr.php:368 /usr/src/freepbx/cdr/page.cdr.php:887
+#: page.cdr.php:368 /dev/shm/freepbx/cdr/page.cdr.php:887
 msgid "Destination Caller ID Name"
 msgstr "Cílové jméno volajícího"
 
@@ -357,7 +357,7 @@ msgstr "Cílové jméno volajícího"
 msgid "Destination Context"
 msgstr "Cílový kontext"
 
-#: page.cdr.php:362 /usr/src/freepbx/cdr/page.cdr.php:869
+#: page.cdr.php:362 /dev/shm/freepbx/cdr/page.cdr.php:869
 msgid "Destination Number"
 msgstr "Cílové číslo"
 
@@ -369,11 +369,11 @@ msgstr "Kontext plánu vytáčení"
 msgid "Dialplan exten"
 msgstr "Rozšíření plánu vytáčení"
 
-#: page.cdr.php:324 /usr/src/freepbx/cdr/page.cdr.php:737
+#: page.cdr.php:324 /dev/shm/freepbx/cdr/page.cdr.php:737
 msgid "Disposition"
 msgstr "Uspořádání"
 
-#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+#: install.php:53 /dev/shm/freepbx/cdr/install.php:68
 msgid "Done"
 msgstr "Hotovo"
 
@@ -381,7 +381,7 @@ msgstr "Hotovo"
 msgid "Download"
 msgstr "Stáhnout"
 
-#: page.cdr.php:314 /usr/src/freepbx/cdr/page.cdr.php:738
+#: page.cdr.php:314 /dev/shm/freepbx/cdr/page.cdr.php:738
 #: ucp/views/widget.php:29
 msgid "Duration"
 msgstr "Doba trvání"
@@ -394,10 +394,10 @@ msgstr "CHYBA nepodařilo se aktualizovat databázi"
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr "Povolit CDR (historie volání) pro tohoto uživatele v UPC"
 
-#: page.cdr.php:208 /usr/src/freepbx/cdr/page.cdr.php:220 page.cdr.php:240
-#: /usr/src/freepbx/cdr/page.cdr.php:252 page.cdr.php:271
-#: /usr/src/freepbx/cdr/page.cdr.php:285 page.cdr.php:297
-#: /usr/src/freepbx/cdr/page.cdr.php:308
+#: page.cdr.php:208 /dev/shm/freepbx/cdr/page.cdr.php:220 page.cdr.php:240
+#: /dev/shm/freepbx/cdr/page.cdr.php:252 page.cdr.php:271
+#: /dev/shm/freepbx/cdr/page.cdr.php:285 page.cdr.php:297
+#: /dev/shm/freepbx/cdr/page.cdr.php:308
 msgid "Ends With"
 msgstr "Končí s"
 
@@ -417,10 +417,10 @@ msgstr "Extra Událost"
 msgid "Events"
 msgstr "Události"
 
-#: page.cdr.php:209 /usr/src/freepbx/cdr/page.cdr.php:221 page.cdr.php:241
-#: /usr/src/freepbx/cdr/page.cdr.php:253 page.cdr.php:272
-#: /usr/src/freepbx/cdr/page.cdr.php:286 page.cdr.php:298
-#: /usr/src/freepbx/cdr/page.cdr.php:309
+#: page.cdr.php:209 /dev/shm/freepbx/cdr/page.cdr.php:221 page.cdr.php:241
+#: /dev/shm/freepbx/cdr/page.cdr.php:253 page.cdr.php:272
+#: /dev/shm/freepbx/cdr/page.cdr.php:286 page.cdr.php:298
+#: /dev/shm/freepbx/cdr/page.cdr.php:309
 msgid "Exactly"
 msgstr "Přesně"
 
@@ -460,7 +460,7 @@ msgstr "Jdi na první záznam CDR tabulky"
 msgid "Group By"
 msgstr "Skupina vytvořená"
 
-#: page.cdr.php:354 /usr/src/freepbx/cdr/page.cdr.php:895
+#: page.cdr.php:354 /dev/shm/freepbx/cdr/page.cdr.php:895
 msgid "Hour"
 msgstr "Hodina"
 
@@ -492,7 +492,7 @@ msgstr "Červen"
 msgid "March"
 msgstr "Březen"
 
-#: page.cdr.php:961 /usr/src/freepbx/cdr/page.cdr.php:1061
+#: page.cdr.php:961 /dev/shm/freepbx/cdr/page.cdr.php:1061
 msgid "Max Calls"
 msgstr "Max. hovorů"
 
@@ -500,11 +500,11 @@ msgstr "Max. hovorů"
 msgid "May"
 msgstr "Květen"
 
-#: page.cdr.php:352 /usr/src/freepbx/cdr/page.cdr.php:920
+#: page.cdr.php:352 /dev/shm/freepbx/cdr/page.cdr.php:920
 msgid "Minute"
 msgstr "Minuta"
 
-#: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:910
+#: page.cdr.php:359 /dev/shm/freepbx/cdr/page.cdr.php:910
 msgid "Month"
 msgstr "Měsíc"
 
@@ -520,10 +520,10 @@ msgstr "Ne"
 msgid "No Answer"
 msgstr "Bez odpovědi"
 
-#: page.cdr.php:205 /usr/src/freepbx/cdr/page.cdr.php:217 page.cdr.php:237
-#: /usr/src/freepbx/cdr/page.cdr.php:249 page.cdr.php:268
-#: /usr/src/freepbx/cdr/page.cdr.php:282 page.cdr.php:294
-#: /usr/src/freepbx/cdr/page.cdr.php:305 page.cdr.php:334
+#: page.cdr.php:205 /dev/shm/freepbx/cdr/page.cdr.php:217 page.cdr.php:237
+#: /dev/shm/freepbx/cdr/page.cdr.php:249 page.cdr.php:268
+#: /dev/shm/freepbx/cdr/page.cdr.php:282 page.cdr.php:294
+#: /dev/shm/freepbx/cdr/page.cdr.php:305 page.cdr.php:334
 msgid "Not"
 msgstr "Ne"
 
@@ -535,7 +535,7 @@ msgstr "Nenalezeno"
 msgid "November"
 msgstr "Listopad"
 
-#: install.php:101 /usr/src/freepbx/cdr/install.php:118 install.php:134
+#: install.php:101 /dev/shm/freepbx/cdr/install.php:118 install.php:134
 msgid "OK!"
 msgstr "OK!"
 
@@ -551,11 +551,11 @@ msgstr "Nejstarší nejdříve"
 msgid "Order By"
 msgstr "Seřadit podle"
 
-#: page.cdr.php:367 /usr/src/freepbx/cdr/page.cdr.php:884
+#: page.cdr.php:367 /dev/shm/freepbx/cdr/page.cdr.php:884
 msgid "Outbound Caller ID Name"
 msgstr "Odchozího jméno volajícího"
 
-#: page.cdr.php:366 /usr/src/freepbx/cdr/page.cdr.php:881
+#: page.cdr.php:366 /dev/shm/freepbx/cdr/page.cdr.php:881
 msgid "Outbound Caller ID Number"
 msgstr "Odchozí číslo volajícího"
 
@@ -693,7 +693,7 @@ msgstr ""
 "Jedná se o přiřazené a aktivní pobočky, které se pro tohoto uživatele "
 "zobrazí v UCP pro ovládání a úpravu"
 
-#: page.cdr.php:422 /usr/src/freepbx/cdr/page.cdr.php:1062
+#: page.cdr.php:422 /dev/shm/freepbx/cdr/page.cdr.php:1062
 msgid "Time"
 msgstr "Čas"
 
@@ -701,7 +701,7 @@ msgstr "Čas"
 msgid "To"
 msgstr "Do"
 
-#: page.cdr.php:961 /usr/src/freepbx/cdr/page.cdr.php:1061
+#: page.cdr.php:961 /dev/shm/freepbx/cdr/page.cdr.php:1061
 msgid "Total Calls"
 msgstr "Všechny hovory"
 
@@ -725,7 +725,7 @@ msgstr "Unikátní ID"
 msgid "Unknown"
 msgstr "Neznámý"
 
-#: page.cdr.php:349 /usr/src/freepbx/cdr/page.cdr.php:890
+#: page.cdr.php:349 /dev/shm/freepbx/cdr/page.cdr.php:890
 msgid "User Field"
 msgstr "Uživatelské pole"
 
@@ -733,11 +733,11 @@ msgstr "Uživatelské pole"
 msgid "User Primary Extension"
 msgstr "Primární pobočka uživatele"
 
-#: page.cdr.php:433 /usr/src/freepbx/cdr/page.cdr.php:1254
+#: page.cdr.php:433 /dev/shm/freepbx/cdr/page.cdr.php:1254
 msgid "UserDefType"
 msgstr "Definovaný typ uživatele"
 
-#: page.cdr.php:292 /usr/src/freepbx/cdr/page.cdr.php:739
+#: page.cdr.php:292 /dev/shm/freepbx/cdr/page.cdr.php:739
 msgid "Userfield"
 msgstr "Uživatelské pole"
 
@@ -745,7 +745,7 @@ msgstr "Uživatelské pole"
 msgid "Voicemail"
 msgstr "Hlasová zpráva"
 
-#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:905
+#: page.cdr.php:358 /dev/shm/freepbx/cdr/page.cdr.php:905
 msgid "Week ( Sun-Sat )"
 msgstr "Týden (Neděle - Sobota)"
 
