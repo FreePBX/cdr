@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-03 03:34+0000\n"
+"POT-Creation-Date: 2021-06-17 08:47+0000\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -29,17 +29,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:450
+#: Cdr.class.php:485
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s час, %s мин, %s сек"
 
-#: Cdr.class.php:452
+#: Cdr.class.php:487
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s мин, %s сек"
 
-#: Cdr.class.php:455
+#: Cdr.class.php:490
 #, php-format
 msgid "%s sec"
 msgstr "%s сек"
@@ -261,7 +261,7 @@ msgstr "Журнал вызовов - Результат поиска"
 msgid "Call Graph"
 msgstr "Суммарный график"
 
-#: Cdr.class.php:272 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
+#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
 msgid "Call History"
 msgstr "История звонков"
 
@@ -740,7 +740,7 @@ msgstr "Неизвестно"
 msgid "User Field"
 msgstr "Пользовательское поле"
 
-#: Cdr.class.php:263
+#: Cdr.class.php:298
 msgid "User Primary Extension"
 msgstr "Основной внутренний номер пользователя"
 
