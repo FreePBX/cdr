@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>16.0.8</version>
+	<version>16.0.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*16.0.9* FREEI-3509 D-phone API for call_log takes time to show the entry 
 		*16.0.8* FREEI-3446 getWidgetListByModule 
 		*16.0.7* Fixing FREEPBX-8633 Added ", recordingfile, linkedid, peeraccount, 
 		*16.0.6* Packaging of ver 16.0.6
