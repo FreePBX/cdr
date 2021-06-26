@@ -378,7 +378,7 @@ class Cdr implements \BMO {
 	 * @param string  $search    The search string to use
 	 * @param integer $limit     The number of results to return
 	 */
-	public function getCalls($extension,$page=1,$orderby='date',$order='desc',$search='',$limit=100) {
+	public function getCalls($extension,$page=1,$orderby='date',$order='desc',$search='',$limit=100,$fromAPI=false) {
 		$start = ($limit * ($page - 1));
 		$end = $limit;
 		switch($orderby) {
@@ -411,6 +411,8 @@ class Cdr implements \BMO {
 			if(empty($call['src']) && preg_match('/\/(.*)\-/',$call['channel'],$matches)) {
 				$call['src'] = $matches[1];
 			}
+			//This Check $fromAPI to avoid to send the unwanted data to DPMA Call Log API only.
+			if(!$fromAPI) {
 			if($call['duration'] > 59) {
 				$min = floor($call['duration'] / 60);
 				if($min > 59) {
@@ -425,6 +427,7 @@ class Cdr implements \BMO {
 			$call['recordingformat'] = !empty($call['recordingfile']) ? strtolower(pathinfo($call['recordingfile'],PATHINFO_EXTENSION)) : '';
 			$call['recordingfile'] = $this->processPath($call['recordingfile']);
 			$call['requestingExtension'] = $extension;
+			}
 		}
 		return $calls;
 	}
