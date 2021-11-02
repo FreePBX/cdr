@@ -14,28 +14,36 @@ class Cdr extends Base {
 		if($this->checkAllReadScope()) {
 			return function() {
 				return [
-					'allCdrs' => [
+					'fetchAllCdrs' => [
 						'type' => $this->typeContainer->get('cdr')->getConnectionType(),
-						'description' => 'CDR Reports',
+						'description' => _('CDR Reports'),
 						'args' => array_merge(
 							Relay::forwardConnectionArgs(),
 							[
+								'first' => [
+									'type' => Type::int(),
+									'description' => _('Limit value')
+								],
+								'after' => [
+									'type' => Type::int(),
+									'description' => _('Offset value')
+								],
 								'orderby' => [
 									'type' => new EnumType([
 										'name' => 'cdrOrderBy',
-										'description' => 'Dispositions represent the final state of the call from the perspective of Party A',
+										'description' => _('Dispositions represent the final state of the call from the perspective of Party A'),
 										'values' => [
 											'duration' => [
 												'value' => 'duration',
-												'description' => 'The channel was never answered. This is the default disposition for an unanswered channel.'
+												'description' => _('The channel was never answered. This is the default disposition for an unanswered channel.')
 											],
 											'date' => [
 												'value' => 'timestamp',
-												'description' => "The channel dialed something that was congested."
+												'description' => _("The channel dialed something that was congested.")
 											]
 										]
 									]),
-									'description' => 'The final known disposition of the CDR record',
+									'description' => _('The final known disposition of the CDR record'),
 									'defaultValue' => 'timestamp'
 								]
 							]
@@ -46,28 +54,33 @@ class Cdr extends Base {
 							$first = !empty($args['first']) ? $args['first'] : null;
 							$last = !empty($args['last']) ? $args['last'] : null;
 
-							return Relay::connectionFromArraySlice(
-								$this->getGraphQLCalls($after, $first, $before, $last, $args['orderby']),
+							$res = Relay::connectionFromArraySlice(
+								$this->freepbx->Cdr->getGraphQLCalls($after, $first, $before, $last, $args['orderby']),
 								$args,
 								[
 									'sliceStart' => !empty($after) ? $after : 0,
-									'arrayLength' => $this->getTotal()
+									'arrayLength' => $this->freepbx->Cdr->getTotal()
 								]
 							);
+							return ['response' => $res, 'status' => true, 'message' => _('CDR data found successfully')];
+
 						},
 					],
-					'cdr' => [
+					'fetchCdr' => [
 						'type' => $this->typeContainer->get('cdr')->getObject(),
 						'args' => [
 							'id' => [
 								'type' => Type::id(),
-								'description' => 'The ID',
+								'description' => _('The ID'),
 							]
 						],
 						'resolve' => function($root, $args) {
-							$id = Relay::fromGlobalId($args['id'])['id'];
-							$record = $this->getRecordByID($id);
-							return !empty($record) ? $record : null;
+							$record = $this->freepbx->Cdr->getGraphQLRecordByID($args['id']);
+							if (!empty($record)) {
+								return ['response' => $record, 'status' => true, 'message' => _('CDR data found successfully')];
+							} else {
+								return ['status' => false, 'message' => _('CDR data does not exists')];
+							}
 						}
 					]
 				];
@@ -80,7 +93,7 @@ class Cdr extends Base {
 		$user->setDescription('Used to manage a system wide list of blocked callers');
 
 		$user->setGetNodeCallback(function($id) {
-			$record = $this->getRecordByID($id);
+			$record = $this->freepbx->Cdr->getRecordByID($id);
 			return !empty($record) ? $record : null;
 		});
 
@@ -91,153 +104,360 @@ class Cdr extends Base {
 		$user->addFieldCallback(function() {
 			return [
 				'id' => Relay::globalIdField('cdr', function($row) {
-					return $row['uniqueid'];
+					if(isset($row['uniqueid'])){
+						return $row['uniqueid'];
+					}elseif(isset($row['response'])){
+						return  $row['response']['uniqueid'];
+					}
+					return null;
 				}),
 				'uniqueid' => [
 					'type' => Type::string(),
-					'description' => 'A unique identifier for the Party A channel'
+					'description' => _('A unique identifier for the Party A channel'),
+					'resolve' => function($row){
+						if(isset($row['uniqueid'])){
+							return $row['uniqueid'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['uniqueid'];
+						}
+						return null;
+					}
 				],
 				'calldate' => [
 					'type' => Type::string(),
-					'description' => 'The time the CDR was created'
+					'description' => _('The time the CDR was created'),
+					'resolve' => function($row){
+						if(isset($row['calldate'])){
+							return $row['calldate'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['calldate'];
+						}
+						return null;
+					}
 				],
 				'timestamp' => [
 					'type' => Type::int(),
-					'description' => 'The time the CDR was created'
+					'description' => _('The time the CDR was created'),
+					'resolve' => function($row){
+						if(isset($row['timestamp'])){
+							return $row['timestamp'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['timestamp'];
+						}
+						return null;
+					}
 				],
 				'clid' => [
 					'type' => Type::string(),
-					'description' => 'The Caller ID with text'
+					'description' => _('The Caller ID with text'),
+					'resolve' => function($row){
+						if(isset($row['clid'])){
+							return $row['clid'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['clid'];
+						}
+						return null;
+					}
 				],
 				'src' => [
 					'type' => Type::string(),
-					'description' => 'The Caller ID Number'
+					'description' => _('The Caller ID Number'),
+					'resolve' => function($row){
+						if(isset($row['src'])){
+							return $row['src'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['src'];
+						}
+						return null;
+					}
 				],
 				'dst' => [
 					'type' => Type::string(),
-					'description' => 'The destination extension'
+					'description' => _('The destination extension'),
+					'resolve' => function($row){
+						if(isset($row['dst'])){
+							return $row['dst'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['dst'];
+						}
+						return null;
+					}
 				],
 				'dcontext' => [
 					'type' => Type::string(),
-					'description' => 'The destination context'
+					'description' => _('The destination context'),
+					'resolve' => function($row){
+						if(isset($row['dcontext'])){
+							return $row['dcontext'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['dcontext'];
+						}
+						return null;
+					}
 				],
 				'channel' => [
 					'type' => Type::string(),
-					'description' => 'The name of the Party A channel'
+					'description' => _('The name of the Party A channel'),
+					'resolve' => function($row){
+						if(isset($row['channel'])){
+							return $row['channel'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['channel'];
+						}
+						return null;
+					}
 				],
 				'dstchannel' => [
 					'type' => Type::string(),
-					'description' => 'The name of the Party B channel'
+					'description' => _('The name of the Party B channel'),
+					'resolve' => function($row){
+						if(isset($row['dstchannel'])){
+							return $row['dstchannel'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['dstchannel'];
+						}
+						return null;
+					}
 				],
 				'lastapp' => [
 					'type' => Type::string(),
-					'description' => 'The last application the Party A channel executed'
+					'description' => _('The last application the Party A channel executed'),
+					'resolve' => function($row){
+						if(isset($row['lastapp'])){
+							return $row['lastapp'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['lastapp'];
+						}
+						return null;
+					}
 				],
 				'lastdata' => [
 					'type' => Type::string(),
-					'description' => 'The application data for the last application the Party A channel executed'
+					'description' => _('The application data for the last application the Party A channel executed'),
+					'resolve' => function($row){
+						if(isset($row['lastdata'])){
+							return $row['lastdata'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['lastdata'];
+						}
+						return null;
+					}
 				],
 				'duration' => [
 					'type' => Type::int(),
-					'description' => 'The time in seconds from start until end'
+					'description' => _('The time in seconds from start until end'),
+					'resolve' => function($row){
+						if(isset($row['duration'])){
+							return $row['duration'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['duration'];
+						}
+						return null;
+					}
 				],
 				'billsec' => [
 					'type' => Type::int(),
-					'description' => 'The time in seconds from answer until end'
+					'description' => _('The time in seconds from answer until end'),
+					'resolve' => function($row){
+						if(isset($row['billsec'])){
+							return $row['billsec'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['billsec'];
+						}
+						return null;
+					}
 				],
 				'disposition' => [
-					'type' => new EnumType([
-						'name' => 'dispositiontypes',
-						'description' => 'Dispositions represent the final state of the call from the perspective of Party A',
-						'values' => [
-							'noanswer' => [
-								'value' => 'NO ANSWER',
-								'description' => 'The channel was never answered. This is the default disposition for an unanswered channel.'
-							],
-							'congestion' => [
-								'value' => 'CONGESTION',
-								'description' => "The channel dialed something that was congested."
-							],
-							'failed' => [
-								'value' => 'FAILED',
-								'description' => 'The channel attempted to dial but the call failed'
-							],
-							'busy' => [
-								'value' => 'BUSY',
-								'description' => "The channel attempted to dial but the remote party was busy"
-							],
-							'answered' => [
-								'value' => 'ANSWERED',
-								'description' => 'The channel was answered. When the channel is answered, the hangup cause no longer changes the disposition'
-							]
-						]
-					]),
-					'description' => 'The final known disposition of the CDR record'
+					'type' => Type::string(),
+					'description' => _('The final known disposition of the CDR record'),
+					'resolve' => function($payload) {
+						$disposition = "";
+						if(isset($row['disposition'])){
+							$disposition = $row['disposition'];
+						}elseif(isset($row['response'])){
+							$disposition =  $row['response']['disposition'];
+						}
+						switch ($disposition) {
+							case "noanswer":
+								return 'NO ANSWER';
+							case "congestion":
+								return 'CONGESTION';
+							case "failed":
+								return 'FAILED';
+							case "busy":
+								return 'BUSY';
+							case "answered":
+								return 'ANSWERED';
+							default:
+								return "";
+						}
+					}
 				],
 				'amaflags' => [
-					'type' => new EnumType([
-						'name' => 'amatypes',
-						'description' => 'AMA Flags are set on a channel and are conveyed in the CDR. They inform billing systems how to treat the particular CDR. Asterisk provides no additional semantics regarding these flags - they are present simply to help external systems classify CDRs',
-						'values' => [
-							'omit' => [
-								'value' => 'OMIT',
-								'description' => ''
-							],
-							'billing' => [
-								'value' => 'BILLING',
-								'description' => ""
-							],
-							'documentation' => [
-								'value' => 'DOCUMENTATION',
-								'description' => ''
-							]
-						]
-					]),
-					'description' => 'A flag specified on the Party A channel'
+					'type' => Type::string(),
+					'description' => _('A flag specified on the Party A channel. AMA Flags are set on a channel and are conveyed in the CDR. They inform billing systems how to treat the particular CDR. Asterisk provides no additional semantics regarding these flags - they are present simply to help external systems classify CDRs'),
+					'resolve' => function($payload) {
+						$amaflags = "";
+						if(isset($row['amaflags'])){
+							$amaflags = $row['amaflags'];
+						}elseif(isset($row['response'])){
+							$amaflags =  $row['response']['amaflags'];
+						}
+						switch ($amaflags) {
+							case 0:
+								return 'DOCUMENTATION';
+								break;
+							case 1:
+								return 'IGNORE';
+								break;
+							case 2:
+								return 'BILLING';
+								break;
+							case 3:
+							default:
+								return 'DEFAULT';
+						}
+					}
 				],
 				'accountcode' => [
 					'type' => Type::string(),
-					'description' => 'An account code associated with the Party A channel'
+					'description' => _('An account code associated with the Party A channel'),
+					'resolve' => function($row){
+						if(isset($row['accountcode'])){
+							return $row['accountcode'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['accountcode'];
+						}
+						return null;
+					}
 				],
 				'userfield' => [
 					'type' => Type::string(),
-					'description' => 'A user defined field set on the channels. If set on both the Party A and Party B channel, the userfields of both are concatenated and separated by a ;'
+					'description' => _('A user defined field set on the channels. If set on both the Party A and Party B channel, the userfields of both are concatenated and separated by a ;'),
+					'resolve' => function($row){
+						if(isset($row['userfield'])){
+							return $row['userfield'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['userfield'];
+						}
+						return null;
+					}
 				],
 				'did' => [
 					'type' => Type::string(),
-					'description' => 'The DID that was used to reach this destination'
+					'description' => _('The DID that was used to reach this destination'),
+					'resolve' => function($row){
+						if(isset($row['did'])){
+							return $row['did'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['did'];
+						}
+						return null;
+					}
 				],
 				'recordingfile' => [
 					'type' => Type::string(),
-					'description' => 'The recording file of this entry'
+					'description' => _('The recording file of this entry'),
+					'resolve' => function($row){
+						if(isset($row['recordingfile'])){
+							return $row['recordingfile'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['recordingfile'];
+						}
+						return null;
+					}
 				],
 				'cnum' => [
 					'type' => Type::string(),
-					'description' => 'The Caller ID Number'
+					'description' => _('The Caller ID Number'),
+					'resolve' => function($row){
+						if(isset($row['cnum'])){
+							return $row['cnum'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['cnum'];
+						}
+						return null;
+					}
 				],
 				'outbound_cnum' => [
 					'type' => Type::string(),
-					'description' => 'The Outbound Caller ID Number'
+					'description' => _('The Outbound Caller ID Number'),
+					'resolve' => function($row){
+						if(isset($row['outbound_cnum'])){
+							return $row['outbound_cnum'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['outbound_cnum'];
+						}
+						return null;
+					}
 				],
 				'outbound_cnam' => [
 					'type' => Type::string(),
-					'description' => 'The Outbound Caller ID Name'
+					'description' => _('The Outbound Caller ID Name'),
+					'resolve' => function($row){
+						if(isset($row['outbound_cnam'])){
+							return $row['outbound_cnam'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['outbound_cnam'];
+						}
+						return null;
+					}
 				],
 				'dst_cnam' => [
 					'type' => Type::string(),
-					'description' => 'The destination Caller ID Name'
+					'description' => _('The destination Caller ID Name'),
+					'resolve' => function($row){
+						if(isset($row['dst_cnam'])){
+							return $row['dst_cnam'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['dst_cnam'];
+						}
+						return null;
+					}
 				],
 				'linkedid' => [
 					'type' => Type::string(),
-					'description' => 'Description of the blocked number'
+					'description' => _('Description of the blocked number'),
+					'resolve' => function($row){
+						if(isset($row['linkedid'])){
+							return $row['linkedid'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['linkedid'];
+						}
+						return null;
+					}
 				],
 				'peeraccount' => [
 					'type' => Type::string(),
-					'description' => 'The account code of the Party B channel'
+					'description' => _('The account code of the Party B channel'),
+					'resolve' => function($row){
+						if(isset($row['peeraccount'])){
+							return $row['peeraccount'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['peeraccount'];
+						}
+						return null;
+					}
 				],
 				'sequence' => [
 					'type' => Type::string(),
-					'description' => 'A numeric value that, combined with uniqueid and linkedid, can be used to uniquely identify a single CDR record'
+					'description' => _('A numeric value that, combined with uniqueid and linkedid, can be used to uniquely identify a single CDR record'),
+					'resolve' => function($row){
+						if(isset($row['sequence'])){
+							return $row['sequence'];
+						}elseif(isset($row['response'])){
+							return  $row['response']['sequence'];
+						}
+						return null;
+					}
+				],
+				'message' =>[
+					'type' => Type::string(),
+					'description' => _('Message for the request')
+				],
+				'status' =>[
+					'type' => Type::boolean(),
+					'description' => _('Status for the request')
 				],
 			];
 		});
@@ -250,61 +470,31 @@ class Cdr extends Base {
 			return [
 				'totalCount' => [
 					'type' => Type::int(),
-					'description' => 'A count of the total number of objects in this connection, ignoring pagination. This allows a client to fetch the first five objects by passing "5" as the argument to "first", then fetch the total count so it could display "5 of 83", for example.',
+					'description' => _('A count of the total number of objects in this connection, ignoring pagination. This allows a client to fetch the first five objects by passing "5" as the argument to "first", then fetch the total count so it could display "5 of 83", for example.'),
 					'resolve' => function($value) {
-						return $this->getTotal();
+						return $this->freepbx->Cdr->getTotal();
 					}
 				],
 				'cdrs' => [
 					'type' => Type::listOf($this->typeContainer->get('cdr')->getObject()),
-					'description' => 'A list of all of the objects returned in the connection. This is a convenience field provided for quickly exploring the API; rather than querying for "{ edges { node } }" when no edge data is needed, this field can be be used instead. Note that when clients like Relay need to fetch the "cursor" field on the edge to enable efficient pagination, this shortcut cannot be used, and the full "{ edges { node } }" version should be used instead.',
+					'description' => _('A list of all of the objects returned in the connection. This is a convenience field provided for quickly exploring the API; rather than querying for "{ edges { node } }" when no edge data is needed, this field can be be used instead. Note that when clients like Relay need to fetch the "cursor" field on the edge to enable efficient pagination, this shortcut cannot be used, and the full "{ edges { node } }" version should be used instead.'),
 					'resolve' => function($root, $args) {
 						$data = array_map(function($row){
 							return $row['node'];
-						},$root['edges']);
+						},$root['response']['edges']);
 						return $data;
 					}
-				]
+				],
+				'message' =>[
+					'type' => Type::string(),
+					'description' => _('Message for the request')
+				],
+				'status' =>[
+					'type' => Type::boolean(),
+					'description' => _('Status for the request')
+				],
 			];
 		});
 	}
 
-	private function getTotal() {
-		$sql = "SELECT count(*) as count FROM ".$this->freepbx->Cdr->getDbTable();
-		$sth = $this->freepbx->Cdr->cdrdb->prepare($sql);
-		$sth->execute();
-		return $sth->fetchColumn();
-	}
-
-	private function getGraphQLCalls($after, $first, $before, $last, $orderby) {
-		switch($orderby) {
-			case 'duration':
-				$orderby = 'duration';
-			break;
-			case 'date':
-			default:
-				$orderby = 'timestamp';
-			break;
-		}
-
-		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->freepbx->Cdr->getDbTable()." ORDER by $orderby DESC";
-		$sql .= " " . (!empty($first) ? "LIMIT ".$first : "LIMIT 18446744073709551610");
-		$sql .= " " . (!empty($after) ? "OFFSET ".$after : "OFFSET 0");
-		$sth = $this->freepbx->Cdr->cdrdb->prepare($sql);
-		$sth->execute();
-		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
-		return $calls;
-	}
-
-	private function getRecordByID($rid) {
-		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->freepbx->Cdr->getDbTable()." WHERE uniqueid = :uid";
-		$sth = $this->freepbx->Cdr->cdrdb->prepare($sql);
-		try {
-			$sth->execute(array("uid" => str_replace("_",".",$rid)));
-			$recording = $sth->fetch(\PDO::FETCH_ASSOC);
-		} catch(\Exception $e) {
-			return array();
-		}
-		return $recording;
-	}
 }
