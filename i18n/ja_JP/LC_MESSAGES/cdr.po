@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-26 06:16+0000\n"
+"POT-Creation-Date: 2021-11-11 09:46+0000\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -110,6 +110,49 @@ msgstr ""
 msgid "<br>Asterisk pattern matching<br>"
 msgstr "<br>Asteriskパターンマッチング<br>"
 
+#: Api/Gql/Cdr.php:473
+msgid ""
+"A count of the total number of objects in this connection, ignoring "
+"pagination. This allows a client to fetch the first five objects by passing "
+"\"5\" as the argument to \"first\", then fetch the total count so it could "
+"display \"5 of 83\", for example."
+msgstr ""
+
+#: Api/Gql/Cdr.php:298
+msgid ""
+"A flag specified on the Party A channel. AMA Flags are set on a channel and "
+"are conveyed in the CDR. They inform billing systems how to treat the "
+"particular CDR. Asterisk provides no additional semantics regarding these "
+"flags - they are present simply to help external systems classify CDRs"
+msgstr ""
+
+#: Api/Gql/Cdr.php:480
+msgid ""
+"A list of all of the objects returned in the connection. This is a "
+"convenience field provided for quickly exploring the API; rather than "
+"querying for \"{ edges { node } }\" when no edge data is needed, this field "
+"can be be used instead. Note that when clients like Relay need to fetch the "
+"\"cursor\" field on the edge to enable efficient pagination, this shortcut "
+"cannot be used, and the full \"{ edges { node } }\" version should be used "
+"instead."
+msgstr ""
+
+#: Api/Gql/Cdr.php:444
+msgid ""
+"A numeric value that, combined with uniqueid and linkedid, can be used to "
+"uniquely identify a single CDR record"
+msgstr ""
+
+#: Api/Gql/Cdr.php:116
+msgid "A unique identifier for the Party A channel"
+msgstr ""
+
+#: Api/Gql/Cdr.php:336
+msgid ""
+"A user defined field set on the channels. If set on both the Party A and "
+"Party B channel, the userfields of both are concatenated and separated by a ;"
+msgstr ""
+
 #: page.cdr.php:428
 msgid "AMA"
 msgstr "AMA"
@@ -178,6 +221,10 @@ msgstr ""
 msgid "Allow users to download recordings in UCP"
 msgstr ""
 
+#: Api/Gql/Cdr.php:324
+msgid "An account code associated with the Party A channel"
+msgstr ""
+
 #: page.cdr.php:317
 msgid "And"
 msgstr "最大"
@@ -229,9 +276,18 @@ msgstr "通話中"
 msgid "CDR Access"
 msgstr ""
 
-#: cdr.i18n.php:4 /dev/shm/freepbx/cdr/cdr.i18n.php:10 page.cdr.php:94
+#: Api/Gql/Cdr.php:19 /dev/shm/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
+#: /dev/shm/freepbx/cdr/page.cdr.php:94
 msgid "CDR Reports"
 msgstr "CDRレポート"
+
+#: Api/Gql/Cdr.php:82
+msgid "CDR data does not exists"
+msgstr ""
+
+#: Api/Gql/Cdr.php:65 Api/Gql/Cdr.php:80
+msgid "CDR data found successfully"
+msgstr ""
 
 #: page.cdr.php:170
 msgid "CDR search"
@@ -371,6 +427,10 @@ msgstr "12月"
 msgid "Description"
 msgstr ""
 
+#: Api/Gql/Cdr.php:420
+msgid "Description of the blocked number"
+msgstr ""
+
 #: page.cdr.php:266 /dev/shm/freepbx/cdr/page.cdr.php:736
 msgid "Destination"
 msgstr "発信先"
@@ -402,6 +462,12 @@ msgstr "ダイヤルプランexten"
 #: page.cdr.php:324 /dev/shm/freepbx/cdr/page.cdr.php:737
 msgid "Disposition"
 msgstr "通話結果"
+
+#: Api/Gql/Cdr.php:34
+msgid ""
+"Dispositions represent the final state of the call from the perspective of "
+"Party A"
+msgstr ""
 
 #: install.php:53 /dev/shm/freepbx/cdr/install.php:68
 msgid "Done"
@@ -518,6 +584,10 @@ msgstr "7月"
 msgid "June"
 msgstr "6月"
 
+#: Api/Gql/Cdr.php:25
+msgid "Limit value"
+msgstr ""
+
 #: page.cdr.php:114
 msgid "March"
 msgstr "3月"
@@ -529,6 +599,10 @@ msgstr "最大コール数"
 #: page.cdr.php:114
 msgid "May"
 msgstr "5月"
+
+#: Api/Gql/Cdr.php:456 Api/Gql/Cdr.php:490
+msgid "Message for the request"
+msgstr ""
 
 #: page.cdr.php:352 /dev/shm/freepbx/cdr/page.cdr.php:920
 msgid "Minute"
@@ -572,6 +646,10 @@ msgstr ""
 #: page.cdr.php:114
 msgid "October"
 msgstr "10月"
+
+#: Api/Gql/Cdr.php:29
+msgid "Offset value"
+msgstr ""
 
 #: page.cdr.php:340
 msgid "Oldest First"
@@ -703,6 +781,10 @@ msgstr ""
 msgid "September"
 msgstr "9月"
 
+#: Api/Gql/Cdr.php:460 Api/Gql/Cdr.php:494
+msgid "Status for the request"
+msgstr ""
+
 #: page.cdr.php:731
 msgid "System"
 msgstr "システム"
@@ -714,6 +796,93 @@ msgstr "技術的な情報"
 #: page.cdr.php:361
 msgid "Telephone Number"
 msgstr "電話番号"
+
+#: Api/Gql/Cdr.php:164 Api/Gql/Cdr.php:372
+msgid "The Caller ID Number"
+msgstr ""
+
+#: Api/Gql/Cdr.php:152
+msgid "The Caller ID with text"
+msgstr ""
+
+#: Api/Gql/Cdr.php:348
+msgid "The DID that was used to reach this destination"
+msgstr ""
+
+#: Api/Gql/Cdr.php:74
+msgid "The ID"
+msgstr ""
+
+#: Api/Gql/Cdr.php:396
+msgid "The Outbound Caller ID Name"
+msgstr ""
+
+#: Api/Gql/Cdr.php:384
+msgid "The Outbound Caller ID Number"
+msgstr ""
+
+#: Api/Gql/Cdr.php:432
+msgid "The account code of the Party B channel"
+msgstr ""
+
+#: Api/Gql/Cdr.php:236
+msgid ""
+"The application data for the last application the Party A channel executed"
+msgstr ""
+
+#: Api/Gql/Cdr.php:42
+msgid "The channel dialed something that was congested."
+msgstr ""
+
+#: Api/Gql/Cdr.php:38
+msgid ""
+"The channel was never answered. This is the default disposition for an "
+"unanswered channel."
+msgstr ""
+
+#: Api/Gql/Cdr.php:408
+msgid "The destination Caller ID Name"
+msgstr ""
+
+#: Api/Gql/Cdr.php:188
+msgid "The destination context"
+msgstr ""
+
+#: Api/Gql/Cdr.php:176
+msgid "The destination extension"
+msgstr ""
+
+#: Api/Gql/Cdr.php:46 Api/Gql/Cdr.php:272
+msgid "The final known disposition of the CDR record"
+msgstr ""
+
+#: Api/Gql/Cdr.php:224
+msgid "The last application the Party A channel executed"
+msgstr ""
+
+#: Api/Gql/Cdr.php:200
+msgid "The name of the Party A channel"
+msgstr ""
+
+#: Api/Gql/Cdr.php:212
+msgid "The name of the Party B channel"
+msgstr ""
+
+#: Api/Gql/Cdr.php:360
+msgid "The recording file of this entry"
+msgstr ""
+
+#: Api/Gql/Cdr.php:260
+msgid "The time in seconds from answer until end"
+msgstr ""
+
+#: Api/Gql/Cdr.php:248
+msgid "The time in seconds from start until end"
+msgstr ""
+
+#: Api/Gql/Cdr.php:128 Api/Gql/Cdr.php:140
+msgid "The time the CDR was created"
+msgstr ""
 
 #: views/ucp_config.php:54
 msgid ""
