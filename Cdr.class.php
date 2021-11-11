@@ -566,4 +566,46 @@ class Cdr implements \BMO {
 		}
 		return '';
 	}
+
+	public function getTotal() {
+		$sql = "SELECT count(*) as count FROM ".$this->getDbTable();
+		$sth = $this->cdrdb->prepare($sql);
+		$sth->execute();
+		return $sth->fetchColumn();
+	}
+
+	public function getGraphQLCalls($after, $first, $before, $last, $orderby) {
+		switch($orderby) {
+				case 'duration':
+						$orderby = 'duration';
+				break;
+				case 'date':
+				default:
+						$orderby = 'timestamp';
+				break;
+		}
+		$first = !empty($first) ? (int) $first : 5;
+		$after = !empty($after) ? (int) $after : 10;
+		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM " . $this->getDbTable() . " ORDER by :orderBy DESC LIMIT :limit OFFSET :after";
+		$sth = $this->cdrdb->prepare($sql);
+		$sth->bindParam(':orderBy', $orderby);
+		$sth->bindValue(':limit', (int) trim($first), \PDO::PARAM_INT);
+		$sth->bindValue(':after', (int) trim($after), \PDO::PARAM_INT);
+		$sth->execute();
+		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
+		return $calls;
+	}
+
+	public function getGraphQLRecordByID($rid) {
+		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->getDbTable()." WHERE uniqueid = :uid";
+		$sth = $this->cdrdb->prepare($sql);
+		try {
+				$sth->execute(array("uid" => str_replace("_",".",$rid)));
+				$recording = $sth->fetch(\PDO::FETCH_ASSOC);
+		} catch(\Exception $e) {
+				return array();
+		}
+		return $recording;
+	}
+
 }
