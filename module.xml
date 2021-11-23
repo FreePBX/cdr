@@ -4,7 +4,7 @@
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<more-info>https://wiki.freepbx.org/display/FPG/CDR+Reports+Module</more-info>
 	<name>CDR Reports</name>
-	<version>15.0.17.11</version>
+	<version>15.0.17.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*15.0.17.12* FREEI-3939 Added new input variables to query the CDR data by datetime range with unit test cases 
 		*15.0.17.11* FREEI-3939 Refactored gql api to fetch all cdr's and added unit test cases 
 		*15.0.17.10* FREEI-3509 D-phone API for call_log takes time to show the entry 
 		*15.0.17.9* FREEI-3446 getWidgetListByModule 
