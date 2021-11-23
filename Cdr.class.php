@@ -574,7 +574,7 @@ class Cdr implements \BMO {
 		return $sth->fetchColumn();
 	}
 
-	public function getGraphQLCalls($after, $first, $before, $last, $orderby) {
+	public function getGraphQLCalls($after, $first, $before, $last, $orderby, $startDate, $endDate) {
 		switch($orderby) {
 				case 'duration':
 						$orderby = 'duration';
@@ -585,12 +585,16 @@ class Cdr implements \BMO {
 				break;
 		}
 		$first = !empty($first) ? (int) $first : 5;
-		$after = !empty($after) ? (int) $after : 10;
-		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM " . $this->getDbTable() . " ORDER by :orderBy DESC LIMIT :limit OFFSET :after";
+		$after = !empty($after) ? (int) $after : 0;
+		$whereClause = " ";
+		if((isset($startDate) && !empty($startDate)) && (isset($endDate) && !empty($endDate))){
+			$whereClause = " where DATE(calldate) BETWEEN '".$startDate."' AND '".$startDate."'";
+		}
+		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->getDbTable()." ".$whereClause." Order By :orderBy DESC LIMIT :limitValue OFFSET :afterValue";
 		$sth = $this->cdrdb->prepare($sql);
-		$sth->bindParam(':orderBy', $orderby);
-		$sth->bindValue(':limit', (int) trim($first), \PDO::PARAM_INT);
-		$sth->bindValue(':after', (int) trim($after), \PDO::PARAM_INT);
+		$sth->bindValue(':orderBy', $orderby, \PDO::PARAM_STR);
+		$sth->bindValue(':limitValue', (int) trim($first), \PDO::PARAM_INT);
+		$sth->bindValue(':afterValue', (int) trim($after), \PDO::PARAM_INT);
 		$sth->execute();
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		return $calls;

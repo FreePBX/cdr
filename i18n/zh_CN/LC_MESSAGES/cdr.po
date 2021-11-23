@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-11 09:46+0000\n"
+"POT-Creation-Date: 2021-11-23 09:36+0000\n"
 "PO-Revision-Date: 2015-11-23 13:57+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -78,7 +78,7 @@ msgstr "<b>_2XXN, _562., _.0075</b> = 查询号码中的任何匹配<br>"
 msgid "<br>Asterisk pattern matching<br>"
 msgstr "<br>Asterisk 模式匹配<br>"
 
-#: Api/Gql/Cdr.php:473
+#: Api/Gql/Cdr.php:502
 msgid ""
 "A count of the total number of objects in this connection, ignoring "
 "pagination. This allows a client to fetch the first five objects by passing "
@@ -86,7 +86,7 @@ msgid ""
 "display \"5 of 83\", for example."
 msgstr ""
 
-#: Api/Gql/Cdr.php:298
+#: Api/Gql/Cdr.php:327
 msgid ""
 "A flag specified on the Party A channel. AMA Flags are set on a channel and "
 "are conveyed in the CDR. They inform billing systems how to treat the "
@@ -94,7 +94,7 @@ msgid ""
 "flags - they are present simply to help external systems classify CDRs"
 msgstr ""
 
-#: Api/Gql/Cdr.php:480
+#: Api/Gql/Cdr.php:509
 msgid ""
 "A list of all of the objects returned in the connection. This is a "
 "convenience field provided for quickly exploring the API; rather than "
@@ -105,17 +105,17 @@ msgid ""
 "instead."
 msgstr ""
 
-#: Api/Gql/Cdr.php:444
+#: Api/Gql/Cdr.php:473
 msgid ""
 "A numeric value that, combined with uniqueid and linkedid, can be used to "
 "uniquely identify a single CDR record"
 msgstr ""
 
-#: Api/Gql/Cdr.php:116
+#: Api/Gql/Cdr.php:145
 msgid "A unique identifier for the Party A channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:336
+#: Api/Gql/Cdr.php:365
 msgid ""
 "A user defined field set on the channels. If set on both the Party A and "
 "Party B channel, the userfields of both are concatenated and separated by a ;"
@@ -189,7 +189,7 @@ msgstr "支持用户通过UCP播放呼叫录音"
 msgid "Allow users to download recordings in UCP"
 msgstr "支持用户通过UCP下载录音"
 
-#: Api/Gql/Cdr.php:324
+#: Api/Gql/Cdr.php:353
 msgid "An account code associated with the Party A channel"
 msgstr ""
 
@@ -249,11 +249,11 @@ msgstr "CDR访问"
 msgid "CDR Reports"
 msgstr "呼叫记录报表"
 
-#: Api/Gql/Cdr.php:82
+#: Api/Gql/Cdr.php:111
 msgid "CDR data does not exists"
 msgstr ""
 
-#: Api/Gql/Cdr.php:65 Api/Gql/Cdr.php:80
+#: Api/Gql/Cdr.php:94 Api/Gql/Cdr.php:109
 msgid "CDR data found successfully"
 msgstr ""
 
@@ -395,7 +395,7 @@ msgstr "十二月"
 msgid "Description"
 msgstr "描述"
 
-#: Api/Gql/Cdr.php:420
+#: Api/Gql/Cdr.php:449
 msgid "Description of the blocked number"
 msgstr ""
 
@@ -457,6 +457,18 @@ msgstr ""
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr "对此用户在UCP开启CDR"
+
+#: Api/Gql/Cdr.php:55
+msgid "End Date"
+msgstr ""
+
+#: Api/Gql/Cdr.php:76
+msgid "End Date is required..!!"
+msgstr ""
+
+#: Api/Gql/Cdr.php:83
+msgid "End Date should be greater than Start Date..!!"
+msgstr ""
 
 #: page.cdr.php:208 /dev/shm/freepbx/cdr/page.cdr.php:220 page.cdr.php:240
 #: /dev/shm/freepbx/cdr/page.cdr.php:252 page.cdr.php:271
@@ -540,6 +552,14 @@ msgstr ""
 msgid "Inherit"
 msgstr "继承"
 
+#: Api/Gql/Cdr.php:72
+msgid "Invalid End Date Format(YYYY-MM-DD)"
+msgstr ""
+
+#: Api/Gql/Cdr.php:67
+msgid "Invalid Start Date Format(YYYY-MM-DD)"
+msgstr ""
+
 #: page.cdr.php:114
 msgid "January"
 msgstr "一月"
@@ -568,7 +588,7 @@ msgstr "最长通话"
 msgid "May"
 msgstr "五月"
 
-#: Api/Gql/Cdr.php:456 Api/Gql/Cdr.php:490
+#: Api/Gql/Cdr.php:485 Api/Gql/Cdr.php:523
 msgid "Message for the request"
 msgstr ""
 
@@ -738,7 +758,15 @@ msgstr ""
 msgid "September"
 msgstr "九月"
 
-#: Api/Gql/Cdr.php:460 Api/Gql/Cdr.php:494
+#: Api/Gql/Cdr.php:51
+msgid "Start Date"
+msgstr ""
+
+#: Api/Gql/Cdr.php:79
+msgid "Start Date is required..!!"
+msgstr ""
+
+#: Api/Gql/Cdr.php:489 Api/Gql/Cdr.php:527
 msgid "Status for the request"
 msgstr ""
 
@@ -754,35 +782,35 @@ msgstr "呼出通道信息"
 msgid "Telephone Number"
 msgstr "电话号码"
 
-#: Api/Gql/Cdr.php:164 Api/Gql/Cdr.php:372
+#: Api/Gql/Cdr.php:193 Api/Gql/Cdr.php:401
 msgid "The Caller ID Number"
 msgstr ""
 
-#: Api/Gql/Cdr.php:152
+#: Api/Gql/Cdr.php:181
 msgid "The Caller ID with text"
 msgstr ""
 
-#: Api/Gql/Cdr.php:348
+#: Api/Gql/Cdr.php:377
 msgid "The DID that was used to reach this destination"
 msgstr ""
 
-#: Api/Gql/Cdr.php:74
+#: Api/Gql/Cdr.php:103
 msgid "The ID"
 msgstr ""
 
-#: Api/Gql/Cdr.php:396
+#: Api/Gql/Cdr.php:425
 msgid "The Outbound Caller ID Name"
 msgstr ""
 
-#: Api/Gql/Cdr.php:384
+#: Api/Gql/Cdr.php:413
 msgid "The Outbound Caller ID Number"
 msgstr ""
 
-#: Api/Gql/Cdr.php:432
+#: Api/Gql/Cdr.php:461
 msgid "The account code of the Party B channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:236
+#: Api/Gql/Cdr.php:265
 msgid ""
 "The application data for the last application the Party A channel executed"
 msgstr ""
@@ -797,47 +825,47 @@ msgid ""
 "unanswered channel."
 msgstr ""
 
-#: Api/Gql/Cdr.php:408
+#: Api/Gql/Cdr.php:437
 msgid "The destination Caller ID Name"
 msgstr ""
 
-#: Api/Gql/Cdr.php:188
+#: Api/Gql/Cdr.php:217
 msgid "The destination context"
 msgstr ""
 
-#: Api/Gql/Cdr.php:176
+#: Api/Gql/Cdr.php:205
 msgid "The destination extension"
 msgstr ""
 
-#: Api/Gql/Cdr.php:46 Api/Gql/Cdr.php:272
+#: Api/Gql/Cdr.php:46 Api/Gql/Cdr.php:301
 msgid "The final known disposition of the CDR record"
 msgstr ""
 
-#: Api/Gql/Cdr.php:224
+#: Api/Gql/Cdr.php:253
 msgid "The last application the Party A channel executed"
 msgstr ""
 
-#: Api/Gql/Cdr.php:200
+#: Api/Gql/Cdr.php:229
 msgid "The name of the Party A channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:212
+#: Api/Gql/Cdr.php:241
 msgid "The name of the Party B channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:360
+#: Api/Gql/Cdr.php:389
 msgid "The recording file of this entry"
 msgstr ""
 
-#: Api/Gql/Cdr.php:260
+#: Api/Gql/Cdr.php:289
 msgid "The time in seconds from answer until end"
 msgstr ""
 
-#: Api/Gql/Cdr.php:248
+#: Api/Gql/Cdr.php:277
 msgid "The time in seconds from start until end"
 msgstr ""
 
-#: Api/Gql/Cdr.php:128 Api/Gql/Cdr.php:140
+#: Api/Gql/Cdr.php:157 Api/Gql/Cdr.php:169
 msgid "The time the CDR was created"
 msgstr ""
 

@@ -45,7 +45,15 @@ class Cdr extends Base {
 									]),
 									'description' => _('The final known disposition of the CDR record'),
 									'defaultValue' => 'timestamp'
-								]
+								],
+								'startDate' => [
+									'type' => Type::string(),
+									'description' => _('Start Date')
+								],
+								'endDate' => [
+									'type' => Type::string(),
+									'description' => _('End Date')
+								],
 							]
 						),
 						'resolve' => function($root, $args) {
@@ -53,9 +61,30 @@ class Cdr extends Base {
 							$before = !empty($args['before']) ? Relay::fromGlobalId($args['before'])['id'] : null;
 							$first = !empty($args['first']) ? $args['first'] : null;
 							$last = !empty($args['last']) ? $args['last'] : null;
-
+							// validating dates
+							if(isset($args['startDate']) && !empty($args['startDate'])){
+								if(!$this->validateDate($args['startDate'])){
+									return ['status' => false, 'message' => _('Invalid Start Date Format(YYYY-MM-DD)')];
+								}
+							}
+							if(isset($args['endDate']) && !empty($args['endDate'])){
+								if(!$this->validateDate($args['endDate'])){
+									return ['status' => false, 'message' => _('Invalid End Date Format(YYYY-MM-DD)')];
+								}
+							}
+							if(isset($args['startDate']) && !isset($args['endDate'])){
+									return ['status' => false, 'message' => _('End Date is required..!!')];
+							}
+							if(!isset($args['startDate']) && isset($args['endDate'])){
+									return ['status' => false, 'message' => _('Start Date is required..!!')];
+							}
+							if(isset($args['startDate']) && isset($args['endDate'])){
+								if ($args['endDate'] < $args['startDate']){
+									return ['status' => false, 'message' => _('End Date should be greater than Start Date..!!')];
+								}
+							}
 							$res = Relay::connectionFromArraySlice(
-								$this->freepbx->Cdr->getGraphQLCalls($after, $first, $before, $last, $args['orderby']),
+								$this->freepbx->Cdr->getGraphQLCalls($after, $first, $before, $last, $args['orderby'],$args['startDate'],$args['endDate']),
 								$args,
 								[
 									'sliceStart' => !empty($after) ? $after : 0,
@@ -479,10 +508,14 @@ class Cdr extends Base {
 					'type' => Type::listOf($this->typeContainer->get('cdr')->getObject()),
 					'description' => _('A list of all of the objects returned in the connection. This is a convenience field provided for quickly exploring the API; rather than querying for "{ edges { node } }" when no edge data is needed, this field can be be used instead. Note that when clients like Relay need to fetch the "cursor" field on the edge to enable efficient pagination, this shortcut cannot be used, and the full "{ edges { node } }" version should be used instead.'),
 					'resolve' => function($root, $args) {
-						$data = array_map(function($row){
-							return $row['node'];
-						},$root['response']['edges']);
-						return $data;
+						if(isset($root['response'])){
+							$data = array_map(function($row){
+								return $row['node'];
+							},$root['response']['edges']);
+							return $data;
+						}else{
+							return null;
+						}
 					}
 				],
 				'message' =>[
@@ -495,6 +528,15 @@ class Cdr extends Base {
 				],
 			];
 		});
+	}
+
+	private function validateDate($date){
+		//format YYYY-mm-dd						
+		if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$date)) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 
 }
