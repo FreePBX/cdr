@@ -157,6 +157,173 @@ class CdrGqlApiTest extends ApiBaseTestCase {
 	}
 
 	/**
+	 * test_fetchAllCdr_when_invalid_start_date_is_sent_should_return_error_and_false
+	 *
+	 * @return void
+	 */
+	public function test_fetchAllCdr_when_invalid_start_date_is_sent_should_return_error_and_false(){
+
+		$response = $this->request("
+									query{
+									fetchAllCdrs (
+										first : 4
+										after : 0
+										orderby : duration
+										startDate:\"123-05-21\"
+										endDate:\"2021-05-21\"
+									)
+									{
+										cdrs {
+										id
+										}
+										totalCount
+										status
+										message
+									}
+									}");
+
+		$json = (string)$response->getBody();
+
+		$this->assertEquals('{"errors":[{"message":"Invalid Start Date Format(YYYY-MM-DD)","status":false}]}',$json);
+		
+		$this->assertEquals(400, $response->getStatusCode());
+	}
+
+	/**
+	 * test_fetchAllCdr_when_invalid_end_date_is_sent_should_return_error_and_false
+	 *
+	 * @return void
+	 */
+	public function test_fetchAllCdr_when_invalid_end_date_is_sent_should_return_error_and_false(){
+
+		$response = $this->request("
+									query{
+									fetchAllCdrs (
+										first : 4
+										after : 0
+										orderby : duration
+										startDate:\"2021-05-21\"
+										endDate:\"123-05-21\"
+									)
+									{
+										cdrs {
+										id
+										}
+										totalCount
+										status
+										message
+									}
+									}");
+
+		$json = (string)$response->getBody();
+
+		$this->assertEquals('{"errors":[{"message":"Invalid End Date Format(YYYY-MM-DD)","status":false}]}',$json);
+		
+		$this->assertEquals(400, $response->getStatusCode());
+	}
+
+
+	/**
+	 * test_fetchAllCdr_when_start_date_is_greater_than_end_date_should_return_error_and_false 
+	 *
+	 * @return void
+	 */
+	public function test_fetchAllCdr_when_start_date_is_greater_than_end_date_should_return_error_and_false (){
+
+		$response = $this->request("
+									query{
+									fetchAllCdrs (
+										first : 4
+										after : 0
+										orderby : duration
+										startDate:\"2021-05-26\"
+										endDate:\"2021-05-21\"
+									)
+									{
+										cdrs {
+										id
+										}
+										totalCount
+										status
+										message
+									}
+									}");
+
+		$json = (string)$response->getBody();
+
+		$this->assertEquals('{"errors":[{"message":"End Date should be greater than Start Date..!!","status":false}]}',$json);
+		
+		$this->assertEquals(400, $response->getStatusCode());
+	}
+
+
+	/**
+	 * test_fetchAllCdr_when_only_start_date_is_given_should_return_error_and_false
+	 *
+	 * @return void
+	 */
+	public function test_fetchAllCdr_when_only_start_date_is_given_should_return_error_and_false(){
+
+		$response = $this->request("
+									query{
+									fetchAllCdrs (
+										first : 4
+										after : 0
+										orderby : duration
+										startDate:\"2021-05-26\"
+									)
+									{
+										cdrs {
+										id
+										}
+										totalCount
+										status
+										message
+									}
+									}");
+
+		$json = (string)$response->getBody();
+
+		$this->assertEquals('{"errors":[{"message":"End Date is required..!!","status":false}]}',$json);
+		
+		$this->assertEquals(400, $response->getStatusCode());
+	}
+
+	
+
+	/**
+	 * test_fetchAllCdr_when_only_end_date_is_given_should_return_error_and_false
+	 *
+	 * @return void
+	 */
+	public function test_fetchAllCdr_when_only_end_date_is_given_should_return_error_and_false(){
+
+		$response = $this->request("
+									query{
+									fetchAllCdrs (
+										first : 4
+										after : 0
+										orderby : duration
+										endDate:\"2021-05-26\"
+									)
+									{
+										cdrs {
+										id
+										}
+										totalCount
+										status
+										message
+									}
+									}");
+
+		$json = (string)$response->getBody();
+
+		$this->assertEquals('{"errors":[{"message":"Start Date is required..!!","status":false}]}',$json);
+		
+		$this->assertEquals(400, $response->getStatusCode());
+	}
+
+	/**
 	 * test_fetchCdr_all_good_should_return_true
 	 *
 	 * @return void
