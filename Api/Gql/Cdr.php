@@ -91,7 +91,12 @@ class Cdr extends Base {
 									'arrayLength' => $this->freepbx->Cdr->getTotal()
 								]
 							);
-							return ['response' => $res, 'status' => true, 'message' => _('CDR data found successfully')];
+							if(count($res['edges']) > 0){
+								$message = _('CDR data found successfully');
+							}else{
+								$message = _('No Data Found');
+							}
+							return ['response' => $res, 'status' => true, 'message' => $message];
 
 						},
 					],
