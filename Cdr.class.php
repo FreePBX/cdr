@@ -445,8 +445,12 @@ class Cdr implements \BMO {
 	 * @param string  $order     Order ASC or DESC
 	 * @param string  $search    The search string to use
 	 * @param integer $limit     The number of results to return
+	 * @param bool    $fromAPI   Uses the replicate_cdr table instead, which only stores last two months of CDR data.  Used when queries to regular cdr table take too long because the table has too much data.
 	 */
 	public function getCalls($extension,$page=1,$orderby='date',$order='desc',$search='',$limit=100,$fromAPI=false) {
+		if($fromAPI) {
+			$this->db_table = 'replicate_cdr';
+		}
 		$start = ($limit * ($page - 1));
 		$end = $limit;
 		switch($orderby) {
