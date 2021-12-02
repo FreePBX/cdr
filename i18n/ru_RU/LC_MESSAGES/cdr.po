@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-26 06:16+0000\n"
-"PO-Revision-Date: 2021-11-24 11:01+0000\n"
+"PO-Revision-Date: 2021-12-02 06:38+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/cdr/ru/>"
 "\n"
@@ -124,15 +124,15 @@ msgstr "Добавление индекса к полю did в таблице cd
 
 #: install.php:44
 msgid "Adding index to did field..."
-msgstr ""
+msgstr "Добавление индекса в поле did..."
 
 #: install.php:66
 msgid "Adding index to recordingfile field in the cdr table"
-msgstr ""
+msgstr "Добавление индекса в поле файла записи в таблице cdr"
 
 #: install.php:59
 msgid "Adding index to recordingfile field..."
-msgstr ""
+msgstr "Добавление индекса в поле файла записи..."
 
 #: install.php:104 /dev/shm/freepbx/cdr/install.php:121
 msgid "Adding!"
@@ -231,7 +231,7 @@ msgstr "СNUМ"
 
 #: page.cdr.php:171
 msgid "CSV File"
-msgstr ""
+msgstr "CSV-файл"
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -272,7 +272,7 @@ msgstr "История звонков"
 #: ucp/Cdr.class.php:65
 #, php-format
 msgid "Call History for %s"
-msgstr ""
+msgstr "История вызовов для %s"
 
 #: page.cdr.php:365 /dev/shm/freepbx/cdr/page.cdr.php:878 page.cdr.php:1207
 msgid "Caller ID Name"
@@ -341,7 +341,7 @@ msgstr "День"
 
 #: page.cdr.php:356
 msgid "Day of Week"
-msgstr ""
+msgstr "День недели"
 
 #: page.cdr.php:915
 msgid "Day of week"
@@ -389,7 +389,7 @@ msgstr "Статус звонка"
 
 #: install.php:53 /dev/shm/freepbx/cdr/install.php:68
 msgid "Done"
-msgstr ""
+msgstr "Завершено"
 
 #: ucp/assets/js/global.js:45
 msgid "Download"
@@ -402,7 +402,7 @@ msgstr "Длительность"
 
 #: install.php:132
 msgid "ERROR failed to update database"
-msgstr ""
+msgstr "ОШИБКА не удалось обновить базу данных"
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
@@ -442,7 +442,7 @@ msgstr "Равно"
 
 #: page.cdr.php:165
 msgid "Extra Options"
-msgstr ""
+msgstr "Дополнительные параметры"
 
 #: page.cdr.php:331
 msgid "Failed"
@@ -482,7 +482,7 @@ msgstr "Час"
 
 #: page.cdr.php:355
 msgid "Hour of Day"
-msgstr ""
+msgstr "Час дня"
 
 #: page.cdr.php:900
 msgid "Hour of day"
@@ -597,7 +597,7 @@ msgstr "Детализация связанных звонков"
 
 #: page.cdr.php:168
 msgid "Report Type"
-msgstr ""
+msgstr "Тип отчета"
 
 #: cdr.i18n.php:6
 msgid "Reports"
@@ -605,7 +605,7 @@ msgstr "Отчёты"
 
 #: page.cdr.php:179
 msgid "Result Limit"
-msgstr ""
+msgstr "Ограничение результата"
 
 #: page.cdr.php:377
 msgid "Search"
@@ -613,7 +613,7 @@ msgstr "Искать"
 
 #: page.cdr.php:104
 msgid "Search Conditions"
-msgstr ""
+msgstr "Условия поиска"
 
 #: page.cdr.php:246
 msgid "Search for a DID."
@@ -730,7 +730,7 @@ msgstr "Невозможно добавить индекс поля в табл�
 
 #: install.php:63
 msgid "Unable to add index to recordingfile field in the cdr table"
-msgstr ""
+msgstr "Не удалось добавить индекс в поле файла записи в таблице cdr"
 
 #: page.cdr.php:1095 page.cdr.php:1098
 msgid "UniqueID"
