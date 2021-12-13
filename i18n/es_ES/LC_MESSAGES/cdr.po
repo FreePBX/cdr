@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-26 06:16+0000\n"
-"PO-Revision-Date: 2021-11-21 15:01+0000\n"
+"PO-Revision-Date: 2021-12-13 20:31+0000\n"
 "Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cdr/es/>"
 "\n"
@@ -112,15 +112,15 @@ msgstr "Agregando índice al campo did in la tabla cdr"
 
 #: install.php:44
 msgid "Adding index to did field..."
-msgstr ""
+msgstr "Agregando índice al campo did..."
 
 #: install.php:66
 msgid "Adding index to recordingfile field in the cdr table"
-msgstr ""
+msgstr "Agregar índice al campo recordingfile en la tabla cdr"
 
 #: install.php:59
 msgid "Adding index to recordingfile field..."
-msgstr ""
+msgstr "Añadiendo índice al campo recordingfile..."
 
 #: install.php:104 /dev/shm/freepbx/cdr/install.php:121
 msgid "Adding!"
@@ -718,7 +718,7 @@ msgstr "No se puede añadir indice al campo did de la tabla cdr"
 
 #: install.php:63
 msgid "Unable to add index to recordingfile field in the cdr table"
-msgstr ""
+msgstr "No se puede agregar el índice al campo recordingfile en la tabla cdr"
 
 #: page.cdr.php:1095 page.cdr.php:1098
 msgid "UniqueID"
