@@ -1,6 +1,7 @@
 <?php
 namespace FreePBX\modules\Cdr;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use FreePBX\modules\Backup as Base;
 use Symfony\Component\Filesystem\Filesystem;
 class Backup Extends Base\BackupBase{
@@ -45,13 +46,19 @@ class Backup Extends Base\BackupBase{
     $tmpfile = $tmpdir.'/cdr.sql';
 		$command[] = '--result-file='. $tmpfile;
 		$command = implode(" ", $command);
-		$process= new Process($command);
+
+	$process = new Process($command);
+	try {
+		$process->setTimeout(3600);
 		$process->disableOutput();
 		$process->mustRun();
-		$fileObj = new \SplFileInfo($tmpfile);
-		$this->addSplFile($fileObj);
-    $this->addDirectories([$fileObj->getPath()]);
-
-    $this->addGarbage($tmpdir);
+	} catch (ProcessFailedException $e) {
+		$this->log("CDR table Backup Error ".$e->getMessage(),'ERROR');
+		return;
+	}
+	$fileObj = new \SplFileInfo($tmpfile);
+	$this->addSplFile($fileObj);
+	$this->addDirectories([$fileObj->getPath()]);
+	$this->addGarbage($tmpdir);
   }
 }

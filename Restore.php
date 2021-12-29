@@ -1,6 +1,7 @@
 <?php
 namespace FreePBX\modules\Cdr;
 use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
 	public function runRestore(){
@@ -44,8 +45,14 @@ class Restore Extends Base\RestoreBase{
 		$dbhandle->query("TRUNCATE $tablename");
 		$restore = fpbx_which('mysql').' '.implode(" ", $command).' '.$cdrname.' < '.$dumpfile;
 		$process = new Process($restore);
-		$process->setTimeout(3600);
-		$process->mustRun();
+		try {
+			$process->setTimeout(3600);
+			$process->disableOutput();
+			$process->mustRun();
+		} catch (ProcessFailedException $e) {
+			$this->log("CDR table Restore Error ".$e->getMessage(),'ERROR');
+			return false;
+		}
 		return true;
 	}
 
