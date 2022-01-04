@@ -449,7 +449,8 @@ class Cdr implements \BMO {
 	 */
 	public function getCalls($extension,$page=1,$orderby='date',$order='desc',$search='',$limit=100,$fromAPI=false) {
 		if($fromAPI) {
-			$this->db_table = 'replicate_cdr';
+			//set the $db_table variable to 'replicate_cdr' if cdrTrigger is created
+			$this->checkCdrTrigger();
 		}
 		$start = ($limit * ($page - 1));
 		$end = $limit;
@@ -614,6 +615,21 @@ class Cdr implements \BMO {
 				return array();
 		}
 		return $recording;
+	}
+	
+	/**
+	 * This function will check whether the cdrTrigger is created or not.
+	 * If the trigger exists, it will set the $db_table variable to 'replicate_cdr'.
+	 * So when 'pbx.users.callLogs.getList' method is called, it will fetch the call logs from 'replicate_cdr' instead of 'cdr' table
+	 */
+	private function checkCdrTrigger() {
+		$query = "SHOW TRIGGERS WHERE `Trigger` = 'cdrTrigger'";
+		$res = $this->cdrdb->prepare($query);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (!empty($result)) {
+			$this->db_table = 'replicate_cdr';
+		}
 	}
 
 }
