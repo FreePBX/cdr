@@ -593,7 +593,7 @@ class Cdr implements \BMO {
 		$after = !empty($after) ? (int) $after : 0;
 		$whereClause = " ";
 		if((isset($startDate) && !empty($startDate)) && (isset($endDate) && !empty($endDate))){
-			$whereClause = " where DATE(calldate) BETWEEN '".$startDate."' AND '".$startDate."'";
+			$whereClause = " where DATE(calldate) BETWEEN '".$startDate."' AND '".$endDate."'";
 		}
 		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->getDbTable()." ".$whereClause." Order By :orderBy DESC LIMIT :limitValue OFFSET :afterValue";
 		$sth = $this->cdrdb->prepare($sql);
