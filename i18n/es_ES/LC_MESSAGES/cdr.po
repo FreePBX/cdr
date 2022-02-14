@@ -10,16 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-06-26 06:16+0000\n"
-"PO-Revision-Date: 2016-06-06 20:50+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cdr/"
-"es_ES/>\n"
+"PO-Revision-Date: 2021-12-13 20:31+0000\n"
+"Last-Translator: Javier Pastor <jpastor@cerebelum.net>\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/cdr/es/>"
+"\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: Cdr.class.php:419
 #, php-format
@@ -112,15 +112,15 @@ msgstr "Agregando índice al campo did in la tabla cdr"
 
 #: install.php:44
 msgid "Adding index to did field..."
-msgstr ""
+msgstr "Agregando índice al campo did..."
 
 #: install.php:66
 msgid "Adding index to recordingfile field in the cdr table"
-msgstr ""
+msgstr "Agregar índice al campo recordingfile en la tabla cdr"
 
 #: install.php:59
 msgid "Adding index to recordingfile field..."
-msgstr ""
+msgstr "Añadiendo índice al campo recordingfile..."
 
 #: install.php:104 /dev/shm/freepbx/cdr/install.php:121
 msgid "Adding!"
@@ -219,7 +219,7 @@ msgstr "CNUM"
 
 #: page.cdr.php:171
 msgid "CSV File"
-msgstr ""
+msgstr "Archivo CSV"
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
@@ -260,7 +260,7 @@ msgstr "Historia de Llamadas"
 #: ucp/Cdr.class.php:65
 #, php-format
 msgid "Call History for %s"
-msgstr ""
+msgstr "Historial de llamadas de %s"
 
 #: page.cdr.php:365 /dev/shm/freepbx/cdr/page.cdr.php:878 page.cdr.php:1207
 msgid "Caller ID Name"
@@ -329,7 +329,7 @@ msgstr "Día"
 
 #: page.cdr.php:356
 msgid "Day of Week"
-msgstr ""
+msgstr "Día de la Semana"
 
 #: page.cdr.php:915
 msgid "Day of week"
@@ -377,7 +377,7 @@ msgstr "Disposición"
 
 #: install.php:53 /dev/shm/freepbx/cdr/install.php:68
 msgid "Done"
-msgstr ""
+msgstr "Hecho"
 
 #: ucp/assets/js/global.js:45
 msgid "Download"
@@ -390,7 +390,7 @@ msgstr "Duración"
 
 #: install.php:132
 msgid "ERROR failed to update database"
-msgstr ""
+msgstr "ERROR no pudo actualizar la base de datos"
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
@@ -428,7 +428,7 @@ msgstr "Exacto"
 
 #: page.cdr.php:165
 msgid "Extra Options"
-msgstr ""
+msgstr "Opciones Extra"
 
 #: page.cdr.php:331
 msgid "Failed"
@@ -468,7 +468,7 @@ msgstr "Hora"
 
 #: page.cdr.php:355
 msgid "Hour of Day"
-msgstr ""
+msgstr "Hora del Día"
 
 #: page.cdr.php:900
 msgid "Hour of day"
@@ -583,7 +583,7 @@ msgstr "Registro Detallado de Llamadas relacionado"
 
 #: page.cdr.php:168
 msgid "Report Type"
-msgstr ""
+msgstr "Tipo de Informe"
 
 #: cdr.i18n.php:6
 msgid "Reports"
@@ -591,7 +591,7 @@ msgstr "Reportes"
 
 #: page.cdr.php:179
 msgid "Result Limit"
-msgstr ""
+msgstr "Límite de Resultado"
 
 #: page.cdr.php:377
 msgid "Search"
@@ -599,7 +599,7 @@ msgstr "Buscar"
 
 #: page.cdr.php:104
 msgid "Search Conditions"
-msgstr ""
+msgstr "Condiciones de Busqueda"
 
 #: page.cdr.php:246
 msgid "Search for a DID."
@@ -718,7 +718,7 @@ msgstr "No se puede añadir indice al campo did de la tabla cdr"
 
 #: install.php:63
 msgid "Unable to add index to recordingfile field in the cdr table"
-msgstr ""
+msgstr "No se puede agregar el índice al campo recordingfile en la tabla cdr"
 
 #: page.cdr.php:1095 page.cdr.php:1098
 msgid "UniqueID"
