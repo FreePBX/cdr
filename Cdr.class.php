@@ -468,4 +468,33 @@ class Cdr implements \BMO {
 		}
 		return '';
 	}
+
+	 public function getAllCalls($page=1,$orderby='date',$order='desc',$search='',$limit=100) {
+		$start = ($limit * ($page - 1));
+		$end = $limit;
+		switch($orderby) {
+			case 'description':
+				$orderby = 'clid';
+			break;
+			case 'duration':
+				$orderby = 'duration';
+			break;
+			case 'date':
+			default:
+				$orderby = 'timestamp';
+			break;
+		}
+		$order = ($order == 'desc') ? 'desc' : 'asc';
+		if(!empty($search)) {
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute(array(':search' => '%'.$search.'%'));
+		} else {
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." ORDER by $orderby $order LIMIT $start,$end";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute();
+		}
+		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
+		return $calls;
+	}
 }
