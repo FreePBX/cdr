@@ -304,12 +304,12 @@ class Cdr extends Base {
 				'disposition' => [
 					'type' => Type::string(),
 					'description' => _('The final known disposition of the CDR record'),
-					'resolve' => function($payload) {
+					'resolve' => function($row) {
 						$disposition = "";
 						if(isset($row['disposition'])){
-							$disposition = $row['disposition'];
+							$disposition = strtolower($row['disposition']);
 						}elseif(isset($row['response'])){
-							$disposition =  $row['response']['disposition'];
+							$disposition =  strtolower($row['response']['disposition']);
 						}
 						switch ($disposition) {
 							case "noanswer":
