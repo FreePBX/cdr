@@ -314,6 +314,8 @@ class Cdr extends Base {
 						switch ($disposition) {
 							case "noanswer":
 								return 'NO ANSWER';
+							case "no answer":
+								return 'NO ANSWER';
 							case "congestion":
 								return 'CONGESTION';
 							case "failed":
@@ -323,7 +325,7 @@ class Cdr extends Base {
 							case "answered":
 								return 'ANSWERED';
 							default:
-								return "";
+								return $disposition;
 						}
 					}
 				],
