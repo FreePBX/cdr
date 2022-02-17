@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-14 05:31+0000\n"
+"POT-Creation-Date: 2022-02-17 02:25+0000\n"
 "PO-Revision-Date: 2016-10-17 16:40+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -77,7 +77,7 @@ msgstr ""
 msgid "<br>Asterisk pattern matching<br>"
 msgstr ""
 
-#: Api/Gql/Cdr.php:507
+#: Api/Gql/Cdr.php:509
 msgid ""
 "A count of the total number of objects in this connection, ignoring "
 "pagination. This allows a client to fetch the first five objects by passing "
@@ -85,7 +85,7 @@ msgid ""
 "display \"5 of 83\", for example."
 msgstr ""
 
-#: Api/Gql/Cdr.php:332
+#: Api/Gql/Cdr.php:334
 msgid ""
 "A flag specified on the Party A channel. AMA Flags are set on a channel and "
 "are conveyed in the CDR. They inform billing systems how to treat the "
@@ -93,7 +93,7 @@ msgid ""
 "flags - they are present simply to help external systems classify CDRs"
 msgstr ""
 
-#: Api/Gql/Cdr.php:514
+#: Api/Gql/Cdr.php:516
 msgid ""
 "A list of all of the objects returned in the connection. This is a "
 "convenience field provided for quickly exploring the API; rather than "
@@ -104,7 +104,7 @@ msgid ""
 "instead."
 msgstr ""
 
-#: Api/Gql/Cdr.php:478
+#: Api/Gql/Cdr.php:480
 msgid ""
 "A numeric value that, combined with uniqueid and linkedid, can be used to "
 "uniquely identify a single CDR record"
@@ -114,7 +114,7 @@ msgstr ""
 msgid "A unique identifier for the Party A channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:370
+#: Api/Gql/Cdr.php:372
 msgid ""
 "A user defined field set on the channels. If set on both the Party A and "
 "Party B channel, the userfields of both are concatenated and separated by a ;"
@@ -188,7 +188,7 @@ msgstr ""
 msgid "Allow users to download recordings in UCP"
 msgstr ""
 
-#: Api/Gql/Cdr.php:358
+#: Api/Gql/Cdr.php:360
 msgid "An account code associated with the Party A channel"
 msgstr ""
 
@@ -396,7 +396,7 @@ msgstr "Грудень"
 msgid "Description"
 msgstr "Опис"
 
-#: Api/Gql/Cdr.php:454
+#: Api/Gql/Cdr.php:456
 msgid "Description of the blocked number"
 msgstr ""
 
@@ -589,7 +589,7 @@ msgstr ""
 msgid "May"
 msgstr ""
 
-#: Api/Gql/Cdr.php:490 Api/Gql/Cdr.php:528
+#: Api/Gql/Cdr.php:492 Api/Gql/Cdr.php:530
 msgid "Message for the request"
 msgstr ""
 
@@ -771,7 +771,7 @@ msgstr ""
 msgid "Start Date is required..!!"
 msgstr ""
 
-#: Api/Gql/Cdr.php:494 Api/Gql/Cdr.php:532
+#: Api/Gql/Cdr.php:496 Api/Gql/Cdr.php:534
 msgid "Status for the request"
 msgstr ""
 
@@ -787,7 +787,7 @@ msgstr ""
 msgid "Telephone Number"
 msgstr ""
 
-#: Api/Gql/Cdr.php:198 Api/Gql/Cdr.php:406
+#: Api/Gql/Cdr.php:198 Api/Gql/Cdr.php:408
 msgid "The Caller ID Number"
 msgstr ""
 
@@ -795,7 +795,7 @@ msgstr ""
 msgid "The Caller ID with text"
 msgstr ""
 
-#: Api/Gql/Cdr.php:382
+#: Api/Gql/Cdr.php:384
 msgid "The DID that was used to reach this destination"
 msgstr ""
 
@@ -803,15 +803,15 @@ msgstr ""
 msgid "The ID"
 msgstr ""
 
-#: Api/Gql/Cdr.php:430
+#: Api/Gql/Cdr.php:432
 msgid "The Outbound Caller ID Name"
 msgstr ""
 
-#: Api/Gql/Cdr.php:418
+#: Api/Gql/Cdr.php:420
 msgid "The Outbound Caller ID Number"
 msgstr ""
 
-#: Api/Gql/Cdr.php:466
+#: Api/Gql/Cdr.php:468
 msgid "The account code of the Party B channel"
 msgstr ""
 
@@ -830,7 +830,7 @@ msgid ""
 "unanswered channel."
 msgstr ""
 
-#: Api/Gql/Cdr.php:442
+#: Api/Gql/Cdr.php:444
 msgid "The destination Caller ID Name"
 msgstr ""
 
@@ -858,7 +858,7 @@ msgstr ""
 msgid "The name of the Party B channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:394
+#: Api/Gql/Cdr.php:396
 msgid "The recording file of this entry"
 msgstr ""
 
