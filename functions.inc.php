@@ -175,6 +175,17 @@ function cdr_export_csv($csvdata) {
 	foreach ($csvdata as $csv) {
 		$csv_line = array();
 		foreach(explode(",",$csv_header) as $k => $item) {
+			if(preg_match("/\p{Hebrew}/u", utf8_decode($csv[$item]))){
+				/**
+				 * Hebrew is read from right to the left.
+				 * Need to change the order Num Name instead to Name and Num
+				 * Otherwise, even if the csv format is correct, the result is messed up on Excel.
+				 */
+				preg_match('/<\d+>/', $csv[$item], $_num);
+				preg_match('/".+"/', $csv[$item], $_name);
+				$name = str_replace('"','',utf8_decode($_name[0]));
+				$csv[$item] = $_num[0].' "'.$name.'"';
+			}
 			$csv_line[$k] 	= $csv[$item];
 		}
 		fputcsv($out, $csv_line);
