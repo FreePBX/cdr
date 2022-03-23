@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-17 02:25+0000\n"
+"POT-Creation-Date: 2022-03-23 02:25+0000\n"
 "PO-Revision-Date: 2018-07-31 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/cdr/de/>\n"
@@ -128,11 +128,11 @@ msgstr ""
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1165 page.cdr.php:1240
+#: page.cdr.php:1173 page.cdr.php:1248
 msgid "AMA Flag"
 msgstr "AMA Flagge"
 
-#: page.cdr.php:426 /dev/shm/freepbx/cdr/page.cdr.php:1129
+#: page.cdr.php:426 /dev/shm/freepbx/cdr/page.cdr.php:1137
 msgid "ANI"
 msgstr "ANI"
 
@@ -208,7 +208,7 @@ msgstr "Beantwortet"
 msgid "App"
 msgstr "App"
 
-#: page.cdr.php:1135
+#: page.cdr.php:1143
 msgid "Application"
 msgstr "Anwendung"
 
@@ -235,7 +235,7 @@ msgstr "Beginnt mit"
 msgid "Between"
 msgstr "zwischen"
 
-#: page.cdr.php:1172
+#: page.cdr.php:1180
 msgid "Billing Duration"
 msgstr "Abrechnungszeitraum"
 
@@ -318,11 +318,11 @@ msgstr "Anrufverlauf"
 msgid "Call History for %s"
 msgstr "Anrufliste für %s"
 
-#: page.cdr.php:365 /dev/shm/freepbx/cdr/page.cdr.php:878 page.cdr.php:1207
+#: page.cdr.php:365 /dev/shm/freepbx/cdr/page.cdr.php:878 page.cdr.php:1215
 msgid "Caller ID Name"
 msgstr "Anrufer-ID Name"
 
-#: page.cdr.php:364 /dev/shm/freepbx/cdr/page.cdr.php:875 page.cdr.php:1212
+#: page.cdr.php:364 /dev/shm/freepbx/cdr/page.cdr.php:875 page.cdr.php:1220
 msgid "Caller ID Number"
 msgstr "Anrufer-ID Nummer"
 
@@ -342,7 +342,8 @@ msgstr "Anrufer ID Nummer"
 msgid "Calls"
 msgstr "Anrufe"
 
-#: page.cdr.php:1104 page.cdr.php:1119 page.cdr.php:1146 page.cdr.php:1268
+#: page.cdr.php:1104 page.cdr.php:1121 page.cdr.php:1126 page.cdr.php:1154
+#: page.cdr.php:1276
 msgid "Channel"
 msgstr "Kanal"
 
@@ -367,7 +368,7 @@ msgstr "Steuerungen"
 
 #: page.cdr.php:247 /dev/shm/freepbx/cdr/page.cdr.php:363 page.cdr.php:427
 #: /dev/shm/freepbx/cdr/page.cdr.php:734 page.cdr.php:872
-#: /dev/shm/freepbx/cdr/page.cdr.php:1124
+#: /dev/shm/freepbx/cdr/page.cdr.php:1132
 msgid "DID"
 msgstr "DID"
 
@@ -415,7 +416,7 @@ msgstr "Ziel Anrufer ID Name"
 msgid "Destination CallerID Name"
 msgstr "Ziel AnruferID Name"
 
-#: page.cdr.php:1146
+#: page.cdr.php:1154
 msgid "Destination Context"
 msgstr "Ziel Kontext"
 
@@ -423,11 +424,11 @@ msgstr "Ziel Kontext"
 msgid "Destination Number"
 msgstr "Zielnummer"
 
-#: page.cdr.php:1222
+#: page.cdr.php:1230
 msgid "Dialplan context"
 msgstr "Wählplan Kontext"
 
-#: page.cdr.php:1217
+#: page.cdr.php:1225
 msgid "Dialplan exten"
 msgstr "Wählplan extern"
 
@@ -485,7 +486,7 @@ msgstr "Endet mit"
 msgid "Event"
 msgstr "Ereignis"
 
-#: page.cdr.php:1260
+#: page.cdr.php:1268
 msgid "Event Extra"
 msgstr "Zusätzliches Ereignis"
 
@@ -938,7 +939,7 @@ msgstr "Benutzerfeld"
 msgid "User Primary Extension"
 msgstr "Primäre Benutzernebenstelle"
 
-#: page.cdr.php:433 /dev/shm/freepbx/cdr/page.cdr.php:1254
+#: page.cdr.php:433 /dev/shm/freepbx/cdr/page.cdr.php:1262
 msgid "UserDefType"
 msgstr "BenutzerDefTyp"
 
