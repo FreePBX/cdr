@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-23 02:25+0000\n"
+"POT-Creation-Date: 2022-03-29 04:42+0000\n"
 "PO-Revision-Date: 2018-09-04 08:02+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cdr/cs/>\n"
@@ -127,7 +127,7 @@ msgstr ""
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1173 page.cdr.php:1248
+#: page.cdr.php:1173 page.cdr.php:1251
 msgid "AMA Flag"
 msgstr "AMA příznak"
 
@@ -316,11 +316,11 @@ msgstr "Historie volání"
 msgid "Call History for %s"
 msgstr "Historie volání pro %s"
 
-#: page.cdr.php:365 /dev/shm/freepbx/cdr/page.cdr.php:878 page.cdr.php:1215
+#: page.cdr.php:365 /dev/shm/freepbx/cdr/page.cdr.php:878 page.cdr.php:1218
 msgid "Caller ID Name"
 msgstr "Jméno volajícího"
 
-#: page.cdr.php:364 /dev/shm/freepbx/cdr/page.cdr.php:875 page.cdr.php:1220
+#: page.cdr.php:364 /dev/shm/freepbx/cdr/page.cdr.php:875 page.cdr.php:1223
 msgid "Caller ID Number"
 msgstr "Číslo volajícího"
 
@@ -341,7 +341,7 @@ msgid "Calls"
 msgstr "Hovory"
 
 #: page.cdr.php:1104 page.cdr.php:1121 page.cdr.php:1126 page.cdr.php:1154
-#: page.cdr.php:1276
+#: page.cdr.php:1279
 msgid "Channel"
 msgstr "Kanál"
 
@@ -422,11 +422,11 @@ msgstr "Cílový kontext"
 msgid "Destination Number"
 msgstr "Cílové číslo"
 
-#: page.cdr.php:1230
+#: page.cdr.php:1233
 msgid "Dialplan context"
 msgstr "Kontext plánu vytáčení"
 
-#: page.cdr.php:1225
+#: page.cdr.php:1228
 msgid "Dialplan exten"
 msgstr "Rozšíření plánu vytáčení"
 
@@ -484,7 +484,7 @@ msgstr "Končí s"
 msgid "Event"
 msgstr "Událost"
 
-#: page.cdr.php:1268
+#: page.cdr.php:1271
 msgid "Event Extra"
 msgstr "Extra Událost"
 
@@ -935,7 +935,7 @@ msgstr "Uživatelské pole"
 msgid "User Primary Extension"
 msgstr "Primární pobočka uživatele"
 
-#: page.cdr.php:433 /dev/shm/freepbx/cdr/page.cdr.php:1262
+#: page.cdr.php:433 /dev/shm/freepbx/cdr/page.cdr.php:1265
 msgid "UserDefType"
 msgstr "Definovaný typ uživatele"
 
