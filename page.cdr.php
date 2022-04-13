@@ -88,6 +88,11 @@ foreach ($_POST as $k => $v) {
 	$_POST[$k] = preg_replace('/;/', ' ', $dbcdr->escapeSimple($v));
 }
 
+//if need_csv is true then need_html should be true
+if (isset($_POST['need_csv']) ) {
+	$_POST['need_html']='true';
+}
+
 $h_step = 30;
 if(!isset($_POST['need_csv'])) {
 ?>
@@ -167,7 +172,7 @@ for ( $i = 2000; $i <= date('Y'); $i++) {
 <tr>
 <td><label for="Report Type"><?php echo _("Report Type")?> : </label></td>
 <td>
-<input <?php if ( (empty($_POST['need_html']) && empty($_POST['need_chart']) && empty($_POST['need_chart_cc']) && empty($_POST['need_csv'])) || ( ! empty($_POST['need_html']) &&  $_POST['need_html'] == 'true' ) ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_html" value="true" /> : <?php echo _("CDR search")?><br />
+<input <?php if ( (empty($_POST['need_html']) && empty($_POST['need_chart']) && empty($_POST['need_chart_cc']) && empty($_POST['need_csv'])) || ( ! empty($_POST['need_html']) &&  $_POST['need_html'] == 'true' ) ) { echo 'checked="checked"'; } ?> checked='checked' type="checkbox" name="need_html" value="true" /> : <?php echo _("CDR search")?><br />
 <input <?php if ( ! empty($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_csv" value="true" /> : <?php echo _("CSV File")?><br/>
 <input <?php if ( ! empty($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="need_chart" value="true" /> : <?php echo _("Call Graph")?><br />
 <!--
