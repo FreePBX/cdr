@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>16.0.25</version>
+	<version>16.0.26</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*16.0.26* FREEI-4975 CDR search with date range 
 		*16.0.25* FREEI-4680 CDR report CSV file download issue fixed 
 		*16.0.24* FREEI-4641 Hebrew issue with cnam cols 
 		*16.0.23* FREEI-4641 Hebrew text not showing and entry line's data is mismatched in CDR 
