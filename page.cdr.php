@@ -578,11 +578,12 @@ foreach ($mod_vars as $key => $val) {
 					if (count($values) > 1) {
 						foreach ($values as $key_like => $value_like) {
 							if ($key_like == 0) {
-								$$key = "AND $key $pre_like LIKE '%$value_like%'";
+								$$key = "AND ($key $pre_like LIKE '%$value_like%'";
 							} else {
  								$$key .= " OR $key $pre_like LIKE '%$value_like%'";
 							}
 						}
+						$$key .= ")";
 					} else {
 						$$key = "AND $key $pre_like LIKE '%$val[0]%'";
 					}
@@ -596,11 +597,12 @@ foreach ($mod_vars as $key => $val) {
 					if (count($values) > 1) {
 						foreach ($values as $key_like => $value_like) {
 							if ($key_like == 0) {
-								$$key = "AND $key $pre_like LIKE '%$value_like'";
+								$$key = "AND ($key $pre_like LIKE '%$value_like'";
 							} else {
 								$$key .= " OR $key $pre_like LIKE '%$value_like'";
 							}
 						}
+						$$key .= ")";
 					} else {
 						$$key = "AND $key $pre_like LIKE '%$val[0]'";
 					}
@@ -640,11 +642,12 @@ foreach ($mod_vars as $key => $val) {
 					if (count($values) > 1) {
 						foreach ($values as $key_like => $value_like) {
 							if ($key_like == 0) {
-								$$key = "AND $key $pre_like LIKE '$value_like%'";
+								$$key = "AND ($key $pre_like LIKE '$value_like%'";
 							} else {
 								$$key .= " OR $key $pre_like LIKE '$value_like%'";
 							}
 						}
+						$$key .= ")";
 					} else {
 						$$key = "AND $key $pre_like LIKE '$val[0]%'";
 					}
@@ -685,7 +688,6 @@ if (isset($dst)) {
 
   $dst = "$dst_type ($dst_remaining OR dstchannel $dstchannel)";
 }
-
 // Build the "WHERE" part of the query
 $where = "WHERE $date_range $cnum $outbound_cnum $cnam $dst_cnam $did $dst $userfield $accountcode $disposition $duration";
 
