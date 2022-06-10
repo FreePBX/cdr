@@ -674,7 +674,7 @@ $group = empty($_POST['group']) ? 'day' : $_POST['group'];
 if (isset($cnum)) {
   $cnum_length = strlen($cnum);
   $cnum_type = substr($cnum, 0 ,strpos($cnum , 'cnum') -1);
-  $cnum_remaining = substr($cnum, strpos($cnum , 'cnum'));
+  $cnum_remaining = substr(trim($cnum,"()"), strpos($cnum , 'cnum'));
   $src = str_replace('AND cnum', '', $cnum);
 
   $cnum = "$cnum_type ($cnum_remaining OR src $src)";
@@ -683,7 +683,7 @@ if (isset($cnum)) {
 if (isset($dst)) {
   $dst_length = strlen($dst);
   $dst_type = substr($dst, 0 ,strpos($dst , 'dst') -1);
-  $dst_remaining = substr($dst, strpos($dst , 'dst'));
+  $dst_remaining = substr(trim($dst,"()"), strpos($dst , 'dst'));
   $dstchannel = str_replace('AND dst', '', $dst);
 
   $dst = "$dst_type ($dst_remaining OR dstchannel $dstchannel)";
