@@ -4,7 +4,7 @@
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<more-info>https://wiki.freepbx.org/display/FPG/CDR+Reports+Module</more-info>
 	<name>CDR Reports</name>
-	<version>15.0.17.23</version>
+	<version>15.0.17.24</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*15.0.17.24* FREEPBX-23544 cdr serach multiple destination and outboud CID number 
 		*15.0.17.23* FREEI-4975 CDR search with date range 
 		*15.0.17.22* FREEI-4680 CDR report CSV file download issue fixed 
 		*15.0.17.21* FREEI-4641 Hebrew issue with cnam cols 
