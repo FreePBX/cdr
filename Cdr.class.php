@@ -468,13 +468,13 @@ class Cdr implements \BMO {
 		}
 		$order = ($order == 'desc') ? 'desc' : 'asc';
 		if(!empty($search)) {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :shadow_ext OR channel LIKE :chan OR channel LIKE :shadow_ext OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
+			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension, ':shadow_ext' => '%/98'.$extension.'-%'));
 		} else {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :shadow_ext OR channel LIKE :chan OR channel LIKE :shadow_ext OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
+			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension, ':shadow_ext' => '%/98'.$extension.'-%'));
 		}
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		foreach($calls as &$call) {
