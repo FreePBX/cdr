@@ -53,10 +53,9 @@ class Backup Extends Base\BackupBase{
     $command[] = '--skip-lock-tables';
     $command[] = '--skip-triggers';
     $command[] = '--no-create-info';
-    $tmpfile = $tmpdir.'/cdr.sql';
-		$command[] = '--result-file='. $tmpfile;
+    $tmpfile = $tmpdir.'/cdr.sql.gz';
+		$command[] = ' | gzip -9 > '. $tmpfile;
 		$command = implode(" ", $command);
-
 	$process = new Process($command);
 	try {
 		$process->setTimeout(3600);
