@@ -632,4 +632,24 @@ class Cdr implements \BMO {
 		}
 	}
 
+	public function cleanupData()
+	{
+		$logRetentionInDays = $this->FreePBX->Config()->get('CDRDATARETENTION');
+		$logRetentionInSeconds = date('Y-m-d H:i:s',time() - ((int)$logRetentionInDays * 86400));
+		$db = $this->getCdrDbHandle();
+		$cdrDatabase = $this->FreePBX->Config()->get('CDRDBNAME');
+		if (empty($cdrDatabase)) {
+			$cdrDatabase = 'asteriskcdrdb';
+		}
+		$queuelogtable = $this->FreePBX->Config()->get('CDRDBTABLENAME');
+		if(empty($queuelogtable)){
+			$queuelogtable = 'cdr';
+		}
+		if($logRetentionInSeconds && $logRetentionInDays) {
+			$qry = "DELETE FROM `" . $cdrDatabase . "`.`".$queuelogtable."` WHERE `calldate` < :logRetention";
+			$stmt = $db->prepare($qry);
+			$stmt->execute(array(':logRetention' => $logRetentionInSeconds));
+		}
+	}
+
 }

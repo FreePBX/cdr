@@ -134,3 +134,19 @@ if (count($alterclauses)) {
         out(_("OK!"));
     }
 }
+
+$set['value'] = '0';
+$set['defaultval'] =& $set['value'];
+$set['options'] = array(0,10000);
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 0;
+$set['module'] = '';
+$set['category'] = _('Remote CDR Database');
+$set['emptyok'] = 0;
+$set['name'] = _('CDR Data Retention');
+$set['description'] = _("Amount of days to retain CDR data. Setting this to 0 will not delete any records");
+$set['type'] = CONF_TYPE_INT;
+FreePBX::Config()->define_conf_setting('CDRDATARETENTION',$set);
+
+\FreePBX::Job()->addClass('cdr', 'cdrlogretention', 'FreePBX\modules\Cdr\Job', '1 0 * * *');
