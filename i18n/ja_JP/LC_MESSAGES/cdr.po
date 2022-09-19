@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-06 10:19+0000\n"
+"POT-Creation-Date: 2022-09-19 09:45+0000\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -48,44 +48,44 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
-#: Cdr.class.php:492
+#: Cdr.class.php:497
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:494
+#: Cdr.class.php:499
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:497
+#: Cdr.class.php:502
 #, php-format
 msgid "%s sec"
 msgstr ""
 
-#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:932
+#: page.cdr.php:358 /dev/shm/freepbx/cdr/page.cdr.php:932
 msgid "10 Minutes"
 msgstr "10分毎"
 
-#: page.cdr.php:207 /usr/src/freepbx/cdr/page.cdr.php:239 page.cdr.php:270
+#: page.cdr.php:207 /dev/shm/freepbx/cdr/page.cdr.php:239 page.cdr.php:270
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
 msgstr ""
 "<b>.</b> : ワイルドカードです。すべての1文字以上の数字または文字と一致します"
 "<br/>"
 
-#: page.cdr.php:205 /usr/src/freepbx/cdr/page.cdr.php:237 page.cdr.php:268
+#: page.cdr.php:205 /dev/shm/freepbx/cdr/page.cdr.php:237 page.cdr.php:268
 msgid "<b>N</b> = matches any digit from 2-9<br>"
 msgstr "<b>N</b> : 2-9のいずれの数字にも一致します<br/>"
 
-#: page.cdr.php:203 /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:266
+#: page.cdr.php:203 /dev/shm/freepbx/cdr/page.cdr.php:235 page.cdr.php:266
 msgid "<b>X</b> = matches any digit from 0-9<br>"
 msgstr "<b>X</b> : 0-9のいずれの数字にも一致します<br/>"
 
-#: page.cdr.php:204 /usr/src/freepbx/cdr/page.cdr.php:236 page.cdr.php:267
+#: page.cdr.php:204 /dev/shm/freepbx/cdr/page.cdr.php:236 page.cdr.php:267
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
 msgstr "<b>Z</b> : 1-9のいずれの数字に一致します<br/>"
 
-#: page.cdr.php:206 /usr/src/freepbx/cdr/page.cdr.php:238 page.cdr.php:269
+#: page.cdr.php:206 /dev/shm/freepbx/cdr/page.cdr.php:238 page.cdr.php:269
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
@@ -93,20 +93,20 @@ msgstr ""
 "<b>[1237-9]</b> = 括弧内の任意の数字や文字に一致する条件で検索します<br>(この"
 "例では、 1,2,3,7,8,9)<br>"
 
-#: page.cdr.php:201 /usr/src/freepbx/cdr/page.cdr.php:233 page.cdr.php:264
+#: page.cdr.php:201 /dev/shm/freepbx/cdr/page.cdr.php:233 page.cdr.php:264
 msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
 msgstr ""
 "<b>_!2XXN, _562., _.0075</b> : この場合、指定した番号以外の番号が検索されます"
 
-#: page.cdr.php:200 /usr/src/freepbx/cdr/page.cdr.php:232 page.cdr.php:263
+#: page.cdr.php:200 /dev/shm/freepbx/cdr/page.cdr.php:232 page.cdr.php:263
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
 msgstr ""
 "<b>_2XXN, _562., _.0075</b> : この場合いずれかに一致する番号が検索されます"
 "<br/>"
 
-#: page.cdr.php:202 /usr/src/freepbx/cdr/page.cdr.php:234 page.cdr.php:265
+#: page.cdr.php:202 /dev/shm/freepbx/cdr/page.cdr.php:234 page.cdr.php:265
 msgid "<br>Asterisk pattern matching<br>"
 msgstr "<br>Asteriskパターンマッチング<br>"
 
@@ -161,7 +161,7 @@ msgstr "AMA"
 msgid "AMA Flag"
 msgstr "AMAフラグ"
 
-#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1144
+#: page.cdr.php:431 /dev/shm/freepbx/cdr/page.cdr.php:1144
 msgid "ANI"
 msgstr "ANI"
 
@@ -169,7 +169,7 @@ msgstr "ANI"
 msgid "Account"
 msgstr "アカウント"
 
-#: page.cdr.php:308 /usr/src/freepbx/cdr/page.cdr.php:353 page.cdr.php:873
+#: page.cdr.php:308 /dev/shm/freepbx/cdr/page.cdr.php:353 page.cdr.php:873
 msgid "Account Code"
 msgstr "アカウントコード"
 
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Adding index to recordingfile field..."
 msgstr ""
 
-#: install.php:104 /usr/src/freepbx/cdr/install.php:121
+#: install.php:104 /dev/shm/freepbx/cdr/install.php:121
 msgid "Adding!"
 msgstr ""
 
@@ -233,7 +233,7 @@ msgstr "最大"
 msgid "Answered"
 msgstr "応答あり"
 
-#: page.cdr.php:436 /usr/src/freepbx/cdr/page.cdr.php:742
+#: page.cdr.php:436 /dev/shm/freepbx/cdr/page.cdr.php:742
 msgid "App"
 msgstr "アプリ"
 
@@ -253,10 +253,10 @@ msgstr "8月"
 msgid "Average Call Time"
 msgstr "平均通話時間"
 
-#: page.cdr.php:211 /usr/src/freepbx/cdr/page.cdr.php:223 page.cdr.php:243
-#: /usr/src/freepbx/cdr/page.cdr.php:255 page.cdr.php:274
-#: /usr/src/freepbx/cdr/page.cdr.php:288 page.cdr.php:300
-#: /usr/src/freepbx/cdr/page.cdr.php:311
+#: page.cdr.php:211 /dev/shm/freepbx/cdr/page.cdr.php:223 page.cdr.php:243
+#: /dev/shm/freepbx/cdr/page.cdr.php:255 page.cdr.php:274
+#: /dev/shm/freepbx/cdr/page.cdr.php:288 page.cdr.php:300
+#: /dev/shm/freepbx/cdr/page.cdr.php:311
 msgid "Begins With"
 msgstr "前方一致"
 
@@ -276,8 +276,8 @@ msgstr "通話中"
 msgid "CDR Access"
 msgstr ""
 
-#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
-#: /usr/src/freepbx/cdr/page.cdr.php:99
+#: Api/Gql/Cdr.php:19 /dev/shm/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
+#: /dev/shm/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "CDRレポート"
 
@@ -309,7 +309,7 @@ msgstr ""
 msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr "通話記録を閲覧するためのコールデータレコードのレポートツール"
 
-#: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:736
+#: page.cdr.php:114 /dev/shm/freepbx/cdr/page.cdr.php:736
 msgid "Call Date"
 msgstr "期間"
 
@@ -346,15 +346,15 @@ msgstr ""
 msgid "Call History for %s"
 msgstr ""
 
-#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1225
+#: page.cdr.php:370 /dev/shm/freepbx/cdr/page.cdr.php:885 page.cdr.php:1225
 msgid "Caller ID Name"
 msgstr "CallerIDの名前"
 
-#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1230
+#: page.cdr.php:369 /dev/shm/freepbx/cdr/page.cdr.php:882 page.cdr.php:1230
 msgid "Caller ID Number"
 msgstr "CallerIDの番号"
 
-#: page.cdr.php:739 /usr/src/freepbx/cdr/page.cdr.php:1119
+#: page.cdr.php:739 /dev/shm/freepbx/cdr/page.cdr.php:1119
 msgid "CallerID"
 msgstr "発信者ID"
 
@@ -383,10 +383,10 @@ msgstr "同時呼び出し"
 msgid "Conference"
 msgstr ""
 
-#: page.cdr.php:212 /usr/src/freepbx/cdr/page.cdr.php:224 page.cdr.php:244
-#: /usr/src/freepbx/cdr/page.cdr.php:256 page.cdr.php:275
-#: /usr/src/freepbx/cdr/page.cdr.php:289 page.cdr.php:301
-#: /usr/src/freepbx/cdr/page.cdr.php:312
+#: page.cdr.php:212 /dev/shm/freepbx/cdr/page.cdr.php:224 page.cdr.php:244
+#: /dev/shm/freepbx/cdr/page.cdr.php:256 page.cdr.php:275
+#: /dev/shm/freepbx/cdr/page.cdr.php:289 page.cdr.php:301
+#: /dev/shm/freepbx/cdr/page.cdr.php:312
 msgid "Contains"
 msgstr "部分一致"
 
@@ -394,9 +394,9 @@ msgstr "部分一致"
 msgid "Controls"
 msgstr ""
 
-#: page.cdr.php:252 /usr/src/freepbx/cdr/page.cdr.php:368 page.cdr.php:432
-#: /usr/src/freepbx/cdr/page.cdr.php:741 page.cdr.php:879
-#: /usr/src/freepbx/cdr/page.cdr.php:1139
+#: page.cdr.php:252 /dev/shm/freepbx/cdr/page.cdr.php:368 page.cdr.php:432
+#: /dev/shm/freepbx/cdr/page.cdr.php:741 page.cdr.php:879
+#: /dev/shm/freepbx/cdr/page.cdr.php:1139
 msgid "DID"
 msgstr "DID"
 
@@ -408,7 +408,7 @@ msgstr ""
 msgid "Date/Time"
 msgstr "日時"
 
-#: page.cdr.php:362 /usr/src/freepbx/cdr/page.cdr.php:938
+#: page.cdr.php:362 /dev/shm/freepbx/cdr/page.cdr.php:938
 msgid "Day"
 msgstr "日付毎"
 
@@ -432,11 +432,11 @@ msgstr ""
 msgid "Description of the blocked number"
 msgstr ""
 
-#: page.cdr.php:271 /usr/src/freepbx/cdr/page.cdr.php:743
+#: page.cdr.php:271 /dev/shm/freepbx/cdr/page.cdr.php:743
 msgid "Destination"
 msgstr "発信先"
 
-#: page.cdr.php:373 /usr/src/freepbx/cdr/page.cdr.php:894
+#: page.cdr.php:373 /dev/shm/freepbx/cdr/page.cdr.php:894
 msgid "Destination Caller ID Name"
 msgstr "発信先CallerIDの名前"
 
@@ -448,7 +448,7 @@ msgstr "発信先のCallerIDの名前"
 msgid "Destination Context"
 msgstr "宛先コンテキスト"
 
-#: page.cdr.php:367 /usr/src/freepbx/cdr/page.cdr.php:876
+#: page.cdr.php:367 /dev/shm/freepbx/cdr/page.cdr.php:876
 msgid "Destination Number"
 msgstr "宛先番号"
 
@@ -460,7 +460,7 @@ msgstr "ダイヤルプランコンテキスト"
 msgid "Dialplan exten"
 msgstr "ダイヤルプランexten"
 
-#: page.cdr.php:329 /usr/src/freepbx/cdr/page.cdr.php:744
+#: page.cdr.php:329 /dev/shm/freepbx/cdr/page.cdr.php:744
 msgid "Disposition"
 msgstr "通話結果"
 
@@ -470,7 +470,7 @@ msgid ""
 "Party A"
 msgstr ""
 
-#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+#: install.php:53 /dev/shm/freepbx/cdr/install.php:68
 msgid "Done"
 msgstr ""
 
@@ -478,7 +478,7 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: page.cdr.php:319 /usr/src/freepbx/cdr/page.cdr.php:745
+#: page.cdr.php:319 /dev/shm/freepbx/cdr/page.cdr.php:745
 #: ucp/views/widget.php:29
 msgid "Duration"
 msgstr "通話時間"
@@ -503,10 +503,10 @@ msgstr ""
 msgid "End Date should be greater than Start Date..!!"
 msgstr ""
 
-#: page.cdr.php:213 /usr/src/freepbx/cdr/page.cdr.php:225 page.cdr.php:245
-#: /usr/src/freepbx/cdr/page.cdr.php:257 page.cdr.php:276
-#: /usr/src/freepbx/cdr/page.cdr.php:290 page.cdr.php:302
-#: /usr/src/freepbx/cdr/page.cdr.php:313
+#: page.cdr.php:213 /dev/shm/freepbx/cdr/page.cdr.php:225 page.cdr.php:245
+#: /dev/shm/freepbx/cdr/page.cdr.php:257 page.cdr.php:276
+#: /dev/shm/freepbx/cdr/page.cdr.php:290 page.cdr.php:302
+#: /dev/shm/freepbx/cdr/page.cdr.php:313
 msgid "Ends With"
 msgstr "後方一致"
 
@@ -526,10 +526,10 @@ msgstr "エキストライベント"
 msgid "Events"
 msgstr "イベント"
 
-#: page.cdr.php:214 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:246
-#: /usr/src/freepbx/cdr/page.cdr.php:258 page.cdr.php:277
-#: /usr/src/freepbx/cdr/page.cdr.php:291 page.cdr.php:303
-#: /usr/src/freepbx/cdr/page.cdr.php:314
+#: page.cdr.php:214 /dev/shm/freepbx/cdr/page.cdr.php:226 page.cdr.php:246
+#: /dev/shm/freepbx/cdr/page.cdr.php:258 page.cdr.php:277
+#: /dev/shm/freepbx/cdr/page.cdr.php:291 page.cdr.php:303
+#: /dev/shm/freepbx/cdr/page.cdr.php:314
 msgid "Exactly"
 msgstr "完全一致"
 
@@ -569,7 +569,7 @@ msgstr "テーブル先頭へ"
 msgid "Group By"
 msgstr "グラフの集計条件"
 
-#: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:902
+#: page.cdr.php:359 /dev/shm/freepbx/cdr/page.cdr.php:902
 msgid "Hour"
 msgstr "1時間毎"
 
@@ -613,7 +613,7 @@ msgstr ""
 msgid "March"
 msgstr "3月"
 
-#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1068
+#: page.cdr.php:968 /dev/shm/freepbx/cdr/page.cdr.php:1068
 msgid "Max Calls"
 msgstr "最大コール数"
 
@@ -625,11 +625,11 @@ msgstr "5月"
 msgid "Message for the request"
 msgstr ""
 
-#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:927
+#: page.cdr.php:357 /dev/shm/freepbx/cdr/page.cdr.php:927
 msgid "Minute"
 msgstr "1 分毎"
 
-#: page.cdr.php:364 /usr/src/freepbx/cdr/page.cdr.php:917
+#: page.cdr.php:364 /dev/shm/freepbx/cdr/page.cdr.php:917
 msgid "Month"
 msgstr "1月毎"
 
@@ -649,10 +649,10 @@ msgstr "応答なし"
 msgid "No Data Found"
 msgstr ""
 
-#: page.cdr.php:210 /usr/src/freepbx/cdr/page.cdr.php:222 page.cdr.php:242
-#: /usr/src/freepbx/cdr/page.cdr.php:254 page.cdr.php:273
-#: /usr/src/freepbx/cdr/page.cdr.php:287 page.cdr.php:299
-#: /usr/src/freepbx/cdr/page.cdr.php:310 page.cdr.php:339
+#: page.cdr.php:210 /dev/shm/freepbx/cdr/page.cdr.php:222 page.cdr.php:242
+#: /dev/shm/freepbx/cdr/page.cdr.php:254 page.cdr.php:273
+#: /dev/shm/freepbx/cdr/page.cdr.php:287 page.cdr.php:299
+#: /dev/shm/freepbx/cdr/page.cdr.php:310 page.cdr.php:339
 msgid "Not"
 msgstr "Not"
 
@@ -664,7 +664,7 @@ msgstr ""
 msgid "November"
 msgstr "11月"
 
-#: install.php:101 /usr/src/freepbx/cdr/install.php:118 install.php:134
+#: install.php:101 /dev/shm/freepbx/cdr/install.php:118 install.php:134
 msgid "OK!"
 msgstr ""
 
@@ -684,11 +684,11 @@ msgstr "古い順"
 msgid "Order By"
 msgstr "並び順"
 
-#: page.cdr.php:372 /usr/src/freepbx/cdr/page.cdr.php:891
+#: page.cdr.php:372 /dev/shm/freepbx/cdr/page.cdr.php:891
 msgid "Outbound Caller ID Name"
 msgstr "外部発信したCallerIDの名前"
 
-#: page.cdr.php:371 /usr/src/freepbx/cdr/page.cdr.php:888
+#: page.cdr.php:371 /dev/shm/freepbx/cdr/page.cdr.php:888
 msgid "Outbound Caller ID Number"
 msgstr "外部発信したCallerIDの番号"
 
@@ -923,7 +923,7 @@ msgid ""
 "user to control and edit in UCP"
 msgstr ""
 
-#: page.cdr.php:427 /usr/src/freepbx/cdr/page.cdr.php:1069
+#: page.cdr.php:427 /dev/shm/freepbx/cdr/page.cdr.php:1069
 msgid "Time"
 msgstr "時刻"
 
@@ -931,7 +931,7 @@ msgstr "時刻"
 msgid "To"
 msgstr "終了日時"
 
-#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1068
+#: page.cdr.php:968 /dev/shm/freepbx/cdr/page.cdr.php:1068
 msgid "Total Calls"
 msgstr "合計コール数"
 
@@ -955,7 +955,7 @@ msgstr "ユニークID"
 msgid "Unknown"
 msgstr ""
 
-#: page.cdr.php:354 /usr/src/freepbx/cdr/page.cdr.php:897
+#: page.cdr.php:354 /dev/shm/freepbx/cdr/page.cdr.php:897
 msgid "User Field"
 msgstr "ユーザーフィールド"
 
@@ -963,11 +963,11 @@ msgstr "ユーザーフィールド"
 msgid "User Primary Extension"
 msgstr ""
 
-#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1272
+#: page.cdr.php:438 /dev/shm/freepbx/cdr/page.cdr.php:1272
 msgid "UserDefType"
 msgstr "ユーザー定義タイプ"
 
-#: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:746
+#: page.cdr.php:297 /dev/shm/freepbx/cdr/page.cdr.php:746
 msgid "Userfield"
 msgstr "ユーザーフィールド"
 
@@ -975,7 +975,7 @@ msgstr "ユーザーフィールド"
 msgid "Voicemail"
 msgstr ""
 
-#: page.cdr.php:363 /usr/src/freepbx/cdr/page.cdr.php:912
+#: page.cdr.php:363 /dev/shm/freepbx/cdr/page.cdr.php:912
 msgid "Week ( Sun-Sat )"
 msgstr "1 週毎(日曜-土曜)"
 
