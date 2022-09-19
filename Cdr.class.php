@@ -439,18 +439,23 @@ class Cdr implements \BMO {
 
 	/**
 	 * Get all CDR call records
-	 * @param int  $extension The extension
-	 * @param integer $page      The page number to start at
-	 * @param string  $orderby   Order the results by
-	 * @param string  $order     Order ASC or DESC
-	 * @param string  $search    The search string to use
-	 * @param integer $limit     The number of results to return
-	 * @param bool    $fromAPI   Uses the replicate_cdr table instead, which only stores last two months of CDR data.  Used when queries to regular cdr table take too long because the table has too much data.
+	 * @param int  $extension 		The extension
+	 * @param integer $page      	The page number to start at
+	 * @param string  $orderby   	Order the results by
+	 * @param string  $order    	Order ASC or DESC
+	 * @param string  $search   	The search string to use
+	 * @param integer $limit    	The number of results to return
+	 * @param bool    $fromAPI  	Uses the replicate_cdr table instead, which only stores last two months of CDR data.  Used when queries to regular cdr table take too long because the table has too much data.
+	 * @param string  $webrtcPrefix 	
 	 */
-	public function getCalls($extension,$page=1,$orderby='date',$order='desc',$search='',$limit=100,$fromAPI=false) {
+	public function getCalls($extension, $page = 1, $orderby = 'date', $order = 'desc', $search = '', $limit = 100, $fromAPI = false, $webrtcPrefix = '') {
 		if($fromAPI) {
 			//set the $db_table variable to 'replicate_cdr' if cdrTrigger is created
 			$this->checkCdrTrigger();
+		}
+		$defaultExtension = $extension;
+		if (!empty($webrtcPrefix)) {
+			$extension = $webrtcPrefix . $extension;
 		}
 		$start = ($limit * ($page - 1));
 		$end = $limit;
@@ -468,13 +473,13 @@ class Cdr implements \BMO {
 		}
 		$order = ($order == 'desc') ? 'desc' : 'asc';
 		if(!empty($search)) {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
+			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
 		} else {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
+			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
 		}
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		foreach($calls as &$call) {
