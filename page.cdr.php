@@ -791,10 +791,10 @@ if ( $tot_calls_raw ) {
 			$tcid = $row['clid'];
 		}
 		//cdr_formatSrc($cid, $tcid);
-		if ($row['cnum'] != '' || $row['cnum'] != '') {
+		if ($row['cnam'] != '' || $row['cnum'] != '') {
 			cdr_formatCallerID($row['cnam'], $row['cnum'], $row['channel']);
 		} else {
-			cdr_formatSrc($row['src'], $row['clid']);
+			cdr_formatSrc(str_replace('"" ','',$row['clid']), str_replace('"" ','',$row['clid']));
 		}
 		cdr_formatCallerID($row['outbound_cnam'], $row['outbound_cnum'], $row['dstchannel']);
 		cdr_formatDID($row['did']);
