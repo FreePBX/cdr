@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>16.0.30</version>
+	<version>16.0.31</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*16.0.31* Packaging of ver 16.0.31
 		*16.0.30* FREEPBX-23843 CDR Reporting does not display caller id correctly 
 		*16.0.29* SCD-332 modified cdr fetch query to include entries when FMFM is enabled 
 		*16.0.28* FREEPBX-23657 cdr module compressed backup and restore 
@@ -57,6 +58,7 @@
 	<depends>
 		<module>framework ge 13.0.1beta3.56</module>
 		<module>core ge 12.0.8</module>
+		<module>backup ge 16.0.63</module>
 	</depends>
 	<supported>
 		<version>16.0</version>
