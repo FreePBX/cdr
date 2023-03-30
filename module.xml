@@ -4,7 +4,7 @@
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<more-info>https://wiki.freepbx.org/display/FPG/CDR+Reports+Module</more-info>
 	<name>CDR Reports</name>
-	<version>15.0.17.26</version>
+	<version>15.0.17.27</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*15.0.17.27* Packaging of ver 15.0.17.27
 		*15.0.17.26* SCD-332 modified cdr fetch query to include entries when FMFM is enabled 
 		*15.0.17.25* FREEPBX-23657 cdr module compressed backup and restore 
 		*15.0.17.24* FREEPBX-23544 cdr serach multiple destination and outboud CID number 
@@ -71,6 +72,7 @@
 	<depends>
 		<module>framework ge 13.0.1beta3.56</module>
 		<module>core ge 12.0.8</module>
+		<module>backup ge 15.0.22</module>
 	</depends>
 	<supported>
 		<version>15.0</version>
