@@ -129,6 +129,10 @@ class Cdr extends Modules{
 	* @return bool True if pass
 	*/
 	function ajaxRequest($command, $settings) {
+		$enabled = $this->UCP->getCombinedSettingByID($this->user['id'], 'Cdr', 'enable');
+		if (!$enabled) {
+			return false;
+		}
 		switch($command) {
 			case 'grid':
 				return true;
@@ -159,6 +163,9 @@ class Cdr extends Modules{
 			case "grid":
 				$limit = filter_var($_REQUEST['limit'], FILTER_SANITIZE_NUMBER_INT);
 				$ext = $_REQUEST['extension'];
+				if (!$this->_checkExtension($ext)) {
+					return array("status" => false, "message" => _("The extension isn't associated with the user account"));
+				}
 				$order = $_REQUEST['order'];
 				$orderby = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "date";
 				$search = !empty($_REQUEST['search']) ? $_REQUEST['search'] : "";
@@ -173,6 +180,9 @@ class Cdr extends Modules{
 				);
 			break;
 			case 'gethtml5':
+				if (!$this->_checkExtension($_REQUEST['ext'])) {
+					return array("status" => false, "message" => _("The extension isn't associated with the user account"));
+				}
 				$media = $this->UCP->FreePBX->Media();
 				$record = $this->UCP->FreePBX->Cdr->getRecordByIDExtension($_REQUEST['id'],$_REQUEST['ext']);
 				if(!file_exists($record['recordingfile'])) {
