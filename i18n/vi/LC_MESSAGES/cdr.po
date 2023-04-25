@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 03:59+0000\n"
+"POT-Creation-Date: 2023-04-25 01:30+0000\n"
 "PO-Revision-Date: 2017-06-20 15:09+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -352,7 +352,7 @@ msgstr "Kênh"
 msgid "Concurrent Calls"
 msgstr "Các cuộc gọi đồng thời"
 
-#: ucp/Cdr.class.php:316 ucp/Cdr.class.php:320
+#: ucp/Cdr.class.php:326 ucp/Cdr.class.php:330
 msgid "Conference"
 msgstr "Hội nghị"
 
@@ -518,11 +518,11 @@ msgstr "Thất bại"
 msgid "February"
 msgstr "Tháng hai"
 
-#: ucp/Cdr.class.php:179
+#: ucp/Cdr.class.php:189
 msgid "File does not exist"
 msgstr "Tệp không tồn tại"
 
-#: ucp/Cdr.class.php:418
+#: ucp/Cdr.class.php:428
 msgid "Forbidden"
 msgstr "Bị cấm"
 
@@ -629,7 +629,7 @@ msgstr ""
 msgid "Not"
 msgstr "Không phải"
 
-#: ucp/Cdr.class.php:424
+#: ucp/Cdr.class.php:434
 msgid "Not Found"
 msgstr "Không tìm thấy"
 
@@ -859,6 +859,10 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
+#: ucp/Cdr.class.php:167 ucp/Cdr.class.php:184
+msgid "The extension isn't associated with the user account"
+msgstr ""
+
 #: Api/Gql/Cdr.php:46 Api/Gql/Cdr.php:306
 msgid "The final known disposition of the CDR record"
 msgstr ""
@@ -927,7 +931,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr "ID duy nhất"
 
-#: ucp/Cdr.class.php:346 ucp/Cdr.class.php:367 ucp/Cdr.class.php:371
+#: ucp/Cdr.class.php:356 ucp/Cdr.class.php:377 ucp/Cdr.class.php:381
 msgid "Unknown"
 msgstr "Không biết"
 
@@ -947,7 +951,7 @@ msgstr "Kiểu dữ liệu định nghĩa người dùng"
 msgid "Userfield"
 msgstr "Trường người dùng"
 
-#: ucp/Cdr.class.php:302 ucp/Cdr.class.php:307
+#: ucp/Cdr.class.php:312 ucp/Cdr.class.php:317
 msgid "Voicemail"
 msgstr "Thư thoại"
 
@@ -980,7 +984,7 @@ msgstr "Kênh"
 msgid "context"
 msgstr "Ngữ cảnh"
 
-#: ucp/Cdr.class.php:334
+#: ucp/Cdr.class.php:344
 msgid "denied by COS"
 msgstr "Bị COS từ chối"
 
@@ -988,7 +992,7 @@ msgstr "Bị COS từ chối"
 msgid "exten"
 msgstr "Máy nhánh"
 
-#: ucp/Cdr.class.php:330
+#: ucp/Cdr.class.php:340
 msgid "kicked from conference"
 msgstr "Bị đẩy ra từ hội nghị"
 

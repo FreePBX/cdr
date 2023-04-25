@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-28 03:59+0000\n"
+"POT-Creation-Date: 2023-04-25 01:30+0000\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -379,7 +379,7 @@ msgstr "チャネル"
 msgid "Concurrent Calls"
 msgstr "同時呼び出し"
 
-#: ucp/Cdr.class.php:316 ucp/Cdr.class.php:320
+#: ucp/Cdr.class.php:326 ucp/Cdr.class.php:330
 msgid "Conference"
 msgstr ""
 
@@ -545,11 +545,11 @@ msgstr "失敗"
 msgid "February"
 msgstr "2月"
 
-#: ucp/Cdr.class.php:179
+#: ucp/Cdr.class.php:189
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:418
+#: ucp/Cdr.class.php:428
 msgid "Forbidden"
 msgstr ""
 
@@ -656,7 +656,7 @@ msgstr ""
 msgid "Not"
 msgstr "Not"
 
-#: ucp/Cdr.class.php:424
+#: ucp/Cdr.class.php:434
 msgid "Not Found"
 msgstr ""
 
@@ -885,6 +885,10 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
+#: ucp/Cdr.class.php:167 ucp/Cdr.class.php:184
+msgid "The extension isn't associated with the user account"
+msgstr ""
+
 #: Api/Gql/Cdr.php:46 Api/Gql/Cdr.php:306
 msgid "The final known disposition of the CDR record"
 msgstr ""
@@ -951,7 +955,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr "ユニークID"
 
-#: ucp/Cdr.class.php:346 ucp/Cdr.class.php:367 ucp/Cdr.class.php:371
+#: ucp/Cdr.class.php:356 ucp/Cdr.class.php:377 ucp/Cdr.class.php:381
 msgid "Unknown"
 msgstr ""
 
@@ -971,7 +975,7 @@ msgstr "ユーザー定義タイプ"
 msgid "Userfield"
 msgstr "ユーザーフィールド"
 
-#: ucp/Cdr.class.php:302 ucp/Cdr.class.php:307
+#: ucp/Cdr.class.php:312 ucp/Cdr.class.php:317
 msgid "Voicemail"
 msgstr ""
 
@@ -1000,7 +1004,7 @@ msgstr "チャネル"
 msgid "context"
 msgstr "コンテキスト"
 
-#: ucp/Cdr.class.php:334
+#: ucp/Cdr.class.php:344
 msgid "denied by COS"
 msgstr ""
 
@@ -1008,7 +1012,7 @@ msgstr ""
 msgid "exten"
 msgstr "exten"
 
-#: ucp/Cdr.class.php:330
+#: ucp/Cdr.class.php:340
 msgid "kicked from conference"
 msgstr ""
 
