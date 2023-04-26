@@ -51,6 +51,27 @@ function cdr_get_config($engine) {
 		//Rewrite the file
 		\FreePBX::WriteConfig()->writeConfig('cdr_adaptive_odbc.conf', $content, false);
 	}
+
+	if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
+
+		$enable = ($amp_conf['CDR_BATCH_ENABLE'] == 1) ? 'yes' : 'no';
+		$batch = ($amp_conf['CDR_BATCH'] == 1) ? 'yes' : 'no';
+		$schedule = ($amp_conf['CDR_BATCH_SCHEDULE_ONLY'] == 1) ? 'yes' : 'no';
+		$bshutdown = ($amp_conf['CDR_BATCH_SAFE_SHUT_DOWN'] == 1) ? 'yes' : 'no';
+
+		$generaladdtionalcontent = "enable=". $enable ."\n";
+		$generaladdtionalcontent .= "batch=". $batch ."\n";
+		$generaladdtionalcontent .= "size=". $amp_conf['CDR_BATCH_SIZE'] ."\n";
+		$generaladdtionalcontent .= "time=". $amp_conf['CDR_BATCH_TIME']."\n";
+		$generaladdtionalcontent .= "scheduleronly=". $schedule."\n";
+		$generaladdtionalcontent .= "safeshutdown=". $bshutdown."\n";
+		\FreePBX::WriteConfig()->writeConfig('cdr_general_additional.conf', $generaladdtionalcontent, true);
+		$webroot = \FreePBX::Config()->get('AMPWEBROOT');
+		$cdrConfFile = $webroot.'/admin/modules/cdr/etc/cdr.conf';
+		if (file_exists($amp_conf['ASTETCDIR'] . '/cdr.conf') && filesize($cdrConfFile) != filesize($amp_conf['ASTETCDIR']. '/cdr.conf') && md5_file($cdrConfFile) != md5_file($amp_conf['ASTETCDIR']. '/cdr.conf')) {
+			copy($cdrConfFile,$amp_conf['ASTETCDIR'] . "/cdr.conf");
+		}
+	}
 }
 
 
@@ -192,4 +213,29 @@ function cdr_export_csv($csvdata) {
 	}
 	fclose($out);
 	die();
+}
+
+function writeCustomFiles($custConf){
+	$generalCustContent = '';
+	$nongeneralCustContent = '';
+	$nongenLines = false;
+	if($custConf) {
+		foreach ($custConf as $line) {
+			if(strpos($line, '[general]') !== false || empty($line)){
+				continue;
+			}
+
+			if(strpos($line, '[csv]') !== false){
+				$nongenLines = true;
+			}
+
+			if($nongenLines) {
+				$nongeneralCustContent .= str_replace(PHP_EOL, '', $line)."\n";
+			} else {
+				$generalCustContent .= str_replace(PHP_EOL, '', $line)."\n";
+			}
+		}
+	}
+	\FreePBX::WriteConfig()->writeConfig('cdr_general_custom.conf', $generalCustContent, false);
+	\FreePBX::WriteConfig()->writeConfig('cdr_non_general_custom.conf', $nongeneralCustContent, false);
 }
