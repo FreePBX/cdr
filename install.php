@@ -134,3 +134,142 @@ if (count($alterclauses)) {
         out(_("OK!"));
     }
 }
+
+$freepbx_conf = freepbx_conf::create();
+$webroot = \FreePBX::Config()->get('AMPWEBROOT');
+$cdrConfFile = $webroot.'/admin/modules/cdr/etc/cdr.conf';
+//check for existing batch conf
+if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
+	$enable = $amp_conf['CDR_BATCH_ENABLE'];
+	$batch = $amp_conf['CDR_BATCH'];
+	$size = $amp_conf['CDR_BATCH_SIZE'];
+	$time = $amp_conf['CDR_BATCH_TIME'];
+	$scheduleOnly = $amp_conf['CDR_BATCH_SCHEDULE_ONLY'];
+	$safeShutDown = $amp_conf['CDR_BATCH_SAFE_SHUT_DOWN'];
+} else if (file_exists($amp_conf['ASTETCDIR'] . '/cdr.conf') && (filesize($cdrConfFile) != filesize($amp_conf['ASTETCDIR']. '/cdr.conf') && md5_file($cdrConfFile) != md5_file($amp_conf['ASTETCDIR']. '/cdr.conf'))){
+	$cdrfile = fopen($amp_conf['ASTETCDIR'] . '/cdr.conf', "r");
+	$additionalConfLines = [];
+	while(($line = fgets($cdrfile)) !== false) {
+		if(substr($line,0,1) == ";" || empty($line)) {
+			continue;
+		}
+		$bvals = explode("=",$line);
+		switch ($bvals[0]) {
+			case 'enable':
+				$enable = $bvals[1];
+				break;
+			case 'batch':
+				$batch = $bvals[1];
+				break;
+			case 'size':
+				$size = $bvals[1];
+				break;
+			case 'time':
+				$time = $bvals[1];
+				break;
+			case 'scheduleronly':
+				$scheduleOnly = $bvals[1];
+				break;
+			case 'safeshutdown':
+				$safeShutDown = $bvals[1];
+				break;
+			default:
+				$additionalConfLines[] = $line;
+				break;
+		}
+	}
+	writeCustomFiles($additionalConfLines);
+	fclose($cdrfile);
+} else {
+	$enable = 0;
+	$batch = 0;
+	$size = 200;
+	$time = 300;
+	$scheduleOnly = 0;
+	$safeShutDown = 0;
+}
+$set['value'] = ($enable == 1 || trim($enable) == 'yes') ? 1 : 0;
+$set['defaultval'] = 0;
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'cdr';
+$set['category'] = 'CDR Batch Mode';
+$set['emptyok'] = 0;
+$set['sortorder'] = 1;
+$set['name'] = 'Enable CDR Batch Mode';
+$set['description'] = 'Define whether or not to use CDR logging. Default is "no"';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('CDR_BATCH_ENABLE',$set);
+
+$set['value'] = ($batch == 1 || trim($batch) == 'yes') ? 1 : 0;
+$set['defaultval'] = 0;
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'cdr';
+$set['category'] = 'CDR Batch Mode';
+$set['emptyok'] = 0;
+$set['sortorder'] = 2;
+$set['name'] = 'CDR Batch';
+$set['description'] = 'Use of batch mode may result in data loss after unsafe asterisk termination ie. software crash, power failure, kill -9, etc. Default is "no"';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('CDR_BATCH',$set);
+
+$set['value'] = ($size) ? $size : 200;
+$set['defaultval'] = '200';
+$set['options'] = array(0,300);
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 1;
+$set['module'] = 'cdr';
+$set['category'] = 'CDR Batch Mode';
+$set['emptyok'] = 0;
+$set['sortorder'] = 3;
+$set['name'] = "CDR Batch Size";
+$set['description'] = "Define the maximum number of CDRs to accumulate in the buffer before posting them to the backend engines.  'batch' must be set to 'yes'.  Default is 200.";
+$set['type'] = CONF_TYPE_INT;
+$freepbx_conf->define_conf_setting('CDR_BATCH_SIZE',$set);
+
+$set['value'] = ($time) ? $time : 300;
+$set['defaultval'] = '300';
+$set['options'] = array(0,300);
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 1;
+$set['module'] = 'cdr';
+$set['category'] = 'CDR Batch Mode';
+$set['emptyok'] = 0;
+$set['sortorder'] = 4;
+$set['name'] = "CDR Batch Time";
+$set['description'] = "Define the maximum time to accumulate CDRs in the buffer before posting them to the backend engines. If this time limit is reached, then it will post the records, regardless of the value defined for 'size'. 'batch' must be set to 'yes'.  Note that time is in seconds. Default is 300 (5 minutes).";
+$set['type'] = CONF_TYPE_INT;
+$freepbx_conf->define_conf_setting('CDR_BATCH_TIME',$set);
+
+$set['value'] = ($scheduleOnly == 1 || trim($scheduleOnly) == 'yes') ? 1 : 0;
+$set['defaultval'] = 0;
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'cdr';
+$set['category'] = 'CDR Batch Mode';
+$set['emptyok'] = 0;
+$set['sortorder'] = 5;
+$set['name'] = 'CDR Schedule Only';
+$set['description'] = 'The CDR engine uses the internal asterisk scheduler to determine when to post records. Posting can either occur inside the scheduler thread, or a new thread can be spawned for the submission of every batch. For small batches, it might be acceptable to just use the scheduler thread, so set this to "yes". For large batches, say anything over size=10, a new thread is recommended, so set this to "no".  Default is "no".';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('CDR_BATCH_SCHEDULE_ONLY',$set);
+
+$set['value'] = ($safeShutDown == 1 || trim($safeShutDown) == 'yes') ? 1 : 0;
+$set['defaultval'] = 0;
+$set['readonly'] = 0;
+$set['hidden'] = 0;
+$set['level'] = 3;
+$set['module'] = 'cdr';
+$set['category'] = 'CDR Batch Mode';
+$set['emptyok'] = 0;
+$set['sortorder'] = 6;
+$set['name'] = 'CDR Batch Safe ShutDown';
+$set['description'] = "When shutting down asterisk, you can block until the CDRs are submitted. If you don't, then data will likely be lost.  You can always check the size of the CDR batch buffer with the CLI 'cdr status command. To enable blocking on submission of CDR data during asterisk shutdown, set this to 'yes'. Default is 'no'.";
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('CDR_BATCH_SAFE_SHUT_DOWN',$set);
