@@ -146,7 +146,7 @@ if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 	$time = $amp_conf['CDR_BATCH_TIME'];
 	$scheduleOnly = $amp_conf['CDR_BATCH_SCHEDULE_ONLY'];
 	$safeShutDown = $amp_conf['CDR_BATCH_SAFE_SHUT_DOWN'];
-} else if (file_exists($amp_conf['ASTETCDIR'] . '/cdr.conf') && (filesize($cdrConfFile) != filesize($amp_conf['ASTETCDIR']. '/cdr.conf') && md5_file($cdrConfFile) != md5_file($amp_conf['ASTETCDIR']. '/cdr.conf'))){
+} else if (file_exists($amp_conf['ASTETCDIR'] . '/cdr.conf') && !is_link($amp_conf['ASTETCDIR'] . '/cdr.conf')){
 	$cdrfile = fopen($amp_conf['ASTETCDIR'] . '/cdr.conf', "r");
 	$additionalConfLines = [];
 	while(($line = fgets($cdrfile)) !== false) {
@@ -180,13 +180,14 @@ if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 	}
 	writeCustomFiles($additionalConfLines);
 	fclose($cdrfile);
+	rename($amp_conf['ASTETCDIR'] . '/cdr.conf', $amp_conf['ASTETCDIR'] . '/cdr.conf.back');
 } else {
 	$enable = 1;
 	$batch = 0;
 	$size = 200;
 	$time = 300;
 	$scheduleOnly = 0;
-	$safeShutDown = 0;
+	$safeShutDown = 1;
 }
 $set['value'] = ($enable == 1 || trim($enable) == 'yes') ? 1 : 0;
 $set['defaultval'] = 1;
@@ -261,7 +262,7 @@ $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('CDR_BATCH_SCHEDULE_ONLY',$set);
 
 $set['value'] = ($safeShutDown == 1 || trim($safeShutDown) == 'yes') ? 1 : 0;
-$set['defaultval'] = 0;
+$set['defaultval'] = 1;
 $set['readonly'] = 0;
 $set['hidden'] = 0;
 $set['level'] = 3;

@@ -66,11 +66,6 @@ function cdr_get_config($engine) {
 		$generaladdtionalcontent .= "scheduleronly=". $schedule."\n";
 		$generaladdtionalcontent .= "safeshutdown=". $bshutdown."\n";
 		\FreePBX::WriteConfig()->writeConfig('cdr_general_additional.conf', $generaladdtionalcontent, true);
-		$webroot = \FreePBX::Config()->get('AMPWEBROOT');
-		$cdrConfFile = $webroot.'/admin/modules/cdr/etc/cdr.conf';
-		if (file_exists($amp_conf['ASTETCDIR'] . '/cdr.conf') && filesize($cdrConfFile) != filesize($amp_conf['ASTETCDIR']. '/cdr.conf') && md5_file($cdrConfFile) != md5_file($amp_conf['ASTETCDIR']. '/cdr.conf')) {
-			copy($cdrConfFile,$amp_conf['ASTETCDIR'] . "/cdr.conf");
-		}
 	}
 }
 
