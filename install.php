@@ -6,6 +6,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //
 // Update cdr database with did field
 //
+require_once(dirname(__FILE__) . '/functions.inc.php');
 global $db;
 global $amp_conf;
 
@@ -178,7 +179,9 @@ if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 				break;
 		}
 	}
-	writeCustomFiles($additionalConfLines);
+	if(!function_exists('writeCustomFiles')){
+		writeCustomFiles($additionalConfLines);
+	}
 	fclose($cdrfile);
 	rename($amp_conf['ASTETCDIR'] . '/cdr.conf', $amp_conf['ASTETCDIR'] . '/cdr.conf.back');
 } else {
