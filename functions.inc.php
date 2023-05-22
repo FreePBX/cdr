@@ -209,3 +209,28 @@ function cdr_export_csv($csvdata) {
 	fclose($out);
 	die();
 }
+
+function writeCustomFiles($custConf){
+	$generalCustContent = '';
+	$nongeneralCustContent = '';
+	$nongenLines = false;
+	if($custConf) {
+		foreach ($custConf as $line) {
+			if(strpos($line, '[general]') !== false || empty($line)){
+				continue;
+			}
+
+			if(strpos($line, '[csv]') !== false){
+				$nongenLines = true;
+			}
+
+			if($nongenLines) {
+				$nongeneralCustContent .= str_replace(PHP_EOL, '', $line)."\n";
+			} else {
+				$generalCustContent .= str_replace(PHP_EOL, '', $line)."\n";
+			}
+		}
+	}
+	\FreePBX::WriteConfig()->writeConfig('cdr_general_custom.conf', $generalCustContent, false);
+	\FreePBX::WriteConfig()->writeConfig('cdr_non_general_custom.conf', $nongeneralCustContent, false);
+}

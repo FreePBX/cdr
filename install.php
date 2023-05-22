@@ -274,28 +274,3 @@ $set['name'] = 'CDR Batch Safe ShutDown';
 $set['description'] = "When shutting down asterisk, you can block until the CDRs are submitted. If you don't, then data will likely be lost.  You can always check the size of the CDR batch buffer with the CLI 'cdr status command. To enable blocking on submission of CDR data during asterisk shutdown, set this to 'yes'. Default is 'no'.";
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('CDR_BATCH_SAFE_SHUT_DOWN',$set);
-
-function writeCustomFiles($custConf){
-	$generalCustContent = '';
-	$nongeneralCustContent = '';
-	$nongenLines = false;
-	if($custConf) {
-		foreach ($custConf as $line) {
-			if(strpos($line, '[general]') !== false || empty($line)){
-				continue;
-			}
-
-			if(strpos($line, '[csv]') !== false){
-				$nongenLines = true;
-			}
-
-			if($nongenLines) {
-				$nongeneralCustContent .= str_replace(PHP_EOL, '', $line)."\n";
-			} else {
-				$generalCustContent .= str_replace(PHP_EOL, '', $line)."\n";
-			}
-		}
-	}
-	\FreePBX::WriteConfig()->writeConfig('cdr_general_custom.conf', $generalCustContent, false);
-	\FreePBX::WriteConfig()->writeConfig('cdr_non_general_custom.conf', $nongeneralCustContent, false);
-}
