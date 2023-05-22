@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-22 12:46+0000\n"
+"POT-Creation-Date: 2023-05-22 13:07+0000\n"
 "PO-Revision-Date: 2015-02-04 00:43+0200\n"
 "Last-Translator: Rafael <rafael@ibinetwork.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://git.freepbx.org/projects/freepbx/"
@@ -141,23 +141,23 @@ msgstr "Numero da Conta"
 msgid "Account Information"
 msgstr "Informação da Conta"
 
-#: install.php:51
+#: install.php:52
 msgid "Adding index to did field in the cdr table"
 msgstr ""
 
-#: install.php:44
+#: install.php:45
 msgid "Adding index to did field..."
 msgstr ""
 
-#: install.php:66
+#: install.php:67
 msgid "Adding index to recordingfile field in the cdr table"
 msgstr ""
 
-#: install.php:59
+#: install.php:60
 msgid "Adding index to recordingfile field..."
 msgstr ""
 
-#: install.php:104 /usr/src/freepbx/cdr/install.php:121
+#: install.php:105 /usr/src/freepbx/cdr/install.php:122
 msgid "Adding!"
 msgstr ""
 
@@ -472,7 +472,7 @@ msgid ""
 "Party A"
 msgstr ""
 
-#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+#: install.php:54 /usr/src/freepbx/cdr/install.php:69
 msgid "Done"
 msgstr ""
 
@@ -485,7 +485,7 @@ msgstr ""
 msgid "Duration"
 msgstr "Duração"
 
-#: install.php:132
+#: install.php:133
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -670,7 +670,7 @@ msgstr ""
 msgid "November"
 msgstr "Novembro"
 
-#: install.php:101 /usr/src/freepbx/cdr/install.php:118 install.php:134
+#: install.php:102 /usr/src/freepbx/cdr/install.php:119 install.php:135
 msgid "OK!"
 msgstr ""
 
@@ -946,11 +946,11 @@ msgstr "Total de Chamdas"
 msgid "Total Duration"
 msgstr "Duração Total"
 
-#: install.php:48
+#: install.php:49
 msgid "Unable to add index to did field in the cdr table"
 msgstr ""
 
-#: install.php:63
+#: install.php:64
 msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr ""
 

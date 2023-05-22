@@ -179,7 +179,7 @@ if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 				break;
 		}
 	}
-	if(!function_exists('writeCustomFiles')){
+	if(function_exists('writeCustomFiles')){
 		writeCustomFiles($additionalConfLines);
 	}
 	fclose($cdrfile);

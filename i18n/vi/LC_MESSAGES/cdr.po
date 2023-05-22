@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-22 12:46+0000\n"
+"POT-Creation-Date: 2023-05-22 13:07+0000\n"
 "PO-Revision-Date: 2017-06-20 15:09+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -149,23 +149,23 @@ msgstr "Mã tài khoản"
 msgid "Account Information"
 msgstr "Thông tin tài khoản"
 
-#: install.php:51
+#: install.php:52
 msgid "Adding index to did field in the cdr table"
 msgstr "Thêm chỉ mục tới trường đã làm trong bảng cdr"
 
-#: install.php:44
+#: install.php:45
 msgid "Adding index to did field..."
 msgstr ""
 
-#: install.php:66
+#: install.php:67
 msgid "Adding index to recordingfile field in the cdr table"
 msgstr ""
 
-#: install.php:59
+#: install.php:60
 msgid "Adding index to recordingfile field..."
 msgstr ""
 
-#: install.php:104 /usr/src/freepbx/cdr/install.php:121
+#: install.php:105 /usr/src/freepbx/cdr/install.php:122
 msgid "Adding!"
 msgstr "Đang thêm!"
 
@@ -481,7 +481,7 @@ msgid ""
 "Party A"
 msgstr ""
 
-#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+#: install.php:54 /usr/src/freepbx/cdr/install.php:69
 msgid "Done"
 msgstr ""
 
@@ -494,7 +494,7 @@ msgstr "Tải xuống"
 msgid "Duration"
 msgstr "Khoảng thời gian"
 
-#: install.php:132
+#: install.php:133
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -679,7 +679,7 @@ msgstr "Không tìm thấy"
 msgid "November"
 msgstr "Tháng mười một"
 
-#: install.php:101 /usr/src/freepbx/cdr/install.php:118 install.php:134
+#: install.php:102 /usr/src/freepbx/cdr/install.php:119 install.php:135
 msgid "OK!"
 msgstr "OK!"
 
@@ -969,11 +969,11 @@ msgstr "Tổng các cuộc gọi"
 msgid "Total Duration"
 msgstr "Tổng khoảng thời gian"
 
-#: install.php:48
+#: install.php:49
 msgid "Unable to add index to did field in the cdr table"
 msgstr "Không thể thêm chỉ mục vào trường did trong bảng cdr"
 
-#: install.php:63
+#: install.php:64
 msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr ""
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-22 12:46+0000\n"
+"POT-Creation-Date: 2023-05-22 13:07+0000\n"
 "PO-Revision-Date: 2018-09-04 08:02+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cdr/cs/>\n"
@@ -147,23 +147,23 @@ msgstr "Kód účtu"
 msgid "Account Information"
 msgstr "Informace o účtu"
 
-#: install.php:51
+#: install.php:52
 msgid "Adding index to did field in the cdr table"
 msgstr "Přidání indexu do did pole v tabulce cdr"
 
-#: install.php:44
+#: install.php:45
 msgid "Adding index to did field..."
 msgstr "Přidání indexu do did pole ..."
 
-#: install.php:66
+#: install.php:67
 msgid "Adding index to recordingfile field in the cdr table"
 msgstr "Přidání indexu do pole záznamového souboru v tabulce cdr"
 
-#: install.php:59
+#: install.php:60
 msgid "Adding index to recordingfile field..."
 msgstr "Přidání indexu do pole záznamového souboru ..."
 
-#: install.php:104 /usr/src/freepbx/cdr/install.php:121
+#: install.php:105 /usr/src/freepbx/cdr/install.php:122
 msgid "Adding!"
 msgstr "Přidání!"
 
@@ -478,7 +478,7 @@ msgid ""
 "Party A"
 msgstr ""
 
-#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+#: install.php:54 /usr/src/freepbx/cdr/install.php:69
 msgid "Done"
 msgstr "Hotovo"
 
@@ -491,7 +491,7 @@ msgstr "Stáhnout"
 msgid "Duration"
 msgstr "Doba trvání"
 
-#: install.php:132
+#: install.php:133
 msgid "ERROR failed to update database"
 msgstr "CHYBA nepodařilo se aktualizovat databázi"
 
@@ -676,7 +676,7 @@ msgstr "Nenalezeno"
 msgid "November"
 msgstr "Listopad"
 
-#: install.php:101 /usr/src/freepbx/cdr/install.php:118 install.php:134
+#: install.php:102 /usr/src/freepbx/cdr/install.php:119 install.php:135
 msgid "OK!"
 msgstr "OK!"
 
@@ -965,11 +965,11 @@ msgstr "Všechny hovory"
 msgid "Total Duration"
 msgstr "Celková doba trvání"
 
-#: install.php:48
+#: install.php:49
 msgid "Unable to add index to did field in the cdr table"
 msgstr "Nelze přidat index do did pole v tabulce cdr"
 
-#: install.php:63
+#: install.php:64
 msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr "Nelze přidat index k poli záznamového souboru v tabulce cdr"
 
