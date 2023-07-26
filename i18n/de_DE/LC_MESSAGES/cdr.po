@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-25 01:30+0000\n"
+"POT-Creation-Date: 2023-05-22 13:07+0000\n"
 "PO-Revision-Date: 2018-07-31 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/cdr/de/>\n"
@@ -148,23 +148,23 @@ msgstr "Kontocode"
 msgid "Account Information"
 msgstr "Kontoinformationen"
 
-#: install.php:51
+#: install.php:52
 msgid "Adding index to did field in the cdr table"
 msgstr "Index wird zu DID-Feld in CRD-Tabelle hinzugefügt"
 
-#: install.php:44
+#: install.php:45
 msgid "Adding index to did field..."
 msgstr "Füge Index zum ‚did‘-Feld hinzu..."
 
-#: install.php:66
+#: install.php:67
 msgid "Adding index to recordingfile field in the cdr table"
 msgstr "Füge Index zum ‚recordingfile‘-Feld in der Tabelle ‚cdr‘ hinzu"
 
-#: install.php:59
+#: install.php:60
 msgid "Adding index to recordingfile field..."
 msgstr "Füge Index zum ‚recordingfile‘-Feld hinzu..."
 
-#: install.php:104 /usr/src/freepbx/cdr/install.php:121
+#: install.php:105 /usr/src/freepbx/cdr/install.php:122
 msgid "Adding!"
 msgstr "Hinzufügen!"
 
@@ -247,10 +247,30 @@ msgstr "Beschäftigt"
 msgid "CDR Access"
 msgstr "CDR-Zugang"
 
+#: cdr.i18n.php:18
+msgid "CDR Batch"
+msgstr ""
+
+#: cdr.i18n.php:34
+msgid "CDR Batch Safe ShutDown"
+msgstr ""
+
+#: cdr.i18n.php:22
+msgid "CDR Batch Size"
+msgstr ""
+
+#: cdr.i18n.php:26
+msgid "CDR Batch Time"
+msgstr ""
+
 #: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
 #: /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "Anruferaufzeichnung Detailberichte"
+
+#: cdr.i18n.php:30
+msgid "CDR Schedule Only"
+msgstr ""
 
 #: Api/Gql/Cdr.php:116
 msgid "CDR data does not exists"
@@ -396,6 +416,24 @@ msgstr "Wochentag"
 msgid "December"
 msgstr "Dezember"
 
+#: cdr.i18n.php:24
+msgid ""
+"Define the maximum number of CDRs to accumulate in the buffer before posting "
+"them to the backend engines.  'batch' must be set to 'yes'.  Default is 200."
+msgstr ""
+
+#: cdr.i18n.php:28
+msgid ""
+"Define the maximum time to accumulate CDRs in the buffer before posting them "
+"to the backend engines. If this time limit is reached, then it will post the "
+"records, regardless of the value defined for 'size'. 'batch' must be set to "
+"'yes'.  Note that time is in seconds. Default is 300 (5 minutes)."
+msgstr ""
+
+#: cdr.i18n.php:16
+msgid "Define whether or not to use CDR logging.  Setting this to "
+msgstr ""
+
 #: ucp/views/widget.php:28
 msgid "Description"
 msgstr "Beschreibung"
@@ -442,7 +480,7 @@ msgid ""
 "Party A"
 msgstr ""
 
-#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+#: install.php:54 /usr/src/freepbx/cdr/install.php:69
 msgid "Done"
 msgstr "Erledigt"
 
@@ -455,13 +493,17 @@ msgstr "Herunterladen"
 msgid "Duration"
 msgstr "Dauer"
 
-#: install.php:132
+#: install.php:133
 msgid "ERROR failed to update database"
 msgstr "FEHLER Konnte Datenbank nicht aktualisieren"
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr "CDR (Anrufverlauf) in UCP für diesen Nutzer aktivieren"
+
+#: cdr.i18n.php:12
+msgid "Enable CDR Logging"
+msgstr ""
 
 #: Api/Gql/Cdr.php:55
 msgid "End Date"
@@ -636,7 +678,7 @@ msgstr "Nicht gefunden"
 msgid "November"
 msgstr "November"
 
-#: install.php:101 /usr/src/freepbx/cdr/install.php:118 install.php:134
+#: install.php:102 /usr/src/freepbx/cdr/install.php:119 install.php:135
 msgid "OK!"
 msgstr "OK!"
 
@@ -803,6 +845,14 @@ msgstr "Technische Daten"
 msgid "Telephone Number"
 msgstr "Telefonnummer"
 
+#: cdr.i18n.php:32
+msgid ""
+"The CDR engine uses the internal asterisk scheduler to determine when to "
+"post records. Posting can either occur inside the scheduler thread, or a new "
+"thread can be spawned for the submission of every batch. For small batches, "
+"it might be acceptable to just use the scheduler thread, so set this to "
+msgstr ""
+
 #: Api/Gql/Cdr.php:198 Api/Gql/Cdr.php:408
 msgid "The Caller ID Number"
 msgstr ""
@@ -918,11 +968,11 @@ msgstr "Anrufe gesamt"
 msgid "Total Duration"
 msgstr "Gesamtdauer"
 
-#: install.php:48
+#: install.php:49
 msgid "Unable to add index to did field in the cdr table"
 msgstr "Kann Index nicht zu DID-Feld in der CDR-Tabelle hinzufügen"
 
-#: install.php:63
+#: install.php:64
 msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr ""
 "Kann keinen Index zum ‚recordingfile‘-Feld in der ‚cdr‘-Tabelle hinzufügen"
@@ -934,6 +984,12 @@ msgstr "EinmaligeID"
 #: ucp/Cdr.class.php:356 ucp/Cdr.class.php:377 ucp/Cdr.class.php:381
 msgid "Unknown"
 msgstr "Unbekannt"
+
+#: cdr.i18n.php:20
+msgid ""
+"Use of batch mode may result in data loss after unsafe asterisk termination "
+"ie. software crash, power failure, kill -9, etc. Default is "
+msgstr ""
 
 #: page.cdr.php:354 /usr/src/freepbx/cdr/page.cdr.php:897
 msgid "User Field"
@@ -959,6 +1015,15 @@ msgstr "Anrufbeantworter"
 msgid "Week ( Sun-Sat )"
 msgstr "Woche ( Sa - So )"
 
+#: cdr.i18n.php:36
+msgid ""
+"When shutting down asterisk, you can block until the CDRs are submitted. If "
+"you don't, then data will likely be lost.  You can always check the size of "
+"the CDR batch buffer with the CLI 'cdr status command. To enable blocking on "
+"submission of CDR data during asterisk shutdown, set this to 'yes'. Default "
+"is 'no'."
+msgstr ""
+
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
 msgstr "Ja"
@@ -975,6 +1040,10 @@ msgstr ""
 "Wiedergabenunterstützung benötigen Sie zusätzliche Programme, welche "
 "zusammen mit der PBX nicht zur Verfügung gestellt werden können. Möchten Sie "
 "die benötigten binaries installieren - klicken Sie <a href='%s'>hier</a>"
+
+#: cdr.i18n.php:14
+msgid "cdr"
+msgstr ""
 
 #: page.cdr.php:437
 msgid "channel"
