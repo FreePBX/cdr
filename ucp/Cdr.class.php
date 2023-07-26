@@ -30,11 +30,14 @@ class Cdr extends Modules{
 	private $activeConferences = array();
 	private $limit = 15;
 	private $break = 5;
+	private $user = null;
+	private $userId = false;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
 		$this->cdr = $this->UCP->FreePBX->Cdr;
 		$this->user = $this->UCP->User->getUser();
+		$this->userId = $this->user ? $this->user["id"] : false;
 		if($this->UCP->Session->isMobile || $this->UCP->Session->isTablet) {
 			$this->limit = 7;
 		}
@@ -43,12 +46,11 @@ class Cdr extends Modules{
 	public function getWidgetList() {
 		$widgets = array();
 
-		$user = $this->UCP->User->getUser();
-		$enabled = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','enable');
+		$enabled = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','enable');
 		if (!$enabled) {
 			return array();
 		}
-		$extensions = $this->UCP->getCombinedSettingByID($user['id'],'Cdr','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','assigned');
 
 		if (!empty($extensions)) {
 			foreach($extensions as $extension) {
@@ -129,7 +131,7 @@ class Cdr extends Modules{
 	* @return bool True if pass
 	*/
 	function ajaxRequest($command, $settings) {
-		$enabled = $this->UCP->getCombinedSettingByID($this->user['id'], 'Cdr', 'enable');
+		$enabled = $this->UCP->getCombinedSettingByID($this->userId, 'Cdr', 'enable');
 		if (!$enabled) {
 			return false;
 		}
@@ -445,21 +447,21 @@ class Cdr extends Modules{
 	}
 
 	private function _checkExtension($extension) {
-		$enabled = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','enable');
+		$enabled = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','enable');
 		if(!$enabled) {
 			return false;
 		}
-		$extensions = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','assigned');
+		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','assigned');
 		return in_array($extension,$extensions);
 	}
 
 	private function _checkDownload($extension=null) {
-		$enabled = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','enable');
+		$enabled = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','enable');
 		if(!$enabled) {
 			return false;
 		}
 		if(!is_null($extension) && $this->_checkExtension($extension)) {
-			$dl = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','download');
+			$dl = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','download');
 			return is_null($dl) ? true : $dl;
 		} elseif(is_null($extension)) {
 			return true;
@@ -468,12 +470,12 @@ class Cdr extends Modules{
 	}
 
 	private function _checkPlayback($extension=null) {
-		$enabled = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','enable');
+		$enabled = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','enable');
 		if(!$enabled) {
 			return false;
 		}
 		if(!is_null($extension) && $this->_checkExtension($extension)) {
-			$pb = $this->UCP->getCombinedSettingByID($this->user['id'],'Cdr','playback');
+			$pb = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','playback');
 			return is_null($pb) ? true : $pb;
 		} elseif(is_null($extension)) {
 			return true;
