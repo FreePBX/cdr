@@ -192,6 +192,7 @@ if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 	$scheduleOnly = 0;
 	$safeShutDown = 1;
 }
+$enable??='';
 $set['value'] = ($enable == 1 || trim($enable) == 'yes') ? 1 : 0;
 $set['defaultval'] = 1;
 $set['readonly'] = 0;

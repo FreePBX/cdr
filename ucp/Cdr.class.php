@@ -96,7 +96,9 @@ class Cdr extends Modules{
 		if (!$this->_checkExtension($id)) {
 			return array();
 		}
-
+		$view??='';
+		$html??='';
+		
 		$displayvars = array(
 			'ext' => $id,
 			'activeList' => $view,
