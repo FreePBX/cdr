@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-13 12:07+0000\n"
+"POT-Creation-Date: 2023-08-02 11:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -150,23 +150,23 @@ msgstr ""
 msgid "Account Information"
 msgstr ""
 
-#: install.php:51
+#: install.php:52
 msgid "Adding index to did field in the cdr table"
 msgstr ""
 
-#: install.php:44
+#: install.php:45
 msgid "Adding index to did field..."
 msgstr ""
 
-#: install.php:66
+#: install.php:67
 msgid "Adding index to recordingfile field in the cdr table"
 msgstr ""
 
-#: install.php:59
+#: install.php:60
 msgid "Adding index to recordingfile field..."
 msgstr ""
 
-#: install.php:104 /usr/src/freepbx/cdr/install.php:121
+#: install.php:105 /usr/src/freepbx/cdr/install.php:122
 msgid "Adding!"
 msgstr ""
 
@@ -312,12 +312,12 @@ msgid "Call Graph"
 msgstr ""
 
 #: Cdr.class.php:307
-#: ucp/Cdr.class.php:78
-#: ucp/Cdr.class.php:111
+#: ucp/Cdr.class.php:80
+#: ucp/Cdr.class.php:115
 msgid "Call History"
 msgstr ""
 
-#: ucp/Cdr.class.php:65
+#: ucp/Cdr.class.php:67
 #, php-format
 msgid "Call History for %s"
 msgstr ""
@@ -360,8 +360,8 @@ msgstr ""
 msgid "Concurrent Calls"
 msgstr ""
 
-#: ucp/Cdr.class.php:326
 #: ucp/Cdr.class.php:330
+#: ucp/Cdr.class.php:334
 msgid "Conference"
 msgstr ""
 
@@ -452,7 +452,7 @@ msgid ""
 "Party A"
 msgstr ""
 
-#: install.php:53 /usr/src/freepbx/cdr/install.php:68
+#: install.php:54 /usr/src/freepbx/cdr/install.php:69
 msgid "Done"
 msgstr ""
 
@@ -465,7 +465,7 @@ msgstr ""
 msgid "Duration"
 msgstr ""
 
-#: install.php:132
+#: install.php:133
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -527,11 +527,11 @@ msgstr ""
 msgid "February"
 msgstr ""
 
-#: ucp/Cdr.class.php:189
+#: ucp/Cdr.class.php:193
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:428
+#: ucp/Cdr.class.php:432
 msgid "Forbidden"
 msgstr ""
 
@@ -644,7 +644,7 @@ msgstr ""
 msgid "Not"
 msgstr ""
 
-#: ucp/Cdr.class.php:434
+#: ucp/Cdr.class.php:438
 msgid "Not Found"
 msgstr ""
 
@@ -652,8 +652,8 @@ msgstr ""
 msgid "November"
 msgstr ""
 
-#: install.php:101 /usr/src/freepbx/cdr/install.php:118
-#: install.php:134
+#: install.php:102 /usr/src/freepbx/cdr/install.php:119
+#: install.php:135
 msgid "OK!"
 msgstr ""
 
@@ -865,8 +865,8 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:167
-#: ucp/Cdr.class.php:184
+#: ucp/Cdr.class.php:171
+#: ucp/Cdr.class.php:188
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -926,11 +926,11 @@ msgstr ""
 msgid "Total Duration"
 msgstr ""
 
-#: install.php:48
+#: install.php:49
 msgid "Unable to add index to did field in the cdr table"
 msgstr ""
 
-#: install.php:63
+#: install.php:64
 msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr ""
 
@@ -939,9 +939,9 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:356
-#: ucp/Cdr.class.php:377
+#: ucp/Cdr.class.php:360
 #: ucp/Cdr.class.php:381
+#: ucp/Cdr.class.php:385
 msgid "Unknown"
 msgstr ""
 
@@ -961,8 +961,8 @@ msgstr ""
 msgid "Userfield"
 msgstr ""
 
-#: ucp/Cdr.class.php:312
-#: ucp/Cdr.class.php:317
+#: ucp/Cdr.class.php:316
+#: ucp/Cdr.class.php:321
 msgid "Voicemail"
 msgstr ""
 
@@ -994,7 +994,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:344
+#: ucp/Cdr.class.php:348
 msgid "denied by COS"
 msgstr ""
 
@@ -1002,6 +1002,6 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:340
+#: ucp/Cdr.class.php:344
 msgid "kicked from conference"
 msgstr ""

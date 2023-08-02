@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-22 13:07+0000\n"
+"POT-Creation-Date: 2023-08-02 11:14+0000\n"
 "PO-Revision-Date: 2011-09-23 09:52+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -235,29 +235,9 @@ msgstr "Заето"
 msgid "CDR Access"
 msgstr ""
 
-#: cdr.i18n.php:18
-msgid "CDR Batch"
-msgstr ""
-
-#: cdr.i18n.php:34
-msgid "CDR Batch Safe ShutDown"
-msgstr ""
-
-#: cdr.i18n.php:22
-msgid "CDR Batch Size"
-msgstr ""
-
-#: cdr.i18n.php:26
-msgid "CDR Batch Time"
-msgstr ""
-
 #: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
 #: /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
-msgstr ""
-
-#: cdr.i18n.php:30
-msgid "CDR Schedule Only"
 msgstr ""
 
 #: Api/Gql/Cdr.php:116
@@ -316,11 +296,11 @@ msgstr ""
 msgid "Call Graph"
 msgstr ""
 
-#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
+#: Cdr.class.php:307 ucp/Cdr.class.php:80 ucp/Cdr.class.php:115
 msgid "Call History"
 msgstr ""
 
-#: ucp/Cdr.class.php:65
+#: ucp/Cdr.class.php:67
 #, php-format
 msgid "Call History for %s"
 msgstr ""
@@ -358,7 +338,7 @@ msgstr "Канал"
 msgid "Concurrent Calls"
 msgstr "Едновременни Разговори"
 
-#: ucp/Cdr.class.php:326 ucp/Cdr.class.php:330
+#: ucp/Cdr.class.php:330 ucp/Cdr.class.php:334
 msgid "Conference"
 msgstr "Конференция"
 
@@ -402,24 +382,6 @@ msgstr "Ден от седмицата"
 #: page.cdr.php:119
 msgid "December"
 msgstr "Декември"
-
-#: cdr.i18n.php:24
-msgid ""
-"Define the maximum number of CDRs to accumulate in the buffer before posting "
-"them to the backend engines.  'batch' must be set to 'yes'.  Default is 200."
-msgstr ""
-
-#: cdr.i18n.php:28
-msgid ""
-"Define the maximum time to accumulate CDRs in the buffer before posting them "
-"to the backend engines. If this time limit is reached, then it will post the "
-"records, regardless of the value defined for 'size'. 'batch' must be set to "
-"'yes'.  Note that time is in seconds. Default is 300 (5 minutes)."
-msgstr ""
-
-#: cdr.i18n.php:16
-msgid "Define whether or not to use CDR logging.  Setting this to "
-msgstr ""
 
 #: ucp/views/widget.php:28
 msgid "Description"
@@ -488,10 +450,6 @@ msgstr ""
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr ""
 
-#: cdr.i18n.php:12
-msgid "Enable CDR Logging"
-msgstr ""
-
 #: Api/Gql/Cdr.php:55
 msgid "End Date"
 msgstr ""
@@ -546,11 +504,11 @@ msgstr "Неуспех"
 msgid "February"
 msgstr "Февруари"
 
-#: ucp/Cdr.class.php:189
+#: ucp/Cdr.class.php:193
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:428
+#: ucp/Cdr.class.php:432
 msgid "Forbidden"
 msgstr ""
 
@@ -657,7 +615,7 @@ msgstr ""
 msgid "Not"
 msgstr ""
 
-#: ucp/Cdr.class.php:434
+#: ucp/Cdr.class.php:438
 msgid "Not Found"
 msgstr ""
 
@@ -820,14 +778,6 @@ msgstr ""
 msgid "Telephone Number"
 msgstr ""
 
-#: cdr.i18n.php:32
-msgid ""
-"The CDR engine uses the internal asterisk scheduler to determine when to "
-"post records. Posting can either occur inside the scheduler thread, or a new "
-"thread can be spawned for the submission of every batch. For small batches, "
-"it might be acceptable to just use the scheduler thread, so set this to "
-msgstr ""
-
 #: Api/Gql/Cdr.php:198 Api/Gql/Cdr.php:408
 msgid "The Caller ID Number"
 msgstr ""
@@ -883,7 +833,7 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:167 ucp/Cdr.class.php:184
+#: ucp/Cdr.class.php:171 ucp/Cdr.class.php:188
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -953,15 +903,9 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:356 ucp/Cdr.class.php:377 ucp/Cdr.class.php:381
+#: ucp/Cdr.class.php:360 ucp/Cdr.class.php:381 ucp/Cdr.class.php:385
 msgid "Unknown"
 msgstr "Непознат"
-
-#: cdr.i18n.php:20
-msgid ""
-"Use of batch mode may result in data loss after unsafe asterisk termination "
-"ie. software crash, power failure, kill -9, etc. Default is "
-msgstr ""
 
 #: page.cdr.php:354 /usr/src/freepbx/cdr/page.cdr.php:897
 msgid "User Field"
@@ -979,21 +923,12 @@ msgstr ""
 msgid "Userfield"
 msgstr ""
 
-#: ucp/Cdr.class.php:312 ucp/Cdr.class.php:317
+#: ucp/Cdr.class.php:316 ucp/Cdr.class.php:321
 msgid "Voicemail"
 msgstr "Гласова Поща"
 
 #: page.cdr.php:363 /usr/src/freepbx/cdr/page.cdr.php:912
 msgid "Week ( Sun-Sat )"
-msgstr ""
-
-#: cdr.i18n.php:36
-msgid ""
-"When shutting down asterisk, you can block until the CDRs are submitted. If "
-"you don't, then data will likely be lost.  You can always check the size of "
-"the CDR batch buffer with the CLI 'cdr status command. To enable blocking on "
-"submission of CDR data during asterisk shutdown, set this to 'yes'. Default "
-"is 'no'."
 msgstr ""
 
 #: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
@@ -1009,10 +944,6 @@ msgid ""
 "these conversions click <a href='%s'>here</a>"
 msgstr ""
 
-#: cdr.i18n.php:14
-msgid "cdr"
-msgstr ""
-
 #: page.cdr.php:437
 msgid "channel"
 msgstr "канал"
@@ -1021,7 +952,7 @@ msgstr "канал"
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:344
+#: ucp/Cdr.class.php:348
 msgid "denied by COS"
 msgstr ""
 
@@ -1029,7 +960,7 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:340
+#: ucp/Cdr.class.php:344
 msgid "kicked from conference"
 msgstr ""
 
