@@ -27,9 +27,9 @@ use \UCP\Modules as Modules;
 
 class Cdr extends Modules{
 	protected $module = 'Cdr';
-	private $activeConferences = array();
-	private $limit = 15;
-	private $break = 5;
+	private array $activeConferences = [];
+	private int $limit = 15;
+	private int $break = 5;
 	private $user = null;
 	private $userId = false;
 
@@ -44,11 +44,11 @@ class Cdr extends Modules{
 	}
 
 	public function getWidgetList() {
-		$widgets = array();
+		$widgets = [];
 
 		$enabled = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','enable');
 		if (!$enabled) {
-			return array();
+			return [];
 		}
 		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','assigned');
 
@@ -62,65 +62,40 @@ class Cdr extends Modules{
 					$name = $data['description'];
 				}
 
-				$widgets[$extension] = array(
-					"display" => $name,
-					"description" => sprintf(_("Call History for %s"),$name),
-					"defaultsize" => array("height" => 7, "width" => 6),
-					"minsize" => array("height" => 6, "width" => 3)
-				);
+				$widgets[$extension] = ["display" => $name, "description" => sprintf(_("Call History for %s"),$name), "defaultsize" => ["height" => 7, "width" => 6], "minsize" => ["height" => 6, "width" => 3]];
 			}
 		}
 
 		if (empty($widgets)) {
-			return array();
+			return [];
 		}
 
-		return array(
-			"rawname" => "cdr",
-			"display" => _("Call History"),
-			"icon" => "fa fa-hourglass-half",
-			"list" => $widgets
-		);
+		return ["rawname" => "cdr", "display" => _("Call History"), "icon" => "fa fa-hourglass-half", "list" => $widgets];
 	}
 
 	public function getStaticSettings() {
 		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
-		return array(
-			"showPlayback" => $this->_checkPlayback() ? "1" : "0",
-			"showDownload" => $this->_checkDownload() ? "1" : "0",
-			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())
-		);
+		return ["showPlayback" => $this->_checkPlayback() ? "1" : "0", "showDownload" => $this->_checkDownload() ? "1" : "0", "supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())];
 	}
 
 	public function getWidgetDisplay($id,$uuid) {
 		if (!$this->_checkExtension($id)) {
-			return array();
+			return [];
 		}
 		$view??='';
 		$html??='';
 		
-		$displayvars = array(
-			'ext' => $id,
-			'activeList' => $view,
-			'calls' => $this->postProcessCalls($this->cdr->getCalls($id, 1, 'desc', 'date', '', $this->limit), $id),
-			"showPlayback" => $this->_checkPlayback(),
-			"showDownload" => $this->_checkDownload(),
-			"extension" => $id,
-			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())
-		);
+		$displayvars = ['ext' => $id, 'activeList' => $view, 'calls' => $this->postProcessCalls($this->cdr->getCalls($id, 1, 'desc', 'date', '', $this->limit), $id), "showPlayback" => $this->_checkPlayback(), "showDownload" => $this->_checkDownload(), "extension" => $id, "supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())];
 
 		$html.= $this->load_view(__DIR__.'/views/widget.php',$displayvars);
 
-		$display = array(
-			'title' => _("Call History"),
-			'html' => $html
-		);
+		$display = ['title' => _("Call History"), 'html' => $html];
 
 		return $display;
 	}
 
 	function poll($data) {
-		return array('status' => false);
+		return ['status' => false];
 	}
 
 	/**
@@ -137,21 +112,12 @@ class Cdr extends Modules{
 		if (!$enabled) {
 			return false;
 		}
-		switch($command) {
-			case 'grid':
-				return true;
-			break;
-			case 'download':
-				return $this->_checkDownload($_REQUEST['ext']);
-			break;
-			case 'gethtml5':
-			case 'playback':
-				return $this->_checkPlayback($_REQUEST['ext']);
-			break;
-			default:
-				return false;
-			break;
-		}
+		return match ($command) {
+      'grid' => true,
+      'download' => $this->_checkDownload($_REQUEST['ext']),
+      'gethtml5', 'playback' => $this->_checkPlayback($_REQUEST['ext']),
+      default => false,
+  };
 	}
 
 	/**
@@ -162,13 +128,13 @@ class Cdr extends Modules{
 	* @return mixed Output if success, otherwise false will generate a 500 error serverside
 	*/
 	function ajaxHandler() {
-		$return = array("status" => false, "message" => "");
+		$return = ["status" => false, "message" => ""];
 		switch($_REQUEST['command']) {
 			case "grid":
 				$limit = filter_var($_REQUEST['limit'], FILTER_SANITIZE_NUMBER_INT);
 				$ext = $_REQUEST['extension'];
 				if (!$this->_checkExtension($ext)) {
-					return array("status" => false, "message" => _("The extension isn't associated with the user account"));
+					return ["status" => false, "message" => _("The extension isn't associated with the user account")];
 				}
 				$order = $_REQUEST['order'];
 				$orderby = !empty($_REQUEST['sort']) ? $_REQUEST['sort'] : "date";
@@ -178,27 +144,24 @@ class Cdr extends Modules{
 				$page = ($offset / $limit) + 1;
 				$total = $this->cdr->getTotalCalls($ext,$search);
 				$data = $this->postProcessCalls($this->cdr->getCalls($ext,$page,$orderby,$order,$search,$limit),$ext);
-				return array(
-					"total" => $total,
-					"rows" => $data
-				);
+				return ["total" => $total, "rows" => $data];
 			break;
 			case 'gethtml5':
 				if (!$this->_checkExtension($_REQUEST['ext'])) {
-					return array("status" => false, "message" => _("The extension isn't associated with the user account"));
+					return ["status" => false, "message" => _("The extension isn't associated with the user account")];
 				}
 				$media = $this->UCP->FreePBX->Media();
 				$record = $this->UCP->FreePBX->Cdr->getRecordByIDExtension($_REQUEST['id'],$_REQUEST['ext']);
 				if(!file_exists($record['recordingfile'])) {
-					return array("status" => false, "message" => _("File does not exist"));
+					return ["status" => false, "message" => _("File does not exist")];
 				}
 				$media->load($record['recordingfile']);
 				$files = $media->generateHTML5();
-				$final = array();
+				$final = [];
 				foreach($files as $format => $name) {
 					$final[$format] = "index.php?quietmode=1&module=cdr&command=playback&file=".$name."&ext=".$_REQUEST['ext'];
 				}
-				return array("status" => true, "files" => $final);
+				return ["status" => true, "files" => $final];
 			break;
 			default:
 				return false;
@@ -235,64 +198,64 @@ class Cdr extends Modules{
 
 	private function postProcessCalls($calls,$self) {
 		foreach($calls as &$call) {
-			$app = strtolower($call['lastapp']);
+			$app = strtolower((string) $call['lastapp']);
 			switch($app) {
 				case 'dial':
 					switch($call['disposition']) {
 						case 'ANSWERED':
-							if($call['src'] == $self || strpos($call['channel'], "/".$self."-") !== false) {
+							if($call['src'] == $self || str_contains((string) $call['channel'], "/".$self."-")) {
 								$call['icons'][] = 'fa-arrow-right out';
 								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
 								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst'];
-							} elseif($call['dst'] == $self || strpos($call['dstchannel'], "/".$self."-") !== false) {
+							} elseif($call['dst'] == $self || str_contains((string) $call['dstchannel'], "/".$self."-")) {
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
-								$call['text'] = htmlentities($call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} else {
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = htmlentities($call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							}
 						break;
 						case 'NO ANSWER':
 							//Remove the recording reference as these are almost always errors (from what I've seen)
 							$call['recordingfile'] = '';
-							if($call['src'] == $self || strpos($call['channel'], "/".$self."-") !== false) {
+							if($call['src'] == $self || str_contains((string) $call['channel'], "/".$self."-")) {
 								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
 								$call['icons'][] = 'fa-arrow-right out';
 								$call['icons'][] = 'fa-ban';
 								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst'];
-							} elseif($call['dst'] == $self || strpos($call['dstchannel'], "/".$self."-") !== false) {
+							} elseif($call['dst'] == $self || str_contains((string) $call['dstchannel'], "/".$self."-")) {
 								$call['icons'][] = 'fa-ban';
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
-								$call['text'] = htmlentities($call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} else {
-								$call['text'] = htmlentities($call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							}
 						break;
 						case 'BUSY':
-							if($call['src'] == $self || strpos($call['channel'], "/".$self."-") !== false) {
+							if($call['src'] == $self || str_contains((string) $call['channel'], "/".$self."-")) {
 								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
 								$call['icons'][] = 'fa-arrow-right out';
 								$call['icons'][] = 'fa-clock-o';
 								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst'];
-							} elseif($call['dst'] == $self || strpos($call['dstchannel'], "/".$self."-") !== false) {
+							} elseif($call['dst'] == $self || str_contains((string) $call['dstchannel'], "/".$self."-")) {
 								$call['icons'][] = 'fa-ban';
 								$call['icons'][] = 'fa-clock-o';
 								$call['text'] = $call['clid'];
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
-								$call['text'] = htmlentities($call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} else {
-								$call['text'] = htmlentities($call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							}
 						break;
 					}
-					if(!empty($call['text']) && preg_match('/LC\-(\d*)/i',$call['text'],$matches)) {
+					if(!empty($call['text']) && preg_match('/LC\-(\d*)/i',(string) $call['text'],$matches)) {
 						$device = $this->UCP->FreePBX->Core->getDevice($matches[1]);
 						$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$matches[1].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $matches[1];
 					}
@@ -301,14 +264,14 @@ class Cdr extends Modules{
 					if($call['src'] == $self) {
 						$call['icons'][] = 'fa-arrow-right out';
 						$call['icons'][] = 'fa-envelope';
-						$call['text'] = htmlentities($call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 					} elseif($call['dst'] == $self) {
 						$call['icons'][] = 'fa-envelope';
 						$call['icons'][] = 'fa-arrow-left in';
-						$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 					} else {
 						$call['icons'][] = 'fa-envelope';
-						$call['text'] = htmlentities($call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 					}
 					if(preg_match('/^vmu(\d*)/i',$call['text'],$matches)) {
 						$device = $this->UCP->FreePBX->Core->getDevice($matches[1]);
@@ -331,7 +294,7 @@ class Cdr extends Modules{
 					} elseif($call['dst'] == $self) {
 						$call['icons'][] = 'fa-users';
 						$call['icons'][] = 'fa-arrow-left in';
-						$call['text'] = _('Conference') . ' ' . htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = _('Conference') . ' ' . htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 					} else {
 						$call['icons'][] = 'fa-users';
 						$call['text'] = $call['src'];
@@ -351,11 +314,11 @@ class Cdr extends Modules{
 							if($call['src'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
 								$call['icons'][] = 'fa-ban';
-								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} elseif($call['dst'] == $self) {
 								$call['icons'][] = 'fa-ban';
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = htmlentities($call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 							} else {
 								$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
 							}
@@ -365,18 +328,18 @@ class Cdr extends Modules{
 				case 'playback':
 					if($call['src'] == $self) {
 						$call['icons'][] = 'fa-arrow-right out';
-						$call['text'] = htmlentities($call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 					} else {
-						$call['text'] = htmlentities($call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 					}
 				break;
 				default:
 					if($call['src'] == $self) {
 						$call['icons'][] = 'fa-arrow-right out';
-						$call['text'] = htmlentities($call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 					} elseif($call['dst'] == $self) {
 						$call['icons'][] = 'fa-arrow-left in';
-						$call['text'] = htmlentities($call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
 					} else {
 						$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
 					}
@@ -443,7 +406,7 @@ class Cdr extends Modules{
 		header("Content-length: " . filesize($record['recordingfile']));
 		header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 		header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-		header('Content-Disposition: attachment;filename="' . basename($record['recordingfile']).'"');
+		header('Content-Disposition: attachment;filename="' . basename((string) $record['recordingfile']).'"');
 		header('Content-type: ' . $mimetype);
 		readfile($record['recordingfile']);
 	}

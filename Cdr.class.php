@@ -25,28 +25,29 @@ class Cdr implements \BMO {
 	private $db_table;
 
 	public function __construct($freepbx = null) {
-		if ($freepbx == null) {
+		$amp_conf = [];
+  if ($freepbx == null) {
 			throw new \Exception("Not given a FreePBX Object");
 		}
 
 		$this->FreePBX = $freepbx;
 
 		// Variables to try. If the key is blank/unset, use the value instead.
-		$vars = array(
-			"CDRDBHOST" => "AMPDBHOST",
-			"CDRDBPORT" => "AMPDBPORT",
-			"CDRDBUSER" => "AMPDBUSER",
-			"CDRDBPASS" => "AMPDBPASS",
-			"CDRDBTYPE" => "AMPDBTYPE",
-			// This is removed if unset
-			"CDRDBSOCK" => "AMPDBSOCK",
-			// Note - no default, we check later.
-			"CDRDBNAME" => "CDRDBNAME",
-			"CDRDBTABLENAME" => "CDRDBTABLENAME",
-			"CDRUSEGMT" => "CDRUSEGMT",
-		);
+		$vars = [
+      "CDRDBHOST" => "AMPDBHOST",
+      "CDRDBPORT" => "AMPDBPORT",
+      "CDRDBUSER" => "AMPDBUSER",
+      "CDRDBPASS" => "AMPDBPASS",
+      "CDRDBTYPE" => "AMPDBTYPE",
+      // This is removed if unset
+      "CDRDBSOCK" => "AMPDBSOCK",
+      // Note - no default, we check later.
+      "CDRDBNAME" => "CDRDBNAME",
+      "CDRDBTABLENAME" => "CDRDBTABLENAME",
+      "CDRUSEGMT" => "CDRUSEGMT",
+  ];
 
-		$cdr = array();
+		$cdr = [];
 		foreach ($vars as $conf => $default) {
 			$tmp = \FreePBX::Config()->get($conf);
 			// Is our config blank for this setting?
@@ -72,9 +73,9 @@ class Cdr implements \BMO {
 
 		// If CDRDBNAME is blank, set it to asteriskcdrdb
 		if (!$cdr['CDRDBNAME']) {
-			$dsnarray = array("dbname" => "asteriskcdrdb");
+			$dsnarray = ["dbname" => "asteriskcdrdb"];
 		} else {
-			$dsnarray = array("dbname" => $cdr['CDRDBNAME']);
+			$dsnarray = ["dbname" => $cdr['CDRDBNAME']];
         }
 
 		// If we don't have a type (bogus install, possibly?), assume mysql
@@ -108,7 +109,7 @@ class Cdr implements \BMO {
 		}
 
 		// If this is sqlite, ignore everything we've just done.
-		if (strpos($engine, "sqlite") === 0) {
+		if (str_starts_with((string) $engine, "sqlite")) {
 			// This is our raw parsed variables from /etc/freepbx.conf
 			$ampconf = \FreePBX::$amp_conf;
 			if (isset($amp_conf['cdrdatasource'])) {
@@ -132,7 +133,7 @@ class Cdr implements \BMO {
 		// Now try to get a DB handle using our DSN
 		try {
 			$this->cdrdb = new \Database($dsn, $user, $pass);
-		} catch(\Exception $e) {
+		} catch(\Exception) {
 			throw new \Exception('Unable to connect to CDR Database');
 		}
 		//Set the CDR session timezone to GMT if CDRUSEGMT is true
@@ -159,7 +160,7 @@ class Cdr implements \BMO {
 	public function getWidgetListByModule($defaultexten, $userid,$widget) {
 		// if the widget_type_id is not defaultextension and widget_type_id is not in extensions
 		// then return only the defaultexten details
-		$widgets = array();
+		$widgets = [];
 		$widget_type_id = $widget['widget_type_id'];// this will be an extension number
 		$enabled = $this->FreePBX->Ucp->getCombinedSettingByID($userid,'Cdr','enable');
 		if (!$enabled) {
@@ -200,7 +201,7 @@ class Cdr implements \BMO {
 			if(!empty($_POST['ucp_cdr'])) {
 				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','assigned',$_POST['ucp_cdr']);
 			} else {
-				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','assigned',array('self'));
+				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','assigned',['self']);
 			}
 			if(!empty($_REQUEST['cdr_download']) && $_REQUEST['cdr_download'] == 'yes') {
 				$this->FreePBX->Ucp->setSettingByGID($id,'Cdr','download',true);
@@ -273,7 +274,8 @@ class Cdr implements \BMO {
 	}
 
 	public function ucpConfigPage($mode, $user, $action) {
-		if(empty($user)) {
+		$html = [];
+  if(empty($user)) {
 			$enable = ($mode == 'group') ? true : null;
 			$download = ($mode == 'group') ? true : null;
 			$playback = ($mode == 'group') ? true : null;
@@ -291,23 +293,19 @@ class Cdr implements \BMO {
 			}
 		}
 
-		$cdrassigned = !empty($cdrassigned) ? $cdrassigned : array();
+		$cdrassigned = !empty($cdrassigned) ? $cdrassigned : [];
 
-		$ausers = array();
+		$ausers = [];
 		if($action == "showgroup" || $action == "addgroup") {
 			$ausers['self'] = _("User Primary Extension");
 		}
 		if($action == "addgroup") {
-			$cdrassigned = array('self');
+			$cdrassigned = ['self'];
 		}
 		foreach(core_users_list() as $list) {
 			$ausers[$list[0]] = sprintf("%s <%s>", $list[1], $list[0]);
 		}
-		$html[0] = array(
-			"title" => _("Call History"),
-			"rawname" => "cdrreports",
-			"content" => load_view(dirname(__FILE__)."/views/ucp_config.php",array("mode"  => $mode, "enable" => $enable, "cdrassigned" => $cdrassigned, "ausers" => $ausers, "playback" => $playback,"download" => $download))
-		);
+		$html[0] = ["title" => _("Call History"), "rawname" => "cdrreports", "content" => load_view(__DIR__."/views/ucp_config.php",["mode"  => $mode, "enable" => $enable, "cdrassigned" => $cdrassigned, "ausers" => $ausers, "playback" => $playback, "download" => $download])];
 		return $html;
 	}
 
@@ -337,14 +335,10 @@ class Cdr implements \BMO {
 	public function ajaxRequest($req, &$setting) {
 		$setting['authenticate'] = true;
 		$setting['allowremote'] = false;
-		switch($req) {
-			case "gethtml5":
-			case "playback":
-			case "download":
-				return true;
-			break;
-		}
-		return false;
+  return match ($req) {
+      "gethtml5", "playback", "download" => true,
+      default => false,
+  };
 	}
 
 	public function ajaxCustomHandler() {
@@ -365,13 +359,13 @@ class Cdr implements \BMO {
 				if(!empty($info['recordingfile'])) {
 					$media->load($info['recordingfile']);
 					$files = $media->generateHTML5();
-					$final = array();
+					$final = [];
 					foreach($files as $format => $name) {
 						$final[$format] = "ajax.php?module=cdr&command=playback&file=".$name;
 					}
-					return array("status" => true, "files" => $final);
+					return ["status" => true, "files" => $final];
 				}
-				return array("status" => false);
+				return ["status" => false];
 			break;
 		}
 	}
@@ -380,10 +374,10 @@ class Cdr implements \BMO {
 		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND uniqueid = :uid";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
-			$sth->execute(array("uid" => str_replace("_",".",$rid)));
+			$sth->execute(["uid" => str_replace("_",".",(string) $rid)]);
 			$recording = $sth->fetch(\PDO::FETCH_ASSOC);
-		} catch(\Exception $e) {
-			return array();
+		} catch(\Exception) {
+			return [];
 		}
 		$recording['recordingfile'] = $this->processPath($recording['recordingfile']);
 		return $recording;
@@ -399,9 +393,9 @@ class Cdr implements \BMO {
 		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :chan OR channel LIKE :chan)";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
-			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':chan' => '%/'.$ext.'-%'));
+			$sth->execute(["uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':chan' => '%/'.$ext.'-%']);
 			$recording = $sth->fetch(\PDO::FETCH_ASSOC);
-		} catch(\Exception $e) {
+		} catch(\Exception) {
 			return false;
 		}
 		$recording['recordingfile'] = $this->processPath($recording['recordingfile']);
@@ -411,23 +405,16 @@ class Cdr implements \BMO {
 	public function getAllCalls($page=1,$orderby='date',$order='desc',$search='',$limit=100) {
 		$start = ($limit * ($page - 1));
 		$end = $limit;
-		switch($orderby) {
-			case 'description':
-				$orderby = 'clid';
-			break;
-			case 'duration':
-				$orderby = 'duration';
-			break;
-			case 'date':
-			default:
-				$orderby = 'timestamp';
-			break;
-		}
+		$orderby = match ($orderby) {
+      'description' => 'clid',
+      'duration' => 'duration',
+      default => 'timestamp',
+  };
 		$order = ($order == 'desc') ? 'desc' : 'asc';
 		if(!empty($search)) {
 			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':search' => '%'.$search.'%'));
+			$sth->execute([':search' => '%'.$search.'%']);
 		} else {
 			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
@@ -459,34 +446,27 @@ class Cdr implements \BMO {
 		}
 		$start = ($limit * ($page - 1));
 		$end = $limit;
-		switch($orderby) {
-			case 'description':
-				$orderby = 'clid';
-			break;
-			case 'duration':
-				$orderby = 'duration';
-			break;
-			case 'date':
-			default:
-				$orderby = 'timestamp';
-			break;
-		}
+		$orderby = match ($orderby) {
+      'description' => 'clid',
+      'duration' => 'duration',
+      default => 'timestamp',
+  };
 		$order = ($order == 'desc') ? 'desc' : 'asc';
 		if(!empty($search)) {
 			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
+			$sth->execute([':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension]);
 		} else {
 			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
+			$sth->execute([':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension]);
 		}
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		foreach($calls as &$call) {
-			if(empty($call['dst']) && preg_match('/\/(.*)\-/',$call['dstchannel'],$matches)) {
+			if(empty($call['dst']) && preg_match('/\/(.*)\-/',(string) $call['dstchannel'],$matches)) {
 				$call['dst'] = $matches[1];
 			}
-			if(empty($call['src']) && preg_match('/\/(.*)\-/',$call['channel'],$matches)) {
+			if(empty($call['src']) && preg_match('/\/(.*)\-/',(string) $call['channel'],$matches)) {
 				$call['src'] = $matches[1];
 			}
 			//This Check $fromAPI to avoid to send the unwanted data to DPMA Call Log API only.
@@ -501,8 +481,8 @@ class Cdr implements \BMO {
 			} else {
 				$call['niceDuration'] = sprintf(_('%s sec'),$call['duration']);
 			}
-			$call['niceUniqueid'] = str_replace(".","_",$call['uniqueid']);
-			$call['recordingformat'] = !empty($call['recordingfile']) ? strtolower(pathinfo($call['recordingfile'],PATHINFO_EXTENSION)) : '';
+			$call['niceUniqueid'] = str_replace(".","_",(string) $call['uniqueid']);
+			$call['recordingformat'] = !empty($call['recordingfile']) ? strtolower(pathinfo((string) $call['recordingfile'],PATHINFO_EXTENSION)) : '';
 			$call['recordingfile'] = $this->processPath($call['recordingfile']);
 			$call['requestingExtension'] = $extension;
 			}
@@ -519,11 +499,11 @@ class Cdr implements \BMO {
 		if(!empty($search)) {
 			$sql = "SELECT count(*) as count FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search)";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%',':extensionv' => 'vmu'.$extension));
+			$sth->execute([':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension]);
 		} else {
 			$sql = "SELECT count(*) as count FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension)";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
+			$sth->execute([':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension]);
 		}
 		$res = $sth->fetch(\PDO::FETCH_ASSOC);
 		$total = $res['count'];
@@ -538,11 +518,11 @@ class Cdr implements \BMO {
 		if(!empty($search)) {
 			$sql = "SELECT count(*) as count FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search)";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%',':extensionv' => 'vmu'.$extension));
+			$sth->execute([':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension]);
 		} else {
 			$sql = "SELECT count(*) as count FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension)";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
+			$sth->execute([':chan' => '%/'.$extension.'-%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension]);
 		}
 		$res = $sth->fetch(\PDO::FETCH_ASSOC);
 		$total = $res['count'];
@@ -568,7 +548,7 @@ class Cdr implements \BMO {
 		$fyear = substr($rec_parts[3],0,4);
 		$fmonth = substr($rec_parts[3],4,2);
 		$fday = substr($rec_parts[3],6,2);
-		$monitor_base = $mixmondir ? $mixmondir : $spool . '/monitor';
+		$monitor_base = $mixmondir ?: $spool . '/monitor';
 		$recordingFile = "$monitor_base/$fyear/$fmonth/$fday/" . $recordingFile;
 		//check to make sure the file size is bigger than 44 bytes (header size)
 		if(file_exists($recordingFile) && is_readable($recordingFile) && filesize($recordingFile) > 44) {
@@ -585,15 +565,10 @@ class Cdr implements \BMO {
 	}
 
 	public function getGraphQLCalls($after, $first, $before, $last, $orderby, $startDate, $endDate) {
-		switch($orderby) {
-				case 'duration':
-						$orderby = 'duration';
-				break;
-				case 'date':
-				default:
-						$orderby = 'timestamp';
-				break;
-		}
+		$orderby = match ($orderby) {
+      'duration' => 'duration',
+      default => 'timestamp',
+  };
 		$first = !empty($first) ? (int) $first : 5;
 		$after = !empty($after) ? (int) $after : 0;
 		$whereClause = " ";
@@ -614,10 +589,10 @@ class Cdr implements \BMO {
 		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->getDbTable()." WHERE uniqueid = :uid";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
-				$sth->execute(array("uid" => str_replace("_",".",$rid)));
+				$sth->execute(["uid" => str_replace("_",".",(string) $rid)]);
 				$recording = $sth->fetch(\PDO::FETCH_ASSOC);
-		} catch(\Exception $e) {
-				return array();
+		} catch(\Exception) {
+				return [];
 		}
 		return $recording;
 	}

@@ -17,7 +17,7 @@ class Crypt {
 
     $iv = '';
     while ($iv_len-- > 0) {
-      $iv .= chr(mt_rand() & 0xff);
+      $iv .= chr(random_int(0, mt_getrandmax()) & 0xff);
     }
     return $iv;
   }
@@ -42,7 +42,7 @@ class Crypt {
     $enc_text = $this->getRndIV($iv_len);
     $iv = substr($salt ^ $enc_text, 0, 512);
     while ($i < $n) {
-      $block = substr($str, $i, 16) ^ pack('H*', md5($iv));
+      $block = substr($str, $i, 16) ^ pack('H*', md5((string) $iv));
       $enc_text .= $block;
       $iv = substr($block . $iv, 0, 512) ^ $salt;
       $i += 16;
@@ -67,10 +67,10 @@ class Crypt {
      $n = strlen($enc);
      $i = $iv_len;
      $str = '';
-     $iv = substr($salt ^ substr($enc, 0, $iv_len), 0, 512);
+     $iv = substr((string) ($salt ^ substr($enc, 0, $iv_len)), 0, 512);
      while ($i < $n) {
          $block = substr($enc, $i, 16);
-         $str .= $block ^ pack('H*', md5($iv));
+         $str .= $block ^ pack('H*', md5((string) $iv));
          $iv = substr($block . $iv, 0, 512) ^ $salt;
          $i += 16;
      }

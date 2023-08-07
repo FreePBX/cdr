@@ -4,10 +4,10 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 include_once("crypt.php");
 $crypt = new Crypt();
 
-$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
+$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim((string) $amp_conf['AMPPLAYKEY']) != "")?trim((string) $amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
 $path = $crypt->decrypt($_REQUEST['recordingpath'],$REC_CRYPT_PASSWORD);
 if(!empty($path)) {
-	$extension = pathinfo($path,PATHINFO_EXTENSION);
+	$extension = pathinfo((string) $path,PATHINFO_EXTENSION);
 	// This will set the Content-Type to the appropriate setting for the file
 	$ctype ='';
 	switch( $extension ) {
@@ -36,7 +36,7 @@ if(!empty($path)) {
 
 	// Gather relevent info about file
 	$size = filesize($path);
-	$name = basename($path);
+	$name = basename((string) $path);
 	$length = $size;           // Content length
 	$start  = 0;               // Start byte
 	$end    = $size - 1;       // End byte
@@ -50,8 +50,8 @@ if(!empty($path)) {
 		$c_start = $start;
 		$c_end   = $end;
 
-		list(, $range) = explode('=', $_SERVER['HTTP_RANGE'], 2);
-		if (strpos($range, ',') !== false) {
+		[, $range] = explode('=', (string) $_SERVER['HTTP_RANGE'], 2);
+		if (str_contains($range, ',')) {
 			header('HTTP/1.1 416 Requested Range Not Satisfiable');
 			header("Content-Range: bytes $start-$end/$size");
 			exit;

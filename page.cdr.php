@@ -12,7 +12,7 @@ if(isset($_POST['need_csv'])) {
 
 global $amp_conf, $db;
 // Are a crypt password specified? If not, use the supplied.
-$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim($amp_conf['AMPPLAYKEY']) != "")?trim($amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
+$REC_CRYPT_PASSWORD = (isset($amp_conf['AMPPLAYKEY']) && trim((string) $amp_conf['AMPPLAYKEY']) != "")?trim((string) $amp_conf['AMPPLAYKEY']):'TheWindCriesMary';
 $dispnum = "cdr";
 $db_result_limit = 100;
 
@@ -25,7 +25,7 @@ $system_monitor_dir = isset($amp_conf['ASTSPOOLDIR'])?$amp_conf['ASTSPOOLDIR']."
 // if CDRDBHOST and CDRDBTYPE are not empty then we assume an external connection and don't use the default connection
 //
 if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
-	$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
+	$db_hash = ['mysql' => 'mysql', 'postgres' => 'pgsql'];
 	$db_type = $db_hash[$amp_conf["CDRDBTYPE"]];
 	$db_host = $amp_conf["CDRDBHOST"];
 	$db_port = empty($amp_conf["CDRDBPORT"]) ? '' :  ':' . $amp_conf["CDRDBPORT"];
@@ -65,15 +65,15 @@ switch ($action) {
 		break;
 	case 'download_audio':
 			$file = $dbcdr->getOne('SELECT recordingfile FROM ' . $db_name.'.'.$db_table_name . ' WHERE uniqueid = ? AND recordingfile != "" LIMIT 1',
-			 array($_REQUEST['cdr_file']));
+			 [$_REQUEST['cdr_file']]);
 			db_e($file);
 			if ($file) {
-				$rec_parts = explode('-',$file);
+				$rec_parts = explode('-',(string) $file);
 				$fyear = substr($rec_parts[3],0,4);
 				$fmonth = substr($rec_parts[3],4,2);
 				$fday = substr($rec_parts[3],6,2);
-				$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
-				$file = pathinfo($file, PATHINFO_EXTENSION) == 'wav49'? pathinfo($file, PATHINFO_FILENAME).'.WAV' : $file;
+				$monitor_base = $amp_conf['MIXMON_DIR'] ?: $amp_conf['ASTSPOOLDIR'] . '/monitor';
+				$file = pathinfo((string) $file, PATHINFO_EXTENSION) == 'wav49'? pathinfo((string) $file, PATHINFO_FILENAME).'.WAV' : $file;
 				$file = "$monitor_base/$fyear/$fmonth/$fday/" . $file;
 				download_file($file, '', '', true);
 			}
@@ -85,7 +85,7 @@ switch ($action) {
 
 // FREEPBX-8845
 foreach ($_POST as $k => $v) {
-	$_POST[$k] = preg_replace('/;/', ' ', $dbcdr->escapeSimple($v));
+	$_POST[$k] = preg_replace('/;/', ' ', (string) $dbcdr->escapeSimple($v));
 }
 
 //if need_csv is true then need_html should be true
@@ -113,10 +113,10 @@ if(!isset($_POST['need_csv'])) {
 				<?php $calldate_tooltip = _("Select time span for your report. You can select Date, Month, Year, Hour and Minute to narrow your search");?>
 				<td><input <?php if (empty($_POST['order']) || $_POST['order'] == 'calldate') { echo 'checked="checked"'; } ?> type="radio" name="order" value="calldate" />&nbsp;<label for='order'><?php echo "<a href=\"#\" class=\"info\">"._("Call Date")."<span>".$calldate_tooltip."</span></a>"?>:</label></td>
 				<td><?php echo _("From")?>:
-				<input type="text" name="startday" id="startday" size="2" maxlength="2" value="<?php if (isset($_POST['startday'])) { echo htmlspecialchars($_POST['startday']); } else { echo '01'; } ?>" />
+				<input type="text" name="startday" id="startday" size="2" maxlength="2" value="<?php if (isset($_POST['startday'])) { echo htmlspecialchars((string) $_POST['startday']); } else { echo '01'; } ?>" />
 				<select name="startmonth" id="startmonth">
 <?php
-				$months = array('01' => _('January'), '02' => _('February'), '03' => _('March'), '04' => _('April'), '05' => _('May'), '06' => _('June'), '07' => _('July'), '08' => _('August'), '09' => _('September'), '10' => _('October'), '11' => _('November'), '12' => _('December'));
+				$months = ['01' => _('January'), '02' => _('February'), '03' => _('March'), '04' => _('April'), '05' => _('May'), '06' => _('June'), '07' => _('July'), '08' => _('August'), '09' => _('September'), '10' => _('October'), '11' => _('November'), '12' => _('December')];
 				foreach ($months as $i => $month) {
 					if ((empty($_POST['startmonth']) && date('m') == $i) || (isset($_POST['startmonth']) && $_POST['startmonth'] == $i)) {
 						echo "<option value=\"$i\" selected=\"selected\">$month</option>\n";
@@ -137,9 +137,9 @@ if(!isset($_POST['need_csv'])) {
 				}
 ?>
 				</select>
-				<input type="text" name="starthour" id="starthour" size="2" maxlength="2" value="<?php if (isset($_POST['starthour'])) { echo htmlspecialchars($_POST['starthour']); } else { echo '00'; } ?>" />:
-				<input type="text" name="startmin" id="startmin" size="2" maxlength="2" value="<?php if (isset($_POST['startmin'])) { echo htmlspecialchars($_POST['startmin']); } else { echo '00'; } ?>" /><?php echo _("To")?>:
-				<input type="text" name="endday" id="endday" size="2" maxlength="2" value="<?php if (isset($_POST['endday'])) { echo htmlspecialchars($_POST['endday']); } else { echo '31'; } ?>" />
+				<input type="text" name="starthour" id="starthour" size="2" maxlength="2" value="<?php if (isset($_POST['starthour'])) { echo htmlspecialchars((string) $_POST['starthour']); } else { echo '00'; } ?>" />:
+				<input type="text" name="startmin" id="startmin" size="2" maxlength="2" value="<?php if (isset($_POST['startmin'])) { echo htmlspecialchars((string) $_POST['startmin']); } else { echo '00'; } ?>" /><?php echo _("To")?>:
+				<input type="text" name="endday" id="endday" size="2" maxlength="2" value="<?php if (isset($_POST['endday'])) { echo htmlspecialchars((string) $_POST['endday']); } else { echo '31'; } ?>" />
 				<select name="endmonth" id="endmonth">
 <?php
 				foreach ($months as $i => $month) {
@@ -162,8 +162,8 @@ for ( $i = 2000; $i <= date('Y'); $i++) {
 }
 ?>
 </select>
-	<input type="text" name="endhour" id="endhour" size="2" maxlength="2" value="<?php if (isset($_POST['endhour'])) { echo htmlspecialchars($_POST['endhour']); } else { echo '23'; } ?>" />:
-	<input type="text" name="endmin" id="endmin" size="2" maxlength="2" value="<?php if (isset($_POST['endmin'])) { echo htmlspecialchars($_POST['endmin']); } else { echo '59'; } ?>" />
+	<input type="text" name="endhour" id="endhour" size="2" maxlength="2" value="<?php if (isset($_POST['endhour'])) { echo htmlspecialchars((string) $_POST['endhour']); } else { echo '23'; } ?>" />:
+	<input type="text" name="endmin" id="endmin" size="2" maxlength="2" value="<?php if (isset($_POST['endmin'])) { echo htmlspecialchars((string) $_POST['endmin']); } else { echo '59'; } ?>" />
 	</td>
 <td rowspan="10" valign='top' align='right'>
 <fieldset>
@@ -185,7 +185,7 @@ for ( $i = 2000; $i <= date('Y'); $i++) {
 <td>
 <input value="<?php
 if (isset($_POST['limit']) ) {
-        echo htmlspecialchars($_POST['limit']);
+        echo htmlspecialchars((string) $_POST['limit']);
 } else {
         echo $db_result_limit;
 } ?>" name="limit" size="6" />
@@ -206,7 +206,7 @@ if (isset($_POST['limit']) ) {
 <?php $cnum_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
 <?php $cnum_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'cnum') { echo 'checked="checked"'; } ?> type="radio" name="order" value="cnum" />&nbsp;<label for="cnum"><?php echo "<a href=\"#\" class=\"info\">"._("CallerID Number")."<span>$cnum_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="cnum" id="cnum" value="<?php if (isset($_POST['cnum'])) { echo htmlspecialchars($_POST['cnum']); } ?>" />
+<td><input type="text" name="cnum" id="cnum" value="<?php if (isset($_POST['cnum'])) { echo htmlspecialchars((string) $_POST['cnum']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['cnum_neg'] ) && $_POST['cnum_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="cnum_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['cnum_mod']) || $_POST['cnum_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['cnum_mod']) && $_POST['cnum_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="cnum_mod" value="contains" />
@@ -218,7 +218,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $cnam_tooltip = _("Select CallerID Name to search for.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'cnam') { echo 'checked="checked"'; } ?> type="radio" name="order" value="cnam" />&nbsp;<label for="cnam"><?php echo "<a href=\"#\" class=\"info\">"._("CallerID Name")."<span>$cnam_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="cnam" id="cnam" value="<?php if (isset($_POST['cnam'])) { echo htmlspecialchars($_POST['cnam']); } ?>" />
+<td><input type="text" name="cnam" id="cnam" value="<?php if (isset($_POST['cnam'])) { echo htmlspecialchars((string) $_POST['cnam']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['cnam_neg'] ) && $_POST['cnam_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="cnam_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['cnam_mod']) || $_POST['cnam_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['cnam_mod']) && $_POST['cnam_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="cnam_mod" value="contains" />
@@ -238,7 +238,7 @@ if (isset($_POST['limit']) ) {
 <?php $obcnum_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
 <?php $obcnum_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'outbound_cnum') { echo 'checked="checked"'; } ?> type="radio" name="order" value="outbound_cnum" />&nbsp;<label for="outbound_cnum"><?php echo "<a href=\"#\" class=\"info\">"._("Outbound CallerID Number")."<span>$obcnum_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="outbound_cnum" id="outbound_cnum" value="<?php if (isset($_POST['outbound_cnum'])) { echo htmlspecialchars($_POST['outbound_cnum']); } ?>" />
+<td><input type="text" name="outbound_cnum" id="outbound_cnum" value="<?php if (isset($_POST['outbound_cnum'])) { echo htmlspecialchars((string) $_POST['outbound_cnum']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['outbound_cnum_neg'] ) && $_POST['outbound_cnum_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="outbound_cnum_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['outbound_cnum_mod']) || $_POST['outbound_cnum_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['outbound_cnum_mod']) && $_POST['outbound_cnum_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="outbound_cnum_mod" value="contains" />
@@ -250,7 +250,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $did_tooltip = _("Search for a DID.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'did') { echo 'checked="checked"'; } ?> type="radio" name="order" value="did" />&nbsp;<label for="did"><?php echo "<a href=\"#\" class=\"info\">"._("DID")."<span>$did_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="did" id="did" value="<?php if (isset($_POST['did'])) { echo htmlspecialchars($_POST['did']); } ?>" />
+<td><input type="text" name="did" id="did" value="<?php if (isset($_POST['did'])) { echo htmlspecialchars((string) $_POST['did']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['did_neg'] ) && $_POST['did_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="did_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['did_mod']) || $_POST['did_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['did_mod']) && $_POST['did_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="did_mod" value="contains" />
@@ -269,7 +269,7 @@ if (isset($_POST['limit']) ) {
 <?php $destination_tooltip .= _("<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this example, 1,2,3,7,8,9)<br>");?>
 <?php $destination_tooltip .= _("<b>.</b> = wildcard, matches one or more characters<br>");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst" />&nbsp;<label for="dst"><?php echo "<a href=\"#\" class=\"info\">"._("Destination")."<span>$destination_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="dst" id="dst" value="<?php if (isset($_POST['dst'])) { echo htmlspecialchars($_POST['dst']); } ?>" />
+<td><input type="text" name="dst" id="dst" value="<?php if (isset($_POST['dst'])) { echo htmlspecialchars((string) $_POST['dst']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['dst_neg'] ) &&  $_POST['dst_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dst_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['dst_mod']) || $_POST['dst_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['dst_mod']) && $_POST['dst_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="dst_mod" value="contains" />
@@ -283,7 +283,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $dstcnam_tooltip = _("Select Destination Caller Name to search for.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'dst_cnam') { echo 'checked="checked"'; } ?> type="radio" name="order" value="dst_cnam" />&nbsp;<label for="dst_cnam"><?php echo "<a href=\"#\" class=\"info\">"._("Destination CallerID Name")."<span>$dstcnam_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="dst_cnam" id="dst_cnam" value="<?php if (isset($_POST['dst_cnam'])) { echo htmlspecialchars($_POST['dst_cnam']); } ?>" />
+<td><input type="text" name="dst_cnam" id="dst_cnam" value="<?php if (isset($_POST['dst_cnam'])) { echo htmlspecialchars((string) $_POST['dst_cnam']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['dst_cnam_neg'] ) && $_POST['dst_cnam_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="dst_cnam_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['dst_cnam_mod']) || $_POST['dst_cnam_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['dst_cnam_mod']) && $_POST['dst_cnam_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="dst_cnam_mod" value="contains" />
@@ -295,7 +295,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $userfield_tooltip = _("Search for userfield data (if enabled).");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'userfield') { echo 'checked="checked"'; } ?> type="radio" name="order" value="userfield" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">"._("Userfield")."<span>$userfield_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="userfield" id="userfield" value="<?php if (isset($_POST['userfield'])) { echo htmlspecialchars($_POST['userfield']); } ?>" />
+<td><input type="text" name="userfield" id="userfield" value="<?php if (isset($_POST['userfield'])) { echo htmlspecialchars((string) $_POST['userfield']); } ?>" />
 <?php echo _("Not")?>:<input <?php if (  isset($_POST['userfield_neg'] ) && $_POST['userfield_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="userfield_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['userfield_mod']) || $_POST['userfield_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['userfield_mod']) && $_POST['userfield_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="userfield_mod" value="contains" />
@@ -306,7 +306,7 @@ if (isset($_POST['limit']) ) {
 <tr>
 <?php $accountcode_tooltip = _("Search for accountcode.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'accountcode') { echo 'checked="checked"'; } ?> type="radio" name="order" value="accountcode" />&nbsp;<label for="userfield"><?php echo "<a href=\"#\" class=\"info\">"._("Account Code")."<span>$accountcode_tooltip</span></a>"?>:</label></td>
-<td><input type="text" name="accountcode" id="accountcode" value="<?php if (isset($_POST['accountcode'])) { echo htmlspecialchars($_POST['accountcode']); } ?>" />
+<td><input type="text" name="accountcode" id="accountcode" value="<?php if (isset($_POST['accountcode'])) { echo htmlspecialchars((string) $_POST['accountcode']); } ?>" />
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['accountcode_neg'] ) &&  $_POST['accountcode_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="accountcode_neg" value="true" />
 <?php echo _("Begins With")?>:<input <?php if (empty($_POST['accountcode_mod']) || $_POST['accountcode_mod'] == 'begins_with') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="begins_with" />
 <?php echo _("Contains")?>:<input <?php if (isset($_POST['accountcode_mod']) && $_POST['accountcode_mod'] == 'contains') { echo 'checked="checked"'; } ?> type="radio" name="accountcode_mod" value="contains" />
@@ -318,9 +318,9 @@ if (isset($_POST['limit']) ) {
 <?php $duration_tooltip = _("Search for calls that matches the call length specified.");?>
 <td><input <?php if (isset($_POST['order']) && $_POST['order'] == 'duration') { echo 'checked="checked"'; } ?> type="radio" name="order" value="duration" />&nbsp;<label><?php echo "<a href=\"#\" class=\"info\">"._("Duration")."<span>$duration_tooltip</span></a>"?>:</label></td>
 <td><?php echo _("Between")?>:
-<input type="text" name="dur_min" value="<?php if (isset($_POST['dur_min'])) { echo htmlspecialchars($_POST['dur_min']); } ?>" size="3" maxlength="5" />
+<input type="text" name="dur_min" value="<?php if (isset($_POST['dur_min'])) { echo htmlspecialchars((string) $_POST['dur_min']); } ?>" size="3" maxlength="5" />
 <?php echo _("And")?>:
-<input type="text" name="dur_max" value="<?php if (isset($_POST['dur_max'])) { echo htmlspecialchars($_POST['dur_max']); } ?>" size="3" maxlength="5" />
+<input type="text" name="dur_max" value="<?php if (isset($_POST['dur_max'])) { echo htmlspecialchars((string) $_POST['dur_max']); } ?>" size="3" maxlength="5" />
 <?php echo _("Seconds")?>
 </td>
 </tr>
@@ -398,7 +398,7 @@ if (isset($_POST['limit']) ) {
 //
 if (isset($amp_conf['CEL_ENABLED']) && $amp_conf['CEL_ENABLED'] && !isset($_POST['need_html']) && $action == 'cel_show') {
 	echo '<a id="CEL"></a>';
-	$cdr_uids = array();
+	$cdr_uids = [];
 
 	$uid = $dbcdr->escapeSimple($_REQUEST['uid']);
 
@@ -406,7 +406,7 @@ if (isset($amp_conf['CEL_ENABLED']) && $amp_conf['CEL_ENABLED'] && !isset($_POST
 	$db_cel_name = !empty($amp_conf['CELDBNAME'])?$amp_conf['CELDBNAME']:$db_name;
 	$db_cel_table_name = !empty($amp_conf['CELDBTABLENAME'])?$amp_conf['CELDBTABLENAME']:"cel";
 	$cel = cdr_get_cel($uid, $db_cel_name . '.' . $db_cel_table_name);
-	$tot_cel_events = count($cel);
+	$tot_cel_events = is_countable($cel) ? count($cel) : 0;
 
 	if ( $tot_cel_events ) {
 		echo "<p class=\"center title\">"._("Call Event Log - Search Returned")." ".$tot_cel_events." "._("Events")."</p>";
@@ -561,11 +561,11 @@ $mod_vars['accountcode'][] = empty($_POST['accountcode_mod']) ? NULL : $_POST['a
 $mod_vars['accountcode'][] = empty($_POST['accountcode_neg']) ? NULL : $_POST['accountcode_neg'];
 $result_limit = (!isset($_POST['limit']) || empty($_POST['limit'])) ? $db_result_limit : $_POST['limit'];
 
-$multi = array('dst', 'cnum', 'outbound_cnum');
+$multi = ['dst', 'cnum', 'outbound_cnum'];
 foreach ($mod_vars as $key => $val) {
 	if (is_blank($val[0])) {
 		unset($_POST[$key.'_mod']);
-		$$key = NULL;
+		${$key} = NULL;
 	} else {
 		$pre_like = '';
 		if ( $val[2] == 'true' ) {
@@ -574,51 +574,51 @@ foreach ($mod_vars as $key => $val) {
 		switch ($val[1]) {
 			case "contains":
 				if (in_array($key, $multi)) {
-					$values = explode(',',$val[0]);
+					$values = explode(',',(string) $val[0]);
 					if (count($values) > 1) {
 						foreach ($values as $key_like => $value_like) {
 							if ($key_like == 0) {
-								$$key = "AND ($key $pre_like LIKE '%$value_like%'";
+								${$key} = "AND ($key $pre_like LIKE '%$value_like%'";
 							} else {
- 								$$key .= " OR $key $pre_like LIKE '%$value_like%'";
+ 								${$key} .= " OR $key $pre_like LIKE '%$value_like%'";
 							}
 						}
-						$$key .= ")";
+						${$key} .= ")";
 					} else {
-						$$key = "AND $key $pre_like LIKE '%$val[0]%'";
+						${$key} = "AND $key $pre_like LIKE '%$val[0]%'";
 					}
 				} else {
-					$$key = "AND $key $pre_like LIKE '%$val[0]%'";
+					${$key} = "AND $key $pre_like LIKE '%$val[0]%'";
 				}
 			break;
 			case "ends_with":
 				if (in_array($key, $multi)) {
-					$values = explode(',',$val[0]);
+					$values = explode(',',(string) $val[0]);
 					if (count($values) > 1) {
 						foreach ($values as $key_like => $value_like) {
 							if ($key_like == 0) {
-								$$key = "AND ($key $pre_like LIKE '%$value_like'";
+								${$key} = "AND ($key $pre_like LIKE '%$value_like'";
 							} else {
-								$$key .= " OR $key $pre_like LIKE '%$value_like'";
+								${$key} .= " OR $key $pre_like LIKE '%$value_like'";
 							}
 						}
-						$$key .= ")";
+						${$key} .= ")";
 					} else {
-						$$key = "AND $key $pre_like LIKE '%$val[0]'";
+						${$key} = "AND $key $pre_like LIKE '%$val[0]'";
 					}
 				} else {
-					$$key = "AND $key $pre_like LIKE '%$val[0]'";
+					${$key} = "AND $key $pre_like LIKE '%$val[0]'";
 				}
 			break;
 			case "exact":
 				if ( $val[2] == 'true' ) {
-					$$key = "AND $key != '$val[0]'";
+					${$key} = "AND $key != '$val[0]'";
 				} else {
-					$$key = "AND $key = '$val[0]'";
+					${$key} = "AND $key = '$val[0]'";
 				}
 			break;
 			case "asterisk-regexp":
-				$ast_dids = preg_split('/\s*,\s*/', $val[0], -1, PREG_SPLIT_NO_EMPTY);
+				$ast_dids = preg_split('/\s*,\s*/', (string) $val[0], -1, PREG_SPLIT_NO_EMPTY);
 				$ast_key = '';
 				foreach ($ast_dids as $adid) {
 					if (strlen($ast_key) > 0 ) {
@@ -627,32 +627,32 @@ foreach ($mod_vars as $key => $val) {
 						} else {
 							$ast_key .= " or ";
 						}
-						if ( '_' == substr($adid,0,1) ) {
+						if ( str_starts_with($adid, '_') ) {
 							$adid = substr($adid,1);
 						}
 					}
 					$ast_key .= " $key $pre_like RLIKE '^$adid\$'";
 				}
-				$$key = "AND ( $ast_key )";
+				${$key} = "AND ( $ast_key )";
 			break;
 			case "begins_with":
 			default:
 				if (in_array($key, $multi)) {
-					$values = explode(',',$val[0]);
+					$values = explode(',',(string) $val[0]);
 					if (count($values) > 1) {
 						foreach ($values as $key_like => $value_like) {
 							if ($key_like == 0) {
-								$$key = "AND ($key $pre_like LIKE '$value_like%'";
+								${$key} = "AND ($key $pre_like LIKE '$value_like%'";
 							} else {
-								$$key .= " OR $key $pre_like LIKE '$value_like%'";
+								${$key} .= " OR $key $pre_like LIKE '$value_like%'";
 							}
 						}
-						$$key .= ")";
+						${$key} .= ")";
 					} else {
-						$$key = "AND $key $pre_like LIKE '$val[0]%'";
+						${$key} = "AND $key $pre_like LIKE '$val[0]%'";
 					}
 				} else {
-					$$key = "AND $key $pre_like LIKE '$val[0]%'";
+					${$key} = "AND $key $pre_like LIKE '$val[0]%'";
 				}
 			break;
 		}
@@ -672,19 +672,19 @@ $group = empty($_POST['group']) ? 'day' : $_POST['group'];
 
 //Allow people to search SRC and DSTChannels using existing fields
 if (isset($cnum)) {
-  $cnum_length = strlen($cnum);
-  $cnum_type = substr($cnum, 0 ,strpos($cnum , 'cnum') -1);
-  $cnum_remaining = substr(trim($cnum,"()"), strpos($cnum , 'cnum'));
-  $src = str_replace('AND cnum', '', $cnum);
+  $cnum_length = strlen((string) $cnum);
+  $cnum_type = substr((string) $cnum, 0 ,strpos((string) $cnum , 'cnum') -1);
+  $cnum_remaining = substr(trim((string) $cnum,"()"), strpos((string) $cnum , 'cnum'));
+  $src = str_replace('AND cnum', '', (string) $cnum);
 
   $cnum = "$cnum_type ($cnum_remaining OR src $src)";
 }
 
 if (isset($dst)) {
-  $dst_length = strlen($dst);
-  $dst_type = substr($dst, 0 ,strpos($dst , 'dst') -1);
-  $dst_remaining = substr(trim($dst,"()"), strpos($dst , 'dst'));
-  $dstchannel = str_replace('AND dst', '', $dst);
+  $dst_length = strlen((string) $dst);
+  $dst_type = substr((string) $dst, 0 ,strpos((string) $dst , 'dst') -1);
+  $dst_remaining = substr(trim((string) $dst,"()"), strpos((string) $dst , 'dst'));
+  $dstchannel = str_replace('AND dst', '', (string) $dst);
 
   $dst = "$dst_type ($dst_remaining OR dstchannel $dstchannel)";
 }
@@ -700,7 +700,7 @@ if ( isset($_POST['need_csv']) && $_POST['need_csv'] == 'true' ) {
 if ( empty($resultcdr) && isset($_POST['need_html']) && $_POST['need_html'] == 'true' ) {
 	$query = "SELECT `calldate`, `clid`, `did`, `src`, `dst`, `dcontext`, `channel`, `dstchannel`, `lastapp`, `lastdata`, `duration`, `billsec`, `disposition`, `amaflags`, `accountcode`, `uniqueid`, `userfield`, unix_timestamp(calldate) as `call_timestamp`, `recordingfile`, `cnum`, `cnam`, `outbound_cnum`, `outbound_cnam`, `dst_cnam`  FROM $db_name.$db_table_name $where $order $sort LIMIT $result_limit";
 	$resultscdr = $dbcdr->getAll($query, DB_FETCHMODE_ASSOC);
-	$resultscdr = is_array($resultscdr) ? $resultscdr : array();
+	$resultscdr = is_array($resultscdr) ? $resultscdr : [];
 	foreach($resultscdr as &$call) {
 		$file = FreePBX::Cdr()->processPath($call['recordingfile']);
 		if(empty($file)) {
@@ -757,11 +757,11 @@ if ( $tot_calls_raw ) {
 		 * a recording may have been planned but not done so this assures there are no dead links.
 		 */
 		if ($row['recordingfile']) {
-			$rec_parts = explode('-',$row['recordingfile']);
+			$rec_parts = explode('-',(string) $row['recordingfile']);
 			$fyear = substr($rec_parts[3],0,4);
 			$fmonth = substr($rec_parts[3],4,2);
 			$fday = substr($rec_parts[3],6,2);
-			$monitor_base = $amp_conf['MIXMON_DIR'] ? $amp_conf['MIXMON_DIR'] : $amp_conf['ASTSPOOLDIR'] . '/monitor';
+			$monitor_base = $amp_conf['MIXMON_DIR'] ?: $amp_conf['ASTSPOOLDIR'] . '/monitor';
 			$recordingfile = "$monitor_base/$fyear/$fmonth/$fday/" . $row['recordingfile'];
 			$recordingfile = pathinfo($recordingfile, PATHINFO_EXTENSION) == 'wav49'? "$monitor_base/$fyear/$fmonth/$fday/" . pathinfo($recordingfile, PATHINFO_FILENAME).'.WAV' : $recordingfile;
 			if (!file_exists($recordingfile)) {
@@ -794,7 +794,7 @@ if ( $tot_calls_raw ) {
 		if ($row['cnam'] != '' || $row['cnum'] != '') {
 			cdr_formatCallerID($row['cnam'], $row['cnum'], $row['channel']);
 		} else {
-			cdr_formatSrc(str_replace('"" ','',$row['clid']), str_replace('"" ','',$row['clid']));
+			cdr_formatSrc(str_replace('"" ','',(string) $row['clid']), str_replace('"" ','',(string) $row['clid']));
 		}
 		cdr_formatCallerID($row['outbound_cnam'], $row['outbound_cnum'], $row['dstchannel']);
 		cdr_formatDID($row['did']);
@@ -850,17 +850,17 @@ echo '<a id="Graph"></a>';
 //NEW GRAPHS
 $group_by_field = $group;
 // ConcurrentCalls
-$group_by_field_php = array( '', 32, '' );
+$group_by_field_php = ['', 32, ''];
 
 switch ($group) {
 	case "disposition_by_day":
 	    $graph_col_title = 'Disposition by day';
-	    $group_by_field_php = array('%Y-%m-%d / ',17,'');
+	    $group_by_field_php = ['%Y-%m-%d / ', 17, ''];
 	    $group_by_field = "CONCAT(DATE_FORMAT(calldate, '$group_by_field_php[0]'),disposition)";
 	break;
 	case "disposition_by_hour":
 	    $graph_col_title = 'Disposition by hour';
-	    $group_by_field_php = array( '%Y-%m-%d %H / ', 20, '' );
+	    $group_by_field_php = ['%Y-%m-%d %H / ', 20, ''];
 	    $group_by_field = "CONCAT(DATE_FORMAT(calldate, '$group_by_field_php[0]'),disposition)";
 	break;
 	case "disposition":
@@ -897,43 +897,43 @@ switch ($group) {
 		$graph_col_title = _("User Field");
 	break;
 	case "hour":
-		$group_by_field_php = array( '%Y-%m-%d %H', 13, '' );
+		$group_by_field_php = ['%Y-%m-%d %H', 13, ''];
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
 		$graph_col_title = _("Hour");
 	break;
 	case "hour_of_day":
-		$group_by_field_php = array('%H',2,'');
+		$group_by_field_php = ['%H', 2, ''];
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
 		$graph_col_title = _("Hour of day");
 	break;
 	case "week":
-		$group_by_field_php = array('%V',2,'');
+		$group_by_field_php = ['%V', 2, ''];
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]') ";
 		$graph_col_title = _("Week ( Sun-Sat )");
 	break;
 	case "month":
-		$group_by_field_php = array('%Y-%m',7,'');
+		$group_by_field_php = ['%Y-%m', 7, ''];
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
 		$graph_col_title = _("Month");
 	break;
 	case "day_of_week":
-		$group_by_field_php = array('%w - %A',20,'');
+		$group_by_field_php = ['%w - %A', 20, ''];
 		$group_by_field = "DATE_FORMAT( calldate, '%W' )";
 		$graph_col_title = _("Day of week");
 	break;
 	case "minutes1":
-		$group_by_field_php = array( '%Y-%m-%d %H:%M', 16, '' );
+		$group_by_field_php = ['%Y-%m-%d %H:%M', 16, ''];
 		$group_by_field = "DATE_FORMAT(calldate, '%Y-%m-%d %H:%i')";
 		$graph_col_title = _("Minute");
 	break;
 	case "minutes10":
-		$group_by_field_php = array('%Y-%m-%d %H:%M',15,'0');
+		$group_by_field_php = ['%Y-%m-%d %H:%M', 15, '0'];
 		$group_by_field = "CONCAT(SUBSTR(DATE_FORMAT(calldate, '%Y-%m-%d %H:%i'),1,15), '0')";
 		$graph_col_title = _("10 Minutes");
 	break;
 	case "day":
 	default:
-		$group_by_field_php = array('%Y-%m-%d',10,'');
+		$group_by_field_php = ['%Y-%m-%d', 10, ''];
 		$group_by_field = "DATE_FORMAT(calldate, '$group_by_field_php[0]')";
 		$graph_col_title = _("Day");
 }
@@ -948,7 +948,7 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 	//This can NEVER be 0 because later this number is multiplied by 100 then divided
 	$max_duration = 1;
 	$tot_duration_secs = 1;
-	$result_array = array();
+	$result_array = [];
 	foreach($result2 as $row) {
 		$tot_duration_secs += $row['total_duration'];
 		$tot_calls += $row['total_calls'];
@@ -973,7 +973,20 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 		echo $html;
 
 		foreach ($result_array as $row) {
-			$avg_call_time = sprintf('%02d', intval(($row['total_duration']/$row['total_calls'])/60)).':'.sprintf('%02d', intval($row['total_duration']/$row['total_calls']%60));
+			// $avg_call_time = sprintf('%02d', intval(($row['total_duration']/$row['total_calls'])/60)).':'.sprintf('%02d', intval($row['total_duration']/$row['total_calls']%60));
+			$total_duration = $row['total_duration'];
+			$total_calls = $row['total_calls'];
+			dbug($total_duration);
+			dbug(abs($total_duration / $total_calls));
+			// Calculate average call time in minutes and seconds
+			$avg_minutes = floor(floor($total_duration / $total_calls) / 60);
+			$avg_seconds = floor(floor($total_duration / $total_calls) % 60);
+			// $avg_minutes = 10;
+			// $avg_seconds = 15;
+
+			// Format average call time as HH:mm
+			$avg_call_time = sprintf('%02d', $avg_minutes) . ':' . sprintf('%02d', $avg_seconds);
+
 			$bar_calls = $row['total_calls']/$max_calls*100;
 			$percent_tot_calls = intval($row['total_calls']/$tot_calls*100);
 			$bar_duration = $row['total_duration']/$max_duration*100;
@@ -994,9 +1007,9 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 
 	$tot_calls = 0;
 	$max_calls = 0;
-	$result_array_cc = array();
-	$result_array = array();
-	if ( strpos($group_by_field,'DATE_FORMAT') === false ) {
+	$result_array_cc = [];
+	$result_array = [];
+	if ( !str_contains((string) $group_by_field,'DATE_FORMAT') ) {
 		/* not date time fields */
 		$query3 = "SELECT $group_by_field AS group_by_field, count(*) AS total_calls, unix_timestamp(calldate) AS ts, duration FROM $db_name.$db_table_name $where GROUP BY group_by_field, unix_timestamp(calldate) ORDER BY group_by_field ASC LIMIT $result_limit";
 		$result3 = $dbcdr->getAll($query3, DB_FETCHMODE_ASSOC);
@@ -1004,7 +1017,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 		foreach($result3 as $row) {
 			if ( $group_by_str != $row['group_by_field'] ) {
 				$group_by_str = $row['group_by_field'];
-				$result_array = array();
+				$result_array = [];
 			}
 			for ( $i=$row['ts']; $i<=$row['ts']+$row['duration']; ++$i ) {
 				if ( isset($result_array[ "$i" ]) ) {
@@ -1034,7 +1047,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 					for ( $i=$start_timestamp; $i<$row['ts']; ++$i ) {
 						if ( ! isset($result_array_cc[ "$group_by_str" ]) || ( isset($result_array["$i"]) && $result_array_cc[ "$group_by_str" ][1] < $result_array["$i"] ) ) {
 							$result_array_cc[ "$group_by_str" ][0] = $i;
-							$result_array_cc[ "$group_by_str" ][1] = isset($result_array["$i"]) ? $result_array["$i"] : 0;
+							$result_array_cc[ "$group_by_str" ][1] = $result_array["$i"] ?? 0;
 						}
 						unset( $result_array[$i] );
 					}
@@ -1058,7 +1071,7 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 			$group_by_str = substr(strftime($group_by_field_php[0],$i),0,$group_by_field_php[1]) . $group_by_field_php[2];
 			if ( ! isset($result_array_cc[ "$group_by_str" ]) || ( isset($result_array["$i"]) && $result_array_cc[ "$group_by_str" ][1] < $result_array["$i"] ) ) {
 				$result_array_cc[ "$group_by_str" ][0] = $i;
-				$result_array_cc[ "$group_by_str" ][1] = isset($result_array["$i"]) ? $result_array["$i"] : 0;
+				$result_array_cc[ "$group_by_str" ][1] = $result_array["$i"] ?? 0;
 			}
 		}
 	}
@@ -1096,9 +1109,9 @@ function cdr_formatCallDate($calldate) {
 function cdr_formatUniqueID($uniqueid) {
 	global $amp_conf;
 
-	$system = explode('-', $uniqueid, 2);
+	$system = explode('-', (string) $uniqueid, 2);
 	if (isset($amp_conf['CEL_ENABLED']) && $amp_conf['CEL_ENABLED']) {
-		$href=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode($uniqueid);
+		$href=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode((string) $uniqueid);
 		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' .
 			'<a href="' . $href . '" >' . $system[0] . '</a></td>';
 	} else {
@@ -1107,7 +1120,7 @@ function cdr_formatUniqueID($uniqueid) {
 }
 
 function cdr_formatChannel($channel) {
-	$chan_type = explode('/', $channel, 2);
+	$chan_type = explode('/', (string) $channel, 2);
 	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $chan_type[0] . "</td>";
 }
 
@@ -1115,14 +1128,14 @@ function cdr_formatSrc($src, $clid) {
 	if (empty($src)) {
 		echo "<td class=\"record_col\">UNKNOWN</td>";
 	} else {
-		$clid = htmlspecialchars($clid);
+		$clid = htmlspecialchars((string) $clid);
 		echo '<td title="' . _("CallerID") . ": " . $clid . '">' . $src . "</td>";
 	}
 }
 
 function cdr_formatCallerID($cnam, $cnum, $channel) {
-	if(preg_match("/\p{Hebrew}/u", utf8_decode($cnam))){
-		$cnam = utf8_decode($cnam);
+	if(preg_match("/\p{Hebrew}/u", utf8_decode((string) $cnam))){
+		$cnam = utf8_decode((string) $cnam);
 		$dcnum = $cnum == '' && $cnam == '' ? '' : htmlspecialchars('<' . $cnum . '>');
 		$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . '" ');
 		echo '<td title="' ._("Channel") . ": " . $channel . '">' . $dcnum .' '. $dcnam . '</td>';
@@ -1135,18 +1148,18 @@ function cdr_formatCallerID($cnam, $cnum, $channel) {
 }
 
 function cdr_formatDID($did) {
-	$did = htmlspecialchars($did);
+	$did = htmlspecialchars((string) $did);
 	echo '<td title="' . _("DID") . ": " . $did . '">' . $did . "</td>";
 }
 
 function cdr_formatANI($ani) {
-	$ani = htmlspecialchars($ani);
+	$ani = htmlspecialchars((string) $ani);
 	echo '<td title="' . _("ANI") . ": " . $ani . '">' . $ani . "</td>";
 }
 
 function cdr_formatApp($app, $lastdata) {
-	$app = htmlspecialchars($app);
-	$lastdata = htmlspecialchars($lastdata);
+	$app = htmlspecialchars((string) $app);
+	$lastdata = htmlspecialchars((string) $lastdata);
 	echo '<td title="' .  _("Application") . ": " . $app . "(" . $lastdata . ")" . '">'
 	. $app . "</td>";
 }
@@ -1163,20 +1176,12 @@ function cdr_formatDst($dst, $dst_cnam, $channel, $dcontext) {
 }
 
 function cdr_formatDisposition($disposition, $amaflags) {
-	switch ($amaflags) {
-		case 0:
-			$amaflags = 'DOCUMENTATION';
-			break;
-		case 1:
-			$amaflags = 'IGNORE';
-			break;
-		case 2:
-			$amaflags = 'BILLING';
-			break;
-		case 3:
-		default:
-			$amaflags = 'DEFAULT';
-	}
+	$amaflags = match ($amaflags) {
+     0 => 'DOCUMENTATION',
+     1 => 'IGNORE',
+     2 => 'BILLING',
+     default => 'DEFAULT',
+ };
 	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">'
 		. $disposition . "</td>";
 }
@@ -1189,12 +1194,12 @@ function cdr_formatDuration($duration, $billsec) {
 }
 
 function cdr_formatUserField($userfield) {
-	$userfield = htmlspecialchars($userfield);
+	$userfield = htmlspecialchars((string) $userfield);
 	echo "<td>".$userfield."</td>";
 }
 
 function cdr_formatAccountCode($accountcode) {
-	$accountcode = htmlspecialchars($accountcode);
+	$accountcode = htmlspecialchars((string) $accountcode);
 	echo "<td>".$accountcode."</td>";
 }
 
@@ -1218,43 +1223,35 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id, $uid) {
 }
 
 function cdr_formatCNAM($cnam) {
-	if(preg_match("/\p{Hebrew}/u", utf8_decode($cnam))){
-		$cnam = utf8_decode($cnam);
+	if(preg_match("/\p{Hebrew}/u", utf8_decode((string) $cnam))){
+		$cnam = utf8_decode((string) $cnam);
 	}
-	$cnam = htmlspecialchars($cnam);
+	$cnam = htmlspecialchars((string) $cnam);
 	echo '<td title="' . _("Caller ID Name") . ": " . $cnam . '">' . $cnam . "</td>";
 }
 
 function cdr_formatCNUM($cnum) {
-	$cnum = htmlspecialchars($cnum);
+	$cnum = htmlspecialchars((string) $cnum);
 	echo '<td title="' . _("Caller ID Number") . ": " . $cnum . '">' . $cnum . "</td>";
 }
 
 function cdr_formatExten($exten) {
-	$exten = htmlspecialchars($exten);
+	$exten = htmlspecialchars((string) $exten);
 	echo '<td title="' . _("Dialplan exten") . ": " . $exten . '">' . $exten . "</td>";
 }
 
 function cdr_formatContext($context) {
-	$context = htmlspecialchars($context);
+	$context = htmlspecialchars((string) $context);
 	echo '<td title="' . _("Dialplan context") . ": " . $context . '">' . $context . "</td>";
 }
 
 function cdr_formatAMAFlags($amaflags) {
-	switch ($amaflags) {
-		case 0:
-			$amaflags = 'DOCUMENTATION';
-			break;
-		case 1:
-			$amaflags = 'IGNORE';
-			break;
-		case 2:
-			$amaflags = 'BILLING';
-			break;
-		case 3:
-		default:
-			$amaflags = 'DEFAULT';
-	}
+	$amaflags = match ($amaflags) {
+     0 => 'DOCUMENTATION',
+     1 => 'IGNORE',
+     2 => 'BILLING',
+     default => 'DEFAULT',
+ };
 	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">'
 		. $amaflags . "</td>";
 }
@@ -1263,25 +1260,25 @@ function cdr_formatAMAFlags($amaflags) {
 //
 
 function cdr_cel_formatEventType($eventtype) {
-	$eventtype = htmlspecialchars($eventtype);
+	$eventtype = htmlspecialchars((string) $eventtype);
 	echo "<td>".$eventtype."</td>";
 }
 
 function cdr_cel_formatUserDefType($userdeftype) {
-	$userdeftype = htmlspecialchars($userdeftype);
+	$userdeftype = htmlspecialchars((string) $userdeftype);
 	echo '<td title="' .  _("UserDefType") . ": " . $userdeftype . '">'
 	. $userdeftype . "</td>";
 }
 
 function cdr_cel_formatEventExtra($eventextra) {
-	$eventextra = htmlspecialchars($eventextra);
+	$eventextra = htmlspecialchars((string) $eventextra);
 	echo '<td title="' .  _("Event Extra") . ": " . $eventextra . '">'
 	. $eventextra . "</td>";
 }
 
 function cdr_cel_formatChannelName($channel) {
-	$chan_type = explode('/', $channel, 2);
+	$chan_type = explode('/', (string) $channel, 2);
 	$type = htmlspecialchars($chan_type[0]);
-	$channel = htmlspecialchars($channel);
+	$channel = htmlspecialchars((string) $channel);
 	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $channel . "</td>";
 }

@@ -9,18 +9,18 @@ function cdr_get_config($engine) {
 	global $core_conf, $amp_conf, $version;
 	if (isset($core_conf) && is_a($core_conf, "core_conf")) {
 		$section = 'asteriskcdrdb';
-		$core_conf->addResOdbc($section, array('enabled' => 'yes'));
-		$core_conf->addResOdbc($section, array('dsn' => 'MySQL-asteriskcdrdb'));
-		$core_conf->addResOdbc($section, array('pre-connect' => 'yes'));
+		$core_conf->addResOdbc($section, ['enabled' => 'yes']);
+		$core_conf->addResOdbc($section, ['dsn' => 'MySQL-asteriskcdrdb']);
+		$core_conf->addResOdbc($section, ['pre-connect' => 'yes']);
 		if((version_compare($version, "14.0", "lt") && version_compare($version, "13.14.0", "ge")) || (version_compare($version, "14.0", "ge") && version_compare($version, "14.3.0", "ge"))) {
-			$core_conf->addResOdbc($section, array('max_connections' => '5'));
+			$core_conf->addResOdbc($section, ['max_connections' => '5']);
 		} else {
-			$core_conf->addResOdbc($section, array('pooling' => 'no'));
-			$core_conf->addResOdbc($section, array('limit' => '1'));
+			$core_conf->addResOdbc($section, ['pooling' => 'no']);
+			$core_conf->addResOdbc($section, ['limit' => '1']);
 		}
-		$core_conf->addResOdbc($section, array('username' => !empty($amp_conf['CDRDBUSER']) ? $amp_conf['CDRDBUSER'] : $amp_conf['AMPDBUSER']));
-		$core_conf->addResOdbc($section, array('password' => !empty($amp_conf['CDRDBPASS']) ? $amp_conf['CDRDBPASS'] : $amp_conf['AMPDBPASS']));
-		$core_conf->addResOdbc($section, array('database' => !empty($amp_conf['CDRDBNAME']) ? $amp_conf['CDRDBNAME'] : 'asteriskcdrdb'));
+		$core_conf->addResOdbc($section, ['username' => !empty($amp_conf['CDRDBUSER']) ? $amp_conf['CDRDBUSER'] : $amp_conf['AMPDBUSER']]);
+		$core_conf->addResOdbc($section, ['password' => !empty($amp_conf['CDRDBPASS']) ? $amp_conf['CDRDBPASS'] : $amp_conf['AMPDBPASS']]);
+		$core_conf->addResOdbc($section, ['database' => !empty($amp_conf['CDRDBNAME']) ? $amp_conf['CDRDBNAME'] : 'asteriskcdrdb']);
 	}
 
 	if (isset($amp_conf['CDRUSEGMT']) && file_exists($amp_conf['ASTETCDIR'] . '/cdr_adaptive_odbc.conf')) {
@@ -81,13 +81,13 @@ function is_blank($value) {
 /* Asterisk RegExp parser */
 function cdr_asteriskregexp2sqllike( $source_data, $user_num ) {
         $number = $user_num;
-        if ( strlen($number) < 1 ) {
+        if ( strlen((string) $number) < 1 ) {
                 $number = $_POST[$source_data];
         }
-        if ( '__' == substr($number,0,2) ) {
-                $number = substr($number,1);
-        } elseif ( '_' == substr($number,0,1) ) {
-                $number_chars = preg_split('//', substr($number,1), -1, PREG_SPLIT_NO_EMPTY);
+        if ( str_starts_with((string) $number, '__') ) {
+                $number = substr((string) $number,1);
+        } elseif ( str_starts_with((string) $number, '_') ) {
+                $number_chars = preg_split('//', substr((string) $number,1), -1, PREG_SPLIT_NO_EMPTY);
                 $number = '';
                 foreach ($number_chars as $chr) {
                         if ( $chr == 'X' ) {
@@ -126,8 +126,8 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 		die_freepbx($pass->getDebugInfo() . "SQL - <br /> $sql_start" );
 	}
 
-	$last_criteria = array();
-	$next =array();
+	$last_criteria = [];
+	$next =[];
 	$done = false;
 
 	// continue querying all records based on the uniqueid and linkedid fields associated
@@ -137,7 +137,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 	//
 	while (!$done) {
 		unset($next);
-    $next = array();
+    $next = [];
 		foreach ($pass as $set) {
 			$next[] = $set['uniqueid'];
 			$next[] = $set['linkedid'];
@@ -157,7 +157,7 @@ function cdr_get_cel($uid, $cel_table = 'asteriskcdrdb.cel') {
 
 		$sql_next = $sql_base . "uniqueid IN $set OR linkedid IN $set" . $sql_order;
 		$last_criteria = $next;
-		$next = array();
+		$next = [];
 		$pass = $dbcdr->getAll($sql_next,DB_FETCHMODE_ASSOC);
 		if(DB::IsError($pass)) {
 			die_freepbx($pass->getDebugInfo() . "SQL - <br /> $sql_next" );
@@ -189,16 +189,16 @@ function cdr_export_csv($csvdata) {
 	$out = fopen('php://output', 'w');
 	fputcsv($out, explode(",",$csv_header));
 	foreach ($csvdata as $csv) {
-		$csv_line = array();
+		$csv_line = [];
 		foreach(explode(",",$csv_header) as $k => $item) {
-			if(preg_match("/\p{Hebrew}/u", utf8_decode($csv[$item]))){
+			if(preg_match("/\p{Hebrew}/u", utf8_decode((string) $csv[$item]))){
 				/**
 				 * Hebrew is read from right to the left.
 				 * Need to change the order Num Name instead to Name and Num
 				 * Otherwise, even if the csv format is correct, the result is messed up on Excel.
 				 */
-				preg_match('/<\d+>/', $csv[$item], $_num);
-				preg_match('/".+"/', $csv[$item], $_name);
+				preg_match('/<\d+>/', (string) $csv[$item], $_num);
+				preg_match('/".+"/', (string) $csv[$item], $_name);
 				$name = str_replace('"','',utf8_decode($_name[0]));
 				$csv[$item] = $_num[0].' "'.$name.'"';
 			}
@@ -216,18 +216,18 @@ function writeCustomFiles($custConf){
 	$nongenLines = false;
 	if($custConf) {
 		foreach ($custConf as $line) {
-			if(strpos($line, '[general]') !== false || empty($line)){
+			if(str_contains((string) $line, '[general]') || empty($line)){
 				continue;
 			}
 
-			if(strpos($line, '[csv]') !== false){
+			if(str_contains((string) $line, '[csv]')){
 				$nongenLines = true;
 			}
 
 			if($nongenLines) {
-				$nongeneralCustContent .= str_replace(PHP_EOL, '', $line)."\n";
+				$nongeneralCustContent .= str_replace(PHP_EOL, '', (string) $line)."\n";
 			} else {
-				$generalCustContent .= str_replace(PHP_EOL, '', $line)."\n";
+				$generalCustContent .= str_replace(PHP_EOL, '', (string) $line)."\n";
 			}
 		}
 	}

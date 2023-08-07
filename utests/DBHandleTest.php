@@ -16,7 +16,7 @@ class NetworkTest extends PHPUnit_Framework_TestCase {
 	public function testDBHandle() {
 		$dbh = self::$cdr->getCdrDbHandle();
 		$this->assertEquals("object", gettype($dbh), "DBH Not an object");
-		$this->assertEquals("Database", get_class($dbh), "Not a Database object");
+		$this->assertEquals("Database", $dbh::class, "Not a Database object");
 	}
 }
 

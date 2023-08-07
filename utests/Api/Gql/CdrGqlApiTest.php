@@ -39,41 +39,11 @@ class CdrGqlApiTest extends ApiBaseTestCase {
 		$mockHelper = $this->getMockBuilder(\FreePBX\modules\cdr\Cdr::class)
 			->disableOriginalConstructor()
 			->disableOriginalClone()
-			->setMethods(array('getGraphQLCalls','getTotal'))
+			->setMethods(['getGraphQLCalls', 'getTotal'])
 			->getMock();
 
 		$mockHelper->method('getGraphQLCalls')
-			->willReturn(array(
-								array(
-										'calldate' => '2021-06-04 21:12:33',
-										'clid' => "WALDROP CONNIE " ,
-										'src' => 11111,
-										'dst' => 's',
-										'dcontext' => 'from-pstn',
-										'channel' => 'SIP/fpbx-1-2cSnGYAnRDnB-0000000a',
-										'dstchannel' => '',
-										'lastapp' => 'Playback',
-										'lastdata' => 'ss-noservice',
-										'duration' => 6,
-										'billsec' => 6,
-										'disposition' => 'ANSWERED',
-										'amaflags' => 3,
-										'accountcode' => '',
-										'uniqueid' => 123456,
-										'userfield' => '',
-										'did' => '',
-										'recordingfile' => '',
-										'cnum' => '',
-										'cnam' => '',
-										'outbound_cnum' => '',
-										'outbound_cnam' => '',
-										'dst_cnam' => '',
-										'linkedid' => 123456,
-										'peeraccount' => '',
-										'sequence' => 10,
-										'timestamp' => 1622841153,
-									)
-								));
+			->willReturn([['calldate' => '2021-06-04 21:12:33', 'clid' => "WALDROP CONNIE ", 'src' => 11111, 'dst' => 's', 'dcontext' => 'from-pstn', 'channel' => 'SIP/fpbx-1-2cSnGYAnRDnB-0000000a', 'dstchannel' => '', 'lastapp' => 'Playback', 'lastdata' => 'ss-noservice', 'duration' => 6, 'billsec' => 6, 'disposition' => 'ANSWERED', 'amaflags' => 3, 'accountcode' => '', 'uniqueid' => 123456, 'userfield' => '', 'did' => '', 'recordingfile' => '', 'cnum' => '', 'cnam' => '', 'outbound_cnum' => '', 'outbound_cnam' => '', 'dst_cnam' => '', 'linkedid' => 123456, 'peeraccount' => '', 'sequence' => 10, 'timestamp' => 1_622_841_153]]);
 
 		$mockHelper->method('getTotal')
 			->willReturn(1);
@@ -333,39 +303,11 @@ class CdrGqlApiTest extends ApiBaseTestCase {
 		$mockHelper = $this->getMockBuilder(\FreePBX\modules\cdr\Cdr::class)
 			->disableOriginalConstructor()
 			->disableOriginalClone()
-			->setMethods(array('getGraphQLRecordByID'))
+			->setMethods(['getGraphQLRecordByID'])
 			->getMock();
 
 		$mockHelper->method('getGraphQLRecordByID')
-			->willReturn(array(
-								'calldate' => '2021-06-04 21:12:33',
-								'clid' => "WALDROP CONNIE " ,
-								'src' => 11111,
-								'dst' => 's',
-								'dcontext' => 'from-pstn',
-								'channel' => 'SIP/fpbx-1-2cSnGYAnRDnB-0000000a',
-								'dstchannel' => '',
-								'lastapp' => 'Playback',
-								'lastdata' => 'ss-noservice',
-								'duration' => 6,
-								'billsec' => 6,
-								'disposition' => 'ANSWERED',
-								'amaflags' => 3,
-								'accountcode' => '',
-								'uniqueid' => 123456,
-								'userfield' => '',
-								'did' => '',
-								'recordingfile' => '',
-								'cnum' => '',
-								'cnam' => '',
-								'outbound_cnum' => '',
-								'outbound_cnam' => '',
-								'dst_cnam' => '',
-								'linkedid' => 123456,
-								'peeraccount' => '',
-								'sequence' => 10,
-								'timestamp' => 1622841153,
-								));
+			->willReturn(['calldate' => '2021-06-04 21:12:33', 'clid' => "WALDROP CONNIE ", 'src' => 11111, 'dst' => 's', 'dcontext' => 'from-pstn', 'channel' => 'SIP/fpbx-1-2cSnGYAnRDnB-0000000a', 'dstchannel' => '', 'lastapp' => 'Playback', 'lastdata' => 'ss-noservice', 'duration' => 6, 'billsec' => 6, 'disposition' => 'ANSWERED', 'amaflags' => 3, 'accountcode' => '', 'uniqueid' => 123456, 'userfield' => '', 'did' => '', 'recordingfile' => '', 'cnum' => '', 'cnam' => '', 'outbound_cnum' => '', 'outbound_cnam' => '', 'dst_cnam' => '', 'linkedid' => 123456, 'peeraccount' => '', 'sequence' => 10, 'timestamp' => 1_622_841_153]);
 
 		self::$freepbx->Cdr = $mockHelper;
 		$response = $this->request("{
@@ -418,7 +360,7 @@ class CdrGqlApiTest extends ApiBaseTestCase {
 		$mockHelper = $this->getMockBuilder(\FreePBX\modules\cdr\Cdr::class)
 			->disableOriginalConstructor()
 			->disableOriginalClone()
-			->setMethods(array('getGraphQLRecordByID'))
+			->setMethods(['getGraphQLRecordByID'])
 			->getMock();
 
 		$mockHelper->method('getGraphQLRecordByID')
@@ -451,7 +393,7 @@ class CdrGqlApiTest extends ApiBaseTestCase {
 		$mockHelper = $this->getMockBuilder(\FreePBX\modules\cdr\Cdr::class)
 			->disableOriginalConstructor()
 			->disableOriginalClone()
-			->setMethods(array('getGraphQLRecordByID'))
+			->setMethods(['getGraphQLRecordByID'])
 			->getMock();
 
 		$mockHelper->method('getGraphQLRecordByID')

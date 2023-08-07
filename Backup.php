@@ -5,6 +5,7 @@ namespace FreePBX\modules\Cdr;
 use FreePBX\modules\Backup as Base;
 class Backup Extends Base\BackupBase{
   public function runBackup($id,$transaction){
+    $dumpOtherOptions = [];
     $backupDetails = $this->FreePBX->Backup->getAll($id);
     if (isset($backupDetails['cdrStartDate']) && isset($backupDetails['cdrEndDate'])) {
       $startDate = $backupDetails['cdrStartDate'];

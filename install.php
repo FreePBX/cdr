@@ -6,7 +6,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //
 // Update cdr database with did field
 //
-require_once(dirname(__FILE__) . '/functions.inc.php');
+require_once(__DIR__ . '/functions.inc.php');
 global $db;
 global $amp_conf;
 
@@ -17,7 +17,7 @@ $db_table_name = !empty($amp_conf['CDRDBTABLENAME'])?$amp_conf['CDRDBTABLENAME']
 // if CDRDBHOST and CDRDBTYPE are not empty then we assume an external connection and don't use the default connection
 //
 if (!empty($amp_conf["CDRDBHOST"]) && !empty($amp_conf["CDRDBTYPE"])) {
-	$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
+	$db_hash = ['mysql' => 'mysql', 'postgres' => 'pgsql'];
 	$db_type = $db_hash[$amp_conf["CDRDBTYPE"]];
 	$db_host = $amp_conf["CDRDBHOST"];
 	$db_port = empty($amp_conf["CDRDBPORT"]) ? '' :  ':' . $amp_conf["CDRDBPORT"];
@@ -80,7 +80,7 @@ $dbt = FreePBX::Config()->get('CDRDBTYPE');
 
 global $amp_conf;
 
-$db_hash = array('mysql' => 'mysql', 'postgres' => 'pgsql');
+$db_hash = ['mysql' => 'mysql', 'postgres' => 'pgsql'];
 $dbt = !empty($dbt) ? $dbt : 'mysql';
 $db_type = $db_hash[$dbt];
 $db_table_name = !empty($db_table) ? $db_table : "cdr";
@@ -91,7 +91,7 @@ $db_user = empty($db_user) ? $amp_conf['AMPDBUSER'] : $db_user;
 $db_pass = empty($db_pass) ? $amp_conf['AMPDBPASS'] : $db_pass;
 
 $pdo = new \Database($db_type.':host='.$db_host.$db_port.';dbname='.$db_name,$db_user,$db_pass);
-$cid_fields = array('cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam');
+$cid_fields = ['cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam'];
 
 foreach($cid_fields as $cf) {
 	outn(_("Checking if field $cf is present in cdr table.."));
@@ -101,16 +101,16 @@ foreach($cid_fields as $cf) {
 		// If we didn't throw an exception, we're done.
 		out(_("OK!"));
 		continue;
-	} catch (\Exception $e) {
+	} catch (\Exception) {
 		out(_("Adding!"));
 		$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD $cf VARCHAR ( 80 ) NOT NULL default ''";
 		$pdo->query($sql);
 	}
 }
 
-$alterclauses = array();
+$alterclauses = [];
 /*Add standard fields: linkedid, peeraccount, sequence*/
-$stdfields=array('linkedid'=>array('VARCHAR',32,'\'\''),'peeraccount'=>array('VARCHAR',80,'\'\''),'sequence'=>array('INT',11,0));
+$stdfields=['linkedid'=>['VARCHAR', 32, '\'\''], 'peeraccount'=>['VARCHAR', 80, '\'\''], 'sequence'=>['INT', 11, 0]];
 foreach($stdfields as $name => $type) {
     try {
         outn(_("Checking if field $name is present in cdr table.."));
@@ -118,7 +118,7 @@ foreach($stdfields as $name => $type) {
         $confs = $pdo->query($sql, DB_FETCHMODE_ASSOC);
         out(_("OK!"));
         continue;
-    } catch (\Exception $e) {
+    } catch (\Exception) {
         out(_("Adding!"));
         $alterclauses[] = ' ADD `'.$name.'` '.$type[0].'('.$type[1].') NOT NULL DEFAULT '.$type[2];
     }
@@ -151,7 +151,7 @@ if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 	$cdrfile = fopen($amp_conf['ASTETCDIR'] . '/cdr.conf', "r");
 	$additionalConfLines = [];
 	while(($line = fgets($cdrfile)) !== false) {
-		if(substr($line,0,1) == ";" || empty($line)) {
+		if(str_starts_with($line, ";") || empty($line)) {
 			continue;
 		}
 		$bvals = explode("=",$line);
@@ -193,7 +193,7 @@ if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 	$safeShutDown = 1;
 }
 $enable??='';
-$set['value'] = ($enable == 1 || trim($enable) == 'yes') ? 1 : 0;
+$set['value'] = ($enable == 1 || trim((string) $enable) == 'yes') ? 1 : 0;
 $set['defaultval'] = 1;
 $set['readonly'] = 0;
 $set['hidden'] = 0;
@@ -207,7 +207,7 @@ $set['description'] = 'Define whether or not to use CDR logging.  Setting this t
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('CDR_BATCH_ENABLE',$set);
 
-$set['value'] = ($batch == 1 || trim($batch) == 'yes') ? 1 : 0;
+$set['value'] = ($batch == 1 || trim((string) $batch) == 'yes') ? 1 : 0;
 $set['defaultval'] = 0;
 $set['readonly'] = 0;
 $set['hidden'] = 0;
@@ -221,9 +221,9 @@ $set['description'] = 'Use of batch mode may result in data loss after unsafe as
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('CDR_BATCH',$set);
 
-$set['value'] = ($size) ? $size : 200;
+$set['value'] = $size ?: 200;
 $set['defaultval'] = '200';
-$set['options'] = array(0,300);
+$set['options'] = [0, 300];
 $set['readonly'] = 0;
 $set['hidden'] = 0;
 $set['level'] = 1;
@@ -236,9 +236,9 @@ $set['description'] = "Define the maximum number of CDRs to accumulate in the bu
 $set['type'] = CONF_TYPE_INT;
 $freepbx_conf->define_conf_setting('CDR_BATCH_SIZE',$set);
 
-$set['value'] = ($time) ? $time : 300;
+$set['value'] = $time ?: 300;
 $set['defaultval'] = '300';
-$set['options'] = array(0,300);
+$set['options'] = [0, 300];
 $set['readonly'] = 0;
 $set['hidden'] = 0;
 $set['level'] = 1;
@@ -251,7 +251,7 @@ $set['description'] = "Define the maximum time to accumulate CDRs in the buffer 
 $set['type'] = CONF_TYPE_INT;
 $freepbx_conf->define_conf_setting('CDR_BATCH_TIME',$set);
 
-$set['value'] = ($scheduleOnly == 1 || trim($scheduleOnly) == 'yes') ? 1 : 0;
+$set['value'] = ($scheduleOnly == 1 || trim((string) $scheduleOnly) == 'yes') ? 1 : 0;
 $set['defaultval'] = 0;
 $set['readonly'] = 0;
 $set['hidden'] = 0;
@@ -265,7 +265,7 @@ $set['description'] = 'The CDR engine uses the internal asterisk scheduler to de
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('CDR_BATCH_SCHEDULE_ONLY',$set);
 
-$set['value'] = ($safeShutDown == 1 || trim($safeShutDown) == 'yes') ? 1 : 0;
+$set['value'] = ($safeShutDown == 1 || trim((string) $safeShutDown) == 'yes') ? 1 : 0;
 $set['defaultval'] = 1;
 $set['readonly'] = 0;
 $set['hidden'] = 0;

@@ -12,8 +12,7 @@ class Cdr extends Base {
 
 	public function queryCallback() {
 		if($this->checkAllReadScope()) {
-			return function() {
-				return [
+			return fn() => [
 					'fetchAllCdrs' => [
 						'type' => $this->typeContainer->get('cdr')->getConnectionType(),
 						'description' => _('CDR Reports'),
@@ -91,7 +90,7 @@ class Cdr extends Base {
 									'arrayLength' => $this->freepbx->Cdr->getTotal()
 								]
 							);
-							if(count($res['edges']) > 0){
+							if((is_countable($res['edges']) ? count($res['edges']) : 0) > 0){
 								$message = _('CDR data found successfully');
 							}else{
 								$message = _('No Data Found');
@@ -118,7 +117,6 @@ class Cdr extends Base {
 						}
 					]
 				];
-			};
 		}
 	}
 
@@ -131,12 +129,9 @@ class Cdr extends Base {
 			return !empty($record) ? $record : null;
 		});
 
-		$user->addInterfaceCallback(function() {
-			return [$this->getNodeDefinition()['nodeInterface']];
-		});
+		$user->addInterfaceCallback(fn() => [$this->getNodeDefinition()['nodeInterface']]);
 
-		$user->addFieldCallback(function() {
-			return [
+		$user->addFieldCallback(fn() => [
 				'id' => Relay::globalIdField('cdr', function($row) {
 					if(isset($row['uniqueid'])){
 						return $row['uniqueid'];
@@ -307,52 +302,38 @@ class Cdr extends Base {
 					'resolve' => function($row) {
 						$disposition = "";
 						if(isset($row['disposition'])){
-							$disposition = strtolower($row['disposition']);
+							$disposition = strtolower((string) $row['disposition']);
 						}elseif(isset($row['response'])){
-							$disposition =  strtolower($row['response']['disposition']);
+							$disposition =  strtolower((string) $row['response']['disposition']);
 						}
-						switch ($disposition) {
-							case "noanswer":
-								return 'NO ANSWER';
-							case "no answer":
-								return 'NO ANSWER';
-							case "congestion":
-								return 'CONGESTION';
-							case "failed":
-								return 'FAILED';
-							case "busy":
-								return 'BUSY';
-							case "answered":
-								return 'ANSWERED';
-							default:
-								return $disposition;
-						}
+						return match ($disposition) {
+         "noanswer" => 'NO ANSWER',
+         "no answer" => 'NO ANSWER',
+         "congestion" => 'CONGESTION',
+         "failed" => 'FAILED',
+         "busy" => 'BUSY',
+         "answered" => 'ANSWERED',
+         default => $disposition,
+     };
 					}
 				],
 				'amaflags' => [
 					'type' => Type::string(),
 					'description' => _('A flag specified on the Party A channel. AMA Flags are set on a channel and are conveyed in the CDR. They inform billing systems how to treat the particular CDR. Asterisk provides no additional semantics regarding these flags - they are present simply to help external systems classify CDRs'),
 					'resolve' => function($payload) {
-						$amaflags = "";
+						$row = [];
+     $amaflags = "";
 						if(isset($row['amaflags'])){
 							$amaflags = $row['amaflags'];
 						}elseif(isset($row['response'])){
 							$amaflags =  $row['response']['amaflags'];
 						}
-						switch ($amaflags) {
-							case 0:
-								return 'DOCUMENTATION';
-								break;
-							case 1:
-								return 'IGNORE';
-								break;
-							case 2:
-								return 'BILLING';
-								break;
-							case 3:
-							default:
-								return 'DEFAULT';
-						}
+						return match ($amaflags) {
+         0 => 'DOCUMENTATION',
+         1 => 'IGNORE',
+         2 => 'BILLING',
+         default => 'DEFAULT',
+     };
 					}
 				],
 				'accountcode' => [
@@ -495,30 +476,22 @@ class Cdr extends Base {
 					'type' => Type::boolean(),
 					'description' => _('Status for the request')
 				],
-			];
-		});
+			]);
 
-		$user->setConnectionResolveNode(function ($edge) {
-			return $edge['node'];
-		});
+		$user->setConnectionResolveNode(fn($edge) => $edge['node']);
 
-		$user->setConnectionFields(function() {
-			return [
+		$user->setConnectionFields(fn() => [
 				'totalCount' => [
 					'type' => Type::int(),
 					'description' => _('A count of the total number of objects in this connection, ignoring pagination. This allows a client to fetch the first five objects by passing "5" as the argument to "first", then fetch the total count so it could display "5 of 83", for example.'),
-					'resolve' => function($value) {
-						return $this->freepbx->Cdr->getTotal();
-					}
+					'resolve' => fn($value) => $this->freepbx->Cdr->getTotal()
 				],
 				'cdrs' => [
 					'type' => Type::listOf($this->typeContainer->get('cdr')->getObject()),
 					'description' => _('A list of all of the objects returned in the connection. This is a convenience field provided for quickly exploring the API; rather than querying for "{ edges { node } }" when no edge data is needed, this field can be be used instead. Note that when clients like Relay need to fetch the "cursor" field on the edge to enable efficient pagination, this shortcut cannot be used, and the full "{ edges { node } }" version should be used instead.'),
 					'resolve' => function($root, $args) {
 						if(isset($root['response'])){
-							$data = array_map(function($row){
-								return $row['node'];
-							},$root['response']['edges']);
+							$data = array_map(fn($row) => $row['node'],$root['response']['edges']);
 							return $data;
 						}else{
 							return null;
@@ -533,13 +506,12 @@ class Cdr extends Base {
 					'type' => Type::boolean(),
 					'description' => _('Status for the request')
 				],
-			];
-		});
+			]);
 	}
 
 	private function validateDate($date){
 		//format YYYY-mm-dd						
-		if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$date)) {
+		if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",(string) $date)) {
 			return 1;
 		} else {
 			return 0;
