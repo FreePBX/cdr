@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-02 11:14+0000\n"
+"POT-Creation-Date: 2023-08-08 06:16+0000\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Cdr.class.php:497
+#: Cdr.class.php:477
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s ساعت, %s دقیقه, %sثانیه"
 
-#: Cdr.class.php:499
+#: Cdr.class.php:479
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s دقیقه, %sثانیه"
 
-#: Cdr.class.php:502
+#: Cdr.class.php:482
 #, php-format
 msgid "%s sec"
 msgstr "%sثانیه"
@@ -80,7 +80,7 @@ msgstr ""
 msgid "<br>Asterisk pattern matching<br>"
 msgstr "<br> مطابقت پترن استریسک <br>"
 
-#: Api/Gql/Cdr.php:509
+#: Api/Gql/Cdr.php:486
 msgid ""
 "A count of the total number of objects in this connection, ignoring "
 "pagination. This allows a client to fetch the first five objects by passing "
@@ -88,7 +88,7 @@ msgid ""
 "display \"5 of 83\", for example."
 msgstr ""
 
-#: Api/Gql/Cdr.php:334
+#: Api/Gql/Cdr.php:322
 msgid ""
 "A flag specified on the Party A channel. AMA Flags are set on a channel and "
 "are conveyed in the CDR. They inform billing systems how to treat the "
@@ -96,7 +96,7 @@ msgid ""
 "flags - they are present simply to help external systems classify CDRs"
 msgstr ""
 
-#: Api/Gql/Cdr.php:516
+#: Api/Gql/Cdr.php:491
 msgid ""
 "A list of all of the objects returned in the connection. This is a "
 "convenience field provided for quickly exploring the API; rather than "
@@ -107,17 +107,17 @@ msgid ""
 "instead."
 msgstr ""
 
-#: Api/Gql/Cdr.php:480
+#: Api/Gql/Cdr.php:461
 msgid ""
 "A numeric value that, combined with uniqueid and linkedid, can be used to "
 "uniquely identify a single CDR record"
 msgstr ""
 
-#: Api/Gql/Cdr.php:150
+#: Api/Gql/Cdr.php:145
 msgid "A unique identifier for the Party A channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:372
+#: Api/Gql/Cdr.php:353
 msgid ""
 "A user defined field set on the channels. If set on both the Party A and "
 "Party B channel, the userfields of both are concatenated and separated by a ;"
@@ -127,11 +127,11 @@ msgstr ""
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1180 page.cdr.php:1258
+#: page.cdr.php:1185 page.cdr.php:1255
 msgid "AMA Flag"
 msgstr "پرچم AMA"
 
-#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1144
+#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1157
 msgid "ANI"
 msgstr "ANI"
 
@@ -191,7 +191,7 @@ msgstr "اجازهربه کاربر برای پخش ضبط شده در پنل ک
 msgid "Allow users to download recordings in UCP"
 msgstr "اجازه به کاربر برای دانلود ضبط شده در پنل کاربری"
 
-#: Api/Gql/Cdr.php:360
+#: Api/Gql/Cdr.php:341
 msgid "An account code associated with the Party A channel"
 msgstr ""
 
@@ -207,7 +207,7 @@ msgstr "پاسخ داده شده"
 msgid "App"
 msgstr "نرم افزار"
 
-#: page.cdr.php:1150
+#: page.cdr.php:1163
 msgid "Application"
 msgstr "درخواست"
 
@@ -234,7 +234,7 @@ msgstr "شروع با"
 msgid "Between"
 msgstr "بین"
 
-#: page.cdr.php:1187
+#: page.cdr.php:1192
 msgid "Billing Duration"
 msgstr "هزینه مدت زمان"
 
@@ -246,16 +246,16 @@ msgstr "اشغال"
 msgid "CDR Access"
 msgstr "دسترسی جزئیات تماس"
 
-#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
+#: Api/Gql/Cdr.php:18 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
 #: /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "گزارشهای جزئیات تماس"
 
-#: Api/Gql/Cdr.php:116
+#: Api/Gql/Cdr.php:115
 msgid "CDR data does not exists"
 msgstr ""
 
-#: Api/Gql/Cdr.php:95 Api/Gql/Cdr.php:114
+#: Api/Gql/Cdr.php:94 Api/Gql/Cdr.php:113
 msgid "CDR data found successfully"
 msgstr ""
 
@@ -287,7 +287,7 @@ msgstr "تاریخ تماس"
 msgid "Call Detail Record - Call Graph by"
 msgstr "ثبت جزییات تماس - گراف تماس با"
 
-#: page.cdr.php:1066
+#: page.cdr.php:1079
 msgid "Call Detail Record - Concurrent Calls by"
 msgstr "ثبت جزییات تماس - تماسهای فعلی با"
 
@@ -307,24 +307,24 @@ msgstr "ثبت جزییات تماس - پاسخ جستجو"
 msgid "Call Graph"
 msgstr "گراف تماس"
 
-#: Cdr.class.php:307 ucp/Cdr.class.php:80 ucp/Cdr.class.php:115
+#: Cdr.class.php:308 ucp/Cdr.class.php:73 ucp/Cdr.class.php:92
 msgid "Call History"
 msgstr "تاریخچه تماس"
 
-#: ucp/Cdr.class.php:67
+#: ucp/Cdr.class.php:65
 #, php-format
 msgid "Call History for %s"
 msgstr ""
 
-#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1225
+#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1230
 msgid "Caller ID Name"
 msgstr "نام شناسه تماس"
 
-#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1230
+#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1235
 msgid "Caller ID Number"
 msgstr "شماره شناسه تماس"
 
-#: page.cdr.php:739 /usr/src/freepbx/cdr/page.cdr.php:1119
+#: page.cdr.php:739 /usr/src/freepbx/cdr/page.cdr.php:1132
 msgid "CallerID"
 msgstr "شناسه تماس گیرنده"
 
@@ -340,8 +340,8 @@ msgstr "شماره تماس گیرنده"
 msgid "Calls"
 msgstr "تماسها"
 
-#: page.cdr.php:1111 page.cdr.php:1128 page.cdr.php:1133 page.cdr.php:1161
-#: page.cdr.php:1286
+#: page.cdr.php:1124 page.cdr.php:1141 page.cdr.php:1146 page.cdr.php:1174
+#: page.cdr.php:1283
 msgid "Channel"
 msgstr "کانال"
 
@@ -349,7 +349,7 @@ msgstr "کانال"
 msgid "Concurrent Calls"
 msgstr "تماسهای فعلی"
 
-#: ucp/Cdr.class.php:330 ucp/Cdr.class.php:334
+#: ucp/Cdr.class.php:293 ucp/Cdr.class.php:297
 msgid "Conference"
 msgstr "کنفرانس"
 
@@ -366,7 +366,7 @@ msgstr "کنترلها"
 
 #: page.cdr.php:252 /usr/src/freepbx/cdr/page.cdr.php:368 page.cdr.php:432
 #: /usr/src/freepbx/cdr/page.cdr.php:741 page.cdr.php:879
-#: /usr/src/freepbx/cdr/page.cdr.php:1139
+#: /usr/src/freepbx/cdr/page.cdr.php:1152
 msgid "DID"
 msgstr "داخلی مستقیم (DID)"
 
@@ -398,7 +398,7 @@ msgstr "دسامبر"
 msgid "Description"
 msgstr "توضیح"
 
-#: Api/Gql/Cdr.php:456
+#: Api/Gql/Cdr.php:437
 msgid "Description of the blocked number"
 msgstr ""
 
@@ -414,7 +414,7 @@ msgstr "مقصدنام تماس گیرنده"
 msgid "Destination CallerID Name"
 msgstr "مقصدنام تماس گیرنده"
 
-#: page.cdr.php:1161
+#: page.cdr.php:1174
 msgid "Destination Context"
 msgstr "چهارچوب مقصد"
 
@@ -422,11 +422,11 @@ msgstr "چهارچوب مقصد"
 msgid "Destination Number"
 msgstr "شماره مقصد"
 
-#: page.cdr.php:1240
+#: page.cdr.php:1245
 msgid "Dialplan context"
 msgstr "چهار چوب پلان تماس"
 
-#: page.cdr.php:1235
+#: page.cdr.php:1240
 msgid "Dialplan exten"
 msgstr "داخلی پلان تماس"
 
@@ -434,7 +434,7 @@ msgstr "داخلی پلان تماس"
 msgid "Disposition"
 msgstr "وضعیت"
 
-#: Api/Gql/Cdr.php:34
+#: Api/Gql/Cdr.php:33
 msgid ""
 "Dispositions represent the final state of the call from the perspective of "
 "Party A"
@@ -461,15 +461,15 @@ msgstr ""
 msgid "Enable CDR (Call History) in UCP for this user"
 msgstr "فعال سازی CDR (سابقه تماس) در پنل کاربری برای این کاربر"
 
-#: Api/Gql/Cdr.php:55
+#: Api/Gql/Cdr.php:54
 msgid "End Date"
 msgstr ""
 
-#: Api/Gql/Cdr.php:76
+#: Api/Gql/Cdr.php:75
 msgid "End Date is required..!!"
 msgstr ""
 
-#: Api/Gql/Cdr.php:83
+#: Api/Gql/Cdr.php:82
 msgid "End Date should be greater than Start Date..!!"
 msgstr ""
 
@@ -484,7 +484,7 @@ msgstr "خاتمه با"
 msgid "Event"
 msgstr "رویداد"
 
-#: page.cdr.php:1278
+#: page.cdr.php:1275
 msgid "Event Extra"
 msgstr "رویداد بیشتر"
 
@@ -515,11 +515,11 @@ msgstr "انجام نشد"
 msgid "February"
 msgstr "فبریه"
 
-#: ucp/Cdr.class.php:193
+#: ucp/Cdr.class.php:156
 msgid "File does not exist"
 msgstr "فایلی وجود ندارد"
 
-#: ucp/Cdr.class.php:432
+#: ucp/Cdr.class.php:395
 msgid "Forbidden"
 msgstr "قدغن"
 
@@ -555,11 +555,11 @@ msgstr "ساعت از روز"
 msgid "Inherit"
 msgstr "ارثی"
 
-#: Api/Gql/Cdr.php:72
+#: Api/Gql/Cdr.php:71
 msgid "Invalid End Date Format(YYYY-MM-DD)"
 msgstr ""
 
-#: Api/Gql/Cdr.php:67
+#: Api/Gql/Cdr.php:66
 msgid "Invalid Start Date Format(YYYY-MM-DD)"
 msgstr ""
 
@@ -575,7 +575,7 @@ msgstr "جولای"
 msgid "June"
 msgstr "جون"
 
-#: Api/Gql/Cdr.php:25
+#: Api/Gql/Cdr.php:24
 msgid "Limit value"
 msgstr ""
 
@@ -583,7 +583,7 @@ msgstr ""
 msgid "March"
 msgstr "مارچ"
 
-#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1068
+#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1081
 msgid "Max Calls"
 msgstr "بیشترین تماسها"
 
@@ -591,7 +591,7 @@ msgstr "بیشترین تماسها"
 msgid "May"
 msgstr "می"
 
-#: Api/Gql/Cdr.php:492 Api/Gql/Cdr.php:530
+#: Api/Gql/Cdr.php:473 Api/Gql/Cdr.php:503
 msgid "Message for the request"
 msgstr ""
 
@@ -615,7 +615,7 @@ msgstr "خیر"
 msgid "No Answer"
 msgstr "بدون پاسخ"
 
-#: Api/Gql/Cdr.php:97
+#: Api/Gql/Cdr.php:96
 msgid "No Data Found"
 msgstr ""
 
@@ -626,7 +626,7 @@ msgstr ""
 msgid "Not"
 msgstr "نه"
 
-#: ucp/Cdr.class.php:438
+#: ucp/Cdr.class.php:401
 msgid "Not Found"
 msgstr "پیدا نشد"
 
@@ -642,7 +642,7 @@ msgstr "تایید!"
 msgid "October"
 msgstr "اکتبر"
 
-#: Api/Gql/Cdr.php:29
+#: Api/Gql/Cdr.php:28
 msgid "Offset value"
 msgstr ""
 
@@ -772,15 +772,15 @@ msgstr ""
 msgid "September"
 msgstr "سپتامبر"
 
-#: Api/Gql/Cdr.php:51
+#: Api/Gql/Cdr.php:50
 msgid "Start Date"
 msgstr ""
 
-#: Api/Gql/Cdr.php:79
+#: Api/Gql/Cdr.php:78
 msgid "Start Date is required..!!"
 msgstr ""
 
-#: Api/Gql/Cdr.php:496 Api/Gql/Cdr.php:534
+#: Api/Gql/Cdr.php:477 Api/Gql/Cdr.php:507
 msgid "Status for the request"
 msgstr ""
 
@@ -796,94 +796,94 @@ msgstr "اطلاعات فنی"
 msgid "Telephone Number"
 msgstr "شماره تلفن"
 
-#: Api/Gql/Cdr.php:198 Api/Gql/Cdr.php:408
+#: Api/Gql/Cdr.php:193 Api/Gql/Cdr.php:389
 msgid "The Caller ID Number"
 msgstr ""
 
-#: Api/Gql/Cdr.php:186
+#: Api/Gql/Cdr.php:181
 msgid "The Caller ID with text"
 msgstr ""
 
-#: Api/Gql/Cdr.php:384
+#: Api/Gql/Cdr.php:365
 msgid "The DID that was used to reach this destination"
 msgstr ""
 
-#: Api/Gql/Cdr.php:108
+#: Api/Gql/Cdr.php:107
 msgid "The ID"
 msgstr ""
 
-#: Api/Gql/Cdr.php:432
+#: Api/Gql/Cdr.php:413
 msgid "The Outbound Caller ID Name"
 msgstr ""
 
-#: Api/Gql/Cdr.php:420
+#: Api/Gql/Cdr.php:401
 msgid "The Outbound Caller ID Number"
 msgstr ""
 
-#: Api/Gql/Cdr.php:468
+#: Api/Gql/Cdr.php:449
 msgid "The account code of the Party B channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:270
+#: Api/Gql/Cdr.php:265
 msgid ""
 "The application data for the last application the Party A channel executed"
 msgstr ""
 
-#: Api/Gql/Cdr.php:42
+#: Api/Gql/Cdr.php:41
 msgid "The channel dialed something that was congested."
 msgstr ""
 
-#: Api/Gql/Cdr.php:38
+#: Api/Gql/Cdr.php:37
 msgid ""
 "The channel was never answered. This is the default disposition for an "
 "unanswered channel."
 msgstr ""
 
-#: Api/Gql/Cdr.php:444
+#: Api/Gql/Cdr.php:425
 msgid "The destination Caller ID Name"
 msgstr ""
 
-#: Api/Gql/Cdr.php:222
+#: Api/Gql/Cdr.php:217
 msgid "The destination context"
 msgstr ""
 
-#: Api/Gql/Cdr.php:210
+#: Api/Gql/Cdr.php:205
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:171 ucp/Cdr.class.php:188
+#: ucp/Cdr.class.php:137 ucp/Cdr.class.php:151
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
-#: Api/Gql/Cdr.php:46 Api/Gql/Cdr.php:306
+#: Api/Gql/Cdr.php:45 Api/Gql/Cdr.php:301
 msgid "The final known disposition of the CDR record"
 msgstr ""
 
-#: Api/Gql/Cdr.php:258
+#: Api/Gql/Cdr.php:253
 msgid "The last application the Party A channel executed"
 msgstr ""
 
-#: Api/Gql/Cdr.php:234
+#: Api/Gql/Cdr.php:229
 msgid "The name of the Party A channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:246
+#: Api/Gql/Cdr.php:241
 msgid "The name of the Party B channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:396
+#: Api/Gql/Cdr.php:377
 msgid "The recording file of this entry"
 msgstr ""
 
-#: Api/Gql/Cdr.php:294
+#: Api/Gql/Cdr.php:289
 msgid "The time in seconds from answer until end"
 msgstr ""
 
-#: Api/Gql/Cdr.php:282
+#: Api/Gql/Cdr.php:277
 msgid "The time in seconds from start until end"
 msgstr ""
 
-#: Api/Gql/Cdr.php:162 Api/Gql/Cdr.php:174
+#: Api/Gql/Cdr.php:157 Api/Gql/Cdr.php:169
 msgid "The time the CDR was created"
 msgstr ""
 
@@ -895,7 +895,7 @@ msgstr ""
 "اینها داخلی های فعالی هستند که به کاربر در پنل کاربری برای کنترل و یا ویرایش "
 "نمایش داده میشوند"
 
-#: page.cdr.php:427 /usr/src/freepbx/cdr/page.cdr.php:1069
+#: page.cdr.php:427 /usr/src/freepbx/cdr/page.cdr.php:1082
 msgid "Time"
 msgstr "ساعت"
 
@@ -903,7 +903,7 @@ msgstr "ساعت"
 msgid "To"
 msgstr "به"
 
-#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1068
+#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1081
 msgid "Total Calls"
 msgstr "مجموع تماسها"
 
@@ -919,11 +919,11 @@ msgstr "ناتوانی در افزودن فهرست به جدول cdr"
 msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr ""
 
-#: page.cdr.php:1102 page.cdr.php:1105
+#: page.cdr.php:1115 page.cdr.php:1118
 msgid "UniqueID"
 msgstr "شناسه یکتا"
 
-#: ucp/Cdr.class.php:360 ucp/Cdr.class.php:381 ucp/Cdr.class.php:385
+#: ucp/Cdr.class.php:323 ucp/Cdr.class.php:344 ucp/Cdr.class.php:348
 msgid "Unknown"
 msgstr "نا شناخته"
 
@@ -931,11 +931,11 @@ msgstr "نا شناخته"
 msgid "User Field"
 msgstr "فیلد کاربری"
 
-#: Cdr.class.php:298
+#: Cdr.class.php:300
 msgid "User Primary Extension"
 msgstr "داخلی اصلی کاربر"
 
-#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1272
+#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1269
 msgid "UserDefType"
 msgstr "نوع تعریف شده توسط کاربر"
 
@@ -943,7 +943,7 @@ msgstr "نوع تعریف شده توسط کاربر"
 msgid "Userfield"
 msgstr "فیلد کاربر"
 
-#: ucp/Cdr.class.php:316 ucp/Cdr.class.php:321
+#: ucp/Cdr.class.php:279 ucp/Cdr.class.php:284
 msgid "Voicemail"
 msgstr "ایمیل صوتی"
 
@@ -972,7 +972,7 @@ msgstr "کانال"
 msgid "context"
 msgstr "زمینه"
 
-#: ucp/Cdr.class.php:348
+#: ucp/Cdr.class.php:311
 msgid "denied by COS"
 msgstr "لغو توسط COS"
 
@@ -980,7 +980,7 @@ msgstr "لغو توسط COS"
 msgid "exten"
 msgstr "داخلی"
 
-#: ucp/Cdr.class.php:344
+#: ucp/Cdr.class.php:307
 msgid "kicked from conference"
 msgstr "بیرون انداختن از کنفرانس"
 
