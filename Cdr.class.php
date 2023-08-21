@@ -332,6 +332,22 @@ class Cdr implements \BMO {
 		return $this->db_table;
 	}
 
+	public static function myDialplanHooks()
+	{
+		return 900;
+	}
+
+	public function doDialplanHook(&$ext, $engine, $priority)
+	{
+		$transientcdr = $this->FreePBX->Config()->get('TRANSIENTCDR');
+		if ($transientcdr) {
+			$this->createCdrTrigger();
+		} else {
+			$this->removeCdrTrigger();
+			$this->removecronEntry();
+		}
+	}
+
 	public function ajaxRequest($req, &$setting) {
 		$setting['authenticate'] = true;
 		$setting['allowremote'] = false;
@@ -432,12 +448,12 @@ class Cdr implements \BMO {
 	 * @param string  $order    	Order ASC or DESC
 	 * @param string  $search   	The search string to use
 	 * @param integer $limit    	The number of results to return
-	 * @param bool    $fromAPI  	Uses the replicate_cdr table instead, which only stores last two months of CDR data.  Used when queries to regular cdr table take too long because the table has too much data.
+	 * @param bool    $fromAPI  	Uses the transient_cdr table instead, which only stores last two months of CDR data.  Used when queries to regular cdr table take too long because the table has too much data.
 	 * @param string  $webrtcPrefix 	
 	 */
 	public function getCalls($extension, $page = 1, $orderby = 'date', $order = 'desc', $search = '', $limit = 100, $fromAPI = false, $webrtcPrefix = '') {
 		if($fromAPI) {
-			//set the $db_table variable to 'replicate_cdr' if cdrTrigger is created
+			//set the $db_table variable to 'transient_cdr' if cdrTrigger is created
 			$this->checkCdrTrigger();
 		}
 		$defaultExtension = $extension;
@@ -599,8 +615,8 @@ class Cdr implements \BMO {
 	
 	/**
 	 * This function will check whether the cdrTrigger is created or not.
-	 * If the trigger exists, it will set the $db_table variable to 'replicate_cdr'.
-	 * So when 'pbx.users.callLogs.getList' method is called, it will fetch the call logs from 'replicate_cdr' instead of 'cdr' table
+	 * If the trigger exists, it will set the $db_table variable to 'transient_cdr'.
+	 * So when 'pbx.users.callLogs.getList' method is called, it will fetch the call logs from 'transient_cdr' instead of 'cdr' table
 	 */
 	private function checkCdrTrigger() {
 		$query = "SHOW TRIGGERS WHERE `Trigger` = 'cdrTrigger'";
@@ -608,8 +624,131 @@ class Cdr implements \BMO {
 		$res->execute();
 		$result = $res->fetch(\PDO::FETCH_ASSOC);
 		if (!empty($result)) {
-			$this->db_table = 'replicate_cdr';
+			$this->db_table = 'transient_cdr';
 		}
 	}
+
+
+	public function getReplicationStatus() {
+		$data = [];
+		$data['enable'] = $this->FreePBX->Config()->get('TRANSIENTCDR');
+		$data['tablename'] = 'transient_cdr';
+		return $data;
+	}
+
+	public function setupCDRTriggerProcess() {
+		try {
+			$query = "SHOW TABLES LIKE 'transient_cdr'";
+			$res = $this->cdrdb->prepare($query);
+			$res->execute();
+			$result = $res->fetch(\PDO::FETCH_ASSOC);
+			if (empty($result)) {
+				$query = "CREATE TABLE IF NOT EXISTS transient_cdr ENGINE=MyISAM SELECT * FROM cdr LIMIT 0;";
+				$res = $this->cdrdb->prepare($query);
+				try {
+					$res->execute();
+				} catch (\Exception $e) {}
+				// Add Indexes
+				$squery = "ALTER TABLE `transient_cdr` ADD INDEX `calldate` (`calldate`), ADD INDEX `dst` (`dst`), ADD INDEX `uniqueid` (`uniqueid`), ADD INDEX `did` (`did`), ADD INDEX `linkedid` (`linkedid`)";
+				$sres = $this->cdrdb->prepare($squery);
+				try {
+					$sres->execute();
+				} catch (\Exception $e) {}
+			}
+			$this->createCdrTrigger();
+			$this->addcronEntryForCDR();
+		} catch (\Exception $e) {
+			dbug($e->getMessage());
+		}
+	}
+
+
+	public function copydatafromCDR($month = 2,$fromtable='cdr') {
+		$sql = "SELECT * FROM ".$fromtable."  WHERE calldate > (NOW() - INTERVAL ".(int)$month." MONTH) limit 1";
+		$res = $this->cdrdb->prepare($sql);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (!empty($result)) {
+			$sql_query = "INSERT INTO transient_cdr SELECT * FROM ".$fromtable."  WHERE calldate > (NOW() - INTERVAL ".(int)$month." MONTH)";
+			$res = $this->cdrdb->prepare($sql_query);
+			try {
+				$res->execute();
+			} catch (\Exception $e) {}
+		}
+	}
+
+	private function createCdrTrigger() {
+		$query = "SHOW TRIGGERS WHERE `Trigger` = 'cdrTrigger'";
+		$res = $this->cdrdb->prepare($query);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (empty($result)) {
+			$sql = "CREATE TRIGGER `cdrTrigger` AFTER INSERT ON `cdr`
+				FOR EACH ROW
+				BEGIN
+					INSERT INTO transient_cdr(calldate, clid, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield, did, recordingfile, cnum, cnam, outbound_cnum, outbound_cnam, dst_cnam, linkedid, peeraccount, sequence) values (new.calldate, new.clid, new.src, new.dst, new.dcontext, new.channel, new.dstchannel, new.lastapp, new.lastdata, new.duration, new.billsec, new.disposition, new.amaflags, new.accountcode, new.uniqueid, new.userfield, new.did, new.recordingfile, new.cnum, new.cnam, new.outbound_cnum, new.outbound_cnam, new.dst_cnam, new.linkedid, new.peeraccount, new.sequence);
+				END";
+			$res = $this->cdrdb->prepare($sql);
+			try {
+				$res->execute();
+			} catch (\Exception $e) {}
+		}
+	}
+
+	private function addcronEntryForCDR() {
+		$this->FreePBX->Job()->addClass('cdr', 'cleanTransientCDRData', 'FreePBX\modules\Cdr\Job', '@monthly');
+	}
+
+	public function removeCDRTriggerSetup() {
+		$this->removeCdrTrigger();
+		$this->dropTransientCDRTable();
+		$this->removecronEntry();
+	}
+
+	private function removeCdrTrigger() {
+		$query = "SHOW TRIGGERS WHERE `Trigger` = 'cdrTrigger'";
+		$res = $this->cdrdb->prepare($query);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (!empty($result)) {
+			$query = "drop trigger cdrTrigger";
+			$res = $this->cdrdb->prepare($query);
+			$res->execute();
+		}
+	}
+
+	private function dropTransientCDRTable() {
+		$query = "SHOW TABLES LIKE 'transient_cdr'";
+		$res = $this->cdrdb->prepare($query);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (!empty($result)) {
+			$squery = "DROP table transient_cdr";
+			$sres = $this->cdrdb->prepare($squery);
+			try {
+				$sres->execute();
+			} catch (\Exception $e) { }
+		}
+	}
+
+	private function removecronEntry() {
+		$this->FreePBX->Job->remove('cdr', 'cleanTransientCDRData');
+	}
+
+	public function cleanTransientCDRData($date) {
+		$table_name = 'transient_cdr';
+		$col = 'calldate';
+		$query = "SHOW TABLES LIKE 'transient_cdr'";
+		$res = $this->cdrdb->prepare($query);
+		$res->execute();
+		$result = $res->fetch(\PDO::FETCH_ASSOC);
+		if (!empty($result)) {
+			$sql = "DELETE FROM " . $table_name . " WHERE " . $col . " < :date;";
+			$res = $this->cdrdb->prepare($sql);
+			$res->execute(array(':date' => $date . "%"));
+		}
+	}
+
+
 
 }
