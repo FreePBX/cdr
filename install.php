@@ -137,6 +137,7 @@ if (count($alterclauses)) {
 }
 
 $freepbx_conf = freepbx_conf::create();
+
 $webroot = \FreePBX::Config()->get('AMPWEBROOT');
 $cdrConfFile = $webroot.'/admin/modules/cdr/etc/cdr.conf';
 //check for existing batch conf
@@ -277,3 +278,17 @@ $set['name'] = 'CDR Batch Safe ShutDown';
 $set['description'] = "When shutting down asterisk, you can block until the CDRs are submitted. If you don't, then data will likely be lost.  You can always check the size of the CDR batch buffer with the CLI 'cdr status command. To enable blocking on submission of CDR data during asterisk shutdown, set this to 'yes'. Default is 'no'.";
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('CDR_BATCH_SAFE_SHUT_DOWN',$set);
+
+$set['category'] = 'cdr';
+$set['name'] = _('Transient CDR');
+$set['description'] = _("If this option set to no, than call log app may not work properly with Sangoma P & D series phones and Desktop phones.");
+$set['value'] = 0;
+$set['defaultval'] =& $set['value'];
+$set['hidden'] = 1;
+$set['emptyok'] = 0;
+$set['readonly'] = 1;
+$set['level'] = 0;
+$set['options'] = '';
+$set['module'] = 'cdr';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('TRANSIENTCDR',$set);
