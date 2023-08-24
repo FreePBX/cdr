@@ -133,6 +133,11 @@ class Cdr extends Modules{
 		if (!$enabled) {
 			return false;
 		}
+		$assigned = $this->UCP->getCombinedSettingByID($this->user['id'], 'Cdr', 'assigned');
+		if (!in_array($_REQUEST['ext'],$assigned)) {
+			return false;
+		}
+
 		switch($command) {
 			case 'grid':
 				return true;
