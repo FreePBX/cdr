@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-18 04:24+0000\n"
+"POT-Creation-Date: 2023-08-24 13:15+0000\n"
 "PO-Revision-Date: 2015-11-23 13:57+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -347,7 +347,7 @@ msgstr "通道"
 msgid "Concurrent Calls"
 msgstr "并发呼叫"
 
-#: ucp/Cdr.class.php:326 ucp/Cdr.class.php:330
+#: ucp/Cdr.class.php:331 ucp/Cdr.class.php:335
 msgid "Conference"
 msgstr "会议"
 
@@ -513,11 +513,11 @@ msgstr "失败"
 msgid "February"
 msgstr "二月"
 
-#: ucp/Cdr.class.php:189
+#: ucp/Cdr.class.php:194
 msgid "File does not exist"
 msgstr "文件不存在"
 
-#: ucp/Cdr.class.php:428
+#: ucp/Cdr.class.php:433
 msgid "Forbidden"
 msgstr "禁止"
 
@@ -624,7 +624,7 @@ msgstr ""
 msgid "Not"
 msgstr "不是"
 
-#: ucp/Cdr.class.php:434
+#: ucp/Cdr.class.php:439
 msgid "Not Found"
 msgstr "没有发现"
 
@@ -842,7 +842,7 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:167 ucp/Cdr.class.php:184
+#: ucp/Cdr.class.php:172 ucp/Cdr.class.php:189
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -912,7 +912,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:356 ucp/Cdr.class.php:377 ucp/Cdr.class.php:381
+#: ucp/Cdr.class.php:361 ucp/Cdr.class.php:382 ucp/Cdr.class.php:386
 msgid "Unknown"
 msgstr ""
 
@@ -932,7 +932,7 @@ msgstr ""
 msgid "Userfield"
 msgstr ""
 
-#: ucp/Cdr.class.php:312 ucp/Cdr.class.php:317
+#: ucp/Cdr.class.php:317 ucp/Cdr.class.php:322
 msgid "Voicemail"
 msgstr ""
 
@@ -961,7 +961,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:344
+#: ucp/Cdr.class.php:349
 msgid "denied by COS"
 msgstr ""
 
@@ -969,7 +969,7 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:340
+#: ucp/Cdr.class.php:345
 msgid "kicked from conference"
 msgstr ""
 

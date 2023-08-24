@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-18 04:24+0000\n"
+"POT-Creation-Date: 2023-08-24 13:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -353,7 +353,7 @@ msgstr ""
 msgid "Concurrent Calls"
 msgstr ""
 
-#: ucp/Cdr.class.php:326 ucp/Cdr.class.php:330
+#: ucp/Cdr.class.php:331 ucp/Cdr.class.php:335
 msgid "Conference"
 msgstr ""
 
@@ -519,11 +519,11 @@ msgstr ""
 msgid "February"
 msgstr ""
 
-#: ucp/Cdr.class.php:189
+#: ucp/Cdr.class.php:194
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:428
+#: ucp/Cdr.class.php:433
 msgid "Forbidden"
 msgstr ""
 
@@ -630,7 +630,7 @@ msgstr ""
 msgid "Not"
 msgstr ""
 
-#: ucp/Cdr.class.php:434
+#: ucp/Cdr.class.php:439
 msgid "Not Found"
 msgstr ""
 
@@ -848,7 +848,7 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:167 ucp/Cdr.class.php:184
+#: ucp/Cdr.class.php:172 ucp/Cdr.class.php:189
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -918,7 +918,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:356 ucp/Cdr.class.php:377 ucp/Cdr.class.php:381
+#: ucp/Cdr.class.php:361 ucp/Cdr.class.php:382 ucp/Cdr.class.php:386
 msgid "Unknown"
 msgstr ""
 
@@ -938,7 +938,7 @@ msgstr ""
 msgid "Userfield"
 msgstr ""
 
-#: ucp/Cdr.class.php:312 ucp/Cdr.class.php:317
+#: ucp/Cdr.class.php:317 ucp/Cdr.class.php:322
 msgid "Voicemail"
 msgstr ""
 
@@ -967,7 +967,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:344
+#: ucp/Cdr.class.php:349
 msgid "denied by COS"
 msgstr ""
 
@@ -975,6 +975,6 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:340
+#: ucp/Cdr.class.php:345
 msgid "kicked from conference"
 msgstr ""
