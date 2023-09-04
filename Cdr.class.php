@@ -508,6 +508,10 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
 		}
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
+		$sngaiModuleStatus = false;
+		if ($this->FreePBX->Modules->checkStatus("sngai")) {
+			$sngaiModuleStatus = true;
+		}
 		foreach($calls as &$call) {
 			if(empty($call['dst']) && preg_match('/\/(.*)\-/',$call['dstchannel'],$matches)) {
 				$call['dst'] = $matches[1];
@@ -531,6 +535,15 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 			$call['recordingformat'] = !empty($call['recordingfile']) ? strtolower(pathinfo($call['recordingfile'],PATHINFO_EXTENSION)) : '';
 			$call['recordingfile'] = $this->processPath($call['recordingfile']);
 			$call['requestingExtension'] = $extension;
+			}
+
+			if($sngaiModuleStatus) {
+				$url = \FreePBX::Sngai()->getUcpTranscriptionUrl($extension,$call['uniqueid'],'callrecording');
+				if($url) {
+					$call['converttotext'] = $url;
+				} else {
+					$call['converttotext'] = '';
+				}
 			}
 		}
 		return $calls;
