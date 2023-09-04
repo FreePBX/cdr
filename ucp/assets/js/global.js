@@ -43,6 +43,9 @@ var CdrC = UCPMC.extend({
 			return '';
 		}
 		var link = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cdr&amp;command=download&amp;msgid='+row.uniqueid+'&amp;type=download&amp;ext='+row.requestingExtension+'"><i class="fa fa-cloud-download"></i></a>';
+		if(row.converttotext !== undefined && row.converttotext !== null && row.converttotext != '' && settings.isSngaiEnabled) {
+			link += '<a href="#"> <i class="fa fa-file-text transcript" onclick="openmodal(\'' + row.converttotext + '\')"></i></a>';
+		}
 		return link;
 	},
 	formatPlayback: function (value, row, index) {
@@ -196,5 +199,25 @@ var CdrC = UCPMC.extend({
 			acontainer.find('.jp-play-bar').css('width', percentage + '%');
 			player.jPlayer.currentTime = maxduration * percentage / 100;
 		};
-	}
+	},
 });
+
+function openmodal(turl) {
+	var result = $.ajax({
+		url: turl,
+		type: 'POST',
+		async: false
+	});
+	result = JSON.parse(result.responseText);
+	if(result.status) {
+		$("#addtionalcontent").html(result.html);
+		$("#datamodal").show();
+	} else {
+		$("#addtionalcontent").html(result.html);
+		$("#datamodal").show();
+	}
+}
+
+function closemodal() {
+	$("#datamodal").hide();
+}
