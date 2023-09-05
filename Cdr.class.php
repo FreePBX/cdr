@@ -637,18 +637,4 @@ class Cdr implements \BMO {
 		}
 	}
 
-	/**
-	 * check if the call is answered else where based on the linked id and default extension
-	 */
-	public function checkAnsweredElseWhere($linkedId, $defaultExtension, $fromAPI = false) {
-		if ($fromAPI) {
-			//set the $db_table variable to 'replicate_cdr' if cdrTrigger is created
-			$this->checkCdrTrigger();
-		}
-		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM " . $this->db_table . " WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel) AND lastapp = :lastapp AND linkedid = :linkedid AND disposition = :disposition AND billsec > 0 LIMIT 1";
-		$sth = $this->cdrdb->prepare($sql);
-		$sth->execute(array(':chan' => '%/' . $defaultExtension . '-%', ':dst_channel' => '%-' . $defaultExtension . '@%', ':lastapp' => 'Dial', ':linkedid' => $linkedId, ':disposition' => 'ANSWERED'));
-		return $sth->fetch(\PDO::FETCH_ASSOC);
-	}
-
 }
