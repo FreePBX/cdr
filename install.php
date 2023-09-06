@@ -134,3 +134,18 @@ if (count($alterclauses)) {
         out(_("OK!"));
     }
 }
+
+$freepbx_conf = freepbx_conf::create();
+$set['category'] = 'cdr';
+$set['name'] = _('Transient CDR');
+$set['description'] = _("If this option set to no, than call log app may not work properly with Sangoma P & D series phones and Desktop phones.");
+$set['value'] = 0;
+$set['defaultval'] =& $set['value'];
+$set['hidden'] = 1;
+$set['emptyok'] = 0;
+$set['readonly'] = 1;
+$set['level'] = 0;
+$set['options'] = '';
+$set['module'] = 'cdr';
+$set['type'] = CONF_TYPE_BOOL;
+$freepbx_conf->define_conf_setting('TRANSIENTCDR',$set);
