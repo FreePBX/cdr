@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-24 13:15+0000\n"
+"POT-Creation-Date: 2023-09-06 06:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,17 +29,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:497
+#: Cdr.class.php:513
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:499
+#: Cdr.class.php:515
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:502
+#: Cdr.class.php:518
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -555,6 +555,12 @@ msgstr ""
 msgid "Hour of day"
 msgstr ""
 
+#: install.php:284
+msgid ""
+"If this option set to no, than call log app may not work properly with "
+"Sangoma P & D series phones and Desktop phones."
+msgstr ""
+
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
 msgstr ""
@@ -904,6 +910,10 @@ msgstr ""
 
 #: page.cdr.php:968
 msgid "Total Duration"
+msgstr ""
+
+#: install.php:283
+msgid "Transient CDR"
 msgstr ""
 
 #: install.php:49
