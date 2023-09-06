@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-24 13:13+0000\n"
+"POT-Creation-Date: 2023-09-06 06:28+0000\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -48,17 +48,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
-#: Cdr.class.php:497
+#: Cdr.class.php:513
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:499
+#: Cdr.class.php:515
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:502
+#: Cdr.class.php:518
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -581,6 +581,12 @@ msgstr ""
 msgid "Hour of day"
 msgstr "1時間毎(年月日は無視)"
 
+#: install.php:141
+msgid ""
+"If this option set to no, than call log app may not work properly with "
+"Sangoma P & D series phones and Desktop phones."
+msgstr ""
+
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
 msgstr ""
@@ -938,6 +944,10 @@ msgstr "合計コール数"
 #: page.cdr.php:968
 msgid "Total Duration"
 msgstr "合計通話時間"
+
+#: install.php:140
+msgid "Transient CDR"
+msgstr ""
 
 #: install.php:48
 msgid "Unable to add index to did field in the cdr table"
