@@ -13,7 +13,7 @@
 
 namespace FreePBX\modules;
 
-class Cdr implements \BMO {
+class Cdr extends \FreePBX_Helpers implements \BMO {
 
 	/** Public variable for access to the raw PDO handle */
 	public $cdrdb;
@@ -315,6 +315,10 @@ class Cdr implements \BMO {
 	}
 
 	public function install() {
+		$new = !$this->getConfig('newinstall');
+		if($new) {
+			$this->setConfig('newinstall',true);
+		}
 
 	}
 	public function uninstall() {
@@ -343,10 +347,15 @@ class Cdr implements \BMO {
 	{
 		$transientcdr = $this->FreePBX->Config()->get('TRANSIENTCDR');
 		if ($transientcdr) {
+			$setupCDRTrigger = $this->getConfig('setupCDRTrigger');
 			$this->createCdrTrigger();
 		} else {
-			$this->removeCdrTrigger();
-			$this->removecronEntry();
+			$new = $this->getConfig('newinstall');
+			$setupCDRTrigger = $this->getConfig('setupCDRTrigger');
+			if($new && $setupCDRTrigger) {
+				$this->removeCdrTrigger();
+				$this->removecronEntry();
+			}
 		}
 	}
 
@@ -685,6 +694,7 @@ class Cdr implements \BMO {
 		} catch (\Exception $e) {
 			dbug($e->getMessage());
 		}
+		$this->setConfig('setupCDRTrigger',true);
 	}
 
 
