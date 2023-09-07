@@ -658,7 +658,19 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		$res->execute();
 		$result = $res->fetch(\PDO::FETCH_ASSOC);
 		if (!empty($result)) {
-			$this->db_table = 'transient_cdr';
+			if($this->FreePBX->Config()->get('TRANSIENTCDR')) {
+				$this->db_table = 'transient_cdr';
+			} else {
+				$query = "SHOW TABLES LIKE 'replicate_cdr'";
+				$res = $this->cdrdb->prepare($query);
+				$res->execute();
+				$result = $res->fetch(\PDO::FETCH_ASSOC);
+				if (!empty($result)) {
+					$this->db_table = 'replicate_cdr';
+				}else {
+					$this->db_table = 'cdr';
+				}
+			}
 		}
 	}
 
