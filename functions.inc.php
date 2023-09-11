@@ -175,7 +175,7 @@ function cdr_export_csv($csvdata) {
 	$csv_header ="calldate,clid,src,dst,dcontext,channel,dstchannel,lastapp,lastdata,duration,billsec,disposition,amaflags,accountcode,uniqueid,userfield,did,cnum,cnam,outbound_cnum,outbound_cnam,dst_cnam,recordingfile,linkedid,peeraccount,sequence";
 
 	$mimetype = "application/octet-stream";
-
+	
 	// Start sending headers
 	header("Pragma: public"); // required
 	header("Expires: 0");
@@ -185,13 +185,14 @@ function cdr_export_csv($csvdata) {
 	header("Content-Type: " . $mimetype);
 	header("Content-Disposition: attachment; filename=\"" . $fname . "\";" );
 	// Send data
-
+	
 	$out = fopen('php://output', 'w');
 	fputcsv($out, explode(",",$csv_header));
 	foreach ($csvdata as $csv) {
 		$csv_line = [];
 		foreach(explode(",",$csv_header) as $k => $item) {
-			if(preg_match("/\p{Hebrew}/u", utf8_decode((string) $csv[$item]))){
+			// if(preg_match("/\p{Hebrew}/u", utf8_decode((string) $csv[$item]))) {
+			if (preg_match("/\p{Hebrew}/u", mb_convert_encoding((string) $csv[$item], 'UTF-8', mb_detect_encoding((string) $csv[$item])))) {
 				/**
 				 * Hebrew is read from right to the left.
 				 * Need to change the order Num Name instead to Name and Num
@@ -199,7 +200,8 @@ function cdr_export_csv($csvdata) {
 				 */
 				preg_match('/<\d+>/', (string) $csv[$item], $_num);
 				preg_match('/".+"/', (string) $csv[$item], $_name);
-				$name = str_replace('"','',utf8_decode($_name[0]));
+				// $name = str_replace('"','',utf8_decode($_name[0]));
+				$name = str_replace('"','',mb_convert_encoding($_name[0], 'UTF-8', mb_detect_encoding($_name[0])));
 				$csv[$item] = $_num[0].' "'.$name.'"';
 			}
 			$csv_line[$k] 	= $csv[$item];

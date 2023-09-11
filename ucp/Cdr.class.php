@@ -24,7 +24,7 @@
 */
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
-
+#[\AllowDynamicProperties]
 class Cdr extends Modules{
 	protected $module = 'Cdr';
 	private array $activeConferences = [];
