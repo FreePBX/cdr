@@ -1134,8 +1134,10 @@ function cdr_formatSrc($src, $clid) {
 }
 
 function cdr_formatCallerID($cnam, $cnum, $channel) {
-	if(preg_match("/\p{Hebrew}/u", utf8_decode((string) $cnam))){
-		$cnam = utf8_decode((string) $cnam);
+	// if(preg_match("/\p{Hebrew}/u", utf8_decode((string) $cnam))){
+	if(preg_match("/\p{Hebrew}/u", mb_convert_encoding((string) $cnam, 'UTF-8', mb_detect_encoding((string) $cnam)))) {
+		// $cnam = utf8_decode((string) $cnam);
+		$cnam = mb_convert_encoding($cnam, 'UTF-8', mb_detect_encoding($cnam));
 		$dcnum = $cnum == '' && $cnam == '' ? '' : htmlspecialchars('<' . $cnum . '>');
 		$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . '" ');
 		echo '<td title="' ._("Channel") . ": " . $channel . '">' . $dcnum .' '. $dcnam . '</td>';
