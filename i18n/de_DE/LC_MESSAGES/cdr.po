@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 06:16+0000\n"
+"POT-Creation-Date: 2023-09-13 06:25+0000\n"
 "PO-Revision-Date: 2018-07-31 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/cdr/de/>\n"
@@ -128,11 +128,11 @@ msgstr ""
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1185 page.cdr.php:1255
+#: page.cdr.php:1187 page.cdr.php:1257
 msgid "AMA Flag"
 msgstr "AMA Flagge"
 
-#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1157
+#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1159
 msgid "ANI"
 msgstr "ANI"
 
@@ -208,7 +208,7 @@ msgstr "Beantwortet"
 msgid "App"
 msgstr "App"
 
-#: page.cdr.php:1163
+#: page.cdr.php:1165
 msgid "Application"
 msgstr "Anwendung"
 
@@ -235,7 +235,7 @@ msgstr "Beginnt mit"
 msgid "Between"
 msgstr "zwischen"
 
-#: page.cdr.php:1192
+#: page.cdr.php:1194
 msgid "Billing Duration"
 msgstr "Abrechnungszeitraum"
 
@@ -247,8 +247,7 @@ msgstr "Beschäftigt"
 msgid "CDR Access"
 msgstr "CDR-Zugang"
 
-#: Api/Gql/Cdr.php:18 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
-#: /usr/src/freepbx/cdr/page.cdr.php:99
+#: Api/Gql/Cdr.php:18 /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "Anruferaufzeichnung Detailberichte"
 
@@ -275,11 +274,6 @@ msgstr "CNUM"
 #: page.cdr.php:176
 msgid "CSV File"
 msgstr "CSV-Datei"
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr ""
-"Call Data Record Report-Tools, um Aufzeichnungen Ihrer Anrufe anzusehen"
 
 #: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:736
 msgid "Call Date"
@@ -318,11 +312,11 @@ msgstr "Anrufverlauf"
 msgid "Call History for %s"
 msgstr "Anrufliste für %s"
 
-#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1230
+#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1232
 msgid "Caller ID Name"
 msgstr "Anrufer-ID Name"
 
-#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1235
+#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1237
 msgid "Caller ID Number"
 msgstr "Anrufer-ID Nummer"
 
@@ -342,8 +336,8 @@ msgstr "Anrufer ID Nummer"
 msgid "Calls"
 msgstr "Anrufe"
 
-#: page.cdr.php:1124 page.cdr.php:1141 page.cdr.php:1146 page.cdr.php:1174
-#: page.cdr.php:1283
+#: page.cdr.php:1124 page.cdr.php:1143 page.cdr.php:1148 page.cdr.php:1176
+#: page.cdr.php:1285
 msgid "Channel"
 msgstr "Kanal"
 
@@ -368,7 +362,7 @@ msgstr "Steuerungen"
 
 #: page.cdr.php:252 /usr/src/freepbx/cdr/page.cdr.php:368 page.cdr.php:432
 #: /usr/src/freepbx/cdr/page.cdr.php:741 page.cdr.php:879
-#: /usr/src/freepbx/cdr/page.cdr.php:1152
+#: /usr/src/freepbx/cdr/page.cdr.php:1154
 msgid "DID"
 msgstr "DID"
 
@@ -416,7 +410,7 @@ msgstr "Ziel Anrufer ID Name"
 msgid "Destination CallerID Name"
 msgstr "Ziel AnruferID Name"
 
-#: page.cdr.php:1174
+#: page.cdr.php:1176
 msgid "Destination Context"
 msgstr "Ziel Kontext"
 
@@ -424,11 +418,11 @@ msgstr "Ziel Kontext"
 msgid "Destination Number"
 msgstr "Zielnummer"
 
-#: page.cdr.php:1245
+#: page.cdr.php:1247
 msgid "Dialplan context"
 msgstr "Wählplan Kontext"
 
-#: page.cdr.php:1240
+#: page.cdr.php:1242
 msgid "Dialplan exten"
 msgstr "Wählplan extern"
 
@@ -486,7 +480,7 @@ msgstr "Endet mit"
 msgid "Event"
 msgstr "Ereignis"
 
-#: page.cdr.php:1275
+#: page.cdr.php:1277
 msgid "Event Extra"
 msgstr "Zusätzliches Ereignis"
 
@@ -687,10 +681,6 @@ msgstr "Verbundene Call Detail Records"
 #: page.cdr.php:173
 msgid "Report Type"
 msgstr "Berichtstyp"
-
-#: cdr.i18n.php:6
-msgid "Reports"
-msgstr "Berichte"
 
 #: page.cdr.php:184
 msgid "Result Limit"
@@ -943,7 +933,7 @@ msgstr "Benutzerfeld"
 msgid "User Primary Extension"
 msgstr "Primäre Benutzernebenstelle"
 
-#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1269
+#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1271
 msgid "UserDefType"
 msgstr "BenutzerDefTyp"
 
@@ -995,6 +985,13 @@ msgstr "exten"
 #: ucp/Cdr.class.php:307
 msgid "kicked from conference"
 msgstr "Konferenz beendet"
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr ""
+#~ "Call Data Record Report-Tools, um Aufzeichnungen Ihrer Anrufe anzusehen"
+
+#~ msgid "Reports"
+#~ msgstr "Berichte"
 
 #~ msgid "Conference \"%s\" Settings"
 #~ msgstr "Konferenz \"%s\" Einstellungen"

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 06:16+0000\n"
+"POT-Creation-Date: 2023-09-13 06:25+0000\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -137,11 +137,11 @@ msgstr ""
 msgid "AMA"
 msgstr "АМА"
 
-#: page.cdr.php:1185 page.cdr.php:1255
+#: page.cdr.php:1187 page.cdr.php:1257
 msgid "AMA Flag"
 msgstr "AMA-флаг"
 
-#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1157
+#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1159
 msgid "ANI"
 msgstr "АНИ"
 
@@ -217,7 +217,7 @@ msgstr "Отвечено"
 msgid "App"
 msgstr "Прил."
 
-#: page.cdr.php:1163
+#: page.cdr.php:1165
 msgid "Application"
 msgstr "Приложение"
 
@@ -244,7 +244,7 @@ msgstr "Начинается с"
 msgid "Between"
 msgstr "Между"
 
-#: page.cdr.php:1192
+#: page.cdr.php:1194
 msgid "Billing Duration"
 msgstr "Время разговора"
 
@@ -256,8 +256,7 @@ msgstr "Занято"
 msgid "CDR Access"
 msgstr "Доступ к CDR"
 
-#: Api/Gql/Cdr.php:18 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
-#: /usr/src/freepbx/cdr/page.cdr.php:99
+#: Api/Gql/Cdr.php:18 /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "Отчёты CDR"
 
@@ -284,10 +283,6 @@ msgstr "СNUМ"
 #: page.cdr.php:176
 msgid "CSV File"
 msgstr ""
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr "Просмотр записей о совершенных звонках"
 
 #: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:736
 msgid "Call Date"
@@ -326,11 +321,11 @@ msgstr "История звонков"
 msgid "Call History for %s"
 msgstr ""
 
-#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1230
+#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1232
 msgid "Caller ID Name"
 msgstr "Имя Caller ID"
 
-#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1235
+#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1237
 msgid "Caller ID Number"
 msgstr "Номер Caller ID"
 
@@ -350,8 +345,8 @@ msgstr "Номер CallerID"
 msgid "Calls"
 msgstr "Звонки"
 
-#: page.cdr.php:1124 page.cdr.php:1141 page.cdr.php:1146 page.cdr.php:1174
-#: page.cdr.php:1283
+#: page.cdr.php:1124 page.cdr.php:1143 page.cdr.php:1148 page.cdr.php:1176
+#: page.cdr.php:1285
 msgid "Channel"
 msgstr "Канал"
 
@@ -376,7 +371,7 @@ msgstr "Управления"
 
 #: page.cdr.php:252 /usr/src/freepbx/cdr/page.cdr.php:368 page.cdr.php:432
 #: /usr/src/freepbx/cdr/page.cdr.php:741 page.cdr.php:879
-#: /usr/src/freepbx/cdr/page.cdr.php:1152
+#: /usr/src/freepbx/cdr/page.cdr.php:1154
 msgid "DID"
 msgstr "Входящий номер"
 
@@ -424,7 +419,7 @@ msgstr "Имя назначения Caller ID"
 msgid "Destination CallerID Name"
 msgstr "Имя назначения CallerID"
 
-#: page.cdr.php:1174
+#: page.cdr.php:1176
 msgid "Destination Context"
 msgstr "Контекст"
 
@@ -432,11 +427,11 @@ msgstr "Контекст"
 msgid "Destination Number"
 msgstr "Куда звонил"
 
-#: page.cdr.php:1245
+#: page.cdr.php:1247
 msgid "Dialplan context"
 msgstr "Контекст плана набора"
 
-#: page.cdr.php:1240
+#: page.cdr.php:1242
 msgid "Dialplan exten"
 msgstr "расш. плана набора"
 
@@ -496,7 +491,7 @@ msgstr "Оканчивается на"
 msgid "Event"
 msgstr "Событие"
 
-#: page.cdr.php:1275
+#: page.cdr.php:1277
 msgid "Event Extra"
 msgstr "Экстра событие"
 
@@ -697,10 +692,6 @@ msgstr "Детализация связанных звонков"
 #: page.cdr.php:173
 msgid "Report Type"
 msgstr ""
-
-#: cdr.i18n.php:6
-msgid "Reports"
-msgstr "Отчёты"
 
 #: page.cdr.php:184
 msgid "Result Limit"
@@ -950,7 +941,7 @@ msgstr "Пользовательское поле"
 msgid "User Primary Extension"
 msgstr "Основной внутренний номер пользователя"
 
-#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1269
+#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1271
 msgid "UserDefType"
 msgstr "Польз. тип"
 
@@ -1002,6 +993,12 @@ msgstr "расш"
 #: ucp/Cdr.class.php:307
 msgid "kicked from conference"
 msgstr "выпнут из конференции"
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr "Просмотр записей о совершенных звонках"
+
+#~ msgid "Reports"
+#~ msgstr "Отчёты"
 
 #~ msgid "CSV file"
 #~ msgstr "Дамп в CSV-файл"
