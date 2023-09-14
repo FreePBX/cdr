@@ -402,7 +402,8 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function getRecordByID($rid) {
-		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND uniqueid = :uid";
+		$this->checkCdrTrigger();
+		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND (uniqueid = :uid OR linkedid = :uid) LIMIT 1";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
 			$sth->execute(array("uid" => str_replace("_",".",$rid)));
