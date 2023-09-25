@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-06 10:15+0000\n"
+"POT-Creation-Date: 2023-09-25 04:38+0000\n"
 "PO-Revision-Date: 2015-02-04 00:43+0200\n"
 "Last-Translator: Rafael <rafael@ibinetwork.com.br>\n"
 "Language-Team: Portuguese (Brazil) <http://git.freepbx.org/projects/freepbx/"
@@ -17,17 +17,17 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
-#: Cdr.class.php:522
+#: Cdr.class.php:523
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s hora, %s min, %s seg"
 
-#: Cdr.class.php:524
+#: Cdr.class.php:525
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s seg"
 
-#: Cdr.class.php:527
+#: Cdr.class.php:528
 #, php-format
 msgid "%s sec"
 msgstr "%s seg"
