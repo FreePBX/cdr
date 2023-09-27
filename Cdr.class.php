@@ -696,7 +696,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 					$res->execute();
 				} catch (\Exception $e) {}
 				// Add Indexes
-				$squery = "ALTER TABLE `transient_cdr` ADD INDEX `calldate` (`calldate`), ADD INDEX `dst` (`dst`), ADD INDEX `uniqueid` (`uniqueid`), ADD INDEX `did` (`did`), ADD INDEX `linkedid` (`linkedid`)";
+				$squery = "ALTER TABLE `transient_cdr` ADD INDEX `calldate` (`calldate`), ADD INDEX `dst` (`dst`), ADD INDEX `uniqueid` (`uniqueid`), ADD INDEX `did` (`did`), ADD INDEX `linkedid` (`linkedid`),ADD INDEX `src` (`src`),ADD INDEX `channel` (`channel`),ADD INDEX `dstchannel` (`dstchannel`),ADD INDEX `cnum` (`cnum`)";
 				$sres = $this->cdrdb->prepare($squery);
 				try {
 					$sres->execute();
