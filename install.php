@@ -207,7 +207,7 @@ $set['description'] = 'Define whether or not to use CDR logging.  Setting this t
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('CDR_BATCH_ENABLE',$set);
 
-$set['value'] = ($batch == 1 || trim((string) $batch) == 'yes') ? 1 : 0;
+$set['value'] = (isset($batch) && ($batch == 1 || trim($batch) == 'yes')) ? 1 : 0;
 $set['defaultval'] = 0;
 $set['readonly'] = 0;
 $set['hidden'] = 0;
