@@ -444,19 +444,21 @@ if (isset($amp_conf['CEL_ENABLED']) && $amp_conf['CEL_ENABLED'] && !isset($_POST
 			}
 
 			echo "  <tr class=\"record\">\n";
-			cdr_formatCallDate($row['event_timestamp']);
-			cdr_cel_formatEventType($row['eventtype']);
-			cdr_formatCNAM($row['cid_name']);
-			cdr_formatCNUM($row['cid_num']);
-			cdr_formatANI($row['cid_ani']);
-			cdr_formatDID($row['cid_dnid']);
-			cdr_formatAMAFlags($row['amaflags']);
-			cdr_formatExten($row['exten']);
-			cdr_formatContext($row['context']);
+			cdr_formatCallDate(($row['event_timestamp'] ?? ''));
+			cdr_cel_formatEventType(($row['eventtype'] ?? ''));
+			cdr_formatCNAM(($row['cid_name'] ?? ''));
+			cdr_formatCNUM(($row['cid_num'] ?? ''));
+			cdr_formatANI(($row['cid_ani'] ?? ''));
+			cdr_formatDID(($row['cid_dnid'] ?? ''));
+			cdr_formatAMAFlags(($row['amaflags'] ?? ''));
+			cdr_formatExten(($row['exten'] ?? ''));
+			cdr_formatContext(($row['context'] ?? ''));
+			$row['appname'] = $row['appname'] ?? '';
+			$row['appdata'] = $row['appdata'] ?? '';
 			cdr_formatApp($row['appname'], $row['appdata']);
-			cdr_cel_formatChannelName($row['channame']);
-			cdr_cel_formatUserDefType($row['userdeftype']);
-			cdr_cel_formatEventExtra($row['eventextra']);
+			cdr_cel_formatChannelName(($row['channame'] ?? ''));
+			cdr_cel_formatUserDefType(($row['userdeftype'] ?? ''));
+			cdr_cel_formatEventExtra(($row['eventextra'] ?? ''));
 			echo "    <td></td>\n";
 			echo "    <td></td>\n";
 			echo "  </tr>\n";
