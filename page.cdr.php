@@ -1225,8 +1225,8 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id, $uid) {
 }
 
 function cdr_formatCNAM($cnam) {
-	if(preg_match("/\p{Hebrew}/u", utf8_decode((string) $cnam))){
-		$cnam = utf8_decode((string) $cnam);
+	if(preg_match("/\p{Hebrew}/u", mb_convert_encoding((string) $cnam, 'UTF-8', mb_detect_encoding((string) $cnam)))) {
+		$cnam = mb_convert_encoding($cnam, 'UTF-8', mb_detect_encoding($cnam));
 	}
 	$cnam = htmlspecialchars((string) $cnam);
 	echo '<td title="' . _("Caller ID Name") . ": " . $cnam . '">' . $cnam . "</td>";
