@@ -221,7 +221,7 @@ $set['description'] = 'Use of batch mode may result in data loss after unsafe as
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('CDR_BATCH',$set);
 
-$set['value'] = $size ?: 200;
+$set['value'] = $size ?? 200;
 $set['defaultval'] = '200';
 $set['options'] = [0, 300];
 $set['readonly'] = 0;
@@ -236,7 +236,7 @@ $set['description'] = "Define the maximum number of CDRs to accumulate in the bu
 $set['type'] = CONF_TYPE_INT;
 $freepbx_conf->define_conf_setting('CDR_BATCH_SIZE',$set);
 
-$set['value'] = $time ?: 300;
+$set['value'] = $time ?? 300;
 $set['defaultval'] = '300';
 $set['options'] = [0, 300];
 $set['readonly'] = 0;
