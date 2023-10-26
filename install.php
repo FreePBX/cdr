@@ -193,7 +193,7 @@ if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 	$safeShutDown = 1;
 }
 $enable??='';
-$set['value'] = ($enable == 1 || trim((string) $enable) == 'yes') ? 1 : 0;
+$set['value'] = (isset($enable) && ($enable == 1 || trim((string) $enable) == 'yes')) ? 1 : 0;
 $set['defaultval'] = 1;
 $set['readonly'] = 0;
 $set['hidden'] = 0;
@@ -251,7 +251,7 @@ $set['description'] = "Define the maximum time to accumulate CDRs in the buffer 
 $set['type'] = CONF_TYPE_INT;
 $freepbx_conf->define_conf_setting('CDR_BATCH_TIME',$set);
 
-$set['value'] = ($scheduleOnly == 1 || trim((string) $scheduleOnly) == 'yes') ? 1 : 0;
+$set['value'] = (isset($scheduleOnly) && ($scheduleOnly == 1 || trim((string) $scheduleOnly) == 'yes')) ? 1 : 0;
 $set['defaultval'] = 0;
 $set['readonly'] = 0;
 $set['hidden'] = 0;
@@ -265,7 +265,7 @@ $set['description'] = 'The CDR engine uses the internal asterisk scheduler to de
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('CDR_BATCH_SCHEDULE_ONLY',$set);
 
-$set['value'] = ($safeShutDown == 1 || trim((string) $safeShutDown) == 'yes') ? 1 : 0;
+$set['value'] = (isset($safeShutDown) && ($safeShutDown == 1 || trim((string) $safeShutDown) == 'yes')) ? 1 : 0;
 $set['defaultval'] = 1;
 $set['readonly'] = 0;
 $set['hidden'] = 0;
