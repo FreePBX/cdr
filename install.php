@@ -139,6 +139,14 @@ if (count($alterclauses)) {
 $freepbx_conf = freepbx_conf::create();
 $webroot = \FreePBX::Config()->get('AMPWEBROOT');
 $cdrConfFile = $webroot.'/admin/modules/cdr/etc/cdr.conf';
+//default conf values
+$enable = 1;
+$batch = 0;
+$size = 200;
+$time = 300;
+$scheduleOnly = 0;
+$safeShutDown = 1;
+
 //check for existing batch conf
 if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 	$enable = $amp_conf['CDR_BATCH_ENABLE'];
@@ -184,13 +192,6 @@ if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
 	}
 	fclose($cdrfile);
 	rename($amp_conf['ASTETCDIR'] . '/cdr.conf', $amp_conf['ASTETCDIR'] . '/cdr.conf.back');
-} else {
-	$enable = 1;
-	$batch = 0;
-	$size = 200;
-	$time = 300;
-	$scheduleOnly = 0;
-	$safeShutDown = 1;
 }
 
 $set['value'] = (isset($enable) && ($enable == 1 || trim((string) $enable) == 'yes')) ? 1 : 0;
