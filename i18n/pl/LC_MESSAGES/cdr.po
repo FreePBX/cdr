@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-14 05:27+0000\n"
-"PO-Revision-Date: 2023-11-15 22:01+0000\n"
+"PO-Revision-Date: 2023-11-16 23:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cdr/pl/>\n"
 "Language: pl\n"
@@ -170,7 +170,7 @@ msgstr "Odebrane"
 
 #: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:735
 msgid "App"
-msgstr "Apka"
+msgstr "Aplikacja"
 
 #: page.cdr.php:1135
 msgid "Application"
@@ -365,11 +365,11 @@ msgstr "Opis"
 
 #: page.cdr.php:266 /usr/src/freepbx/cdr/page.cdr.php:736
 msgid "Destination"
-msgstr "Miejsce docelowe"
+msgstr "Cel"
 
 #: page.cdr.php:368 /usr/src/freepbx/cdr/page.cdr.php:887
 msgid "Destination Caller ID Name"
-msgstr "Nazwa rozmówcy docelowego"
+msgstr "Nazwa docelowego CallerID"
 
 #: page.cdr.php:280
 msgid "Destination CallerID Name"
@@ -585,7 +585,7 @@ msgstr "Nazwa rozmówcy wychodzącego"
 
 #: page.cdr.php:366 /usr/src/freepbx/cdr/page.cdr.php:881
 msgid "Outbound Caller ID Number"
-msgstr "Nazwa rozmówcy wychodzącego"
+msgstr "Numer rozmówcy wychodzącego"
 
 #: page.cdr.php:733
 msgid "Outbound CallerID"
