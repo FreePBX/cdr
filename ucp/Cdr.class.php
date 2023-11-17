@@ -86,7 +86,8 @@ class Cdr extends Modules{
 		return array(
 			"showPlayback" => $this->_checkPlayback() ? "1" : "0",
 			"showDownload" => $this->_checkDownload() ? "1" : "0",
-			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())
+			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats()),
+			"isSngaiEnabled" =>$this->UCP->FreePBX->Modules->checkStatus("sngai")
 		);
 	}
 
