@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-25 04:38+0000\n"
+"POT-Creation-Date: 2023-11-17 04:32+0000\n"
 "PO-Revision-Date: 2018-09-04 08:02+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cdr/cs/>\n"
@@ -20,17 +20,17 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.0.1\n"
 
-#: Cdr.class.php:523
+#: Cdr.class.php:527
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s hod, %s min, %s s"
 
-#: Cdr.class.php:525
+#: Cdr.class.php:529
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s s"
 
-#: Cdr.class.php:528
+#: Cdr.class.php:532
 #, php-format
 msgid "%s sec"
 msgstr "%s s"
@@ -307,7 +307,7 @@ msgstr "Záznam událostí volání - vyhledávání vráceno"
 msgid "Call Graph"
 msgstr "Graf volání"
 
-#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
+#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:112
 msgid "Call History"
 msgstr "Historie volání"
 
@@ -349,7 +349,7 @@ msgstr "Kanál"
 msgid "Concurrent Calls"
 msgstr "Současné hovory"
 
-#: ucp/Cdr.class.php:331 ucp/Cdr.class.php:335
+#: ucp/Cdr.class.php:332 ucp/Cdr.class.php:336
 msgid "Conference"
 msgstr "Konference"
 
@@ -515,11 +515,11 @@ msgstr "Selhalo"
 msgid "February"
 msgstr "Únor"
 
-#: ucp/Cdr.class.php:194
+#: ucp/Cdr.class.php:195
 msgid "File does not exist"
 msgstr "Soubor neexistuje"
 
-#: ucp/Cdr.class.php:433
+#: ucp/Cdr.class.php:434
 msgid "Forbidden"
 msgstr "Zakázáno"
 
@@ -632,7 +632,7 @@ msgstr ""
 msgid "Not"
 msgstr "Ne"
 
-#: ucp/Cdr.class.php:439
+#: ucp/Cdr.class.php:440
 msgid "Not Found"
 msgstr "Nenalezeno"
 
@@ -861,7 +861,7 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:172 ucp/Cdr.class.php:189
+#: ucp/Cdr.class.php:173 ucp/Cdr.class.php:190
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -937,7 +937,7 @@ msgstr "Nelze přidat index k poli záznamového souboru v tabulce cdr"
 msgid "UniqueID"
 msgstr "Unikátní ID"
 
-#: ucp/Cdr.class.php:361 ucp/Cdr.class.php:382 ucp/Cdr.class.php:386
+#: ucp/Cdr.class.php:362 ucp/Cdr.class.php:383 ucp/Cdr.class.php:387
 msgid "Unknown"
 msgstr "Neznámý"
 
@@ -957,7 +957,7 @@ msgstr "Definovaný typ uživatele"
 msgid "Userfield"
 msgstr "Uživatelské pole"
 
-#: ucp/Cdr.class.php:317 ucp/Cdr.class.php:322
+#: ucp/Cdr.class.php:318 ucp/Cdr.class.php:323
 msgid "Voicemail"
 msgstr "Hlasová zpráva"
 
@@ -969,7 +969,7 @@ msgstr "Týden (Neděle - Sobota)"
 msgid "Yes"
 msgstr "Ano"
 
-#: page.cdr.php:836 ucp/assets/js/global.js:79
+#: page.cdr.php:836 ucp/assets/js/global.js:82
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -990,7 +990,7 @@ msgstr "kanál"
 msgid "context"
 msgstr "kontext"
 
-#: ucp/Cdr.class.php:349
+#: ucp/Cdr.class.php:350
 msgid "denied by COS"
 msgstr "Zamítnuto COS"
 
@@ -998,6 +998,6 @@ msgstr "Zamítnuto COS"
 msgid "exten"
 msgstr "rozšířit"
 
-#: ucp/Cdr.class.php:345
+#: ucp/Cdr.class.php:346
 msgid "kicked from conference"
 msgstr "vyhozen z konference"

@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-25 04:38+0000\n"
+"POT-Creation-Date: 2023-11-17 04:32+0000\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -29,17 +29,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:523
+#: Cdr.class.php:527
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s час, %s мин, %s сек"
 
-#: Cdr.class.php:525
+#: Cdr.class.php:529
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s мин, %s сек"
 
-#: Cdr.class.php:528
+#: Cdr.class.php:532
 #, php-format
 msgid "%s sec"
 msgstr "%s сек"
@@ -317,7 +317,7 @@ msgstr "Журнал вызовов - Результат поиска"
 msgid "Call Graph"
 msgstr "Суммарный график"
 
-#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
+#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:112
 msgid "Call History"
 msgstr "История звонков"
 
@@ -359,7 +359,7 @@ msgstr "Канал"
 msgid "Concurrent Calls"
 msgstr "Одновременные звонки"
 
-#: ucp/Cdr.class.php:331 ucp/Cdr.class.php:335
+#: ucp/Cdr.class.php:332 ucp/Cdr.class.php:336
 msgid "Conference"
 msgstr "Конференция"
 
@@ -527,11 +527,11 @@ msgstr "Неудавшийся"
 msgid "February"
 msgstr "Февраль"
 
-#: ucp/Cdr.class.php:194
+#: ucp/Cdr.class.php:195
 msgid "File does not exist"
 msgstr "Файл не существует"
 
-#: ucp/Cdr.class.php:433
+#: ucp/Cdr.class.php:434
 msgid "Forbidden"
 msgstr "Запрещено"
 
@@ -644,7 +644,7 @@ msgstr ""
 msgid "Not"
 msgstr "Не"
 
-#: ucp/Cdr.class.php:439
+#: ucp/Cdr.class.php:440
 msgid "Not Found"
 msgstr "Не найдено"
 
@@ -872,7 +872,7 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:172 ucp/Cdr.class.php:189
+#: ucp/Cdr.class.php:173 ucp/Cdr.class.php:190
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -948,7 +948,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr "Идентификатор"
 
-#: ucp/Cdr.class.php:361 ucp/Cdr.class.php:382 ucp/Cdr.class.php:386
+#: ucp/Cdr.class.php:362 ucp/Cdr.class.php:383 ucp/Cdr.class.php:387
 msgid "Unknown"
 msgstr "Неизвестно"
 
@@ -968,7 +968,7 @@ msgstr "Польз. тип"
 msgid "Userfield"
 msgstr "Пользовательское поле"
 
-#: ucp/Cdr.class.php:317 ucp/Cdr.class.php:322
+#: ucp/Cdr.class.php:318 ucp/Cdr.class.php:323
 msgid "Voicemail"
 msgstr "Голосовая почта"
 
@@ -980,7 +980,7 @@ msgstr "Неделя (Вск-Суб)"
 msgid "Yes"
 msgstr "Да"
 
-#: page.cdr.php:836 ucp/assets/js/global.js:79
+#: page.cdr.php:836 ucp/assets/js/global.js:82
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -1001,7 +1001,7 @@ msgstr "канал"
 msgid "context"
 msgstr "контекст"
 
-#: ucp/Cdr.class.php:349
+#: ucp/Cdr.class.php:350
 msgid "denied by COS"
 msgstr "отказано COS"
 
@@ -1009,7 +1009,7 @@ msgstr "отказано COS"
 msgid "exten"
 msgstr "расш"
 
-#: ucp/Cdr.class.php:345
+#: ucp/Cdr.class.php:346
 msgid "kicked from conference"
 msgstr "выпнут из конференции"
 
