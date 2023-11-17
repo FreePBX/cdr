@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-25 04:37+0000\n"
+"POT-Creation-Date: 2023-11-17 04:31+0000\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,17 +29,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:523
+#: Cdr.class.php:527
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:525
+#: Cdr.class.php:529
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:528
+#: Cdr.class.php:532
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -316,7 +316,7 @@ msgstr ""
 msgid "Call Graph"
 msgstr "Samtalsgraf"
 
-#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
+#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:112
 msgid "Call History"
 msgstr ""
 
@@ -358,7 +358,7 @@ msgstr "Kanal"
 msgid "Concurrent Calls"
 msgstr "Samtidiga samtal"
 
-#: ucp/Cdr.class.php:324 ucp/Cdr.class.php:328
+#: ucp/Cdr.class.php:325 ucp/Cdr.class.php:329
 msgid "Conference"
 msgstr ""
 
@@ -524,11 +524,11 @@ msgstr "Misslyckade"
 msgid "February"
 msgstr "Februari"
 
-#: ucp/Cdr.class.php:187
+#: ucp/Cdr.class.php:188
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:426
+#: ucp/Cdr.class.php:427
 msgid "Forbidden"
 msgstr ""
 
@@ -641,7 +641,7 @@ msgstr ""
 msgid "Not"
 msgstr "Ej"
 
-#: ucp/Cdr.class.php:432
+#: ucp/Cdr.class.php:433
 msgid "Not Found"
 msgstr ""
 
@@ -933,7 +933,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr "Unikt ID"
 
-#: ucp/Cdr.class.php:354 ucp/Cdr.class.php:375 ucp/Cdr.class.php:379
+#: ucp/Cdr.class.php:355 ucp/Cdr.class.php:376 ucp/Cdr.class.php:380
 msgid "Unknown"
 msgstr ""
 
@@ -953,7 +953,7 @@ msgstr ""
 msgid "Userfield"
 msgstr "Användarfält"
 
-#: ucp/Cdr.class.php:310 ucp/Cdr.class.php:315
+#: ucp/Cdr.class.php:311 ucp/Cdr.class.php:316
 msgid "Voicemail"
 msgstr ""
 
@@ -965,7 +965,7 @@ msgstr "Vecka (sön-lör)"
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:836 ucp/assets/js/global.js:79
+#: page.cdr.php:836 ucp/assets/js/global.js:82
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -982,7 +982,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:342
+#: ucp/Cdr.class.php:343
 msgid "denied by COS"
 msgstr ""
 
@@ -990,7 +990,7 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:338
+#: ucp/Cdr.class.php:339
 msgid "kicked from conference"
 msgstr ""
 

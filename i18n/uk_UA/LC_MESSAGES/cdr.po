@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-25 04:37+0000\n"
+"POT-Creation-Date: 2023-11-17 04:31+0000\n"
 "PO-Revision-Date: 2016-10-17 16:40+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -22,17 +22,17 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Cdr.class.php:523
+#: Cdr.class.php:527
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s год, %s хв, %s сек"
 
-#: Cdr.class.php:525
+#: Cdr.class.php:529
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s хв, %s сек"
 
-#: Cdr.class.php:528
+#: Cdr.class.php:532
 #, php-format
 msgid "%s sec"
 msgstr "%s сек"
@@ -304,7 +304,7 @@ msgstr ""
 msgid "Call Graph"
 msgstr "Граф викликів"
 
-#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:111
+#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:112
 msgid "Call History"
 msgstr "Історія дзвінків"
 
@@ -347,7 +347,7 @@ msgstr "Канал"
 msgid "Concurrent Calls"
 msgstr "Одночасні виклики"
 
-#: ucp/Cdr.class.php:324 ucp/Cdr.class.php:328
+#: ucp/Cdr.class.php:325 ucp/Cdr.class.php:329
 msgid "Conference"
 msgstr "Конференція"
 
@@ -514,11 +514,11 @@ msgstr ""
 msgid "February"
 msgstr ""
 
-#: ucp/Cdr.class.php:187
+#: ucp/Cdr.class.php:188
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:426
+#: ucp/Cdr.class.php:427
 msgid "Forbidden"
 msgstr ""
 
@@ -631,7 +631,7 @@ msgstr ""
 msgid "Not"
 msgstr ""
 
-#: ucp/Cdr.class.php:432
+#: ucp/Cdr.class.php:433
 msgid "Not Found"
 msgstr ""
 
@@ -919,7 +919,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:354 ucp/Cdr.class.php:375 ucp/Cdr.class.php:379
+#: ucp/Cdr.class.php:355 ucp/Cdr.class.php:376 ucp/Cdr.class.php:380
 msgid "Unknown"
 msgstr ""
 
@@ -939,7 +939,7 @@ msgstr ""
 msgid "Userfield"
 msgstr ""
 
-#: ucp/Cdr.class.php:310 ucp/Cdr.class.php:315
+#: ucp/Cdr.class.php:311 ucp/Cdr.class.php:316
 msgid "Voicemail"
 msgstr ""
 
@@ -951,7 +951,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:836 ucp/assets/js/global.js:79
+#: page.cdr.php:836 ucp/assets/js/global.js:82
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -968,7 +968,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:342
+#: ucp/Cdr.class.php:343
 msgid "denied by COS"
 msgstr ""
 
@@ -976,7 +976,7 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:338
+#: ucp/Cdr.class.php:339
 msgid "kicked from conference"
 msgstr ""
 
