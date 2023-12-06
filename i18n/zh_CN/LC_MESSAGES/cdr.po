@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 07:17+0000\n"
+"POT-Creation-Date: 2023-12-06 07:03+0000\n"
 "PO-Revision-Date: 2015-11-23 13:57+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -21,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Cdr.class.php:477
+#: Cdr.class.php:493
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s 小时, %s 分钟, %s 秒"
 
-#: Cdr.class.php:479
+#: Cdr.class.php:495
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s 分, %s 秒"
 
-#: Cdr.class.php:482
+#: Cdr.class.php:498
 #, php-format
 msgid "%s sec"
 msgstr "%s 秒"
@@ -544,6 +544,12 @@ msgstr ""
 msgid "Hour of day"
 msgstr ""
 
+#: install.php:286
+msgid ""
+"If this option set to no, than call log app may not work properly with "
+"Sangoma P & D series phones and Desktop phones."
+msgstr ""
+
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
 msgstr "继承"
@@ -890,6 +896,10 @@ msgstr "总呼叫"
 #: page.cdr.php:970
 msgid "Total Duration"
 msgstr "总时长"
+
+#: install.php:285
+msgid "Transient CDR"
+msgstr ""
 
 #: install.php:49
 msgid "Unable to add index to did field in the cdr table"

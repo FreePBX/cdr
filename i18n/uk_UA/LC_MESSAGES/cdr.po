@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 07:17+0000\n"
+"POT-Creation-Date: 2023-12-06 07:03+0000\n"
 "PO-Revision-Date: 2016-10-17 16:40+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -22,17 +22,17 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Cdr.class.php:477
+#: Cdr.class.php:493
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s год, %s хв, %s сек"
 
-#: Cdr.class.php:479
+#: Cdr.class.php:495
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s хв, %s сек"
 
-#: Cdr.class.php:482
+#: Cdr.class.php:498
 #, php-format
 msgid "%s sec"
 msgstr "%s сек"
@@ -545,6 +545,12 @@ msgstr ""
 msgid "Hour of day"
 msgstr ""
 
+#: install.php:286
+msgid ""
+"If this option set to no, than call log app may not work properly with "
+"Sangoma P & D series phones and Desktop phones."
+msgstr ""
+
 #: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
 msgstr ""
@@ -890,6 +896,10 @@ msgstr ""
 
 #: page.cdr.php:970
 msgid "Total Duration"
+msgstr ""
+
+#: install.php:285
+msgid "Transient CDR"
 msgstr ""
 
 #: install.php:49
