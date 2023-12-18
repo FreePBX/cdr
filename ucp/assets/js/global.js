@@ -203,19 +203,15 @@ var CdrC = UCPMC.extend({
 });
 
 function openmodal(turl) {
-	var result = $.ajax({
-		url: turl,
-		type: 'POST',
-		async: false
-	});
-	result = JSON.parse(result.responseText);
-	if(result.status) {
-		$("#addtionalcontent").html(result.html);
-		$("#datamodal").show();
-	} else {
-		$("#addtionalcontent").html(result.html);
-		$("#datamodal").show();
-	}
+    var result = $.ajax({
+        url: turl,
+        type: 'POST',
+        async: false
+    });
+    result = JSON.parse(result.responseText);
+    $("#addtionalcontent").html(result.html);
+    $("#addtionalcontent").appendTo("body");
+    $("#datamodal").show();
 }
 
 function closemodal() {
