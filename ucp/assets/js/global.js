@@ -215,5 +215,7 @@ function openmodal(turl) {
 }
 
 function closemodal() {
+	$('div#addtionalcontent:not(:first)').remove();
+	$("#addtionalcontent").html("");
 	$("#datamodal").hide();
 }
