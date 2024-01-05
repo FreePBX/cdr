@@ -3,83 +3,80 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for cdr
-# Copyright (C) 2008-2024 Sangoma Technologies, Inc.
+# Copyright (C) 2008-2015 Sangoma, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 11:42+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2023-11-17 04:31+0000\n"
+"PO-Revision-Date: 2015-11-23 13:57+0200\n"
+"Last-Translator: james <zhulizhong@gmail.com>\n"
+"Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
+"freepbx/cdr/zh_CN/>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: Cdr.class.php:527
 #, php-format
 msgid "%s hour, %s min, %s sec"
-msgstr ""
+msgstr "%s 小时, %s 分钟, %s 秒"
 
 #: Cdr.class.php:529
 #, php-format
 msgid "%s min, %s sec"
-msgstr ""
+msgstr "%s 分, %s 秒"
 
 #: Cdr.class.php:532
 #, php-format
 msgid "%s sec"
-msgstr ""
+msgstr "%s 秒"
 
 #: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:932
 msgid "10 Minutes"
-msgstr ""
+msgstr "10分钟"
 
-#: page.cdr.php:207 /usr/src/freepbx/cdr/page.cdr.php:239
-#: page.cdr.php:270
+#: page.cdr.php:207 /usr/src/freepbx/cdr/page.cdr.php:239 page.cdr.php:270
 msgid "<b>.</b> = wildcard, matches one or more characters<br>"
-msgstr ""
+msgstr "<b>.</b> = 通配符, 匹配一个或多个字符<br>"
 
-#: page.cdr.php:205 /usr/src/freepbx/cdr/page.cdr.php:237
-#: page.cdr.php:268
+#: page.cdr.php:205 /usr/src/freepbx/cdr/page.cdr.php:237 page.cdr.php:268
 msgid "<b>N</b> = matches any digit from 2-9<br>"
-msgstr ""
+msgstr "<b>N</b> =匹配任何从2-9的数字<br>"
 
-#: page.cdr.php:203 /usr/src/freepbx/cdr/page.cdr.php:235
-#: page.cdr.php:266
+#: page.cdr.php:203 /usr/src/freepbx/cdr/page.cdr.php:235 page.cdr.php:266
 msgid "<b>X</b> = matches any digit from 0-9<br>"
-msgstr ""
+msgstr "<b>X</b> = 匹配任何从0-9的数字<br>"
 
-#: page.cdr.php:204 /usr/src/freepbx/cdr/page.cdr.php:236
-#: page.cdr.php:267
+#: page.cdr.php:204 /usr/src/freepbx/cdr/page.cdr.php:236 page.cdr.php:267
 msgid "<b>Z</b> = matches any digit from 1-9<br>"
-msgstr ""
+msgstr "<b>Z</b> = 匹配任何从1-9数字<br>"
 
-#: page.cdr.php:206 /usr/src/freepbx/cdr/page.cdr.php:238
-#: page.cdr.php:269
+#: page.cdr.php:206 /usr/src/freepbx/cdr/page.cdr.php:238 page.cdr.php:269
 msgid ""
 "<b>[1237-9]</b> = matches any digit or letter in the brackets<br>(in this "
 "example, 1,2,3,7,8,9)<br>"
 msgstr ""
+"<b>[1237-9]</b> = 匹配方括号中的任何数字或字母<br>(in this example, "
+"1,2,3,7,8,9)<br>"
 
-#: page.cdr.php:201 /usr/src/freepbx/cdr/page.cdr.php:233
-#: page.cdr.php:264
+#: page.cdr.php:201 /usr/src/freepbx/cdr/page.cdr.php:233 page.cdr.php:264
 msgid ""
 "<b>_!2XXN, _562., _.0075</b> = Search for any match <b>except</b> for these "
 "numbers"
-msgstr ""
+msgstr "<b>_!2XXN, _562., _.0075</b> = 查询任何匹配 <b>除了</b> 这些号码"
 
-#: page.cdr.php:200 /usr/src/freepbx/cdr/page.cdr.php:232
-#: page.cdr.php:263
+#: page.cdr.php:200 /usr/src/freepbx/cdr/page.cdr.php:232 page.cdr.php:263
 msgid "<b>_2XXN, _562., _.0075</b> = search for any match of these numbers<br>"
-msgstr ""
+msgstr "<b>_2XXN, _562., _.0075</b> = 查询号码中的任何匹配<br>"
 
-#: page.cdr.php:202 /usr/src/freepbx/cdr/page.cdr.php:234
-#: page.cdr.php:265
+#: page.cdr.php:202 /usr/src/freepbx/cdr/page.cdr.php:234 page.cdr.php:265
 msgid "<br>Asterisk pattern matching<br>"
-msgstr ""
+msgstr "<br>Asterisk 模式匹配<br>"
 
 #: Api/Gql/Cdr.php:509
 msgid ""
@@ -128,10 +125,9 @@ msgstr ""
 msgid "AMA"
 msgstr ""
 
-#: page.cdr.php:1180
-#: page.cdr.php:1258
+#: page.cdr.php:1180 page.cdr.php:1258
 msgid "AMA Flag"
-msgstr ""
+msgstr "AMA 标识"
 
 #: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1144
 msgid "ANI"
@@ -139,16 +135,15 @@ msgstr ""
 
 #: page.cdr.php:747
 msgid "Account"
-msgstr ""
+msgstr "帐号"
 
-#: page.cdr.php:308 /usr/src/freepbx/cdr/page.cdr.php:353
-#: page.cdr.php:873
+#: page.cdr.php:308 /usr/src/freepbx/cdr/page.cdr.php:353 page.cdr.php:873
 msgid "Account Code"
 msgstr ""
 
 #: page.cdr.php:352
 msgid "Account Information"
-msgstr ""
+msgstr "帐号信息"
 
 #: install.php:51
 msgid "Adding index to did field in the cdr table"
@@ -172,27 +167,27 @@ msgstr ""
 
 #: page.cdr.php:333
 msgid "All Dispositions"
-msgstr ""
+msgstr "所有呼叫结果"
 
 #: views/ucp_config.php:7
 msgid "Allow CDR"
-msgstr ""
+msgstr "支持CDR"
 
 #: views/ucp_config.php:64
 msgid "Allow CDR Downloads"
-msgstr ""
+msgstr "支持CDR下载"
 
 #: views/ucp_config.php:95
 msgid "Allow CDR Playback"
-msgstr ""
+msgstr "支持CDR回放"
 
 #: views/ucp_config.php:116
 msgid "Allow this user to playback recordings in UCP"
-msgstr ""
+msgstr "支持用户通过UCP播放呼叫录音"
 
 #: views/ucp_config.php:85
 msgid "Allow users to download recordings in UCP"
-msgstr ""
+msgstr "支持用户通过UCP下载录音"
 
 #: Api/Gql/Cdr.php:360
 msgid "An account code associated with the Party A channel"
@@ -200,11 +195,11 @@ msgstr ""
 
 #: page.cdr.php:322
 msgid "And"
-msgstr ""
+msgstr "和"
 
 #: page.cdr.php:334
 msgid "Answered"
-msgstr ""
+msgstr "已应答"
 
 #: page.cdr.php:436 /usr/src/freepbx/cdr/page.cdr.php:742
 msgid "App"
@@ -212,68 +207,67 @@ msgstr ""
 
 #: page.cdr.php:1150
 msgid "Application"
-msgstr ""
+msgstr "应用"
 
 #: page.cdr.php:119
 msgid "April"
-msgstr ""
+msgstr "四月"
 
 #: page.cdr.php:119
 msgid "August"
-msgstr ""
+msgstr "八月"
 
 #: page.cdr.php:969
 msgid "Average Call Time"
-msgstr ""
+msgstr "平均通话时间"
 
-#: page.cdr.php:211 /usr/src/freepbx/cdr/page.cdr.php:223
-#: page.cdr.php:243 /usr/src/freepbx/cdr/page.cdr.php:255
-#: page.cdr.php:274 /usr/src/freepbx/cdr/page.cdr.php:288
-#: page.cdr.php:300 /usr/src/freepbx/cdr/page.cdr.php:311
+#: page.cdr.php:211 /usr/src/freepbx/cdr/page.cdr.php:223 page.cdr.php:243
+#: /usr/src/freepbx/cdr/page.cdr.php:255 page.cdr.php:274
+#: /usr/src/freepbx/cdr/page.cdr.php:288 page.cdr.php:300
+#: /usr/src/freepbx/cdr/page.cdr.php:311
 msgid "Begins With"
-msgstr ""
+msgstr "以开始"
 
 #: page.cdr.php:320
 msgid "Between"
-msgstr ""
+msgstr "介于"
 
 #: page.cdr.php:1187
 msgid "Billing Duration"
-msgstr ""
+msgstr "计费长度"
 
 #: page.cdr.php:335
 msgid "Busy"
-msgstr ""
+msgstr "忙"
 
 #: views/ucp_config.php:38
 msgid "CDR Access"
-msgstr ""
+msgstr "CDR访问"
 
-#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4
-#: cdr.i18n.php:10 /usr/src/freepbx/cdr/page.cdr.php:99
+#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
+#: /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
-msgstr ""
+msgstr "呼叫记录报表"
 
 #: Api/Gql/Cdr.php:116
 msgid "CDR data does not exists"
 msgstr ""
 
-#: Api/Gql/Cdr.php:95
-#: Api/Gql/Cdr.php:114
+#: Api/Gql/Cdr.php:95 Api/Gql/Cdr.php:114
 msgid "CDR data found successfully"
 msgstr ""
 
 #: page.cdr.php:175
 msgid "CDR search"
-msgstr ""
+msgstr "CDE 查询"
 
 #: page.cdr.php:429
 msgid "CNAM"
-msgstr ""
+msgstr "CNAM"
 
 #: page.cdr.php:430
 msgid "CNUM"
-msgstr ""
+msgstr "CNUM"
 
 #: page.cdr.php:176
 msgid "CSV File"
@@ -281,27 +275,27 @@ msgstr ""
 
 #: cdr.i18n.php:8
 msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr ""
+msgstr "呼叫数据记录工具支持查看系统呼叫报表"
 
 #: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:736
 msgid "Call Date"
-msgstr ""
+msgstr "呼叫日期"
 
 #: page.cdr.php:966
 msgid "Call Detail Record - Call Graph by"
-msgstr ""
+msgstr "呼叫记录-呼叫图形"
 
 #: page.cdr.php:1066
 msgid "Call Detail Record - Concurrent Calls by"
-msgstr ""
+msgstr "呼叫记录-并发呼叫"
 
 #: page.cdr.php:722
 msgid "Call Detail Record - Search Returned"
-msgstr ""
+msgstr "CDR查询-查询返回值"
 
 #: page.cdr.php:105
 msgid "Call Detail Record Search"
-msgstr ""
+msgstr "呼叫记录查询"
 
 #: page.cdr.php:412
 msgid "Call Event Log - Search Returned"
@@ -309,26 +303,22 @@ msgstr ""
 
 #: page.cdr.php:177
 msgid "Call Graph"
-msgstr ""
+msgstr "呼叫图表"
 
-#: Cdr.class.php:307
-#: ucp/Cdr.class.php:78
-#: ucp/Cdr.class.php:112
+#: Cdr.class.php:307 ucp/Cdr.class.php:78 ucp/Cdr.class.php:112
 msgid "Call History"
-msgstr ""
+msgstr "呼叫记录"
 
 #: ucp/Cdr.class.php:65
 #, php-format
 msgid "Call History for %s"
 msgstr ""
 
-#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885
-#: page.cdr.php:1225
+#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1225
 msgid "Caller ID Name"
 msgstr ""
 
-#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882
-#: page.cdr.php:1230
+#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1230
 msgid "Caller ID Number"
 msgstr ""
 
@@ -346,53 +336,49 @@ msgstr ""
 
 #: page.cdr.php:722
 msgid "Calls"
-msgstr ""
+msgstr "呼叫"
 
-#: page.cdr.php:1111
-#: page.cdr.php:1128
-#: page.cdr.php:1133
-#: page.cdr.php:1161
+#: page.cdr.php:1111 page.cdr.php:1128 page.cdr.php:1133 page.cdr.php:1161
 #: page.cdr.php:1286
 msgid "Channel"
-msgstr ""
+msgstr "通道"
 
 #: page.cdr.php:179
 msgid "Concurrent Calls"
-msgstr ""
+msgstr "并发呼叫"
 
-#: ucp/Cdr.class.php:325
-#: ucp/Cdr.class.php:329
+#: ucp/Cdr.class.php:325 ucp/Cdr.class.php:329
 msgid "Conference"
-msgstr ""
+msgstr "会议"
 
-#: page.cdr.php:212 /usr/src/freepbx/cdr/page.cdr.php:224
-#: page.cdr.php:244 /usr/src/freepbx/cdr/page.cdr.php:256
-#: page.cdr.php:275 /usr/src/freepbx/cdr/page.cdr.php:289
-#: page.cdr.php:301 /usr/src/freepbx/cdr/page.cdr.php:312
+#: page.cdr.php:212 /usr/src/freepbx/cdr/page.cdr.php:224 page.cdr.php:244
+#: /usr/src/freepbx/cdr/page.cdr.php:256 page.cdr.php:275
+#: /usr/src/freepbx/cdr/page.cdr.php:289 page.cdr.php:301
+#: /usr/src/freepbx/cdr/page.cdr.php:312
 msgid "Contains"
-msgstr ""
+msgstr "包含"
 
 #: ucp/views/widget.php:33
 msgid "Controls"
-msgstr ""
+msgstr "控制"
 
-#: page.cdr.php:252 /usr/src/freepbx/cdr/page.cdr.php:368
-#: page.cdr.php:432 /usr/src/freepbx/cdr/page.cdr.php:741
-#: page.cdr.php:879 /usr/src/freepbx/cdr/page.cdr.php:1139
+#: page.cdr.php:252 /usr/src/freepbx/cdr/page.cdr.php:368 page.cdr.php:432
+#: /usr/src/freepbx/cdr/page.cdr.php:741 page.cdr.php:879
+#: /usr/src/freepbx/cdr/page.cdr.php:1139
 msgid "DID"
 msgstr ""
 
 #: ucp/views/widget.php:27
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #: page.cdr.php:356
 msgid "Date/Time"
-msgstr ""
+msgstr "日期/时间"
 
 #: page.cdr.php:362 /usr/src/freepbx/cdr/page.cdr.php:938
 msgid "Day"
-msgstr ""
+msgstr "天"
 
 #: page.cdr.php:361
 msgid "Day of Week"
@@ -400,15 +386,15 @@ msgstr ""
 
 #: page.cdr.php:922
 msgid "Day of week"
-msgstr ""
+msgstr "周几"
 
 #: page.cdr.php:119
 msgid "December"
-msgstr ""
+msgstr "十二月"
 
 #: ucp/views/widget.php:28
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: Api/Gql/Cdr.php:456
 msgid "Description of the blocked number"
@@ -416,7 +402,7 @@ msgstr ""
 
 #: page.cdr.php:271 /usr/src/freepbx/cdr/page.cdr.php:743
 msgid "Destination"
-msgstr ""
+msgstr "目的地"
 
 #: page.cdr.php:373 /usr/src/freepbx/cdr/page.cdr.php:894
 msgid "Destination Caller ID Name"
@@ -428,11 +414,11 @@ msgstr ""
 
 #: page.cdr.php:1161
 msgid "Destination Context"
-msgstr ""
+msgstr "目的地 context"
 
 #: page.cdr.php:367 /usr/src/freepbx/cdr/page.cdr.php:876
 msgid "Destination Number"
-msgstr ""
+msgstr "目的地号码"
 
 #: page.cdr.php:1240
 msgid "Dialplan context"
@@ -444,7 +430,7 @@ msgstr ""
 
 #: page.cdr.php:329 /usr/src/freepbx/cdr/page.cdr.php:744
 msgid "Disposition"
-msgstr ""
+msgstr "呼叫结果"
 
 #: Api/Gql/Cdr.php:34
 msgid ""
@@ -458,12 +444,12 @@ msgstr ""
 
 #: ucp/assets/js/global.js:45
 msgid "Download"
-msgstr ""
+msgstr "下载"
 
 #: page.cdr.php:319 /usr/src/freepbx/cdr/page.cdr.php:745
 #: ucp/views/widget.php:29
 msgid "Duration"
-msgstr ""
+msgstr "时长"
 
 #: install.php:132
 msgid "ERROR failed to update database"
@@ -471,7 +457,7 @@ msgstr ""
 
 #: views/ucp_config.php:28
 msgid "Enable CDR (Call History) in UCP for this user"
-msgstr ""
+msgstr "对此用户在UCP开启CDR"
 
 #: Api/Gql/Cdr.php:55
 msgid "End Date"
@@ -485,16 +471,16 @@ msgstr ""
 msgid "End Date should be greater than Start Date..!!"
 msgstr ""
 
-#: page.cdr.php:213 /usr/src/freepbx/cdr/page.cdr.php:225
-#: page.cdr.php:245 /usr/src/freepbx/cdr/page.cdr.php:257
-#: page.cdr.php:276 /usr/src/freepbx/cdr/page.cdr.php:290
-#: page.cdr.php:302 /usr/src/freepbx/cdr/page.cdr.php:313
+#: page.cdr.php:213 /usr/src/freepbx/cdr/page.cdr.php:225 page.cdr.php:245
+#: /usr/src/freepbx/cdr/page.cdr.php:257 page.cdr.php:276
+#: /usr/src/freepbx/cdr/page.cdr.php:290 page.cdr.php:302
+#: /usr/src/freepbx/cdr/page.cdr.php:313
 msgid "Ends With"
-msgstr ""
+msgstr "以结束"
 
 #: page.cdr.php:428
 msgid "Event"
-msgstr ""
+msgstr "事件"
 
 #: page.cdr.php:1278
 msgid "Event Extra"
@@ -508,12 +494,12 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: page.cdr.php:214 /usr/src/freepbx/cdr/page.cdr.php:226
-#: page.cdr.php:246 /usr/src/freepbx/cdr/page.cdr.php:258
-#: page.cdr.php:277 /usr/src/freepbx/cdr/page.cdr.php:291
-#: page.cdr.php:303 /usr/src/freepbx/cdr/page.cdr.php:314
+#: page.cdr.php:214 /usr/src/freepbx/cdr/page.cdr.php:226 page.cdr.php:246
+#: /usr/src/freepbx/cdr/page.cdr.php:258 page.cdr.php:277
+#: /usr/src/freepbx/cdr/page.cdr.php:291 page.cdr.php:303
+#: /usr/src/freepbx/cdr/page.cdr.php:314
 msgid "Exactly"
-msgstr ""
+msgstr "准确"
 
 #: page.cdr.php:170
 msgid "Extra Options"
@@ -521,39 +507,39 @@ msgstr ""
 
 #: page.cdr.php:336
 msgid "Failed"
-msgstr ""
+msgstr "失败"
 
 #: page.cdr.php:119
 msgid "February"
-msgstr ""
+msgstr "二月"
 
 #: ucp/Cdr.class.php:188
 msgid "File does not exist"
-msgstr ""
+msgstr "文件不存在"
 
 #: ucp/Cdr.class.php:427
 msgid "Forbidden"
-msgstr ""
+msgstr "禁止"
 
 #: page.cdr.php:115
 msgid "From"
-msgstr ""
+msgstr "从"
 
 #: page.cdr.php:971
 msgid "Go to the CDR Graph"
-msgstr ""
+msgstr "访问呼叫记录图形报表"
 
 #: page.cdr.php:970
 msgid "Go to the top of the CDR table"
-msgstr ""
+msgstr "访问呼叫建立表"
 
 #: page.cdr.php:350
 msgid "Group By"
-msgstr ""
+msgstr "以组的形式"
 
 #: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:902
 msgid "Hour"
-msgstr ""
+msgstr "小时"
 
 #: page.cdr.php:360
 msgid "Hour of Day"
@@ -569,11 +555,9 @@ msgid ""
 "Sangoma P & D series phones and Desktop phones."
 msgstr ""
 
-#: views/ucp_config.php:18
-#: views/ucp_config.php:75
-#: views/ucp_config.php:106
+#: views/ucp_config.php:18 views/ucp_config.php:75 views/ucp_config.php:106
 msgid "Inherit"
-msgstr ""
+msgstr "继承"
 
 #: Api/Gql/Cdr.php:72
 msgid "Invalid End Date Format(YYYY-MM-DD)"
@@ -585,15 +569,15 @@ msgstr ""
 
 #: page.cdr.php:119
 msgid "January"
-msgstr ""
+msgstr "一月"
 
 #: page.cdr.php:119
 msgid "July"
-msgstr ""
+msgstr "七月"
 
 #: page.cdr.php:119
 msgid "June"
-msgstr ""
+msgstr "六月"
 
 #: Api/Gql/Cdr.php:25
 msgid "Limit value"
@@ -601,71 +585,66 @@ msgstr ""
 
 #: page.cdr.php:119
 msgid "March"
-msgstr ""
+msgstr "三月"
 
 #: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1068
 msgid "Max Calls"
-msgstr ""
+msgstr "最长通话"
 
 #: page.cdr.php:119
 msgid "May"
-msgstr ""
+msgstr "五月"
 
-#: Api/Gql/Cdr.php:492
-#: Api/Gql/Cdr.php:530
+#: Api/Gql/Cdr.php:492 Api/Gql/Cdr.php:530
 msgid "Message for the request"
 msgstr ""
 
 #: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:927
 msgid "Minute"
-msgstr ""
+msgstr "分钟"
 
 #: page.cdr.php:364 /usr/src/freepbx/cdr/page.cdr.php:917
 msgid "Month"
-msgstr ""
+msgstr "月"
 
 #: page.cdr.php:346
 msgid "Newest First"
-msgstr ""
+msgstr "最新优先"
 
-#: views/ucp_config.php:15
-#: views/ucp_config.php:72
-#: views/ucp_config.php:103
+#: views/ucp_config.php:15 views/ucp_config.php:72 views/ucp_config.php:103
 msgid "No"
 msgstr ""
 
 #: page.cdr.php:337
 msgid "No Answer"
-msgstr ""
+msgstr "无应答"
 
 #: Api/Gql/Cdr.php:97
 msgid "No Data Found"
 msgstr ""
 
-#: page.cdr.php:210 /usr/src/freepbx/cdr/page.cdr.php:222
-#: page.cdr.php:242 /usr/src/freepbx/cdr/page.cdr.php:254
-#: page.cdr.php:273 /usr/src/freepbx/cdr/page.cdr.php:287
-#: page.cdr.php:299 /usr/src/freepbx/cdr/page.cdr.php:310
-#: page.cdr.php:339
+#: page.cdr.php:210 /usr/src/freepbx/cdr/page.cdr.php:222 page.cdr.php:242
+#: /usr/src/freepbx/cdr/page.cdr.php:254 page.cdr.php:273
+#: /usr/src/freepbx/cdr/page.cdr.php:287 page.cdr.php:299
+#: /usr/src/freepbx/cdr/page.cdr.php:310 page.cdr.php:339
 msgid "Not"
-msgstr ""
+msgstr "不是"
 
 #: ucp/Cdr.class.php:433
 msgid "Not Found"
-msgstr ""
+msgstr "没有发现"
 
 #: page.cdr.php:119
 msgid "November"
-msgstr ""
+msgstr "十一月"
 
-#: install.php:101 /usr/src/freepbx/cdr/install.php:118
-#: install.php:134
+#: install.php:101 /usr/src/freepbx/cdr/install.php:118 install.php:134
 msgid "OK!"
 msgstr ""
 
 #: page.cdr.php:119
 msgid "October"
-msgstr ""
+msgstr "十月"
 
 #: Api/Gql/Cdr.php:29
 msgid "Offset value"
@@ -673,11 +652,11 @@ msgstr ""
 
 #: page.cdr.php:345
 msgid "Oldest First"
-msgstr ""
+msgstr "最早优先"
 
 #: page.cdr.php:108
 msgid "Order By"
-msgstr ""
+msgstr "排序"
 
 #: page.cdr.php:372 /usr/src/freepbx/cdr/page.cdr.php:891
 msgid "Outbound Caller ID Name"
@@ -697,15 +676,15 @@ msgstr ""
 
 #: ucp/views/widget.php:31
 msgid "Playback"
-msgstr ""
+msgstr "回放"
 
 #: page.cdr.php:737
 msgid "Recording"
-msgstr ""
+msgstr "录音"
 
 #: page.cdr.php:724
 msgid "Related Call Detail Records"
-msgstr ""
+msgstr "相关CDR"
 
 #: page.cdr.php:173
 msgid "Report Type"
@@ -713,7 +692,7 @@ msgstr ""
 
 #: cdr.i18n.php:6
 msgid "Reports"
-msgstr ""
+msgstr "报表"
 
 #: page.cdr.php:184
 msgid "Result Limit"
@@ -721,7 +700,7 @@ msgstr ""
 
 #: page.cdr.php:382
 msgid "Search"
-msgstr ""
+msgstr "查询"
 
 #: page.cdr.php:109
 msgid "Search Conditions"
@@ -729,7 +708,7 @@ msgstr ""
 
 #: page.cdr.php:251
 msgid "Search for a DID."
-msgstr ""
+msgstr "对DID查询。"
 
 #: page.cdr.php:307
 msgid "Search for accountcode."
@@ -770,7 +749,7 @@ msgstr ""
 
 #: page.cdr.php:324
 msgid "Seconds"
-msgstr ""
+msgstr "秒"
 
 #: page.cdr.php:219
 msgid "Select CallerID Name to search for."
@@ -788,7 +767,7 @@ msgstr ""
 
 #: page.cdr.php:119
 msgid "September"
-msgstr ""
+msgstr "九月"
 
 #: Api/Gql/Cdr.php:51
 msgid "Start Date"
@@ -798,25 +777,23 @@ msgstr ""
 msgid "Start Date is required..!!"
 msgstr ""
 
-#: Api/Gql/Cdr.php:496
-#: Api/Gql/Cdr.php:534
+#: Api/Gql/Cdr.php:496 Api/Gql/Cdr.php:534
 msgid "Status for the request"
 msgstr ""
 
 #: page.cdr.php:738
 msgid "System"
-msgstr ""
+msgstr "系统"
 
 #: page.cdr.php:375
 msgid "Tech info"
-msgstr ""
+msgstr "呼出通道信息"
 
 #: page.cdr.php:366
 msgid "Telephone Number"
-msgstr ""
+msgstr "电话号码"
 
-#: Api/Gql/Cdr.php:198
-#: Api/Gql/Cdr.php:408
+#: Api/Gql/Cdr.php:198 Api/Gql/Cdr.php:408
 msgid "The Caller ID Number"
 msgstr ""
 
@@ -871,8 +848,7 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: Api/Gql/Cdr.php:46
-#: Api/Gql/Cdr.php:306
+#: Api/Gql/Cdr.php:46 Api/Gql/Cdr.php:306
 msgid "The final known disposition of the CDR record"
 msgstr ""
 
@@ -900,8 +876,7 @@ msgstr ""
 msgid "The time in seconds from start until end"
 msgstr ""
 
-#: Api/Gql/Cdr.php:162
-#: Api/Gql/Cdr.php:174
+#: Api/Gql/Cdr.php:162 Api/Gql/Cdr.php:174
 msgid "The time the CDR was created"
 msgstr ""
 
@@ -913,19 +888,19 @@ msgstr ""
 
 #: page.cdr.php:427 /usr/src/freepbx/cdr/page.cdr.php:1069
 msgid "Time"
-msgstr ""
+msgstr "时间"
 
 #: page.cdr.php:141
 msgid "To"
-msgstr ""
+msgstr "到"
 
 #: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1068
 msgid "Total Calls"
-msgstr ""
+msgstr "总呼叫"
 
 #: page.cdr.php:968
 msgid "Total Duration"
-msgstr ""
+msgstr "总时长"
 
 #: install.php:140
 msgid "Transient CDR"
@@ -939,14 +914,11 @@ msgstr ""
 msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr ""
 
-#: page.cdr.php:1102
-#: page.cdr.php:1105
+#: page.cdr.php:1102 page.cdr.php:1105
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:355
-#: ucp/Cdr.class.php:376
-#: ucp/Cdr.class.php:380
+#: ucp/Cdr.class.php:355 ucp/Cdr.class.php:376 ucp/Cdr.class.php:380
 msgid "Unknown"
 msgstr ""
 
@@ -966,8 +938,7 @@ msgstr ""
 msgid "Userfield"
 msgstr ""
 
-#: ucp/Cdr.class.php:311
-#: ucp/Cdr.class.php:316
+#: ucp/Cdr.class.php:311 ucp/Cdr.class.php:316
 msgid "Voicemail"
 msgstr ""
 
@@ -975,14 +946,11 @@ msgstr ""
 msgid "Week ( Sun-Sat )"
 msgstr ""
 
-#: views/ucp_config.php:13
-#: views/ucp_config.php:70
-#: views/ucp_config.php:101
+#: views/ucp_config.php:13 views/ucp_config.php:70 views/ucp_config.php:101
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:836
-#: ucp/assets/js/global.js:82
+#: page.cdr.php:836 ucp/assets/js/global.js:82
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
@@ -1010,3 +978,30 @@ msgstr ""
 #: ucp/Cdr.class.php:339
 msgid "kicked from conference"
 msgstr ""
+
+#~ msgid "CSV file"
+#~ msgstr "CSV文件"
+
+#~ msgid "Extra options"
+#~ msgstr "其他选项"
+
+#~ msgid "Report type"
+#~ msgstr "报表类型"
+
+#~ msgid "Result limit"
+#~ msgstr "结果限制"
+
+#~ msgid "Search conditions"
+#~ msgstr "查询条件"
+
+#~ msgid "Conference \"%s\" Settings"
+#~ msgstr "会议 \"%s\" 设置"
+
+#~ msgid "Not Authorized"
+#~ msgstr "未经授权"
+
+#~ msgid "Adding did field to cdr"
+#~ msgstr "对CDR添加DID"
+
+#~ msgid "This might take a while......"
+#~ msgstr "可能需要一点时间"
