@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>17.0.4.7</version>
+	<version>17.0.4.8</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,16 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
-		*17.0.4.7* Packaging of ver 17.0.4.7
-		*17.0.4.6* Packaging of ver 17.0.4.6
-		*17.0.4.5* Packaging of ver 17.0.4.5
-		*17.0.4.4* Packaging of ver 17.0.4.4
-		*17.0.4.3* Packaging of ver 17.0.4.3
-		*17.0.4.2* Packaging of ver 17.0.4.2
-		*17.0.4.1 Packaging of ver 17.0.4.1
-		*17.0.4* Packaging of ver 17.0.4
-		*17.0.3* Packaging of ver 17.0.3
-		*17.0.2* Packaging of ver 17.0.2
+		*17.0.4.8* Packaging of ver 17.0.4.8
 		*17.0.1alpha* 17.0.1 alpha release
 	</changelog>
 	<hooks>
@@ -36,8 +27,8 @@
 		</ucp>
 	</hooks>
 	<depends>
-		<module>framework ge 13.0.1beta3.56</module>
-		<module>core ge 12.0.8</module>
+		<module>framework ge 17.0.1</module>
+		<module>core ge 17.0.1</module>
 	</depends>
 	<supported>
 		<version>17.0</version>
