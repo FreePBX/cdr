@@ -35,3 +35,6 @@
 		</thead>
 	</table>
 </div>
+
+<div id="addtionalcontent">
+</div>

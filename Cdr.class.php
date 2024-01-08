@@ -13,7 +13,7 @@
 
 namespace FreePBX\modules;
 
-class Cdr implements \BMO {
+class Cdr extends \FreePBX_Helpers implements \BMO {
 
 	/** Public variable for access to the raw PDO handle */
 	public $cdrdb;
@@ -313,6 +313,10 @@ class Cdr implements \BMO {
 	}
 
 	public function install() {
+		$new = !$this->getConfig('newinstall');
+		if($new) {
+			$this->setConfig('newinstall',true);
+		}
 
 	}
 	public function uninstall() {
@@ -341,20 +345,25 @@ class Cdr implements \BMO {
 	{
 		$transientcdr = $this->FreePBX->Config()->get('TRANSIENTCDR');
 		if ($transientcdr) {
+			$setupCDRTrigger = $this->getConfig('setupCDRTrigger');
 			$this->createCdrTrigger();
 		} else {
-			$this->removeCdrTrigger();
-			$this->removecronEntry();
+			$new = $this->getConfig('newinstall');
+			$setupCDRTrigger = $this->getConfig('setupCDRTrigger');
+			if($new && $setupCDRTrigger) {
+				$this->removeCdrTrigger();
+				$this->removecronEntry();
+			}
 		}
 	}
 
 	public function ajaxRequest($req, &$setting) {
 		$setting['authenticate'] = true;
 		$setting['allowremote'] = false;
-  return match ($req) {
-      "gethtml5", "playback", "download" => true,
-      default => false,
-  };
+		return match ($req) {
+		"gethtml5", "playback", "download" => true,
+			default => false,
+		};
 	}
 
 	public function ajaxCustomHandler() {
@@ -387,7 +396,8 @@ class Cdr implements \BMO {
 	}
 
 	public function getRecordByID($rid) {
-		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND uniqueid = :uid";
+		$this->checkCdrTrigger();
+		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND (uniqueid = :uid OR linkedid = :uid) LIMIT 1";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
 			$sth->execute(["uid" => str_replace("_",".",(string) $rid)]);
@@ -478,6 +488,10 @@ class Cdr implements \BMO {
 			$sth->execute([':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension]);
 		}
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
+		$sngaiModuleStatus = false;
+		if ($this->FreePBX->Modules->checkStatus("sngai")) {
+			$sngaiModuleStatus = true;
+		}
 		foreach($calls as &$call) {
 			if(empty($call['dst']) && preg_match('/\/(.*)\-/',(string) $call['dstchannel'],$matches)) {
 				$call['dst'] = $matches[1];
@@ -501,6 +515,15 @@ class Cdr implements \BMO {
 			$call['recordingformat'] = !empty($call['recordingfile']) ? strtolower(pathinfo((string) $call['recordingfile'],PATHINFO_EXTENSION)) : '';
 			$call['recordingfile'] = $this->processPath($call['recordingfile']);
 			$call['requestingExtension'] = $extension;
+			}
+
+			if($sngaiModuleStatus) {
+				$url = \FreePBX::Sngai()->getUcpTranscriptionUrl($extension,$call['uniqueid'],'callrecording');
+				if($url) {
+					$call['converttotext'] = $url;
+				} else {
+					$call['converttotext'] = '';
+				}
 			}
 		}
 		return $calls;
@@ -624,7 +647,19 @@ class Cdr implements \BMO {
 		$res->execute();
 		$result = $res->fetch(\PDO::FETCH_ASSOC);
 		if (!empty($result)) {
-			$this->db_table = 'transient_cdr';
+			if($this->FreePBX->Config()->get('TRANSIENTCDR')) {
+				$this->db_table = 'transient_cdr';
+			} else {
+				$query = "SHOW TABLES LIKE 'replicate_cdr'";
+				$res = $this->cdrdb->prepare($query);
+				$res->execute();
+				$result = $res->fetch(\PDO::FETCH_ASSOC);
+				if (!empty($result)) {
+					$this->db_table = 'replicate_cdr';
+				}else {
+					$this->db_table = 'cdr';
+				}
+			}
 		}
 	}
 
@@ -649,7 +684,7 @@ class Cdr implements \BMO {
 					$res->execute();
 				} catch (\Exception $e) {}
 				// Add Indexes
-				$squery = "ALTER TABLE `transient_cdr` ADD INDEX `calldate` (`calldate`), ADD INDEX `dst` (`dst`), ADD INDEX `uniqueid` (`uniqueid`), ADD INDEX `did` (`did`), ADD INDEX `linkedid` (`linkedid`)";
+				$squery = "ALTER TABLE `transient_cdr` ADD INDEX `calldate` (`calldate`), ADD INDEX `dst` (`dst`), ADD INDEX `uniqueid` (`uniqueid`), ADD INDEX `did` (`did`), ADD INDEX `linkedid` (`linkedid`),ADD INDEX `src` (`src`),ADD INDEX `channel` (`channel`),ADD INDEX `dstchannel` (`dstchannel`),ADD INDEX `cnum` (`cnum`)";
 				$sres = $this->cdrdb->prepare($squery);
 				try {
 					$sres->execute();
@@ -660,6 +695,7 @@ class Cdr implements \BMO {
 		} catch (\Exception $e) {
 			dbug($e->getMessage());
 		}
+		$this->setConfig('setupCDRTrigger',true);
 	}
 
 

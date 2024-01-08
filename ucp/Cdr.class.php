@@ -75,7 +75,12 @@ class Cdr extends Modules{
 
 	public function getStaticSettings() {
 		$sf = $this->UCP->FreePBX->Media->getSupportedFormats();
-		return ["showPlayback" => $this->_checkPlayback() ? "1" : "0", "showDownload" => $this->_checkDownload() ? "1" : "0", "supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())];
+		return array(
+			"showPlayback" => $this->_checkPlayback() ? "1" : "0",
+			"showDownload" => $this->_checkDownload() ? "1" : "0",
+			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats()),
+			"isSngaiEnabled" =>$this->UCP->FreePBX->Modules->checkStatus("sngai")
+		);
 	}
 
 	public function getWidgetDisplay($id,$uuid) {
@@ -112,12 +117,26 @@ class Cdr extends Modules{
 		if (!$enabled) {
 			return false;
 		}
-		return match ($command) {
-      'grid' => true,
-      'download' => $this->_checkDownload($_REQUEST['ext']),
-      'gethtml5', 'playback' => $this->_checkPlayback($_REQUEST['ext']),
-      default => false,
-  };
+		$assigned = $this->UCP->getCombinedSettingByID($this->user['id'], 'Cdr', 'assigned');
+		if ($command =='grid' && !in_array($_REQUEST['extension'],$assigned)) {
+			return false;
+		}
+
+		switch($command) {
+			case 'grid':
+				return true;
+			break;
+			case 'download':
+				return $this->_checkDownload($_REQUEST['ext']);
+			break;
+			case 'gethtml5':
+			case 'playback':
+				return $this->_checkPlayback($_REQUEST['ext']);
+			break;
+			default:
+				return false;
+			break;
+		}
 	}
 
 	/**
