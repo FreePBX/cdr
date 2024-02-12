@@ -99,7 +99,7 @@ class Cdr extends Modules{
 		$displayvars = array(
 			'ext' => $id,
 			'activeList' => $view,
-			'calls' => $this->postProcessCalls($this->cdr->getCalls($id, 1, 'desc', 'date', '', $this->limit), $id),
+			'calls' => $this->postProcessCalls($this->cdr->getCalls($id, 1, 'date', 'desc', '', $this->limit), $id),
 			"showPlayback" => $this->_checkPlayback(),
 			"showDownload" => $this->_checkDownload(),
 			"extension" => $id,
