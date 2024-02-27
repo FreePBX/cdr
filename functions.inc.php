@@ -67,6 +67,21 @@ function cdr_get_config($engine) {
 		$generaladdtionalcontent .= "safeshutdown=". $bshutdown."\n";
 		\FreePBX::WriteConfig()->writeConfig('cdr_general_additional.conf', $generaladdtionalcontent, true);
 	}
+
+	if(isset($amp_conf['CDR_BATCH_ENABLE'])) {
+
+		$enable = ($amp_conf['CDR_BATCH_ENABLE'] == 1) ? 'yes' : 'no';
+		$managerGeneralAddtionalContent = "enabled=". $enable ."\n";
+		
+		$cdr_mappings = \FreePBX::Cdr()->getAll('cdr_mappings');
+		$managerMappingsAdditionalConf='';
+		foreach ($cdr_mappings as $map) {
+			$managerMappingsAdditionalConf.= key($map) . '=>' . $map[key($map)]." \n";
+		}
+
+		\FreePBX::WriteConfig()->writeConfig('cdr_manager_general_additional.conf', $managerGeneralAddtionalContent, true);
+		\FreePBX::WriteConfig()->writeConfig('cdr_manager_mapping_additional.conf', $managerMappingsAdditionalConf, true);
+	}
 }
 
 
