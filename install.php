@@ -68,6 +68,21 @@ if (empty($check)) {
 	}
 	out(_('Done'));
 }
+// add index to linkedid
+$sql = "SHOW KEYS FROM `$db_name`.`$db_table_name` WHERE Key_name='linkedid'";
+$check = $dbcdr->getOne($sql);
+if (empty($check)) {
+	outn(_('Adding index to linkedid field...'));
+	$sql = "ALTER TABLE `$db_name`.`$db_table_name` ADD INDEX `linkedid` (`linkedid` ASC)";
+	$result = $dbcdr->query($sql);
+	if(DB::IsError($result)) {
+		out(_("Unable to add index to linkedid field in the cdr table"));
+		freepbx_log(FPBX_LOG_ERROR, "Failed to add index to linkedid field in the cdr table");
+	} else {
+		out(_("Adding index to linkedid field in the cdr table"));
+	}
+	out(_('Done'));
+}
 
 // Remove this section in FreePBX 14
 $db_name = FreePBX::Config()->get('CDRDBNAME');
