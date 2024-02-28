@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-08 04:56-0500\n"
+"POT-Creation-Date: 2024-02-28 04:19-0500\n"
 "PO-Revision-Date: 2018-07-31 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/cdr/de/>\n"
@@ -156,6 +156,14 @@ msgstr "Index wird zu DID-Feld in CRD-Tabelle hinzugefügt"
 msgid "Adding index to did field..."
 msgstr "Füge Index zum ‚did‘-Feld hinzu..."
 
+#: install.php:82
+msgid "Adding index to linkedid field in the cdr table"
+msgstr ""
+
+#: install.php:75
+msgid "Adding index to linkedid field..."
+msgstr ""
+
 #: install.php:67
 msgid "Adding index to recordingfile field in the cdr table"
 msgstr "Füge Index zum ‚recordingfile‘-Feld in der Tabelle ‚cdr‘ hinzu"
@@ -164,7 +172,7 @@ msgstr "Füge Index zum ‚recordingfile‘-Feld in der Tabelle ‚cdr‘ hinzu"
 msgid "Adding index to recordingfile field..."
 msgstr "Füge Index zum ‚recordingfile‘-Feld hinzu..."
 
-#: install.php:105 /usr/src/freepbx/cdr/install.php:122
+#: install.php:120 /usr/src/freepbx/cdr/install.php:137
 msgid "Adding!"
 msgstr "Hinzufügen!"
 
@@ -480,7 +488,7 @@ msgid ""
 "Party A"
 msgstr ""
 
-#: install.php:54 /usr/src/freepbx/cdr/install.php:69
+#: install.php:54 /usr/src/freepbx/cdr/install.php:69 install.php:84
 msgid "Done"
 msgstr "Erledigt"
 
@@ -493,7 +501,7 @@ msgstr "Herunterladen"
 msgid "Duration"
 msgstr "Dauer"
 
-#: install.php:133
+#: install.php:148
 msgid "ERROR failed to update database"
 msgstr "FEHLER Konnte Datenbank nicht aktualisieren"
 
@@ -595,7 +603,7 @@ msgstr "Stunde des Tages"
 msgid "Hour of day"
 msgstr "Stunde des Tages"
 
-#: install.php:286
+#: install.php:301
 msgid ""
 "If this option set to no, than call log app may not work properly with "
 "Sangoma P & D series phones and Desktop phones."
@@ -684,7 +692,7 @@ msgstr "Nicht gefunden"
 msgid "November"
 msgstr "November"
 
-#: install.php:102 /usr/src/freepbx/cdr/install.php:119 install.php:135
+#: install.php:117 /usr/src/freepbx/cdr/install.php:134 install.php:150
 msgid "OK!"
 msgstr "OK!"
 
@@ -974,13 +982,17 @@ msgstr "Anrufe gesamt"
 msgid "Total Duration"
 msgstr "Gesamtdauer"
 
-#: install.php:285
+#: install.php:300
 msgid "Transient CDR"
 msgstr ""
 
 #: install.php:49
 msgid "Unable to add index to did field in the cdr table"
 msgstr "Kann Index nicht zu DID-Feld in der CDR-Tabelle hinzufügen"
+
+#: install.php:79
+msgid "Unable to add index to linkedid field in the cdr table"
+msgstr ""
 
 #: install.php:64
 msgid "Unable to add index to recordingfile field in the cdr table"

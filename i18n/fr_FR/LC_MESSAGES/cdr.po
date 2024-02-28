@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-08 04:56-0500\n"
+"POT-Creation-Date: 2024-02-28 04:19-0500\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -158,6 +158,14 @@ msgstr "Ajout de l'index au champ did dans la table cdr"
 msgid "Adding index to did field..."
 msgstr ""
 
+#: install.php:82
+msgid "Adding index to linkedid field in the cdr table"
+msgstr ""
+
+#: install.php:75
+msgid "Adding index to linkedid field..."
+msgstr ""
+
 #: install.php:67
 msgid "Adding index to recordingfile field in the cdr table"
 msgstr ""
@@ -166,7 +174,7 @@ msgstr ""
 msgid "Adding index to recordingfile field..."
 msgstr ""
 
-#: install.php:105 /usr/src/freepbx/cdr/install.php:122
+#: install.php:120 /usr/src/freepbx/cdr/install.php:137
 msgid "Adding!"
 msgstr "Ajoute !"
 
@@ -481,7 +489,7 @@ msgid ""
 "Party A"
 msgstr ""
 
-#: install.php:54 /usr/src/freepbx/cdr/install.php:69
+#: install.php:54 /usr/src/freepbx/cdr/install.php:69 install.php:84
 msgid "Done"
 msgstr ""
 
@@ -494,7 +502,7 @@ msgstr "Téléchargement"
 msgid "Duration"
 msgstr "Durée"
 
-#: install.php:133
+#: install.php:148
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -598,7 +606,7 @@ msgstr ""
 msgid "Hour of day"
 msgstr "Heure du jour"
 
-#: install.php:286
+#: install.php:301
 msgid ""
 "If this option set to no, than call log app may not work properly with "
 "Sangoma P & D series phones and Desktop phones."
@@ -687,7 +695,7 @@ msgstr "Non trouvé"
 msgid "November"
 msgstr "Novembre"
 
-#: install.php:102 /usr/src/freepbx/cdr/install.php:119 install.php:135
+#: install.php:117 /usr/src/freepbx/cdr/install.php:134 install.php:150
 msgid "OK!"
 msgstr "OK !"
 
@@ -977,13 +985,17 @@ msgstr "Total d'appels"
 msgid "Total Duration"
 msgstr "Durée Totale"
 
-#: install.php:285
+#: install.php:300
 msgid "Transient CDR"
 msgstr ""
 
 #: install.php:49
 msgid "Unable to add index to did field in the cdr table"
 msgstr "impossible d'ajouter index au champs DID dans la table des CDR"
+
+#: install.php:79
+msgid "Unable to add index to linkedid field in the cdr table"
+msgstr ""
 
 #: install.php:64
 msgid "Unable to add index to recordingfile field in the cdr table"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-08 04:56-0500\n"
+"POT-Creation-Date: 2024-02-28 04:19-0500\n"
 "PO-Revision-Date: 2015-11-23 13:57+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -153,6 +153,14 @@ msgstr ""
 msgid "Adding index to did field..."
 msgstr ""
 
+#: install.php:82
+msgid "Adding index to linkedid field in the cdr table"
+msgstr ""
+
+#: install.php:75
+msgid "Adding index to linkedid field..."
+msgstr ""
+
 #: install.php:67
 msgid "Adding index to recordingfile field in the cdr table"
 msgstr ""
@@ -161,7 +169,7 @@ msgstr ""
 msgid "Adding index to recordingfile field..."
 msgstr ""
 
-#: install.php:105 /usr/src/freepbx/cdr/install.php:122
+#: install.php:120 /usr/src/freepbx/cdr/install.php:137
 msgid "Adding!"
 msgstr ""
 
@@ -476,7 +484,7 @@ msgid ""
 "Party A"
 msgstr ""
 
-#: install.php:54 /usr/src/freepbx/cdr/install.php:69
+#: install.php:54 /usr/src/freepbx/cdr/install.php:69 install.php:84
 msgid "Done"
 msgstr ""
 
@@ -489,7 +497,7 @@ msgstr "下载"
 msgid "Duration"
 msgstr "时长"
 
-#: install.php:133
+#: install.php:148
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -591,7 +599,7 @@ msgstr ""
 msgid "Hour of day"
 msgstr ""
 
-#: install.php:286
+#: install.php:301
 msgid ""
 "If this option set to no, than call log app may not work properly with "
 "Sangoma P & D series phones and Desktop phones."
@@ -680,7 +688,7 @@ msgstr "没有发现"
 msgid "November"
 msgstr "十一月"
 
-#: install.php:102 /usr/src/freepbx/cdr/install.php:119 install.php:135
+#: install.php:117 /usr/src/freepbx/cdr/install.php:134 install.php:150
 msgid "OK!"
 msgstr ""
 
@@ -956,12 +964,16 @@ msgstr "总呼叫"
 msgid "Total Duration"
 msgstr "总时长"
 
-#: install.php:285
+#: install.php:300
 msgid "Transient CDR"
 msgstr ""
 
 #: install.php:49
 msgid "Unable to add index to did field in the cdr table"
+msgstr ""
+
+#: install.php:79
+msgid "Unable to add index to linkedid field in the cdr table"
 msgstr ""
 
 #: install.php:64
