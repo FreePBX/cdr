@@ -319,7 +319,6 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		if($new) {
 			$this->setConfig('newinstall',true);
 		}
-
 	}
 	public function uninstall() {
 

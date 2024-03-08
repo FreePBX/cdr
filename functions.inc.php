@@ -51,6 +51,16 @@ function cdr_get_config($engine) {
 		//Rewrite the file
 		\FreePBX::WriteConfig()->writeConfig('cdr_adaptive_odbc.conf', $content, false);
 	}
+	$managerGeneralAddtionalContent = "enabled=yes\n";
+
+	$cdr_mappings = \FreePBX::Cdr()->getAll('cdr_mappings');
+	$managerMappingsAdditionalConf='';
+	foreach ($cdr_mappings as $map) {
+		$managerMappingsAdditionalConf.= key($map) . '=>' . $map[key($map)]." \n";
+	}
+
+	\FreePBX::WriteConfig()->writeConfig('cdr_manager_general_additional.conf', $managerGeneralAddtionalContent, true);
+	\FreePBX::WriteConfig()->writeConfig('cdr_manager_mapping_additional.conf', $managerMappingsAdditionalConf, true);
 }
 
 
