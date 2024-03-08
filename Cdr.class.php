@@ -13,7 +13,7 @@
 
 namespace FreePBX\modules;
 
-class Cdr implements \BMO {
+class Cdr extends \FreePBX_Helpers implements \BMO {
 
 	/** Public variable for access to the raw PDO handle */
 	public $cdrdb;
@@ -315,7 +315,6 @@ class Cdr implements \BMO {
 	}
 
 	public function install() {
-
 	}
 	public function uninstall() {
 
