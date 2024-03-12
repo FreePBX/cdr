@@ -72,8 +72,12 @@ function cdr_get_config($engine) {
 
 		$enable = ($amp_conf['CDR_BATCH_ENABLE'] == 1) ? 'yes' : 'no';
 		$managerGeneralAddtionalContent = "enabled=". $enable ."\n";
+<<<<<<< HEAD
 
 		
+=======
+	
+>>>>>>> origin/release/16.0
 		$cdr_mappings = \FreePBX::Cdr()->getAll('cdr_mappings');
 		$managerMappingsAdditionalConf='';
 		foreach ($cdr_mappings as $map) {

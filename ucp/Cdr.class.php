@@ -90,7 +90,15 @@ class Cdr extends Modules{
 		$view??='';
 		$html??='';
 		
-		$displayvars = ['ext' => $id, 'activeList' => $view, 'calls' => $this->postProcessCalls($this->cdr->getCalls($id, 1, 'date', 'desc', '', $this->limit), $id), "showPlayback" => $this->_checkPlayback(), "showDownload" => $this->_checkDownload(), "extension" => $id, "supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())];
+		$displayvars = [ 
+			'ext' => $id,
+			'activeList' => $view,
+			'calls' => $this->postProcessCalls($this->cdr->getCalls($id, 1, 'date', 'desc', '', $this->limit), $id),
+			"showPlayback" => $this->_checkPlayback(),
+			"showDownload" => $this->_checkDownload(),
+			"extension" => $id,
+			"supportedHTML5" => implode(",",$this->UCP->FreePBX->Media->getSupportedHTML5Formats())
+		];
 
 		$html.= $this->load_view(__DIR__.'/views/widget.php',$displayvars);
 
