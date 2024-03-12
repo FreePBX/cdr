@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-17 04:31+0000\n"
+"POT-Creation-Date: 2024-03-12 06:16+0000\n"
 "PO-Revision-Date: 2016-10-17 16:40+0200\n"
 "Last-Translator: Maxim <maxim@ua.fm>\n"
 "Language-Team: Ukrainian <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -22,17 +22,17 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Cdr.class.php:527
+#: Cdr.class.php:526
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s год, %s хв, %s сек"
 
-#: Cdr.class.php:529
+#: Cdr.class.php:528
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s хв, %s сек"
 
-#: Cdr.class.php:532
+#: Cdr.class.php:531
 #, php-format
 msgid "%s sec"
 msgstr "%s сек"
