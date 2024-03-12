@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-28 04:19-0500\n"
+"POT-Creation-Date: 2024-03-12 07:28-0400\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -365,7 +365,7 @@ msgstr "コールイベント記録 ‐ 検索結果"
 msgid "Call Graph"
 msgstr "グラフ形式"
 
-#: Cdr.class.php:308 ucp/Cdr.class.php:73 ucp/Cdr.class.php:97
+#: Cdr.class.php:308 ucp/Cdr.class.php:73 ucp/Cdr.class.php:105
 msgid "Call History"
 msgstr ""
 
@@ -407,7 +407,7 @@ msgstr "チャネル"
 msgid "Concurrent Calls"
 msgstr "同時呼び出し"
 
-#: ucp/Cdr.class.php:312 ucp/Cdr.class.php:316
+#: ucp/Cdr.class.php:320 ucp/Cdr.class.php:324
 msgid "Conference"
 msgstr ""
 
@@ -595,11 +595,11 @@ msgstr "失敗"
 msgid "February"
 msgstr "2月"
 
-#: ucp/Cdr.class.php:175
+#: ucp/Cdr.class.php:183
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:414
+#: ucp/Cdr.class.php:422
 msgid "Forbidden"
 msgstr ""
 
@@ -712,7 +712,7 @@ msgstr ""
 msgid "Not"
 msgstr "Not"
 
-#: ucp/Cdr.class.php:420
+#: ucp/Cdr.class.php:428
 msgid "Not Found"
 msgstr ""
 
@@ -949,7 +949,7 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:156 ucp/Cdr.class.php:170
+#: ucp/Cdr.class.php:164 ucp/Cdr.class.php:178
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -1027,7 +1027,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr "ユニークID"
 
-#: ucp/Cdr.class.php:342 ucp/Cdr.class.php:363 ucp/Cdr.class.php:367
+#: ucp/Cdr.class.php:350 ucp/Cdr.class.php:371 ucp/Cdr.class.php:375
 msgid "Unknown"
 msgstr ""
 
@@ -1053,7 +1053,7 @@ msgstr "ユーザー定義タイプ"
 msgid "Userfield"
 msgstr "ユーザーフィールド"
 
-#: ucp/Cdr.class.php:298 ucp/Cdr.class.php:303
+#: ucp/Cdr.class.php:306 ucp/Cdr.class.php:311
 msgid "Voicemail"
 msgstr ""
 
@@ -1095,7 +1095,7 @@ msgstr "チャネル"
 msgid "context"
 msgstr "コンテキスト"
 
-#: ucp/Cdr.class.php:330
+#: ucp/Cdr.class.php:338
 msgid "denied by COS"
 msgstr ""
 
@@ -1103,7 +1103,7 @@ msgstr ""
 msgid "exten"
 msgstr "exten"
 
-#: ucp/Cdr.class.php:326
+#: ucp/Cdr.class.php:334
 msgid "kicked from conference"
 msgstr ""
 

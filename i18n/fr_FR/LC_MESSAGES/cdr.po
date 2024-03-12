@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-28 04:19-0500\n"
+"POT-Creation-Date: 2024-03-12 07:28-0400\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -338,7 +338,7 @@ msgstr "Journal des événements d'appel - Recherche retourne"
 msgid "Call Graph"
 msgstr "Graphique d'appel"
 
-#: Cdr.class.php:308 ucp/Cdr.class.php:73 ucp/Cdr.class.php:97
+#: Cdr.class.php:308 ucp/Cdr.class.php:73 ucp/Cdr.class.php:105
 msgid "Call History"
 msgstr "Historique d'appel"
 
@@ -380,7 +380,7 @@ msgstr "Canal"
 msgid "Concurrent Calls"
 msgstr "Appels simultanés"
 
-#: ucp/Cdr.class.php:312 ucp/Cdr.class.php:316
+#: ucp/Cdr.class.php:320 ucp/Cdr.class.php:324
 msgid "Conference"
 msgstr "Conférence"
 
@@ -570,11 +570,11 @@ msgstr "Non répondu"
 msgid "February"
 msgstr "Février"
 
-#: ucp/Cdr.class.php:175
+#: ucp/Cdr.class.php:183
 msgid "File does not exist"
 msgstr "Le fichier n'existe pas"
 
-#: ucp/Cdr.class.php:414
+#: ucp/Cdr.class.php:422
 msgid "Forbidden"
 msgstr "Interdit"
 
@@ -687,7 +687,7 @@ msgstr ""
 msgid "Not"
 msgstr "Pas"
 
-#: ucp/Cdr.class.php:420
+#: ucp/Cdr.class.php:428
 msgid "Not Found"
 msgstr "Non trouvé"
 
@@ -925,7 +925,7 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:156 ucp/Cdr.class.php:170
+#: ucp/Cdr.class.php:164 ucp/Cdr.class.php:178
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -1005,7 +1005,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr "Identifiant unique"
 
-#: ucp/Cdr.class.php:342 ucp/Cdr.class.php:363 ucp/Cdr.class.php:367
+#: ucp/Cdr.class.php:350 ucp/Cdr.class.php:371 ucp/Cdr.class.php:375
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -1031,7 +1031,7 @@ msgstr "UserDefType"
 msgid "Userfield"
 msgstr "Champ utilisateur"
 
-#: ucp/Cdr.class.php:298 ucp/Cdr.class.php:303
+#: ucp/Cdr.class.php:306 ucp/Cdr.class.php:311
 msgid "Voicemail"
 msgstr "Boite vocale"
 
@@ -1077,7 +1077,7 @@ msgstr "canal"
 msgid "context"
 msgstr "contexte"
 
-#: ucp/Cdr.class.php:330
+#: ucp/Cdr.class.php:338
 msgid "denied by COS"
 msgstr "pas permis par le COS"
 
@@ -1085,7 +1085,7 @@ msgstr "pas permis par le COS"
 msgid "exten"
 msgstr "numéro"
 
-#: ucp/Cdr.class.php:326
+#: ucp/Cdr.class.php:334
 msgid "kicked from conference"
 msgstr "sorti de la conférence"
 

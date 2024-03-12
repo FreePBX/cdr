@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-28 09:13-0500\n"
+"POT-Creation-Date: 2024-03-12 07:28-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -341,7 +341,7 @@ msgstr ""
 
 #: Cdr.class.php:308
 #: ucp/Cdr.class.php:73
-#: ucp/Cdr.class.php:97
+#: ucp/Cdr.class.php:105
 msgid "Call History"
 msgstr ""
 
@@ -388,8 +388,8 @@ msgstr ""
 msgid "Concurrent Calls"
 msgstr ""
 
-#: ucp/Cdr.class.php:312
-#: ucp/Cdr.class.php:316
+#: ucp/Cdr.class.php:320
+#: ucp/Cdr.class.php:324
 msgid "Conference"
 msgstr ""
 
@@ -578,11 +578,11 @@ msgstr ""
 msgid "February"
 msgstr ""
 
-#: ucp/Cdr.class.php:175
+#: ucp/Cdr.class.php:183
 msgid "File does not exist"
 msgstr ""
 
-#: ucp/Cdr.class.php:414
+#: ucp/Cdr.class.php:422
 msgid "Forbidden"
 msgstr ""
 
@@ -701,7 +701,7 @@ msgstr ""
 msgid "Not"
 msgstr ""
 
-#: ucp/Cdr.class.php:420
+#: ucp/Cdr.class.php:428
 msgid "Not Found"
 msgstr ""
 
@@ -930,8 +930,8 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:156
-#: ucp/Cdr.class.php:170
+#: ucp/Cdr.class.php:164
+#: ucp/Cdr.class.php:178
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -1012,9 +1012,9 @@ msgstr ""
 msgid "UniqueID"
 msgstr ""
 
-#: ucp/Cdr.class.php:342
-#: ucp/Cdr.class.php:363
-#: ucp/Cdr.class.php:367
+#: ucp/Cdr.class.php:350
+#: ucp/Cdr.class.php:371
+#: ucp/Cdr.class.php:375
 msgid "Unknown"
 msgstr ""
 
@@ -1040,8 +1040,8 @@ msgstr ""
 msgid "Userfield"
 msgstr ""
 
-#: ucp/Cdr.class.php:298
-#: ucp/Cdr.class.php:303
+#: ucp/Cdr.class.php:306
+#: ucp/Cdr.class.php:311
 msgid "Voicemail"
 msgstr ""
 
@@ -1086,7 +1086,7 @@ msgstr ""
 msgid "context"
 msgstr ""
 
-#: ucp/Cdr.class.php:330
+#: ucp/Cdr.class.php:338
 msgid "denied by COS"
 msgstr ""
 
@@ -1094,6 +1094,6 @@ msgstr ""
 msgid "exten"
 msgstr ""
 
-#: ucp/Cdr.class.php:326
+#: ucp/Cdr.class.php:334
 msgid "kicked from conference"
 msgstr ""
