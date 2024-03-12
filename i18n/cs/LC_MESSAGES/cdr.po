@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-17 04:32+0000\n"
+"POT-Creation-Date: 2024-03-12 06:16+0000\n"
 "PO-Revision-Date: 2018-09-04 08:02+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cdr/cs/>\n"
@@ -246,8 +246,7 @@ msgstr "Zaneprázdněný"
 msgid "CDR Access"
 msgstr "CDR přístup"
 
-#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
-#: /usr/src/freepbx/cdr/page.cdr.php:99
+#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "CDR reporty"
 
@@ -274,10 +273,6 @@ msgstr "CNUM"
 #: page.cdr.php:176
 msgid "CSV File"
 msgstr "Soubor CSV"
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr "CDR reportingové nástroje pro zobrazení reportů o vašich hovorech"
 
 #: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:736
 msgid "Call Date"
@@ -692,10 +687,6 @@ msgstr "Související záznamy o podrobnostech volání"
 msgid "Report Type"
 msgstr "Typ reportu"
 
-#: cdr.i18n.php:6
-msgid "Reports"
-msgstr "Reporty"
-
 #: page.cdr.php:184
 msgid "Result Limit"
 msgstr "Limit výsledku"
@@ -1001,3 +992,9 @@ msgstr "rozšířit"
 #: ucp/Cdr.class.php:346
 msgid "kicked from conference"
 msgstr "vyhozen z konference"
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr "CDR reportingové nástroje pro zobrazení reportů o vašich hovorech"
+
+#~ msgid "Reports"
+#~ msgstr "Reporty"

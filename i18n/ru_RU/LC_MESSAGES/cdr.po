@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-17 04:32+0000\n"
+"POT-Creation-Date: 2024-03-12 06:16+0000\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -256,8 +256,7 @@ msgstr "Занято"
 msgid "CDR Access"
 msgstr "Доступ к CDR"
 
-#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
-#: /usr/src/freepbx/cdr/page.cdr.php:99
+#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "Отчёты CDR"
 
@@ -284,10 +283,6 @@ msgstr "СNUМ"
 #: page.cdr.php:176
 msgid "CSV File"
 msgstr ""
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr "Просмотр записей о совершенных звонках"
 
 #: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:736
 msgid "Call Date"
@@ -704,10 +699,6 @@ msgstr "Детализация связанных звонков"
 msgid "Report Type"
 msgstr ""
 
-#: cdr.i18n.php:6
-msgid "Reports"
-msgstr "Отчёты"
-
 #: page.cdr.php:184
 msgid "Result Limit"
 msgstr ""
@@ -1012,6 +1003,12 @@ msgstr "расш"
 #: ucp/Cdr.class.php:346
 msgid "kicked from conference"
 msgstr "выпнут из конференции"
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr "Просмотр записей о совершенных звонках"
+
+#~ msgid "Reports"
+#~ msgstr "Отчёты"
 
 #~ msgid "CSV file"
 #~ msgstr "Дамп в CSV-файл"

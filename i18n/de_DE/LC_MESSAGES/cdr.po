@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-17 04:32+0000\n"
+"POT-Creation-Date: 2024-03-12 06:16+0000\n"
 "PO-Revision-Date: 2018-07-31 16:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/cdr/de/>\n"
@@ -247,8 +247,7 @@ msgstr "Beschäftigt"
 msgid "CDR Access"
 msgstr "CDR-Zugang"
 
-#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
-#: /usr/src/freepbx/cdr/page.cdr.php:99
+#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "Anruferaufzeichnung Detailberichte"
 
@@ -275,11 +274,6 @@ msgstr "CNUM"
 #: page.cdr.php:176
 msgid "CSV File"
 msgstr "CSV-Datei"
-
-#: cdr.i18n.php:8
-msgid "Call Data Record report tools for viewing reports of your calls"
-msgstr ""
-"Call Data Record Report-Tools, um Aufzeichnungen Ihrer Anrufe anzusehen"
 
 #: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:736
 msgid "Call Date"
@@ -694,10 +688,6 @@ msgstr "Verbundene Call Detail Records"
 msgid "Report Type"
 msgstr "Berichtstyp"
 
-#: cdr.i18n.php:6
-msgid "Reports"
-msgstr "Berichte"
-
 #: page.cdr.php:184
 msgid "Result Limit"
 msgstr "Ergebnisgrenze"
@@ -1005,6 +995,13 @@ msgstr "exten"
 #: ucp/Cdr.class.php:346
 msgid "kicked from conference"
 msgstr "Konferenz beendet"
+
+#~ msgid "Call Data Record report tools for viewing reports of your calls"
+#~ msgstr ""
+#~ "Call Data Record Report-Tools, um Aufzeichnungen Ihrer Anrufe anzusehen"
+
+#~ msgid "Reports"
+#~ msgstr "Berichte"
 
 #~ msgid "Conference \"%s\" Settings"
 #~ msgstr "Konferenz \"%s\" Einstellungen"
