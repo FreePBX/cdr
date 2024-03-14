@@ -635,7 +635,7 @@ foreach ($mod_vars as $key => $val) {
 					}
 					$ast_key .= " $key $pre_like RLIKE '^$adid\$'";
 				}
-				${$key} = "AND ( $ast_key )";
+				${$key} = "AND  $ast_key ";
 			break;
 			case "begins_with":
 			default:
@@ -677,18 +677,16 @@ if (isset($cnum)) {
   $cnum_length = strlen((string) $cnum);
   $cnum_type = substr((string) $cnum, 0 ,strpos((string) $cnum , 'cnum') -1);
   $cnum_remaining = substr(trim((string) $cnum,"()"), strpos((string) $cnum , 'cnum'));
-  $src = str_replace('AND cnum', '', (string) $cnum);
-
-  $cnum = "$cnum_type ($cnum_remaining OR src $src)";
+  $src = str_replace('cnum', 'src', $cnum_remaining);
+  $cnum = "$cnum_type ($cnum_remaining OR $src)";
 }
 
 if (isset($dst)) {
   $dst_length = strlen((string) $dst);
   $dst_type = substr((string) $dst, 0 ,strpos((string) $dst , 'dst') -1);
   $dst_remaining = substr(trim((string) $dst,"()"), strpos((string) $dst , 'dst'));
-  $dstchannel = str_replace('AND dst', '', (string) $dst);
-
-  $dst = "$dst_type ($dst_remaining OR dstchannel $dstchannel)";
+  $dstchannel = str_replace('dst', 'dstchannel', $dst_remaining);
+  $dst = "$dst_type ($dst_remaining OR $dstchannel)";
 }
 // Build the "WHERE" part of the query
 $where = "WHERE $date_range $cnum $outbound_cnum $cnam $dst_cnam $did $dst $userfield $accountcode $disposition $duration";
