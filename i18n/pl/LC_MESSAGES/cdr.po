@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-12 07:28-0400\n"
+"POT-Creation-Date: 2024-03-14 08:10-0400\n"
 "PO-Revision-Date: 2023-11-16 23:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cdr/pl/>\n"
@@ -36,7 +36,7 @@ msgstr "%s min, %s sek"
 msgid "%s sec"
 msgstr "%s sek"
 
-#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:934
+#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:932
 msgid "10 Minutes"
 msgstr "10 minut"
 
@@ -129,19 +129,19 @@ msgstr ""
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1189 page.cdr.php:1259
+#: page.cdr.php:1187 page.cdr.php:1257
 msgid "AMA Flag"
 msgstr "Flaga AMA"
 
-#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1161
+#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1159
 msgid "ANI"
 msgstr "ANI"
 
-#: page.cdr.php:749
+#: page.cdr.php:747
 msgid "Account"
 msgstr "Konto"
 
-#: page.cdr.php:308 /usr/src/freepbx/cdr/page.cdr.php:353 page.cdr.php:875
+#: page.cdr.php:308 /usr/src/freepbx/cdr/page.cdr.php:353 page.cdr.php:873
 msgid "Account Code"
 msgstr "Kod konta"
 
@@ -213,11 +213,11 @@ msgstr "i"
 msgid "Answered"
 msgstr "Odebrane"
 
-#: page.cdr.php:436 /usr/src/freepbx/cdr/page.cdr.php:744
+#: page.cdr.php:436 /usr/src/freepbx/cdr/page.cdr.php:742
 msgid "App"
 msgstr "Aplikacja"
 
-#: page.cdr.php:1167
+#: page.cdr.php:1165
 msgid "Application"
 msgstr "Aplikacja"
 
@@ -229,7 +229,7 @@ msgstr "Kwiecień"
 msgid "August"
 msgstr "Sierpień"
 
-#: page.cdr.php:971
+#: page.cdr.php:969
 msgid "Average Call Time"
 msgstr "Średni czas połączenia"
 
@@ -244,7 +244,7 @@ msgstr "Zaczyna się od"
 msgid "Between"
 msgstr "Pomiędzy"
 
-#: page.cdr.php:1196
+#: page.cdr.php:1194
 msgid "Billing Duration"
 msgstr "Czas billingowy"
 
@@ -310,19 +310,19 @@ msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr ""
 "Narzędzia do raportowania danych połączeń umożliwiające przeglądanie raportów"
 
-#: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:738
+#: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:736
 msgid "Call Date"
 msgstr "Data połączenia"
 
-#: page.cdr.php:968
+#: page.cdr.php:966
 msgid "Call Detail Record - Call Graph by"
 msgstr "Raport połączeń - wykres połączeń według"
 
-#: page.cdr.php:1081
+#: page.cdr.php:1079
 msgid "Call Detail Record - Concurrent Calls by"
 msgstr "Raport połączeń - jednoczesne połączenia według"
 
-#: page.cdr.php:724
+#: page.cdr.php:722
 msgid "Call Detail Record - Search Returned"
 msgstr "Raport połączeń - wynik zwrócony to"
 
@@ -347,15 +347,15 @@ msgstr "Historia połączeń"
 msgid "Call History for %s"
 msgstr "Historia połączeń %s"
 
-#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:887 page.cdr.php:1234
+#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1232
 msgid "Caller ID Name"
 msgstr "ID dzwoniącego - Nazwa"
 
-#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:884 page.cdr.php:1239
+#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1237
 msgid "Caller ID Number"
 msgstr "ID dzwoniącego - Numer"
 
-#: page.cdr.php:741 /usr/src/freepbx/cdr/page.cdr.php:1134
+#: page.cdr.php:739 /usr/src/freepbx/cdr/page.cdr.php:1132
 msgid "CallerID"
 msgstr "ID dzwoniącego"
 
@@ -367,12 +367,12 @@ msgstr "ID dzwoniącego - Nazwa"
 msgid "CallerID Number"
 msgstr "ID dzwoniącego - Numer"
 
-#: page.cdr.php:724
+#: page.cdr.php:722
 msgid "Calls"
 msgstr "Połączenia"
 
-#: page.cdr.php:1126 page.cdr.php:1145 page.cdr.php:1150 page.cdr.php:1178
-#: page.cdr.php:1287
+#: page.cdr.php:1124 page.cdr.php:1143 page.cdr.php:1148 page.cdr.php:1176
+#: page.cdr.php:1285
 msgid "Channel"
 msgstr "Kanał"
 
@@ -396,8 +396,8 @@ msgid "Controls"
 msgstr "Kontroluje"
 
 #: page.cdr.php:252 /usr/src/freepbx/cdr/page.cdr.php:368 page.cdr.php:432
-#: /usr/src/freepbx/cdr/page.cdr.php:743 page.cdr.php:881
-#: /usr/src/freepbx/cdr/page.cdr.php:1156
+#: /usr/src/freepbx/cdr/page.cdr.php:741 page.cdr.php:879
+#: /usr/src/freepbx/cdr/page.cdr.php:1154
 msgid "DID"
 msgstr "DID"
 
@@ -409,7 +409,7 @@ msgstr "Data"
 msgid "Date/Time"
 msgstr "Data/Czas"
 
-#: page.cdr.php:362 /usr/src/freepbx/cdr/page.cdr.php:940
+#: page.cdr.php:362 /usr/src/freepbx/cdr/page.cdr.php:938
 msgid "Day"
 msgstr "Dzień"
 
@@ -417,7 +417,7 @@ msgstr "Dzień"
 msgid "Day of Week"
 msgstr "Dzień tygodnia"
 
-#: page.cdr.php:924
+#: page.cdr.php:922
 msgid "Day of week"
 msgstr "Dzień tygodnia"
 
@@ -451,11 +451,11 @@ msgstr "Opis"
 msgid "Description of the blocked number"
 msgstr ""
 
-#: page.cdr.php:271 /usr/src/freepbx/cdr/page.cdr.php:745
+#: page.cdr.php:271 /usr/src/freepbx/cdr/page.cdr.php:743
 msgid "Destination"
 msgstr "Cel"
 
-#: page.cdr.php:373 /usr/src/freepbx/cdr/page.cdr.php:896
+#: page.cdr.php:373 /usr/src/freepbx/cdr/page.cdr.php:894
 msgid "Destination Caller ID Name"
 msgstr "Nazwa docelowego CallerID"
 
@@ -463,23 +463,23 @@ msgstr "Nazwa docelowego CallerID"
 msgid "Destination CallerID Name"
 msgstr "Nazwa rozmówcy docelowego"
 
-#: page.cdr.php:1178
+#: page.cdr.php:1176
 msgid "Destination Context"
 msgstr "Kontekst docelowy"
 
-#: page.cdr.php:367 /usr/src/freepbx/cdr/page.cdr.php:878
+#: page.cdr.php:367 /usr/src/freepbx/cdr/page.cdr.php:876
 msgid "Destination Number"
 msgstr "Numer docelowy"
 
-#: page.cdr.php:1249
+#: page.cdr.php:1247
 msgid "Dialplan context"
 msgstr "Kontekst dialplanu"
 
-#: page.cdr.php:1244
+#: page.cdr.php:1242
 msgid "Dialplan exten"
 msgstr "exten dialplanu"
 
-#: page.cdr.php:329 /usr/src/freepbx/cdr/page.cdr.php:746
+#: page.cdr.php:329 /usr/src/freepbx/cdr/page.cdr.php:744
 msgid "Disposition"
 msgstr "Status"
 
@@ -497,7 +497,7 @@ msgstr "Zrobione"
 msgid "Download"
 msgstr "Pobieranie"
 
-#: page.cdr.php:319 /usr/src/freepbx/cdr/page.cdr.php:747
+#: page.cdr.php:319 /usr/src/freepbx/cdr/page.cdr.php:745
 #: ucp/views/widget.php:29
 msgid "Duration"
 msgstr "Czas trwania"
@@ -537,7 +537,7 @@ msgstr "Kończy się na"
 msgid "Event"
 msgstr "Wydarzenie"
 
-#: page.cdr.php:1279
+#: page.cdr.php:1277
 msgid "Event Extra"
 msgstr "Wydarzenie Ekstra"
 
@@ -580,11 +580,11 @@ msgstr "Zakazane"
 msgid "From"
 msgstr "Od"
 
-#: page.cdr.php:973
+#: page.cdr.php:971
 msgid "Go to the CDR Graph"
 msgstr "Idź do wykresu CDR"
 
-#: page.cdr.php:972
+#: page.cdr.php:970
 msgid "Go to the top of the CDR table"
 msgstr "Idź na górę wykresu CDR"
 
@@ -592,7 +592,7 @@ msgstr "Idź na górę wykresu CDR"
 msgid "Group By"
 msgstr "Grupuj w oparciu o"
 
-#: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:904
+#: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:902
 msgid "Hour"
 msgstr "Godzina"
 
@@ -600,7 +600,7 @@ msgstr "Godzina"
 msgid "Hour of Day"
 msgstr "Godzina dnia"
 
-#: page.cdr.php:909
+#: page.cdr.php:907
 msgid "Hour of day"
 msgstr "Godzina dnia"
 
@@ -642,7 +642,7 @@ msgstr ""
 msgid "March"
 msgstr "Marzec"
 
-#: page.cdr.php:970 /usr/src/freepbx/cdr/page.cdr.php:1083
+#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1081
 msgid "Max Calls"
 msgstr "Maksymalna liczba połączeń"
 
@@ -654,11 +654,11 @@ msgstr "Maj"
 msgid "Message for the request"
 msgstr ""
 
-#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:929
+#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:927
 msgid "Minute"
 msgstr "Minuta"
 
-#: page.cdr.php:364 /usr/src/freepbx/cdr/page.cdr.php:919
+#: page.cdr.php:364 /usr/src/freepbx/cdr/page.cdr.php:917
 msgid "Month"
 msgstr "Miesiąc"
 
@@ -713,15 +713,15 @@ msgstr "Starsze na początku"
 msgid "Order By"
 msgstr "Sortuj według"
 
-#: page.cdr.php:372 /usr/src/freepbx/cdr/page.cdr.php:893
+#: page.cdr.php:372 /usr/src/freepbx/cdr/page.cdr.php:891
 msgid "Outbound Caller ID Name"
 msgstr "Nazwa rozmówcy wychodzącego"
 
-#: page.cdr.php:371 /usr/src/freepbx/cdr/page.cdr.php:890
+#: page.cdr.php:371 /usr/src/freepbx/cdr/page.cdr.php:888
 msgid "Outbound Caller ID Number"
 msgstr "Numer rozmówcy wychodzącego"
 
-#: page.cdr.php:742
+#: page.cdr.php:740
 msgid "Outbound CallerID"
 msgstr "Nazwa Id rozmówcy wychodzącego"
 
@@ -733,11 +733,11 @@ msgstr "Numer rozmówcy wychodzącego"
 msgid "Playback"
 msgstr "Odtwórz"
 
-#: page.cdr.php:739
+#: page.cdr.php:737
 msgid "Recording"
 msgstr "Nagranie"
 
-#: page.cdr.php:726
+#: page.cdr.php:724
 msgid "Related Call Detail Records"
 msgstr "Rekordy powiązane z połączeniem"
 
@@ -848,7 +848,7 @@ msgstr ""
 msgid "Status for the request"
 msgstr ""
 
-#: page.cdr.php:740
+#: page.cdr.php:738
 msgid "System"
 msgstr "System"
 
@@ -967,7 +967,7 @@ msgstr ""
 "Są to przypisane i aktywne numery wewnętrzne, które będą widoczne na koncie "
 "tego użytkownika do kontroli i edycji w UCP"
 
-#: page.cdr.php:427 /usr/src/freepbx/cdr/page.cdr.php:1084
+#: page.cdr.php:427 /usr/src/freepbx/cdr/page.cdr.php:1082
 msgid "Time"
 msgstr "Czas"
 
@@ -975,11 +975,11 @@ msgstr "Czas"
 msgid "To"
 msgstr "Do"
 
-#: page.cdr.php:970 /usr/src/freepbx/cdr/page.cdr.php:1083
+#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1081
 msgid "Total Calls"
 msgstr "Liczba rozmów telefonicznych"
 
-#: page.cdr.php:970
+#: page.cdr.php:968
 msgid "Total Duration"
 msgstr "Suma czasu połączeń"
 
@@ -999,7 +999,7 @@ msgstr ""
 msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr "Nie można dodać indeksu do pola recordingfile w tabeli cdr"
 
-#: page.cdr.php:1117 page.cdr.php:1120
+#: page.cdr.php:1115 page.cdr.php:1118
 msgid "UniqueID"
 msgstr "InikalneID"
 
@@ -1013,7 +1013,7 @@ msgid ""
 "ie. software crash, power failure, kill -9, etc. Default is "
 msgstr ""
 
-#: page.cdr.php:354 /usr/src/freepbx/cdr/page.cdr.php:899
+#: page.cdr.php:354 /usr/src/freepbx/cdr/page.cdr.php:897
 msgid "User Field"
 msgstr "Pole użytkownika"
 
@@ -1021,11 +1021,11 @@ msgstr "Pole użytkownika"
 msgid "User Primary Extension"
 msgstr "Główny numer wewnętrzny użytkownika"
 
-#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1273
+#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1271
 msgid "UserDefType"
 msgstr "UserDefTyp"
 
-#: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:748
+#: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:746
 msgid "Userfield"
 msgstr "Pole użytkownika"
 
@@ -1033,7 +1033,7 @@ msgstr "Pole użytkownika"
 msgid "Voicemail"
 msgstr "Poczta głosowa"
 
-#: page.cdr.php:363 /usr/src/freepbx/cdr/page.cdr.php:914
+#: page.cdr.php:363 /usr/src/freepbx/cdr/page.cdr.php:912
 msgid "Week ( Sun-Sat )"
 msgstr "Tydzień (nie-sob)"
 
@@ -1050,7 +1050,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Tak"
 
-#: page.cdr.php:838 ucp/assets/js/global.js:82
+#: page.cdr.php:836 ucp/assets/js/global.js:82
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

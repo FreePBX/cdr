@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-12 07:28-0400\n"
+"POT-Creation-Date: 2024-03-14 08:10-0400\n"
 "PO-Revision-Date: 2017-06-20 15:09+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -36,7 +36,7 @@ msgstr "%s phút, %s giây"
 msgid "%s sec"
 msgstr "%s giây"
 
-#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:934
+#: page.cdr.php:358 /usr/src/freepbx/cdr/page.cdr.php:932
 msgid "10 Minutes"
 msgstr "10 phút"
 
@@ -129,19 +129,19 @@ msgstr ""
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1189 page.cdr.php:1259
+#: page.cdr.php:1187 page.cdr.php:1257
 msgid "AMA Flag"
 msgstr "Cờ hiệu AMA"
 
-#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1161
+#: page.cdr.php:431 /usr/src/freepbx/cdr/page.cdr.php:1159
 msgid "ANI"
 msgstr "ANI"
 
-#: page.cdr.php:749
+#: page.cdr.php:747
 msgid "Account"
 msgstr "Tài khoản"
 
-#: page.cdr.php:308 /usr/src/freepbx/cdr/page.cdr.php:353 page.cdr.php:875
+#: page.cdr.php:308 /usr/src/freepbx/cdr/page.cdr.php:353 page.cdr.php:873
 msgid "Account Code"
 msgstr "Mã tài khoản"
 
@@ -213,11 +213,11 @@ msgstr "Và"
 msgid "Answered"
 msgstr "Đã trả lời"
 
-#: page.cdr.php:436 /usr/src/freepbx/cdr/page.cdr.php:744
+#: page.cdr.php:436 /usr/src/freepbx/cdr/page.cdr.php:742
 msgid "App"
 msgstr "Ứng dụng"
 
-#: page.cdr.php:1167
+#: page.cdr.php:1165
 msgid "Application"
 msgstr "Ứng dụng"
 
@@ -229,7 +229,7 @@ msgstr "Tháng tư"
 msgid "August"
 msgstr "Tháng tám"
 
-#: page.cdr.php:971
+#: page.cdr.php:969
 msgid "Average Call Time"
 msgstr "Thời gian gọi trung bình"
 
@@ -244,7 +244,7 @@ msgstr "Bắt đầu với"
 msgid "Between"
 msgstr "Giữa"
 
-#: page.cdr.php:1196
+#: page.cdr.php:1194
 msgid "Billing Duration"
 msgstr "Thời hạn thanh toán cước"
 
@@ -310,19 +310,19 @@ msgid "Call Data Record report tools for viewing reports of your calls"
 msgstr ""
 "Công cụ báo cáo bản ghi dữ liệu cuộc gọi để xem các báo cáo cuộc gọi của bạn"
 
-#: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:738
+#: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:736
 msgid "Call Date"
 msgstr "Ngày gọi"
 
-#: page.cdr.php:968
+#: page.cdr.php:966
 msgid "Call Detail Record - Call Graph by"
 msgstr "Bản ghi chi tiết cuộc gọi- Biểu đồ cuộc gọi bằng"
 
-#: page.cdr.php:1081
+#: page.cdr.php:1079
 msgid "Call Detail Record - Concurrent Calls by"
 msgstr "Bản ghi chi tiết cuộc gọi- Các cuộc gọi  đồng thời bởi"
 
-#: page.cdr.php:724
+#: page.cdr.php:722
 msgid "Call Detail Record - Search Returned"
 msgstr "Ghi âm chi tiết cuộc goi- Tìm kiếm được trả về"
 
@@ -347,15 +347,15 @@ msgstr "Lịch sử cuộc gọi"
 msgid "Call History for %s"
 msgstr ""
 
-#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:887 page.cdr.php:1234
+#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1232
 msgid "Caller ID Name"
 msgstr "Tên ID người gọi"
 
-#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:884 page.cdr.php:1239
+#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1237
 msgid "Caller ID Number"
 msgstr "Số ID người gọi"
 
-#: page.cdr.php:741 /usr/src/freepbx/cdr/page.cdr.php:1134
+#: page.cdr.php:739 /usr/src/freepbx/cdr/page.cdr.php:1132
 msgid "CallerID"
 msgstr "Tính năng nhận dạng số người gọi Caller ID"
 
@@ -367,12 +367,12 @@ msgstr "Tên CallerID"
 msgid "CallerID Number"
 msgstr "Số CalleID"
 
-#: page.cdr.php:724
+#: page.cdr.php:722
 msgid "Calls"
 msgstr "Các cuộc gọi"
 
-#: page.cdr.php:1126 page.cdr.php:1145 page.cdr.php:1150 page.cdr.php:1178
-#: page.cdr.php:1287
+#: page.cdr.php:1124 page.cdr.php:1143 page.cdr.php:1148 page.cdr.php:1176
+#: page.cdr.php:1285
 msgid "Channel"
 msgstr "Kênh"
 
@@ -396,8 +396,8 @@ msgid "Controls"
 msgstr "Điều khiển"
 
 #: page.cdr.php:252 /usr/src/freepbx/cdr/page.cdr.php:368 page.cdr.php:432
-#: /usr/src/freepbx/cdr/page.cdr.php:743 page.cdr.php:881
-#: /usr/src/freepbx/cdr/page.cdr.php:1156
+#: /usr/src/freepbx/cdr/page.cdr.php:741 page.cdr.php:879
+#: /usr/src/freepbx/cdr/page.cdr.php:1154
 msgid "DID"
 msgstr "Tính năng Gọi vào trực tiếp DID (Direct Inward Dialing)"
 
@@ -409,7 +409,7 @@ msgstr "Ngày"
 msgid "Date/Time"
 msgstr "Ngày/ Thời gian"
 
-#: page.cdr.php:362 /usr/src/freepbx/cdr/page.cdr.php:940
+#: page.cdr.php:362 /usr/src/freepbx/cdr/page.cdr.php:938
 msgid "Day"
 msgstr "Ngày"
 
@@ -417,7 +417,7 @@ msgstr "Ngày"
 msgid "Day of Week"
 msgstr "Ngày của tuần"
 
-#: page.cdr.php:924
+#: page.cdr.php:922
 msgid "Day of week"
 msgstr "Ngày của tuần"
 
@@ -451,11 +451,11 @@ msgstr "Mô tả"
 msgid "Description of the blocked number"
 msgstr ""
 
-#: page.cdr.php:271 /usr/src/freepbx/cdr/page.cdr.php:745
+#: page.cdr.php:271 /usr/src/freepbx/cdr/page.cdr.php:743
 msgid "Destination"
 msgstr "Điểm đến"
 
-#: page.cdr.php:373 /usr/src/freepbx/cdr/page.cdr.php:896
+#: page.cdr.php:373 /usr/src/freepbx/cdr/page.cdr.php:894
 msgid "Destination Caller ID Name"
 msgstr "Tên Caller ID điểm đến"
 
@@ -463,23 +463,23 @@ msgstr "Tên Caller ID điểm đến"
 msgid "Destination CallerID Name"
 msgstr "Tên CallerID đích"
 
-#: page.cdr.php:1178
+#: page.cdr.php:1176
 msgid "Destination Context"
 msgstr "Ngữ cảnh đích"
 
-#: page.cdr.php:367 /usr/src/freepbx/cdr/page.cdr.php:878
+#: page.cdr.php:367 /usr/src/freepbx/cdr/page.cdr.php:876
 msgid "Destination Number"
 msgstr "Số đích"
 
-#: page.cdr.php:1249
+#: page.cdr.php:1247
 msgid "Dialplan context"
 msgstr "Ngữ cảnh kế hoạch quay số"
 
-#: page.cdr.php:1244
+#: page.cdr.php:1242
 msgid "Dialplan exten"
 msgstr "Kế hoạch quay số máy nhánh"
 
-#: page.cdr.php:329 /usr/src/freepbx/cdr/page.cdr.php:746
+#: page.cdr.php:329 /usr/src/freepbx/cdr/page.cdr.php:744
 msgid "Disposition"
 msgstr "Trạng thái (có trả lời hay không)"
 
@@ -497,7 +497,7 @@ msgstr ""
 msgid "Download"
 msgstr "Tải xuống"
 
-#: page.cdr.php:319 /usr/src/freepbx/cdr/page.cdr.php:747
+#: page.cdr.php:319 /usr/src/freepbx/cdr/page.cdr.php:745
 #: ucp/views/widget.php:29
 msgid "Duration"
 msgstr "Khoảng thời gian"
@@ -537,7 +537,7 @@ msgstr "Kết thúc bằng"
 msgid "Event"
 msgstr "Sự kiện"
 
-#: page.cdr.php:1279
+#: page.cdr.php:1277
 msgid "Event Extra"
 msgstr "Sự kiện phụ"
 
@@ -580,11 +580,11 @@ msgstr "Bị cấm"
 msgid "From"
 msgstr "Từ"
 
-#: page.cdr.php:973
+#: page.cdr.php:971
 msgid "Go to the CDR Graph"
 msgstr "Đi đến biểu đồ CDR"
 
-#: page.cdr.php:972
+#: page.cdr.php:970
 msgid "Go to the top of the CDR table"
 msgstr "Đi tới đầu bảng CDR"
 
@@ -592,7 +592,7 @@ msgstr "Đi tới đầu bảng CDR"
 msgid "Group By"
 msgstr "Nhóm bởi"
 
-#: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:904
+#: page.cdr.php:359 /usr/src/freepbx/cdr/page.cdr.php:902
 msgid "Hour"
 msgstr "giờ"
 
@@ -600,7 +600,7 @@ msgstr "giờ"
 msgid "Hour of Day"
 msgstr "giờ trong ngày"
 
-#: page.cdr.php:909
+#: page.cdr.php:907
 msgid "Hour of day"
 msgstr "giờ trong ngày"
 
@@ -642,7 +642,7 @@ msgstr ""
 msgid "March"
 msgstr "Tháng ba"
 
-#: page.cdr.php:970 /usr/src/freepbx/cdr/page.cdr.php:1083
+#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1081
 msgid "Max Calls"
 msgstr "Các cuộc gọi tối đa"
 
@@ -654,11 +654,11 @@ msgstr "Tháng năm"
 msgid "Message for the request"
 msgstr ""
 
-#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:929
+#: page.cdr.php:357 /usr/src/freepbx/cdr/page.cdr.php:927
 msgid "Minute"
 msgstr "Phút"
 
-#: page.cdr.php:364 /usr/src/freepbx/cdr/page.cdr.php:919
+#: page.cdr.php:364 /usr/src/freepbx/cdr/page.cdr.php:917
 msgid "Month"
 msgstr "Tháng"
 
@@ -713,15 +713,15 @@ msgstr "Cũ nhất trước tiên"
 msgid "Order By"
 msgstr "Chỉ thị bởi"
 
-#: page.cdr.php:372 /usr/src/freepbx/cdr/page.cdr.php:893
+#: page.cdr.php:372 /usr/src/freepbx/cdr/page.cdr.php:891
 msgid "Outbound Caller ID Name"
 msgstr "Tên Caller ID khi gọi ra"
 
-#: page.cdr.php:371 /usr/src/freepbx/cdr/page.cdr.php:890
+#: page.cdr.php:371 /usr/src/freepbx/cdr/page.cdr.php:888
 msgid "Outbound Caller ID Number"
 msgstr "Số của Caller ID khi gọi ra"
 
-#: page.cdr.php:742
+#: page.cdr.php:740
 msgid "Outbound CallerID"
 msgstr "CallerID gọi ra"
 
@@ -733,11 +733,11 @@ msgstr "Số của CallerID khi gọi ra"
 msgid "Playback"
 msgstr "Phát lại"
 
-#: page.cdr.php:739
+#: page.cdr.php:737
 msgid "Recording"
 msgstr "Ghi âm"
 
-#: page.cdr.php:726
+#: page.cdr.php:724
 msgid "Related Call Detail Records"
 msgstr "Bản ghi chi tiết các cuộc gọi liên quan"
 
@@ -848,7 +848,7 @@ msgstr ""
 msgid "Status for the request"
 msgstr ""
 
-#: page.cdr.php:740
+#: page.cdr.php:738
 msgid "System"
 msgstr "Hệ thống"
 
@@ -967,7 +967,7 @@ msgstr ""
 "Có những máy nhánh được chỉ định và hoạt động sẽ hiển thị cho người dùng này "
 "điều khiển và hiệu chỉnh trong UCP"
 
-#: page.cdr.php:427 /usr/src/freepbx/cdr/page.cdr.php:1084
+#: page.cdr.php:427 /usr/src/freepbx/cdr/page.cdr.php:1082
 msgid "Time"
 msgstr "Thời gian"
 
@@ -975,11 +975,11 @@ msgstr "Thời gian"
 msgid "To"
 msgstr "Đến"
 
-#: page.cdr.php:970 /usr/src/freepbx/cdr/page.cdr.php:1083
+#: page.cdr.php:968 /usr/src/freepbx/cdr/page.cdr.php:1081
 msgid "Total Calls"
 msgstr "Tổng các cuộc gọi"
 
-#: page.cdr.php:970
+#: page.cdr.php:968
 msgid "Total Duration"
 msgstr "Tổng khoảng thời gian"
 
@@ -999,7 +999,7 @@ msgstr ""
 msgid "Unable to add index to recordingfile field in the cdr table"
 msgstr ""
 
-#: page.cdr.php:1117 page.cdr.php:1120
+#: page.cdr.php:1115 page.cdr.php:1118
 msgid "UniqueID"
 msgstr "ID duy nhất"
 
@@ -1013,7 +1013,7 @@ msgid ""
 "ie. software crash, power failure, kill -9, etc. Default is "
 msgstr ""
 
-#: page.cdr.php:354 /usr/src/freepbx/cdr/page.cdr.php:899
+#: page.cdr.php:354 /usr/src/freepbx/cdr/page.cdr.php:897
 msgid "User Field"
 msgstr "Trường người dùng"
 
@@ -1021,11 +1021,11 @@ msgstr "Trường người dùng"
 msgid "User Primary Extension"
 msgstr "Máy nhánh chính của người dùng"
 
-#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1273
+#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1271
 msgid "UserDefType"
 msgstr "Kiểu dữ liệu định nghĩa người dùng"
 
-#: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:748
+#: page.cdr.php:297 /usr/src/freepbx/cdr/page.cdr.php:746
 msgid "Userfield"
 msgstr "Trường người dùng"
 
@@ -1033,7 +1033,7 @@ msgstr "Trường người dùng"
 msgid "Voicemail"
 msgstr "Thư thoại"
 
-#: page.cdr.php:363 /usr/src/freepbx/cdr/page.cdr.php:914
+#: page.cdr.php:363 /usr/src/freepbx/cdr/page.cdr.php:912
 msgid "Week ( Sun-Sat )"
 msgstr "Tuần ( Chủ nhật- Thứ bảy)"
 
@@ -1050,7 +1050,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Có"
 
-#: page.cdr.php:838 ucp/assets/js/global.js:82
+#: page.cdr.php:836 ucp/assets/js/global.js:82
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
