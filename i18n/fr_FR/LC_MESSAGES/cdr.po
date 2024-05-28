@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-14 08:10-0400\n"
+"POT-Creation-Date: 2024-05-28 10:00-0400\n"
 "PO-Revision-Date: 2016-02-06 18:32+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/cdr/fr_FR/"
@@ -253,6 +253,10 @@ msgstr "Durée facturée"
 msgid "Busy"
 msgstr "Occupé"
 
+#: ucp/Cdr.class.php:92
+msgid "CDR (Call History) is not enabled for this user."
+msgstr ""
+
 #: views/ucp_config.php:38
 msgid "CDR Access"
 msgstr "Accès au CDR"
@@ -338,11 +342,11 @@ msgstr "Journal des événements d'appel - Recherche retourne"
 msgid "Call Graph"
 msgstr "Graphique d'appel"
 
-#: Cdr.class.php:308 ucp/Cdr.class.php:73 ucp/Cdr.class.php:105
+#: Cdr.class.php:308 ucp/Cdr.class.php:49 ucp/Cdr.class.php:143
 msgid "Call History"
 msgstr "Historique d'appel"
 
-#: ucp/Cdr.class.php:65
+#: ucp/Cdr.class.php:72
 #, php-format
 msgid "Call History for %s"
 msgstr ""
@@ -380,7 +384,7 @@ msgstr "Canal"
 msgid "Concurrent Calls"
 msgstr "Appels simultanés"
 
-#: ucp/Cdr.class.php:320 ucp/Cdr.class.php:324
+#: ucp/Cdr.class.php:358 ucp/Cdr.class.php:362
 msgid "Conference"
 msgstr "Conférence"
 
@@ -570,11 +574,11 @@ msgstr "Non répondu"
 msgid "February"
 msgstr "Février"
 
-#: ucp/Cdr.class.php:183
+#: ucp/Cdr.class.php:221
 msgid "File does not exist"
 msgstr "Le fichier n'existe pas"
 
-#: ucp/Cdr.class.php:422
+#: ucp/Cdr.class.php:460
 msgid "Forbidden"
 msgstr "Interdit"
 
@@ -687,7 +691,7 @@ msgstr ""
 msgid "Not"
 msgstr "Pas"
 
-#: ucp/Cdr.class.php:428
+#: ucp/Cdr.class.php:466
 msgid "Not Found"
 msgstr "Non trouvé"
 
@@ -925,12 +929,16 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:164 ucp/Cdr.class.php:178
+#: ucp/Cdr.class.php:202 ucp/Cdr.class.php:216
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
 #: Api/Gql/Cdr.php:45 Api/Gql/Cdr.php:301
 msgid "The final known disposition of the CDR record"
+msgstr ""
+
+#: ucp/Cdr.class.php:102
+msgid "The given extension is empty."
 msgstr ""
 
 #: Api/Gql/Cdr.php:253
@@ -961,6 +969,10 @@ msgstr ""
 msgid "The time the CDR was created"
 msgstr ""
 
+#: ucp/Cdr.class.php:97
+msgid "There are no assigned extensions."
+msgstr ""
+
 #: views/ucp_config.php:54
 msgid ""
 "These are the assigned and active extensions which will show up for this "
@@ -968,6 +980,10 @@ msgid ""
 msgstr ""
 "Ce sont les postes assignés et actifs qui s'afficheront pour cet utilisateur "
 "et qu'il pourra contrôler et modifier de UCP"
+
+#: ucp/Cdr.class.php:106
+msgid "This extension is not assigned to this user."
+msgstr ""
 
 #: page.cdr.php:427 /usr/src/freepbx/cdr/page.cdr.php:1082
 msgid "Time"
@@ -1005,7 +1021,7 @@ msgstr ""
 msgid "UniqueID"
 msgstr "Identifiant unique"
 
-#: ucp/Cdr.class.php:350 ucp/Cdr.class.php:371 ucp/Cdr.class.php:375
+#: ucp/Cdr.class.php:388 ucp/Cdr.class.php:409 ucp/Cdr.class.php:413
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -1031,7 +1047,7 @@ msgstr "UserDefType"
 msgid "Userfield"
 msgstr "Champ utilisateur"
 
-#: ucp/Cdr.class.php:306 ucp/Cdr.class.php:311
+#: ucp/Cdr.class.php:344 ucp/Cdr.class.php:349
 msgid "Voicemail"
 msgstr "Boite vocale"
 
@@ -1077,7 +1093,7 @@ msgstr "canal"
 msgid "context"
 msgstr "contexte"
 
-#: ucp/Cdr.class.php:338
+#: ucp/Cdr.class.php:376
 msgid "denied by COS"
 msgstr "pas permis par le COS"
 
@@ -1085,7 +1101,7 @@ msgstr "pas permis par le COS"
 msgid "exten"
 msgstr "numéro"
 
-#: ucp/Cdr.class.php:334
+#: ucp/Cdr.class.php:372
 msgid "kicked from conference"
 msgstr "sorti de la conférence"
 
