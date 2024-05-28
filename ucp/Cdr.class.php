@@ -44,12 +44,19 @@ class Cdr extends Modules{
 	}
 
 	public function getWidgetList() {
+		$responseData = array(
+			"rawname" => "cdr",
+			"display" => _("Call History"),
+			"icon" => "fa fa-hourglass-half",
+			"list" => []
+		);
+		$errors = $this->validate();
+		if ($errors['hasError']) {
+			return array_merge($responseData, $errors);
+		}
+		
 		$widgets = [];
 
-		$enabled = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','enable');
-		if (!$enabled) {
-			return [];
-		}
 		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','assigned');
 
 		if (!empty($extensions)) {
@@ -66,11 +73,41 @@ class Cdr extends Modules{
 			}
 		}
 
-		if (empty($widgets)) {
-			return [];
+		$responseData['list'] = $widgets;
+		return $responseData;
+	}
+
+	/**
+	 * validate against rules
+	 */
+	private function validate($extension = false) {
+		$data = array(
+			'hasError' => false,
+			'errorMessages' => []
+		);
+
+		$enabled = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','enable');
+		if (!$enabled) {
+			$data['hasError'] = true;
+			$data['errorMessages'][] = _('CDR (Call History) is not enabled for this user.');
+		}
+		$extensions = $this->UCP->getCombinedSettingByID($this->userId,'Cdr','assigned');
+		if (empty($extensions)) {
+			$data['hasError'] = true;
+			$data['errorMessages'][] = _('There are no assigned extensions.');
+		}
+		if ($extension !== false) {
+			if (empty($extension)) {
+				$data['hasError'] = true;
+				$data['errorMessages'][] = _('The given extension is empty.');
+			}
+			if (!$this->_checkExtension($extension)) {
+				$data['hasError'] = true;
+				$data['errorMessages'][] = _('This extension is not assigned to this user.');
+			}
 		}
 
-		return ["rawname" => "cdr", "display" => _("Call History"), "icon" => "fa fa-hourglass-half", "list" => $widgets];
+		return $data;
 	}
 
 	public function getStaticSettings() {
@@ -84,8 +121,9 @@ class Cdr extends Modules{
 	}
 
 	public function getWidgetDisplay($id,$uuid) {
-		if (!$this->_checkExtension($id)) {
-			return [];
+		$errors = $this->validate($id);
+		if ($errors['hasError']) {
+			return $errors;
 		}
 		$view??='';
 		$html??='';
