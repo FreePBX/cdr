@@ -4,9 +4,13 @@ use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
 	public function runRestore(){
 		$files = $this->getFiles();
+		$configs = $this->getConfigs();
 		$tablename = $this->FreePBX->Config->get('CDRDBTABLENAME') ? $this->FreePBX->Config->get('CDRDBTABLENAME') : 'cdr';
 		$dbhandle = $this->FreePBX->Cdr->getCdrDbHandle();
 		$dbhandle->query("TRUNCATE $tablename");
+		if(isset($configs['settings'])) {
+			$this->importAdvancedSettings($configs['settings']);
+		}
 		return $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
 	}
 
