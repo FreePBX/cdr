@@ -3,10 +3,14 @@ namespace FreePBX\modules\Cdr;
 use FreePBX\modules\Backup as Base;
 class Restore Extends Base\RestoreBase{
 	public function runRestore(){
+		$configs = $this->getConfigs();
 		$files = $this->getFiles();
 		$tablename = $this->FreePBX->Config->get('CDRDBTABLENAME') ?: 'cdr';
 		$dbhandle = $this->FreePBX->Cdr->getCdrDbHandle();
 		$dbhandle->query("TRUNCATE $tablename");
+		if(isset($configs['settings'])) {
+			$this->importAdvancedSettings($configs['settings']);
+		}
 		return $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
 	}
 

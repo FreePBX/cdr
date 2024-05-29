@@ -19,5 +19,8 @@ class Backup Extends Base\BackupBase{
 
     $fileObj = $this->dumpTableIntoFile('cdr','cdr', $dumpOtherOptions, true);
     $this->addDirectories([$fileObj->getPath()]);
+    $this->addConfigs([
+      'settings' => $this->dumpAdvancedSettings()
+    ]);
   }
 }
