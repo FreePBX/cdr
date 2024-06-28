@@ -11,6 +11,9 @@ class Restore Extends Base\RestoreBase{
 		if(isset($configs['settings'])) {
 			$this->importAdvancedSettings($configs['settings']);
 		}
+		if(isset($config['kvstore'])) {
+			$this->importKVStore($config['kvstore']);
+		}
 		return $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
 	}
 
