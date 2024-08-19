@@ -782,6 +782,10 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 			$sql = "DELETE FROM " . $table_name . " WHERE " . $col . " < :date;";
 			$res = $this->cdrdb->prepare($sql);
 			$res->execute(array(':date' => $date . "%"));
+
+			$query = "OPTIMIZE TABLE transient_cdr";
+			$res = $this->cdrdb->prepare($query);
+			$res->execute();
 		}
 	}
 
