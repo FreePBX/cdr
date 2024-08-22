@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>16.0.46.12</version>
+	<version>16.0.46.13</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*16.0.46.13* Packaging of ver 16.0.46.13
 		*16.0.46.12* Packaging of ver 16.0.46.12
 		*16.0.46.11* Packaging of ver 16.0.46.11
 		*16.0.46.10* Packaging of ver 16.0.46.10
