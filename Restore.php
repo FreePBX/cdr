@@ -16,7 +16,9 @@ class Restore Extends Base\RestoreBase{
 		}
 		$this->FreePBX->Cdr->removeCdrTrigger();
 		$dumpres = $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
-		$this->FreePBX->Cdr->createCdrTrigger();
+		if($this->FreePBX->Config()->get('TRANSIENTCDR')){
+			$this->FreePBX->Cdr->createCdrTrigger();
+		}
 		return $dumpres;
 	}
 
