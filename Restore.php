@@ -14,7 +14,10 @@ class Restore Extends Base\RestoreBase{
 		if(isset($config['kvstore'])) {
 			$this->importKVStore($config['kvstore']);
 		}
-		return $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
+		$this->FreePBX->Cdr->removeCdrTrigger();
+		$dumpres = $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
+		$this->FreePBX->Cdr->createCdrTrigger();
+		return $dumpres;
 	}
 
 	public function processLegacy($pdo, $data, $tables, $unknownTables){
