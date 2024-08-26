@@ -14,10 +14,12 @@ class Restore Extends Base\RestoreBase{
 		if(isset($config['kvstore'])) {
 			$this->importKVStore($config['kvstore']);
 		}
-		$this->FreePBX->Cdr->removeCdrTrigger();
-		$dumpres = $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
 		if($this->FreePBX->Config()->get('TRANSIENTCDR')){
+			$this->FreePBX->Cdr->removeCdrTrigger();
+			$dumpres = $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
 			$this->FreePBX->Cdr->createCdrTrigger();
+		} else {
+			$dumpres = $this->restoreDataFromDump($tablename, $this->tmpdir, $files);
 		}
 		return $dumpres;
 	}
