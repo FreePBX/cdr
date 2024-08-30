@@ -713,7 +713,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		}
 	}
 
-	private function createCdrTrigger() {
+	public function createCdrTrigger() {
 		$query = "SHOW TRIGGERS WHERE `Trigger` = 'cdrTrigger'";
 		$res = $this->cdrdb->prepare($query);
 		$res->execute();
@@ -741,7 +741,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		$this->removecronEntry();
 	}
 
-	private function removeCdrTrigger() {
+	public function removeCdrTrigger() {
 		$query = "SHOW TRIGGERS WHERE `Trigger` = 'cdrTrigger'";
 		$res = $this->cdrdb->prepare($query);
 		$res->execute();
