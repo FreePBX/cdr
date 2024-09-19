@@ -380,7 +380,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		switch($_REQUEST['command']) {
 			case "gethtml5":
 				$media = $this->FreePBX->Media();
-				$info = $this->getRecordByID($_POST['uid']);
+				$info = $this->getRecordByID($_POST['uid'],'cdr');
 				if(!empty($info['recordingfile'])) {
 					$media->load($info['recordingfile']);
 					$files = $media->generateHTML5();
@@ -395,17 +395,24 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		}
 	}
 
-	public function getRecordByID($rid) {
-		$this->checkCdrTrigger();
+	public function getRecordByID($rid,$tblname = '') {
+		if($tblname) {
+			$this->db_table = $tblname;
+		} else {
+			$this->checkCdrTrigger();
+		}
 		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND (uniqueid = :uid OR linkedid = :uid) LIMIT 1";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
 			$sth->execute(["uid" => str_replace("_",".",(string) $rid)]);
 			$recording = $sth->fetch(\PDO::FETCH_ASSOC);
-		} catch(\Exception) {
+		} catch(\Exception $e) {
 			return [];
 		}
-		$recording['recordingfile'] = $this->processPath($recording['recordingfile']);
+		if(!is_array($recording)) {
+			$recording = [];
+		}
+		$recording['recordingfile'] = (isset($recording['recordingfile'])) ? $this->processPath($recording['recordingfile']) : '';
 		return $recording;
 	}
 
