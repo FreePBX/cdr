@@ -412,7 +412,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		try {
 			$sth->execute(["uid" => str_replace("_",".",(string) $rid)]);
 			$recording = $sth->fetch(\PDO::FETCH_ASSOC);
-		} catch(\Exception) {
+		} catch(\Exception $e) {
 			return [];
 		}
 		if(!is_array($recording)) {
