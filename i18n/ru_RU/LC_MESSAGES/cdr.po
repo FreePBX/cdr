@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-14 11:56+0000\n"
+"POT-Creation-Date: 2024-09-19 10:34+0000\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Postmet <ceo@postmet.com>\n"
 "Language-Team: Postmet <ceo@postmet.org>\n"
@@ -29,17 +29,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:527
+#: Cdr.class.php:534
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s час, %s мин, %s сек"
 
-#: Cdr.class.php:529
+#: Cdr.class.php:536
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s мин, %s сек"
 
-#: Cdr.class.php:532
+#: Cdr.class.php:539
 #, php-format
 msgid "%s sec"
 msgstr "%s сек"
