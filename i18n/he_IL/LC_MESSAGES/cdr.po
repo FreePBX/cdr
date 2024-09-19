@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-28 10:00-0400\n"
+"POT-Creation-Date: 2024-09-19 06:39-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,17 +29,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:507
+#: Cdr.class.php:514
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:509
+#: Cdr.class.php:516
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:512
+#: Cdr.class.php:519
 #, php-format
 msgid "%s sec"
 msgstr ""
