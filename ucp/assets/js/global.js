@@ -44,7 +44,7 @@ var CdrC = UCPMC.extend({
 		}
 		var link = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cdr&amp;command=download&amp;msgid='+row.uniqueid+'&amp;type=download&amp;ext='+row.requestingExtension+'"><i class="fa fa-cloud-download"></i></a>';
 		if(row.converttotext !== undefined && row.converttotext !== null && row.converttotext != '' && settings.isScribeEnabled) {
-			link += '<a href="#"> <i class="fa fa-file-text transcript" onclick="openmodal(\'' + UCP.ajaxUrl+row.converttotext + '\')"></i></a>';
+			link += '<a href="#"> <i class="fa fa-file-text transcript tool-tip" data-toggle="tooltip" title="Read the voice transcription" onclick="openmodal(\'' + UCP.ajaxUrl+row.converttotext + '\')"></i></a>';
 		}
 		return link;
 	},
@@ -212,6 +212,7 @@ function openmodal(turl) {
     $("#addtionalcontent").html(result.html);
     $("#addtionalcontent").appendTo("body");
     $("#datamodal").show();
+	$("#datamodal").css('background',rgba(0, 0, 0, 0.5));
 }
 
 function closemodal() {
@@ -219,3 +220,7 @@ function closemodal() {
 	$("#addtionalcontent").html("");
 	$("#datamodal").hide();
 }
+
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip();
+});
