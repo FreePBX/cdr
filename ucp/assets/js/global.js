@@ -213,6 +213,14 @@ function openmodal(turl) {
     $("#addtionalcontent").appendTo("body");
     $("#datamodal").show();
 	$("#datamodal").css('background',rgba(0, 0, 0, 0.5));
+	$("#datamodal .modal-content").css({
+        'opacity': '0',
+        'transition': 'opacity 1s ease-in'
+    });
+    $("#datamodal").show();
+	setTimeout(function() {
+        $("#datamodal .modal-content").css('opacity', '1');
+    },1);
 }
 
 function closemodal() {
