@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-19 10:34+0000\n"
+"POT-Creation-Date: 2024-10-23 11:46+0000\n"
 "PO-Revision-Date: 2023-11-16 23:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cdr/pl/>\n"
@@ -248,7 +248,8 @@ msgstr "Zajęte"
 msgid "CDR Access"
 msgstr "Dostęp do CDR"
 
-#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/page.cdr.php:99
+#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
+#: /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "Raporty CDR"
 
@@ -275,6 +276,11 @@ msgstr "Numer dzwoniącego"
 #: page.cdr.php:176
 msgid "CSV File"
 msgstr "Plik CSV"
+
+#: cdr.i18n.php:8
+msgid "Call Data Record report tools for viewing reports of your calls"
+msgstr ""
+"Narzędzia do raportowania danych połączeń umożliwiające przeglądanie raportów"
 
 #: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:734
 msgid "Call Date"
@@ -689,6 +695,10 @@ msgstr "Rekordy powiązane z połączeniem"
 msgid "Report Type"
 msgstr "Typ raportu"
 
+#: cdr.i18n.php:6
+msgid "Reports"
+msgstr "Raporty"
+
 #: page.cdr.php:184
 msgid "Result Limit"
 msgstr "Ogranicz wyniki"
@@ -995,11 +1005,3 @@ msgstr "wewn"
 #: ucp/Cdr.class.php:346
 msgid "kicked from conference"
 msgstr "wyrzucony z konferencji"
-
-#~ msgid "Call Data Record report tools for viewing reports of your calls"
-#~ msgstr ""
-#~ "Narzędzia do raportowania danych połączeń umożliwiające przeglądanie "
-#~ "raportów"
-
-#~ msgid "Reports"
-#~ msgstr "Raporty"

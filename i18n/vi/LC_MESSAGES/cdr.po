@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-19 10:34+0000\n"
+"POT-Creation-Date: 2024-10-23 11:46+0000\n"
 "PO-Revision-Date: 2017-06-20 15:09+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -248,7 +248,8 @@ msgstr "Bận"
 msgid "CDR Access"
 msgstr "Truy nhập CDR"
 
-#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/page.cdr.php:99
+#: Api/Gql/Cdr.php:19 /usr/src/freepbx/cdr/cdr.i18n.php:4 cdr.i18n.php:10
+#: /usr/src/freepbx/cdr/page.cdr.php:99
 msgid "CDR Reports"
 msgstr "Báo cáo CDR"
 
@@ -275,6 +276,11 @@ msgstr "CNUM"
 #: page.cdr.php:176
 msgid "CSV File"
 msgstr "Tệp CSV"
+
+#: cdr.i18n.php:8
+msgid "Call Data Record report tools for viewing reports of your calls"
+msgstr ""
+"Công cụ báo cáo bản ghi dữ liệu cuộc gọi để xem các báo cáo cuộc gọi của bạn"
 
 #: page.cdr.php:114 /usr/src/freepbx/cdr/page.cdr.php:734
 msgid "Call Date"
@@ -689,6 +695,10 @@ msgstr "Bản ghi chi tiết các cuộc gọi liên quan"
 msgid "Report Type"
 msgstr "Kiểu báo cáo"
 
+#: cdr.i18n.php:6
+msgid "Reports"
+msgstr "Các báo cáo"
+
 #: page.cdr.php:184
 msgid "Result Limit"
 msgstr "Giới hạn kết quả"
@@ -995,14 +1005,6 @@ msgstr "Máy nhánh"
 #: ucp/Cdr.class.php:346
 msgid "kicked from conference"
 msgstr "Bị đẩy ra từ hội nghị"
-
-#~ msgid "Call Data Record report tools for viewing reports of your calls"
-#~ msgstr ""
-#~ "Công cụ báo cáo bản ghi dữ liệu cuộc gọi để xem các báo cáo cuộc gọi của "
-#~ "bạn"
-
-#~ msgid "Reports"
-#~ msgstr "Các báo cáo"
 
 #~ msgid "Conference \"%s\" Settings"
 #~ msgstr "Cài đặt \"%s\" hội nghị"
