@@ -212,7 +212,7 @@ function openmodal(turl) {
     $("#addtionalcontent").html(result.html);
     $("#addtionalcontent").appendTo("body");
     $("#datamodal").show();
-	$("#datamodal").css('background',rgba(0, 0, 0, 0.5));
+	$("#datamodal").css('background','rgba(0, 0, 0, 0.5)');
 	$("#datamodal .modal-content").css({
         'opacity': '0',
         'transition': 'opacity 1s ease-in'
