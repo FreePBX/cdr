@@ -4,7 +4,7 @@
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<more-info>https://wiki.freepbx.org/display/FPG/CDR+Reports+Module</more-info>
 	<name>CDR Reports</name>
-	<version>15.0.24.15</version>
+	<version>15.0.24.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*15.0.24.16* Packaging of ver 15.0.24.16
 		*15.0.24.15* Packaging of ver 15.0.24.15
 		*15.0.24.14* Packaging of ver 15.0.24.14
 		*15.0.24.13* Packaging of ver 15.0.24.13
