@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-19 06:39-0400\n"
+"POT-Creation-Date: 2024-10-24 03:01-0400\n"
 "PO-Revision-Date: 2017-06-20 15:09+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -129,7 +129,7 @@ msgstr ""
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1187 page.cdr.php:1257
+#: page.cdr.php:1187 page.cdr.php:1265
 msgid "AMA Flag"
 msgstr "Cờ hiệu AMA"
 
@@ -351,11 +351,11 @@ msgstr "Lịch sử cuộc gọi"
 msgid "Call History for %s"
 msgstr ""
 
-#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1232
+#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1240
 msgid "Caller ID Name"
 msgstr "Tên ID người gọi"
 
-#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1237
+#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1245
 msgid "Caller ID Number"
 msgstr "Số ID người gọi"
 
@@ -376,7 +376,7 @@ msgid "Calls"
 msgstr "Các cuộc gọi"
 
 #: page.cdr.php:1124 page.cdr.php:1143 page.cdr.php:1148 page.cdr.php:1176
-#: page.cdr.php:1285
+#: page.cdr.php:1293
 msgid "Channel"
 msgstr "Kênh"
 
@@ -475,11 +475,11 @@ msgstr "Ngữ cảnh đích"
 msgid "Destination Number"
 msgstr "Số đích"
 
-#: page.cdr.php:1247
+#: page.cdr.php:1255
 msgid "Dialplan context"
 msgstr "Ngữ cảnh kế hoạch quay số"
 
-#: page.cdr.php:1242
+#: page.cdr.php:1250
 msgid "Dialplan exten"
 msgstr "Kế hoạch quay số máy nhánh"
 
@@ -541,7 +541,7 @@ msgstr "Kết thúc bằng"
 msgid "Event"
 msgstr "Sự kiện"
 
-#: page.cdr.php:1277
+#: page.cdr.php:1285
 msgid "Event Extra"
 msgstr "Sự kiện phụ"
 
@@ -1037,7 +1037,7 @@ msgstr "Trường người dùng"
 msgid "User Primary Extension"
 msgstr "Máy nhánh chính của người dùng"
 
-#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1271
+#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1279
 msgid "UserDefType"
 msgstr "Kiểu dữ liệu định nghĩa người dùng"
 
