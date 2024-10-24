@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-12 06:16+0000\n"
+"POT-Creation-Date: 2024-10-24 06:58+0000\n"
 "PO-Revision-Date: 2023-11-16 23:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/cdr/pl/>\n"
@@ -129,7 +129,7 @@ msgstr ""
 msgid "AMA"
 msgstr "AMA"
 
-#: page.cdr.php:1180 page.cdr.php:1258
+#: page.cdr.php:1180 page.cdr.php:1266
 msgid "AMA Flag"
 msgstr "Flaga AMA"
 
@@ -319,11 +319,11 @@ msgstr "Historia połączeń"
 msgid "Call History for %s"
 msgstr "Historia połączeń %s"
 
-#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1225
+#: page.cdr.php:370 /usr/src/freepbx/cdr/page.cdr.php:885 page.cdr.php:1233
 msgid "Caller ID Name"
 msgstr "ID dzwoniącego - Nazwa"
 
-#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1230
+#: page.cdr.php:369 /usr/src/freepbx/cdr/page.cdr.php:882 page.cdr.php:1238
 msgid "Caller ID Number"
 msgstr "ID dzwoniącego - Numer"
 
@@ -344,7 +344,7 @@ msgid "Calls"
 msgstr "Połączenia"
 
 #: page.cdr.php:1111 page.cdr.php:1128 page.cdr.php:1133 page.cdr.php:1161
-#: page.cdr.php:1286
+#: page.cdr.php:1294
 msgid "Channel"
 msgstr "Kanał"
 
@@ -425,11 +425,11 @@ msgstr "Kontekst docelowy"
 msgid "Destination Number"
 msgstr "Numer docelowy"
 
-#: page.cdr.php:1240
+#: page.cdr.php:1248
 msgid "Dialplan context"
 msgstr "Kontekst dialplanu"
 
-#: page.cdr.php:1235
+#: page.cdr.php:1243
 msgid "Dialplan exten"
 msgstr "exten dialplanu"
 
@@ -487,7 +487,7 @@ msgstr "Kończy się na"
 msgid "Event"
 msgstr "Wydarzenie"
 
-#: page.cdr.php:1278
+#: page.cdr.php:1286
 msgid "Event Extra"
 msgstr "Wydarzenie Ekstra"
 
@@ -949,7 +949,7 @@ msgstr "Pole użytkownika"
 msgid "User Primary Extension"
 msgstr "Główny numer wewnętrzny użytkownika"
 
-#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1272
+#: page.cdr.php:438 /usr/src/freepbx/cdr/page.cdr.php:1280
 msgid "UserDefType"
 msgstr "UserDefTyp"
 
