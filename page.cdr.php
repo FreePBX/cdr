@@ -836,7 +836,7 @@ if ( $tot_calls_raw ) {
 			</div>
 		</div>';
 	}
-	echo "</table>";
+	echo "</table><div id='addtionalcontent'></div>";
 }
 ?>
 
@@ -1203,12 +1203,20 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id, $uid) {
 	if ($recordingfile) {
 		$crypt = new Crypt();
 		// Encrypt the complete file
-
+		$url = false;
+		if (\FreePBX::Modules()->checkStatus("scribe") && \FreePBX::Scribe()->isLicensed()) {
+			$url = \FreePBX::Scribe()->getTranscriptionUrl(null,null,null,null,$recordingfile);
+		}
 		$download_url=$_SERVER['SCRIPT_NAME']."?display=cdr&action=download_audio&cdr_file=$uid";
 		$playbackRow = $id +1;
 		//
-		echo "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$uid'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a>
-		<a href=\"$download_url\"><img src=\"assets/cdr/images/cdr_download.png\" alt=\"Call recording\" /></a></td>";
+		$td = "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$uid'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a>
+		<a href=\"$download_url\"><img src=\"assets/cdr/images/cdr_download.png\" alt=\"Call recording\" /></a> ";
+		if($url) {
+			$td .="<a href=\"javascript:void(0)\"> <i class=\"fa fa-file-text transcript\" onclick=\"openmodal('$url')\"></i></a>";
+		}
+		$td .='</td>';
+		echo $td;
 
 	} else {
 		echo "<td></td>";

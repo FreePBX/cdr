@@ -108,3 +108,24 @@ function cdr_play(rowNum, uid) {
 		player.jPlayer.currentTime = maxduration * percentage / 100;
 	};
 }
+
+function openmodal(turl) {
+    var result = $.ajax({
+        url: turl,
+        type: 'POST',
+        async: false
+    });
+    result = JSON.parse(result.responseText);
+    
+    $("#addtionalcontent").html(result.html);
+    $("#addtionalcontent").appendTo("body");
+    $("#datamodal").modal('show');
+}
+
+function closemodal() {
+	$('div#addtionalcontent:not(:first)').remove();
+	$("#addtionalcontent").html("");
+	$("#datamodal").hide();
+    $(".modal-backdrop").remove();
+    $("body").css("overflow", "visible");
+}
