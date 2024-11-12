@@ -524,7 +524,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 			$call['requestingExtension'] = $extension;
 			}
 			$recordingfile = isset($call['recordingfile']) ? $call['recordingfile']:'';
-			if($scribeModuleStatus) {
+			if(isset($scribeModuleStatus) and $scribeModuleStatus) {
 				$url = \FreePBX::Scribe()->getUcpTranscriptionUrl($extension,$call['uniqueid'],'callrecording',$recordingfile);
 				if($url) {
 					$call['converttotext'] = $url;
