@@ -55,7 +55,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 				// How about the default?
 				$defvalue = \FreePBX::Config()->get($default);
 				if ($defvalue) {
-					$cdr[$conf] = $defalue;
+					$cdr[$conf] = $defvalue;
 				} else {
 					// Well that's blank. Is it part of FreePBX::$conf? (That's the parsed output of /etc/freepbx.conf)
 					if (empty(\FreePBX::$conf[$default])) {
