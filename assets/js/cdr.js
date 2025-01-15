@@ -42,7 +42,7 @@ function cdr_play(rowNum, uid) {
 			url: "ajax.php",
 			data: {module: "cdr", command: "gethtml5", uid: uid},
 			dataType: 'json',
-			timeout: 30000,
+			timeout: 60000,
 			success: function(data) {
 				var player = $("#jquery_jplayer_" + playerId);
 				if(data.status) {
