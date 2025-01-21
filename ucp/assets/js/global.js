@@ -43,7 +43,7 @@ var CdrC = UCPMC.extend({
 			return '';
 		}
 		var link = '<a class="download" alt="'+_("Download")+'" href="'+UCP.ajaxUrl+'?module=cdr&amp;command=download&amp;msgid='+row.uniqueid+'&amp;type=download&amp;ext='+row.requestingExtension+'"><i class="fa fa-cloud-download"></i></a>';
-		if(row.converttotext.transcriptionURL !== undefined && row.converttotext.transcriptionURL !== null && row.converttotext.transcriptionURL != '' && settings.isScribeEnabled) {
+		if((row.converttotext !== undefined) && row.converttotext.transcriptionURL !== undefined && row.converttotext.transcriptionURL !== null && row.converttotext.transcriptionURL != '' && settings.isScribeEnabled) {
 			link += '<a href="#" class="transcript tool-tip" data-toggle="tooltip" title="Read the voice transcription" onclick="openmodal(\'' + UCP.ajaxUrl+row.converttotext.transcriptionURL + '\')"> <img src="'+row.converttotext.scribeIconURL+'" width="15px" height="15px" alt="PBX Scribe" /></a>';
 		}
 		return link;
