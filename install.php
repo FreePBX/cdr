@@ -301,7 +301,7 @@ $set['name'] = _('Transient CDR');
 $set['description'] = _("If this option set to no, than call log app may not work properly with Sangoma P & D series phones and Desktop phones.");
 $set['value'] = 0;
 $set['defaultval'] =& $set['value'];
-$set['hidden'] = 1;
+$set['hidden'] = 0;
 $set['emptyok'] = 0;
 $set['readonly'] = 1;
 $set['level'] = 0;
@@ -309,3 +309,19 @@ $set['options'] = '';
 $set['module'] = 'cdr';
 $set['type'] = CONF_TYPE_BOOL;
 $freepbx_conf->define_conf_setting('TRANSIENTCDR',$set);
+
+$freepbx_conf = freepbx_conf::create();
+$set['category'] = 'cdr';
+$set['name'] = _('Transient CDR data retention');
+$set['description'] = _("How many days cdr need to keep in transient cdr ");
+$set['value'] =60;
+$set['defaultval'] =& $set['value'];
+$set['hidden'] = 0;
+$set['emptyok'] = 0;
+$set['readonly'] = 0;
+$set['level'] = 0;
+$set['options'] = array(5,60);
+$set['module'] = 'cdr';
+$set['type'] = CONF_TYPE_INT;
+$freepbx_conf->define_conf_setting('TRANSIENTCDRDATA',$set);
+

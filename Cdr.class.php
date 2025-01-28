@@ -317,7 +317,15 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		if($new) {
 			$this->setConfig('newinstall',true);
 		}
-
+		// check fwconsole cdr job is enabled then move to cron
+		$alljob = $this->FreePBX->Job->getAll();
+		foreach($alljob as $j ){
+			if($j['modulename'] == 'cdr' && $j['jobname'] =='cleanTransientCDRData'){
+				$this->FreePBX->Job->remove('cdr', 'cleanTransientCDRData'); 
+				$this->addcronEntryForCDR();
+				out('Removed Job and added cron');
+			}
+		}
 	}
 	public function uninstall() {
 
@@ -739,7 +747,14 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 	}
 
 	private function addcronEntryForCDR() {
-		$this->FreePBX->Job()->addClass('cdr', 'cleanTransientCDRData', 'FreePBX\modules\Cdr\Job', '@monthly');
+		$AMPSBIN = $this->FreePBX->Config->get("AMPSBIN");
+		$crons = $this->FreePBX->Cron->getAll();
+		foreach($crons as $cron) {
+			if(preg_match("/fwconsole cdr  --purnedata /",$cron)) {
+				$this->FreePBX->Cron->remove($cron);
+			}
+		}
+		$this->FreePBX->Cron->addLine("1 0 * * * [ -e ".$AMPSBIN."/fwconsole ] && sleep $((RANDOM\%30)) && ".$AMPSBIN."/fwconsole cdr  --purnedata >> /var/log/asterisk/freepbx.log 2>&1");
 	}
 
 	public function removeCDRTriggerSetup() {
@@ -776,6 +791,12 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 
 	private function removecronEntry() {
 		$this->FreePBX->Job->remove('cdr', 'cleanTransientCDRData');
+		$crons = $this->FreePBX->Cron->getAll();
+		foreach($crons as $cron) {
+			if(preg_match("/fwconsole cdr  --purnedata /",$cron)) {
+				$this->FreePBX->Cron->remove($cron);
+			}
+		}
 	}
 
 	public function cleanTransientCDRData($date) {
