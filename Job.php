@@ -6,7 +6,9 @@ class Job implements \FreePBX\Job\TaskInterface {
 	public static function run(InputInterface $input, OutputInterface $output) {
 		$tz = @date_default_timezone_get();
 		date_default_timezone_set($tz);
-		$date = Date('Y-m-d', strtotime('- 60 days'));
+		$dataRetentionInDays = \FreePBX::Config()->get("TRANSIENTCDRDATA");
+		dbug($dataRetentionInDays);
+		$date = Date('Y-m-d', strtotime("- $dataRetentionInDays days"));
 		\FreePBX::Cdr()->cleanTransientCDRData($date);
 		return true;
 	}
