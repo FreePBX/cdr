@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-14 08:50+0000\n"
+"POT-Creation-Date: 2025-01-28 10:06+0000\n"
 "PO-Revision-Date: 2017-06-20 15:09+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -21,17 +21,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Cdr.class.php:526
+#: Cdr.class.php:535
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s giờ, %s phút, %s giây"
 
-#: Cdr.class.php:528
+#: Cdr.class.php:537
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s phút, %s giây"
 
-#: Cdr.class.php:531
+#: Cdr.class.php:540
 #, php-format
 msgid "%s sec"
 msgstr "%s giây"
@@ -343,6 +343,10 @@ msgstr "Số CalleID"
 msgid "Calls"
 msgstr "Các cuộc gọi"
 
+#: Console/Cdr.class.php:16
+msgid "Cdr module "
+msgstr ""
+
 #: page.cdr.php:1111 page.cdr.php:1128 page.cdr.php:1133 page.cdr.php:1161
 #: page.cdr.php:1296
 msgid "Channel"
@@ -554,6 +558,10 @@ msgstr "giờ trong ngày"
 msgid "Hour of day"
 msgstr "giờ trong ngày"
 
+#: install.php:156
+msgid "How many days cdr need to keep in transient cdr "
+msgstr ""
+
 #: install.php:141
 msgid ""
 "If this option set to no, than call log app may not work properly with "
@@ -690,6 +698,10 @@ msgstr "Ghi âm"
 #: page.cdr.php:724
 msgid "Related Call Detail Records"
 msgstr "Bản ghi chi tiết các cuộc gọi liên quan"
+
+#: Console/Cdr.class.php:18
+msgid "Remove Data older than retention days"
+msgstr ""
 
 #: page.cdr.php:173
 msgid "Report Type"
@@ -923,6 +935,10 @@ msgstr "Tổng khoảng thời gian"
 
 #: install.php:140
 msgid "Transient CDR"
+msgstr ""
+
+#: install.php:155
+msgid "Transient CDR data retention"
 msgstr ""
 
 #: install.php:48

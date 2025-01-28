@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-14 08:50+0000\n"
+"POT-Creation-Date: 2025-01-28 10:06+0000\n"
 "PO-Revision-Date: 2018-09-04 08:02+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cdr/cs/>\n"
@@ -20,17 +20,17 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.0.1\n"
 
-#: Cdr.class.php:526
+#: Cdr.class.php:535
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s hod, %s min, %s s"
 
-#: Cdr.class.php:528
+#: Cdr.class.php:537
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s s"
 
-#: Cdr.class.php:531
+#: Cdr.class.php:540
 #, php-format
 msgid "%s sec"
 msgstr "%s s"
@@ -340,6 +340,10 @@ msgstr "Číslo volajícího"
 msgid "Calls"
 msgstr "Hovory"
 
+#: Console/Cdr.class.php:16
+msgid "Cdr module "
+msgstr ""
+
 #: page.cdr.php:1111 page.cdr.php:1128 page.cdr.php:1133 page.cdr.php:1161
 #: page.cdr.php:1296
 msgid "Channel"
@@ -551,6 +555,10 @@ msgstr "Hodina dne"
 msgid "Hour of day"
 msgstr "Hodina dne"
 
+#: install.php:156
+msgid "How many days cdr need to keep in transient cdr "
+msgstr ""
+
 #: install.php:141
 msgid ""
 "If this option set to no, than call log app may not work properly with "
@@ -687,6 +695,10 @@ msgstr "Nahrávání"
 #: page.cdr.php:724
 msgid "Related Call Detail Records"
 msgstr "Související záznamy o podrobnostech volání"
+
+#: Console/Cdr.class.php:18
+msgid "Remove Data older than retention days"
+msgstr ""
 
 #: page.cdr.php:173
 msgid "Report Type"
@@ -919,6 +931,10 @@ msgstr "Celková doba trvání"
 
 #: install.php:140
 msgid "Transient CDR"
+msgstr ""
+
+#: install.php:155
+msgid "Transient CDR data retention"
 msgstr ""
 
 #: install.php:48

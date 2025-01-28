@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-14 08:50+0000\n"
+"POT-Creation-Date: 2025-01-28 10:06+0000\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -48,17 +48,17 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.10-dev\n"
 
-#: Cdr.class.php:526
+#: Cdr.class.php:535
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:528
+#: Cdr.class.php:537
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:531
+#: Cdr.class.php:540
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -370,6 +370,10 @@ msgstr "CallerIDの番号"
 msgid "Calls"
 msgstr "件"
 
+#: Console/Cdr.class.php:16
+msgid "Cdr module "
+msgstr ""
+
 #: page.cdr.php:1111 page.cdr.php:1128 page.cdr.php:1133 page.cdr.php:1161
 #: page.cdr.php:1296
 msgid "Channel"
@@ -581,6 +585,10 @@ msgstr ""
 msgid "Hour of day"
 msgstr "1時間毎(年月日は無視)"
 
+#: install.php:156
+msgid "How many days cdr need to keep in transient cdr "
+msgstr ""
+
 #: install.php:141
 msgid ""
 "If this option set to no, than call log app may not work properly with "
@@ -717,6 +725,10 @@ msgstr "録音ファイル"
 #: page.cdr.php:724
 msgid "Related Call Detail Records"
 msgstr "関連したコール記録"
+
+#: Console/Cdr.class.php:18
+msgid "Remove Data older than retention days"
+msgstr ""
 
 #: page.cdr.php:173
 msgid "Report Type"
@@ -947,6 +959,10 @@ msgstr "合計通話時間"
 
 #: install.php:140
 msgid "Transient CDR"
+msgstr ""
+
+#: install.php:155
+msgid "Transient CDR data retention"
 msgstr ""
 
 #: install.php:48

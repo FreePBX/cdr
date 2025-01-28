@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-14 08:50+0000\n"
+"POT-Creation-Date: 2025-01-28 10:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,17 +29,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Cdr.class.php:526
+#: Cdr.class.php:535
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:528
+#: Cdr.class.php:537
 #, php-format
 msgid "%s min, %s sec"
 msgstr ""
 
-#: Cdr.class.php:531
+#: Cdr.class.php:540
 #, php-format
 msgid "%s sec"
 msgstr ""
@@ -344,6 +344,10 @@ msgstr ""
 msgid "Calls"
 msgstr ""
 
+#: Console/Cdr.class.php:16
+msgid "Cdr module "
+msgstr ""
+
 #: page.cdr.php:1111 page.cdr.php:1128 page.cdr.php:1133 page.cdr.php:1161
 #: page.cdr.php:1296
 msgid "Channel"
@@ -555,6 +559,10 @@ msgstr ""
 msgid "Hour of day"
 msgstr ""
 
+#: install.php:156
+msgid "How many days cdr need to keep in transient cdr "
+msgstr ""
+
 #: install.php:141
 msgid ""
 "If this option set to no, than call log app may not work properly with "
@@ -690,6 +698,10 @@ msgstr ""
 
 #: page.cdr.php:724
 msgid "Related Call Detail Records"
+msgstr ""
+
+#: Console/Cdr.class.php:18
+msgid "Remove Data older than retention days"
 msgstr ""
 
 #: page.cdr.php:173
@@ -910,6 +922,10 @@ msgstr ""
 
 #: install.php:140
 msgid "Transient CDR"
+msgstr ""
+
+#: install.php:155
+msgid "Transient CDR data retention"
 msgstr ""
 
 #: install.php:48
