@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>17.0.4.34</version>
+	<version>17.0.4.35</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,6 +12,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*17.0.4.35* FREEI-1804 undefined array 
 		*17.0.4.34* FREEI-1632 move cdr sync job to cron from fwconsole jobs 
 		*17.0.4.33* #629 Recent Scribe Icon fix causes uncaught TypeError 
 		*17.0.4.32* FREEI-1521 Call Recording files are not able to play from CDR report 
