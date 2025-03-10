@@ -599,6 +599,10 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		$spool = $this->FreePBX->Config->get('ASTSPOOLDIR');
 		$mixmondir = $this->FreePBX->Config->get('MIXMON_DIR');
 		$rec_parts = explode('-',$recordingFile);
+		if(!isset($rec_parts[3])) {
+			//may not be the proper filename  
+			return '';
+		}
 		$fyear = substr($rec_parts[3],0,4);
 		$fmonth = substr($rec_parts[3],4,2);
 		$fday = substr($rec_parts[3],6,2);
