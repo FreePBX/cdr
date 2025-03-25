@@ -14,7 +14,7 @@ class Backup Extends Base\BackupBase{
       $dumpOtherOptions[] = " --where='" . $query."'";
     }
 
-    $dumpOtherOptions[] = '--opt --compact --skip-lock-tables --skip-triggers --no-create-info';
+    $dumpOtherOptions[] = '--opt --skip-lock-tables --skip-triggers --no-create-info --default-character-set=utf8mb4';
     $dumpOtherOptions = implode(" ", $dumpOtherOptions);
 
     $fileObj = $this->dumpTableIntoFile('cdr','cdr', $dumpOtherOptions, true);
