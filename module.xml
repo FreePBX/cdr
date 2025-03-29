@@ -86,4 +86,10 @@
 	<supported>
 		<version>16.0</version>
 	</supported>
+	<console>
+		<command>
+			<name>cdr</name>
+			<class>Cdr</class>
+		</command>
+    </console>
 </module>
