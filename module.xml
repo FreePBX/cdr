@@ -39,4 +39,10 @@
 	<supported>
 		<version>17.0</version>
 	</supported>
+	<console>
+		<command>
+			<name>cdr</name>
+			<class>Cdr</class>
+		</command>
+    </console>
 </module>
