@@ -5,6 +5,7 @@
 	<name>CDR Reports</name>
 	<version>17.0.4.36</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
+	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26542152/PBX+GUI+-+CDR+Reports+Module</more-info>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Reports</category>
@@ -43,5 +44,5 @@
                 <command>
                         <name>cdr</name>
                 </command>
-        </console>
+   </console>
 </module>

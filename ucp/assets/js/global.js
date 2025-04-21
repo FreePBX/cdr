@@ -79,7 +79,7 @@ var CdrC = UCPMC.extend({
 				'</div>'+
 				'<div class="jp-no-solution">'+
 					'<span>Update Required</span>'+
-					sprintf(_("You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"),"http://wiki.freepbx.org/display/FOP/Installing+Media+Conversion+Libraries")+
+					sprintf(_("You are missing support for playback in this browser. To fully support HTML5 browser playback you will need to install programs that can not be distributed with the PBX. If you'd like to install the binaries needed for these conversions click <a href='%s'>here</a>"),"https://sangomakb.atlassian.net/wiki/spaces/FP/pages/10682566/Installing+Media+Conversion+Libraries")+
 				'</div>'+
 			'</div>'+
 		'</div>';
