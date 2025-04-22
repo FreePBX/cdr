@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>17.0.4.36</version>
+	<version>17.0.4.37</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26542152/PBX+GUI+-+CDR+Reports+Module</more-info>
 	<license>GPLv3+</license>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*17.0.4.37* bump 
 		*17.0.4.36* #issues- 503 Backup &amp;amp; Restore module fails to preserve character encoding in CDRs 
 		*17.0.4.35* FREEI-1804 undefined array 
 		*17.0.4.34* FREEI-1632 move cdr sync job to cron from fwconsole jobs 
