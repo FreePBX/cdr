@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 05:10-0500\n"
+"POT-Creation-Date: 2025-04-28 03:00-0400\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -155,6 +155,14 @@ msgstr "افزودن فهرست به فیلدی که در جدول تماس وج
 msgid "Adding index to did field..."
 msgstr ""
 
+#: install.php:97
+msgid "Adding index to dstchannel field in the cdr table"
+msgstr ""
+
+#: install.php:90
+msgid "Adding index to dstchannel field..."
+msgstr ""
+
 #: install.php:82
 msgid "Adding index to linkedid field in the cdr table"
 msgstr ""
@@ -171,7 +179,7 @@ msgstr ""
 msgid "Adding index to recordingfile field..."
 msgstr ""
 
-#: install.php:120 /usr/src/freepbx/cdr/install.php:137
+#: install.php:135 /usr/src/freepbx/cdr/install.php:152
 msgid "Adding!"
 msgstr "افزودن!"
 
@@ -495,6 +503,7 @@ msgid ""
 msgstr ""
 
 #: install.php:54 /usr/src/freepbx/cdr/install.php:69 install.php:84
+#: /usr/src/freepbx/cdr/install.php:99
 msgid "Done"
 msgstr ""
 
@@ -507,7 +516,7 @@ msgstr "دانلود"
 msgid "Duration"
 msgstr "مدت زمان"
 
-#: install.php:148
+#: install.php:163
 msgid "ERROR failed to update database"
 msgstr ""
 
@@ -609,11 +618,11 @@ msgstr ""
 msgid "Hour of day"
 msgstr "ساعت از روز"
 
-#: install.php:316
+#: install.php:331
 msgid "How many days cdr need to keep in transient cdr "
 msgstr ""
 
-#: install.php:301
+#: install.php:316
 msgid ""
 "If this option set to no, than call log app may not work properly with "
 "Sangoma P & D series phones and Desktop phones."
@@ -702,7 +711,7 @@ msgstr "پیدا نشد"
 msgid "November"
 msgstr "نوامبر"
 
-#: install.php:117 /usr/src/freepbx/cdr/install.php:134 install.php:150
+#: install.php:132 /usr/src/freepbx/cdr/install.php:149 install.php:165
 msgid "OK!"
 msgstr "تایید!"
 
@@ -1003,17 +1012,21 @@ msgstr "مجموع تماسها"
 msgid "Total Duration"
 msgstr "مجموع مدتها"
 
-#: install.php:300
+#: install.php:315
 msgid "Transient CDR"
 msgstr ""
 
-#: install.php:315
+#: install.php:330
 msgid "Transient CDR data retention"
 msgstr ""
 
 #: install.php:49
 msgid "Unable to add index to did field in the cdr table"
 msgstr "ناتوانی در افزودن فهرست به جدول cdr"
+
+#: install.php:94
+msgid "Unable to add index to dstchannel field in the cdr table"
+msgstr ""
 
 #: install.php:79
 msgid "Unable to add index to linkedid field in the cdr table"
