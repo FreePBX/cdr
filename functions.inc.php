@@ -65,6 +65,11 @@ function cdr_get_config($engine) {
 		$generaladdtionalcontent .= "time=". $amp_conf['CDR_BATCH_TIME']."\n";
 		$generaladdtionalcontent .= "scheduleronly=". $schedule."\n";
 		$generaladdtionalcontent .= "safeshutdown=". $bshutdown."\n";
+		$astversion = \FreePBX::Config()->get('ASTVERSION');
+		if(version_compare($astversion, '20.16', 'ge')) {
+			$canceldisposition = ($amp_conf['CANCELDISPOSITION'] == 1) ? 'yes' : 'no';
+			$generaladdtionalcontent .= "canceldispositionenabled=". $canceldisposition."\n";
+		}
 		\FreePBX::WriteConfig()->writeConfig('cdr_general_additional.conf', $generaladdtionalcontent, true);
 	}
 

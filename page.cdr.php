@@ -335,6 +335,7 @@ if (isset($_POST['limit']) ) {
 <option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'BUSY') { echo 'selected="selected"'; } ?> value="BUSY"><?php echo _("Busy")?></option>
 <option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'FAILED') { echo 'selected="selected"'; } ?> value="FAILED"><?php echo _("Failed")?></option>
 <option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'NO ANSWER') { echo 'selected="selected"'; } ?> value="NO ANSWER"><?php echo _("No Answer")?></option>
+<option <?php if (isset($_POST['disposition']) && $_POST['disposition'] == 'CANCEL') { echo 'selected="selected"'; } ?> value="CANCEL"><?php echo _("Cancel")?></option>
 </select>
 <?php echo _("Not")?>:<input <?php if ( isset($_POST['disposition_neg'] ) && $_POST['disposition_neg'] == 'true' ) { echo 'checked="checked"'; } ?> type="checkbox" name="disposition_neg" value="true" />
 </td>
