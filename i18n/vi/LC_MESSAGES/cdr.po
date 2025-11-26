@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 10:08+0000\n"
+"POT-Creation-Date: 2025-11-26 12:25+0000\n"
 "PO-Revision-Date: 2017-06-20 15:09+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/cdr/"
@@ -989,7 +989,7 @@ msgstr "Tuần ( Chủ nhật- Thứ bảy)"
 msgid "Yes"
 msgstr "Có"
 
-#: page.cdr.php:834 ucp/assets/js/global.js:82
+#: page.cdr.php:834 ucp/assets/js/global.js:85
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

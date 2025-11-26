@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 10:08+0000\n"
+"POT-Creation-Date: 2025-11-26 12:25+0000\n"
 "PO-Revision-Date: 2016-05-05 19:13+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -981,7 +981,7 @@ msgstr "هفته (شنبه،یکشنبه )"
 msgid "Yes"
 msgstr "بله"
 
-#: page.cdr.php:834 ucp/assets/js/global.js:82
+#: page.cdr.php:834 ucp/assets/js/global.js:85
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "

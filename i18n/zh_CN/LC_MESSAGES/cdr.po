@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-28 10:08+0000\n"
+"POT-Creation-Date: 2025-11-26 12:25+0000\n"
 "PO-Revision-Date: 2015-11-23 13:57+0200\n"
 "Last-Translator: james <zhulizhong@gmail.com>\n"
 "Language-Team: Simplified Chinese <http://weblate.freepbx.org/projects/"
@@ -970,7 +970,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:834 ucp/assets/js/global.js:82
+#: page.cdr.php:834 ucp/assets/js/global.js:85
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
