@@ -46,6 +46,9 @@ var CdrC = UCPMC.extend({
 		if((row.converttotext !== undefined) && row.converttotext.transcriptionURL !== undefined && row.converttotext.transcriptionURL !== null && row.converttotext.transcriptionURL != '' && settings.isScribeEnabled) {
 			link += '<a href="#" class="transcript tool-tip" data-toggle="tooltip" title="Read the voice transcription" onclick="openmodal(\'' + UCP.ajaxUrl+row.converttotext.transcriptionURL + '\')"> <img src="'+row.converttotext.scribeIconURL+'" width="15px" height="15px" alt="PBX Scribe" /></a>';
 		}
+		if((row.converttotext !== undefined) && row.converttotext.downloadURL !== undefined && row.converttotext.downloadURL !== null && row.converttotext.downloadURL != '' && settings.isScribeEnabled) {
+			link += '<a href="#" class="transcript tool-tip" data-toggle="tooltip" title="Download the voice transcription" onclick="downloadPdf(\'' + UCP.ajaxUrl+row.converttotext.downloadURL + '\')"> <img src="'+row.converttotext.downloadIcon+'" width="15px" height="15px" alt="PBX Scribe" /></a>';
+		}
 		return link;
 	},
 	formatPlayback: function (value, row, index) {
@@ -218,4 +221,12 @@ function closemodal() {
 	$('div#addtionalcontent:not(:first)').remove();
 	$("#addtionalcontent").html("");
 	$("#datamodal").hide();
+}
+
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip();
+});
+
+function downloadPdf(turl){
+    window.open(turl);
 }
