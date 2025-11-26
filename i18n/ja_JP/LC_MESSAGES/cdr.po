@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-12 06:25-0500\n"
+"POT-Creation-Date: 2025-11-26 07:24-0500\n"
 "PO-Revision-Date: 2014-09-18 16:05+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://git.freepbx.org/projects/freepbx/cdr/ja/>\n"
@@ -1137,7 +1137,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: page.cdr.php:837 ucp/assets/js/global.js:82
+#: page.cdr.php:837 ucp/assets/js/global.js:85
 #, perl-format, php-format
 msgid ""
 "You are missing support for playback in this browser. To fully support HTML5 "
