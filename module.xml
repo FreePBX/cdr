@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>17.0.4.41</version>
+	<version>17.0.4.42</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26542152/PBX+GUI+-+CDR+Reports+Module</more-info>
 	<license>GPLv3+</license>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*17.0.4.42* FREEI-2509: Fix Whoops undefined array key error 
 		*17.0.4.41* FREEI-2573 Scribe - ucp user can download the transcription 
 		*17.0.4.40* FREEI-2506 new option cancel disposition added to cdr for asterisk ver &amp;gt;= 20 
 		*17.0.4.39* #issues- 583 fetchAllCdrs gql api 'after' parameter made functional 
