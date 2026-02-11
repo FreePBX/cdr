@@ -633,9 +633,8 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		if((isset($startDate) && !empty($startDate)) && (isset($endDate) && !empty($endDate))){
 			$whereClause = " where DATE(calldate) BETWEEN '".$startDate."' AND '".$endDate."'";
 		}
-		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->getDbTable()." ".$whereClause." Order By :orderBy DESC LIMIT :limitValue OFFSET :afterValue";
+		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->getDbTable()." ".$whereClause." Order By ".$orderby." DESC LIMIT :limitValue OFFSET :afterValue";
 		$sth = $this->cdrdb->prepare($sql);
-		$sth->bindValue(':orderBy', $orderby, \PDO::PARAM_STR);
 		$sth->bindValue(':limitValue', (int) trim($first), \PDO::PARAM_INT);
 		$sth->bindValue(':afterValue', (int) trim($after), \PDO::PARAM_INT);
 		$sth->execute();
