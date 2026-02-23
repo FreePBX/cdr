@@ -562,7 +562,9 @@ $mod_vars['userfield'][] = empty($_POST['userfield_neg']) ? NULL : $_POST['userf
 $mod_vars['accountcode'][] = !isset($_POST['accountcode']) ? NULL : $_POST['accountcode'];
 $mod_vars['accountcode'][] = empty($_POST['accountcode_mod']) ? NULL : $_POST['accountcode_mod'];
 $mod_vars['accountcode'][] = empty($_POST['accountcode_neg']) ? NULL : $_POST['accountcode_neg'];
-$result_limit = (!isset($_POST['limit']) || empty($_POST['limit'])) ? $db_result_limit : $_POST['limit'];
+// Sanitize result limit to prevent SQL injection - cast to integer and enforce bounds
+$raw_limit = (isset($_POST['limit']) && $_POST['limit'] !== '') ? $_POST['limit'] : $db_result_limit;
+$result_limit = max(1, min((int) $raw_limit, 100000));
 
 $multi = ['dst', 'cnum', 'outbound_cnum'];
 foreach ($mod_vars as $key => $val) {
@@ -1295,3 +1297,4 @@ function cdr_cel_formatChannelName($channel) {
 	$channel = htmlspecialchars((string) $channel);
 	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $channel . "</td>";
 }
+
