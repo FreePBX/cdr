@@ -61,6 +61,9 @@ class Cdr extends Base {
 							$before = !empty($args['before']) ? Relay::fromGlobalId($args['before'])['id'] : null;
 							$first = !empty($args['first']) ? $args['first'] : null;
 							$last = !empty($args['last']) ? $args['last'] : null;
+							$orderby = !empty($args['orderby']) ? $args['orderby'] : null;
+							$startDate = !empty($args['startDate']) ? $args['startDate'] : null;
+							$endDate = !empty($args['endDate']) ? $args['endDate'] : null;
 							// validating dates
 							if(isset($args['startDate']) && !empty($args['startDate'])){
 								if(!$this->validateDate($args['startDate'])){
@@ -83,8 +86,9 @@ class Cdr extends Base {
 									return ['status' => false, 'message' => _('End Date should be greater than Start Date..!!')];
 								}
 							}
+							$calls = $this->freepbx->Cdr->getGraphQLCalls($after, $first, $before, $last, $orderby, $startDate, $endDate);
 							$res = Relay::connectionFromArraySlice(
-								$this->freepbx->Cdr->getGraphQLCalls($after, $first, $before, $last, $args['orderby'],$args['startDate'],$args['endDate']),
+								$calls,
 								$args,
 								[
 									'sliceStart' => !empty($after) ? $after : 0,
