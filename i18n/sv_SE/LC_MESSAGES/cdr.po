@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cdr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-23 05:33-0500\n"
+"POT-Creation-Date: 2026-02-24 04:47-0500\n"
 "PO-Revision-Date: 2011-07-29 20:45+0200\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgstr ""
 msgid "<br>Asterisk pattern matching<br>"
 msgstr "<br>Asterisk mönstermatchning<br>"
 
-#: Api/Gql/Cdr.php:486
+#: Api/Gql/Cdr.php:490
 msgid ""
 "A count of the total number of objects in this connection, ignoring "
 "pagination. This allows a client to fetch the first five objects by passing "
@@ -97,7 +97,7 @@ msgid ""
 "display \"5 of 83\", for example."
 msgstr ""
 
-#: Api/Gql/Cdr.php:322
+#: Api/Gql/Cdr.php:326
 msgid ""
 "A flag specified on the Party A channel. AMA Flags are set on a channel and "
 "are conveyed in the CDR. They inform billing systems how to treat the "
@@ -105,7 +105,7 @@ msgid ""
 "flags - they are present simply to help external systems classify CDRs"
 msgstr ""
 
-#: Api/Gql/Cdr.php:491
+#: Api/Gql/Cdr.php:495
 msgid ""
 "A list of all of the objects returned in the connection. This is a "
 "convenience field provided for quickly exploring the API; rather than "
@@ -116,17 +116,17 @@ msgid ""
 "instead."
 msgstr ""
 
-#: Api/Gql/Cdr.php:461
+#: Api/Gql/Cdr.php:465
 msgid ""
 "A numeric value that, combined with uniqueid and linkedid, can be used to "
 "uniquely identify a single CDR record"
 msgstr ""
 
-#: Api/Gql/Cdr.php:145
+#: Api/Gql/Cdr.php:149
 msgid "A unique identifier for the Party A channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:353
+#: Api/Gql/Cdr.php:357
 msgid ""
 "A user defined field set on the channels. If set on both the Party A and "
 "Party B channel, the userfields of both are concatenated and separated by a ;"
@@ -216,7 +216,7 @@ msgstr ""
 msgid "Allow users to download recordings in UCP"
 msgstr ""
 
-#: Api/Gql/Cdr.php:341
+#: Api/Gql/Cdr.php:345
 msgid "An account code associated with the Party A channel"
 msgstr ""
 
@@ -300,11 +300,11 @@ msgstr ""
 msgid "CDR Schedule Only"
 msgstr ""
 
-#: Api/Gql/Cdr.php:115
+#: Api/Gql/Cdr.php:119
 msgid "CDR data does not exists"
 msgstr ""
 
-#: Api/Gql/Cdr.php:94 Api/Gql/Cdr.php:113
+#: Api/Gql/Cdr.php:98 Api/Gql/Cdr.php:117
 msgid "CDR data found successfully"
 msgstr ""
 
@@ -477,7 +477,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: Api/Gql/Cdr.php:437
+#: Api/Gql/Cdr.php:441
 msgid "Description of the blocked number"
 msgstr ""
 
@@ -549,11 +549,11 @@ msgstr ""
 msgid "End Date"
 msgstr ""
 
-#: Api/Gql/Cdr.php:75
+#: Api/Gql/Cdr.php:78
 msgid "End Date is required..!!"
 msgstr ""
 
-#: Api/Gql/Cdr.php:82
+#: Api/Gql/Cdr.php:85
 msgid "End Date should be greater than Start Date..!!"
 msgstr ""
 
@@ -649,11 +649,11 @@ msgstr ""
 msgid "Inherit"
 msgstr ""
 
-#: Api/Gql/Cdr.php:71
+#: Api/Gql/Cdr.php:74
 msgid "Invalid End Date Format(YYYY-MM-DD)"
 msgstr ""
 
-#: Api/Gql/Cdr.php:66
+#: Api/Gql/Cdr.php:69
 msgid "Invalid Start Date Format(YYYY-MM-DD)"
 msgstr ""
 
@@ -685,7 +685,7 @@ msgstr "Max samtal"
 msgid "May"
 msgstr "Maj"
 
-#: Api/Gql/Cdr.php:473 Api/Gql/Cdr.php:503
+#: Api/Gql/Cdr.php:477 Api/Gql/Cdr.php:507
 msgid "Message for the request"
 msgstr ""
 
@@ -709,7 +709,7 @@ msgstr ""
 msgid "No Answer"
 msgstr "Inget svar"
 
-#: Api/Gql/Cdr.php:96
+#: Api/Gql/Cdr.php:100
 msgid "No Data Found"
 msgstr ""
 
@@ -871,11 +871,11 @@ msgstr "September"
 msgid "Start Date"
 msgstr ""
 
-#: Api/Gql/Cdr.php:78
+#: Api/Gql/Cdr.php:81
 msgid "Start Date is required..!!"
 msgstr ""
 
-#: Api/Gql/Cdr.php:477 Api/Gql/Cdr.php:507
+#: Api/Gql/Cdr.php:481 Api/Gql/Cdr.php:511
 msgid "Status for the request"
 msgstr ""
 
@@ -909,35 +909,35 @@ msgid ""
 "it might be acceptable to just use the scheduler thread, so set this to "
 msgstr ""
 
-#: Api/Gql/Cdr.php:193 Api/Gql/Cdr.php:389
+#: Api/Gql/Cdr.php:197 Api/Gql/Cdr.php:393
 msgid "The Caller ID Number"
 msgstr ""
 
-#: Api/Gql/Cdr.php:181
+#: Api/Gql/Cdr.php:185
 msgid "The Caller ID with text"
 msgstr ""
 
-#: Api/Gql/Cdr.php:365
+#: Api/Gql/Cdr.php:369
 msgid "The DID that was used to reach this destination"
 msgstr ""
 
-#: Api/Gql/Cdr.php:107
+#: Api/Gql/Cdr.php:111
 msgid "The ID"
 msgstr ""
 
-#: Api/Gql/Cdr.php:413
+#: Api/Gql/Cdr.php:417
 msgid "The Outbound Caller ID Name"
 msgstr ""
 
-#: Api/Gql/Cdr.php:401
+#: Api/Gql/Cdr.php:405
 msgid "The Outbound Caller ID Number"
 msgstr ""
 
-#: Api/Gql/Cdr.php:449
+#: Api/Gql/Cdr.php:453
 msgid "The account code of the Party B channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:265
+#: Api/Gql/Cdr.php:269
 msgid ""
 "The application data for the last application the Party A channel executed"
 msgstr ""
@@ -952,15 +952,15 @@ msgid ""
 "unanswered channel."
 msgstr ""
 
-#: Api/Gql/Cdr.php:425
+#: Api/Gql/Cdr.php:429
 msgid "The destination Caller ID Name"
 msgstr ""
 
-#: Api/Gql/Cdr.php:217
+#: Api/Gql/Cdr.php:221
 msgid "The destination context"
 msgstr ""
 
-#: Api/Gql/Cdr.php:205
+#: Api/Gql/Cdr.php:209
 msgid "The destination extension"
 msgstr ""
 
@@ -968,7 +968,7 @@ msgstr ""
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
-#: Api/Gql/Cdr.php:45 Api/Gql/Cdr.php:301
+#: Api/Gql/Cdr.php:45 Api/Gql/Cdr.php:305
 msgid "The final known disposition of the CDR record"
 msgstr ""
 
@@ -976,31 +976,31 @@ msgstr ""
 msgid "The given extension is empty."
 msgstr ""
 
-#: Api/Gql/Cdr.php:253
+#: Api/Gql/Cdr.php:257
 msgid "The last application the Party A channel executed"
 msgstr ""
 
-#: Api/Gql/Cdr.php:229
+#: Api/Gql/Cdr.php:233
 msgid "The name of the Party A channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:241
+#: Api/Gql/Cdr.php:245
 msgid "The name of the Party B channel"
 msgstr ""
 
-#: Api/Gql/Cdr.php:377
+#: Api/Gql/Cdr.php:381
 msgid "The recording file of this entry"
 msgstr ""
 
-#: Api/Gql/Cdr.php:289
+#: Api/Gql/Cdr.php:293
 msgid "The time in seconds from answer until end"
 msgstr ""
 
-#: Api/Gql/Cdr.php:277
+#: Api/Gql/Cdr.php:281
 msgid "The time in seconds from start until end"
 msgstr ""
 
-#: Api/Gql/Cdr.php:157 Api/Gql/Cdr.php:169
+#: Api/Gql/Cdr.php:161 Api/Gql/Cdr.php:173
 msgid "The time the CDR was created"
 msgstr ""
 
