@@ -57,7 +57,7 @@ class Cdr extends Base {
 							]
 						),
 						'resolve' => function($root, $args) {
-							$after = !empty($args['after']) ? Relay::fromGlobalId($args['after'])['id'] : null;
+							$after = !empty($args['after']) ? $args['after'] : null;
 							$before = !empty($args['before']) ? Relay::fromGlobalId($args['before'])['id'] : null;
 							$first = !empty($args['first']) ? $args['first'] : null;
 							$last = !empty($args['last']) ? $args['last'] : null;
