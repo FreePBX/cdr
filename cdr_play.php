@@ -17,12 +17,22 @@ if(!empty($path)) {
 			break;
 		case "ulaw":
 			$ctype="audio/basic";
+			break;
 		case "alaw":
 			$ctype="audio/x-alaw-basic";
+			break;
 		case "sln":
 			$ctype="audio/x-wav";
+			break;
 		case "gsm":
 			$ctype="audio/x-gsm";
+			break;
+		case "mp3":
+			$ctype="audio/mpeg";
+			break;
+		case "ogg":
+			$ctype="audio/ogg";
+			break;	
 		case "g729":
 			$ctype="audio/x-g729";
 			//Need to convert these to a supported HTML5 format..
@@ -78,7 +88,7 @@ if(!empty($path)) {
 	}
 	header("Content-Range: bytes $start-$end/$size");
 	header('Content-length: ' . $size);
-	header('Content-Disposition: attachment;filename="' . $name.'"');
+	header('Content-Disposition: inline;filename="' . $name.'"');
 	$buffer = 1024 * 8;
 	$wstart = $start;
 	ob_end_clean();
