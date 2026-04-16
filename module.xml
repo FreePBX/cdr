@@ -14,7 +14,6 @@
 	</menuitems>
 	<changelog>
 		*17.0.11* FREEI-2806 fix:add sanitization for Order parameter 
-		*17.0.10* FREEI-2806 fix:add sanitization for Order parameter
 		*17.0.9* FREEI-2689 - Changes done to play voicemails in gsm format on sangoma talk app 
 		*17.0.8* Packaging of ver 17.0.8
 		*17.0.7* Packaging of ver 17.0.7
