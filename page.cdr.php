@@ -668,8 +668,10 @@ if ( isset($_POST['disposition_neg']) && $_POST['disposition_neg'] == 'true' ) {
 }
 
 $duration = (!isset($_POST['dur_min']) || is_blank($_POST['dur_max'])) ? NULL : "AND duration BETWEEN '$_POST[dur_min]' AND '$_POST[dur_max]'";
-$order = empty($_POST['order']) ? 'ORDER BY calldate' : "ORDER BY $_POST[order]";
-$sort = empty($_POST['sort']) ? 'DESC' : $_POST['sort'];
+$allowedOrders = ['calldate','clid','src','dst','duration','billsec','disposition','cnum','cnam','did','accountcode','outbound_cnum','outbound_cnam','dst_cnam','userfield'];
+$orderCol = in_array($_POST['order'] ?? '', $allowedOrders) ? $_POST['order'] : 'calldate';
+$order = "ORDER BY `$orderCol`";
+$sort = (strtoupper($_POST['sort'] ?? '') === 'ASC') ? 'ASC' : 'DESC';
 $group = empty($_POST['group']) ? 'day' : $_POST['group'];
 
 //Allow people to search SRC and DSTChannels using existing fields
