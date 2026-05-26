@@ -175,7 +175,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 			$data = $this->FreePBX->Core->getDevice($defaultexten);
 			if(empty($data) || empty($data['description'])) {
 				$data = $this->FreePBX->Core->getUser($defaultexten);
-				$name = isset($data['name']) ? $data['name'] : (isset($data['username']) ? $data['username'] : $_POST['username']);
+				$name = isset($data['name']) ? $data['name'] : (isset($data['username']) ? $data['username'] : (isset($_POST['username']) ? $_POST['username'] : $defaultexten));
 			} else {
 				$name = $data['description'];
 			}
