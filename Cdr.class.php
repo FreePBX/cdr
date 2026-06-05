@@ -545,6 +545,80 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 	}
 
 	/**
+	 * Find external caller ID from another leg of the same linked call (e.g. ring group).
+	 *
+	 * @param string $linkedid
+	 * @param string $excludeUniqueid CDR uniqueid to skip
+	 * @param string $excludeNumber   src/cnum to exclude (ring group, queue, etc.)
+	 * @return array|null
+	 */
+	public function getLinkedInboundCallerId($linkedid, $excludeUniqueid = '', $excludeNumber = '') {
+		if (empty($linkedid)) {
+			return null;
+		}
+		$tables = array_values(array_unique([$this->db_table, 'cdr']));
+		foreach ($tables as $table) {
+			$row = $this->lookupLinkedInboundCallerId($table, $linkedid, $excludeUniqueid, $excludeNumber);
+			if (!empty($row['cnum'])) {
+				return $row;
+			}
+		}
+		return null;
+	}
+
+	private function lookupLinkedInboundCallerId($table, $linkedid, $excludeUniqueid, $excludeNumber) {
+		if ($excludeNumber !== '') {
+			$sql = "SELECT src AS cnum, cnam, clid FROM ".$table." WHERE linkedid = :linkedid AND dst = :groupNum AND src != :groupNum AND src != ''";
+			$params = [':linkedid' => $linkedid, ':groupNum' => $excludeNumber];
+			if ($excludeUniqueid !== '') {
+				$sql .= " AND uniqueid != :uid";
+				$params[':uid'] = $excludeUniqueid;
+			}
+			$sql .= " ORDER BY sequence ASC LIMIT 1";
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute($params);
+			$row = $sth->fetch(\PDO::FETCH_ASSOC);
+			if (!empty($row['cnum'])) {
+				return $row;
+			}
+		}
+
+		$sql = "SELECT cnum, cnam, clid FROM ".$table." WHERE linkedid = :linkedid AND did != '' AND cnum != ''";
+		$params = [':linkedid' => $linkedid];
+		if ($excludeNumber !== '') {
+			$sql .= " AND cnum != :excludeNum";
+			$params[':excludeNum'] = $excludeNumber;
+		}
+		if ($excludeUniqueid !== '') {
+			$sql .= " AND uniqueid != :uid";
+			$params[':uid'] = $excludeUniqueid;
+		}
+		$sql .= " ORDER BY sequence ASC LIMIT 1";
+		$sth = $this->cdrdb->prepare($sql);
+		$sth->execute($params);
+		$row = $sth->fetch(\PDO::FETCH_ASSOC);
+		if (!empty($row['cnum'])) {
+			return $row;
+		}
+
+		$sql = "SELECT cnum, cnam, clid FROM ".$table." WHERE linkedid = :linkedid AND cnum != ''";
+		$params = [':linkedid' => $linkedid];
+		if ($excludeNumber !== '') {
+			$sql .= " AND cnum != :excludeNum";
+			$params[':excludeNum'] = $excludeNumber;
+		}
+		if ($excludeUniqueid !== '') {
+			$sql .= " AND uniqueid != :uid";
+			$params[':uid'] = $excludeUniqueid;
+		}
+		$sql .= " ORDER BY sequence ASC LIMIT 1";
+		$sth = $this->cdrdb->prepare($sql);
+		$sth->execute($params);
+		$row = $sth->fetch(\PDO::FETCH_ASSOC);
+		return $row ?: null;
+	}
+
+	/**
 	* Get the Number of Pages by limit for extension
 	* @param {int} $extension The Extension to lookup
 	* @param {int} $limit=100 The limit of results per page
