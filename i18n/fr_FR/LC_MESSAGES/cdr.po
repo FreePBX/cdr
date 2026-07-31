@@ -1024,6 +1024,10 @@ msgstr "numéro"
 msgid "kicked from conference"
 msgstr "sorti de la conférence"
 
+#: views/cdr_grid.php:418
+msgid "Tip: pick a day on the left (From) calendar first to unlock earlier years on the right (To) calendar. Changing only the year/month dropdown does not do this -- you must click an actual day."
+msgstr "Astuce : cliquez d'abord un jour sur le calendrier de gauche (De) pour débloquer les années antérieures sur le calendrier de droite (À). Changer uniquement le menu déroulant année/mois ne suffit pas -- il faut cliquer un jour précis."
+
 #~ msgid "CSV file"
 #~ msgstr "Fichier CSV"
 

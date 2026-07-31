@@ -69,7 +69,7 @@ function cdr_get_config($engine) {
 	}
 
 	$cdr_mappings = \FreePBX::Cdr()->getAll('cdr_mappings');
-	$enable = (is_array($cdr_mappings) && 	count($cdr_mappings) > 0) ? 'yes' : 'no';
+	$enable = (is_array($cdr_mappings) && count($cdr_mappings) > 0) ? 'yes' : 'no';
 	if($enable == 'yes') {
 		$managerGeneralAddtionalContent = "enabled=". $enable ."\n";
 		\FreePBX::WriteConfig()->writeConfig('cdr_manager_general_additional.conf', $managerGeneralAddtionalContent, true);

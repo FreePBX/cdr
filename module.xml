@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>16.0.50</version>
+	<version>16.0.53</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
@@ -12,7 +12,10 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
-		*16.0.50* FREEI-2806 - Sanitize the  sql  order parameter 
+		*16.0.53* Quick search box (bootstrap-table search field on the CDR grid) now matches every column shown in the grid instead of only src/dst/clid/cnum/cnam: added DID, Account Code, Outbound CallerID, Userfield, App and Disposition, plus Call Date and Duration -- the latter two are stored raw (seconds, full datetime) but displayed formatted client-side, so the search rebuilds the same MM:SS/HH:MM:SS duration formatting and the d/m/Y date format in SQL to match what's actually on screen.
+		*16.0.52* Quick Date Range Picker: capped the year dropdowns at the current year (the underlying library previously defaulted the upper bound to current year + 100, offering nonsensical future years up to 2100/2126); added a tooltip clarifying that reaching earlier years on the right ("To") calendar requires clicking an actual day on the left ("From") calendar first -- changing only its year/month dropdown does not update the underlying start date, so the right calendar's lower bound would not move.
+		*16.0.51* Modernization of the CDR module: rewritten admin grid (bootstrap-table, server-side search/sort/pagination), Quick Date Range Picker with independent per-calendar navigation and month/year dropdowns, Scribe UCP transcription download, GraphQL fetchAllCdrs pagination/date-filter fixes, whitelist-based sort-column validation to prevent SQL injection in the new grid endpoint, and expanded security regression test coverage. Rebased onto 16.0.50; see PR #53 for full discussion.
+		*16.0.50* FREEI-2806 - Sanitize the  sql  order parameter
 		*16.0.49* FREEI-2699 Fixing the issue on GraphQL fetchAllCdrs pagination/sorting 
 		*16.0.48* FREEI-2699 Fixing the issue on GraphQL fetchAllCdrs pagination/sorting 
 		*16.0.47* FREEI-2679 fix:add sanitization for limit POST parameter
