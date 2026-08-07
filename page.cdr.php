@@ -799,7 +799,7 @@ if ( $tot_calls_raw ) {
 		if ($row['cnam'] != '' || $row['cnum'] != '') {
 			cdr_formatCallerID($row['cnam'], $row['cnum'], $row['channel']);
 		} else {
-			cdr_formatSrc(str_replace('"" ','',(string) $row['clid']), str_replace('"" ','',(string) $row['clid']));
+			cdr_formatSrc(str_replace('"" ','',(string) $row['clid']));
 		}
 		cdr_formatCallerID($row['outbound_cnam'], $row['outbound_cnum'], $row['dstchannel']);
 		cdr_formatDID($row['did']);
@@ -1129,12 +1129,12 @@ function cdr_formatChannel($channel) {
 	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $chan_type[0] . "</td>";
 }
 
-function cdr_formatSrc($src, $clid) {
-	if (empty($src)) {
+function cdr_formatSrc($clid) {
+	if (empty($clid)) {
 		echo "<td class=\"record_col\">UNKNOWN</td>";
 	} else {
 		$clid = htmlspecialchars((string) $clid);
-		echo '<td title="' . _("CallerID") . ": " . $clid . '">' . $src . "</td>";
+		echo '<td title="' . _("CallerID") . ": " . $clid . '">' . $clid . "</td>";
 	}
 }
 
