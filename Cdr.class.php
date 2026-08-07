@@ -466,6 +466,23 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 	}
 
 	/**
+	 * Get the Sangoma Connect softphone device provisioned for an extension
+	 * @param string $extension The extension
+	 * @return string The device id, empty when the extension has no Sangoma Connect device
+	 */
+	private function getSangomaConnectDevice($extension) {
+		try {
+			$sql = "SELECT device FROM webrtc_clients WHERE `user` = :user AND module = 'SangomaConnect' LIMIT 1";
+			$sth = $this->FreePBX->Database->prepare($sql);
+			$sth->execute([':user' => $extension]);
+			$device = $sth->fetchColumn();
+		} catch(\Exception) {
+			return '';
+		}
+		return !empty($device) ? (string) $device : '';
+	}
+
+	/**
 	 * Get all CDR call records
 	 * @param int  $extension 		The extension
 	 * @param integer $page      	The page number to start at
@@ -493,14 +510,25 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
       default => 'timestamp',
   };
 		$order = ($order == 'desc') ? 'desc' : 'asc';
+		//Sangoma Connect registers a softphone as its own device (98987654 for extension 987654),
+		//so calls it handled are logged against that channel instead of the extension
+		$scdWhere = '';
+		$scdParams = [];
+		if(empty($webrtcPrefix)) {
+			$scdDevice = $this->getSangomaConnectDevice($defaultExtension);
+			if(!empty($scdDevice)) {
+				$scdWhere = " OR dstchannel LIKE :scdchan OR channel LIKE :scdchan OR src = :scddevice OR dst = :scddevice OR cnum = :scddevice";
+				$scdParams = [':scdchan' => '%/'.$scdDevice.'-%', ':scddevice' => $scdDevice];
+			}
+		}
 		if(!empty($search)) {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv$scdWhere) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute([':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension]);
+			$sth->execute([':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension] + $scdParams);
 		} else {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv$scdWhere) ORDER by $orderby $order LIMIT $start,$end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute([':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension]);
+			$sth->execute([':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension] + $scdParams);
 		}
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		$scribeModuleStatus = false;
