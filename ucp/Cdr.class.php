@@ -24,7 +24,6 @@
 */
 namespace UCP\Modules;
 use \UCP\Modules as Modules;
-#[\AllowDynamicProperties]
 class Cdr extends Modules{
 	protected $module = 'Cdr';
 	private array $activeConferences = [];
@@ -32,9 +31,13 @@ class Cdr extends Modules{
 	private int $break = 5;
 	private $user = null;
 	private $userId = false;
+	protected $Modules = null;
+	protected $cdr = null;
+	protected $UCP = null;
 
 	function __construct($Modules) {
 		$this->Modules = $Modules;
+		$this->UCP = $this->Modules->UCP;
 		$this->cdr = $this->UCP->FreePBX->Cdr;
 		$this->user = $this->UCP->User->getUser();
 		$this->userId = $this->user ? $this->user["id"] : false;
