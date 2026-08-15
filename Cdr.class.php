@@ -26,7 +26,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 
 	public function __construct($freepbx = null) {
 		if ($freepbx == null) {
-			throw new \Exception("Not given a FreePBX Object");
+			throw new \Exception(_("Not given a FreePBX Object"));
 		}
 
 		$this->FreePBX = $freepbx;
@@ -116,7 +116,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 			} elseif (!empty($amp_conf['datasource'])) {
 				$dsn = "$engine:".$amp_conf['datasource'];
 			} else {
-				throw new \Exception("Datasource set to sqlite, but no cdrdatasource or datasource provided");
+				throw new \Exception(_("Datasource set to sqlite, but no cdrdatasource or datasource provided"));
 			}
 			$user = "";
 			$pass = "";
@@ -133,7 +133,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		try {
 			$this->cdrdb = new \Database($dsn, $user, $pass);
 		} catch(\Exception $e) {
-			throw new \Exception('Unable to connect to CDR Database');
+			throw new \Exception(_('Unable to connect to CDR Database'));
 		}
 		//Set the CDR session timezone to GMT if CDRUSEGMT is true
 		if (isset($cdr["CDRUSEGMT"]) && $cdr["CDRUSEGMT"]) {
@@ -374,6 +374,10 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 			case "gethtml5":
 			case "playback":
 			case "download":
+			case "getJSON":
+			case "export_csv":
+			case "getCelEvents":
+			case "getGraphData":
 				return true;
 			break;
 		}
@@ -406,6 +410,18 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 				}
 				return array("status" => false);
 			break;
+			case "getJSON":
+				return $this->getCdrData();
+			break;
+			case "export_csv":
+				return $this->exportCsv();
+			break;
+			case "getCelEvents":
+				return $this->getCelEvents();
+			break;
+			case "getGraphData":
+				return $this->getGraphData();
+			break;
 		}
 	}
 
@@ -415,10 +431,10 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		} else {
 			$this->checkCdrTrigger();
 		}
-		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND (uniqueid = :uid OR linkedid = :uid) LIMIT 1";
+		$sql = "SELECT * FROM ".$this->db_table." WHERE recordingfile != '' AND (uniqueid = :uid OR linkedid = :uid) LIMIT 1";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
-			$sth->execute(["uid" => str_replace("_",".",(string) $rid)]);
+			$sth->execute(array("uid" => str_replace("_",".",(string) $rid)));
 			$recording = $sth->fetch(\PDO::FETCH_ASSOC);
 		} catch(\Exception $e) {
 			return [];
@@ -437,21 +453,33 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 	 * @param bool $generateMedia Whether to generate HTML assets or not
 	 */
 	public function getRecordByIDExtension($rid,$ext) {
-		$sql = "SELECT * FROM ".$this->db_table." WHERE NOT(recordingfile = '') AND uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :chan OR channel LIKE :chan)";
+		$sql = "SELECT * FROM ".$this->db_table." WHERE recordingfile != '' AND uniqueid = :uid AND (src = :ext OR dst = :ext OR src = :vmext OR dst = :vmext OR cnum = :ext OR cnum = :vmext OR dstchannel LIKE :chan OR channel LIKE :chan)";
 		$sth = $this->cdrdb->prepare($sql);
 		try {
-			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, ':chan' => '%/'.$ext.'-%'));
+			$sth->execute(array("uid" => str_replace("_",".",$rid), "ext" => $ext, "vmext" => "vmu".$ext, "chan" => '%/'.$ext.'-%'));
 			$recording = $sth->fetch(\PDO::FETCH_ASSOC);
 		} catch(\Exception $e) {
 			return false;
 		}
-		$recording['recordingfile'] = $this->processPath($recording['recordingfile']);
+		if(!is_array($recording)) {
+			$recording = array();
+		}
+		$recording['recordingfile'] = isset($recording['recordingfile']) ? $this->processPath($recording['recordingfile']) : '';
 		return $recording;
 	}
 
 	public function getAllCalls($page=1,$orderby='date',$order='desc',$search='',$limit=100) {
 		$start = ($limit * ($page - 1));
 		$end = $limit;
+		
+		// Parameter validation and sanitization
+		$page = (int)$page;
+		$limit = (int)$limit;
+		$start = ($limit * ($page - 1));
+		$end = $limit;
+		
+		// Whitelist for orderby
+		$allowed_orderby = array('clid', 'duration', 'timestamp');
 		switch($orderby) {
 			case 'description':
 				$orderby = 'clid';
@@ -464,14 +492,22 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 				$orderby = 'timestamp';
 			break;
 		}
-		$order = ($order == 'desc') ? 'desc' : 'asc';
+		
+		// Order validation
+		$order = (strtolower($order) == 'desc') ? 'DESC' : 'ASC';
+		
 		if(!empty($search)) {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER BY ".$orderby." ".$order." LIMIT :start, :end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':search' => '%'.$search.'%'));
+			$sth->bindValue(':search', '%'.$search.'%', \PDO::PARAM_STR);
+			$sth->bindValue(':start', $start, \PDO::PARAM_INT);
+			$sth->bindValue(':end', $end, \PDO::PARAM_INT);
+			$sth->execute();
 		} else {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." ORDER BY ".$orderby." ".$order." LIMIT :start, :end";
 			$sth = $this->cdrdb->prepare($sql);
+			$sth->bindValue(':start', $start, \PDO::PARAM_INT);
+			$sth->bindValue(':end', $end, \PDO::PARAM_INT);
 			$sth->execute();
 		}
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
@@ -498,8 +534,14 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		if (!empty($webrtcPrefix)) {
 			$extension = $webrtcPrefix . $extension;
 		}
+		
+		// Parameter validation and sanitization
+		$page = (int)$page;
+		$limit = (int)$limit;
 		$start = ($limit * ($page - 1));
 		$end = $limit;
+		
+		// Whitelist for orderby
 		switch($orderby) {
 			case 'description':
 				$orderby = 'clid';
@@ -512,15 +554,31 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 				$orderby = 'timestamp';
 			break;
 		}
-		$order = ($order == 'desc') ? 'desc' : 'asc';
+		
+		// Order validation
+		$order = (strtolower($order) == 'desc') ? 'DESC' : 'ASC';
+		
 		if(!empty($search)) {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) AND (clid LIKE :search OR src LIKE :search OR dst LIKE :search) ORDER BY ".$orderby." ".$order." LIMIT :start, :end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':search' => '%'.$search.'%', ':extensionv' => 'vmu'.$extension));
+			$sth->bindValue(':chan', '%/'.$extension.'-%', \PDO::PARAM_STR);
+			$sth->bindValue(':dst_channel', '%-'.$defaultExtension.'@%', \PDO::PARAM_STR);
+			$sth->bindValue(':extension', $extension, \PDO::PARAM_STR);
+			$sth->bindValue(':search', '%'.$search.'%', \PDO::PARAM_STR);
+			$sth->bindValue(':extensionv', 'vmu'.$extension, \PDO::PARAM_STR);
+			$sth->bindValue(':start', $start, \PDO::PARAM_INT);
+			$sth->bindValue(':end', $end, \PDO::PARAM_INT);
+			$sth->execute();
 		} else {
-			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER by $orderby $order LIMIT $start,$end";
+			$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->db_table." WHERE (dstchannel LIKE :chan OR dstchannel LIKE :dst_channel OR channel LIKE :chan OR src = :extension OR dst = :extension OR src = :extensionv OR dst = :extensionv OR cnum = :extension OR cnum = :extensionv) ORDER BY ".$orderby." ".$order." LIMIT :start, :end";
 			$sth = $this->cdrdb->prepare($sql);
-			$sth->execute(array(':chan' => '%/'.$extension.'-%', ':dst_channel' => '%-'.$defaultExtension.'@%', ':extension' => $extension, ':extensionv' => 'vmu'.$extension));
+			$sth->bindValue(':chan', '%/'.$extension.'-%', \PDO::PARAM_STR);
+			$sth->bindValue(':dst_channel', '%-'.$defaultExtension.'@%', \PDO::PARAM_STR);
+			$sth->bindValue(':extension', $extension, \PDO::PARAM_STR);
+			$sth->bindValue(':extensionv', 'vmu'.$extension, \PDO::PARAM_STR);
+			$sth->bindValue(':start', $start, \PDO::PARAM_INT);
+			$sth->bindValue(':end', $end, \PDO::PARAM_INT);
+			$sth->execute();
 		}
 		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
 		$scribeModuleStatus = false;
@@ -639,6 +697,7 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function getGraphQLCalls($after, $first, $before, $last, $orderby, $startDate, $endDate) {
+		// Parameter validation and sanitization
 		switch($orderby) {
 				case 'duration':
 						$orderby = 'duration';
@@ -650,12 +709,27 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		}
 		$first = !empty($first) ? (int) $first : 5;
 		$after = !empty($after) ? (int) $after : 0;
-		$whereClause = " ";
+		
+		$whereClause = "";
+		$params = array();
+		
 		if((isset($startDate) && !empty($startDate)) && (isset($endDate) && !empty($endDate))){
-			$whereClause = " where DATE(calldate) BETWEEN '".$startDate."' AND '".$endDate."'";
+			// Date validation to prevent SQL injection
+			$startDate = preg_replace('/[^0-9\-]/', '', $startDate);
+			$endDate = preg_replace('/[^0-9\-]/', '', $endDate);
+			$whereClause = " WHERE DATE(calldate) BETWEEN :startDate AND :endDate";
+			$params[':startDate'] = $startDate;
+			$params[':endDate'] = $endDate;
 		}
-		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->getDbTable()." ".$whereClause." Order By ".$orderby." DESC LIMIT :limitValue OFFSET :afterValue";
+		
+		$sql = "SELECT *, UNIX_TIMESTAMP(calldate) As timestamp FROM ".$this->getDbTable()." ".$whereClause." ORDER BY ".$orderby." DESC LIMIT :limitValue OFFSET :afterValue";
 		$sth = $this->cdrdb->prepare($sql);
+		
+		// Bind date parameters if present
+		foreach($params as $key => $value) {
+			$sth->bindValue($key, $value, \PDO::PARAM_STR);
+		}
+		
 		$sth->bindValue(':limitValue', (int) trim($first), \PDO::PARAM_INT);
 		$sth->bindValue(':afterValue', (int) trim($after), \PDO::PARAM_INT);
 		$sth->execute();
@@ -841,6 +915,534 @@ class Cdr extends \FreePBX_Helpers implements \BMO {
 		}
 	}
 
+	/**
+	 * Get CDR data for bootstrap table with advanced search
+	 * @return array CDR data formatted for bootstrap table
+	 */
+	public function getCdrData() {
+		// Build WHERE clause based on search parameters
+		$where_conditions = array();
+		$params = array();
+		
+		// The Quick Date Range Picker (startdate/enddate) and the Advanced Search
+		// Options From/To Date fields (from_*/to_*) are two separate UI controls
+		// that both filter on calldate. Only one of them should ever apply: if
+		// they were both ANDed together, a stale value left over in the other
+		// control (e.g. the picker's default "last 30 days") would silently
+		// narrow or empty out results the user never asked to restrict.
+		$hasAdvancedDateFilter = !empty($_REQUEST['from_day']) || !empty($_REQUEST['from_month']) || !empty($_REQUEST['from_year'])
+			|| !empty($_REQUEST['to_day']) || !empty($_REQUEST['to_month']) || !empty($_REQUEST['to_year']);
 
+		if ($hasAdvancedDateFilter) {
+			$from_date = $this->buildDateFromComponents($_REQUEST, 'from');
+			if ($from_date) {
+				$where_conditions[] = "calldate >= :from_date";
+				$params[':from_date'] = $from_date;
+			}
+
+			$to_date = $this->buildDateFromComponents($_REQUEST, 'to');
+			if ($to_date) {
+				$where_conditions[] = "calldate <= :to_date";
+				$params[':to_date'] = $to_date;
+			}
+		} elseif (!empty($_REQUEST['startdate']) && !empty($_REQUEST['enddate'])) {
+			$where_conditions[] = "calldate BETWEEN :startdate AND :enddate";
+			$params[':startdate'] = $_REQUEST['startdate'];
+			$params[':enddate'] = $_REQUEST['enddate'];
+		}
+		
+		// Search fields with modifiers
+		$search_fields = array(
+			'cnum' => 'src',
+			'cnam' => 'cnam', 
+			'outbound_cnum' => 'outbound_cnum',
+			'did' => 'did',
+			'dst' => 'dst',
+			'dst_cnam' => 'dst_cnam',
+			'userfield' => 'userfield',
+			'accountcode' => 'accountcode'
+		);
+		
+		foreach ($search_fields as $param => $field) {
+			if (!empty($_REQUEST[$param])) {
+				$modifier = !empty($_REQUEST[$param . '_modifier']) ? $_REQUEST[$param . '_modifier'] : 'contains';
+				$condition = $this->buildSearchCondition($field, $_REQUEST[$param], $modifier);
+				if ($condition) {
+					$where_conditions[] = $condition['sql'];
+					$params = array_merge($params, $condition['params']);
+				}
+			}
+		}
+		
+		// Duration range filter
+		if (!empty($_REQUEST['duration_min'])) {
+			$where_conditions[] = "duration >= :duration_min";
+			$params[':duration_min'] = (int)$_REQUEST['duration_min'];
+		}
+		if (!empty($_REQUEST['duration_max'])) {
+			$where_conditions[] = "duration <= :duration_max";
+			$params[':duration_max'] = (int)$_REQUEST['duration_max'];
+		}
+		
+		// Disposition filter
+		if (!empty($_REQUEST['disposition'])) {
+			$where_conditions[] = "disposition = :disposition";
+			$params[':disposition'] = $_REQUEST['disposition'];
+		}
+		
+		// Report type filter
+		if (!empty($_REQUEST['report_type'])) {
+			$report_types = explode(',', $_REQUEST['report_type']);
+			$type_conditions = array();
+			
+			foreach ($report_types as $type) {
+				switch ($type) {
+					case 'inbound':
+						$type_conditions[] = "(did IS NOT NULL AND did != '')";
+						break;
+					case 'outbound':
+						$type_conditions[] = "(did IS NULL OR did = '') AND src NOT LIKE 's%'";
+						break;
+					case 'internal':
+						$type_conditions[] = "src LIKE 's%' OR (src REGEXP '^[0-9]+$' AND dst REGEXP '^[0-9]+$' AND (did IS NULL OR did = ''))";
+						break;
+				}
+			}
+			
+			if (!empty($type_conditions)) {
+				$where_conditions[] = '(' . implode(' OR ', $type_conditions) . ')';
+			}
+		}
+		
+		// Basic search filter (from bootstrap table search). Match every
+		// column shown in the grid (views/cdr_grid.php), not just the first
+		// few, so the quick search box behaves like users expect instead of
+		// silently missing hits on DID, account code, etc.
+		//
+		// Duration and Call Date are stored raw (seconds / full datetime)
+		// but displayed formatted client-side (assets/js/cdr.js), so typing
+		// what's on screen (e.g. "00:03") would never match the raw column.
+		// Rebuild the same formatting in SQL and match against that too:
+		// - duration: mirrors the niceDuration logic below (00:SS / MM:SS /
+		//   HH:MM:SS depending on length).
+		// - calldate: raw stored value plus the French d/m/Y display format
+		//   used by toLocaleString() in this fr_FR deployment.
+		if (!empty($_REQUEST['search'])) {
+			$search = '%' . $_REQUEST['search'] . '%';
+			$duration_display = "CASE
+				WHEN duration > 3599 THEN CONCAT(LPAD(FLOOR(duration/3600),2,'0'),':',LPAD(FLOOR((duration % 3600)/60),2,'0'),':',LPAD(duration % 60,2,'0'))
+				WHEN duration > 59 THEN CONCAT(LPAD(FLOOR(duration/60),2,'0'),':',LPAD(duration % 60,2,'0'))
+				ELSE CONCAT('00:',LPAD(duration % 60,2,'0'))
+			END";
+			$where_conditions[] = "(src LIKE :search OR dst LIKE :search OR clid LIKE :search OR cnum LIKE :search OR cnam LIKE :search
+				OR outbound_cnum LIKE :search OR did LIKE :search OR dst_cnam LIKE :search
+				OR userfield LIKE :search OR accountcode LIKE :search OR lastapp LIKE :search OR disposition LIKE :search
+				OR ($duration_display) LIKE :search
+				OR calldate LIKE :search
+				OR DATE_FORMAT(calldate, '%d/%m/%Y') LIKE :search
+				OR DATE_FORMAT(calldate, '%d/%m/%Y %H:%i:%s') LIKE :search
+				OR DATE_FORMAT(calldate, '%H:%i:%s') LIKE :search)";
+			$params[':search'] = $search;
+		}
+		
+		// Build WHERE clause
+		$where_clause = '';
+		if (!empty($where_conditions)) {
+			$where_clause = 'WHERE ' . implode(' AND ', $where_conditions);
+		}
+		
+		// Group by handling
+		$group_by = '';
+		$select_fields = "calldate, clid, src, dst, dcontext, channel, dstchannel, lastapp, lastdata, 
+				duration, billsec, disposition, amaflags, accountcode, uniqueid, userfield, did,
+				recordingfile, cnum, cnam, outbound_cnum, outbound_cnam, dst_cnam, linkedid, peeraccount, sequence,
+				UNIX_TIMESTAMP(calldate) as timestamp";
+		
+		if (!empty($_REQUEST['group_by'])) {
+			$group_field = $_REQUEST['group_by'];
+			switch ($group_field) {
+				case 'date':
+					$group_by = 'GROUP BY DATE(calldate)';
+					$select_fields = "DATE(calldate) as call_date, COUNT(*) as call_count, SUM(duration) as total_duration, " . $select_fields;
+					break;
+				case 'hour':
+					$group_by = 'GROUP BY DATE(calldate), HOUR(calldate)';
+					$select_fields = "DATE(calldate) as call_date, HOUR(calldate) as call_hour, COUNT(*) as call_count, SUM(duration) as total_duration, " . $select_fields;
+					break;
+				case 'day_of_week':
+					$group_by = 'GROUP BY DAYOFWEEK(calldate)';
+					$select_fields = "DAYNAME(calldate) as day_name, COUNT(*) as call_count, SUM(duration) as total_duration, " . $select_fields;
+					break;
+				case 'month':
+					$group_by = 'GROUP BY YEAR(calldate), MONTH(calldate)';
+					$select_fields = "YEAR(calldate) as call_year, MONTHNAME(calldate) as call_month, COUNT(*) as call_count, SUM(duration) as total_duration, " . $select_fields;
+					break;
+				default:
+					if (in_array($group_field, array('accountcode', 'userfield', 'src', 'dst', 'did', 'disposition', 'lastapp', 'channel'))) {
+						$group_by = "GROUP BY $group_field";
+						$select_fields = "$group_field, COUNT(*) as call_count, SUM(duration) as total_duration, " . $select_fields;
+					}
+					break;
+			}
+		}
+		
+		// Order and limit
+		// Whitelist for sort column to prevent SQL injection (FREEI-2806)
+		$allowed_orderby = array('calldate', 'clid', 'src', 'dst', 'duration', 'billsec', 'disposition', 'cnum', 'cnam', 'did', 'accountcode', 'outbound_cnum', 'outbound_cnam', 'dst_cnam', 'userfield', 'lastapp');
+		$order = (!empty($_REQUEST['sort']) && in_array($_REQUEST['sort'], $allowed_orderby, true)) ? $_REQUEST['sort'] : 'calldate';
+		$order_dir = !empty($_REQUEST['order']) && $_REQUEST['order'] == 'asc' ? 'ASC' : 'DESC';
+		
+		// Result limit
+		$limit = 100; // default
+		if (!empty($_REQUEST['result_limit'])) {
+			$limit = (int)$_REQUEST['result_limit'];
+			if ($limit == 0) $limit = 999999; // No limit
+		} elseif (!empty($_REQUEST['limit'])) {
+			$limit = (int)$_REQUEST['limit'];
+		}
+		
+		$offset = !empty($_REQUEST['offset']) ? (int)$_REQUEST['offset'] : 0;
+		
+		// Main query
+		$sql = "SELECT $select_fields
+				FROM " . $this->db_table . " 
+				$where_clause 
+				$group_by
+				ORDER BY $order $order_dir 
+				LIMIT $limit OFFSET $offset";
+		
+		$sth = $this->cdrdb->prepare($sql);
+		$sth->execute($params);
+		$calls = $sth->fetchAll(\PDO::FETCH_ASSOC);
+		
+		// Count total records
+		$count_sql = "SELECT COUNT(*) as total FROM " . $this->db_table . " $where_clause";
+		if (!empty($group_by)) {
+			$count_sql = "SELECT COUNT(*) as total FROM (SELECT 1 FROM " . $this->db_table . " $where_clause $group_by) as grouped";
+		}
+		$count_sth = $this->cdrdb->prepare($count_sql);
+		$count_sth->execute($params);
+		$total = $count_sth->fetchColumn();
+		
+		// Format data for bootstrap table
+		$ret = array();
+		foreach ($calls as $call) {
+			// Process recording file path
+			$call['recordingfile'] = $this->processPath($call['recordingfile']);
+			
+			// Format duration
+			if ($call['duration'] > 59) {
+				$min = floor($call['duration'] / 60);
+				if ($min > 59) {
+					$call['niceDuration'] = sprintf('%02d:%02d:%02d', 
+						floor($call['duration'] / 3600), 
+						floor(($call['duration'] % 3600) / 60), 
+						$call['duration'] % 60);
+				} else {
+					$call['niceDuration'] = sprintf('%02d:%02d', 
+						floor($call['duration'] / 60), 
+						$call['duration'] % 60);
+				}
+			} else {
+				$call['niceDuration'] = sprintf('00:%02d', $call['duration']);
+			}
+			
+			$call['niceUniqueid'] = str_replace('.', '_', $call['uniqueid']);
+			$ret[] = $call;
+		}
+		
+		return array(
+			'total' => $total,
+			'rows' => $ret
+		);
+	}
+	
+	/**
+	 * Build date from component fields
+	 */
+	private function buildDateFromComponents($request, $prefix) {
+		$day = !empty($request[$prefix . '_day']) ? $request[$prefix . '_day'] : '01';
+		$month = !empty($request[$prefix . '_month']) ? $request[$prefix . '_month'] : '01';
+		$year = !empty($request[$prefix . '_year']) ? $request[$prefix . '_year'] : date('Y');
+		$hour = !empty($request[$prefix . '_hour']) ? $request[$prefix . '_hour'] : '00';
+		
+		if ($prefix == 'to' && empty($request[$prefix . '_hour'])) {
+			$hour = '23';
+			$minute = '59';
+			$second = '59';
+		} else {
+			$minute = '00';
+			$second = '00';
+		}
+		
+		return "$year-$month-$day $hour:$minute:$second";
+	}
+	
+	/**
+	 * Build search condition based on modifier
+	 */
+	private function buildSearchCondition($field, $value, $modifier) {
+		$param_name = ':search_' . $field . '_' . uniqid();
+		
+		switch ($modifier) {
+			case 'not':
+				return array(
+					'sql' => "$field NOT LIKE $param_name",
+					'params' => array($param_name => '%' . $value . '%')
+				);
+			case 'begins':
+				return array(
+					'sql' => "$field LIKE $param_name",
+					'params' => array($param_name => $value . '%')
+				);
+			case 'ends':
+				return array(
+					'sql' => "$field LIKE $param_name",
+					'params' => array($param_name => '%' . $value)
+				);
+			case 'exactly':
+				return array(
+					'sql' => "$field = $param_name",
+					'params' => array($param_name => $value)
+				);
+			case 'contains':
+			default:
+				return array(
+					'sql' => "$field LIKE $param_name",
+					'params' => array($param_name => '%' . $value . '%')
+				);
+		}
+	}
+	
+	/**
+	 * Export CDR data as CSV - matching original CDR module format exactly
+	 */
+	public function exportCsv() {
+		// Get the same data as the grid
+		$data = $this->getCdrData();
+		
+		// Set headers for CSV download
+		header('Content-Type: text/csv; charset=utf-8');
+		header('Content-Disposition: attachment; filename=cdr_export_' . date('Y-m-d_H-i-s') . '.csv');
+		
+		$output = fopen('php://output', 'w');
+		
+		// CSV headers - matching original CDR module format exactly
+		$headers = array(
+			'calldate', 'clid', 'src', 'dst', 'dcontext', 'channel', 'dstchannel', 'lastapp', 'lastdata',
+			'duration', 'billsec', 'disposition', 'amaflags', 'accountcode', 'uniqueid', 'userfield', 'did',
+			'cnum', 'cnam', 'outbound_cnum', 'outbound_cnam', 'dst_cnam', 'recordingfile', 'linkedid', 'peeraccount', 'sequence'
+		);
+		
+		fputcsv($output, $headers);
+		
+		// CSV data - matching original CDR module format exactly
+		foreach ($data['rows'] as $row) {
+			$csv_row = array(
+				$row['calldate'], $row['clid'], $row['src'], $row['dst'], $row['dcontext'],
+				$row['channel'], $row['dstchannel'], $row['lastapp'], $row['lastdata'],
+				$row['duration'], $row['billsec'], $row['disposition'], $row['amaflags'],
+				$row['accountcode'], $row['uniqueid'], $row['userfield'], $row['did'],
+				$row['cnum'], $row['cnam'], $row['outbound_cnum'], $row['outbound_cnam'],
+				$row['dst_cnam'], basename($row['recordingfile']), $row['linkedid'], 
+				$row['peeraccount'], $row['sequence']
+			);
+			fputcsv($output, $csv_row);
+		}
+		
+		fclose($output);
+		exit;
+	}
+
+	/**
+	 * Get CEL events for a specific call
+	 * @return array CEL events data
+	 */
+	public function getCelEvents() {
+		if (empty($_REQUEST['uniqueid'])) {
+			return array('status' => false, 'message' => _('No uniqueid provided'));
+		}
+		
+		$uniqueid = $_REQUEST['uniqueid'];
+		
+		// Check if CEL is enabled
+		$cel_config = $this->FreePBX->Config()->get('CEL_ENABLED');
+		$cel_enabled = !empty($cel_config) && $cel_config;
+		if (!$cel_enabled) {
+			return array('status' => false, 'message' => _('CEL is not enabled'));
+		}
+		
+		try {
+			// Query CEL table for events related to this call
+			$sql = "SELECT eventtime, eventtype, channame, appname, appdata, amaflags, accountcode, uniqueid, linkedid, peer 
+					FROM asteriskcdrdb.cel 
+					WHERE uniqueid = :uniqueid OR linkedid = :uniqueid 
+					ORDER BY eventtime ASC";
+			
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute(array(':uniqueid' => $uniqueid));
+			$events = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			
+			if (empty($events)) {
+				return array('status' => false, 'message' => _('No CEL events found for this call'));
+			}
+			
+			// Format the events for display
+			foreach ($events as &$event) {
+				// Format the event time
+				if ($event['eventtime']) {
+					$event['eventtime'] = date('Y-m-d H:i:s', strtotime($event['eventtime']));
+				}
+				
+				// Clean up empty fields
+				$event['channame'] = $event['channame'] ?: '';
+				$event['appname'] = $event['appname'] ?: '';
+				$event['appdata'] = $event['appdata'] ?: '';
+			}
+			
+			return array(
+				'status' => true,
+				'events' => $events
+			);
+			
+		} catch (\Exception $e) {
+			return array('status' => false, 'message' => 'Error retrieving CEL events: ' . $e->getMessage());
+		}
+	}
+
+	/**
+	 * Get graph data for CanvasJS charts
+	 * @return array Graph data formatted for CanvasJS
+	 */
+	public function getGraphData() {
+		if (empty($_REQUEST['params'])) {
+			return array('status' => false, 'message' => _('No parameters provided'));
+		}
+		
+		$params_json = $_REQUEST['params'];
+		$params = json_decode($params_json, true);
+		
+		if (!$params || empty($params['graph_type'])) {
+			return array('status' => false, 'message' => _('Invalid parameters or missing graph type'));
+		}
+		
+		$graph_type = $params['graph_type'];
+		
+		// Build WHERE clause using the same logic as getCdrData
+		$where_conditions = array();
+		$sql_params = array();
+		
+		// Date range filters
+		if (!empty($params['startdate']) && !empty($params['enddate'])) {
+			$where_conditions[] = "calldate BETWEEN :startdate AND :enddate";
+			$sql_params[':startdate'] = $params['startdate'];
+			$sql_params[':enddate'] = $params['enddate'];
+		}
+		
+		// Advanced date/time filters
+		if (!empty($params['from_day']) || !empty($params['from_month']) || !empty($params['from_year'])) {
+			$from_date = $this->buildDateFromComponents($params, 'from');
+			if ($from_date) {
+				$where_conditions[] = "calldate >= :from_date";
+				$sql_params[':from_date'] = $from_date;
+			}
+		}
+		
+		if (!empty($params['to_day']) || !empty($params['to_month']) || !empty($params['to_year'])) {
+			$to_date = $this->buildDateFromComponents($params, 'to');
+			if ($to_date) {
+				$where_conditions[] = "calldate <= :to_date";
+				$sql_params[':to_date'] = $to_date;
+			}
+		}
+		
+		// Other filters (disposition, report type, etc.)
+		if (!empty($params['disposition'])) {
+			$where_conditions[] = "disposition = :disposition";
+			$sql_params[':disposition'] = $params['disposition'];
+		}
+		
+		// Build WHERE clause
+		$where_clause = '';
+		if (!empty($where_conditions)) {
+			$where_clause = 'WHERE ' . implode(' AND ', $where_conditions);
+		}
+		
+		try {
+			$chartData = array();
+			
+			switch ($graph_type) {
+				case 'calls_by_hour':
+					$sql = "SELECT HOUR(calldate) as hour, COUNT(*) as call_count 
+							FROM " . $this->db_table . " 
+							$where_clause 
+							GROUP BY HOUR(calldate) 
+							ORDER BY hour";
+					break;
+					
+				case 'calls_by_day':
+					$sql = "SELECT DATE(calldate) as call_date, COUNT(*) as call_count 
+							FROM " . $this->db_table . " 
+							$where_clause 
+							GROUP BY DATE(calldate) 
+							ORDER BY call_date DESC 
+							LIMIT 30";
+					break;
+					
+				case 'calls_by_disposition':
+					$sql = "SELECT disposition, COUNT(*) as call_count 
+							FROM " . $this->db_table . " 
+							$where_clause 
+							GROUP BY disposition 
+							ORDER BY call_count DESC";
+					break;
+					
+				case 'duration_by_hour':
+					$sql = "SELECT HOUR(calldate) as hour, SUM(duration) as total_duration 
+							FROM " . $this->db_table . " 
+							$where_clause 
+							GROUP BY HOUR(calldate) 
+							ORDER BY hour";
+					break;
+					
+				case 'calls_by_source':
+					$sql = "SELECT src, COUNT(*) as call_count 
+							FROM " . $this->db_table . " 
+							$where_clause 
+							GROUP BY src 
+							ORDER BY call_count DESC 
+							LIMIT 10";
+					break;
+					
+				case 'calls_by_destination':
+					$sql = "SELECT dst, COUNT(*) as call_count 
+							FROM " . $this->db_table . " 
+							$where_clause 
+							GROUP BY dst 
+							ORDER BY call_count DESC 
+							LIMIT 10";
+					break;
+					
+				default:
+					return array('status' => false, 'message' => _('Invalid graph type'));
+			}
+			
+			$sth = $this->cdrdb->prepare($sql);
+			$sth->execute($sql_params);
+			$chartData = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			
+			if (empty($chartData)) {
+				return array('status' => false, 'message' => _('No data found for the selected criteria'));
+			}
+			
+			return array(
+				'status' => true,
+				'chartData' => $chartData
+			);
+			
+		} catch (\Exception $e) {
+			return array('status' => false, 'message' => _('Error retrieving graph data: ') . $e->getMessage());
+		}
+	}
 
 }

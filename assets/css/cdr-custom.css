@@ -1,0 +1,639 @@
+/* FreePBX CDR Module Custom Styles */
+
+/* Fix checkbox-inline color to use FreePBX green (#4A906E) */
+.checkbox-inline input[type="checkbox"]:checked + label::before,
+.checkbox-inline input[type="checkbox"]:checked::before {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+}
+
+.checkbox-inline input[type="checkbox"]:checked {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+}
+
+/* Bootstrap checkbox styling override */
+.checkbox-group .checkbox-inline input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.checkbox-group .checkbox-inline input[type="checkbox"]:checked {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+}
+
+/* Specific targeting for Report Type checkboxes */
+input[name="report_type[]"]:checked,
+input[name="report_type[]"]:checked + label::before,
+input[name="report_type[]"]:checked::before {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    color: #fff !important;
+}
+
+/* Force all checkboxes in advanced search form to use FreePBX green */
+#advanced-search-form input[type="checkbox"]:checked,
+#advanced-search-form input[type="checkbox"]:checked + label::before,
+#advanced-search-form input[type="checkbox"]:checked::before,
+#advanced-search-form .checkbox input[type="checkbox"]:checked,
+#advanced-search-form .checkbox-inline input[type="checkbox"]:checked {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    color: #fff !important;
+}
+
+/* Override Bootstrap default checkbox colors */
+.checkbox input[type="checkbox"]:checked,
+.checkbox-inline input[type="checkbox"]:checked,
+input[type="checkbox"]:checked {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+}
+
+/* Ensure checkbox focus states also use FreePBX green */
+input[type="checkbox"]:focus,
+.checkbox input[type="checkbox"]:focus,
+.checkbox-inline input[type="checkbox"]:focus {
+    border-color: #4A906E !important;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 110, 0.25) !important;
+}
+
+/* Very specific targeting for the Report Type checkbox structure */
+.checkbox-group .checkbox-inline input[type="checkbox"]:checked,
+.checkbox-group label.checkbox-inline input[type="checkbox"]:checked {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    accent-color: #4A906E !important;
+}
+
+/* Modern browsers checkbox accent color override */
+input[type="checkbox"] {
+    accent-color: #4A906E !important;
+}
+
+/* Force override for any remaining blue checkboxes */
+input[type="checkbox"]:checked {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    accent-color: #4A906E !important;
+}
+
+/* Bootstrap 3 specific checkbox overrides */
+.checkbox-inline input[type="checkbox"]:checked {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    accent-color: #4A906E !important;
+}
+
+/* Additional specificity for stubborn checkboxes */
+div.checkbox-group label.checkbox-inline input[name="report_type[]"]:checked {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    accent-color: #4A906E !important;
+}
+
+/* Date range picker custom styling to match FreePBX theme */
+.daterangepicker {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.daterangepicker .ranges li.active,
+.daterangepicker .ranges li:hover {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    color: #fff !important;
+}
+
+.daterangepicker .ranges li {
+    color: #333;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 3px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.daterangepicker .ranges li:hover {
+    background-color: #4A906E !important;
+    color: #fff !important;
+}
+
+/* Calendar styling */
+.daterangepicker .calendar-table {
+    background-color: #fff;
+}
+
+.daterangepicker .calendar-table th,
+.daterangepicker .calendar-table td {
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    min-width: 32px;
+    width: 32px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.daterangepicker .calendar-table th {
+    color: #999;
+    font-weight: bold;
+    background-color: #f5f5f5;
+}
+
+.daterangepicker .calendar-table td.available:hover,
+.daterangepicker .calendar-table th.available:hover {
+    background-color: #eee;
+    border-color: transparent;
+    color: inherit;
+}
+
+.daterangepicker .calendar-table td.in-range {
+    background-color: #e6f3e6 !important;
+    border-color: transparent;
+    color: #333;
+    border-radius: 0;
+}
+
+.daterangepicker .calendar-table td.start-date {
+    border-radius: 4px 0 0 4px;
+}
+
+.daterangepicker .calendar-table td.end-date {
+    border-radius: 0 4px 4px 0;
+}
+
+.daterangepicker .calendar-table td.start-date.end-date {
+    border-radius: 4px;
+}
+
+.daterangepicker .calendar-table td.active,
+.daterangepicker .calendar-table td.active:hover {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    color: #fff !important;
+}
+
+.daterangepicker .calendar-table td.today {
+    background-color: #ffeb9c;
+    border-color: #ffeb9c;
+}
+
+.daterangepicker .calendar-table td.off,
+.daterangepicker .calendar-table td.off.in-range,
+.daterangepicker .calendar-table td.off.start-date,
+.daterangepicker .calendar-table td.off.end-date {
+    background-color: #fff;
+    border-color: transparent;
+    color: #999;
+}
+
+/* Apply/Cancel buttons in date range picker */
+.daterangepicker .drp-buttons .btn-primary {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    color: #fff !important;
+}
+
+.daterangepicker .drp-buttons .btn-primary:hover,
+.daterangepicker .drp-buttons .btn-primary:focus,
+.daterangepicker .drp-buttons .btn-primary:active {
+    background-color: #3d7a5a !important;
+    border-color: #3d7a5a !important;
+}
+
+/* Date range button styling */
+#daterange {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    color: #333;
+}
+
+#daterange:hover,
+#daterange:focus,
+#daterange.active {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    color: #fff !important;
+}
+
+/* Fix for Custom Range selection highlighting */
+.daterangepicker .ranges .range_inputs {
+    float: none;
+    clear: both;
+    margin: 10px 0;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.daterangepicker .ranges .range_inputs .daterangepicker_input {
+    position: relative;
+    display: inline-block;
+    width: 45%;
+}
+
+.daterangepicker .ranges .range_inputs .daterangepicker_input input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+/* Ensure Custom Range is highlighted when selected */
+.daterangepicker .ranges li[data-range-key="Custom Range"].active {
+    background-color: #4A906E !important;
+    color: #fff !important;
+}
+
+/* Ensure only one range option is selected at a time */
+.daterangepicker .ranges li.active {
+    background-color: #4A906E !important;
+    color: #fff !important;
+}
+
+.daterangepicker .ranges li:not(.active) {
+    background-color: transparent !important;
+    color: #333 !important;
+}
+
+/* Month/Year selectors */
+.daterangepicker .calendar-table .month,
+.daterangepicker .calendar-table .year {
+    font-weight: bold;
+    color: #333;
+}
+
+.daterangepicker select.monthselect,
+.daterangepicker select.yearselect {
+    font-size: 12px;
+    padding: 1px;
+    height: auto;
+    margin: 0;
+    cursor: default;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.daterangepicker select.monthselect:focus,
+.daterangepicker select.yearselect:focus {
+    border-color: #4A906E;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 144, 110, 0.2);
+}
+
+/* Navigation arrows */
+.daterangepicker .prev,
+.daterangepicker .next {
+    cursor: pointer;
+    color: #999;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.daterangepicker .prev:hover,
+.daterangepicker .next:hover {
+    color: #4A906E;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .daterangepicker {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    .daterangepicker .ranges {
+        width: 100%;
+        float: none;
+    }
+    
+    .daterangepicker .calendar {
+        width: 100%;
+        float: none;
+    }
+}
+
+/* jPlayer custom styling for FreePBX theme */
+.jp-audio-freepbx {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.jp-audio-freepbx .jp-controls button {
+    margin-right: 10px;
+}
+
+.jp-audio-freepbx .jp-controls .btn-primary.active {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+}
+
+.jp-audio-freepbx .jp-controls .btn-primary.active:hover,
+.jp-audio-freepbx .jp-controls .btn-primary.active:focus {
+    background-color: #3d7a5a !important;
+    border-color: #3d7a5a !important;
+}
+
+.jp-audio-freepbx .jp-progress .progress {
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.jp-audio-freepbx .jp-progress .jp-play-bar {
+    background-color: #4A906E !important;
+    transition: width 0.1s ease;
+}
+
+.jp-audio-freepbx .jp-current-time,
+.jp-audio-freepbx .jp-duration {
+    font-size: 12px;
+    color: #6c757d;
+    padding: 0 10px;
+    line-height: 20px;
+}
+
+/* Modal improvements */
+#recordingModal .modal-content {
+    border-radius: 6px;
+}
+
+#recordingModal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 6px 6px 0 0;
+}
+
+#recordingModal .modal-title {
+    color: #495057;
+    font-weight: 500;
+}
+
+/* Bootstrap table improvements */
+.bootstrap-table .fixed-table-toolbar {
+    padding: 15px 0;
+}
+
+.bootstrap-table .fixed-table-toolbar .btn-group .btn {
+    margin-right: 5px;
+}
+
+/* Advanced search panel improvements */
+#advanced-search-panel .panel-heading a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#advanced-search-panel .panel-heading a:hover {
+    color: #e6f2f0;
+}
+
+#advanced-search-panel .panel-heading .fa-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+#advanced-search-panel .panel-heading a[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* Form improvements */
+.form-group label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 5px;
+}
+
+.form-control:focus {
+    border-color: #4A906E;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 110, 0.25);
+}
+
+/* Button improvements - Force FreePBX green theme */
+.btn-primary,
+#apply-search,
+#export-csv,
+#show-graph,
+button.btn-primary {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    color: #fff !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+#apply-search:hover,
+#apply-search:focus,
+#apply-search:active,
+#export-csv:hover,
+#export-csv:focus,
+#export-csv:active,
+#show-graph:hover,
+#show-graph:focus,
+#show-graph:active,
+button.btn-primary:hover,
+button.btn-primary:focus,
+button.btn-primary:active {
+    background-color: #3d7a5a !important;
+    border-color: #3d7a5a !important;
+    color: #fff !important;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 110, 0.25) !important;
+}
+
+/* Ensure all primary buttons in the CDR module use consistent styling */
+.fpbx-container .btn-primary,
+.display .btn-primary,
+#advanced-search-form .btn-primary {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    color: #fff !important;
+}
+
+.fpbx-container .btn-primary:hover,
+.fpbx-container .btn-primary:focus,
+.fpbx-container .btn-primary:active,
+.display .btn-primary:hover,
+.display .btn-primary:focus,
+.display .btn-primary:active,
+#advanced-search-form .btn-primary:hover,
+#advanced-search-form .btn-primary:focus,
+#advanced-search-form .btn-primary:active {
+    background-color: #3d7a5a !important;
+    border-color: #3d7a5a !important;
+    color: #fff !important;
+}
+
+/* Fix for buttons that might have conflicting styles */
+.btn-primary:not(.btn-outline):not(.btn-link) {
+    background-color: #4A906E !important;
+    border-color: #4A906E !important;
+    color: #fff !important;
+}
+
+.btn-primary:not(.btn-outline):not(.btn-link):hover,
+.btn-primary:not(.btn-outline):not(.btn-link):focus,
+.btn-primary:not(.btn-outline):not(.btn-link):active {
+    background-color: #3d7a5a !important;
+    border-color: #3d7a5a !important;
+    color: #fff !important;
+}
+
+/* Graph modal improvements */
+#graphModal .modal-lg {
+    width: 800px;
+    max-width: 90%;
+}
+
+#graphModal .modal-content {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#graphModal .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 15px 20px;
+}
+
+#graphModal .modal-body {
+    padding: 20px;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    text-align: center;
+}
+
+#graphModal .modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    padding: 15px 20px;
+    text-align: right;
+}
+
+#cdr-chart-container {
+    height: 400px;
+    width: 750px;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin: 15px auto 0 auto;
+    display: inline-block;
+}
+
+/* Ensure modal buttons don't overlap with content */
+#graphModal .modal-footer .btn {
+    margin-left: 10px;
+}
+
+#graphModal .modal-footer .btn:first-child {
+    margin-left: 0;
+}
+
+/* Fix z-index issues */
+#graphModal {
+    z-index: 1050;
+}
+
+#graphModal .modal-backdrop {
+    z-index: 1040;
+}
+
+/* Ensure proper modal sizing on different screens */
+@media (max-width: 1200px) {
+    #graphModal .modal-lg {
+        width: 95%;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #graphModal .modal-lg {
+        width: 98%;
+        margin: 5px auto;
+    }
+    
+    #cdr-chart-container {
+        min-height: 300px;
+        max-height: 350px;
+    }
+    
+    #graphModal .modal-body {
+        padding: 15px;
+        max-height: calc(100vh - 150px);
+    }
+}
+
+/* Loading spinner improvements */
+.fa-spinner.fa-spin {
+    color: #4A906E;
+}
+
+/* Alert improvements */
+.alert-info {
+    background-color: #e6f3ff;
+    border-color: #4A906E;
+    color: #31708f;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-color: #ffeaa7;
+    color: #856404;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* Table improvements */
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #e8f5e8;
+}
+
+/* CEL events table */
+.cel-events .table {
+    margin-bottom: 0;
+}
+
+.cel-events .label-info {
+    background-color: #4A906E;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .bootstrap-table .fixed-table-container {
+        border: none;
+    }
+    
+    .bootstrap-table .fixed-table-container .table {
+        font-size: 12px;
+    }
+    
+    #advanced-search-form .row .col-md-6 {
+        margin-bottom: 20px;
+    }
+    
+    #graphModal .modal-lg {
+        width: 95%;
+        margin: 10px auto;
+    }
+}
