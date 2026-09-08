@@ -11,30 +11,31 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Command\LockableTrait;
 class Cdr extends Command {
 	use LockableTrait;
-	protected function configure() {
+	protected function configure(): void {
 		$this->setName('cdr')
 			->setDescription(_('Cdr module '))
 			->setDefinition(array(
 				new InputOption('purnedata', null,  InputOption::VALUE_NONE,  _('Remove Data older than retention days')),
 			));
 	}
-	protected function execute(InputInterface $input, OutputInterface $output){
+	protected function execute(InputInterface $input, OutputInterface $output): int {
 
 		set_time_limit(0);
 		ini_set('memory_limit', '-1');
 		if (function_exists('proc_nice')) {
 			@proc_nice(10);
 		}
-		
+
 		if($input->getOption('purnedata')){
 			$output->writeln("Clear Old data");
 			$dataRetentionInDays = \FreePBX::Config()->get("TRANSIENTCDRDATA");
 			$date = Date('Y-m-d', strtotime("- $dataRetentionInDays days"));
 			\FreePBX::Cdr()->cleanTransientCDRData($date);
 			$output->writeln("Done");
-			exit(-1);
+			return 0;
 		}
 
+		return 0;
 	}
 
 	/**
