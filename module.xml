@@ -3,7 +3,7 @@
 	<repo>standard</repo>
 	<description>Call Data Record report tools for viewing reports of your calls</description>
 	<name>CDR Reports</name>
-	<version>18.0.1</version>
+	<version>18.0.1.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<more-info>https://sangomakb.atlassian.net/wiki/spaces/PG/pages/26542152/PBX+GUI+-+CDR+Reports+Module</more-info>
 	<license>GPLv3+</license>
@@ -13,6 +13,7 @@
 		<cdr>CDR Reports</cdr>
 	</menuitems>
 	<changelog>
+		*18.0.1.1* Packaging of ver 18.0.1.1
 		*18.0.1* initial release
 	</changelog>
 	<hooks>

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-16 03:37-0400\n"
+"POT-Creation-Date: 2026-10-06 06:20-0400\n"
 "PO-Revision-Date: 2018-09-04 08:02+0000\n"
 "Last-Translator: Petr Varvarovsky <petrv@atlantis.cz>\n"
 "Language-Team: Czech <http://*/projects/freepbx/cdr/cs/>\n"
@@ -20,17 +20,17 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Weblate 3.0.1\n"
 
-#: Cdr.class.php:522
+#: Cdr.class.php:550
 #, php-format
 msgid "%s hour, %s min, %s sec"
 msgstr "%s hod, %s min, %s s"
 
-#: Cdr.class.php:524
+#: Cdr.class.php:552
 #, php-format
 msgid "%s min, %s sec"
 msgstr "%s min, %s s"
 
-#: Cdr.class.php:527
+#: Cdr.class.php:555
 #, php-format
 msgid "%s sec"
 msgstr "%s s"
@@ -258,7 +258,7 @@ msgstr "Doba fakturace"
 msgid "Busy"
 msgstr "Zaneprázdněný"
 
-#: ucp/Cdr.class.php:92
+#: ucp/Cdr.class.php:95
 msgid "CDR (Call History) is not enabled for this user."
 msgstr ""
 
@@ -347,11 +347,11 @@ msgstr "Záznam událostí volání - vyhledávání vráceno"
 msgid "Call Graph"
 msgstr "Graf volání"
 
-#: Cdr.class.php:308 ucp/Cdr.class.php:49 ucp/Cdr.class.php:143
+#: Cdr.class.php:308 ucp/Cdr.class.php:52 ucp/Cdr.class.php:146
 msgid "Call History"
 msgstr "Historie volání"
 
-#: ucp/Cdr.class.php:72
+#: ucp/Cdr.class.php:75
 #, php-format
 msgid "Call History for %s"
 msgstr "Historie volání pro %s"
@@ -401,7 +401,7 @@ msgstr "Kanál"
 msgid "Concurrent Calls"
 msgstr "Současné hovory"
 
-#: ucp/Cdr.class.php:358 ucp/Cdr.class.php:362
+#: ucp/Cdr.class.php:361 ucp/Cdr.class.php:365
 msgid "Conference"
 msgstr "Konference"
 
@@ -590,11 +590,11 @@ msgstr "Selhalo"
 msgid "February"
 msgstr "Únor"
 
-#: ucp/Cdr.class.php:221
+#: ucp/Cdr.class.php:224
 msgid "File does not exist"
 msgstr "Soubor neexistuje"
 
-#: ucp/Cdr.class.php:460
+#: ucp/Cdr.class.php:463
 msgid "Forbidden"
 msgstr "Zakázáno"
 
@@ -711,7 +711,7 @@ msgstr ""
 msgid "Not"
 msgstr "Ne"
 
-#: ucp/Cdr.class.php:466
+#: ucp/Cdr.class.php:469
 msgid "Not Found"
 msgstr "Nenalezeno"
 
@@ -962,7 +962,7 @@ msgstr ""
 msgid "The destination extension"
 msgstr ""
 
-#: ucp/Cdr.class.php:202 ucp/Cdr.class.php:216
+#: ucp/Cdr.class.php:205 ucp/Cdr.class.php:219
 msgid "The extension isn't associated with the user account"
 msgstr ""
 
@@ -970,7 +970,7 @@ msgstr ""
 msgid "The final known disposition of the CDR record"
 msgstr ""
 
-#: ucp/Cdr.class.php:102
+#: ucp/Cdr.class.php:105
 msgid "The given extension is empty."
 msgstr ""
 
@@ -1002,7 +1002,7 @@ msgstr ""
 msgid "The time the CDR was created"
 msgstr ""
 
-#: ucp/Cdr.class.php:97
+#: ucp/Cdr.class.php:100
 msgid "There are no assigned extensions."
 msgstr ""
 
@@ -1014,7 +1014,7 @@ msgstr ""
 "Jedná se o přiřazené a aktivní pobočky, které se pro tohoto uživatele "
 "zobrazí v UCP pro ovládání a úpravu"
 
-#: ucp/Cdr.class.php:106
+#: ucp/Cdr.class.php:109
 msgid "This extension is not assigned to this user."
 msgstr ""
 
@@ -1062,7 +1062,7 @@ msgstr "Nelze přidat index k poli záznamového souboru v tabulce cdr"
 msgid "UniqueID"
 msgstr "Unikátní ID"
 
-#: ucp/Cdr.class.php:388 ucp/Cdr.class.php:409 ucp/Cdr.class.php:413
+#: ucp/Cdr.class.php:391 ucp/Cdr.class.php:412 ucp/Cdr.class.php:416
 msgid "Unknown"
 msgstr "Neznámý"
 
@@ -1088,7 +1088,7 @@ msgstr "Definovaný typ uživatele"
 msgid "Userfield"
 msgstr "Uživatelské pole"
 
-#: ucp/Cdr.class.php:344 ucp/Cdr.class.php:349
+#: ucp/Cdr.class.php:347 ucp/Cdr.class.php:352
 msgid "Voicemail"
 msgstr "Hlasová zpráva"
 
@@ -1134,7 +1134,7 @@ msgstr "kanál"
 msgid "context"
 msgstr "kontext"
 
-#: ucp/Cdr.class.php:376
+#: ucp/Cdr.class.php:379
 msgid "denied by COS"
 msgstr "Zamítnuto COS"
 
@@ -1142,6 +1142,6 @@ msgstr "Zamítnuto COS"
 msgid "exten"
 msgstr "rozšířit"
 
-#: ucp/Cdr.class.php:372
+#: ucp/Cdr.class.php:375
 msgid "kicked from conference"
 msgstr "vyhozen z konference"
