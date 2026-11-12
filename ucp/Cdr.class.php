@@ -271,16 +271,16 @@ class Cdr extends Modules{
 							if($call['src'] == $self || str_contains((string) $call['channel'], "/".$self."-")) {
 								$call['icons'][] = 'fa-arrow-right out';
 								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
-								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst'];
+								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8") : htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} elseif($call['dst'] == $self || str_contains((string) $call['dstchannel'], "/".$self."-")) {
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['clid'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
-								$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} else {
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['src'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							}
 						break;
 						case 'NO ANSWER':
@@ -290,16 +290,16 @@ class Cdr extends Modules{
 								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
 								$call['icons'][] = 'fa-arrow-right out';
 								$call['icons'][] = 'fa-ban';
-								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst'];
+								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8") : htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} elseif($call['dst'] == $self || str_contains((string) $call['dstchannel'], "/".$self."-")) {
 								$call['icons'][] = 'fa-ban';
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['clid'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
-								$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} else {
-								$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['src'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							}
 						break;
 						case 'BUSY':
@@ -307,45 +307,45 @@ class Cdr extends Modules{
 								$device = $this->UCP->FreePBX->Core->getDevice($call['dst']);
 								$call['icons'][] = 'fa-arrow-right out';
 								$call['icons'][] = 'fa-clock-o';
-								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst'];
+								$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$call['dst'].">",ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8") : htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} elseif($call['dst'] == $self || str_contains((string) $call['dstchannel'], "/".$self."-")) {
 								$call['icons'][] = 'fa-ban';
 								$call['icons'][] = 'fa-clock-o';
-								$call['text'] = $call['clid'];
+								$call['text'] = htmlentities((string) $call['clid'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} elseif($call['cnum'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
-								$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} else {
-								$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['src'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							}
 						break;
 					}
 					if(!empty($call['text']) && preg_match('/LC\-(\d*)/i',(string) $call['text'],$matches)) {
 						$device = $this->UCP->FreePBX->Core->getDevice($matches[1]);
-						$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$matches[1].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $matches[1];
+						$call['text'] = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$matches[1].">",ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8") : $matches[1];
 					}
 				break;
 				case 'voicemail':
 					if($call['src'] == $self) {
 						$call['icons'][] = 'fa-arrow-right out';
 						$call['icons'][] = 'fa-envelope';
-						$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 					} elseif($call['dst'] == $self) {
 						$call['icons'][] = 'fa-envelope';
 						$call['icons'][] = 'fa-arrow-left in';
-						$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['clid'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 					} else {
 						$call['icons'][] = 'fa-envelope';
-						$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['src'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 					}
 					if(preg_match('/^vmu(\d*)/i',$call['text'],$matches)) {
 						$device = $this->UCP->FreePBX->Core->getDevice($matches[1]);
-						$desc = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$matches[1].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $matches[1];
+						$desc = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$matches[1].">",ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8") : $matches[1];
 						$call['text'] = $desc . ' ' . _('Voicemail');
 					} else {
 						$id = trim($call['text']);
 						$device = $this->UCP->FreePBX->Core->getDevice($id);
-						$desc = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$id.">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $id;
+						$desc = !empty($device['description']) ? htmlentities('"'.$device['description'].'"' . " <".$id.">",ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8") : $id;
 						$call['text'] = $desc . ' ' . _('Voicemail');
 					}
 				break;
@@ -355,35 +355,35 @@ class Cdr extends Modules{
 						$call['icons'][] = 'fa-arrow-right out';
 						$call['icons'][] = 'fa-users';
 						$conference = $this->UCP->FreePBX->Conferences->getConference($call['dst']);
-						$call['text'] = _('Conference') . ' ' . (!empty($conference['description']) ? htmlentities('"'.$conference['description'].'"' . " <".$call['dst'].">",ENT_COMPAT | ENT_HTML401, "UTF-8") : $call['dst']);
+						$call['text'] = _('Conference') . ' ' . (!empty($conference['description']) ? htmlentities('"'.$conference['description'].'"' . " <".$call['dst'].">",ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8") : htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8"));
 					} elseif($call['dst'] == $self) {
 						$call['icons'][] = 'fa-users';
 						$call['icons'][] = 'fa-arrow-left in';
-						$call['text'] = _('Conference') . ' ' . htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = _('Conference') . ' ' . htmlentities((string) $call['clid'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 					} else {
 						$call['icons'][] = 'fa-users';
-						$call['text'] = $call['src'];
+						$call['text'] = htmlentities((string) $call['src'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 					}
 				break;
 				case 'hangup':
 					switch($call['dst']) {
 						case 'STARTMEETME':
 							$call['icons'][] = 'fa-users';
-							$call['text'] = $call['src'] . ' ' . _('kicked from conference');
+							$call['text'] = htmlentities((string) $call['src'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8") . ' ' . _('kicked from conference');
 						break;
 						case 'denied':
 							$call['icons'][] = 'fa-ban';
-							$call['text'] = $call['src'] . ' ' . _('denied by COS');
+							$call['text'] = htmlentities((string) $call['src'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8") . ' ' . _('denied by COS');
 						break;
 						default:
 							if($call['src'] == $self) {
 								$call['icons'][] = 'fa-arrow-right out';
 								$call['icons'][] = 'fa-ban';
-								$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['clid'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} elseif($call['dst'] == $self) {
 								$call['icons'][] = 'fa-ban';
 								$call['icons'][] = 'fa-arrow-left in';
-								$call['text'] = htmlentities((string) $call['clid'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+								$call['text'] = htmlentities((string) $call['clid'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 							} else {
 								$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
 							}
@@ -393,18 +393,18 @@ class Cdr extends Modules{
 				case 'playback':
 					if($call['src'] == $self) {
 						$call['icons'][] = 'fa-arrow-right out';
-						$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 					} else {
-						$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['src'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 					}
 				break;
 				default:
 					if($call['src'] == $self) {
 						$call['icons'][] = 'fa-arrow-right out';
-						$call['text'] = htmlentities((string) $call['dst'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['dst'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 					} elseif($call['dst'] == $self) {
 						$call['icons'][] = 'fa-arrow-left in';
-						$call['text'] = htmlentities((string) $call['src'],ENT_COMPAT | ENT_HTML401, "UTF-8");
+						$call['text'] = htmlentities((string) $call['src'],ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, "UTF-8");
 					} else {
 						$call['text'] = _('Unknown') . ' (' . $call['uniqueid'] . ')';
 					}
