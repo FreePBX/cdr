@@ -5,6 +5,13 @@
 //	Copyright 2013 Schmooze Com Inc.
 //
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
+
+// CDR fields such as CallerID are caller-controlled and must be encoded
+// anywhere they are written into HTML text or attributes.
+function cdr_html($value) {
+	return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+}
+
 if(isset($_POST['need_csv'])) {
 	//CDRs are ghetto!!
 	ob_clean();
@@ -998,7 +1005,8 @@ if ( isset($_POST['need_chart']) && $_POST['need_chart'] == 'true' ) {
 			$percent_tot_duration = intval($row['total_duration']/$tot_duration_secs*100);
 			$html_duration = sprintf('%02d', intval($row['total_duration']/60)).':'.sprintf('%02d', intval($row['total_duration']%60));
 			echo "  <tr>\n";
-			echo "    <td class=\"end_col\">".$row['group_by_field']."</td><td class=\"center_col\"><div class=\"bar_calls\" style=\"width : $bar_calls%\">".$row['total_calls']." - $percent_tot_calls%</div><div class=\"bar_duration\" style=\"width : $bar_duration%\">$html_duration - $percent_tot_duration%</div></td><td class=\"chart_data\">$avg_call_time</td>\n";
+			$group_label = cdr_html($row['group_by_field']);
+			echo "    <td class=\"end_col\">".$group_label."</td><td class=\"center_col\"><div class=\"bar_calls\" style=\"width : $bar_calls%\">".$row['total_calls']." - $percent_tot_calls%</div><div class=\"bar_duration\" style=\"width : $bar_duration%\">$html_duration - $percent_tot_duration%</div></td><td class=\"chart_data\">$avg_call_time</td>\n";
 			echo "    <td></td>\n";
 			echo "    <td></td>\n";
 			echo "  </tr>\n";
@@ -1095,7 +1103,8 @@ if ( isset($_POST['need_chart_cc']) && $_POST['need_chart_cc'] == 'true' ) {
 			$group_by_cur = $result_array_cc[ "$group_by_key" ][1];
 			$bar_calls = $group_by_cur/$max_calls*100;
 			echo "  <tr>\n";
-			echo "    <td class=\"end_col\">$group_by_key</td><td class=\"center_col\"><div class=\"bar_calls\" style=\"width : $bar_calls%\">&nbsp;$group_by_cur</div></td><td>$full_time</td>\n";
+			$group_label = cdr_html($group_by_key);
+			echo "    <td class=\"end_col\">$group_label</td><td class=\"center_col\"><div class=\"bar_calls\" style=\"width : $bar_calls%\">&nbsp;$group_by_cur</div></td><td>$full_time</td>\n";
 			echo "  </tr>\n";
 		}
 
@@ -1115,69 +1124,81 @@ function cdr_formatUniqueID($uniqueid) {
 	global $amp_conf;
 
 	$system = explode('-', (string) $uniqueid, 2);
+	$label = cdr_html($system[0]);
+	$title = cdr_html($uniqueid);
 	if (isset($amp_conf['CEL_ENABLED']) && $amp_conf['CEL_ENABLED']) {
-		$href=$_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode((string) $uniqueid);
-		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' .
-			'<a href="' . $href . '" >' . $system[0] . '</a></td>';
+		$href = cdr_html($_SERVER['SCRIPT_NAME']."?display=cdr&action=cel_show&uid=" . urlencode((string) $uniqueid));
+		echo '<td title="' . _("UniqueID") . ": " . $title . '">' .
+			'<a href="' . $href . '" >' . $label . '</a></td>';
 	} else {
-		echo '<td title="' . _("UniqueID") . ": " . $uniqueid . '">' . $system[0] . '</td>';
+		echo '<td title="' . _("UniqueID") . ": " . $title . '">' . $label . '</td>';
 	}
 }
 
 function cdr_formatChannel($channel) {
 	$chan_type = explode('/', (string) $channel, 2);
-	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $chan_type[0] . "</td>";
+	$channel = cdr_html($channel);
+	$type = cdr_html($chan_type[0]);
+	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $type . "</td>";
 }
 
 function cdr_formatSrc($src, $clid) {
 	if (empty($src)) {
 		echo "<td class=\"record_col\">UNKNOWN</td>";
 	} else {
-		$clid = htmlspecialchars((string) $clid);
+		$clid = cdr_html($clid);
+		$src = cdr_html($src);
 		echo '<td title="' . _("CallerID") . ": " . $clid . '">' . $src . "</td>";
 	}
 }
 
 function cdr_formatCallerID($cnam, $cnum, $channel) {
+	$channel = cdr_html($channel);
 	// if(preg_match("/\p{Hebrew}/u", utf8_decode((string) $cnam))){
 	if(preg_match("/\p{Hebrew}/u", mb_convert_encoding((string) $cnam, 'UTF-8', mb_detect_encoding((string) $cnam)))) {
 		// $cnam = utf8_decode((string) $cnam);
 		$cnam = mb_convert_encoding($cnam, 'UTF-8', mb_detect_encoding($cnam));
-		$dcnum = $cnum == '' && $cnam == '' ? '' : htmlspecialchars('<' . $cnum . '>');
-		$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . '" ');
+		$dcnum = $cnum == '' && $cnam == '' ? '' : cdr_html('<' . $cnum . '>');
+		$dcnam = cdr_html($cnam == '' ? '' : '"' . $cnam . '" ');
 		echo '<td title="' ._("Channel") . ": " . $channel . '">' . $dcnum .' '. $dcnam . '</td>';
 	}
 	else{
-		$dcnum = $cnum == '' && $cnam == '' ? '' : htmlspecialchars('<' . $cnum . '>');
-		$dcnam = htmlspecialchars($cnam == '' ? '' : '"' . $cnam . '" ');
+		$dcnum = $cnum == '' && $cnam == '' ? '' : cdr_html('<' . $cnum . '>');
+		$dcnam = cdr_html($cnam == '' ? '' : '"' . $cnam . '" ');
 		echo '<td title="' ._("Channel") . ": " . $channel . '">' . $dcnam . $dcnum . '</td>';
 	}
 }
 
 function cdr_formatDID($did) {
-	$did = htmlspecialchars((string) $did);
+	$did = cdr_html($did);
 	echo '<td title="' . _("DID") . ": " . $did . '">' . $did . "</td>";
 }
 
 function cdr_formatANI($ani) {
-	$ani = htmlspecialchars((string) $ani);
+	$ani = cdr_html($ani);
 	echo '<td title="' . _("ANI") . ": " . $ani . '">' . $ani . "</td>";
 }
 
 function cdr_formatApp($app, $lastdata) {
-	$app = htmlspecialchars((string) $app);
-	$lastdata = htmlspecialchars((string) $lastdata);
+	$app = cdr_html($app);
+	$lastdata = cdr_html($lastdata);
 	echo '<td title="' .  _("Application") . ": " . $app . "(" . $lastdata . ")" . '">'
 	. $app . "</td>";
 }
 
 function cdr_formatDst($dst, $dst_cnam, $channel, $dcontext) {
+	$dst = (string) $dst;
+	$dst_cnam = (string) $dst_cnam;
+	$dcontext = (string) $dcontext;
 	if ($dst == 's') {
 		$dst .= ' [' . $dcontext . ']';
 	}
 	if ($dst_cnam != '') {
 		$dst = '"' . $dst_cnam . '" ' . $dst;
 	}
+	$dst = cdr_html($dst);
+	$channel = cdr_html($channel);
+	$dcontext = cdr_html($dcontext);
 	echo '<td title="' . _("Channel") . ": " . $channel . ' ' . _("Destination Context") . ": " . $dcontext . '">'
 		. $dst . "</td>";
 }
@@ -1189,8 +1210,8 @@ function cdr_formatDisposition($disposition, $amaflags) {
      2 => 'BILLING',
      default => 'DEFAULT',
  };
-	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">'
-		. $disposition . "</td>";
+	echo '<td title="' . _("AMA Flag") . ": " . cdr_html($amaflags) . '">'
+		. cdr_html($disposition) . "</td>";
 }
 
 function cdr_formatDuration($duration, $billsec) {
@@ -1201,12 +1222,12 @@ function cdr_formatDuration($duration, $billsec) {
 }
 
 function cdr_formatUserField($userfield) {
-	$userfield = htmlspecialchars((string) $userfield);
+	$userfield = cdr_html($userfield);
 	echo "<td>".$userfield."</td>";
 }
 
 function cdr_formatAccountCode($accountcode) {
-	$accountcode = htmlspecialchars((string) $accountcode);
+	$accountcode = cdr_html($accountcode);
 	echo "<td>".$accountcode."</td>";
 }
 
@@ -1221,13 +1242,16 @@ function cdr_formatRecordingFile($recordingfile, $basename, $id, $uid) {
 		if (\FreePBX::Modules()->checkStatus("scribe") && \FreePBX::Scribe()->isLicensed()) {
 			$url = \FreePBX::Scribe()->getTranscriptionUrl(null,null,null,null,$recordingfile);
 		}
-		$download_url=$_SERVER['SCRIPT_NAME']."?display=cdr&action=download_audio&cdr_file=$uid";
-		$playbackRow = $id +1;
+		$download_url = cdr_html($_SERVER['SCRIPT_NAME']."?display=cdr&action=download_audio&cdr_file=" . rawurlencode((string) $uid));
+		$playbackRow = (int) $id + 1;
+		$basename = cdr_html($basename);
+		$uid = cdr_html($uid);
 		//
 		$td = "<td title=\"$basename\"><a href=\"#\" onClick=\"javascript:cdr_play($playbackRow,'$uid'); return false;\"><img src=\"assets/cdr/images/cdr_sound.png\" alt=\"Call recording\" /></a>
 		<a href=\"$download_url\"><img src=\"assets/cdr/images/cdr_download.png\" alt=\"Call recording\" /></a> ";
 		if($url) {
-			$td .="<a href=\"javascript:void(0)\" onclick=\"openmodal('$url')\">
+			$jsUrl = cdr_html(json_encode((string) $url));
+			$td .="<a href=\"javascript:void(0)\" onclick=\"openmodal($jsUrl)\">
 			<img src='../admin/assets/scribe/images/scribe.png' width='15px' height='15px' alt='PBX Scribe' />
 			</a>";
 		}
@@ -1243,22 +1267,22 @@ function cdr_formatCNAM($cnam) {
 	if(preg_match("/\p{Hebrew}/u", mb_convert_encoding((string) $cnam, 'UTF-8', mb_detect_encoding((string) $cnam)))) {
 		$cnam = mb_convert_encoding($cnam, 'UTF-8', mb_detect_encoding($cnam));
 	}
-	$cnam = htmlspecialchars((string) $cnam);
+	$cnam = cdr_html($cnam);
 	echo '<td title="' . _("Caller ID Name") . ": " . $cnam . '">' . $cnam . "</td>";
 }
 
 function cdr_formatCNUM($cnum) {
-	$cnum = htmlspecialchars((string) $cnum);
+	$cnum = cdr_html($cnum);
 	echo '<td title="' . _("Caller ID Number") . ": " . $cnum . '">' . $cnum . "</td>";
 }
 
 function cdr_formatExten($exten) {
-	$exten = htmlspecialchars((string) $exten);
+	$exten = cdr_html($exten);
 	echo '<td title="' . _("Dialplan exten") . ": " . $exten . '">' . $exten . "</td>";
 }
 
 function cdr_formatContext($context) {
-	$context = htmlspecialchars((string) $context);
+	$context = cdr_html($context);
 	echo '<td title="' . _("Dialplan context") . ": " . $context . '">' . $context . "</td>";
 }
 
@@ -1269,6 +1293,7 @@ function cdr_formatAMAFlags($amaflags) {
      2 => 'BILLING',
      default => 'DEFAULT',
  };
+	$amaflags = cdr_html($amaflags);
 	echo '<td title="' . _("AMA Flag") . ": " . $amaflags . '">'
 		. $amaflags . "</td>";
 }
@@ -1277,26 +1302,26 @@ function cdr_formatAMAFlags($amaflags) {
 //
 
 function cdr_cel_formatEventType($eventtype) {
-	$eventtype = htmlspecialchars((string) $eventtype);
+	$eventtype = cdr_html($eventtype);
 	echo "<td>".$eventtype."</td>";
 }
 
 function cdr_cel_formatUserDefType($userdeftype) {
-	$userdeftype = htmlspecialchars((string) $userdeftype);
+	$userdeftype = cdr_html($userdeftype);
 	echo '<td title="' .  _("UserDefType") . ": " . $userdeftype . '">'
 	. $userdeftype . "</td>";
 }
 
 function cdr_cel_formatEventExtra($eventextra) {
-	$eventextra = htmlspecialchars((string) $eventextra);
+	$eventextra = cdr_html($eventextra);
 	echo '<td title="' .  _("Event Extra") . ": " . $eventextra . '">'
 	. $eventextra . "</td>";
 }
 
 function cdr_cel_formatChannelName($channel) {
 	$chan_type = explode('/', (string) $channel, 2);
-	$type = htmlspecialchars($chan_type[0]);
-	$channel = htmlspecialchars((string) $channel);
+	$type = cdr_html($chan_type[0]);
+	$channel = cdr_html($channel);
 	echo '<td title="' . _("Channel") . ": " . $channel . '">' . $channel . "</td>";
 }
 
