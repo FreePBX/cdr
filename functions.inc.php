@@ -204,7 +204,7 @@ function cdr_export_csv($csvdata) {
 	// Send data
 	
 	$out = fopen('php://output', 'w');
-	fputcsv($out, explode(",",$csv_header));
+	fputcsv($out, explode(",", $csv_header), ",", "\"", "\\");
 	foreach ($csvdata as $csv) {
 		$csv_line = [];
 		foreach(explode(",",$csv_header) as $k => $item) {
@@ -223,7 +223,7 @@ function cdr_export_csv($csvdata) {
 			}
 			$csv_line[$k] 	= $csv[$item];
 		}
-		fputcsv($out, $csv_line);
+		fputcsv($out, $csv_line, ",", "\"", "\\");
 	}
 	fclose($out);
 	die();
